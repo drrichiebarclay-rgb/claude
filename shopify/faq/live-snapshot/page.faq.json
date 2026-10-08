@@ -1,0 +1,614 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "enable_title": false,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_A73Ley": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_xXYBCD": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>YOUR QUESTIONS,<br/>ANSWERED</p>",
+            "heading_size": "hxl",
+            "heading_tag": "h1",
+            "heading_color": "#5efaff"
+          }
+        },
+        "text_AXtcf3": {
+          "type": "text",
+          "settings": {
+            "text": "Didn’t find an answer to your question? Visit our contact page to speak to our team.",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_xXYBCD",
+        "text_AXtcf3"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "allow_transparent_header": true,
+        "image": "shopify://shop_images/product-highlights.jpg",
+        "image_overlay_opacity": 30,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-1",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "left",
+        "show_text_below": false
+      }
+    },
+    "custom_faqs_bjxL74": {
+      "type": "custom-faqs",
+      "blocks": {
+        "faq_TJtBff": {
+          "type": "faq",
+          "settings": {
+            "heading": "What is MUTO NAD+ Cellular Complex?",
+            "content": "<p>MUTO is a daily cellular health supplement designed to support your body's natural NAD+ production, helping maintain energy, recovery, focus and healthy ageing at the cellular level.</p>"
+          }
+        },
+        "faq_agTnU4": {
+          "type": "faq",
+          "settings": {
+            "heading": "What makes MUTO different from other supplements?",
+            "content": "<p>Most supplements focus on a single ingredient or provide a temporary boost. MUTO combines multiple clinically researched ingredients that work together to support cellular energy production, mitochondrial health and healthy ageing.</p>"
+          }
+        },
+        "faq_6wjyXe": {
+          "type": "faq",
+          "settings": {
+            "heading": "What is NAD+?",
+            "content": "<p>NAD+ (Nicotinamide Adenine Dinucleotide) is a molecule found in every cell of your body. It's essential for energy production, cellular repair, mitochondrial function and overall cellular health.</p>"
+          }
+        },
+        "faq_HBb7xp": {
+          "type": "faq",
+          "settings": {
+            "heading": "Why does NAD+ matter?",
+            "content": "<p>Your cells rely on NAD+ to produce energy and carry out repair processes. As NAD+ levels decline with age, these processes become less efficient, which may impact energy, recovery and resilience.</p>"
+          }
+        },
+        "faq_mg8rTd": {
+          "type": "faq",
+          "settings": {
+            "heading": "Who is MUTO designed for?",
+            "content": "<p>MUTO is designed for people who want to perform at their best today while supporting their long-term health. Whether you train regularly, lead a demanding lifestyle, track your health metrics, or simply want to age well, MUTO is built to support the system underneath it all.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_TJtBff",
+        "faq_agTnU4",
+        "faq_6wjyXe",
+        "faq_HBb7xp",
+        "faq_mg8rTd"
+      ],
+      "name": "Custom FAQs",
+      "settings": {
+        "bg_color": "#e8e8e8",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_class": "",
+        "heading": "<p>About MUTO</p>",
+        "bottom_text": ""
+      }
+    },
+    "custom_faqs_yVNQLw": {
+      "type": "custom-faqs",
+      "blocks": {
+        "faq_eTmH9U": {
+          "type": "faq",
+          "settings": {
+            "heading": "What benefits can I expect from MUTO?",
+            "content": "<p>Customers commonly take MUTO to support:</p><ul><li>Sustained daily energy</li><li>Recovery and resilience</li><li>Focus and mental clarity</li><li>Healthy ageing</li><li>Mitochondrial health</li><li>Overall wellbeing</li></ul><p>Individual results may vary.</p>"
+          }
+        },
+        "faq_r6tcwr": {
+          "type": "faq",
+          "settings": {
+            "heading": "Will MUTO give me an energy boost?",
+            "content": "<p>MUTO is not designed to create a stimulant-like energy spike. Instead, it supports your body's natural energy production systems, helping build a stronger foundation over time.</p>"
+          }
+        },
+        "faq_JjhAgp": {
+          "type": "faq",
+          "settings": {
+            "heading": "How long does it take to notice a difference?",
+            "content": "<p>Some customers notice subtle changes within the first few weeks, while others experience benefits more gradually. Consistency is key, and we recommend taking MUTO daily for at least 90 days.</p>"
+          }
+        },
+        "faq_wyNFjP": {
+          "type": "faq",
+          "settings": {
+            "heading": "Can I track my progress with a wearable?",
+            "content": "<p>Yes. Many customers use WHOOP, Oura, Garmin, Apple Health or Fitbit to monitor trends in recovery, sleep, resting heart rate and overall wellbeing while taking MUTO.</p>"
+          }
+        },
+        "faq_DJcaEG": {
+          "type": "faq",
+          "settings": {
+            "heading": "Can MUTO support healthy ageing?",
+            "content": "<p>Healthy ageing starts at the cellular level. MUTO is formulated with ingredients that support NAD+ production, mitochondrial function and cellular resilience, helping you maintain vitality as you age.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_eTmH9U",
+        "faq_r6tcwr",
+        "faq_JjhAgp",
+        "faq_wyNFjP",
+        "faq_DJcaEG"
+      ],
+      "name": "Custom FAQs",
+      "settings": {
+        "bg_color": "#fafafa",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_class": "",
+        "heading": "<p>Benefits & Results</p>",
+        "bottom_text": ""
+      }
+    },
+    "custom_faqs_6dbVmy": {
+      "type": "custom-faqs",
+      "blocks": {
+        "faq_8Gm44c": {
+          "type": "faq",
+          "settings": {
+            "heading": "Why does MUTO use Nicotinamide Riboside (NR)?",
+            "content": "<p>NR is one of the most researched NAD+ precursors available and has been widely studied for its ability to increase NAD+ levels within the body.</p>"
+          }
+        },
+        "faq_RjaEy7": {
+          "type": "faq",
+          "settings": {
+            "heading": "What is the difference between NR and NMN?",
+            "content": "<p>Both NR (Nicotinamide Riboside) and NMN (Nicotinamide Mononucleotide) are NAD+ precursors, meaning they help your body produce NAD+. MUTO uses NR because it is one of the most extensively researched NAD+ ingredients available and has demonstrated strong bioavailability in human studies.</p>"
+          }
+        },
+        "faq_CWjaNH": {
+          "type": "faq",
+          "settings": {
+            "heading": "Why not just take NR on its own?",
+            "content": "<p>NAD+ production is only one part of the picture. MUTO combines NR with additional ingredients selected to support mitochondrial function, cellular resilience and overall health, creating a more comprehensive approach than a single-ingredient supplement.</p>"
+          }
+        },
+        "faq_xjczgt": {
+          "type": "faq",
+          "settings": {
+            "heading": "Does MUTO contain caffeine or stimulants?",
+            "content": "<p>No. MUTO is completely stimulant-free and contains no caffeine.</p>"
+          }
+        },
+        "faq_UEznDP": {
+          "type": "faq",
+          "settings": {
+            "heading": "Is MUTO scientifically formulated?",
+            "content": "<p>Yes. Every ingredient in MUTO has been selected based on scientific research into NAD+ metabolism, cellular energy production, mitochondrial function and healthy ageing.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_8Gm44c",
+        "faq_RjaEy7",
+        "faq_CWjaNH",
+        "faq_xjczgt",
+        "faq_UEznDP"
+      ],
+      "name": "Custom FAQs",
+      "settings": {
+        "bg_color": "#e8e8e8",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_class": "",
+        "heading": "<p>Formula & Science</p>",
+        "bottom_text": ""
+      }
+    },
+    "custom_faqs_eY6bnW": {
+      "type": "custom-faqs",
+      "blocks": {
+        "faq_jcC96L": {
+          "type": "faq",
+          "settings": {
+            "heading": "Can athletes take MUTO?",
+            "content": "<p>Yes. MUTO is popular among active individuals looking to support recovery, resilience, energy production and overall performance. It contains no stimulants and can be incorporated into an existing training routine.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_jcC96L"
+      ],
+      "name": "Custom FAQs",
+      "settings": {
+        "bg_color": "#fafafa",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_class": "",
+        "heading": "<p>Performance & Lifestyle</p>",
+        "bottom_text": ""
+      }
+    },
+    "custom_faqs_KKDpjj": {
+      "type": "custom-faqs",
+      "blocks": {
+        "faq_3erz6b": {
+          "type": "faq",
+          "settings": {
+            "heading": "How do I take MUTO?",
+            "content": "<p>Take two capsule daily with your first meal of the day, or as directed on the product label.</p>"
+          }
+        },
+        "faq_QPKqGe": {
+          "type": "faq",
+          "settings": {
+            "heading": "Can I take MUTO with coffee?",
+            "content": "<p>Yes. MUTO can be taken alongside coffee and your normal morning routine.</p>"
+          }
+        },
+        "faq_y93GFb": {
+          "type": "faq",
+          "settings": {
+            "heading": "Can I take MUTO with other supplements?",
+            "content": "<p>In most cases, yes. However, if you are taking multiple supplements containing similar ingredients, or if you have a medical condition, consult your healthcare professional before use.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_3erz6b",
+        "faq_QPKqGe",
+        "faq_y93GFb"
+      ],
+      "name": "Custom FAQs",
+      "settings": {
+        "bg_color": "#e8e8e8",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_class": "",
+        "heading": "<p>Usage</p>",
+        "bottom_text": ""
+      }
+    },
+    "custom_faqs_U6mtki": {
+      "type": "custom-faqs",
+      "blocks": {
+        "faq_EtyEJ9": {
+          "type": "faq",
+          "settings": {
+            "heading": "Is MUTO safe?",
+            "content": "<p>MUTO is formulated using well-researched ingredients and is manufactured to high quality standards. If you are pregnant, breastfeeding, taking medication or have a medical condition, consult your healthcare professional before use.</p>"
+          }
+        },
+        "faq_gwkYAF": {
+          "type": "faq",
+          "settings": {
+            "heading": "Are there any side effects?",
+            "content": "<p>Most people tolerate MUTO well. As with any supplement, some individuals may experience mild digestive discomfort when first introducing a new product.</p>"
+          }
+        },
+        "faq_b8Ktjh": {
+          "type": "faq",
+          "settings": {
+            "heading": "Is MUTO vegan?",
+            "content": "<p>MUTO does not contain animal-derived active ingredients. Please refer to the product label for the most up-to-date information regarding capsule materials and suitability for vegan diets.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_EtyEJ9",
+        "faq_gwkYAF",
+        "faq_b8Ktjh"
+      ],
+      "name": "Custom FAQs",
+      "settings": {
+        "bg_color": "#fafafa",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_class": "",
+        "heading": "<p>Safety</p>",
+        "bottom_text": ""
+      }
+    },
+    "custom_faqs_eF8fRa": {
+      "type": "custom-faqs",
+      "blocks": {
+        "faq_PEqtxz": {
+          "type": "faq",
+          "settings": {
+            "heading": "Do you offer a Money-Back Guarantee?",
+            "content": "<p>Yes. Your first subscription is protected by our 90-Day Money-Back Guarantee. If you’ve taken MUTO consistently for 90 days and haven't noticed a meaningful improvement in how you feel or in your wearable data, just email us. We'll review your request and, if you're eligible under our guarantee terms, issue a full refund.</p>"
+          }
+        },
+        "faq_MQm4mJ": {
+          "type": "faq",
+          "settings": {
+            "heading": "How does the Money-Back Guarantee work?",
+            "content": "<p>To qualify, you must be a first-time subscriber and take MUTO daily for 90 days. If you don't notice a meaningful improvement in how you feel or in your wearable data, just email us and we'll arrange your refund in line with our 90 days Money-Back Guarantee policy.</p>"
+          }
+        },
+        "faq_mzXJ8P": {
+          "type": "faq",
+          "settings": {
+            "heading": "Can I pause or cancel my subscription?",
+            "content": "<p>Absolutely. You can manage, pause or cancel your subscription at any time through your customer account portal.</p>"
+          }
+        },
+        "faq_4RDXBB": {
+          "type": "faq",
+          "settings": {
+            "heading": "Do I need a wearable to take MUTO?",
+            "content": "<p>No. Many customers take MUTO without using a wearable. However, devices such as WHOOP, Oura and Garmin can provide an objective way to track trends in recovery, sleep and overall wellbeing over time.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_PEqtxz",
+        "faq_MQm4mJ",
+        "faq_mzXJ8P",
+        "faq_4RDXBB"
+      ],
+      "name": "Custom FAQs",
+      "settings": {
+        "bg_color": "#e8e8e8",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_class": "",
+        "heading": "<p>Orders & Guarantee</p>",
+        "bottom_text": ""
+      }
+    },
+    "custom_faqs_Lc83EA": {
+      "type": "custom-faqs",
+      "blocks": {
+        "faq_jfgkEF": {
+          "type": "faq",
+          "settings": {
+            "heading": "What is NAD+ and what doesit do in the body?",
+            "content": "<p>NAD+ is a molecule found in every cell in your body, and it's what your cells use to make energy, repair damage and recover from the day. Nothing you do above the surface, training, eating well, sleeping properly, works without it running underneath. It's not a supplement ingredient in the way most people think of one. It's the process your body was already running before you ever heard the name.</p>"
+          }
+        },
+        "faq_3eNh4H": {
+          "type": "faq",
+          "settings": {
+            "heading": "Why does NAD+ decline with age?",
+            "content": "<p>Your body still needs just as much NAD+ at 40 as it did at 20. What changes is its ability to keep producing and recycling it. By 40, most people are running on roughly half the NAD+ they started with, not because the demand has dropped, but because the systems behind it have started to fall behind. It shows up as flatter afternoons, slower recoveries and harder mornings, long before it shows up on a bloodwork panel.</p>"
+          }
+        },
+        "faq_8HNyjr": {
+          "type": "faq",
+          "settings": {
+            "heading": "What's the difference between NAD+ and NADH?",
+            "content": "<p>They're two forms of the same molecule. NAD+ is the form your cells use to accept electrons during energy production, and NADH is what it becomes once it's carrying them. Your body is constantly converting between the two as part of making usable energy. When people talk about \"raising NAD+ levels,\" they mean increasing the total pool available for that cycle to keep running efficiently.</p>"
+          }
+        },
+        "faq_nAzQPU": {
+          "type": "faq",
+          "settings": {
+            "heading": "What's the difference between NMN and NR as NAD+ precursors?",
+            "content": "<p>Both are compounds your body converts into NAD+, just by slightly different routes. NMN converts in one extra step compared to NR (Nicotinamide Riboside), which is why NR is generally considered the more direct, efficient precursor. The bigger factor in either case isn't which precursor you start with, it's whether it survives digestion intact enough to reach the cells that need it.</p>"
+          }
+        },
+        "faq_mtBxwV": {
+          "type": "faq",
+          "settings": {
+            "heading": "Can you raise NAD+ levels naturally, through diet or exercise alone?",
+            "content": "<p>To a degree, yes. Exercise, calorie control and foods like dairy, mushrooms and edamame all support the pathways your body uses to produce NAD+. But by your late 30s and 40s, lifestyle alone is often working against a system that's already producing less than it used to. It's less that diet and exercise stop working, and more that they need the right inputs behind them to keep translating into results.</p>"
+          }
+        },
+        "faq_8THmMB": {
+          "type": "faq",
+          "settings": {
+            "heading": "What are sirtuins and how do they relate to NAD+?",
+            "content": "<p>Sirtuins are a family of proteins that act like your cells' maintenance crew, they help repair DNA, regulate inflammation and manage how efficiently your cells use energy. They can't do any of that without NAD+, which is what activates them in the first place. When NAD+ levels drop, sirtuin activity drops with it, which is part of why cellular repair slows down as you age.</p>"
+          }
+        },
+        "faq_LF8gtn": {
+          "type": "faq",
+          "settings": {
+            "heading": "What is mitochondrial function and why does it matter for energy?",
+            "content": "<p>Mitochondria are the small structures inside your cells that convert nutrients into usable energy, essentially the engines running everything you do. Their output depends heavily on NAD+ availability. When mitochondrial function declines, the effect isn't isolated to one area, it shows up as lower energy, slower recovery and reduced physical capacity across the board.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_jfgkEF",
+        "faq_3eNh4H",
+        "faq_8HNyjr",
+        "faq_nAzQPU",
+        "faq_mtBxwV",
+        "faq_8THmMB",
+        "faq_LF8gtn"
+      ],
+      "name": "Custom FAQs",
+      "settings": {
+        "bg_color": "#fafafa",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_class": "",
+        "heading": "<p>NAD+ & Cellular Science</p>",
+        "bottom_text": ""
+      }
+    },
+    "custom_faqs_hheGyW": {
+      "type": "custom-faqs",
+      "blocks": {
+        "faq_FYaATA": {
+          "type": "faq",
+          "settings": {
+            "heading": "What is biological age, and how is it different from chronological age?",
+            "content": "<p>Chronological age is simply how many years you've been alive. Biological age reflects how well your cells, tissues and systems are actually functioning, which can run younger or older than the number on your birth certificate depending on how your body is being maintained. It's a better predictor of how you'll feel and perform than the calendar is.</p>"
+          }
+        },
+        "faq_hTUkKN": {
+          "type": "faq",
+          "settings": {
+            "heading": "What is \"healthspan\" and how is it different from lifespan?",
+            "content": "<p>Lifespan is how long you live. Healthspan is how long you live well, meaning the years spent with full energy, mobility and capacity rather than just years accumulated. The goal of supporting cellular health isn't just to add years, it's to keep the years you have functioning closer to how they used to.</p>"
+          }
+        },
+        "faq_KfbKMf": {
+          "type": "faq",
+          "settings": {
+            "heading": "Why do energy and recovery slow down in your late 30s and 40s?",
+            "content": "<p>It's rarely one thing. Training load stays the same or increases, sleep gets more fragmented, stress compounds, and underneath all of it, NAD+ production is quietly declining. The combination means the same effort you put in at 25 produces a smaller return by 40, not because your discipline has changed, but because the system processing that discipline has.</p>"
+          }
+        },
+        "faq_amGmbh": {
+          "type": "faq",
+          "settings": {
+            "heading": "What is cellular ageing?",
+            "content": "<p>Cellular ageing is the gradual decline in how efficiently your cells repair, replace and maintain themselves. It happens continuously and invisibly, long before it becomes visible as fatigue, slower recovery or reduced performance. Supporting it means giving cells the inputs they need to keep doing that maintenance work at the rate they used to.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_FYaATA",
+        "faq_hTUkKN",
+        "faq_KfbKMf",
+        "faq_amGmbh"
+      ],
+      "name": "Custom FAQs",
+      "settings": {
+        "bg_color": "#e8e8e8",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_class": "",
+        "heading": "<p><strong>Ageing & Performance</strong></p>",
+        "bottom_text": ""
+      }
+    },
+    "custom_faqs_HYxeAe": {
+      "type": "custom-faqs",
+      "blocks": {
+        "faq_YDrQGC": {
+          "type": "faq",
+          "settings": {
+            "heading": "What is HRV (heart rate variability) and why does it matter?",
+            "content": "<p>HRV measures the variation in time between your heartbeats, and it's one of the clearest available signals of how well your nervous system and recovery systems are functioning. Higher HRV generally reflects a body that's recovering well and handling stress efficiently, while a declining trend usually shows up before you consciously feel run down.</p>"
+          }
+        },
+        "faq_Mw8TVy": {
+          "type": "faq",
+          "settings": {
+            "heading": "Can wearables like Whoop, Oura or Garmin actually measure recovery accurately?",
+            "content": "<p>Yes, within their scope. HRV and resting heart rate, the two metrics most wearables lean on, are genuinely validated markers of recovery and nervous system load. They're not measuring cellular health directly, but they are measuring some of its clearest downstream effects, which is why a rising HRV trend and settling resting heart rate are worth paying attention to over weeks, not single nights.</p>"
+          }
+        },
+        "faq_h4WDBr": {
+          "type": "faq",
+          "settings": {
+            "heading": "What resting heart rate and HRV trends indicate improving recovery?",
+            "content": "<p>Broadly, a resting heart rate that trends down and an HRV that trends up over several weeks both point toward a body that's recovering more efficiently. Single-day swings are normal and usually noise. It's the direction of the trend over 60 to 90 days that actually tells you something.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_YDrQGC",
+        "faq_Mw8TVy",
+        "faq_h4WDBr"
+      ],
+      "name": "Custom FAQs",
+      "settings": {
+        "bg_color": "#fafafa",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_class": "",
+        "heading": "<p><strong>Wearables & Recovery</strong></p>",
+        "bottom_text": ""
+      }
+    },
+    "custom_faqs_KQHcV9": {
+      "type": "custom-faqs",
+      "blocks": {
+        "faq_nFtXHh": {
+          "type": "faq",
+          "settings": {
+            "heading": "Why do some supplements stop working after a few weeks?",
+            "content": "<p>Most supplements built around caffeine, sugar or a single stimulant ingredient work by spiking a response and then fading, which means your body adjusts and the effect shrinks over time. Anything that works at the cellular level instead, feeding the systems that produce energy rather than forcing a short-term spike, tends to compound instead of plateau.</p>"
+          }
+        },
+        "faq_phMxUp": {
+          "type": "faq",
+          "settings": {
+            "heading": "Are NAD+ supplements safe to take long-term?",
+            "content": "<p>NAD+ precursors like Nicotinamide Riboside have a well established long-term safety profile in clinical research, since they support a process your body is already running rather than introducing something foreign to it. As with any supplement, sourcing and dosing matter, which is why clinically-dosed formulations formulated with input from a scientific advisory board are worth looking for.</p>"
+          }
+        },
+        "faq_JNCtNP": {
+          "type": "faq",
+          "settings": {
+            "heading": "What is bioavailability, and why does it affect whether a supplement works?",
+            "content": "<p>Bioavailability is the percentage of an ingredient that actually survives digestion and reaches your bloodstream intact. A supplement can have excellent ingredients on the label and still underperform if most of it is broken down in the stomach before it ever reaches the cells it's meant for. It's often the difference between a formula that works on paper and one that works in practice.</p>"
+          }
+        },
+        "faq_EhfqJL": {
+          "type": "faq",
+          "settings": {
+            "heading": "Does caffeine affect NAD+ levels?",
+            "content": "<p>Caffeine doesn't meaningfully raise NAD+ levels. It works by blocking adenosine receptors, which creates a feeling of alertness without changing your underlying energy production. That's part of why caffeine's effect fades and requires more of it over time, it's masking fatigue rather than addressing what's causing it at the cellular level.</p>"
+          }
+        },
+        "faq_U4TTYb": {
+          "type": "faq",
+          "settings": {
+            "heading": "What's the best time of day to take a supplement for energy or recovery?",
+            "content": "<p>For ingredients that support cellular energy production, taking them with your first meal is generally recommended, since food improves absorption of several key nutrients and it anchors the habit to something you already do daily. Consistency matters more than precise timing, a protocol taken reliably every morning outperforms one taken perfectly some days and not others.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_nFtXHh",
+        "faq_phMxUp",
+        "faq_JNCtNP",
+        "faq_EhfqJL",
+        "faq_U4TTYb"
+      ],
+      "name": "Custom FAQs",
+      "settings": {
+        "bg_color": "#e8e8e8",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_class": "",
+        "heading": "<p><strong>Supplements, General Education</strong></p>",
+        "bottom_text": "<p>Have more questions? <a href=\"/pages/contact\" title=\"Contact\">Contact Us</a></p>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_A73Ley",
+    "custom_faqs_bjxL74",
+    "custom_faqs_yVNQLw",
+    "custom_faqs_6dbVmy",
+    "custom_faqs_eY6bnW",
+    "custom_faqs_KKDpjj",
+    "custom_faqs_U6mtki",
+    "custom_faqs_eF8fRa",
+    "custom_faqs_Lc83EA",
+    "custom_faqs_hheGyW",
+    "custom_faqs_HYxeAe",
+    "custom_faqs_KQHcV9"
+  ]
+}
+
