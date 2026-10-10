@@ -3,14 +3,14 @@ title: "MUTO site changes: dev handoff"
 subtitle: "10 October 2026"
 ---
 
-All changes are saved on the unpublished theme **Clone Of Live | 3M refill plan**. To ship them, copy 13 files into the live theme. Two of them are prepared copies that leave out the unreleased 3M refill plan work.
+All changes are saved on the unpublished theme **Clone Of Live | 3M refill plan**. To ship them, copy 14 files into the live theme. Three of them are prepared copies that leave out the unreleased 3M refill plan work. One of the 14 is a new, simpler version of the NAD+ product page for testing; it changes nothing until you point traffic at it.
 
 # Before you start
 
-- **Copy from:** the folder `shopify/live-ready` in GitHub (repo drrichiebarclay-rgb/claude, branch `claude/faq-page-shopify-redesign-hbqcg8`): <https://github.com/drrichiebarclay-rgb/claude/tree/claude/faq-page-shopify-redesign-hbqcg8/shopify/live-ready>. It holds all 13 files at their theme paths.
+- **Copy from:** the folder `shopify/live-ready` in GitHub (repo drrichiebarclay-rgb/claude, branch `claude/faq-page-shopify-redesign-hbqcg8`): <https://github.com/drrichiebarclay-rgb/claude/tree/claude/faq-page-shopify-redesign-hbqcg8/shopify/live-ready>. It holds all 14 files at their theme paths.
 - **Copy to:** the live theme, Clone Of Live | Buy Box Redesign [31-08] (ID 200736047451). Sections first, then templates, or a template save fails on settings its section doesn't have yet.
-- **Don't publish the 3M refill plan theme to ship these changes**, and don't copy `templates/product.muto-nad.json` or `sections/muto-crea-buy.liquid` from it. That theme also holds the unreleased 3M refill plan: a "90 Day Protocol £135" plan card, an empty "Hidden plans" setting (live hides the 3-month subscription), a £1.83/day note on the monthly card (live says £2/day) and new plan-picker code.
-- **How the folder was made:** I compared every file against live. 11 had no other changes, so the folder has the 3M refill plan theme's versions. The other 2 are the live files with only the changes listed here applied: the buy section is the live file plus 93 added lines, nothing removed.
+- **Don't publish the 3M refill plan theme to ship these changes**, and don't copy `templates/product.muto-nad.json`, `templates/product.muto-nad-simple.json` or `sections/muto-crea-buy.liquid` from it. That theme also holds the unreleased 3M refill plan: a "90 Day Protocol £135" plan card, an empty "Hidden plans" setting (live hides the 3-month subscription), a £1.83/day note on the monthly card (live says £2/day) and new plan-picker code.
+- **How the folder was made:** I compared every file against live. 11 had no other changes, so the folder has the 3M refill plan theme's versions. The other 3 are built on the live files with only the changes listed here applied: the buy section is the live file plus 93 added lines, nothing removed.
 - **To see everything working together:** preview the 3M refill plan theme (ID 202682564955) at <https://muto.co/?preview_theme_id=202682564955>.
 
 # 11 files taken from the 3M refill plan theme
@@ -60,6 +60,31 @@ Both are the live files with these changes applied, and nothing else.
 | 90-day test | Heading "Not a quick fix. A 90-day test."; step 1 chip "Day 0" with new copy; step 4 "If it's not for you, you're covered." |
 | FAQs | Added "Do I need a wearable?"; rewrote "When might I notice something?", "Is it safe with my other supplements?", "What if it's not for me?" (full guarantee terms) and "Why not just take NR on its own?" |
 
+# New: simple-language NAD+ product page (test version)
+
+**File:** `templates/product.muto-nad-simple.json` (in the live-ready folder; built on the live product template, so it has today's live plans and none of the refill plan work).
+
+**What it is:** a second version of the NAD+ product page with the same sections, images, prices, plans and links, but plain, short copy for a 50+ audience with low reading effort. The normal page (`product.muto-nad`) is not affected.
+
+**How to use it:** copying the file in changes nothing on its own. Either:
+
+- send traffic to `https://muto.co/products/muto-nad-cellular-complex?view=muto-nad-simple` (for ads or an A/B test), or
+- switch the product's template to `muto-nad-simple` in Shopify admin (Products → NAD+ Cellular Complex → Theme template) to make it the default page.
+
+**Needs:** the updated `sections/muto-crea-buy.liquid` and `sections/muto-crea-ingredients.liquid` from this folder (review snippets and ingredients subheading). Copy those first.
+
+**Differences from the normal product page:**
+
+| Area | Change |
+|---|---|
+| Buy box intro | Says what MUTO is ("a daily supplement to help you keep your energy as you get older"), why (NAD+ and B vitamins, in plain words) and how to try it |
+| Buy box bullets and rows | Plain wording, e.g. "Energy that lasts all day", "90 days to try it, or your money back"; plans named "1 month" / "3 months" with no per-day price |
+| Accordions | New first dropdown "Who it's for" (adults over 40, most customers in their 40s and 50s, who it suits, who it's not for); "What's inside" lists each ingredient group simply; guarantee says "money back, minus delivery" |
+| Who takes it | Athlete card removed (it hides when it has no athletes) |
+| Review card | 4 shortest quotes instead of 9 (verbatim) |
+| Why MUTO and Two capsules | Short copy; card minimum height set to 380px so photos sit under the text |
+| All other sections | Same structure, simplified copy: problem, board, benefits, results, ingredients, 90-day test, compare table, guarantee, 6 FAQs, sticky bar |
+
 # Already live: no action
 
 - **NAD+ product description** (Shopify admin → Products → NAD+ Cellular Complex) was rewritten on 10 Oct. It drops Produce / Protect / Put to Work and the HRV claim. The old text is in the repo at `shopify/product-description/previous-description.html`.
@@ -79,12 +104,15 @@ Not in the 13 files. Most are copy decisions for Richie, not dev work.
 - [ ] **CoQ10 form on the home page:** the science Formula tab and "What's inside" say plain "CoQ10"; the FAQ table says Ubiquinone. Confirm whether the home page should say "(as ubiquinone)".
 - [ ] **Socks and bottle buttons** read "Start the protocol" but link to their own product pages.
 - [ ] **Claims review:** vitamin K2 sits under the immunity and muscle claims in the science Formula tab, product description and FAQ, but has no authorised claim for either. The TMG line in the Formula tab is new wording to check.
+- [ ] **Plan per-day prices:** the product page plan notes say "£1.83/day" (refill theme) and "£2/day" (live), but £60 every 4 weeks is about £2.14 a day and £135 every 3 months about £1.61. The simple page leaves the per-day figure out.
+- [ ] **Simple page copy check:** "Made for adults over 40" and "Walkers, gardeners and gym-goers all take it" in "Who it's for" are suggested framing, not from customer data.
 - [ ] **Informed Sport:** swap the drug-tested athletes FAQ answer when certification is live (the certified wording is in MUTO_FAQ_Page_Final_Oct26.docx).
 
 # Check after publishing
 
 1. **NAD+ product page:** the plan cards match today's live plans (no 90 Day Protocol card). The review card rotates under Add to Cart. No research stats or "Why this?" box.
-2. **Home:** every button says "Start the protocol" and lands on the right product. The board is one row on desktop and swipes on mobile.
-3. **FAQ (/pages/faqs):** 54 questions in 8 sections, the jump bar sticks, the ingredient table scrolls sideways on mobile, and no "Ubiquinol" anywhere.
-4. **Search markup:** run /pages/faqs through Google's Rich Results Test (<https://search.google.com/test/rich-results>). It should find one FAQPage with 54 questions.
-5. **About pages (/pages/about, /pages/muto-about):** buttons say "Start the protocol".
+2. **Simple product page:** open /products/muto-nad-cellular-complex?view=muto-nad-simple. Same plans and prices as the normal page, "Who it's for" is the first dropdown, and no athlete card.
+3. **Home:** every button says "Start the protocol" and lands on the right product. The board is one row on desktop and swipes on mobile.
+4. **FAQ (/pages/faqs):** 54 questions in 8 sections, the jump bar sticks, the ingredient table scrolls sideways on mobile, and no "Ubiquinol" anywhere.
+5. **Search markup:** run /pages/faqs through Google's Rich Results Test (<https://search.google.com/test/rich-results>). It should find one FAQPage with 54 questions.
+6. **About pages (/pages/about, /pages/muto-about):** buttons say "Start the protocol".
