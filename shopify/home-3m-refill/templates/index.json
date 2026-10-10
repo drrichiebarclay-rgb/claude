@@ -293,10 +293,10 @@
           "settings": {
             "title": "Built by a scientist\nyou can talk to.",
             "text": "Formulated by Richie Barclay, PhD in cellular biology and nutrition, and reviewed by our Scientific Advisory Board. Got a question? Ask him.",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/Richie_Lab.png?v=1779261881",
-            "image_alt": "Dr Richie Barclay in a lab coat",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-founder.jpg?v=1790751995",
+            "image_alt": "Dr Richie Barclay sitting on a sofa at home, holding a jar of MUTO NAD+ Cellular Complex over a glass coffee table",
             "image_position": "50% 25%",
-            "image": "shopify://shop_images/Richie_Lab.png"
+            "image": "shopify://shop_images/about-founder.jpg"
           }
         },
         "w2": {
