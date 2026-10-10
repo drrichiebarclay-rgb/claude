@@ -341,6 +341,48 @@
             "quote": "“Has actually changed my recovery”",
             "name": "Adam H"
           }
+        },
+        "snippet_4": {
+          "type": "snippet",
+          "settings": {
+            "quote": "“I’ve noticed how Muto has helped me recover faster meaning I can train harder, more often”",
+            "name": "Ayo P"
+          }
+        },
+        "snippet_5": {
+          "type": "snippet",
+          "settings": {
+            "quote": "“I didn't realise how flat I'd been feeling until this helped lift me out of it”",
+            "name": "Holly P"
+          }
+        },
+        "snippet_6": {
+          "type": "snippet",
+          "settings": {
+            "quote": "“I have sustained energy, I sleep better, perform better in workouts, and don’t crash anymore”",
+            "name": "Danny S"
+          }
+        },
+        "snippet_7": {
+          "type": "snippet",
+          "settings": {
+            "quote": "“I love that this replaces multiple products”",
+            "name": "Amy C"
+          }
+        },
+        "snippet_8": {
+          "type": "snippet",
+          "settings": {
+            "quote": "“Richie from the team gave me a call just to chat about my background and goals”",
+            "name": "Mathew H"
+          }
+        },
+        "snippet_9": {
+          "type": "snippet",
+          "settings": {
+            "quote": "“I started taking Muto for my Boston Marathon training hoping to have better recovery; and it did not disappoint”",
+            "name": "Rebeca"
+          }
         }
       },
       "block_order": [
@@ -383,7 +425,13 @@
         "w4",
         "snippet_1",
         "snippet_2",
-        "snippet_3"
+        "snippet_3",
+        "snippet_4",
+        "snippet_5",
+        "snippet_6",
+        "snippet_7",
+        "snippet_8",
+        "snippet_9"
       ],
       "custom_css": [],
       "settings": {
