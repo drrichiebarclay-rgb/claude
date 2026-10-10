@@ -119,6 +119,10 @@ setb("why", "w1", title="Made by a scientist.",
 setb("why", "w2", title="Nothing hidden.", text="Every amount is on the label. Made in the UK.")
 setb("why", "w3", title="Try it for 90 days.", text="See how you feel. Not for you? Get your money back.")
 
+# Short copy: drop the cards' minimum height to the theme's lowest (380px) so the photo sits under the text
+S["why"]["settings"]["card_min"] = 380
+S["twocaps"]["settings"]["card_min"] = 380
+
 # --- Board / results ------------------------------------------------------------------
 S["board"]["settings"].update({"heading": "Our experts.", "note": "Scientists and doctors who check our work."})
 S["results"]["settings"].update({
