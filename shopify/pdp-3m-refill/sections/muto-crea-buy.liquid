@@ -997,23 +997,86 @@
 
           {%- if snippets.size > 0 -%}
             <style>
-              .mc__snips{margin-top:20px;display:flex;flex-direction:column;gap:10px;list-style:none;padding:0}
-              .mc__snip{margin:0;font-size:15px;line-height:1.35}
-              .mc__snip-q{display:block;font-style:italic}
-              .mc__snip-n{display:block;margin-top:2px;font-size:13px;font-style:normal;color:rgba(36,34,35,.66)}
+              .mc__revs{
+                position:relative;margin-top:20px;padding:20px 24px 18px;border-radius:20px;
+                background:rgba(249,249,249,.62);
+                backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+                box-shadow:inset 0 0 0 1px rgba(255,255,255,.66);
+                color:var(--mc-ink);
+              }
+              .mc__revs-list{display:grid;margin:0;padding:0;list-style:none}
+              .mc__rev{
+                grid-area:1/1;margin:0;opacity:0;visibility:hidden;transform:translateY(6px);
+                transition:opacity 400ms var(--mc-ease),transform 400ms var(--mc-ease),visibility 0s linear 400ms;
+              }
+              .mc__rev.is-active{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+              .mc__rev-q{
+                margin:0;padding:0;border:0;quotes:none;
+                font-family:var(--mc-font);font-size:18px;font-weight:500;line-height:1.3;letter-spacing:-.01em;
+              }
+              .mc__rev-q::before,.mc__rev-q::after{content:none}
+              .mc__rev-n{
+                display:block;margin-top:10px;font-family:var(--mc-mono);font-size:12px;line-height:1;
+                letter-spacing:.06em;text-transform:uppercase;color:var(--mc-muted);
+              }
+              .mc__revs-dots{display:flex;gap:6px;margin-top:16px}
+              .mc__revs-dot{
+                width:8px;height:8px;padding:0;border:0;border-radius:4px;cursor:pointer;
+                background:var(--mc-rule);transition:width var(--mc-dur) var(--mc-ease),background var(--mc-dur) var(--mc-ease);
+              }
+              .mc__revs-dot[aria-current="true"]{width:24px;background:var(--mc-ink)}
+              .mc__revs-dot:focus-visible{outline:2px solid var(--mc-ink);outline-offset:2px}
+              @media (prefers-reduced-motion: reduce){
+                .mc__rev,.mc__revs-dot{transition:none;transform:none}
+              }
             </style>
-            <ul class="mc__snips" aria-label="What customers say">
-              {%- for snippet in snippets -%}
-                <li {{ snippet.shopify_attributes }}>
-                  <figure class="mc__snip">
-                    <blockquote class="mc__snip-q">{{ snippet.settings.quote }}</blockquote>
-                    {%- if snippet.settings.name != blank -%}
-                      <figcaption class="mc__snip-n">{{ snippet.settings.name }}</figcaption>
-                    {%- endif -%}
-                  </figure>
-                </li>
-              {%- endfor -%}
-            </ul>
+            <section class="mc__revs" aria-label="What customers say" data-mc-revs>
+              <ul class="mc__revs-list">
+                {%- for snippet in snippets -%}
+                  <li class="mc__rev{% if forloop.first %} is-active{% endif %}" {{ snippet.shopify_attributes }}{% unless forloop.first %} aria-hidden="true"{% endunless %}>
+                    <figure style="margin:0">
+                      <blockquote class="mc__rev-q">{{ snippet.settings.quote }}</blockquote>
+                      {%- if snippet.settings.name != blank -%}
+                        <figcaption class="mc__rev-n">{{ snippet.settings.name }}</figcaption>
+                      {%- endif -%}
+                    </figure>
+                  </li>
+                {%- endfor -%}
+              </ul>
+              {%- if snippets.size > 1 -%}
+                <div class="mc__revs-dots">
+                  {%- for snippet in snippets -%}
+                    <button type="button" class="mc__revs-dot" aria-label="Show review {{ forloop.index }} of {{ snippets.size }}"{% if forloop.first %} aria-current="true"{% endif %}></button>
+                  {%- endfor -%}
+                </div>
+                <script>
+                  (function () {
+                    var root = document.currentScript.closest('[data-mc-revs]');
+                    if (!root) return;
+                    var items = root.querySelectorAll('.mc__rev');
+                    var dots = root.querySelectorAll('.mc__revs-dot');
+                    var i = 0, timer = null, held = false;
+                    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                    function show(n) {
+                      items[i].classList.remove('is-active'); items[i].setAttribute('aria-hidden', 'true');
+                      dots[i].removeAttribute('aria-current');
+                      i = (n + items.length) % items.length;
+                      items[i].classList.add('is-active'); items[i].removeAttribute('aria-hidden');
+                      dots[i].setAttribute('aria-current', 'true');
+                    }
+                    function start() { if (!still && !held && !timer) timer = setInterval(function () { show(i + 1); }, 2000); }
+                    function stop() { clearInterval(timer); timer = null; }
+                    dots.forEach(function (d, n) { d.addEventListener('click', function () { show(n); stop(); start(); }); });
+                    root.addEventListener('mouseenter', function () { held = true; stop(); });
+                    root.addEventListener('mouseleave', function () { held = false; start(); });
+                    root.addEventListener('focusin', function () { held = true; stop(); });
+                    root.addEventListener('focusout', function () { held = false; start(); });
+                    document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
+                    start();
+                  })();
+                </script>
+              {%- endif -%}
+            </section>
           {%- endif -%}
 
           {%- if folds.size > 0 -%}
