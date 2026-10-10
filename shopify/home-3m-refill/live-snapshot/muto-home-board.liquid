@@ -1,0 +1,173 @@
+{%- comment -%}
+  MUTO Home — meet our scientific board.
+
+  Artboard: a two-line 64px heading at 3649 with a mono note flush right at 3645,
+  then 528² stills from x142 on a 12 gap, running past the right gutter. Name
+  left, tag right, role beneath.
+
+  Each card is a video with an image cover, in the same three-way order of
+  precedence the About page uses: an uploaded Shopify video, a YouTube or Vimeo
+  URL, or an interview link that makes the card a link out. Nothing but the cover
+  loads until the card is clicked — the player lives in a <template> — so a row
+  of interviews costs a row of images.
+
+  A card with none of the three set still shows the play mark, but decoratively:
+  no button, not focusable, nothing to click.
+{%- endcomment -%}
+
+{{ 'muto-home.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'muto-home.js' | asset_url }}" defer="defer"></script>
+{%- liquid
+  assign mh_spt = section.settings.space_top | default: 100 | times: 0.01
+  assign mh_spb = section.settings.space_bottom | default: 100 | times: 0.01
+  assign heading_id = 'mh-board-' | append: section.id
+-%}
+
+<div class="mh mh--alt{% if section.settings.field %} mh--field-board mh--fit-{{ section.settings.fit | default: 'home' }}{% endif %}" data-mh style="--mh-spt:{{ mh_spt }};--mh-spb:{{ mh_spb }};--mh-board-gap:{{ section.settings.rail_gap | default: 62 }}px">
+  <div class="mh__wrap">
+    <section class="mh__board" aria-labelledby="{{ heading_id }}">
+      <div class="mh__board-top">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="mh__h2" id="{{ heading_id }}">{{ section.settings.heading | escape | newline_to_br }}</h2>
+        {%- endif -%}
+        {%- if section.settings.note != blank -%}
+          <p class="mh__board-note">{{ section.settings.note }}</p>
+        {%- endif -%}
+      </div>
+
+      <ul class="mh__board-rail mh__rail">
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign still_alt = block.settings.image_alt | default: block.settings.name
+            assign has_video = false
+            if block.settings.video != blank or block.settings.video_url != blank
+              assign has_video = true
+            endif
+            assign watch_label = block.settings.name | default: 'this interview'
+            assign play_label = 'Play the interview with ' | append: watch_label
+          -%}
+          <li class="mh__member" {{ block.shopify_attributes }}>
+            <div class="mh__member-media" data-mh-video>
+              {% render 'muto-image',
+                image: block.settings.image,
+                fallback: block.settings.image_fallback,
+                alt: still_alt,
+                ratio: '1/1',
+                sizes: '(min-width: 990px) 528px, 76vw',
+                widths: '300,528,760,1056',
+                  position: block.settings.image_position %}
+
+              {%- if has_video -%}
+                <button class="mh__member-trigger" type="button" data-mh-video-play aria-label="{{ play_label | escape }}">
+                  {% render 'muto-home-play', uid: block.id %}
+                </button>
+                <template data-mh-video-src>
+                  {%- if block.settings.video != blank -%}
+                    {{ block.settings.video | video_tag: image_size: '1100x', controls: true, autoplay: true, playsinline: true }}
+                  {%- else -%}
+                    {%- liquid
+                      assign vid = block.settings.video_url
+                      if vid.type == 'youtube'
+                        assign embed = 'https://www.youtube.com/embed/' | append: vid.id | append: '?autoplay=1&rel=0&playsinline=1'
+                      else
+                        assign embed = 'https://player.vimeo.com/video/' | append: vid.id | append: '?autoplay=1'
+                      endif
+                    -%}
+                    <iframe src="{{ embed }}" title="{{ play_label | escape }}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+                  {%- endif -%}
+                </template>
+
+              {%- elsif block.settings.video_link != blank -%}
+                <a class="mh__member-trigger" href="{{ block.settings.video_link }}" aria-label="{{ 'Watch ' | append: watch_label | escape }}">
+                  {% render 'muto-home-play', uid: block.id %}
+                </a>
+
+              {%- elsif block.settings.show_play -%}
+                {% render 'muto-home-play', uid: block.id %}
+              {%- endif -%}
+            </div>
+
+            <div class="mh__member-head">
+              <h3 class="mh__member-name">{{ block.settings.name }}</h3>
+              {%- if block.settings.tag != blank -%}
+                <span class="mh__tag mh__spark">{{ block.settings.tag }}</span>
+              {%- endif -%}
+            </div>
+            {%- if block.settings.role != blank -%}
+              <p class="mh__member-role">{{ block.settings.role | escape | newline_to_br }}</p>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </section>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO Home — Board",
+  "tag": "section",
+  "class": "mh-section",
+  "max_blocks": 12,
+  "settings": [
+    { "type": "checkbox", "id": "field", "label": "Mint gradient background", "default": true, "info": "The wash is fitted to this band specifically." },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Meet our\nscientific board." },
+    { "type": "text", "id": "note", "label": "Note", "default": "Trusted by world-leading clinicians" },
+    { "type": "range", "id": "rail_gap", "label": "Space under the heading", "min": 30, "max": 120, "step": 1, "unit": "px", "default": 62, "info": "Desktop only. The home and creatine artboards set 62, the NAD one 64." },
+    { "type": "select", "id": "fit", "label": "Which wash", "default": "home", "options": [{ "value": "home", "label": "Home page" }, { "value": "nad", "label": "NAD+ page" }], "info": "The mint wash is least-squares fitted to one artboard's own pixels, and the pages that use this band wash it differently." },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 2, "unit": "%", "default": 100 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 2, "unit": "%", "default": 100 }
+  ],
+  "blocks": [
+    {
+      "type": "member",
+      "name": "Member",
+      "settings": [
+        { "type": "header", "content": "Cover" },
+        { "type": "image_picker", "id": "image", "label": "Cover image" },
+        { "type": "text", "id": "image_fallback", "label": "Fallback image URL" },
+        { "type": "text", "id": "image_alt", "label": "Alt text", "info": "Describe the still. Defaults to the member's name." },
+        { "type": "text", "id": "image_position", "label": "Image focus", "info": "CSS object-position, e.g. \"50% 40%\". Blank centres it." },
+        { "type": "header", "content": "Video" },
+        { "type": "video", "id": "video", "label": "Video", "info": "Uploaded to Content → Files. Plays inline over the cover." },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "Video URL",
+          "accept": ["youtube", "vimeo"],
+          "info": "Used only when no video is uploaded above."
+        },
+        { "type": "url", "id": "video_link", "label": "Interview link", "info": "A last resort: with no video set, the card links out instead." },
+        { "type": "checkbox", "id": "show_play", "label": "Play mark without a video", "default": true, "info": "Keeps the artboard's mark on a still that is waiting for its interview. Decorative only — there is nothing to click until a video is set." },
+        { "type": "header", "content": "Details" },
+        { "type": "text", "id": "name", "label": "Name", "default": "Dr Alka Patel" },
+        { "type": "textarea", "id": "role", "label": "Role", "default": "Performance nutritionist,\nInternational sport" },
+        { "type": "text", "id": "tag", "label": "Tag", "default": "Performance" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MUTO Home — Board",
+      "blocks": [
+        {
+          "type": "member",
+          "settings": { "name": "Dr Alka Patel", "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-board-3.jpg?v=1790751994" }
+        },
+        {
+          "type": "member",
+          "settings": { "name": "Advisory board member", "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-board-1.jpg?v=1790751995" }
+        },
+        {
+          "type": "member",
+          "settings": { "name": "Advisory board member", "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-board-2.jpg?v=1790751994" }
+        }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": ["index", "page", "product"]
+  }
+}
+{% endschema %}
