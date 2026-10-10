@@ -33,7 +33,9 @@ def keep_blocks(sec, btype, keep):
 b = S["buy"]["settings"]
 b.update({
     "serving": "60 capsules | 30 days | 2 a day",
-    "text": "<p>Two capsules a day, with breakfast. Try it for 90 days. Not for you? Get your money back.</p>",
+    "text": ("<p>MUTO is a daily supplement to help you keep your energy as you get older.</p>"
+             "<p>Your body needs NAD+ to turn food into energy. Many people make less of it as they age. MUTO gives your body what it needs to make it. It also has B vitamins that help reduce tiredness.</p>"
+             "<p>Take 2 capsules with breakfast. Try it for 90 days. Not for you? Get your money back.</p>"),
     "plans_banner": "Free gifts worth £249 with your first order",
     "plans_label": "Pick a plan",
     "kit_title": "Free gifts in your first box",
