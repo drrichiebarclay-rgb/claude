@@ -38,7 +38,7 @@ def load_live_template():
 
 def ingredients_table():
     rows = "".join(
-        f"<tr><td>{html.escape(n)}</td><td>{html.escape(f)}</td><td>{html.escape(d)}</td><td>{html.escape(p)}</td></tr>"
+        f"<tr><td><strong>{html.escape(n)}</strong></td><td>{html.escape(f)}</td><td>{html.escape(d)}</td><td>{html.escape(p)}</td></tr>"
         for n, f, d, p in c.INGREDIENTS
     )
     return (
