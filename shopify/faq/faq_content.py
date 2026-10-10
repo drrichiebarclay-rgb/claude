@@ -33,7 +33,7 @@ INGREDIENTS = [
     ("Trimethylglycine (TMG)", "Betaine anhydrous", "450mg", "†"),
     ("Nicotinamide riboside (NR)", "—", "300mg", "†"),
     ("Grape seed extract", "Vitis vinifera L., 120:1, 95% polyphenols (equivalent to 18,000mg grape seed)", "150mg", "†"),
-    ("Coenzyme Q10", "Ubiquinol", "150mg", "†"),
+    ("Coenzyme Q10", "—", "150mg", "†"),
     ("Trans-resveratrol", "—", "50mg", "†"),
     ("PQQ", "Pyrroloquinoline quinone", "20mg", "†"),
     ("BioPerine®", "Piper nigrum L., fruit, 95% piperine", "5mg", "†"),

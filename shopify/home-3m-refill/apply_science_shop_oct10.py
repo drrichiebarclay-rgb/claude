@@ -34,7 +34,7 @@ SCIENCE = {
         "<li><strong>Cell protection, immunity and muscle:</strong> Zinc 15mg · Copper 1mg · Vitamin D3 50µg "
         "(2,000 IU) · Vitamin K2 (MK-7) 100µg. They contribute to the protection of cells from oxidative stress, "
         "normal immune function and normal muscle function.</li>"
-        "<li><strong>Mitochondria and plant compounds:</strong> CoQ10 (as ubiquinol) 150mg · PQQ 20mg · Grape "
+        "<li><strong>Mitochondria and plant compounds:</strong> CoQ10 150mg · PQQ 20mg · Grape "
         "seed extract 150mg · Trans-resveratrol 50mg · BioPerine 5mg to help absorption.</li></ul>"
         "<p>Vegan, allergen-free capsules. Made in the UK to GMP standards and third-party tested.</p>"),
     "Who it's for": (
