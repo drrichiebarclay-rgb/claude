@@ -1,0 +1,469 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "buy": {
+      "type": "muto-crea-buy",
+      "blocks": {
+        "s1": {
+          "type": "slide",
+          "settings": {
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-bottle-front.jpg?v=1791291422",
+            "image_alt": "The MUTO Performance Bottle, the MUTO wordmark face to camera"
+          }
+        },
+        "s2": {
+          "type": "slide",
+          "settings": {
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-bottle-reverse.jpg?v=1791291421",
+            "image_alt": "The reverse of the MUTO Performance Bottle, reading beneath the surface, above the standard"
+          }
+        },
+        "p1": {
+          "type": "point",
+          "settings": {
+            "text": "BPA-free, and quick to rinse out"
+          }
+        },
+        "p2": {
+          "type": "point",
+          "settings": {
+            "text": "Light enough to carry everywhere"
+          }
+        },
+        "p3": {
+          "type": "point",
+          "settings": {
+            "text": "Room for your morning scoop of creatine"
+          }
+        },
+        "t1": {
+          "type": "trust",
+          "settings": {
+            "text": "BPA-free"
+          }
+        },
+        "t2": {
+          "type": "trust",
+          "settings": {
+            "text": "£2.99 next day"
+          }
+        },
+        "pl1": {
+          "type": "plan",
+          "settings": {
+            "name": "One-time purchase",
+            "price": "£19.99",
+            "price_suffix": "",
+            "was": "",
+            "save": "",
+            "note": "One payment. No subscription.",
+            "detail": ""
+          }
+        },
+        "f1": {
+          "type": "fold",
+          "settings": {
+            "title": "Product care",
+            "text": "<p>Hand wash only — not dishwasher safe. Warm water and washing-up liquid, inside and out, then leave it standing open to dry so nothing sits in the cap. Rinse it the day you use it and it won't need anything more.</p>"
+          }
+        },
+        "f2": {
+          "type": "fold",
+          "settings": {
+            "title": "Shipping",
+            "text": "<p>£2.99 next day delivery to the UK.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "p1",
+        "p2",
+        "p3",
+        "t1",
+        "t2",
+        "pl1",
+        "f1",
+        "f2"
+      ],
+      "settings": {
+        "allow_transparent_header": true,
+        "rating_score": "",
+        "rating_count": "",
+        "rating_stars": 5,
+        "eyebrow": "MUTO",
+        "heading": "Performance\nBottle",
+        "serving": "BPA-free | Light | Hand wash",
+        "text": "<p>A BPA-free bottle built for training days and everything in between. Light enough to carry everywhere and easy to clean, with room for your morning scoop of MUTO Creatine. One bottle, from first meal to final session.</p>",
+        "image_fallback": "",
+        "image_alt": "The MUTO Performance Bottle, the Beneath the surface, above the standard face to camera",
+        "gallery_position": "",
+        "note_title": "",
+        "note_text": "",
+        "plans_banner": "",
+        "plans_label": "Choose an option",
+        "hidden_plans": "",
+        "kit_title": "",
+        "gifts_label": "",
+        "gifts_text": "",
+        "onetime_label": "",
+        "onetime_link": "",
+        "cta_label": "Add to Cart",
+        "show_quantity": true,
+        "qty_label": "Quantity",
+        "cta_price": true,
+        "cta_link": "",
+        "research_title": "",
+        "refs": "",
+        "who_title": "",
+        "schema_on": true,
+        "fit": "crea",
+        "space_top": 0,
+        "space_bottom": 100
+      }
+    },
+    "gallery": {
+      "type": "muto-home-ugc",
+      "blocks": {
+        "g1": {
+          "type": "post",
+          "settings": {
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/bottle-type.jpg?v=1791024218",
+            "image_alt": "A close-up of the printed type on the bottle, reading above the standard",
+            "name": ""
+          }
+        },
+        "g2": {
+          "type": "post",
+          "settings": {
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/bottle-cap.jpg?v=1791024218",
+            "image_alt": "A close-up of the bottle's black push-pull cap",
+            "name": ""
+          }
+        },
+        "g3": {
+          "type": "post",
+          "settings": {
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/bottle-gym.jpg?v=1791024666",
+            "image_alt": "The MUTO bottle standing on a wet gym floor at sunrise, a lifter working behind it",
+            "name": ""
+          }
+        },
+        "g4": {
+          "type": "post",
+          "settings": {
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/bottle-in-use.jpg?v=1791024219",
+            "image_alt": "Harry Insley drinking from the MUTO bottle, resting on a log after a session",
+            "name": ""
+          }
+        },
+        "g5": {
+          "type": "post",
+          "settings": {
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/bottle-ride.jpg?v=1791024666",
+            "image_alt": "A cyclist drinking from the MUTO bottle on the move",
+            "name": ""
+          }
+        },
+        "g6": {
+          "type": "post",
+          "settings": {
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/bottle-cage.jpg?v=1791024666",
+            "image_alt": "The MUTO bottle in the cage of a road bike, a rider standing over it",
+            "name": ""
+          }
+        }
+      },
+      "block_order": [
+        "g1",
+        "g2",
+        "g3",
+        "g4",
+        "g5",
+        "g6"
+      ],
+      "settings": {
+        "heading": "Up close,\nand in use.",
+        "note": "",
+        "handle": "",
+        "handle_link": "",
+        "field": false,
+        "fit": "home",
+        "head_gap": 38,
+        "space_top": 100,
+        "space_bottom": 100
+      }
+    },
+    "shop": {
+      "type": "muto-home-shop",
+      "blocks": {
+        "pn": {
+          "type": "panel",
+          "settings": {
+            "label": "NAD+",
+            "key": "nad",
+            "layout": "protocol",
+            "title": "NAD+ Cellular Complex",
+            "lede": "The 19-ingredient daily protocol for people who aren’t ready to slow down.",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-shop-nad-v2.jpg?v=1791288517",
+            "image_alt": "A jar of MUTO NAD+ Cellular Complex lit on a dark set",
+            "actives_label": "What’s inside",
+            "cta_label": "Start your 90 days",
+            "cta_link": "/products/muto-nad-cellular-complex"
+          }
+        },
+        "s1": {
+          "type": "step",
+          "settings": {
+            "panel": "nad",
+            "text": "<strong>Built for the slowdown.</strong> Afternoons that fade sooner. Sessions that take longer to leave your legs. A cupboard of supplements that isn’t fixing it. Beneath the surface, your cells use NAD+ to make energy and run their repair work, and supply falls as you get older. MUTO supports that system with 19 ingredients."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "panel": "nad",
+            "text": "<strong>One routine. Nothing hidden.</strong> Two capsules with your first meal. Every dose on the label. No caffeine, no stimulants, no proprietary blends."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "panel": "nad",
+            "text": "<strong>90 days to decide.</strong> Note how you feel before you start, then check in at day 30 and day 90: in your days, your training, or on your wearable if you have one. If it’s not for you, you’re covered."
+          }
+        },
+        "a1": {
+          "type": "active",
+          "settings": {
+            "panel": "nad",
+            "value": "300mg",
+            "caption": "Nicotinamide Riboside"
+          }
+        },
+        "a2": {
+          "type": "active",
+          "settings": {
+            "panel": "nad",
+            "value": "450mg",
+            "caption": "TMG"
+          }
+        },
+        "a3": {
+          "type": "active",
+          "settings": {
+            "panel": "nad",
+            "value": "150mg",
+            "caption": "CoQ10"
+          }
+        },
+        "a4": {
+          "type": "active",
+          "settings": {
+            "panel": "nad",
+            "value": "2000IU",
+            "caption": "Vitamin D3"
+          }
+        },
+        "a5": {
+          "type": "active",
+          "settings": {
+            "panel": "nad",
+            "value": "50mg",
+            "caption": "Trans-Resveratrol"
+          }
+        },
+        "a6": {
+          "type": "active",
+          "settings": {
+            "panel": "nad",
+            "value": "20mg",
+            "caption": "PQQ"
+          }
+        },
+        "a7": {
+          "type": "active",
+          "settings": {
+            "panel": "nad",
+            "value": "15mg",
+            "caption": "Zinc"
+          }
+        },
+        "a8": {
+          "type": "active",
+          "settings": {
+            "panel": "nad",
+            "value": "19",
+            "caption": "Ingredients"
+          }
+        },
+        "pc": {
+          "type": "panel",
+          "settings": {
+            "label": "Creatine",
+            "key": "creatine",
+            "layout": "protocol",
+            "title": "Ultrapure micronised\ncreatine monohydrate",
+            "lede": "The fast reserve beside the steady supply.",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-shop-creatine-v2.jpg?v=1791288517",
+            "image_alt": "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate lit on a dark set",
+            "actives_label": "Features:",
+            "cta_label": "Start Today",
+            "cta_link": ""
+          }
+        },
+        "cs1": {
+          "type": "step",
+          "settings": {
+            "panel": "creatine",
+            "text": "Ultrapure micronised creatine monohydrate. One ingredient, nothing else in the pouch (≥99.9% purity, every batch tested)."
+          }
+        },
+        "cs2": {
+          "type": "step",
+          "settings": {
+            "panel": "creatine",
+            "text": "Creatine increases physical performance in successive bursts of short-term, high-intensity exercise. The beneficial effect comes from 3g a day."
+          }
+        },
+        "cs3": {
+          "type": "step",
+          "settings": {
+            "panel": "creatine",
+            "text": "Built to sit alongside MUTO NAD+ Cellular Complex: one scoop with your first meal, in water or a smoothie. Track it where it shows, in your training log."
+          }
+        },
+        "ca1": {
+          "type": "active",
+          "settings": {
+            "panel": "creatine",
+            "value": "5g",
+            "caption": "Per daily dose"
+          }
+        },
+        "ca2": {
+          "type": "active",
+          "settings": {
+            "panel": "creatine",
+            "value": "Micronised",
+            "caption": "200 mesh"
+          }
+        },
+        "ca3": {
+          "type": "active",
+          "settings": {
+            "panel": "creatine",
+            "value": ">99.9%",
+            "caption": "Purity"
+          }
+        },
+        "ca4": {
+          "type": "active",
+          "settings": {
+            "panel": "creatine",
+            "value": "Tested",
+            "caption": "By third-party labs"
+          }
+        },
+        "pe": {
+          "type": "panel",
+          "settings": {
+            "label": "Essentials",
+            "key": "essentials",
+            "layout": "products",
+            "title": "NAD+ Cellular Complex",
+            "lede": "The daily longevity cellular protocol you can track.",
+            "image_fallback": "",
+            "image_alt": "",
+            "actives_label": "Key actives:",
+            "cta_label": "Start your 90 days",
+            "cta_link": ""
+          }
+        },
+        "e1": {
+          "type": "product",
+          "settings": {
+            "panel": "essentials",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-essentials-socks.jpg?v=1791037580",
+            "image_alt": "A pouch of MUTO Performance Socks, the white sock visible through the front",
+            "title": "Performance socks",
+            "text": "Premium nylon socks designed for activity, with shaping that holds its fit through every session. Light, breathable and built to move with you, from the first mile to the last rep. Made to the same standard as everything else in the protocol.",
+            "cta_label": "Buy Now",
+            "cta_link": ""
+          }
+        },
+        "e2": {
+          "type": "product",
+          "settings": {
+            "panel": "essentials",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-shop-bottle-v2.jpg?v=1791288517",
+            "image_alt": "A MUTO Performance Bottle in translucent blue, lit on a dark set",
+            "title": "Performance Bottle",
+            "text": "A BPA-free bottle built for training days and everything in between. Light enough to carry everywhere and easy to clean, with room for your morning scoop of MUTO Creatine. One bottle, from first meal to final session.",
+            "cta_label": "Buy Now",
+            "cta_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "pn",
+        "s1",
+        "s2",
+        "s3",
+        "a1",
+        "a2",
+        "a3",
+        "a4",
+        "a5",
+        "a6",
+        "a7",
+        "a8",
+        "pc",
+        "cs1",
+        "cs2",
+        "cs3",
+        "ca1",
+        "ca2",
+        "ca3",
+        "ca4",
+        "pe",
+        "e1",
+        "e2"
+      ],
+      "settings": {
+        "heading": "Shop the protocol",
+        "tablist_label": "Choose a product",
+        "field": true,
+        "space_top": 100,
+        "space_bottom": 100
+      }
+    },
+    "sticky": {
+      "type": "muto-home-sticky",
+      "settings": {
+        "product": "",
+        "sticky_cta_label": "Add to cart",
+        "sticky_label": "Performance Bottle",
+        "plan_cta_label": "",
+        "cta_link": "/products/muto-water-bottle",
+        "sticky_sub": "BPA-free · £2.99 shipping",
+        "schema_on": true
+      }
+    }
+  },
+  "order": [
+    "buy",
+    "gallery",
+    "shop",
+    "sticky"
+  ]
+}

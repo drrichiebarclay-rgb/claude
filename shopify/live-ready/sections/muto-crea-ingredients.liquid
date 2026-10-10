@@ -1,0 +1,210 @@
+{%- comment -%}
+  MUTO — Ingredients.
+
+  Artboard band 6223–7250 of NAD.pdf: a four-line 64px heading, two lines on
+  the left margin and two on the right, a 426×57 filter pill under it, then the
+  ingredients on a four-column grid of 333×75 tiles with a 20 gap — a 14px name,
+  a mono dose, a mono group tag and a dashed 30px "+" on the right.
+
+  Each tile is a <details>: the "+" is the disclosure and the body says why the
+  ingredient is in the formula. That is the point of the band — the artboard
+  shows the closed state, and a label you can't interrogate is the thing this
+  page is arguing against. No JS is needed to open one.
+
+  The filter is a group of toggle buttons, not a tablist: four tabs over one
+  panel is not a tablist, and each button is a predicate over the same list
+  rather than a different view. It is rendered hidden and revealed by the
+  script, so with JS off the page shows every ingredient rather than a control
+  that does nothing.
+
+  BLOCKS, one per ingredient, so the formula can change without a code change.
+  Shopify caps a section at 50 blocks; the formula is 19.
+
+  MOBILE: one column rather than four, capped at three tiles and scrolling
+  inside itself, with a position indicator under it. Three across left each
+  name about 88px and broke half of them mid-word; a stacked list of nineteen
+  is a band you scroll past rather than read.
+{%- endcomment -%}
+
+{{ 'muto-crea.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'muto-crea.js' | asset_url }}" defer></script>
+
+{%- liquid
+  assign spt = section.settings.space_top | default: 100 | times: 0.01
+  assign spb = section.settings.space_bottom | default: 100 | times: 0.01
+  assign heading_id = 'mc-ing-' | append: section.id
+  assign groups = section.blocks | map: 'settings' | map: 'group' | uniq
+-%}
+
+<div class="mc mc--ing mc--fit-{{ section.settings.fit | default: 'crea' }}" style="--mc-spt:{{ spt }};--mc-spb:{{ spb }}">
+  <div class="mc__wrap">
+    <section class="mc__ing" aria-labelledby="{{ heading_id }}" data-mc-ing>
+      {%- assign mc_lines = section.settings.heading | escape | newline_to_br | split: '<br />' -%}
+      {%- assign mc_right = section.settings.heading_right | escape | newline_to_br | split: '<br />' -%}
+      <h2 class="mc__h2 mc__ing-head" id="{{ heading_id }}">
+        {%- for mc_line in mc_lines %}
+          <span class="mc__head-line">{{ mc_line }}</span>
+        {% endfor -%}
+        {%- for mc_line in mc_right %}
+          <span class="mc__head-line mc__head-line--right">{{ mc_line }}</span>
+        {% endfor -%}
+      </h2>
+      {%- if section.settings.lede != blank -%}
+        {%- assign mc_lede = section.settings.lede | escape | newline_to_br | split: '<br />' -%}
+        <style>
+          #shopify-section-{{ section.id }} .mc__ing-lede{margin-top:28px;max-width:760px;color:var(--mc-ink-alt)}
+          #shopify-section-{{ section.id }} .mc__ing-sub{margin:0;font-size:18px;line-height:1.35;letter-spacing:-.005em}
+          #shopify-section-{{ section.id }} .mc__ing-note{
+            display:inline-block;margin:20px 0 0;padding:12px 18px;border-radius:12px;
+            font-size:15px;line-height:1.35;color:var(--mc-ink);
+            background:rgba(200,210,207,.42);box-shadow:inset 0 0 0 1px rgba(255,255,255,.5);
+          }
+          #shopify-section-{{ section.id }} .mc__ing-lede + .mc__ing-list,
+          #shopify-section-{{ section.id }} .mc__ing-lede ~ .mc__ing-list{margin-top:44px}
+          @media screen and (min-width:990px){
+            #shopify-section-{{ section.id }} .mc__ing-lede{margin-top:36px}
+            #shopify-section-{{ section.id }} .mc__ing-sub{font-size:20px}
+            #shopify-section-{{ section.id }} .mc__ing-note{font-size:16px}
+            #shopify-section-{{ section.id }} .mc__ing-lede ~ .mc__ing-list{margin-top:56px}
+          }
+        </style>
+        <div class="mc__ing-lede">
+          {%- for mc_line in mc_lede -%}
+            {%- assign mc_text = mc_line | strip -%}
+            {%- if mc_text == blank -%}{%- continue -%}{%- endif -%}
+            <p class="{% if forloop.first %}mc__ing-sub{% else %}mc__ing-note{% endif %}">{{ mc_text }}</p>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- if groups.size > 1 -%}
+        <div class="mc__tabs mc__rail mc__ing-filter" role="group"
+          aria-label="{{ section.settings.filter_label | default: 'Filter ingredients by what they do' | escape }}"
+          data-mc-ing-filter hidden>
+          <button type="button" class="mc__tab" aria-pressed="true" data-mc-ing-group="">
+            {{- section.settings.all_label | default: 'All' -}}
+          </button>
+          {%- for group in groups -%}
+            {%- if group != blank -%}
+              <button type="button" class="mc__tab" aria-pressed="false" data-mc-ing-group="{{ group | escape }}">
+                {{- group -}}
+              </button>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      <ul class="mc__ing-list">
+        {%- for block in section.blocks -%}
+          <li class="mc__ing-item" data-mc-ing-item="{{ block.settings.group | escape }}" {{ block.shopify_attributes }}>
+            <details class="mc__ing-row">
+              <summary class="mc__ing-sum">
+                <span class="mc__ing-main">
+                  <span class="mc__ing-name">{{ block.settings.name }}</span>
+                  <span class="mc__ing-meta">
+                    {%- if block.settings.dose != blank -%}
+                      <span class="mc__ing-dose">{{ block.settings.dose }}</span>
+                    {%- endif -%}
+                    {%- if block.settings.group != blank -%}
+                      <span class="mc__ing-group">{{ block.settings.group }}</span>
+                    {%- endif -%}
+                  </span>
+                </span>
+                {%- comment -%}
+                  Last in source on purpose. At phone width the tile is three to
+                  a row and about 88px of text wide, and the "+" is floated: put
+                  it first and it shortens the first line, which turns half
+                  these names into mid-word breaks. Put it last and it floats to
+                  the bottom-right corner instead, leaving every line of the
+                  name the full width. The desktop row lays it out as a flex
+                  item on the right, where source order is what it wants anyway.
+                {%- endcomment -%}
+                <span class="mc__ing-plus" aria-hidden="true"></span>
+              </summary>
+              {%- if block.settings.text != blank -%}
+                <div class="mc__ing-body mc__rt">{{ block.settings.text }}</div>
+              {%- endif -%}
+            </details>
+          </li>
+        {%- endfor -%}
+      </ul>
+
+      {%- comment -%}
+        The list is capped to three tiles and scrolls at phone width, so it
+        gets a position indicator under it. It ships without the attribute the
+        stylesheet shows it on: the script adds that only after measuring a
+        list that really does overflow, which is never the case on the desktop
+        grid and need not be the case once the filter has narrowed the list.
+      {%- endcomment -%}
+      <div class="mc__ing-scroll" data-mc-ing-scroll aria-hidden="true">
+        <span class="mc__ing-scroll-thumb" data-mc-ing-thumb></span>
+      </div>
+
+      {%- if section.settings.foot != blank -%}
+        <p class="mc__ing-foot">{{ section.settings.foot }}</p>
+      {%- endif -%}
+    </section>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO — Ingredients",
+  "tag": "section",
+  "class": "mc-section",
+  "max_blocks": 50,
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Nineteen ingredients.\nOne system." },
+    { "type": "textarea", "id": "heading_right", "label": "Heading, right margin", "default": "Beneath energy,\nrecovery & healthy ageing.", "info": "Lines typed here sit on the right margin under the ones above, at every width." },
+    { "type": "textarea", "id": "lede", "label": "Subheading", "info": "Optional. The first line sits under the heading; any further lines are shown as a highlighted note." },
+    { "type": "text", "id": "all_label", "label": "\"All\" filter label", "default": "All" },
+    { "type": "text", "id": "filter_label", "label": "Filter group label", "default": "Filter ingredients by what they do", "info": "Read aloud by a screen reader, not shown on the page." },
+    { "type": "textarea", "id": "foot", "label": "Footnote" },
+    { "type": "select", "id": "fit", "label": "Which wash", "default": "crea", "options": [{ "value": "crea", "label": "Creatine page" }, { "value": "nad", "label": "NAD+ page" }], "info": "The mint wash is least-squares fitted to one artboard's own pixels, and the two product pages wash this band differently." },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 2, "unit": "%", "default": 100 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 2, "unit": "%", "default": 100 }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Name", "default": "Nicotinamide riboside" },
+        { "type": "text", "id": "dose", "label": "Dose", "default": "300mg" },
+        { "type": "text", "id": "group", "label": "Group", "default": "Produce", "info": "Tiles are filtered by this. Ingredients sharing a group share a filter button." },
+        { "type": "textarea", "id": "text", "label": "Why it's in the formula" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MUTO — Ingredients",
+      "blocks": [
+        { "type": "ingredient", "settings": { "name": "Nicotinamide riboside", "dose": "300mg", "group": "Produce", "text": "A direct NAD+ precursor: your cells convert it in two steps. 300mg is the dose the published human work is built on, not a fraction of it." } },
+        { "type": "ingredient", "settings": { "name": "Trimethylglycine", "dose": "450mg", "group": "Produce", "text": "A methyl donor. NAD+ metabolism uses methyl groups up, so TMG puts them back rather than leaving the rest of the pathway competing for them." } },
+        { "type": "ingredient", "settings": { "name": "Vitamin D3", "dose": "2000IU", "group": "Produce", "text": "Most people in the UK run low between October and March. Included at a daily dose rather than a token one." } },
+        { "type": "ingredient", "settings": { "name": "Vitamin K2 (MK-7)", "dose": "100µg", "group": "Produce", "text": "Pairs with D3: K2 directs calcium towards bone rather than soft tissue. The MK-7 form stays in circulation longest." } },
+        { "type": "ingredient", "settings": { "name": "Vitamin B1 (Thiamin)", "dose": "5mg", "group": "Produce", "text": "Part of the enzyme set that turns what you eat into cellular energy." } },
+        { "type": "ingredient", "settings": { "name": "Vitamin B2 (Riboflavin)", "dose": "5mg", "group": "Produce", "text": "The precursor to FAD, one of the two carriers the energy pathway runs on. NAD+ is the other." } },
+        { "type": "ingredient", "settings": { "name": "Vitamin B3 (Niacin)", "dose": "16mg NE", "group": "Produce", "text": "A second route into NAD+, alongside nicotinamide riboside, at the EU reference intake." } },
+        { "type": "ingredient", "settings": { "name": "Vitamin B5", "dose": "10mg", "group": "Produce", "text": "Pantothenic acid, which builds coenzyme A — the molecule that feeds fuel into the citric acid cycle." } },
+        { "type": "ingredient", "settings": { "name": "Vitamin B6 (P5P)", "dose": "5mg", "group": "Produce", "text": "The active form, so it needs no conversion in the liver before it can be used." } },
+        { "type": "ingredient", "settings": { "name": "Folate", "dose": "400µg", "group": "Produce", "text": "Works with B12 and TMG in the methyl cycle, which is the cycle NAD+ metabolism draws on." } },
+        { "type": "ingredient", "settings": { "name": "Vitamin B12", "dose": "100µg", "group": "Produce", "text": "The other half of the methyl cycle. Absorption falls with age, so the dose is set above the reference intake." } },
+        { "type": "ingredient", "settings": { "name": "Biotin", "dose": "300µg", "group": "Produce", "text": "Cofactor for the enzymes that handle fats and amino acids." } },
+        { "type": "ingredient", "settings": { "name": "Zinc (bisglycinate)", "dose": "15mg", "group": "Produce", "text": "Chelated for absorption, and easier on an empty stomach than the oxide form." } },
+        { "type": "ingredient", "settings": { "name": "Copper (bisglycinate)", "dose": "1mg", "group": "Produce", "text": "Balances the zinc. A daily zinc dose without copper beside it depletes copper over time." } },
+        { "type": "ingredient", "settings": { "name": "Grapeseed extract", "dose": "150mg", "group": "Protect", "text": "Polyphenols, standardised rather than a whole-fruit powder, so the dose on the label means something." } },
+        { "type": "ingredient", "settings": { "name": "Trans-resveratrol", "dose": "50mg", "group": "Protect", "text": "The trans isomer specifically — the form the research uses, and the one that survives the shelf." } },
+        { "type": "ingredient", "settings": { "name": "Coenzyme Q10", "dose": "150mg", "group": "Put to work", "text": "Carries electrons inside the mitochondria. Levels fall from your thirties onwards, and statins lower them further." } },
+        { "type": "ingredient", "settings": { "name": "PQQ", "dose": "20mg", "group": "Put to work", "text": "Studied for its role in mitochondrial biogenesis: making new mitochondria rather than only running the ones you have." } },
+        { "type": "ingredient", "settings": { "name": "Bioperine®", "dose": "5mg", "group": "Put to work", "text": "Black pepper extract. It is here because it improves the absorption of several of the ingredients above." } }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": ["product", "page", "index"]
+  }
+}
+{% endschema %}

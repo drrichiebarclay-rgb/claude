@@ -1,0 +1,662 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "enable_title": false,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "faq_byline": {
+      "type": "custom-liquid",
+      "name": "FAQ byline",
+      "settings": {
+        "custom_liquid": "<p class=\"faq-byline page-width\" style=\"margin:0;font-size:13px;line-height:1.4;color:rgba(var(--dark-rgb),0.75);\">Scientifically reviewed by Dr Richie Barclay, PhD (Cellular Biology &amp; Nutrition) · Last updated 10 October 2026</p>",
+        "color_scheme": "scheme-1",
+        "padding_top": 16,
+        "padding_bottom": 16
+      }
+    },
+    "image_banner_A73Ley": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_xXYBCD": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>YOUR QUESTIONS,<br/>ANSWERED</p>",
+            "heading_size": "hxl",
+            "heading_tag": "h1",
+            "heading_color": "#5efaff"
+          }
+        },
+        "text_AXtcf3": {
+          "type": "text",
+          "settings": {
+            "text": "Everything worth checking before you start: what’s in it, who it’s for, what to expect, and how the 90-day guarantee works. Don’t take it on trust. Check.",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_xXYBCD",
+        "text_AXtcf3"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "allow_transparent_header": true,
+        "image": "shopify://shop_images/product-highlights.jpg",
+        "image_overlay_opacity": 30,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-1",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "left",
+        "show_text_below": false
+      }
+    },
+    "faq_jump_nav": {
+      "type": "custom-liquid",
+      "name": "FAQ jump links",
+      "settings": {
+        "custom_liquid": "<style>.shopify-section:has(.faq-jump-nav){position:sticky;top:0;z-index:3;}.faq-jump-nav{background:#fafafa;border-bottom:1px solid rgba(var(--dark-rgb),0.15);}.faq-jump-nav__inner{display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-top:12px;padding-bottom:12px;}.faq-jump-nav__inner::-webkit-scrollbar{display:none;}.faq-jump-nav a{flex:0 0 auto;white-space:nowrap;padding:8px 14px;border:1px solid rgba(var(--dark-rgb),0.3);border-radius:999px;font-size:14px;line-height:1;color:rgb(var(--dark-rgb));text-decoration:none;}.faq-jump-nav a:hover,.faq-jump-nav a:focus-visible{background:rgb(var(--dark-rgb));color:#fafafa;}</style><nav class=\"faq-jump-nav\" aria-label=\"FAQ categories\"><div class=\"faq-jump-nav__inner page-width\"><a href=\"#about\">About MUTO</a><a href=\"#what-to-expect\">What to expect</a><a href=\"#guarantee\">90-day guarantee</a><a href=\"#orders\">Orders</a><a href=\"#ingredients\">Ingredients</a><a href=\"#safety\">Safety</a><a href=\"#how-to-take\">How to take</a><a href=\"#nad-explained\">NAD+ explained</a></div></nav>",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "faqs_about": {
+      "type": "custom-faqs",
+      "blocks": {
+        "faq_q01": {
+          "type": "faq",
+          "settings": {
+            "heading": "What is MUTO NAD+ Cellular Complex?",
+            "content": "<p>MUTO NAD+ Cellular Complex is a daily supplement that supports the 30 trillion cells in your body through NAD+ and other nutrients. It’s two capsules with your first meal: 19 ingredients, every dose on the label, made in the UK. And it’s built to be checked. Take a baseline, track the difference in how your days feel or on your wearable, and make your own call, with a 90-day money-back guarantee behind it.</p>"
+          }
+        },
+        "faq_q02": {
+          "type": "faq",
+          "settings": {
+            "heading": "Who is MUTO for?",
+            "content": "<p>MUTO is for people who are still training, still working and not ready to slow down. Most of our customers are in their 40s and 50s. If your afternoons fade sooner than they used to, sessions take longer to bounce back from, or you’re taking several supplements and don’t know which one’s working, MUTO is built for you. Some customers track HRV or recovery on a wearable; many simply notice how their days feel. MUTO is for adults over 18 only.</p>"
+          }
+        },
+        "faq_q03": {
+          "type": "faq",
+          "settings": {
+            "heading": "Is MUTO for women too?",
+            "content": "<p>Yes. Plenty of our customers are women, and many tell us the first thing they notice is their afternoons. The formula is the same for everyone. If you take any medication, check with your GP or pharmacist first.</p>"
+          }
+        },
+        "faq_q04": {
+          "type": "faq",
+          "settings": {
+            "heading": "How is MUTO different from other NAD+ supplements?",
+            "content": "<p>MUTO is built to be checked, not taken on trust. Most supplements ask you to believe they’re working. We give you a way to find out: every dose declared, a baseline to start from, help reading your own data, and a 90-day guarantee if you don’t see a difference. It’s also a complete daily formula rather than a single ingredient, with nicotinamide riboside (NR) alongside CoQ10, TMG, resveratrol, PQQ, methylated B vitamins, zinc, copper, D3 and K2. <a href=\"/pages/science\">Read the science behind the formula.</a></p>"
+          }
+        },
+        "faq_q05": {
+          "type": "faq",
+          "settings": {
+            "heading": "Is NAD+ just hype?",
+            "content": "<p>There’s a lot of hype around NAD+, which is exactly why we built MUTO to be checked. The science is real: NAD+ is essential to how every cell makes energy, and 300mg of NR a day has been shown to raise blood NAD+ in human studies. What no one can promise is how any supplement will make you feel. So we don’t ask you to believe it. Note your starting point, give it 90 days, and decide for yourself.</p>"
+          }
+        },
+        "faq_q06": {
+          "type": "faq",
+          "settings": {
+            "heading": "Can I check your claims?",
+            "content": "<p>Please do. Every ingredient and dose is on the label and on this page. Paste it into ChatGPT, or show it to your GP, pharmacist or nutritionist. Batch certificates are available on request, and Richie answers formula questions himself.</p>"
+          }
+        },
+        "faq_q07": {
+          "type": "faq",
+          "settings": {
+            "heading": "Who makes MUTO?",
+            "content": "<p>MUTO was founded by Dr Richie Barclay, a PhD scientist in cellular biology and nutrition (not a medical doctor), and is formulated with a six-member Scientific Advisory Board. It’s manufactured in the UK to GMP standards in an ISO-certified facility. You can ask us anything about the formula: <a href=\"mailto:hello@mutolongevity.com\">hello@mutolongevity.com</a>.</p>"
+          }
+        },
+        "faq_q08": {
+          "type": "faq",
+          "settings": {
+            "heading": "Is MUTO being clinically studied?",
+            "content": "<p>Yes. MUTO is part of independent university research programmes, starting with a University of Westminster study in December 2026, followed by work with King’s College London in early 2027 and Coventry and Newcastle universities later in 2027. These studies are underway or starting, so there are no results to report yet. We’ll publish them, whatever they show.</p>"
+          }
+        },
+        "faq_q09": {
+          "type": "faq",
+          "settings": {
+            "heading": "How do you pronounce MUTO?",
+            "content": "<p>MUTO is pronounced “MEW-toe”. It’s Latin for “transform”.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_q01",
+        "faq_q02",
+        "faq_q03",
+        "faq_q04",
+        "faq_q05",
+        "faq_q06",
+        "faq_q07",
+        "faq_q08",
+        "faq_q09"
+      ],
+      "settings": {
+        "bg_color": "#e8e8e8",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_class": "",
+        "anchor_id": "about",
+        "heading": "<p>About MUTO</p>",
+        "bottom_text": ""
+      }
+    },
+    "faqs_what_to_expect": {
+      "type": "custom-faqs",
+      "blocks": {
+        "faq_q10": {
+          "type": "faq",
+          "settings": {
+            "heading": "How long does MUTO take to work?",
+            "content": "<p>Give MUTO 60 to 90 days, taken daily, before you judge it. Some customers say they notice a difference in their energy or recovery within the first few weeks; others notice nothing early on. If you track on a wearable, read it as 30-day averages, not single nights. That’s why our guarantee runs for 90 days.</p>"
+          }
+        },
+        "faq_q11": {
+          "type": "faq",
+          "settings": {
+            "heading": "Will MUTO give me an energy boost?",
+            "content": "<p>No, not the kind you feel within an hour. Caffeine and energy drinks borrow energy and it resets every morning. MUTO supplies nutrients your body uses to make energy, including vitamins B6, B12 and folate, which contribute to the reduction of tiredness and fatigue.</p>"
+          }
+        },
+        "faq_q12": {
+          "type": "faq",
+          "settings": {
+            "heading": "How do I track whether MUTO is working?",
+            "content": "<p>Note your starting point before your first dose, give it 90 days, then compare. There are two ways to do it.</p><p><strong>Without a wearable:</strong> once a week, rate your energy, sleep, afternoons and mood out of 10. It takes 30 seconds, and writing it down turns a feeling into a record you can look back on.</p><p><strong>With a wearable:</strong> note your 7-day averages for HRV, resting heart rate and recovery, then compare 30-day averages, not single nights.</p><p>Either way, keep the rest of your routine steady and check in on days 30, 60 and 90. Then it’s your call. If you don’t see a difference, you’re covered.</p>"
+          }
+        },
+        "faq_q13": {
+          "type": "faq",
+          "settings": {
+            "heading": "Do I need a wearable?",
+            "content": "<p>No. A wearable makes tracking easier, but a 30-second weekly check-in (energy, sleep, afternoons and mood, each out of 10) works too. Felt changes are easy to forget, so writing them down is what turns a feeling into a record you can look back on.</p>"
+          }
+        },
+        "faq_q14": {
+          "type": "faq",
+          "settings": {
+            "heading": "What if I don’t notice a difference?",
+            "content": "<p>Then you’re covered. Email us and we’ll help you check consistency, timing and anything else that might be masking a change. If you still don’t see a difference by day 90, we’ll refund you under the 90-day guarantee.</p>"
+          }
+        },
+        "faq_q15": {
+          "type": "faq",
+          "settings": {
+            "heading": "Will MUTO improve my HRV?",
+            "content": "<p>We don’t promise what any number will do. Bodies vary, and HRV is affected by sleep, stress, training and illness. What we offer is a fair way to find out for yourself: baseline it, track the trend for 90 days, and if you don’t see a difference, we’ll refund you.</p>"
+          }
+        },
+        "faq_q16": {
+          "type": "faq",
+          "settings": {
+            "heading": "Which wearables work best for tracking?",
+            "content": "<p>Any device that records HRV and resting heart rate overnight works. Garmin, WHOOP and Oura measure through the night, which gives steadier averages. Apple Watch takes fewer HRV readings, so wear it overnight with sleep tracking on and judge it on longer averages.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_q10",
+        "faq_q11",
+        "faq_q12",
+        "faq_q13",
+        "faq_q14",
+        "faq_q15",
+        "faq_q16"
+      ],
+      "settings": {
+        "bg_color": "#fafafa",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_class": "",
+        "anchor_id": "what-to-expect",
+        "heading": "<p>What to expect</p>",
+        "bottom_text": ""
+      }
+    },
+    "faqs_guarantee": {
+      "type": "custom-faqs",
+      "blocks": {
+        "faq_q17": {
+          "type": "faq",
+          "settings": {
+            "heading": "What is the 90-day money-back guarantee?",
+            "content": "<p>If you subscribe, take MUTO daily and don’t see a difference within 90 days, we’ll refund every subscription payment you’ve made in that time, less our delivery costs. We won’t ask you to take MUTO on trust, so we don’t ask you to risk your money on it either.</p>"
+          }
+        },
+        "faq_q18": {
+          "type": "faq",
+          "settings": {
+            "heading": "Who is covered?",
+            "content": "<p>The guarantee covers first-time MUTO subscribers buying at muto.co, one claim per customer. One-time purchases aren’t covered, and neither are orders through Amazon or other retailers. Contact them directly.</p>"
+          }
+        },
+        "faq_q19": {
+          "type": "faq",
+          "settings": {
+            "heading": "How do I claim?",
+            "content": "<p>Email <a href=\"mailto:hello@mutolongevity.com\">hello@mutolongevity.com</a> with your name, order number and a line on your experience, within 104 days of your first order. That’s your full 90 days, plus 14 days to decide. We’ll refund your original payment method within 7 working days of your request. Sharing your wearable data helps us learn but is optional.</p>"
+          }
+        },
+        "faq_q20": {
+          "type": "faq",
+          "settings": {
+            "heading": "Do I need to send my wearable data?",
+            "content": "<p>No. Your verdict is yours. If you’d like help reading your data before deciding, send it over and we’ll go through it with you.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_q17",
+        "faq_q18",
+        "faq_q19",
+        "faq_q20"
+      ],
+      "settings": {
+        "bg_color": "#e8e8e8",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_class": "",
+        "anchor_id": "guarantee",
+        "heading": "<p>The 90-day money-back guarantee</p>",
+        "bottom_text": ""
+      }
+    },
+    "faqs_orders": {
+      "type": "custom-faqs",
+      "blocks": {
+        "faq_q21": {
+          "type": "faq",
+          "settings": {
+            "heading": "How much does MUTO cost?",
+            "content": "<p>MUTO is £60 a month on a monthly subscription, £150 every three months on the three-month plan (about £1.67 a day), or £70 as a one-time purchase. Every subscription includes free UK next-day delivery and the 90-day money-back guarantee.</p>"
+          }
+        },
+        "faq_q22": {
+          "type": "faq",
+          "settings": {
+            "heading": "Why does MUTO cost more than an NR supplement on its own?",
+            "content": "<p>A single NR product covers one input. MUTO includes NR at the maximum dose authorised in Great Britain (300mg), plus a methylated B complex, D3, K2, zinc, copper, CoQ10 (as ubiquinone), PQQ, resveratrol and TMG. Many people already buy these separately. On the three-month plan it’s about £1.67 a day. Compare it with what’s in your cupboard, and remember you have 90 days to decide.</p>"
+          }
+        },
+        "faq_q23": {
+          "type": "faq",
+          "settings": {
+            "heading": "Which plan should I choose?",
+            "content": "<p>Choose the three-month plan if you want a proper test: it’s the lowest daily price and lines up with the 90-day window we recommend for judging MUTO. The monthly plan spreads the cost. Both subscriptions are covered by the 90-day guarantee; a one-time purchase isn’t. <a href=\"/products/muto-nad-cellular-complex\">Compare plans.</a></p>"
+          }
+        },
+        "faq_q24": {
+          "type": "faq",
+          "settings": {
+            "heading": "What’s in the welcome kit and gifts?",
+            "content": "<p>With your first subscription order you get performance socks, a Forever Jar, our 12-week protocol guide and entry into our competition to win an Oura Ring. Subscribers also get a thank-you gift with later orders. Gifts are while stocks last. <a href=\"/pages/better-baseline-giveaway\">Competition terms apply.</a></p>"
+          }
+        },
+        "faq_q25": {
+          "type": "faq",
+          "settings": {
+            "heading": "Do subscribers get creatine?",
+            "content": "<p>Yes. From 14 October 2026, subscribers receive MUTO Ultrapure Micronised Creatine as a gift with later orders. One serving is 5g. Creatine increases physical performance in successive bursts of short-term, high-intensity exercise; the beneficial effect is obtained with a daily intake of 3g.</p>"
+          }
+        },
+        "faq_q26": {
+          "type": "faq",
+          "settings": {
+            "heading": "Can I skip, pause or cancel?",
+            "content": "<p>Yes, anytime, online. Log in to your account to skip a delivery, pause, change your plan or cancel, with no phone call and no fees. We email you a reminder 5 days before every payment.</p>"
+          }
+        },
+        "faq_q27": {
+          "type": "faq",
+          "settings": {
+            "heading": "How does delivery work?",
+            "content": "<p>UK delivery is free and next-day for orders placed before 9pm, arriving within 1–2 working days. International shipping is calculated at checkout. You’ll get a tracking link by email when your order ships. See <a href=\"/pages/shipping-and-return\">Shipping &amp; Returns</a> for details.</p>"
+          }
+        },
+        "faq_q28": {
+          "type": "faq",
+          "settings": {
+            "heading": "Where can I buy MUTO?",
+            "content": "<p>Buy MUTO direct at muto.co, where subscriptions and the 90-day guarantee apply. It’s also available on Amazon, though Amazon orders aren’t covered by our guarantee.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_q21",
+        "faq_q22",
+        "faq_q23",
+        "faq_q24",
+        "faq_q25",
+        "faq_q26",
+        "faq_q27",
+        "faq_q28"
+      ],
+      "settings": {
+        "bg_color": "#fafafa",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_class": "",
+        "anchor_id": "orders",
+        "heading": "<p>Orders and subscriptions</p>",
+        "bottom_text": ""
+      }
+    },
+    "faqs_ingredients": {
+      "type": "custom-faqs",
+      "blocks": {
+        "faq_q29": {
+          "type": "faq",
+          "settings": {
+            "heading": "What ingredients are in MUTO?",
+            "content": "<p>MUTO contains 19 ingredients, every one declared at its full dose, with no proprietary blend. Per daily serving of two capsules:</p>",
+            "content_html": "<table><thead><tr><th scope=\"col\">Ingredient</th><th scope=\"col\">Form</th><th scope=\"col\">Per 2 capsules</th><th scope=\"col\">% NRV</th></tr></thead><tbody><tr><td><strong>Vitamin D3</strong></td><td>Cholecalciferol, from algae</td><td>50µg (2,000 IU)</td><td>1000%</td></tr><tr><td><strong>Vitamin K2</strong></td><td>Menaquinone-7 (MK-7)</td><td>100µg</td><td>133%</td></tr><tr><td><strong>Vitamin B1</strong></td><td>Thiamine</td><td>5mg</td><td>455%</td></tr><tr><td><strong>Vitamin B2</strong></td><td>Riboflavin</td><td>5mg</td><td>357%</td></tr><tr><td><strong>Vitamin B3</strong></td><td>Niacin</td><td>16mg NE</td><td>100%</td></tr><tr><td><strong>Vitamin B5</strong></td><td>Pantothenic acid</td><td>10mg</td><td>167%</td></tr><tr><td><strong>Vitamin B6</strong></td><td>Pyridoxal-5&#x27;-phosphate</td><td>5mg</td><td>357%</td></tr><tr><td><strong>Folate</strong></td><td>Methyltetrahydrofolate</td><td>400µg</td><td>200%</td></tr><tr><td><strong>Vitamin B12</strong></td><td>Methylcobalamin</td><td>100µg</td><td>4000%</td></tr><tr><td><strong>Biotin</strong></td><td>—</td><td>300µg</td><td>600%</td></tr><tr><td><strong>Zinc</strong></td><td>Bisglycinate</td><td>15mg</td><td>150%</td></tr><tr><td><strong>Copper</strong></td><td>Bisglycinate</td><td>1mg</td><td>100%</td></tr><tr><td><strong>Trimethylglycine (TMG)</strong></td><td>Betaine anhydrous</td><td>450mg</td><td>†</td></tr><tr><td><strong>Nicotinamide riboside (NR)</strong></td><td>—</td><td>300mg</td><td>†</td></tr><tr><td><strong>Grape seed extract</strong></td><td>Vitis vinifera L., 120:1, 95% polyphenols (equivalent to 18,000mg grape seed)</td><td>150mg</td><td>†</td></tr><tr><td><strong>Coenzyme Q10</strong></td><td>Ubiquinone</td><td>150mg</td><td>†</td></tr><tr><td><strong>Trans-resveratrol</strong></td><td>—</td><td>50mg</td><td>†</td></tr><tr><td><strong>PQQ</strong></td><td>Pyrroloquinoline quinone</td><td>20mg</td><td>†</td></tr><tr><td><strong>BioPerine®</strong></td><td>Piper nigrum L., fruit, 95% piperine</td><td>5mg</td><td>†</td></tr></tbody></table><p>NRV = nutrient reference value. † No reference intake established.</p>"
+          }
+        },
+        "faq_q30": {
+          "type": "faq",
+          "settings": {
+            "heading": "Why does MUTO use NR?",
+            "content": "<p>MUTO uses NR because it’s one of the most studied NAD+ precursors and is authorised for use in food supplements in Great Britain, at up to 300mg a day for adults. MUTO contains exactly 300mg. In a published clinical study, 300mg of NR a day raised blood NAD+ by 51% after 14 days (Conze et al., <em>Scientific Reports</em>, 2019). That study tested NR on its own, not MUTO.</p>"
+          }
+        },
+        "faq_q31": {
+          "type": "faq",
+          "settings": {
+            "heading": "What’s the difference between NR and NMN?",
+            "content": "<p>NR and NMN are both NAD+ precursors: compounds your body converts into NAD+ by slightly different routes. NR is authorised for food supplements in Great Britain; NMN is currently under novel food assessment. MUTO uses NR so every ingredient in the core formula is on the right side of UK rules.</p>"
+          }
+        },
+        "faq_q32": {
+          "type": "faq",
+          "settings": {
+            "heading": "Why not just take NR on its own?",
+            "content": "<p>You can, but NR alone covers one input. MUTO pairs it with nutrients that have authorised roles in how your body makes and uses energy: B vitamins and copper for normal energy-yielding metabolism, and zinc for protecting cells from oxidative stress. It also adds CoQ10, TMG, resveratrol and PQQ. One routine instead of several separate products.</p>"
+          }
+        },
+        "faq_q33": {
+          "type": "faq",
+          "settings": {
+            "heading": "Can MUTO replace some of my other supplements?",
+            "content": "<p>Possibly. MUTO contains full doses of nutrients many people already buy separately: a methylated B complex, zinc, copper, vitamin D3 (2,000 IU), vitamin K2, CoQ10 and an NR product. Compare your current labels against ours before stopping anything, and check with your GP before changing anything you take for a medical reason.</p>"
+          }
+        },
+        "faq_q34": {
+          "type": "faq",
+          "settings": {
+            "heading": "Does MUTO contain caffeine or stimulants?",
+            "content": "<p>No. MUTO contains no caffeine and no stimulants. It isn’t designed to give you a buzz. It supplies nutrients your cells use every day, which is why it works alongside your morning coffee rather than replacing it.</p>"
+          }
+        },
+        "faq_q35": {
+          "type": "faq",
+          "settings": {
+            "heading": "Is MUTO vegan?",
+            "content": "<p>Yes. MUTO is vegan: the capsules are made from HPMC, a plant cellulose, and the vitamin D3 comes from algae. It contains no major allergens and no fillers.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_q29",
+        "faq_q30",
+        "faq_q31",
+        "faq_q32",
+        "faq_q33",
+        "faq_q34",
+        "faq_q35"
+      ],
+      "settings": {
+        "bg_color": "#e8e8e8",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_class": "",
+        "anchor_id": "ingredients",
+        "heading": "<p>Ingredients and formula</p>",
+        "bottom_text": ""
+      }
+    },
+    "faqs_safety": {
+      "type": "custom-faqs",
+      "blocks": {
+        "faq_q36": {
+          "type": "faq",
+          "settings": {
+            "heading": "Is MUTO safe?",
+            "content": "<p>MUTO is made in the UK to GMP standards and every batch is third-party tested; certificates are available on request. Like any supplement, it isn’t right for everyone. Speak to your GP or pharmacist first if you’re on medication, have a medical condition, or are pregnant or breastfeeding.</p>"
+          }
+        },
+        "faq_q37": {
+          "type": "faq",
+          "settings": {
+            "heading": "Are there any side effects?",
+            "content": "<p>Most people take MUTO without any problems. A few notice mild stomach discomfort in the first days, which taking it with food usually avoids. Stop taking it and contact us if anything feels wrong.</p>"
+          }
+        },
+        "faq_q38": {
+          "type": "faq",
+          "settings": {
+            "heading": "Can I take MUTO with medication?",
+            "content": "<p>Check with your GP or pharmacist first if you take any prescription medicine. In particular, MUTO contains vitamin K2 (100µg), which can affect blood thinners such as warfarin. Resveratrol and grape seed extract may also interact with anticoagulant and antiplatelet medicines. We’re happy to send the full label to share with your doctor.</p>"
+          }
+        },
+        "faq_q39": {
+          "type": "faq",
+          "settings": {
+            "heading": "Can I take MUTO if I’m on HRT or hormonal contraception?",
+            "content": "<p>Talk to your GP or pharmacist before starting. If you take any medication, including HRT or hormonal contraception, please check with your doctor first. We’re happy to send the full label to share with them.</p>"
+          }
+        },
+        "faq_q40": {
+          "type": "faq",
+          "settings": {
+            "heading": "Can I take MUTO if I’m pregnant or breastfeeding?",
+            "content": "<p>No. MUTO isn’t for use during pregnancy or breastfeeding, or for anyone under 18. Nicotinamide riboside is authorised in Great Britain for adults only, excluding pregnant and breastfeeding women.</p>"
+          }
+        },
+        "faq_q41": {
+          "type": "faq",
+          "settings": {
+            "heading": "Is MUTO suitable for drug-tested athletes?",
+            "content": "<p>MUTO isn’t yet certified by a banned-substance testing programme such as Informed Sport. If you’re tested under WADA or UKAD rules, speak to your sport’s medical team before taking any supplement.</p>"
+          }
+        },
+        "faq_q42": {
+          "type": "faq",
+          "settings": {
+            "heading": "Can I take MUTO with other supplements or coffee?",
+            "content": "<p>Yes, in most cases, and coffee is fine. Watch for doubling up: a separate B complex, zinc, vitamin D, K2 or NAD+ product will overlap with what’s already in MUTO. Check your other labels against ours.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_q36",
+        "faq_q37",
+        "faq_q38",
+        "faq_q39",
+        "faq_q40",
+        "faq_q41",
+        "faq_q42"
+      ],
+      "settings": {
+        "bg_color": "#fafafa",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_class": "",
+        "anchor_id": "safety",
+        "heading": "<p>Safety</p>",
+        "bottom_text": ""
+      }
+    },
+    "faqs_how_to_take": {
+      "type": "custom-faqs",
+      "blocks": {
+        "faq_q43": {
+          "type": "faq",
+          "settings": {
+            "heading": "How do I take MUTO?",
+            "content": "<p>Take two capsules once a day with your first meal. Food helps absorb the fat-soluble ingredients (CoQ10, vitamins D3 and K2), and pairing it with breakfast makes it easy to remember. Consistency matters more than exact timing.</p>"
+          }
+        },
+        "faq_q44": {
+          "type": "faq",
+          "settings": {
+            "heading": "Do I need to cycle MUTO?",
+            "content": "<p>No. MUTO contains no stimulants, so there’s nothing to build tolerance to. It’s designed for daily use.</p>"
+          }
+        },
+        "faq_q45": {
+          "type": "faq",
+          "settings": {
+            "heading": "What if I miss a day?",
+            "content": "<p>Just take your normal two capsules the next day. Don’t double up.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_q43",
+        "faq_q44",
+        "faq_q45"
+      ],
+      "settings": {
+        "bg_color": "#e8e8e8",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_class": "",
+        "anchor_id": "how-to-take",
+        "heading": "<p>How to take MUTO</p>",
+        "bottom_text": ""
+      }
+    },
+    "faqs_nad_explained": {
+      "type": "custom-faqs",
+      "blocks": {
+        "faq_q46": {
+          "type": "faq",
+          "settings": {
+            "heading": "What is NAD+?",
+            "content": "<p>NAD+ (nicotinamide adenine dinucleotide) is a coenzyme found in every cell, which cells use to turn food into usable energy and to run maintenance processes such as DNA repair. Your body makes it continuously from precursors like vitamin B3 and nicotinamide riboside, and recycles it as it’s used.</p>"
+          }
+        },
+        "faq_q47": {
+          "type": "faq",
+          "settings": {
+            "heading": "Does NAD+ decline with age?",
+            "content": "<p>Research suggests NAD+ levels in some tissues fall with age, as demand rises and production and recycling slow. The size of the decline varies between people and tissues, and blood levels don’t track it neatly, so treat any single headline figure with caution.</p>"
+          }
+        },
+        "faq_q48": {
+          "type": "faq",
+          "settings": {
+            "heading": "What’s the difference between NAD+ and NADH?",
+            "content": "<p>They’re two forms of the same molecule. When your cells break down food, NAD+ picks up electrons and becomes NADH. NADH then hands them on in your mitochondria to make energy, turning back into NAD+. The balance between the two is part of how your cells manage energy.</p>"
+          }
+        },
+        "faq_q49": {
+          "type": "faq",
+          "settings": {
+            "heading": "How do NAD+ supplements work?",
+            "content": "<p>Most NAD+ supplements provide precursors such as NR, which your body converts into NAD+, rather than NAD+ itself, which is poorly absorbed whole. Oral NR at 300mg a day has been shown to raise blood NAD+ in human studies.</p>"
+          }
+        },
+        "faq_q50": {
+          "type": "faq",
+          "settings": {
+            "heading": "Can you raise NAD+ naturally?",
+            "content": "<p>Regular exercise, enough vitamin B3 in your diet (meat, fish, wholegrains), good sleep and not overdoing alcohol all support how your body makes and recycles NAD+. Precursors like NR are a more direct route. MUTO is designed to sit alongside those habits, not replace them.</p>"
+          }
+        },
+        "faq_q51": {
+          "type": "faq",
+          "settings": {
+            "heading": "What are sirtuins?",
+            "content": "<p>Sirtuins are a family of enzymes involved in cell maintenance, including DNA repair and energy regulation. They need NAD+ to work, which is one reason NAD+ is studied in ageing research.</p>"
+          }
+        },
+        "faq_q52": {
+          "type": "faq",
+          "settings": {
+            "heading": "What is HRV?",
+            "content": "<p>Heart rate variability (HRV) is the variation in time between heartbeats, and a widely used signal of how your nervous system is handling stress and recovery. It’s personal, so never compare yours with someone else’s. It’s also noisy night to night, so the 30-day trend against your own baseline is what’s worth watching.</p>"
+          }
+        },
+        "faq_q53": {
+          "type": "faq",
+          "settings": {
+            "heading": "What’s the difference between healthspan and lifespan?",
+            "content": "<p>Lifespan is how long you live. Healthspan is how long you stay healthy, capable and independent. MUTO is about healthspan: keeping your standard for as long as you can.</p>"
+          }
+        },
+        "faq_q54": {
+          "type": "faq",
+          "settings": {
+            "heading": "Does caffeine raise NAD+?",
+            "content": "<p>Caffeine doesn’t raise NAD+. It blocks adenosine, the chemical signal behind sleepiness, so you feel more alert without changing how your cells make energy. That’s why the effect fades and resets each day.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_q46",
+        "faq_q47",
+        "faq_q48",
+        "faq_q49",
+        "faq_q50",
+        "faq_q51",
+        "faq_q52",
+        "faq_q53",
+        "faq_q54"
+      ],
+      "settings": {
+        "bg_color": "#fafafa",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_class": "",
+        "anchor_id": "nad-explained",
+        "heading": "<p>NAD+ and cellular health explained</p>",
+        "bottom_text": "<p><em>Have a question we haven’t answered? Email <a href=\"mailto:hello@mutolongevity.com\">hello@mutolongevity.com</a>. Richie and the team read every message.</em></p><p><em>Food supplements should not replace a varied, balanced diet and healthy lifestyle. Do not exceed the recommended daily dose. Not for use by children, or during pregnancy or breastfeeding.</em></p>"
+      }
+    },
+    "faq_schema": {
+      "type": "faq-schema",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_A73Ley",
+    "faq_byline",
+    "faq_jump_nav",
+    "faqs_about",
+    "faqs_what_to_expect",
+    "faqs_guarantee",
+    "faqs_orders",
+    "faqs_ingredients",
+    "faqs_safety",
+    "faqs_how_to_take",
+    "faqs_nad_explained",
+    "faq_schema"
+  ]
+}
