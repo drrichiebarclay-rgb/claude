@@ -39,25 +39,25 @@
         "b1": {
           "type": "point",
           "settings": {
-            "text": "Energy that lasts the whole day"
+            "text": "Keep your energy all day, not just the morning"
           }
         },
         "b2": {
           "type": "point",
           "settings": {
-            "text": "Recovery that keeps pace with your training"
+            "text": "Bounce back from hard sessions like you used to"
           }
         },
         "b3": {
           "type": "point",
           "settings": {
-            "text": "Capable and strong, for longer"
+            "text": "Stay the strong, capable one for longer"
           }
         },
         "b4": {
           "type": "point",
           "settings": {
-            "text": "Track it on your wearable"
+            "text": "Feel the difference in 90 days, or your money back"
           }
         },
         "t1": {
@@ -88,41 +88,6 @@
             "save": "Save 14% + free gifts",
             "note": "Billed £60 every 4 weeks, £1.83/day.",
             "detail": ""
-          }
-        },
-        "tm1": {
-          "type": "term",
-          "settings": {
-            "text": "90-Day money back guarantee",
-            "plans": ""
-          }
-        },
-        "tm2": {
-          "type": "term",
-          "settings": {
-            "text": "Free next day delivery",
-            "plans": ""
-          }
-        },
-        "tm3": {
-          "type": "term",
-          "settings": {
-            "text": "Free welcome kit worth £32",
-            "plans": ""
-          }
-        },
-        "tm5": {
-          "type": "term",
-          "settings": {
-            "text": "Free future monthly gifts worth £217",
-            "plans": ""
-          }
-        },
-        "tm4": {
-          "type": "term",
-          "settings": {
-            "text": "Cancel, skip or pause anytime",
-            "plans": ""
           }
         },
         "k1": {
@@ -260,7 +225,7 @@
         "a3": {
           "type": "fold",
           "settings": {
-            "title": "How to Enjoy",
+            "title": "How to take it",
             "text": "<p>Two capsules together each morning with your first meal. Fat helps the fat-soluble ingredients absorb, so whatever you already eat first is the right time. No cycling, no loading and no rest days — the protocol is daily.</p>"
           }
         },
@@ -313,6 +278,69 @@
             "image_alt": "Sam Ekstrom on the drops during a Team GB time trial",
             "image_position": "50% 30%"
           }
+        },
+        "term_1": {
+          "type": "term",
+          "settings": {
+            "text": "90-day money-back guarantee",
+            "plans": ""
+          }
+        },
+        "term_2": {
+          "type": "term",
+          "settings": {
+            "text": "Free next-day delivery",
+            "plans": ""
+          }
+        },
+        "term_3": {
+          "type": "term",
+          "settings": {
+            "text": "With your first order: performance socks, Forever Jar, 12-week protocol guide",
+            "plans": ""
+          }
+        },
+        "term_4": {
+          "type": "term",
+          "settings": {
+            "text": "A thank-you gift with each order up to month 6",
+            "plans": ""
+          }
+        },
+        "term_5": {
+          "type": "term",
+          "settings": {
+            "text": "Entry to our Oura Ring 5 prize draw (<a href=\"/pages/better-baseline-giveaway\">T&amp;Cs</a>)",
+            "plans": ""
+          }
+        },
+        "term_6": {
+          "type": "term",
+          "settings": {
+            "text": "Skip, pause or cancel online, with a reminder 5 days before each payment",
+            "plans": ""
+          }
+        },
+        "snippet_1": {
+          "type": "snippet",
+          "settings": {
+            "quote": "“No afternoon slump and in general feeling great”",
+            "name": "Lynda"
+          }
+        },
+        "snippet_2": {
+          "type": "snippet",
+          "settings": {
+            "quote": "“More focused during the day”",
+            "name": "Alexandra"
+          }
+        },
+        "snippet_3": {
+          "type": "snippet",
+          "settings": {
+            "quote": "“Has actually changed my recovery”",
+            "name": "Adam H"
+          }
         }
       },
       "block_order": [
@@ -327,11 +355,12 @@
         "t2",
         "t3",
         "p1",
-        "tm1",
-        "tm2",
-        "tm3",
-        "tm5",
-        "tm4",
+        "term_1",
+        "term_2",
+        "term_3",
+        "term_4",
+        "term_5",
+        "term_6",
         "k1",
         "k2",
         "k3",
@@ -351,7 +380,10 @@
         "w1",
         "w2",
         "w3",
-        "w4"
+        "w4",
+        "snippet_1",
+        "snippet_2",
+        "snippet_3"
       ],
       "custom_css": [],
       "settings": {
@@ -362,7 +394,7 @@
         "eyebrow": "MUTO",
         "heading": "NAD+ Cellular\nComplex",
         "serving": "60 capsules | 30 day supply | Take 2 daily",
-        "text": "<p>A daily cellular longevity supplement, built around the NAD+ your cells make energy with, and use to recover.&nbsp;</p>",
+        "text": "<p>For people who aren’t ready to slow down. Two capsules a day supporting the 30 trillion cells beneath your energy, recovery and how you age, built around NAD+ and 18 other nutrients. Every dose on the label. 90 days to decide for yourself.</p>",
         "image_fallback": "",
         "image_alt": "The MUTO creatine pouch photographed with the NAD+ Cellular Complex set",
         "gallery_position": "100% 50%",
@@ -442,8 +474,8 @@
       ],
       "settings": {
         "eyebrow": "The problem",
-        "heading": "You're doing the\nwork. You just can't\ntell what's working.",
-        "lede": "The training, the sleep, a cabinet of supplements. Most of the category asks you to take it on trust, so you end up buying a feeling.",
+        "heading": "You’re not done yet.\nSo why does it\nfeel harder?",
+        "lede": "The training, the long days, the cupboard of supplements. But the afternoons fade sooner and sessions take longer to bounce back from. Most supplements ask you to trust they’re working. We’d rather you check.",
         "space_top": 100,
         "space_bottom": 100
       }
@@ -454,18 +486,19 @@
         "w1": {
           "type": "card",
           "settings": {
-            "title": "Built by a scientist.\nApproved by a board.",
-            "text": "Formulated by Richie Barclay, PhD in cellular biology and nutrition, and reviewed by a Scientific Advisory Board of seven scientists and clinicians in performance, metabolic health and cellular science.",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-why-scientists.jpg?v=1790767821",
-            "image_alt": "Four members of the MUTO scientific advisory board in conversation",
-            "image_position": "50% 30%"
+            "title": "Built by a scientist\nyou can talk to.",
+            "text": "Formulated by Richie Barclay, PhD in cellular biology and nutrition, and reviewed by our Scientific Advisory Board. Got a question? Ask him.",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-founder.jpg?v=1790751995",
+            "image_alt": "Dr Richie Barclay holding a jar of NAD+ Cellular Complex",
+            "image_position": "50% 20%",
+            "image": "shopify://shop_images/about-founder.jpg"
           }
         },
         "w2": {
           "type": "card",
           "settings": {
             "title": "Nothing hidden.",
-            "text": "Nineteen ingredients, each on the label with its dose and the reason it's there. No proprietary blends. Made in the UK by a GMP-certified manufacturer.",
+            "text": "Nineteen ingredients, each on the label with its dose and why it’s there. No proprietary blends. Made in the UK to GMP standards. Ask your AI to check it.",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-why-manufacturing.jpg?v=1790767821",
             "image_alt": "Capsules moving along a filling line at the UK manufacturer",
             "image_position": ""
@@ -475,7 +508,7 @@
           "type": "card",
           "settings": {
             "title": "Built to be checked.",
-            "text": "You already check the number on your wrist every morning. MUTO works one layer beneath it, on the cellular system your device reports on. Take a baseline, track the trend over 60 to 90 days, and make your own call.",
+            "text": "Note how you feel on day 0, then check in at day 30 and day 90, in how your days feel, your training or your wearable. Your verdict, with a 90-day guarantee behind it.",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-why-wearable.jpg?v=1790767821",
             "image_alt": "A wrist wearing a sports watch, seen underwater",
             "image_position": ""
@@ -610,7 +643,7 @@
       "settings": {
         "field": true,
         "heading": "Meet our\nscientific board.",
-        "note": "Reviewed and approved by world-leading doctors.",
+        "note": "Our Scientific Advisory Board: scientists and clinicians in performance, metabolism and longevity.",
         "rail_gap": 64,
         "fit": "nad",
         "space_top": 104,
@@ -625,8 +658,8 @@
           "settings": {
             "label": "Benefits you'll feel",
             "key": "feel",
-            "heading": "Feel it before\nyou see it",
-            "lede": "What customers notice first, in the weeks before any trend line moves. Open any of them for the mechanism.",
+            "heading": "What people\nnotice first",
+            "lede": "What customers tell us they notice first. Individual experiences, not a promise. Open any of them for more.",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-benefits-feel.jpg?v=1791019769",
             "image_alt": "A cyclist pausing mid-ride in the sun, sunglasses pushed up, catching their breath",
             "image_position": "50% 8%",
@@ -639,7 +672,7 @@
           "settings": {
             "panel": "feel",
             "title": "Energy that doesn't spike",
-            "sub": "All day, no crash",
+            "sub": "“No afternoon slump and in general feeling great” – Lynda",
             "text": "<p>NAD+ sits at the centre of how your cells turn food into usable energy. Topping up the pathway supports a steadier supply rather than the peak-and-crash of a stimulant, which is why most people notice it in the afternoon rather than the first hour.</p>"
           }
         },
@@ -648,7 +681,7 @@
           "settings": {
             "panel": "feel",
             "title": "Recovery between sessions",
-            "sub": "Hard days cost less",
+            "sub": "“Has actually changed my recovery” – Adam H",
             "text": "<p>Recovery is where ageing tends to show up first: the session is fine, the next day isn't. Customers most often report the gap between hard days closing before anything moves in their data.</p>"
           }
         },
@@ -673,10 +706,10 @@
         "pt": {
           "type": "panel",
           "settings": {
-            "label": "Benefits you can track",
+            "label": "Ways to check",
             "key": "track",
-            "heading": "Then check it\nagainst your data",
-            "lede": "The same four weeks, read on your own device. Every claim here is one you can verify yourself. Open any of them for the mechanism.",
+            "heading": "Three ways\nto check it",
+            "lede": "Use whichever suits you, or all three. Compare against your own starting point at day 30, 60 and 90.",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-benefits-track.jpg?v=1791020038",
             "image_alt": "A runner sitting on a log after a session, checking the watch on their wrist",
             "image_position": "",
@@ -684,40 +717,31 @@
             "cta_link": ""
           }
         },
-        "t1": {
+        "ck1": {
           "type": "benefit",
           "settings": {
             "panel": "track",
-            "title": "HRV & Stress",
-            "sub": "Your nervous system, reporting in",
-            "text": "<p>Heart rate variability is noisy night to night and meaningful month to month. Compare 30-day averages against your own baseline, not against anyone else's number.</p>"
+            "title": "A weekly how-I-feel check-in",
+            "sub": "30 seconds, no device needed",
+            "text": "<p>Once a week, rate your energy, sleep, afternoons and mood out of 10. Felt changes are easy to forget, so writing them down turns a feeling into a record you can look back on.</p>"
           }
         },
-        "t2": {
+        "ck2": {
           "type": "benefit",
           "settings": {
             "panel": "track",
-            "title": "Recovery score",
-            "sub": "How ready you are for today",
-            "text": "<p>Whatever your device calls it, it is a composite of overnight heart rate, HRV and sleep. Watch the proportion of green days across a month rather than any single morning.</p>"
+            "title": "Your training log",
+            "sub": "What your sessions tell you",
+            "text": "<p>Note how hard sessions felt and how ready you were for the next one. Compare a similar week at day 0, day 30 and day 90.</p>"
           }
         },
-        "t3": {
+        "ck3": {
           "type": "benefit",
           "settings": {
             "panel": "track",
-            "title": "Pace of Ageing",
-            "sub": "Trend, not a single morning",
-            "text": "<p>Some wearables now estimate a biological-age or pace-of-ageing figure. It moves slowly by design, which makes it a ninety-day measure rather than a weekly one.</p>"
-          }
-        },
-        "t4": {
-          "type": "benefit",
-          "settings": {
-            "panel": "track",
-            "title": "Sleep",
-            "sub": "Where the overnight repair happens",
-            "text": "<p>Total sleep is the least interesting number here. Look at how much of it is deep and REM, and at how consistent your sleep and wake times have been.</p>"
+            "title": "Your wearable’s 30-day averages",
+            "sub": "HRV, resting heart rate, recovery",
+            "text": "<p>Single nights are noisy. Compare 30-day averages for HRV, resting heart rate and recovery or readiness against your own baseline, not anyone else’s number.</p>"
           }
         }
       },
@@ -728,10 +752,9 @@
         "f3",
         "f4",
         "pt",
-        "t1",
-        "t2",
-        "t3",
-        "t4"
+        "ck1",
+        "ck2",
+        "ck3"
       ],
       "settings": {
         "eyebrow": "Benefits",
@@ -862,7 +885,7 @@
       ],
       "settings": {
         "heading": "Real results,\nfrom real people.",
-        "note": "Ninety days, tracked on their own wearables",
+        "note": "Ninety days, in their own words",
         "ratio": "9/16",
         "field": false,
         "fit": "nad",
@@ -880,7 +903,7 @@
           "settings": {
             "name": "Nicotinamide riboside",
             "dose": "300mg",
-            "group": "Produce",
+            "group": "",
             "text": "A direct NAD+ precursor: your cells convert it in two steps. 300mg is the dose the published human work is built on, not a fraction of it."
           }
         },
@@ -889,7 +912,7 @@
           "settings": {
             "name": "Trimethylglycine",
             "dose": "450mg",
-            "group": "Produce",
+            "group": "",
             "text": "A methyl donor. NAD+ metabolism uses methyl groups up, so TMG puts them back rather than leaving the rest of the pathway competing for them."
           }
         },
@@ -898,7 +921,7 @@
           "settings": {
             "name": "Vitamin D3",
             "dose": "2000IU",
-            "group": "Produce",
+            "group": "",
             "text": "Most people in the UK run low between October and March. Included at a daily dose rather than a token one."
           }
         },
@@ -907,7 +930,7 @@
           "settings": {
             "name": "Vitamin K2 (MK-7)",
             "dose": "100µg",
-            "group": "Produce",
+            "group": "",
             "text": "Pairs with D3: K2 directs calcium towards bone rather than soft tissue. The MK-7 form stays in circulation longest."
           }
         },
@@ -916,7 +939,7 @@
           "settings": {
             "name": "Methylated B complex",
             "dose": "8 vitamins",
-            "group": "Produce",
+            "group": "",
             "text": "Eight B vitamins, every dose declared: thiamin 5mg, riboflavin 5mg, niacin 16mg NE, pantothenic acid 10mg, B6 as P5P 5mg, folate 400µg, B12 100µg and biotin 300µg. Active forms throughout — B6 as P5P, folate and B12 methylated — because NAD+ metabolism spends methyl groups, and these are the forms that put them back without the liver having to convert them first."
           }
         },
@@ -925,7 +948,7 @@
           "settings": {
             "name": "Zinc (bisglycinate)",
             "dose": "15mg",
-            "group": "Produce",
+            "group": "",
             "text": "Chelated for absorption, and easier on an empty stomach than the oxide form."
           }
         },
@@ -934,7 +957,7 @@
           "settings": {
             "name": "Copper (bisglycinate)",
             "dose": "1mg",
-            "group": "Produce",
+            "group": "",
             "text": "Balances the zinc. A daily zinc dose without copper beside it depletes copper over time."
           }
         },
@@ -943,7 +966,7 @@
           "settings": {
             "name": "Grapeseed extract",
             "dose": "150mg",
-            "group": "Protect",
+            "group": "",
             "text": "Polyphenols, standardised rather than a whole-fruit powder, so the dose on the label means something."
           }
         },
@@ -952,7 +975,7 @@
           "settings": {
             "name": "Trans-resveratrol",
             "dose": "50mg",
-            "group": "Protect",
+            "group": "",
             "text": "The trans isomer specifically — the form the research uses, and the one that survives the shelf."
           }
         },
@@ -961,7 +984,7 @@
           "settings": {
             "name": "Coenzyme Q10",
             "dose": "150mg",
-            "group": "Put to work",
+            "group": "",
             "text": "Carries electrons inside the mitochondria. Levels fall from your thirties onwards, and statins lower them further."
           }
         },
@@ -970,7 +993,7 @@
           "settings": {
             "name": "PQQ",
             "dose": "20mg",
-            "group": "Put to work",
+            "group": "",
             "text": "Studied for its role in mitochondrial biogenesis: making new mitochondria rather than only running the ones you have."
           }
         },
@@ -979,7 +1002,7 @@
           "settings": {
             "name": "Bioperine®",
             "dose": "5mg",
-            "group": "Put to work",
+            "group": "",
             "text": "Black pepper extract. It is here because it improves the absorption of several of the ingredients above."
           }
         }
@@ -999,14 +1022,15 @@
         "i19"
       ],
       "settings": {
-        "heading": "Nineteen ingredients.\nOne system.",
-        "heading_right": "Beneath energy,\nrecovery & healthy ageing.",
+        "heading": "Nineteen ingredients.\nEvery dose on the label.",
+        "heading_right": "",
         "all_label": "All",
         "filter_label": "Filter ingredients by what they do",
         "foot": "",
         "fit": "nad",
         "space_top": 100,
-        "space_bottom": 100
+        "space_bottom": 100,
+        "lede": "MUTO supports the 30 trillion cells in your body through NAD+ and other nutrients.\nAlready taking D3, K2, B vitamins, zinc, copper or CoQ10 separately? They’re in here, at the doses shown."
       }
     },
     "steps": {
@@ -1015,9 +1039,9 @@
         "s1": {
           "type": "step",
           "settings": {
-            "chip": "Hour 4",
+            "chip": "Day 0",
             "title": "Take your baseline.",
-            "text": "A 7-day average from your wearable, or a 30-second “how I feel” check-in if you don't wear one.",
+            "text": "Note your starting point: a 30-second how-I-feel check-in, or a 7-day average if you wear a device.",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-baseline.jpg?v=1791020791",
             "image_alt": "A cyclist checking the watch on their wrist, hands resting on the bars",
             "image_position": "50% 35%"
@@ -1050,7 +1074,7 @@
           "settings": {
             "chip": "Day 60–90",
             "title": "Your verdict.",
-            "text": "Look at the whole picture: HRV, resting heart rate, recovery, sleep and how you feel. If you don't see a difference, the guarantee covers you.",
+            "text": "If it’s not for you, you’re covered.",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-verdict.jpg?v=1791020808",
             "image_alt": "Three athletes laughing together after a session, city skyline behind",
             "image_position": "50% 8%"
@@ -1064,8 +1088,8 @@
         "s4"
       ],
       "settings": {
-        "heading": "Not a day\none spike.",
-        "heading_right": "A 90-day\ntest.",
+        "heading": "Not a quick fix.",
+        "heading_right": "A 90-day test.",
         "fit": "nad",
         "space_top": 102,
         "space_bottom": 100
@@ -1278,34 +1302,42 @@
         "q2": {
           "type": "q",
           "settings": {
-            "title": "How long before I notice a difference?",
-            "text": "<p>Most people report the first changes — steadier afternoons, easier recovery between hard sessions — within the first few weeks, before anything moves in their data. The data itself is a 60-to-90-day read. That is why the guarantee runs for ninety days rather than thirty.</p>"
+            "title": "When might I notice something?",
+            "text": "<p>Give it 60 to 90 days, taken daily, before you judge it. Some people notice a difference in their energy or recovery within the first few weeks; others notice nothing early on. Read wearable data as 30-day averages, not single nights. That’s why the guarantee runs for 90 days.</p>"
           }
         },
         "q3": {
           "type": "q",
           "settings": {
-            "title": "Is it safe to take with my other supplements or medication?",
-            "text": "<p>MUTO is a food supplement made in the UK to GMP standards, with every dose declared so you can check it against anything else you take. If you are pregnant, breastfeeding, taking prescription medication or managing a health condition, speak to your doctor before starting anything new — and show them the label, which is the point of printing all nineteen doses on it.</p>"
+            "title": "Is it safe with my other supplements?",
+            "text": "<p>In most cases, yes, and coffee is fine. Watch for doubling up: a separate B complex, zinc, vitamin D, K2 or NAD+ product will overlap with what’s already in MUTO, so check your other labels against ours. If you take prescription medicine, check with your GP or pharmacist first: MUTO contains vitamin K2 (100µg), which can affect blood thinners such as warfarin. Not for use during pregnancy or breastfeeding, or for anyone under 18.</p>"
           }
         },
         "q4": {
           "type": "q",
           "settings": {
-            "title": "What if it doesn't work for me – can I cancel?",
-            "text": "<p>Yes, from your account, with no phone call and no retention script. You can skip, pause or cancel at any time. And if you have taken it for ninety days and can't see a difference, the money-back guarantee covers you in full.</p>"
+            "title": "What if it’s not for me?",
+            "text": "<p>If you subscribe, take MUTO daily and don’t see a difference within 90 days, we’ll refund every subscription payment you’ve made in that time, less our delivery costs. Email <a href=\"mailto:hello@mutolongevity.com\">hello@mutolongevity.com</a> within 90 days of your first order with your name, order number and a line on your experience, and we’ll refund your original payment method within 7 working days. You don’t need to send any wearable data.</p><p>The guarantee covers first-time subscribers buying at muto.co, one claim per customer. One-time purchases and orders through Amazon or other retailers aren’t covered. You can skip, pause or cancel online at any time.</p>"
           }
         },
         "q5": {
           "type": "q",
           "settings": {
-            "title": "Why not just take NR or NMN on its own?",
-            "text": "<p>Because a precursor on its own runs into the rest of the pathway. NAD+ metabolism consumes methyl groups, so TMG is there to replace them; the B vitamins are the cofactors the pathway needs; CoQ10 and PQQ work on the mitochondria the NAD+ is for; and Bioperine improves what you absorb. Nineteen ingredients is not a longer label for its own sake — it is one system rather than one molecule.</p>"
+            "title": "Why not just take NR on its own?",
+            "text": "<p>You can, but NR alone covers one input. MUTO pairs it with nutrients that have authorised roles in how your body makes and uses energy (B vitamins and copper for normal energy-yielding metabolism, zinc for protecting cells from oxidative stress), plus CoQ10, TMG, resveratrol and PQQ. One routine instead of several separate products.</p>"
+          }
+        },
+        "q6": {
+          "type": "q",
+          "settings": {
+            "title": "Do I need a wearable?",
+            "text": "<p>No. A wearable makes tracking easier, but a 30-second weekly check-in (energy, sleep, afternoons, mood, each out of 10) works too. Writing it down is what turns a feeling into a record you can look back on.</p>"
           }
         }
       },
       "block_order": [
         "q1",
+        "q6",
         "q2",
         "q3",
         "q4",
