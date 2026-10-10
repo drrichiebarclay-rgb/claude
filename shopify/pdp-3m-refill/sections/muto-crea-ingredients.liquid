@@ -51,9 +51,28 @@
       </h2>
       {%- if section.settings.lede != blank -%}
         {%- assign mc_lede = section.settings.lede | escape | newline_to_br | split: '<br />' -%}
+        <style>
+          #shopify-section-{{ section.id }} .mc__ing-lede{margin-top:28px;max-width:760px;color:var(--mc-ink-alt)}
+          #shopify-section-{{ section.id }} .mc__ing-sub{margin:0;font-size:18px;line-height:1.35;letter-spacing:-.005em}
+          #shopify-section-{{ section.id }} .mc__ing-note{
+            display:inline-block;margin:20px 0 0;padding:12px 18px;border-radius:12px;
+            font-size:15px;line-height:1.35;color:var(--mc-ink);
+            background:rgba(200,210,207,.42);box-shadow:inset 0 0 0 1px rgba(255,255,255,.5);
+          }
+          #shopify-section-{{ section.id }} .mc__ing-lede + .mc__ing-list,
+          #shopify-section-{{ section.id }} .mc__ing-lede ~ .mc__ing-list{margin-top:44px}
+          @media screen and (min-width:990px){
+            #shopify-section-{{ section.id }} .mc__ing-lede{margin-top:36px}
+            #shopify-section-{{ section.id }} .mc__ing-sub{font-size:20px}
+            #shopify-section-{{ section.id }} .mc__ing-note{font-size:16px}
+            #shopify-section-{{ section.id }} .mc__ing-lede ~ .mc__ing-list{margin-top:56px}
+          }
+        </style>
         <div class="mc__ing-lede">
           {%- for mc_line in mc_lede -%}
-            <p class="mc__prob-lede">{{ mc_line | strip }}</p>
+            {%- assign mc_text = mc_line | strip -%}
+            {%- if mc_text == blank -%}{%- continue -%}{%- endif -%}
+            <p class="{% if forloop.first %}mc__ing-sub{% else %}mc__ing-note{% endif %}">{{ mc_text }}</p>
           {%- endfor -%}
         </div>
       {%- endif -%}
@@ -137,7 +156,7 @@
   "settings": [
     { "type": "textarea", "id": "heading", "label": "Heading", "default": "Nineteen ingredients.\nOne system." },
     { "type": "textarea", "id": "heading_right", "label": "Heading, right margin", "default": "Beneath energy,\nrecovery & healthy ageing.", "info": "Lines typed here sit on the right margin under the ones above, at every width." },
-    { "type": "textarea", "id": "lede", "label": "Subheading", "info": "Optional. Each line is its own paragraph under the heading." },
+    { "type": "textarea", "id": "lede", "label": "Subheading", "info": "Optional. The first line sits under the heading; any further lines are shown as a highlighted note." },
     { "type": "text", "id": "all_label", "label": "\"All\" filter label", "default": "All" },
     { "type": "text", "id": "filter_label", "label": "Filter group label", "default": "Filter ingredients by what they do", "info": "Read aloud by a screen reader, not shown on the page." },
     { "type": "textarea", "id": "foot", "label": "Footnote" },
