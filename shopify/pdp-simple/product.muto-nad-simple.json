@@ -243,42 +243,6 @@
             "text": "<p>Take it every day for 90 days. Not for you? Email us. We’ll give your money back, minus delivery.</p>"
           }
         },
-        "w1": {
-          "type": "athlete",
-          "settings": {
-            "name": "Harry Insley",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-athlete-harry.jpg?v=1791021221",
-            "image_alt": "Harry Insley running across open parkland in a black vest",
-            "image_position": "50% 6%"
-          }
-        },
-        "w2": {
-          "type": "athlete",
-          "settings": {
-            "name": "Yolanda King",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-athlete-yolanda.jpg?v=1791021221",
-            "image_alt": "Yolanda King standing with her arms folded in front of a row of treadmills",
-            "image_position": "50% 32%"
-          }
-        },
-        "w3": {
-          "type": "athlete",
-          "settings": {
-            "name": "Kaisa Larkas",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-athlete-kaisa.jpg?v=1791025477",
-            "image_alt": "Kaisa Larkas running between stations at a HYROX event",
-            "image_position": "50% 27%"
-          }
-        },
-        "w4": {
-          "type": "athlete",
-          "settings": {
-            "name": "Sam Ekstrom",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-athlete-cyclist.jpg?v=1790767821",
-            "image_alt": "Sam Ekstrom on the drops during a Team GB time trial",
-            "image_position": "50% 30%"
-          }
-        },
         "term_1": {
           "type": "term",
           "settings": {
@@ -348,6 +312,13 @@
             "quote": "“I love that this replaces multiple products”",
             "name": "Amy C"
           }
+        },
+        "a0": {
+          "type": "fold",
+          "settings": {
+            "title": "Who it’s for",
+            "text": "<p><strong>Made for adults over 40.</strong> Most of our customers are in their 40s and 50s.</p><p><strong>It’s for you if:</strong> you still work, exercise or look after a family, and you’re not ready to slow down. You feel more tired in the afternoon than you used to. Exercise takes longer to get over. Or you take lots of supplements and don’t know which ones work.</p><p><strong>You don’t need</strong> to be sporty, or own a smartwatch. Walkers, gardeners and gym-goers all take it.</p><p><strong>It’s not for</strong> anyone under 18, or if you’re pregnant or breastfeeding. Take medicine? Ask your doctor first.</p>"
+          }
         }
       },
       "block_order": [
@@ -379,15 +350,12 @@
         "mg6a",
         "mg6b",
         "plan_RAXANa",
+        "a0",
         "a1",
         "a2",
         "a3",
         "a4",
         "a5",
-        "w1",
-        "w2",
-        "w3",
-        "w4",
         "snippet_1",
         "snippet_2",
         "snippet_3",

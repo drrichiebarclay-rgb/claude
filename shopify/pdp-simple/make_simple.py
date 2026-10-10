@@ -88,6 +88,17 @@ setb("buy", "a4", title="Delivery and stopping", text=(
     "<p>Skip, pause or stop online. No phone calls.</p>"))
 setb("buy", "a5", title="Money-back promise", text=(
     "<p>Take it every day for 90 days. Not for you? Email us. We’ll give your money back, minus delivery.</p>"))
+# "Who takes it" athlete card out; a plain "Who it's for" dropdown first in the accordions instead
+keep_blocks("buy", "athlete", set())
+S["buy"]["blocks"]["a0"] = {"type": "fold", "settings": {"title": "Who it’s for", "text": (
+    "<p><strong>Made for adults over 40.</strong> Most of our customers are in their 40s and 50s.</p>"
+    "<p><strong>It’s for you if:</strong> you still work, exercise or look after a family, and you’re not ready to slow down. "
+    "You feel more tired in the afternoon than you used to. Exercise takes longer to get over. "
+    "Or you take lots of supplements and don’t know which ones work.</p>"
+    "<p><strong>You don’t need</strong> to be sporty, or own a smartwatch. Walkers, gardeners and gym-goers all take it.</p>"
+    "<p><strong>It’s not for</strong> anyone under 18, or if you’re pregnant or breastfeeding. Take medicine? Ask your doctor first.</p>")}}
+_o = S["buy"]["block_order"]
+_o.insert(_o.index("a1"), "a0")
 # Fewer, shorter review quotes (verbatim)
 keep_blocks("buy", "snippet", {"snippet_1", "snippet_2", "snippet_3", "snippet_7"})
 
