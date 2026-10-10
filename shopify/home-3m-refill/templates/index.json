@@ -235,7 +235,7 @@
             "image_alt": "A pouch of MUTO Performance Socks, the white sock visible through the front",
             "title": "Performance socks",
             "text": "Premium nylon socks designed for activity, with shaping that holds its fit through every session. Light, breathable and built to move with you, from the first mile to the last rep. Made to the same standard as everything else in the protocol.",
-            "cta_label": "Buy Now",
+            "cta_label": "Start the protocol",
             "cta_link": "shopify://products/socks"
           }
         },
@@ -247,7 +247,7 @@
             "image_alt": "A MUTO Performance Bottle in translucent blue, lit on a dark set",
             "title": "Performance Bottle",
             "text": "A BPA-free bottle built for training days and everything in between. Light enough to carry everywhere and easy to clean, with room for your morning scoop of MUTO Creatine. One bottle, from first meal to final session.",
-            "cta_label": "Buy Now",
+            "cta_label": "Start the protocol",
             "cta_link": "shopify://products/muto-water-bottle"
           }
         }
@@ -726,7 +726,7 @@
             "title": "How it works",
             "text": "<p>Your cells run on NAD+. It’s how they turn food into energy, and how they fund the repair work that keeps you recovering. The harder you train, work and live, the more they use, and supply tends to fall as you get older.</p><p>That’s often where the slowdown starts. Long before you’d call it ageing, you notice it in your afternoons and in how long sessions take to leave your legs.</p><p>MUTO gives your cells the building blocks to make NAD+, plus the nutrients that help them use it: B vitamins for energy, CoQ10 and PQQ for the mitochondria that produce it, and antioxidants to protect the cells doing the work.</p><p>Not a stimulant. Not a quick hit. A better baseline, built every day.</p>",
             "cta_label": "Start the protocol",
-            "cta_link": ""
+            "cta_link": "/products/muto-nad-cellular-complex"
           }
         },
         "sp3": {
@@ -736,7 +736,7 @@
             "title": "Formula",
             "text": "<p>19 ingredients, every dose on the label. No proprietary blends, no fillers.</p><ul><li><strong>NAD+ building blocks:</strong> Nicotinamide Riboside 300mg · TMG 450mg. NR is a form of vitamin B3 your cells use to make NAD+, and TMG is paired with it to support the methylation your body uses to process it.</li><li><strong>Energy and tiredness:</strong> methylated B vitamins, including methylfolate 400µg, methylcobalamin 100µg and P5P 5mg. These are the active forms, which contribute to normal energy-yielding metabolism and the reduction of tiredness and fatigue.</li><li><strong>Cell protection, immunity and muscle:</strong> Zinc 15mg · Copper 1mg · Vitamin D3 50µg (2,000 IU) · Vitamin K2 (MK-7) 100µg. They contribute to the protection of cells from oxidative stress, normal immune function and normal muscle function.</li><li><strong>Mitochondria and plant compounds:</strong> CoQ10 150mg · PQQ 20mg · Grape seed extract 150mg · Trans-resveratrol 50mg · BioPerine 5mg to help absorption.</li></ul><p>Vegan, allergen-free capsules. Made in the UK to GMP standards and third-party tested.</p>",
             "cta_label": "Start the protocol",
-            "cta_link": ""
+            "cta_link": "/products/muto-nad-cellular-complex"
           }
         },
         "sp4": {
@@ -746,7 +746,7 @@
             "title": "Who it's for",
             "text": "<p>People who are still training, still working and not ready to slow down. Most of our customers are in their 40s and 50s.</p><p>If your afternoons fade sooner than they used to, sessions take longer to bounce back from, or you’re taking five supplements and don’t know which one’s working, MUTO is built for you.</p><p>It’s not for anyone chasing a buzz: no caffeine, no stimulants.</p>",
             "cta_label": "Start the protocol",
-            "cta_link": ""
+            "cta_link": "/products/muto-nad-cellular-complex"
           }
         },
         "sp5": {
@@ -756,7 +756,7 @@
             "title": "Protocol",
             "text": "<p>Two capsules with your first meal, every day.</p><p>Before you start, note your baseline: how your afternoons, sleep and recovery feel this week, or your seven-day average if you wear a device. Keep the rest of your routine steady, pick a check-in date, and judge it over 90 days, not one morning.</p><p>Your call. If it’s not for you, you’re covered.</p>",
             "cta_label": "Start the protocol",
-            "cta_link": ""
+            "cta_link": "/products/muto-nad-cellular-complex"
           }
         }
       },
@@ -930,9 +930,9 @@
       ],
       "settings": {
         "product": "muto-nad-cellular-complex",
-        "sticky_cta_label": "Add to cart",
+        "sticky_cta_label": "Start the protocol",
         "sticky_label": "",
-        "plan_cta_label": "Add to cart",
+        "plan_cta_label": "Start the protocol",
         "cta_link": "/products/muto-nad-cellular-complex",
         "sticky_sub": "Cancel, pause or skip anytime",
         "schema_on": true
