@@ -355,9 +355,13 @@
                   assign plan_id = ''
                   assign unit = 0
                   assign was_unit = 0
+                  assign seen_options = ''
                   if product != blank
                     if sub_count > 0
                       for pv in product.variants
+                        assign marker = '|' | append: pv.option1 | append: '|'
+                        unless seen_options contains marker
+                          assign seen_options = seen_options | append: marker
                         for alloc in pv.selling_plan_allocations
                           assign sp_id = ',' | append: alloc.selling_plan.id | append: ','
                           assign sp_nm = alloc.selling_plan.name | downcase | prepend: ',' | append: ','
@@ -383,6 +387,7 @@
                           endif
                           assign seen = seen | plus: 1
                         endfor
+                        endunless
                       endfor
                     else
                       # No selling plans on the product at all — a staging

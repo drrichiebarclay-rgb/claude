@@ -1,11 +1,10 @@
-# Live-ready theme files (10 Oct 2026)
+# Live-ready theme files (12 Oct 2026)
 
-Copy every file here into the live theme at the same path: sections first, then templates.
+Copy every file here into the live theme (Clone Of Live | Buy Box Redesign [31-08]) at the same path: sections first, then templates.
 
-- 11 of the 14 files are the versions on "Clone Of Live | 3M refill plan"; live had no other changes to them.
-- `templates/product.muto-nad.json`, `templates/product.muto-nad-simple.json` and `sections/muto-crea-buy.liquid` are built on the LIVE files with only these
-  copy/design changes applied. They leave out the unreleased 3M refill plan work (90 Day Protocol plan card,
-  hidden-plans setting, £1.83/day note, plan-picker code), so don't take those three from the 3M refill plan theme.
-- `templates/product.muto-nad-simple.json` is a new simple-language test version of the NAD+ page. It does nothing until you link to `?view=muto-nad-simple` or assign the template to the product.
+Only files that still differ from live are here. The rest of the 10 Oct handoff is already live; those files were removed from this folder (they're in git history).
 
-Full list of changes: see the handoff doc.
+- `sections/muto-crea-buy.liquid` is the CURRENT live file with only the new options added (it keeps live's duplicate-option fix). Don't take it from the 3M refill plan theme.
+- `templates/product.muto-nad-creatine-kit.json` is new: the NAD+ page with creatine in the first-order kit. It does nothing until you link to `?view=muto-nad-creatine-kit` or assign the template to the product.
+
+Full list of changes: see `handoff/MUTO_Dev_Handoff_12Oct2026.docx`.
