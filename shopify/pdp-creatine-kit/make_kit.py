@@ -72,10 +72,16 @@ if tone == "normal":
                                   "<a href=\"/pages/faqs#guarantee\">Full details</a></p>")})
 else:
     st.update({"kit_foot_1_pop_title": "Money back for 90 days",
-               "kit_foot_1_pop": ("<p><strong>No risk.</strong> Take it every day for 90 days. Not for you? Email us. "
+               "kit_foot_1_pop": ("<p><strong>No risk.</strong> Take it every day for 90 days. Not for you? Email us within 14 days after your 90 days end. "
                                   "We’ll give your money back, minus delivery.</p>"
                                   "<p>Fewer than 1 in 1,000 people ask for a refund.</p>"
                                   "<p><a href=\"/pages/faqs#guarantee\">Full details</a></p>")})
+
+# One claim window everywhere: 14 days after the 90 days end
+q4 = d["sections"]["faq"]["blocks"]["q4"]["settings"]
+for old in ("within 90 days of your first order", "within 104 days of your first order"):
+    q4["text"] = q4["text"].replace(old, "within 14 days after your 90 days end")
+assert "14 days after your 90 days end" in q4["text"], q4["text"]
 
 open(out, "w").write(head + json.dumps(d, ensure_ascii=False, indent=2) + "\n")
 print("written", out)
