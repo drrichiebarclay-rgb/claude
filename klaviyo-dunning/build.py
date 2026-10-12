@@ -38,10 +38,10 @@ SECURE = "Your card details are held securely by Shopify. We never see or store 
 
 EMAILS = {
     "01_payment_retry": dict(
-        preheader="No action needed. We'll try again in a few days.",
+        preheader="No action needed. We'll try again in 3 days.",
         heading="We couldn't take this month's payment",
         paras=["Your bank turned down this month's payment for your MUTO plan. This usually means the account was a little short on the day.",
-               "<strong>You don't need to do anything.</strong> We'll try again automatically in a few days, and your protocol carries on as normal once it goes through.",
+               "<strong>You don't need to do anything.</strong> We'll try again automatically in 3 days, and your protocol carries on as normal once it goes through.",
                "If you'd rather use a different card, you can change it in under a minute."],
         button="Use a different card", footnote=SECURE),
     "02_update_card": dict(
@@ -57,6 +57,13 @@ EMAILS = {
                "Update your card and we'll pick up where you left off.",
                "Want to pause instead? You can do that from the same page."],
         button="Update card", footnote=SECURE),
+    "05_last_chance": dict(
+        preheader="We'll try one last time in 3 days. After that your plan is cancelled.",
+        heading="Last chance to keep your protocol",
+        paras=["We've tried several times over the past few weeks to take payment for your MUTO plan, without success.",
+               "<strong>We'll try one last time in 3 days.</strong> If that payment doesn't go through, your subscription will be cancelled.",
+               "Update your card now to keep your protocol going. Or, if you'd rather take a break, you can pause it from the same page."],
+        button="Keep my protocol", footnote=SECURE),
     "04_card_expiring": dict(
         preheader="Update it now so your protocol doesn't miss a month.",
         heading="Your card expires soon",
