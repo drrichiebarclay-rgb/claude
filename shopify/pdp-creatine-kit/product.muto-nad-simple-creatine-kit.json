@@ -97,7 +97,8 @@
             "name": "Socks",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-socks.jpg?v=1791023071",
             "image_alt": "A pouch of MUTO Performance Socks, part of the welcome kit",
-            "plans": ""
+            "plans": "",
+            "row_label": "Socks"
           }
         },
         "k2": {
@@ -107,7 +108,8 @@
             "name": "Jar to keep",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-forever-jar.jpg?v=1791023224",
             "image_alt": "The MUTO Forever Jar in its presentation box, part of the welcome kit",
-            "plans": ""
+            "plans": "",
+            "row_label": "Jar to keep"
           }
         },
         "k3": {
@@ -117,7 +119,8 @@
             "name": "12-week guide",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-gift-guide-v2.jpg?v=1791392560",
             "image_alt": "The MUTO 12 Week Protocol Guide, a black book with the formula listed down its cover",
-            "plans": ""
+            "plans": "",
+            "row_label": "12-week guide"
           }
         },
         "k4": {
@@ -127,7 +130,9 @@
             "name": "Chance to win",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-oura.jpg?v=1791022787",
             "image_alt": "An Oura smart ring, the giveaway entry in the welcome kit",
-            "plans": ""
+            "plans": "",
+            "row_label": "Chance to win an Oura Ring",
+            "row_note": "Free entry"
           }
         },
         "mg2": {
@@ -327,7 +332,8 @@
             "name": "Creatine",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
             "image_alt": "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate, part of the welcome kit",
-            "plans": ""
+            "plans": "",
+            "row_label": "Creatine"
           }
         }
       },
@@ -390,7 +396,7 @@
         "plans_banner": "Free gifts worth £249 with your first order",
         "plans_label": "Pick a plan",
         "hidden_plans": "",
-        "kit_title": "Free gifts in your first box",
+        "kit_title": "Your first box includes:",
         "gifts_label": "More free gifts later",
         "gifts_text": "",
         "onetime_label": "Just want one jar? Buy once – [price]",
@@ -406,7 +412,13 @@
         "schema_on": true,
         "fit": "nad",
         "space_top": 0,
-        "space_bottom": 100
+        "space_bottom": 100,
+        "kit_itemised": true,
+        "kit_main": "NAD+ Cellular Complex",
+        "kit_main_note": "Included",
+        "kit_foot_1": "Money back for 90 days",
+        "kit_foot_2": "Free delivery",
+        "kit_foot_3": "Stop any time"
       }
     },
     "problem": {

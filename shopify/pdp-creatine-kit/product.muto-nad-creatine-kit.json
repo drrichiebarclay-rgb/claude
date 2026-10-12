@@ -97,7 +97,8 @@
             "name": "Performance Socks",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-socks.jpg?v=1791023071",
             "image_alt": "A pouch of MUTO Performance Socks, part of the welcome kit",
-            "plans": ""
+            "plans": "",
+            "row_label": "Performance Socks"
           }
         },
         "k2": {
@@ -107,7 +108,8 @@
             "name": "Forever Jar",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-forever-jar.jpg?v=1791023224",
             "image_alt": "The MUTO Forever Jar in its presentation box, part of the welcome kit",
-            "plans": ""
+            "plans": "",
+            "row_label": "Forever Jar"
           }
         },
         "k3": {
@@ -117,7 +119,8 @@
             "name": "12-Week Protocol Guide",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-gift-guide-v2.jpg?v=1791392560",
             "image_alt": "The MUTO 12 Week Protocol Guide, a black book with the formula listed down its cover",
-            "plans": ""
+            "plans": "",
+            "row_label": "12-Week Protocol Guide"
           }
         },
         "k4": {
@@ -127,7 +130,9 @@
             "name": "giveaway entry",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-oura.jpg?v=1791022787",
             "image_alt": "An Oura smart ring, the giveaway entry in the welcome kit",
-            "plans": ""
+            "plans": "",
+            "row_label": "Oura Ring 5 prize draw entry",
+            "row_note": "Free entry"
           }
         },
         "mg2": {
@@ -391,7 +396,8 @@
             "name": "Micronised Creatine",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
             "image_alt": "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate, part of the welcome kit",
-            "plans": ""
+            "plans": "",
+            "row_label": "Ultrapure Micronised Creatine"
           }
         }
       },
@@ -462,7 +468,7 @@
         "plans_banner": "Welcome offer with free gifts worth £249",
         "plans_label": "Choose a plan",
         "hidden_plans": "",
-        "kit_title": "Welcome kit — arrives with your first order",
+        "kit_title": "Your first order includes:",
         "gifts_label": "Future Monthly Gifts",
         "gifts_text": "",
         "onetime_label": "Prefer to buy once? One-time purchase – [price]",
@@ -478,7 +484,13 @@
         "schema_on": true,
         "fit": "nad",
         "space_top": 0,
-        "space_bottom": 100
+        "space_bottom": 100,
+        "kit_itemised": true,
+        "kit_main": "NAD+ Cellular Complex",
+        "kit_main_note": "Included",
+        "kit_foot_1": "90-day money-back guarantee",
+        "kit_foot_2": "Free next-day delivery",
+        "kit_foot_3": "Skip or cancel anytime"
       }
     },
     "problem": {
