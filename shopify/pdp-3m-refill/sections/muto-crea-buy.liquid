@@ -701,7 +701,7 @@
                     <p class="mc__kit-title">{{ section.settings.kit_title }}</p>
                   {%- endif -%}
                   {%- if gifts.size > 0 -%}
-                    <ul class="mc__kit-list">
+                    <ul class="mc__kit-list"{% if gifts.size > 4 %} style="grid-template-columns:repeat({{ gifts.size }},minmax(0,1fr));gap:12px"{% endif %}>
                       {{- gifts_html -}}
                     </ul>
                   {%- endif -%}
