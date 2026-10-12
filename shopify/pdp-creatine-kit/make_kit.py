@@ -35,14 +35,14 @@ if tone == "normal":
                "kit_main": "NAD+ Cellular Complex", "kit_main_note": "Included",
                "kit_foot_1": "90-day money-back guarantee", "kit_foot_2": "Free next-day delivery",
                "kit_foot_3": "Skip or cancel anytime"})
-    labels = {"k0": "Ultrapure Micronised Creatine", "k1": "Performance Socks", "k2": "Forever Jar",
+    labels = {"k0": "Ultrapure Micronised Creatine", "k1": "Performance Socks (Size UK 6-11)", "k2": "Forever Jar",
               "k3": "12-Week Protocol Guide", "k4": "Oura Ring 5 prize draw entry"}
 else:
     st.update({"kit_title": "Your first box includes:", "kit_itemised": True,
                "kit_main": "NAD+ Cellular Complex", "kit_main_note": "Included",
                "kit_foot_1": "Money back for 90 days", "kit_foot_2": "Free delivery",
                "kit_foot_3": "Stop any time"})
-    labels = {"k0": "Creatine", "k1": "Socks", "k2": "Jar to keep", "k3": "12-week guide",
+    labels = {"k0": "Creatine", "k1": "Socks (Size UK 6-11)", "k2": "Jar to keep", "k3": "12-week guide",
               "k4": "Chance to win an Oura Ring"}
 for bid, label in labels.items():
     buy["blocks"][bid]["settings"]["row_label"] = label
