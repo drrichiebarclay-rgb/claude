@@ -731,6 +731,8 @@
                       #shopify-section-{{ section.id }} .mc__pop-x{position:absolute;top:14px;right:16px;width:36px;height:36px;padding:0;border:0;background:none;font-size:28px;line-height:1;color:var(--mc-ink);cursor:pointer}
                       #shopify-section-{{ section.id }} .mc__pop-title{margin:0;font-size:22px;font-weight:500;line-height:1.2;letter-spacing:-.01em}
                       #shopify-section-{{ section.id }} .mc__pop-text{margin-top:16px;font-size:16px;line-height:1.5;color:rgba(36,34,35,.84)}
+                      #shopify-section-{{ section.id }} .mc__pop-text > * + *{margin-top:12px}
+                      #shopify-section-{{ section.id }} .mc__pop-text a{color:inherit;text-decoration:underline}
                       #shopify-section-{{ section.id }} .mc__inc + .mc__kit-list,
                       #shopify-section-{{ section.id }} .mc__inc-foot + .mc__kit-list{margin-top:18px}
                     </style>
@@ -746,7 +748,20 @@
                     {%- if section.settings.kit_foot_1 != blank or section.settings.kit_foot_2 != blank or section.settings.kit_foot_3 != blank -%}
                       <ul class="mc__inc-foot">
                         {%- if section.settings.kit_foot_1 != blank -%}
-                          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg>{{ section.settings.kit_foot_1 }}</li>
+                          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg>
+                            {%- if section.settings.kit_foot_1_pop != blank -%}
+                              <button type="button" class="mc__inc-link" aria-haspopup="dialog" onclick="this.nextElementSibling.showModal()">{{ section.settings.kit_foot_1 }}</button>
+                              <dialog class="mc__pop" aria-labelledby="{{ section.id }}-pop1" onclick="if(event.target===this)this.close()">
+                                <div class="mc__pop-box">
+                                  <form method="dialog"><button class="mc__pop-x" aria-label="Close">&times;</button></form>
+                                  <p class="mc__pop-title" id="{{ section.id }}-pop1">{{ section.settings.kit_foot_1_pop_title | default: section.settings.kit_foot_1 }}</p>
+                                  <div class="mc__pop-text">{{ section.settings.kit_foot_1_pop }}</div>
+                                </div>
+                              </dialog>
+                            {%- else -%}
+                              {{ section.settings.kit_foot_1 }}
+                            {%- endif -%}
+                          </li>
                         {%- endif -%}
                         {%- if section.settings.kit_foot_2 != blank -%}
                           <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="8" cy="8" r="6.3"/><path d="M8 4.5V8l2.4 1.6"/></svg>{{ section.settings.kit_foot_2 }}</li>
@@ -1265,6 +1280,8 @@
     { "type": "text", "id": "kit_main", "label": "Itemised list: first row", "info": "E.g. the product itself. Leave empty to skip." },
     { "type": "text", "id": "kit_main_note", "label": "Itemised list: first row note", "default": "Included" },
     { "type": "text", "id": "kit_foot_1", "label": "Itemised list: footer point 1" },
+    { "type": "text", "id": "kit_foot_1_pop_title", "label": "Footer point 1: pop-up title", "info": "Defaults to the point's own text." },
+    { "type": "richtext", "id": "kit_foot_1_pop", "label": "Footer point 1: pop-up text", "info": "When set, point 1 becomes a link that opens this in a pop-up." },
     { "type": "text", "id": "kit_foot_2", "label": "Itemised list: footer point 2" },
     { "type": "text", "id": "kit_foot_3", "label": "Itemised list: footer point 3" },
     { "type": "text", "id": "kit_foot_3_pop_title", "label": "Footer point 3: pop-up title", "info": "Defaults to the point's own text." },

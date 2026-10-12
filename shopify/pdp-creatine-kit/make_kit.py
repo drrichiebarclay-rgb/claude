@@ -62,5 +62,20 @@ else:
     st.update({"kit_foot_3_pop_title": "Stop any time",
                "kit_foot_3_pop": "<p>Going on holiday or running low? Skip a box, move your next order, or stop whenever you want, before your next payment. You’re in control.</p>"})
 
+# "90-day money-back guarantee" opens a pop-up
+if tone == "normal":
+    st.update({"kit_foot_1_pop_title": "90-day money-back guarantee",
+               "kit_foot_1_pop": ("<p><strong>No risk.</strong> Take MUTO every day for 90 days. If you don’t see a difference, "
+                                  "we’ll refund every subscription payment you made in that time, less delivery costs.</p>"
+                                  "<p>Fewer than 0.1% of customers ask for their money back.</p>"
+                                  "<p>For first-time subscribers at muto.co. Just email us within 104 days of your first order. "
+                                  "<a href=\"/pages/faqs#guarantee\">Full details</a></p>")})
+else:
+    st.update({"kit_foot_1_pop_title": "Money back for 90 days",
+               "kit_foot_1_pop": ("<p><strong>No risk.</strong> Take it every day for 90 days. Not for you? Email us. "
+                                  "We’ll give your money back, minus delivery.</p>"
+                                  "<p>Fewer than 1 in 1,000 people ask for a refund.</p>"
+                                  "<p><a href=\"/pages/faqs#guarantee\">Full details</a></p>")})
+
 open(out, "w").write(head + json.dumps(d, ensure_ascii=False, indent=2) + "\n")
 print("written", out)

@@ -372,7 +372,9 @@
         "kit_foot_2": "Free delivery",
         "kit_foot_3": "Stop any time",
         "kit_foot_3_pop_title": "Stop any time",
-        "kit_foot_3_pop": "<p>Going on holiday or running low? Skip a box, move your next order, or stop whenever you want, before your next payment. You’re in control.</p>"
+        "kit_foot_3_pop": "<p>Going on holiday or running low? Skip a box, move your next order, or stop whenever you want, before your next payment. You’re in control.</p>",
+        "kit_foot_1_pop_title": "Money back for 90 days",
+        "kit_foot_1_pop": "<p><strong>No risk.</strong> Take it every day for 90 days. Not for you? Email us. We’ll give your money back, minus delivery.</p><p>Fewer than 1 in 1,000 people ask for a refund.</p><p><a href=\"/pages/faqs#guarantee\">Full details</a></p>"
       }
     },
     "problem": {
