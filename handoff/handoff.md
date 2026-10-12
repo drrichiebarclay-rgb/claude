@@ -3,13 +3,13 @@ title: "MUTO site changes: dev handoff"
 subtitle: "12 October 2026"
 ---
 
-Most of the 10 October handoff is now live. This update covers what's left: **7 files**, all in `shopify/live-ready`. One of them is a new version of the NAD+ product page with creatine in the first-order kit. It changes nothing until you point traffic at it.
+Most of the 10 October handoff is now live. This update covers what's left: **8 files**, all in `shopify/live-ready`. One of them is a new version of the NAD+ product page with creatine in the first-order kit. It changes nothing until you point traffic at it.
 
 # Before you start
 
-- **Copy from:** the folder `shopify/live-ready` in GitHub (repo drrichiebarclay-rgb/claude, branch `claude/faq-page-shopify-redesign-hbqcg8`): <https://github.com/drrichiebarclay-rgb/claude/tree/claude/faq-page-shopify-redesign-hbqcg8/shopify/live-ready>. It now holds only the 7 files still to copy, at their theme paths.
+- **Copy from:** the folder `shopify/live-ready` in GitHub (repo drrichiebarclay-rgb/claude, branch `claude/faq-page-shopify-redesign-hbqcg8`): <https://github.com/drrichiebarclay-rgb/claude/tree/claude/faq-page-shopify-redesign-hbqcg8/shopify/live-ready>. It now holds only the 8 files still to copy, at their theme paths.
 - **Copy to:** the live theme, Clone Of Live | Buy Box Redesign [31-08] (ID 200736047451). Sections first, then templates, or a template save fails on settings its section doesn't have yet.
-- **How the folder was made:** on 12 Oct I compared each live-ready file with the live theme. 8 were identical, so they're done and were removed from the folder. The 7 left are below.
+- **How the folder was made:** on 12 Oct I compared each live-ready file with the live theme. 8 were identical, so they're done and were removed from the folder. What's left is below.
 - **Buy section is built on today's live file.** Live's `sections/muto-crea-buy.liquid` now has your duplicate-option fix (`seen_options`). The live-ready copy is that exact file with the new options merged in, so the fix stays. Don't take this section from the 3M refill plan theme: that copy still carries the unreleased 3M refill plan code.
 - **To see the new pages working:** preview the 3M refill plan theme (ID 202682564955): <https://muto.co/products/muto-nad-cellular-complex?view=muto-nad-live-creatine-kit&preview_theme_id=202682564955>. In live the template is named `product.muto-nad-creatine-kit.json`.
 
@@ -17,7 +17,7 @@ Most of the 10 October handoff is now live. This update covers what's left: **7 
 
 These match live exactly: `muto-crea-ingredients`, `muto-home-board` and `muto-home-science` sections; home (`index.json`), `page.muto-home`, `page.about-us`, `page.about-muto` and `product.muto-socks` templates; the review card in the buy section; and the NAD+ product description.
 
-# The 7 files to copy
+# The 8 files to copy
 
 | File | Page | What changed |
 |---|---|---|
@@ -28,10 +28,24 @@ These match live exactly: `muto-crea-ingredients`, `muto-home-board` and `muto-h
 | `templates/product.muto-bottle.json` | Bottle product page | Not shipped last time. "Shop the protocol" NAD+ tab: new subheader, three steps, "What's inside" label (same as socks, which is live). |
 | `templates/product.muto-nad-simple.json` | Simple NAD+ page (test) | Live has the 3M refill plan theme's version, which includes the unreleased "3 months £135" plan card (`plan_RAXANa`). This copy is built on the live product page and leaves that card out. Copy it unless the 3-month plan is meant to be on this page. |
 | `templates/product.muto-nad-creatine-kit.json` | **New:** NAD+ page with creatine kit | See below. |
+| `templates/product.muto-socks.json` | Socks product page | Only change: "Use the product's own images" switched on (see below). |
 
-# New buy section options
+Every product template in this folder also has "Use the product's own images" switched on.
 
-All are in `sections/muto-crea-buy.liquid`. They only appear when filled in, and today only the creatine-kit template uses them.
+# Product images come from Shopify admin
+
+New setting in `sections/muto-crea-buy.liquid`: **Use the product's own images** (`gallery_from_product`, off by default).
+
+- When it's on, the gallery and thumbnails show the product's images from Products → Media in Shopify admin, in that order, with each image's alt text (product title if blank). Change, add or reorder images there and the product page updates; no theme edit needed.
+- When it's off, or the product has no images, the gallery uses the "Gallery image" blocks as before.
+- It's on in every product template in this folder (NAD+, simple NAD+, creatine-kit NAD+, bottle, socks).
+- **NAD+ pages will change** when this ships: they'll show the 3 images now in the product's Media (the kit banner, "19 ingredients. Nothing hidden." and the label/jar shot) instead of the old gallery (kit set + two cyclist photos). Bottle and socks look the same, because their Media already matches.
+- **Creatine page:** its template isn't in this folder. Turn the setting on in the theme editor (product page → Buy box → "Use the product's own images") after copying the section. Its Media already matches its gallery.
+- Images should be 4:3 (1290×968 today) to fit the gallery frame without cropping.
+
+# Kit options
+
+These are also in `sections/muto-crea-buy.liquid`. They only appear when filled in, and today only the creatine-kit template uses them.
 
 - **Wider kit grid:** with more than 4 gifts, the kit images sit on one row (one column per gift) instead of wrapping.
 - **Itemised list** (`kit_itemised`, `kit_main`, `kit_main_note`): an "includes" list above the kit images. It shows the main product, then one row per gift with its value struck through and "Free". Each gift block gets `row_label` (row name) and `row_note` (replaces "Free", e.g. "Free entry").
@@ -82,7 +96,7 @@ Most of these are copy decisions for Richie, not dev work.
 
 # Check after publishing
 
-1. **NAD+ product page:** looks exactly as it does today. No itemised list, the ticked rows are still there, the review card still rotates, and plan picking still works (the duplicate-option fix is kept).
+1. **NAD+ product page:** the gallery shows the 3 images from the product's Media in admin. Everything else looks as it does today: no itemised list, the ticked rows are still there, the review card still rotates, and plan picking still works (the duplicate-option fix is kept).
 2. **Creatine-kit page:** open /products/muto-nad-cellular-complex?view=muto-nad-creatine-kit.
    - Five kit images sit on one row, under the itemised list.
    - Each pop-up opens and closes.
