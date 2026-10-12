@@ -93,7 +93,7 @@ CATEGORIES = [
         ("Who is covered?", p(
             "The guarantee covers first-time MUTO subscribers buying at muto.co, one claim per customer. One-time purchases aren’t covered, and neither are orders through Amazon or other retailers. Contact them directly.")),
         ("How do I claim?", p(
-            f"Email {MAILTO} with your name, order number and a line on your experience, within 104 days of your first order. That’s your full 90 days, plus 14 days to decide. We’ll refund your original payment method within 7 working days of your request. Sharing your wearable data helps us learn but is optional.")),
+            f"Email {MAILTO} with your name, order number and a line on your experience, within 14 days after your 90 days end. We’ll refund your original payment method within 7 working days of your request. Sharing your wearable data helps us learn but is optional.")),
         ("Do I need to send my wearable data?", p(
             "No. Your verdict is yours. If you’d like help reading your data before deciding, send it over and we’ll go through it with you.")),
     ]),

@@ -174,8 +174,7 @@ faq_items = [
      "breastfeeding, or for anyone under 18.</p>"),
     ("q4", "What if it’s not for me?",
      "<p>If you subscribe, take MUTO daily and don’t see a difference within 90 days, we’ll refund every "
-     "subscription payment you’ve made in that time, less our delivery costs. Email " + EMAIL + " within 90 "
-     "days of your first order with your name, order number and a line on your experience, and we’ll refund "
+     "subscription payment you’ve made in that time, less our delivery costs. Email " + EMAIL + " within 14 days after your 90 days end with your name, order number and a line on your experience, and we’ll refund "
      "your original payment method within 7 working days. You don’t need to send any wearable data.</p>"
      "<p>The guarantee covers first-time subscribers buying at muto.co, one claim per customer. One-time "
      "purchases and orders through Amazon or other retailers aren’t covered. You can skip, pause or cancel "

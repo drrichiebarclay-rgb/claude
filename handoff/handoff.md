@@ -93,7 +93,7 @@ Both are the live files with these changes applied, and nothing else.
 
 Not in the 13 files. Most are copy decisions for Richie, not dev work.
 
-- [ ] **Refund policy** (Settings → Policies) still describes a 30-day guarantee with a wearable export. Rewrite it to the FAQ terms: 90 days, first-time subscribers at muto.co, less delivery costs, claim within 104 days, wearable data optional.
+- [ ] **Refund policy** (Settings → Policies) still describes a 30-day guarantee with a wearable export. Rewrite it to the FAQ terms: 90 days, first-time subscribers at muto.co, less delivery costs, claim within 14 days after the 90 days end, wearable data optional.
 - [ ] **"Full refund" wording** on the NAD+ product page: the "90-Day Money back Guarantee" accordion and the guarantee section say "in full". The FAQ says "less our delivery costs".
 - [ ] **"Pre-Order Now - Arrives 15/10"** is hard-coded in the Add to Cart button in `muto-crea-buy.liquid`, not a setting. Remove it after 15 Oct.
 - [ ] **"Feel it in days, your data proves it by day 30"** banner: not found in these templates yet. Align it to 60–90 days.

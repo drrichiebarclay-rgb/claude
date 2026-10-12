@@ -231,7 +231,7 @@ faqs = {
     "q3": ("Is it safe with my other pills?",
            "<p>Usually, yes. Coffee is fine too.</p><p>Take medicine? Ask your doctor first, especially if you take a blood thinner like warfarin.</p>"),
     "q4": ("What if it’s not for me?",
-           f"<p>Email {EMAIL} within 104 days of your first order. We’ll give back what you paid, minus delivery.</p>"
+           f"<p>Email {EMAIL} within 14 days after your 90 days end. We’ll give back what you paid, minus delivery.</p>"
            "<p>This is for first-time subscribers who buy at muto.co.</p>"),
     "q5": ("Why not just take one vitamin?",
            "<p>You can. But MUTO puts 19 things in 2 capsules. One jar instead of lots of pots.</p>"),

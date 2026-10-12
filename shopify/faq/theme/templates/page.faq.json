@@ -259,7 +259,7 @@
           "type": "faq",
           "settings": {
             "heading": "How do I claim?",
-            "content": "<p>Email <a href=\"mailto:hello@mutolongevity.com\">hello@mutolongevity.com</a> with your name, order number and a line on your experience, within 104 days of your first order. That’s your full 90 days, plus 14 days to decide. We’ll refund your original payment method within 7 working days of your request. Sharing your wearable data helps us learn but is optional.</p>"
+            "content": "<p>Email <a href=\"mailto:hello@mutolongevity.com\">hello@mutolongevity.com</a> with your name, order number and a line on your experience, within 14 days after your 90 days end. We’ll refund your original payment method within 7 working days of your request. Sharing your wearable data helps us learn but is optional.</p>"
           }
         },
         "faq_q20": {
