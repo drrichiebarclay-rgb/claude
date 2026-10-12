@@ -68,7 +68,7 @@ if tone == "normal":
                "kit_foot_1_pop": ("<p><strong>No risk.</strong> Take MUTO every day for 90 days. If you don’t see a difference, "
                                   "we’ll refund every subscription payment you made in that time, less delivery costs.</p>"
                                   "<p>Fewer than 0.1% of customers ask for their money back.</p>"
-                                  "<p>For first-time subscribers at muto.co. Just email us within 104 days of your first order. "
+                                  "<p>For first-time subscribers at muto.co. Just email us within 15 days after your 90 days end. "
                                   "<a href=\"/pages/faqs#guarantee\">Full details</a></p>")})
 else:
     st.update({"kit_foot_1_pop_title": "Money back for 90 days",
