@@ -284,48 +284,6 @@
             "image_position": "50% 30%"
           }
         },
-        "term_1": {
-          "type": "term",
-          "settings": {
-            "text": "90-day money-back guarantee",
-            "plans": ""
-          }
-        },
-        "term_2": {
-          "type": "term",
-          "settings": {
-            "text": "Free next-day delivery",
-            "plans": ""
-          }
-        },
-        "term_3": {
-          "type": "term",
-          "settings": {
-            "text": "Free with your first order: Ultrapure Micronised Creatine Monohydrate, performance socks, Forever Jar, 12-week protocol guide",
-            "plans": ""
-          }
-        },
-        "term_4": {
-          "type": "term",
-          "settings": {
-            "text": "A thank-you gift with each order up to month 6",
-            "plans": ""
-          }
-        },
-        "term_5": {
-          "type": "term",
-          "settings": {
-            "text": "Entry to our Oura Ring 5 prize draw (<a href=\"/pages/better-baseline-giveaway\">T&amp;Cs</a>)",
-            "plans": ""
-          }
-        },
-        "term_6": {
-          "type": "term",
-          "settings": {
-            "text": "Skip, pause or cancel online, with a reminder 5 days before each payment",
-            "plans": ""
-          }
-        },
         "snippet_1": {
           "type": "snippet",
           "settings": {
@@ -413,12 +371,6 @@
         "t2",
         "t3",
         "p1",
-        "term_1",
-        "term_2",
-        "term_3",
-        "term_4",
-        "term_5",
-        "term_6",
         "k0",
         "k1",
         "k2",
@@ -490,7 +442,9 @@
         "kit_main_note": "Included",
         "kit_foot_1": "90-day money-back guarantee",
         "kit_foot_2": "Free next-day delivery",
-        "kit_foot_3": "Skip or cancel anytime"
+        "kit_foot_3": "Skip or cancel anytime",
+        "kit_foot_3_pop_title": "Skip or cancel anytime",
+        "kit_foot_3_pop": "<p>Going on holiday or running low? Skip a delivery, delay your next order, or cancel whenever you want, before your next charge. Total control, zero pressure.</p>"
       }
     },
     "problem": {

@@ -48,5 +48,19 @@ for bid, label in labels.items():
     buy["blocks"][bid]["settings"]["row_label"] = label
 buy["blocks"]["k4"]["settings"]["row_note"] = "Free entry"
 
+# The ticked reassurance rows go: the itemised list now carries that message
+terms = [b for b in buy["block_order"] if buy["blocks"][b]["type"] == "term"]
+for b in terms:
+    del buy["blocks"][b]
+buy["block_order"] = [b for b in buy["block_order"] if b not in terms]
+
+# "Skip or cancel anytime" opens a pop-up
+if tone == "normal":
+    st.update({"kit_foot_3_pop_title": "Skip or cancel anytime",
+               "kit_foot_3_pop": "<p>Going on holiday or running low? Skip a delivery, delay your next order, or cancel whenever you want, before your next charge. Total control, zero pressure.</p>"})
+else:
+    st.update({"kit_foot_3_pop_title": "Stop any time",
+               "kit_foot_3_pop": "<p>Going on holiday or running low? Skip a box, move your next order, or stop whenever you want, before your next payment. You’re in control.</p>"})
+
 open(out, "w").write(head + json.dumps(d, ensure_ascii=False, indent=2) + "\n")
 print("written", out)

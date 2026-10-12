@@ -248,48 +248,6 @@
             "text": "<p>Take it every day for 90 days. Not for you? Email us. We’ll give your money back, minus delivery.</p>"
           }
         },
-        "term_1": {
-          "type": "term",
-          "settings": {
-            "text": "90 days to try it, or your money back",
-            "plans": ""
-          }
-        },
-        "term_2": {
-          "type": "term",
-          "settings": {
-            "text": "Free next-day delivery",
-            "plans": ""
-          }
-        },
-        "term_3": {
-          "type": "term",
-          "settings": {
-            "text": "Free in your first box: creatine, socks, a jar and a guide",
-            "plans": ""
-          }
-        },
-        "term_4": {
-          "type": "term",
-          "settings": {
-            "text": "A small gift in each box, up to month 6",
-            "plans": ""
-          }
-        },
-        "term_5": {
-          "type": "term",
-          "settings": {
-            "text": "A chance to win an Oura Ring (<a href=\"/pages/better-baseline-giveaway\">rules</a>)",
-            "plans": ""
-          }
-        },
-        "term_6": {
-          "type": "term",
-          "settings": {
-            "text": "Pause or stop online. We email you before we charge you.",
-            "plans": ""
-          }
-        },
         "snippet_1": {
           "type": "snippet",
           "settings": {
@@ -349,12 +307,6 @@
         "t2",
         "t3",
         "p1",
-        "term_1",
-        "term_2",
-        "term_3",
-        "term_4",
-        "term_5",
-        "term_6",
         "k0",
         "k1",
         "k2",
@@ -418,7 +370,9 @@
         "kit_main_note": "Included",
         "kit_foot_1": "Money back for 90 days",
         "kit_foot_2": "Free delivery",
-        "kit_foot_3": "Stop any time"
+        "kit_foot_3": "Stop any time",
+        "kit_foot_3_pop_title": "Stop any time",
+        "kit_foot_3_pop": "<p>Going on holiday or running low? Skip a box, move your next order, or stop whenever you want, before your next payment. You’re in control.</p>"
       }
     },
     "problem": {
