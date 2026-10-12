@@ -377,7 +377,8 @@
         "kit_foot_1_pop": "<p><strong>No risk.</strong> Take it every day for 90 days. Not for you? Email us within 14 days after your 90 days end. We’ll give your money back, minus delivery.</p><p>Fewer than 1 in 1,000 people ask for a refund.</p><p><a href=\"/pages/faqs#guarantee\">Full details</a></p>",
         "kit_foot_4": "No contract",
         "kit_foot_4_pop_title": "No contract",
-        "kit_foot_4_pop": "<p>You’re never tied in. Pause, start again or stop your plan whenever you like, from your account. No questions asked.</p>"
+        "kit_foot_4_pop": "<p>You’re never tied in. Pause, start again or stop your plan whenever you like, from your account. No questions asked.</p>",
+        "gallery_from_product": true
       }
     },
     "problem": {

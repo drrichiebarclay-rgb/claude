@@ -65,6 +65,19 @@
   assign qty_id = 'mc-qty-' | append: section.id
 
   assign slides = section.blocks | where: 'type', 'slide'
+  comment
+    Gallery from the product's own media (Shopify admin → Products → Media), so
+    changing the product images there changes this page. Falls back to the
+    Gallery image blocks when the setting is off or the product has no images.
+  endcomment
+  assign use_pm = false
+  if section.settings.gallery_from_product and product != blank
+    assign pm = product.media | where: 'media_type', 'image'
+    if pm.size > 0
+      assign use_pm = true
+      assign slides = pm
+    endif
+  endif
   assign points = section.blocks | where: 'type', 'point'
   assign pills = section.blocks | where: 'type', 'trust'
   assign plans = section.blocks | where: 'type', 'plan'
@@ -189,11 +202,22 @@
                         assign slide_fetch = 'high'
                       endif
                     -%}
-                    <div data-mc-slide {% unless forloop.first %}hidden{% endunless %} {{ slide.shopify_attributes }}>
+                    {%- liquid
+                      if use_pm
+                        assign slide_img = slide.preview_image
+                        assign slide_fb = ''
+                        assign slide_alt = slide.alt | default: product.title
+                      else
+                        assign slide_img = slide.settings.image
+                        assign slide_fb = slide.settings.image_fallback
+                        assign slide_alt = slide.settings.image_alt
+                      endif
+                    -%}
+                    <div data-mc-slide {% unless forloop.first %}hidden{% endunless %} {% unless use_pm %}{{ slide.shopify_attributes }}{% endunless %}>
                       {% render 'muto-image',
-                        image: slide.settings.image,
-                        fallback: slide.settings.image_fallback,
-                        alt: slide.settings.image_alt,
+                        image: slide_img,
+                        fallback: slide_fb,
+                        alt: slide_alt,
                         ratio: '792/594',
                         sizes: '(min-width: 990px) 792px, 92vw',
                         widths: '560,792,1100,1584',
@@ -217,13 +241,23 @@
               {%- if slides.size > 1 -%}
                 <div class="mc__thumbs mc__rail" data-mc-rail hidden>
                   {%- for slide in slides -%}
-                    {%- assign thumb_alt = slide.settings.image_alt | default: 'Product view' -%}
+                    {%- liquid
+                      if use_pm
+                        assign thumb_img = slide.preview_image
+                        assign thumb_fb = ''
+                        assign thumb_alt = slide.alt | default: 'Product view'
+                      else
+                        assign thumb_img = slide.settings.image
+                        assign thumb_fb = slide.settings.image_fallback
+                        assign thumb_alt = slide.settings.image_alt | default: 'Product view'
+                      endif
+                    -%}
                     <button class="mc__thumb" type="button" data-mc-thumb
                       aria-current="{% if forloop.first %}true{% else %}false{% endif %}"
                       aria-label="{{ 'Show image ' | append: forloop.index | escape }}">
                       {% render 'muto-image',
-                        image: slide.settings.image,
-                        fallback: slide.settings.image_fallback,
+                        image: thumb_img,
+                        fallback: thumb_fb,
                         alt: thumb_alt,
                         ratio: '1/1',
                         sizes: '56px',
@@ -1289,6 +1323,7 @@
     { "type": "image_picker", "id": "image", "label": "Image" },
     { "type": "text", "id": "image_fallback", "label": "Fallback image URL" },
     { "type": "text", "id": "image_alt", "label": "Alt text", "default": "The MUTO creatine pouch photographed with the NAD+ Cellular Complex set" },
+    { "type": "checkbox", "id": "gallery_from_product", "label": "Use the product's own images", "default": false, "info": "Gallery shows the images from Products → Media in Shopify admin, in that order. Change them there and this page updates. Gallery image blocks are used only when this is off or the product has no images." },
     { "type": "text", "id": "gallery_position", "label": "Image focus", "info": "CSS object-position. The artboard crops to the right of the set.", "default": "100% 50%" },
     { "type": "header", "content": "Why this? note" },
     { "type": "text", "id": "note_title", "label": "Title", "default": "Why this?" },

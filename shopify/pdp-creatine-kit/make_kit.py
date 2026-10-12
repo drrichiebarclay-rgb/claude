@@ -85,6 +85,9 @@ else:
     st.update({"kit_foot_4": "No contract", "kit_foot_4_pop_title": "No contract",
                "kit_foot_4_pop": "<p>You’re never tied in. Pause, start again or stop your plan whenever you like, from your account. No questions asked.</p>"})
 
+# Gallery follows the product images in Shopify admin
+st["gallery_from_product"] = True
+
 # One claim window everywhere: 14 days after the 90 days end
 q4 = d["sections"]["faq"]["blocks"]["q4"]["settings"]
 for old in ("within 90 days of your first order", "within 104 days of your first order"):

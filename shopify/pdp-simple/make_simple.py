@@ -242,5 +242,10 @@ for bid, (title, text) in faqs.items():
 # --- Sticky bar -----------------------------------------------------------------------------
 S["sticky"]["settings"].update({"sticky_cta_label": "Add to cart", "sticky_sub": "Pause or stop any time"})
 
+# Gallery follows the product images in Shopify admin
+for _sec in d["sections"].values():
+    if _sec["type"] == "muto-crea-buy":
+        _sec["settings"]["gallery_from_product"] = True
+
 open(out, "w").write(head + json.dumps(d, ensure_ascii=False, indent=2) + "\n")
 print("written", out)
