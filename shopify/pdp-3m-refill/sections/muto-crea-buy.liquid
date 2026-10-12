@@ -729,7 +729,9 @@
                       #shopify-section-{{ section.id }} .mc__inc-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 16px;margin:10px 0 0;padding:12px 0 0;border-top:1px solid var(--mc-ink);list-style:none;font-size:12.5px;line-height:1.3;color:var(--mc-ink)}
                       #shopify-section-{{ section.id }} .mc__inc-foot li{display:inline-flex;align-items:center;gap:6px}
                       #shopify-section-{{ section.id }} .mc__inc-foot svg{flex:0 0 auto;width:14px;height:14px}
-                      #shopify-section-{{ section.id }} .mc__inc-link{padding:0;border:0;background:none;font:inherit;color:inherit;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+                      #shopify-section-{{ section.id }} .mc__inc-foot li.mc__inc-foot-m{display:none}
+                      @media (max-width:749px){#shopify-section-{{ section.id }} .mc__inc-foot--4{display:grid;grid-template-columns:1fr 1fr;gap:10px 16px}#shopify-section-{{ section.id }} .mc__inc-foot li.mc__inc-foot-m{display:inline-flex}}
+                      #shopify-section-{{ section.id }} .mc__inc-link{padding:0;border:0;background:none;font:inherit;text-align:left;color:inherit;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
                       #shopify-section-{{ section.id }} .mc__pop{width:min(560px,calc(100% - 32px));padding:0;border:0;border-radius:20px;background:#fff;color:var(--mc-ink);box-shadow:0 20px 60px rgba(22,47,49,.25)}
                       #shopify-section-{{ section.id }} .mc__pop::backdrop{background:rgba(22,47,49,.45)}
                       #shopify-section-{{ section.id }} .mc__pop-box{position:relative;padding:36px 40px 40px;text-align:center}
@@ -750,8 +752,8 @@
                       {%- endif -%}
                       {{- inc_rows -}}
                     </ul>
-                    {%- if section.settings.kit_foot_1 != blank or section.settings.kit_foot_2 != blank or section.settings.kit_foot_3 != blank -%}
-                      <ul class="mc__inc-foot">
+                    {%- if section.settings.kit_foot_1 != blank or section.settings.kit_foot_2 != blank or section.settings.kit_foot_3 != blank or section.settings.kit_foot_4 != blank -%}
+                      <ul class="mc__inc-foot{% if section.settings.kit_foot_4 != blank %} mc__inc-foot--4{% endif %}">
                         {%- if section.settings.kit_foot_1 != blank -%}
                           <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg>
                             {%- if section.settings.kit_foot_1_pop != blank -%}
@@ -784,6 +786,22 @@
                               </dialog>
                             {%- else -%}
                               {{ section.settings.kit_foot_3 }}
+                            {%- endif -%}
+                          </li>
+                        {%- endif -%}
+                        {%- if section.settings.kit_foot_4 != blank -%}
+                          <li class="mc__inc-foot-m"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7"/></svg>
+                            {%- if section.settings.kit_foot_4_pop != blank -%}
+                              <button type="button" class="mc__inc-link" aria-haspopup="dialog" onclick="this.nextElementSibling.showModal()">{{ section.settings.kit_foot_4 }}</button>
+                              <dialog class="mc__pop" aria-labelledby="{{ section.id }}-pop4" onclick="if(event.target===this)this.close()">
+                                <div class="mc__pop-box">
+                                  <form method="dialog"><button class="mc__pop-x" aria-label="Close">&times;</button></form>
+                                  <p class="mc__pop-title" id="{{ section.id }}-pop4">{{ section.settings.kit_foot_4_pop_title | default: section.settings.kit_foot_4 }}</p>
+                                  <div class="mc__pop-text">{{ section.settings.kit_foot_4_pop }}</div>
+                                </div>
+                              </dialog>
+                            {%- else -%}
+                              {{ section.settings.kit_foot_4 }}
                             {%- endif -%}
                           </li>
                         {%- endif -%}
@@ -1291,6 +1309,9 @@
     { "type": "text", "id": "kit_foot_3", "label": "Itemised list: footer point 3" },
     { "type": "text", "id": "kit_foot_3_pop_title", "label": "Footer point 3: pop-up title", "info": "Defaults to the point's own text." },
     { "type": "richtext", "id": "kit_foot_3_pop", "label": "Footer point 3: pop-up text", "info": "When set, point 3 becomes a link that opens this in a pop-up." },
+    { "type": "text", "id": "kit_foot_4", "label": "Itemised list: footer point 4 (mobile only)", "info": "Shown on phones only, under the other three." },
+    { "type": "text", "id": "kit_foot_4_pop_title", "label": "Footer point 4: pop-up title", "info": "Defaults to the point's own text." },
+    { "type": "richtext", "id": "kit_foot_4_pop", "label": "Footer point 4: pop-up text", "info": "When set, point 4 becomes a link that opens this in a pop-up." },
     { "type": "text", "id": "gifts_label", "label": "Expander" },
     { "type": "richtext", "id": "gifts_text", "label": "Expander copy", "default": "<p>Add what arrives in the months after the first.</p>" },
     { "type": "text", "id": "onetime_label", "label": "One-time line", "default": "Prefer to buy one? One-time purchase – [price]", "info": "Write [price] where the price should go and it is filled in from the product. Anything else here is used exactly as typed." },
