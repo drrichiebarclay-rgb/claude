@@ -139,7 +139,7 @@ cmp["settings"].update({
     "col_3": COMPARE["cols"][2], "col_4": COMPARE["cols"][3],
 })
 # Compact layout: short rows, smaller type, hairlines, and group labels so the table scans in one view
-cmp["settings"].update({"density": "compact", "head_gap": 40, "claim_width": 560, "col_pitch": 160,
+cmp["settings"].update({"density": "compact", "head_gap": 40, "claim_width": 562, "col_pitch": 160,
                         "panel_width": 120, "space_top": 70, "space_bottom": 70})
 GROUPS = {
     "normal": {1: "The NAD+ part", 2: "What else is inside", 6: "Proof and promises",
