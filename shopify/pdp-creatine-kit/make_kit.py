@@ -100,36 +100,28 @@ st["gallery_from_product"] = True
 # Comparison: position against NAD+-only products, then what MUTO adds, trust signals and the kit
 COMPARE = {
     "normal": dict(
-        heading="More than NAD⁺.\nOne daily protocol.",
-        cols=("MUTO", "NAD+ alone", "DIY stack", "Drips & clinics"),
+        heading="The smarter way\nto buy NAD\u207a.",
+        cols=("MUTO", "NAD+ alone", "Buying separately", "NAD+ drips"),
         rows=[
-            ("Nicotinamide riboside (NR), the NAD+ building block, 300mg", "yes", "yes", "yes", "dash"),
-            ("Plus methylated B vitamins for normal energy-yielding metabolism", "yes", "no", "yes", "dash"),
-            ("Plus zinc, copper, vitamin D3 and K2", "yes", "no", "yes", "dash"),
-            ("Plus CoQ10, TMG, PQQ, grape seed and resveratrol", "yes", "no", "yes", "no"),
-            ("All 19 ingredients in two capsules a day", "yes", "no", "no", "no"),
-            ("Every dose on the label, no proprietary blends", "yes", "dash", "dash", "dash"),
-            ("Made in the UK to GMP standards", "yes", "dash", "dash", "dash"),
-            ("Reviewed by our Scientific Advisory Board", "yes", "dash", "dash", "dash"),
+            ("NR 300mg, the NAD+ building block", "yes", "yes", "yes", "dash"),
+            ("Plus 18 ingredients that work with it", "yes", "no", "yes", "dash"),
+            ("One routine: two capsules a day", "yes", "yes", "no", "no"),
+            ("All 19 ingredients for \u00a32 a day", "yes", "no", "no", "no"),
+            ("Every dose on the label, made in the UK", "yes", "dash", "dash", "dash"),
             ("90-day money-back guarantee", "yes", "dash", "dash", "no"),
-            ("Free Ultrapure Creatine and welcome kit with your first order", "yes", "dash", "dash", "dash"),
-            ("An instant effect you feel in minutes", "no", "dash", "dash", "dash"),
+            ("Free Ultrapure Creatine (worth \u00a330) with your first order", "yes", "dash", "dash", "dash"),
         ]),
     "simple": dict(
-        heading="NAD⁺, plus everything\nit works with.",
-        cols=("MUTO", "NAD+ alone", "Lots of pills", "Drips and clinics"),
+        heading="The easy way\nto get NAD\u207a.",
+        cols=("MUTO", "NAD+ alone", "Lots of pills", "NAD+ drips"),
         rows=[
             ("NR, the building block for NAD+", "yes", "yes", "yes", "dash"),
-            ("Plus B vitamins that help reduce tiredness", "yes", "no", "yes", "dash"),
-            ("Plus zinc, copper, vitamin D and K2", "yes", "no", "yes", "dash"),
-            ("Plus CoQ10, TMG, PQQ and resveratrol", "yes", "no", "yes", "no"),
-            ("All of it in just 2 capsules a day", "yes", "no", "no", "no"),
+            ("Plus 18 more ingredients that work with it", "yes", "no", "yes", "dash"),
+            ("Just 2 capsules a day", "yes", "yes", "no", "no"),
+            ("All 19 ingredients for \u00a32 a day", "yes", "no", "no", "no"),
             ("Every amount on the label", "yes", "dash", "dash", "dash"),
-            ("Made in the UK", "yes", "dash", "dash", "dash"),
-            ("Checked by our team of scientists", "yes", "dash", "dash", "dash"),
             ("Money back for 90 days", "yes", "dash", "dash", "no"),
-            ("Free creatine and gifts in your first box", "yes", "dash", "dash", "dash"),
-            ("Instant buzz", "no", "dash", "dash", "dash"),
+            ("Free creatine (worth \u00a330) in your first box", "yes", "dash", "dash", "dash"),
         ]),
 }[tone]
 cmp = d["sections"]["compare"]
@@ -141,12 +133,7 @@ cmp["settings"].update({
 # Compact layout: short rows, smaller type, hairlines, and group labels so the table scans in one view
 cmp["settings"].update({"density": "compact", "head_gap": 40, "claim_width": 562, "col_pitch": 160,
                         "panel_width": 120, "space_top": 70, "space_bottom": 70})
-GROUPS = {
-    "normal": {1: "The NAD+ part", 2: "What else is inside", 6: "Proof and promises",
-               10: "With your first order", 11: "Worth knowing"},
-    "simple": {1: "The NAD+ part", 2: "What else is in it", 6: "Why you can trust it",
-               10: "In your first box", 11: "Worth knowing"},
-}[tone]
+GROUPS = {}  # seven rows read fine without group labels
 cmp["blocks"] = {}
 cmp["block_order"] = []
 for n, (claim, m1, m2, m3, m4) in enumerate(COMPARE["rows"], 1):
