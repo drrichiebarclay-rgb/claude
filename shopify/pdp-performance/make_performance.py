@@ -34,7 +34,7 @@ def b(sec, blk, **kw):
 # Three benefits: energy, recovery, stress, for busy lives in general (work, family,
 # workouts, travel). Felt benefits are framed as what customers report; effect claims
 # are the authorised ones only (B vitamins, vitamin D, zinc, copper). A wearable is optional.
-s("buy", text="<p>For full, busy lives. Energy that lasts into the evening, a faster bounce-back from late nights and workouts, and a steadier head when life piles on. Two capsules a day: 300mg NR plus B vitamins for normal energy-yielding metabolism. 90 days to judge it yourself.</p>")
+s("buy", text="<p>You’re doing more than ever, on less than you need. MUTO is two capsules a day for the energy to get through it all, the bounce-back when it catches up with you, and a calmer head when everything lands at once. Feel the difference in 90 days, or your money back.</p>")
 b("buy", "b1", text="Energy that lasts through the afternoon")
 b("buy", "b2", text="Bounce back from late nights, travel and workouts")
 b("buy", "b3", text="Built for busy, stressful weeks")
