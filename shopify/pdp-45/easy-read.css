@@ -5,42 +5,42 @@ html body .mc .mc__buy-text,html body .mc .mc__body,html body .mc .mc__point,
 html body .mc .mc__acc-body,html body .mc .mc__acc-sum,html body .mc .mc__ben-body,
 html body .mc .mc__ben-lede,html body .mc .mc__ben-name,html body .mc .mc__ben-sub,
 html body .mc .mc__step-text,html body .mc .mc__faq-body,html body .mc .mc__faq-sum,
-html body .mc .mc__gua-text,html body .mc .mc__onetime,html body .mc .mc__note-text{font-size:19px;line-height:1.5}
-html body .mc .mc__buy-text > * + *{margin-top:14px}
-html body .mc .mc__buy-text p:first-child{font-size:23px;line-height:1.35;color:var(--mc-ink-alt)}
+html body .mc .mc__gua-text,html body .mc .mc__onetime,html body .mc .mc__note-text{font-size:17px;line-height:1.5}
+html body .mc .mc__buy-text > * + *{margin-top:12px}
+html body .mc .mc__buy-text p:first-child{font-size:19px;line-height:1.4;color:var(--mc-ink-alt)}
 html body .mc .mc__ben-body,html body .mc .mc__acc-body,html body .mc .mc__faq-body{color:#242223}
 html body .mc .mc__trust li,html body .mc .mc__plan-term,html body .mc .mc__buy-serving,html body .mc .mc__rating-text{font-size:16px}
-html body .mc .mc__plan-name,html body .mc .mc__plan-price{font-size:22px}
+html body .mc .mc__plan-name,html body .mc .mc__plan-price{font-size:20px}
 html body .mc .mc__plan-note,html body .mc .mc__plan-detail,html body .mc .mc__plan-save{font-size:15px;line-height:1.4;color:#242223}
 html body .mc .mc__plans-banner{font-size:16px}
 html body .mc .mc__kit-title{font-size:17px}
 html body .mc .mc__kit-body{font-size:16px;color:#242223}
 html body .mc .mc__kit-name,html body .mc .mc__kit-value,html body .mc .mc__kit-month-n,
 html body .mc .mc__kit-month-v,html body .mc .mc__kit-month-t{font-size:13px;color:#242223}
-html body .mc .mc__btn{font-size:19px;min-height:60px}
-html body .mc .mc__prob-lede{font-size:23px;line-height:1.45}
-html body .mc .mc__prob-quote{font-size:28px;line-height:1.2}
-html body .mc .mc__prob-text{font-size:18px;line-height:1.45}
-html body .mc .mc__step-title{font-size:27px;line-height:1.2}
+html body .mc .mc__btn{font-size:17px;min-height:56px}
+html body .mc .mc__prob-lede{font-size:20px;line-height:1.45}
+html body .mc .mc__prob-quote{font-size:25px;line-height:1.2}
+html body .mc .mc__prob-text{font-size:17px;line-height:1.45}
+html body .mc .mc__step-title{font-size:23px;line-height:1.2}
 html body .mc .mc__step-chip,html body .mc .mc__gua-chip{font-size:16px}
-html body .mc .mc__gua-aside{font-size:26px}
+html body .mc .mc__gua-aside{font-size:22px}
 /* One benefits view only, so no tab switcher */
 html body .mc .mc__tabs{display:none}
-html body .mh .mh__why-title{font-size:28px}
-html body .mh .mh__why-text{font-size:19px;line-height:1.5;color:var(--mh-ink,#162f31)}
-html body .mh .mh__board-note,html body .mh .mh__res-note{font-size:17px;color:#242223}
-html body .mh .mh__res-quote{font-size:17px;line-height:1.45;color:#242223}
+html body .mh .mh__why-title{font-size:25px}
+html body .mh .mh__why-text{font-size:17px;line-height:1.5;color:var(--mh-ink,#162f31)}
+html body .mh .mh__board-note,html body .mh .mh__res-note{font-size:16px;color:#242223}
+html body .mh .mh__res-quote{font-size:16px;line-height:1.45;color:#242223}
 html body .mh .mh__res-detail,html body .mh .mh__res-foot{font-size:14px;color:rgba(35,33,35,.8)}
 html body .mh__sticky-sub{font-size:13px;color:rgba(249,249,249,.85)}
-html body .mh__sticky-btn{font-size:18px}
+html body .mh__sticky-btn{font-size:16px}
 @media (max-width:749px){
   html body .mc .mc__buy-text,html body .mc .mc__body,html body .mc .mc__point,
   html body .mc .mc__acc-body,html body .mc .mc__acc-sum,html body .mc .mc__ben-body,
   html body .mc .mc__ben-lede,html body .mc .mc__ben-name,html body .mc .mc__ben-sub,
   html body .mc .mc__step-text,html body .mc .mc__faq-body,html body .mc .mc__faq-sum,
-  html body .mc .mc__gua-text,html body .mc .mc__onetime{font-size:18px}
-  html body .mc .mc__buy-text p:first-child,html body .mc .mc__prob-lede{font-size:21px}
-  html body .mc .mc__prob-quote{font-size:25px}
-  html body .mc .mc__step-title{font-size:24px}
-  html body .mh .mh__why-text{font-size:18px}
+  html body .mc .mc__gua-text,html body .mc .mc__onetime{font-size:17px}
+  html body .mc .mc__buy-text p:first-child,html body .mc .mc__prob-lede{font-size:18px}
+  html body .mc .mc__prob-quote{font-size:22px}
+  html body .mc .mc__step-title{font-size:21px}
+  html body .mh .mh__why-text{font-size:17px}
 }
