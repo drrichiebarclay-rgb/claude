@@ -30,73 +30,76 @@ def b(sec, blk, **kw):
 
 
 # ---- Buy box ---------------------------------------------------------------
-s("buy", text="<p>For people who train hard and read their data. Two capsules a day built around 300mg NR, the NAD+ building block, plus 18 nutrients, including B vitamins that contribute to normal energy-yielding metabolism and vitamin D for normal muscle function. Every dose on the label. Take a baseline on your wearable, run the 90 days, and judge it on your own numbers.</p>")
-b("buy", "b1", text="Built around NR 300mg, the dose the research uses")
-b("buy", "b2", text="B vitamins for normal energy-yielding metabolism")
-b("buy", "b3", text="Vitamin D for normal muscle function")
+# Three pillars: energy, recovery, stress. Felt benefits are framed as what customers
+# report; effect claims are the authorised ones only (B vitamins, vitamin D, zinc, copper).
+s("buy", text="<p>Energy for the evening session after a full workday. Legs back for the next morning. A steadier head when work and training both pile on. Two capsules a day built around 300mg NR, the NAD+ building block, with B vitamins that contribute to normal energy-yielding metabolism and normal psychological function, and vitamin D for normal muscle function. Take a baseline on your wearable and judge it on your own numbers.</p>")
+b("buy", "b1", text="Energy that lasts to the evening session")
+b("buy", "b2", text="Ready for the next session, not the one after")
+b("buy", "b3", text="Built for weeks when work and training both peak")
 b("buy", "b4", text="Track it on your wearable for 90 days, or your money back")
-b("buy", "a3", text="<p>Two capsules together each morning with your first meal. Fat helps the fat-soluble ingredients absorb, so whatever you already eat first is the right time. Before or after training doesn’t matter; taking it every day does. No cycling, no loading and no rest days.</p>")
-b("buy", "a5", text="<p>Take a 7-day baseline, give it ninety days and compare: HRV, resting heart rate, sleep, recovery score or simply how you feel. If you don’t see a difference, you get your money back in full.</p>")
-# Athlete testimonials first (quotes unchanged, just reordered)
+b("buy", "a3", text="<p>Two capsules together each morning with your first meal. Fat helps the fat-soluble ingredients absorb, so whatever you already eat first is the right time. Before or after training doesn’t matter; taking it every day does. No caffeine, no cycling, no loading and no rest days.</p>")
+b("buy", "a5", text="<p>Take a 7-day baseline, give it ninety days and compare: HRV, resting heart rate, sleep, your recovery or stress score, or simply how you feel. If you don’t see a difference, you get your money back in full.</p>")
+# Training and energy testimonials first (quotes unchanged, just reordered)
 order = S["buy"]["block_order"]
 snips = [k for k in order if k.startswith("snippet_")]
-first = ["snippet_4", "snippet_9", "snippet_3", "snippet_6", "snippet_7", "snippet_1"]
+first = ["snippet_4", "snippet_6", "snippet_9", "snippet_3", "snippet_2", "snippet_1"]
 new_snips = first + [k for k in snips if k not in first]
 it = iter(new_snips)
 S["buy"]["block_order"] = [next(it) if k.startswith("snippet_") else k for k in order]
 
-# ---- Problem ---------------------------------------------------------------
+# ---- Problem: one card per pillar, then the stack ----------------------------
 s("problem",
-  heading="Your training is\nprecise.\nYour stack isn’t.",
-  lede="You’ve dialled in sessions, sleep and fuelling, and you track all of it. Then there’s the supplement shelf: five products, unclear doses, and no way to tell which one is doing anything. MUTO is one protocol you can test against your own data.")
-b("problem", "c1", quote="“The numbers say I’m recovered. My legs disagree.”",
-  text="Readiness scores and felt recovery don’t always line up. You want both.")
-b("problem", "c2", quote="“The second session of the week is the hard one.”",
-  text="Back-to-back training days are where recovery gets tested.")
+  heading="Training stress.\nWork stress.\nOne recovery budget.",
+  lede="Your body doesn’t keep separate accounts. A deadline week and a threshold session draw from the same place, and your HRV shows it. Most supplements ask you to trust them. MUTO is one protocol you can test against your own data.")
+b("problem", "c1", quote="“Nothing left for the 6pm session.”",
+  text="Sharp at 9am. Running on empty by the time you change for training.")
+b("problem", "c2", quote="“Tuesday’s intervals. Wednesday’s dead legs.”",
+  text="The hard session is fine. The one after it is where recovery shows.")
+b("problem", "c4", quote="“HRV down. Deadline up.”",
+  text="Work stress and training stress land in the same numbers. Your watch can’t tell them apart.")
 b("problem", "c3", quote="“A shelf full of pills.”",
   text="Five products, overlapping doses, no idea which one is pulling its weight.")
-b("problem", "c4", quote="“Just trust us.”",
-  text="Proprietary blends and big promises, with nothing you can measure.")
+S["problem"]["block_order"] = ["c1", "c2", "c4", "c3"]
 
 # ---- Why MUTO --------------------------------------------------------------
 b("why", "w1", text="Formulated by Richie Barclay, PhD in cellular biology and nutrition, and reviewed by a board that includes an international rugby performance nutritionist and a sleep doctor. Got a question? Ask him.")
 b("why", "w2", text="Nineteen ingredients, each on the label with its dose and why it’s there. No proprietary blends. Made in the UK to GMP standards and third-party tested batch by batch.")
 b("why", "w3", title="Built to be measured.",
-  text="Take a 7-day baseline of HRV, resting heart rate, sleep and recovery, then compare 30-day averages at day 30 and day 90. Your data, your verdict, with a 90-day guarantee behind it.")
+  text="Take a 7-day baseline of HRV, resting heart rate, sleep, recovery and stress, then compare 30-day averages at day 30 and day 90. Your data, your verdict, with a 90-day guarantee behind it.")
 
 # ---- Board -----------------------------------------------------------------
 s("board", note="Our Scientific Advisory Board: performance, sleep, metabolism and longevity, from international rugby to clinical practice.")
 
-# ---- Benefits: feel + track ------------------------------------------------
-b("benefits", "pf", label="What you’ll feel", heading="What athletes\nnotice first",
-  lede="What customers who train tell us they notice first. Individual experiences, not a promise. Open any of them for more.")
-b("benefits", "f1", title="Energy that holds",
-  sub="“Energy is up and staying consistent” – Jack",
-  text="<p>NAD+ sits at the centre of how your cells turn food into usable energy. Alongside it, B vitamins contribute to normal energy-yielding metabolism and to the reduction of tiredness and fatigue. No stimulant, so nothing to spike and nothing to crash from.</p>")
-b("benefits", "f2", title="Ready for the next session",
+# ---- Benefits: feel (energy, recovery, stress, the block) + track ------------
+b("benefits", "pf", label="What you’ll feel", heading="Energy. Recovery.\nStress.",
+  lede="What customers who train tell us changes first. Individual experiences, not a promise. Open any of them for more.")
+b("benefits", "f1", title="Energy at 6pm, not just 9am",
+  sub="“I have sustained energy, I sleep better, perform better in workouts, and don’t crash anymore” – Danny S",
+  text="<p>The real test isn’t the first hour. It’s whether there’s anything left for the evening session after a full day. NAD+ sits at the centre of how your cells turn food into usable energy, and B vitamins contribute to normal energy-yielding metabolism and the reduction of tiredness and fatigue. No caffeine, so no 4pm crash.</p>")
+b("benefits", "f2", title="Legs back for the next session",
   sub="“I’ve noticed how Muto has helped me recover faster meaning I can train harder, more often” – Ayo P",
-  text="<p>The hard session is rarely the problem; the one after it is. That gap between back-to-back days is what customers who train most often tell us changes first, usually before anything moves in their data.</p>")
-b("benefits", "f3", title="Built for training blocks",
+  text="<p>Back-to-back days are the test: Tuesday’s intervals, then Wednesday’s run. That gap is what customers who train most often tell us changes first, often before anything moves in their data. Vitamin D contributes to normal muscle function.</p>")
+b("benefits", "f3", title="A steadier head in heavy weeks",
+  sub="“More focused during the day” – Alexandra",
+  text="<p>Big work week, big training week, same body. Vitamins B6, B12, thiamin, niacin and biotin contribute to normal psychological function, and pantothenic acid to normal mental performance. Customers describe the heavy weeks feeling less heavy.</p>")
+b("benefits", "f4", title="Through a full training block",
   sub="“I started taking Muto for my Boston Marathon training hoping to have better recovery; and it did not disappoint” – Rebeca",
-  text="<p>A protocol, not a pre-workout. Two capsules every day through the block, with vitamin D contributing to normal muscle function and zinc and copper to the protection of cells from oxidative stress.</p>")
-b("benefits", "f4", title="Fewer flat days",
-  sub="“I didn't realise how flat I'd been feeling until this helped lift me out of it” – Holly P",
-  text="<p>Not a higher ceiling, a higher floor. The change people describe is less in how good the best sessions feel and more in how rarely they turn up flat.</p>")
+  text="<p>Not a pre-workout for the big days. Two capsules every day through the block, with zinc and copper contributing to the protection of cells from oxidative stress, the kind hard training produces.</p>")
 
 b("benefits", "pt", label="What to track", heading="Four numbers.\nOne feeling.",
-  lede="Take a 7-day baseline before your first capsule, then compare 30-day averages at day 30, 60 and 90. Your numbers against your own starting point, nobody else’s.")
-b("benefits", "ck1", title="HRV", sub="Heart rate variability",
-  text="<p>The most-watched recovery marker, and the noisiest night to night. Read it as a 30-day average against your own baseline, never a single morning.</p>")
-b("benefits", "ck2", title="Resting heart rate", sub="Your overnight or morning low",
-  text="<p>Slow to move and easy to read. Compare the 30-day average at day 30 and day 90 with your baseline week.</p>")
-b("benefits", "ck3", title="Sleep", sub="Duration, consistency, sleep score",
-  text="<p>Track what your device already records. Note late sessions, travel and alcohol so you can read around them.</p>")
+  lede="Energy, recovery and stress all show up on your wearable. Take a 7-day baseline, then compare 30-day averages at day 30, 60 and 90, against your own starting point.")
+b("benefits", "ck1", title="HRV", sub="Recovery and stress load",
+  text="<p>The number that reacts to everything: hard sessions, deadlines, short nights. Read it as a 30-day average against your baseline, never a single morning. If your device shows a stress score, track it alongside.</p>")
+b("benefits", "ck2", title="Resting heart rate", sub="Recovery and training load",
+  text="<p>Slow to move and easy to read. Creeping up usually means load is outrunning recovery. Compare the 30-day average at day 30 and day 90 with your baseline week.</p>")
+b("benefits", "ck3", title="Sleep", sub="Where recovery happens",
+  text="<p>Duration, consistency and your sleep score, as your device records them. Note late sessions, travel and alcohol so you can read around them.</p>")
 benefit_tpl = json.loads(json.dumps(S["benefits"]["blocks"]["ck3"]))
 for key, title, sub, text in [
-    ("ck4", "Recovery or readiness", "WHOOP, Oura, Garmin and more",
-     "<p>Your device’s own score, built from the numbers above. Useful as a trend, and best read next to how the session actually felt.</p>"),
-    ("ck5", "How you feel", "30 seconds a week, no device needed",
-     "<p>Once a week, rate energy, recovery, sleep and mood out of 10. The numbers tell you what changed; this tells you whether it matters.</p>"),
+    ("ck4", "Readiness or Body Battery", "Your energy for the day",
+     "<p>WHOOP Recovery, Oura Readiness, Garmin Body Battery or Training Readiness. Read the trend, next to how the session actually felt.</p>"),
+    ("ck5", "How you feel", "Energy, recovery, stress: 1–10",
+     "<p>Once a week, rate energy, recovery, stress and sleep out of 10. Thirty seconds. The numbers show what changed; this shows whether you noticed.</p>"),
 ]:
     blk = json.loads(json.dumps(benefit_tpl))
     blk["settings"].update(panel="track", title=title, sub=sub, text=text)
@@ -113,11 +116,11 @@ s("ingredients", lede="Built around 300mg NR, the NAD+ building block, with 18 n
 # ---- Steps ---------------------------------------------------------------------
 s("steps", heading="Treat it like", heading_right="a training block.")
 b("steps", "s1", chip="Days −7 to 0", title="Baseline week.",
-  text="Seven days on your wearable before the first capsule: HRV, resting heart rate, sleep and recovery. Add a 1–10 score for how you feel.")
+  text="Seven days on your wearable before the first capsule: HRV, resting heart rate, sleep and recovery. Add a 1–10 score for energy, recovery and stress.")
 b("steps", "s2", chip="Weeks 1–4", title="Hold the variables.",
   text="Same training, same routine, so any difference is easier to read. Travel, illness, alcohol and big training blocks all move your numbers; log them and read around them.")
 b("steps", "s3", chip="Day 30", title="First read.",
-  text="Compare 30-day averages with your baseline week, not single nights. Customers often notice recovery and energy before anything shows in their data.")
+  text="Compare 30-day averages with your baseline week, not single nights. Customers often notice energy and recovery before anything shows in their data.")
 b("steps", "s4", chip="Day 60–90", title="Your verdict.",
   text="Put day 90 next to your baseline. If it’s not for you, you’re covered.")
 
@@ -132,7 +135,7 @@ b("twocaps", "o3", title="Check it where you already look",
 
 # ---- Guarantee -------------------------------------------------------------------
 s("guarantee",
-  text="<p>Take a 7-day baseline, give it 90 days, then compare: HRV, resting heart rate, sleep, recovery score and how you feel. If you don’t see a difference, you’re covered with a full refund. And you’re always free to leave: skip, pause or cancel online.</p>")
+  text="<p>Take a 7-day baseline, give it 90 days, then compare: HRV, resting heart rate, sleep, your recovery or stress score, and how you feel. If you don’t see a difference, you’re covered with a full refund. And you’re always free to leave: skip, pause or cancel online.</p>")
 
 # ---- FAQ -------------------------------------------------------------------------
 b("faq", "q1", title="How do I track it?",
@@ -146,6 +149,14 @@ q7["settings"].update(
 S["faq"]["blocks"]["q7"] = q7
 if "q7" not in S["faq"]["block_order"]:
     S["faq"]["block_order"].append("q7")
+q8 = json.loads(json.dumps(S["faq"]["blocks"]["q6"]))
+q8["settings"].update(
+    title="Will it help with stress?",
+    text="<p>It isn’t a calming supplement, and it won’t make a hard week easy. Vitamins B6, B12, thiamin, niacin and biotin contribute to normal psychological function, and pantothenic acid to normal mental performance. To see how heavy weeks land, track HRV and your device’s stress score through the 90 days and compare them with your baseline.</p>")
+S["faq"]["blocks"]["q8"] = q8
+fo = S["faq"]["block_order"]
+if "q8" not in fo:
+    fo.insert(fo.index("q6") + 1, "q8")
 
 # ---- Comparison table (shared copy, kit variant) ------------------------------------
 compare_table.apply(d, "normal", kit=True)
