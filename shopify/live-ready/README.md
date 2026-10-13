@@ -7,6 +7,7 @@ Only files that still differ from live are here. The rest of the 10 Oct handoff 
 - `sections/muto-crea-buy.liquid` is the CURRENT live file with only the new options added (it keeps live's duplicate-option fix). Don't take it from the 3M refill plan theme.
 - `templates/product.muto-socks.json` only switches on the product-images gallery.
 - `templates/product.give-away.json` (the free-entry form page) and the NAD+ / simple / FAQ files now say **Garmin watch** instead of Oura Ring for the prize draw (changed 13 Oct). The terms page and the entry product are already updated in Shopify admin, so ship these soon so the live pages match.
+- `sections/muto-crea-compare.liquid` is the live file plus an optional **Density: Compact** setting and **Group label** blocks (both off by default, so other pages are unchanged). Copy it before the creatine-kit template, which uses them.
 - `templates/product.muto-nad-creatine-kit.json` is new: the NAD+ page with creatine in the first-order kit. It does nothing until you link to `?view=muto-nad-creatine-kit` or assign the template to the product.
 
 Full list of changes: see `handoff/MUTO_Dev_Handoff_12Oct2026.docx`.
