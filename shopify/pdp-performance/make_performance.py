@@ -35,6 +35,7 @@ def b(sec, blk, **kw):
 # workouts, travel). Felt benefits are framed as what customers report; effect claims
 # are the authorised ones only (B vitamins, vitamin D, zinc, copper). A wearable is optional.
 s("buy", text="<p>You’re doing more than ever. MUTO lets you see if it’s working. NR, which your body turns into NAD+, plus 18 supporting ingredients, every dose on the label. Two capsules with breakfast, then track your energy, recovery and stress on your wearable. 90 days to judge it, or your money back on subscriptions.</p>")
+s("buy", plans_banner="Welcome kit worth £62, free with your first order")  # matches live creatine-kit page
 b("buy", "b1", text="Energy that lasts through the afternoon")
 b("buy", "b2", text="Bounce back from late nights, travel and workouts")
 b("buy", "b3", text="Built for busy, stressful weeks")
