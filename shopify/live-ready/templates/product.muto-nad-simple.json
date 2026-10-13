@@ -123,10 +123,10 @@
         "k4": {
           "type": "gift",
           "settings": {
-            "value": "OURA ring 5",
-            "name": "Chance to win",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-oura.jpg?v=1791022787",
-            "image_alt": "An Oura smart ring, the giveaway entry in the welcome kit",
+            "value": "Garmin Watch",
+            "name": "giveaway entry",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-garmin.jpg?v=1791883127",
+            "image_alt": "A white Garmin watch, the giveaway prize in the welcome kit",
             "plans": ""
           }
         },
@@ -262,7 +262,7 @@
         "term_5": {
           "type": "term",
           "settings": {
-            "text": "A chance to win an Oura Ring (<a href=\"/pages/better-baseline-giveaway\">rules</a>)",
+            "text": "A chance to win a Garmin watch (<a href=\"/pages/better-baseline-giveaway\">rules</a>)",
             "plans": ""
           }
         },

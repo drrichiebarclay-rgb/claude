@@ -105,7 +105,7 @@ CATEGORIES = [
         ("Which plan should I choose?", p(
             f'Choose the three-month plan if you want a proper test: it’s the lowest daily price and lines up with the 90-day window we recommend for judging MUTO. The monthly plan spreads the cost. Both subscriptions are covered by the 90-day guarantee; a one-time purchase isn’t. <a href="{PRODUCT_URL}">Compare plans.</a>')),
         ("What’s in the welcome kit and gifts?", p(
-            f'With your first subscription order you get performance socks, a Forever Jar, our 12-week protocol guide and entry into our competition to win an Oura Ring. Subscribers also get a thank-you gift with later orders. Gifts are while stocks last. <a href="{COMPETITION_TERMS_URL}">Competition terms apply.</a>')),
+            f'With your first subscription order you get performance socks, a Forever Jar, our 12-week protocol guide and entry into our quarterly draw to win a Garmin watch. Subscribers also get a thank-you gift with later orders. Gifts are while stocks last. <a href="{COMPETITION_TERMS_URL}">Competition terms apply.</a>')),
         ("Do subscribers get creatine?", p(
             "Yes. From 14 October 2026, subscribers receive MUTO Ultrapure Micronised Creatine as a gift with later orders. One serving is 5g. Creatine increases physical performance in successive bursts of short-term, high-intensity exercise; the beneficial effect is obtained with a daily intake of 3g.")),
         ("Can I skip, pause or cancel?", p(

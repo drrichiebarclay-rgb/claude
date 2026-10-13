@@ -1,0 +1,63 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_Gq7rjY": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_P9etPJ": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Giveaway Registration Form</p>",
+            "heading_size": "h1",
+            "heading_tag": "h1",
+            "heading_color": "#5efaff"
+          }
+        }
+      },
+      "block_order": [
+        "heading_P9etPJ"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "allow_transparent_header": true,
+        "image": "shopify://shop_images/footer-bg.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "left",
+        "show_text_below": false
+      }
+    },
+    "giveaway_registration_form_ej3c6J": {
+      "type": "giveaway-registration-form",
+      "name": "Giveaway Registration Form",
+      "settings": {
+        "heading": "ENTER YOUR EMAIL FOR A CHANCE TO WIN A GARMIN WATCH.",
+        "description": "<p>Each quarter, one winner chosen at random picks a Garmin watch worth up to £200. See the <a href=\"/pages/better-baseline-giveaway\" title=\"Garmin Watch Giveaway Terms & Conditions\">terms &amp; conditions</a> for the draw.</p>",
+        "button_label": "Submit Entry",
+        "success_message": "Thanks! Your entry has been received.",
+        "terms_url": "shopify://pages/better-baseline-giveaway",
+        "klaviyo_form_id": "W2NJnh",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "image_banner_Gq7rjY",
+    "giveaway_registration_form_ej3c6J"
+  ]
+}
