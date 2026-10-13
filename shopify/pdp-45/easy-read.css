@@ -9,7 +9,7 @@ html body .mc .mc__gua-text,html body .mc .mc__onetime,html body .mc .mc__note-t
 html body .mc .mc__buy-text > * + *{margin-top:12px}
 html body .mc .mc__buy-text p:first-child{font-size:19px;line-height:1.4;color:var(--mc-ink-alt)}
 html body .mc .mc__ben-body,html body .mc .mc__acc-body,html body .mc .mc__faq-body{color:#242223}
-html body .mc .mc__trust li,html body .mc .mc__plan-term,html body .mc .mc__buy-serving,html body .mc .mc__rating-text{font-size:16px}
+html body .mc .mc__plan-term,html body .mc .mc__buy-serving,html body .mc .mc__rating-text{font-size:16px}
 html body .mc .mc__plan-name,html body .mc .mc__plan-price{font-size:20px}
 html body .mc .mc__plan-note,html body .mc .mc__plan-detail,html body .mc .mc__plan-save{font-size:15px;line-height:1.4;color:#242223}
 html body .mc .mc__plans-banner{font-size:16px}
@@ -24,6 +24,8 @@ html body .mc .mc__prob-text{font-size:17px;line-height:1.45}
 html body .mc .mc__step-title{font-size:23px;line-height:1.2}
 html body .mc .mc__step-chip,html body .mc .mc__gua-chip{font-size:16px}
 html body .mc .mc__gua-aside{font-size:22px}
+/* Trust pills keep the theme size so each label fits on one line */
+@media (min-width:750px){html body .mc .mc__trust li{white-space:nowrap}}
 /* One benefits view only, so no tab switcher */
 html body .mc .mc__tabs{display:none}
 html body .mh .mh__why-title{font-size:25px}

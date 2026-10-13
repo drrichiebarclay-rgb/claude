@@ -10,6 +10,8 @@ Usage: python3 make_45.py [base] [out]
 import json, re, sys, os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(HERE, ".."))
+import compare_table  # noqa: E402
 base = sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, "../pdp-creatine-kit/product.muto-nad-simple-creatine-kit.json")
 out = sys.argv[2] if len(sys.argv) > 2 else os.path.join(HERE, "product.muto-nad-45.json")
 
@@ -41,6 +43,13 @@ b("buy", "b1", text="Feel like yourself again")
 b("buy", "b2", text="Energy that lasts past lunch")
 b("buy", "b3", text="Bounce back after a walk, a round or the gym")
 b("buy", "b4", text="90 days to try it, or your money back")
+
+# Giveaway prize is a Garmin watch (the live simple-kit page still shows Oura)
+b("buy", "k4", value="Garmin Watch", name="giveaway entry", row_label="Chance to win a Garmin Watch",
+  row_note="Free entry",
+  image_fallback="https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-garmin.jpg?v=1791883127",
+  image_alt="A white Garmin watch, the giveaway prize in the welcome kit")
+S["buy"]["blocks"]["k4"]["settings"].pop("image", None)
 
 # ---- Problem ---------------------------------------------------------------
 s("problem",
@@ -96,6 +105,9 @@ q0["settings"].update(
     text="<p>Yes. MUTO is made for adults over 40, and most of our customers are in their 40s and 50s. You don’t need to be sporty or own a smartwatch.</p>")
 S["faq"]["blocks"]["q0"] = q0
 S["faq"]["block_order"] = ["q0", "q3", "q1", "q2", "q4", "q6", "q5"]
+
+# ---- Comparison table (shared plain-English copy, kit variant) -----------------------
+compare_table.apply(d, "simple", kit=True)
 
 # ---- Easier-reading styles, scoped to this template ---------------------------------
 css = open(os.path.join(HERE, "easy-read.css")).read()
