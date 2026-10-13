@@ -396,31 +396,31 @@
                         assign marker = '|' | append: pv.option1 | append: '|'
                         unless seen_options contains marker
                           assign seen_options = seen_options | append: marker
-                        for alloc in pv.selling_plan_allocations
-                          assign sp_id = ',' | append: alloc.selling_plan.id | append: ','
-                          assign sp_nm = alloc.selling_plan.name | downcase | prepend: ',' | append: ','
-                          # Held back by the setting above: not a card, and not
-                          # counted, so the plans after it keep their places.
-                          if hide_hay contains sp_id or hide_hay contains sp_nm
-                            continue
-                          endif
-                          if seen == want
-                            assign v = pv
-                            assign plan_id = alloc.selling_plan.id
-                            assign unit = alloc.price
-                            # Skio's own name for this plan. It is what the card
-                            # is called when the template carries no block to
-                            # name it, so a plan added in Skio is legible here
-                            # without anybody editing the theme.
-                            assign plan_name = alloc.selling_plan.name
-                            # What this costs without the plan. Skio's intro and
-                            # discount prices live on the allocation, so the
-                            # variant's own compare-at is often unset or equal
-                            # to its price and would strike nothing through.
-                            assign was_unit = alloc.compare_at_price
-                          endif
-                          assign seen = seen | plus: 1
-                        endfor
+                          for alloc in pv.selling_plan_allocations
+                            assign sp_id = ',' | append: alloc.selling_plan.id | append: ','
+                            assign sp_nm = alloc.selling_plan.name | downcase | prepend: ',' | append: ','
+                            # Held back by the setting above: not a card, and not
+                            # counted, so the plans after it keep their places.
+                            if hide_hay contains sp_id or hide_hay contains sp_nm
+                              continue
+                            endif
+                            if seen == want
+                              assign v = pv
+                              assign plan_id = alloc.selling_plan.id
+                              assign unit = alloc.price
+                              # Skio's own name for this plan. It is what the card
+                              # is called when the template carries no block to
+                              # name it, so a plan added in Skio is legible here
+                              # without anybody editing the theme.
+                              assign plan_name = alloc.selling_plan.name
+                              # What this costs without the plan. Skio's intro and
+                              # discount prices live on the allocation, so the
+                              # variant's own compare-at is often unset or equal
+                              # to its price and would strike nothing through.
+                              assign was_unit = alloc.compare_at_price
+                            endif
+                            assign seen = seen | plus: 1
+                          endfor
                         endunless
                       endfor
                     else
@@ -1131,7 +1131,6 @@
                   <span class="loading__spinner hidden" aria-hidden="true"></span>
                 {%- endif -%}
               </div>
-              <span class="pre-order-text">Pre-Order Now - Arrives 15/10 </span>
             {%- if sub_cart -%}</button>{%- else -%}</a>{%- endif -%}
             {%- if qty_on -%}</div>{%- endif -%}
             {%- if sub_cart -%}</product-form>{%- endif -%}
@@ -1512,3 +1511,4 @@
   }
 }
 {% endschema %}
+

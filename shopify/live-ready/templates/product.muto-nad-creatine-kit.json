@@ -90,15 +90,28 @@
             "detail": ""
           }
         },
+        "k0": {
+          "type": "gift",
+          "settings": {
+            "value": "£30",
+            "name": "Micronised Creatine",
+            "row_label": "Ultrapure Micronised Creatine",
+            "row_note": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
+            "image_alt": "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate, part of the welcome kit",
+            "plans": ""
+          }
+        },
         "k1": {
           "type": "gift",
           "settings": {
             "value": "£12",
             "name": "Performance Socks",
+            "row_label": "Performance Socks (Size UK 6-11)",
+            "row_note": "",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-socks.jpg?v=1791023071",
             "image_alt": "A pouch of MUTO Performance Socks, part of the welcome kit",
-            "plans": "",
-            "row_label": "Performance Socks (Size UK 6-11)"
+            "plans": ""
           }
         },
         "k2": {
@@ -106,10 +119,11 @@
           "settings": {
             "value": "£10",
             "name": "Forever Jar",
+            "row_label": "Forever Jar",
+            "row_note": "",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-forever-jar.jpg?v=1791023224",
             "image_alt": "The MUTO Forever Jar in its presentation box, part of the welcome kit",
-            "plans": "",
-            "row_label": "Forever Jar"
+            "plans": ""
           }
         },
         "k3": {
@@ -117,10 +131,11 @@
           "settings": {
             "value": "£10",
             "name": "12-Week Protocol Guide",
+            "row_label": "12-Week Protocol Guide",
+            "row_note": "",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-gift-guide-v2.jpg?v=1791392560",
             "image_alt": "The MUTO 12 Week Protocol Guide, a black book with the formula listed down its cover",
-            "plans": "",
-            "row_label": "12-Week Protocol Guide"
+            "plans": ""
           }
         },
         "k4": {
@@ -128,11 +143,11 @@
           "settings": {
             "value": "Garmin Watch",
             "name": "giveaway entry",
+            "row_label": "Chance to win a Garmin Watch",
+            "row_note": "Free entry",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-garmin.jpg?v=1791883127",
             "image_alt": "A white Garmin watch, the giveaway prize in the welcome kit",
-            "plans": "",
-            "row_label": "Chance to win a Garmin Watch",
-            "row_note": "Free entry"
+            "plans": ""
           }
         },
         "mg2": {
@@ -199,6 +214,18 @@
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-gift-consultation-v2.jpg?v=1791392559",
             "image_alt": "A silver MUTO gift card for a one-to-one consultation",
             "plans": ""
+          }
+        },
+        "plan_RAXANa": {
+          "type": "plan",
+          "settings": {
+            "name": "90 Day Protocol",
+            "price": "£135",
+            "price_suffix": "",
+            "was": "£210",
+            "save": "Save 35% + free gifts",
+            "note": "Billed £135 every 3 months, £1.83/day.",
+            "detail": ""
           }
         },
         "a1": {
@@ -334,17 +361,6 @@
             "quote": "“I started taking Muto for my Boston Marathon training hoping to have better recovery; and it did not disappoint”",
             "name": "Rebeca"
           }
-        },
-        "k0": {
-          "type": "gift",
-          "settings": {
-            "value": "£30",
-            "name": "Micronised Creatine",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
-            "image_alt": "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate, part of the welcome kit",
-            "plans": "",
-            "row_label": "Ultrapure Micronised Creatine"
-          }
         }
       },
       "block_order": [
@@ -370,6 +386,7 @@
         "mg4b",
         "mg6a",
         "mg6b",
+        "plan_RAXANa",
         "a1",
         "a2",
         "a3",
@@ -401,13 +418,27 @@
         "text": "<p>For people who aren’t ready to slow down. Two capsules a day supporting the 30 trillion cells beneath your energy, recovery and how you age, built around NAD+ and 18 other nutrients. Every dose on the label. 90 days to decide for yourself.</p>",
         "image_fallback": "",
         "image_alt": "The MUTO creatine pouch photographed with the NAD+ Cellular Complex set",
+        "gallery_from_product": true,
         "gallery_position": "100% 50%",
         "note_title": "",
         "note_text": "",
-        "plans_banner": "Welcome offer with free gifts worth £249",
+        "plans_banner": "WELCOME KIT WORTH £62, FREE WITH YOUR FIRST ORDER",
         "plans_label": "Choose a plan",
         "hidden_plans": "694487908699, 3-MONTH SUBSCRIPTION",
         "kit_title": "Your first order includes:",
+        "kit_itemised": true,
+        "kit_main": "NAD+ Cellular Complex",
+        "kit_main_note": "Included",
+        "kit_foot_1": "90-day money-back guarantee",
+        "kit_foot_1_pop_title": "90-day money-back guarantee",
+        "kit_foot_1_pop": "<p><strong>No risk.</strong> Take MUTO every day for 90 days. If you don’t see a difference, we’ll refund every subscription payment you made in that time, less delivery costs.</p><p>Fewer than 0.1% of customers ask for their money back.</p><p>For first-time subscribers at muto.co. Just email us within 14 days after your 90 days end. <a href=\"/pages/faqs#guarantee\">Full details</a></p>",
+        "kit_foot_2": "Free next-day delivery",
+        "kit_foot_3": "Skip or cancel anytime",
+        "kit_foot_3_pop_title": "Skip or cancel anytime",
+        "kit_foot_3_pop": "<p>Going on holiday or running low? Skip a delivery, delay your next order, or cancel whenever you want, before your next charge. Total control, zero pressure.</p>",
+        "kit_foot_4": "No commitment",
+        "kit_foot_4_pop_title": "No commitment",
+        "kit_foot_4_pop": "<p>You’re never locked in. Pause, restart or cancel your MUTO plan at any time, directly from your account. No questions asked.</p>",
         "gifts_label": "Future Monthly Gifts",
         "gifts_text": "",
         "onetime_label": "Prefer to buy once? One-time purchase – [price]",
@@ -423,21 +454,7 @@
         "schema_on": true,
         "fit": "nad",
         "space_top": 0,
-        "space_bottom": 100,
-        "kit_itemised": true,
-        "kit_main": "NAD+ Cellular Complex",
-        "kit_main_note": "Included",
-        "kit_foot_1": "90-day money-back guarantee",
-        "kit_foot_2": "Free next-day delivery",
-        "kit_foot_3": "Skip or cancel anytime",
-        "kit_foot_3_pop_title": "Skip or cancel anytime",
-        "kit_foot_3_pop": "<p>Going on holiday or running low? Skip a delivery, delay your next order, or cancel whenever you want, before your next charge. Total control, zero pressure.</p>",
-        "kit_foot_1_pop_title": "90-day money-back guarantee",
-        "kit_foot_1_pop": "<p><strong>No risk.</strong> Take MUTO every day for 90 days. If you don’t see a difference, we’ll refund every subscription payment you made in that time, less delivery costs.</p><p>Fewer than 0.1% of customers ask for their money back.</p><p>For first-time subscribers at muto.co. Just email us within 14 days after your 90 days end. <a href=\"/pages/faqs#guarantee\">Full details</a></p>",
-        "kit_foot_4": "No commitment",
-        "kit_foot_4_pop_title": "No commitment",
-        "kit_foot_4_pop": "<p>You’re never locked in. Pause, restart or cancel your MUTO plan at any time, directly from your account. No questions asked.</p>",
-        "gallery_from_product": true
+        "space_bottom": 100
       }
     },
     "problem": {
@@ -506,10 +523,10 @@
           "settings": {
             "title": "Built by a scientist\nyou can talk to.",
             "text": "Formulated by Richie Barclay, PhD in cellular biology and nutrition, and reviewed by our Scientific Advisory Board. Got a question? Ask him.",
+            "image": "shopify://shop_images/about-founder.jpg",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-founder.jpg?v=1790751995",
             "image_alt": "Dr Richie Barclay holding a jar of NAD+ Cellular Complex",
-            "image_position": "50% 20%",
-            "image": "shopify://shop_images/about-founder.jpg"
+            "image_position": "50% 20%"
           }
         },
         "w2": {
@@ -662,6 +679,7 @@
         "field": true,
         "heading": "Meet our\nscientific board.",
         "note": "Our Scientific Advisory Board: scientists and clinicians in performance, metabolism and longevity.",
+        "compact": false,
         "rail_gap": 64,
         "fit": "nad",
         "space_top": 104,
@@ -1042,13 +1060,13 @@
       "settings": {
         "heading": "Nineteen ingredients.\nEvery dose on the label.",
         "heading_right": "",
+        "lede": "MUTO supports the 30 trillion cells in your body through NAD+ and other nutrients.\nAlready taking D3, K2, B vitamins, zinc, copper or CoQ10 separately? They’re in here, at the doses shown.",
         "all_label": "All",
         "filter_label": "Filter ingredients by what they do",
         "foot": "",
         "fit": "nad",
         "space_top": 100,
-        "space_bottom": 100,
-        "lede": "MUTO supports the 30 trillion cells in your body through NAD+ and other nutrients.\nAlready taking D3, K2, B vitamins, zinc, copper or CoQ10 separately? They’re in here, at the doses shown."
+        "space_bottom": 100
       }
     },
     "steps": {
@@ -1057,9 +1075,9 @@
         "s1": {
           "type": "step",
           "settings": {
-            "chip": "Day 0",
-            "title": "Take your baseline.",
-            "text": "Note your starting point: a 30-second how-I-feel check-in, or a 7-day average if you wear a device.",
+            "chip": "Week 1",
+            "title": "No spike. No crash.",
+            "text": "Two capsules with breakfast, then get on with your day. Nothing dramatic, and that’s the point.",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-baseline.jpg?v=1791020791",
             "image_alt": "A cyclist checking the watch on their wrist, hands resting on the bars",
             "image_position": "50% 35%"
@@ -1068,9 +1086,9 @@
         "s2": {
           "type": "step",
           "settings": {
-            "chip": "Weeks 1–4",
-            "title": "Keep the rest steady.",
-            "text": "Same training, same routine, so any difference is easier to read. Travel, illness, alcohol and hard training blocks all move your numbers. We'll show you how to read around them.",
+            "chip": "Weeks 2–4",
+            "title": "Afternoons hold.",
+            "text": "3pm stops being the wall. You finish the day with something left for the evening.",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-steady.jpg?v=1791020790",
             "image_alt": "An athlete between sets in the gym",
             "image_position": "50% 15%"
@@ -1079,9 +1097,9 @@
         "s3": {
           "type": "step",
           "settings": {
-            "chip": "Day 30",
-            "title": "First check-in.",
-            "text": "Compare 30-day averages, not single nights. Customers often notice afternoons and recovery before anything shows in their data.",
+            "chip": "Weeks 4-8",
+            "title": "You bounce back.",
+            "text": "Sunday’s long run isn’t still in your legs on Wednesday. You wake up after a hard session ready, not drained.",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-checkin-close.jpg?v=1791021630",
             "image_alt": "A wrist resting on an ice bath, the watch showing a live heart rate of 97 BPM",
             "image_position": "50% 50%"
@@ -1090,9 +1108,9 @@
         "s4": {
           "type": "step",
           "settings": {
-            "chip": "Day 60–90",
-            "title": "Your verdict.",
-            "text": "If it’s not for you, you’re covered.",
+            "chip": "Day 90",
+            "title": "Not done yet.",
+            "text": "“Busy week” stops being the explanation. You’re saying yes again: the early session, the late meeting, the Saturday with the kids. Not feeling it? Get your money back.",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-verdict.jpg?v=1791020808",
             "image_alt": "Three athletes laughing together after a session, city skyline behind",
             "image_position": "50% 8%"
@@ -1351,6 +1369,13 @@
             "text": "<p>Take a baseline before your first capsule — a 7-day average from your wearable, or a 30-second note on how you feel if you don't wear one. Then compare 30-day averages at day 30, 60 and 90: HRV, resting heart rate, recovery score, sleep, and how your afternoons go. Single nights are noise; months are signal.</p>"
           }
         },
+        "q6": {
+          "type": "q",
+          "settings": {
+            "title": "Do I need a wearable?",
+            "text": "<p>No. A wearable makes tracking easier, but a 30-second weekly check-in (energy, sleep, afternoons, mood, each out of 10) works too. Writing it down is what turns a feeling into a record you can look back on.</p>"
+          }
+        },
         "q2": {
           "type": "q",
           "settings": {
@@ -1377,13 +1402,6 @@
           "settings": {
             "title": "Why not just take NR on its own?",
             "text": "<p>You can, but NR alone covers one input. MUTO pairs it with nutrients that have authorised roles in how your body makes and uses energy (B vitamins and copper for normal energy-yielding metabolism, zinc for protecting cells from oxidative stress), plus CoQ10, TMG, resveratrol and PQQ. One routine instead of several separate products.</p>"
-          }
-        },
-        "q6": {
-          "type": "q",
-          "settings": {
-            "title": "Do I need a wearable?",
-            "text": "<p>No. A wearable makes tracking easier, but a 30-second weekly check-in (energy, sleep, afternoons, mood, each out of 10) works too. Writing it down is what turns a feeling into a record you can look back on.</p>"
           }
         }
       },

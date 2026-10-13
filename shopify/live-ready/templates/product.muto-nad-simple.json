@@ -196,6 +196,18 @@
             "plans": ""
           }
         },
+        "plan_RAXANa": {
+          "type": "plan",
+          "settings": {
+            "name": "3 months",
+            "price": "£135",
+            "price_suffix": "",
+            "was": "£210",
+            "save": "Save 35% + free gifts",
+            "note": "You pay £135 every 3 months.",
+            "detail": ""
+          }
+        },
         "a1": {
           "type": "fold",
           "settings": {
@@ -337,6 +349,7 @@
         "mg4b",
         "mg6a",
         "mg6b",
+        "plan_RAXANa",
         "a0",
         "a1",
         "a2",

@@ -1,0 +1,156 @@
+{%- comment -%}
+  MUTO Creatine — same molecule, higher standard.
+
+  Artboard band 7430–8620 of CREATINE.pdf. A two-line 64px heading at x24, then
+  a seven-row comparison: claims at x24 in 25px, and four columns centred on
+  602.5 / 845.5 / 1088.5 / 1331.5 on a 100 row pitch. MUTO's column sits on a
+  169×715 translucent panel starting under its own heading.
+
+  A real <table> with a caption, scoped headers and a text alternative in every
+  cell: a row of ticks read out as "tick tick cross" says nothing about which
+  column is which.
+
+  BLOCKS, one per claim, so a line can be added, edited, reordered or dropped.
+  The comparison is four columns by design — the artboard's — so the column
+  names are settings rather than blocks.
+
+  MOBILE: the same table, with the claims column pinned and the four verdict
+  columns scrolling under it. It was a second card list per claim; that put the
+  whole comparison on the page twice, and a claim you have scrolled away from is
+  exactly the thing you need to still see.
+{%- endcomment -%}
+
+{{ 'muto-crea.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'muto-crea.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign spt = section.settings.space_top | default: 100 | times: 0.01
+  assign spb = section.settings.space_bottom | default: 100 | times: 0.01
+  assign heading_id = 'mc-cmp-' | append: section.id
+  assign c1 = section.settings.col_1 | default: 'MUTO'
+  assign c2 = section.settings.col_2 | default: 'Budget tubs'
+  assign c3 = section.settings.col_3 | default: 'Gym brands'
+  assign c4 = section.settings.col_4 | default: 'Preworkouts & blends'
+-%}
+
+{%- comment -%}
+    The artboards do not share a column rhythm: the creatine table runs a
+    457 claim column on a 243 pitch, the NAD one a 581.6 claim column on a
+    210.5 pitch with a narrower highlight. They are settings rather than two
+    stylesheets, and the last column takes whatever is left so the table
+    always finishes on the right margin.
+  {%- endcomment -%}
+<div class="mc mc--compare mc--fit-{{ section.settings.fit | default: 'crea' }}" style="--mc-spt:{{ spt }};--mc-spb:{{ spb }};--mc-cmp-first:{{ section.settings.claim_width | default: 457 }}px;--mc-cmp-pitch:{{ section.settings.col_pitch | default: 243 }}px;--mc-cmp-pw:{{ section.settings.panel_width | default: 169 }}px;--mc-cmp-gap:{{ section.settings.head_gap | default: 85 }}px">
+  <div class="mc__wrap">
+    <section class="mc__cmp" aria-labelledby="{{ heading_id }}">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="mc__h2 mc__steps-head" id="{{ heading_id }}">
+          {{- section.settings.heading | escape | newline_to_br -}}
+        </h2>
+      {%- endif -%}
+
+      <div class="mc__cmp-wrap" data-mc-compare>
+        <span class="mc__cmp-panel" data-mc-panel aria-hidden="true"></span>
+        <table class="mc__cmp-table">
+          <caption class="mc__vh">{{ section.settings.table_caption | default: 'How MUTO creatine compares with other creatine on sale' }}</caption>
+          <colgroup><col><col><col><col><col></colgroup>
+          <thead>
+            <tr>
+              <th scope="col"><span class="mc__vh">{{ section.settings.claim_label | default: 'What we compare' }}</span></th>
+              {%- comment -%}
+                At phone width the first column's name is set as the wordmark
+                instead of in 10.5px mono. The name stays in the markup, hidden
+                from the eye but not from a screen reader: every mark in this
+                column carries a "Yes — MUTO" alternative that is only useful
+                while this header still says MUTO. The mark itself is a masked
+                span, which is how the wordmark is drawn everywhere else in the
+                theme, and takes the cell's own ink colour.
+              {%- endcomment -%}
+              <th scope="col" class="mc__cmp-col mc__cmp-col--muto{% if section.settings.col_1_logo %} mc__cmp-col--logo{% endif %}" data-mc-muto-col>
+                {%- if section.settings.col_1_logo -%}
+                  <span class="mc__cmp-logo" aria-hidden="true">
+                    <span class="mc__cmp-logo-mark"></span>
+                  </span>
+                {%- endif -%}
+                <span class="mc__cmp-col-text">{{ c1 }}</span>
+              </th>
+              <th scope="col" class="mc__cmp-col">{{ c2 }}</th>
+              <th scope="col" class="mc__cmp-col">{{ c3 }}</th>
+              <th scope="col" class="mc__cmp-col">{{ c4 }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for block in section.blocks -%}
+              <tr class="mc__cmp-row" {{ block.shopify_attributes }}>
+                <th scope="row" class="mc__cmp-claim">{{ block.settings.claim }}</th>
+                <td>{% render 'muto-crea-mark', state: block.settings.m1, column: c1 %}</td>
+                <td>{% render 'muto-crea-mark', state: block.settings.m2, column: c2 %}</td>
+                <td>{% render 'muto-crea-mark', state: block.settings.m3, column: c3 %}</td>
+                <td>{% render 'muto-crea-mark', state: block.settings.m4, column: c4 %}</td>
+              </tr>
+            {%- endfor -%}
+          </tbody>
+        </table>
+      </div>
+
+    </section>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO Creatine — Compare",
+  "tag": "section",
+  "class": "mc-section",
+  "max_blocks": 12,
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Same molecule.\nHigher standard." },
+    { "type": "text", "id": "table_caption", "label": "Table caption", "default": "How MUTO creatine compares with other creatine on sale", "info": "Read by screen readers, not shown." },
+    { "type": "text", "id": "claim_label", "label": "Claim column label", "default": "What we compare", "info": "Read by screen readers, not shown." },
+    { "type": "header", "content": "Columns" },
+    { "type": "range", "id": "head_gap", "label": "Space under the heading", "min": 40, "max": 140, "step": 1, "unit": "px", "default": 85, "info": "Desktop only." },
+    { "type": "range", "id": "claim_width", "label": "Claim column", "min": 382, "max": 882, "step": 5, "unit": "px", "default": 457, "info": "Desktop only. The four comparison columns share what is left." },
+    { "type": "range", "id": "col_pitch", "label": "Column pitch", "min": 160, "max": 260, "step": 1, "unit": "px", "default": 243 },
+    { "type": "range", "id": "panel_width", "label": "Highlight width", "min": 120, "max": 220, "step": 1, "unit": "px", "default": 169 },
+    { "type": "text", "id": "col_1", "label": "Column 1", "default": "MUTO" },
+    { "type": "checkbox", "id": "col_1_logo", "label": "Set column 1 as the MUTO wordmark on mobile", "default": true, "info": "Phone width only — desktop keeps the typed name. Turn this off if column 1 is not MUTO." },
+    { "type": "text", "id": "col_2", "label": "Column 2", "default": "Budget tubs" },
+    { "type": "text", "id": "col_3", "label": "Column 3", "default": "Gym brands" },
+    { "type": "text", "id": "col_4", "label": "Column 4", "default": "Preworkouts & blends" },
+    { "type": "select", "id": "fit", "label": "Which wash", "default": "crea", "options": [{ "value": "crea", "label": "Creatine page" }, { "value": "nad", "label": "NAD+ page" }], "info": "The mint wash is least-squares fitted to one artboard's own pixels, and the two product pages wash this band differently." },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 2, "unit": "%", "default": 100 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 2, "unit": "%", "default": 100 }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Claim",
+      "settings": [
+        { "type": "text", "id": "claim", "label": "Claim", "default": "Pure creatine monohydrate, nothing else" },
+        { "type": "select", "id": "m1", "label": "Column 1", "default": "yes", "options": [{ "value": "yes", "label": "Yes" }, { "value": "no", "label": "No" }, { "value": "dash", "label": "Not stated" }] },
+        { "type": "select", "id": "m2", "label": "Column 2", "default": "dash", "options": [{ "value": "yes", "label": "Yes" }, { "value": "no", "label": "No" }, { "value": "dash", "label": "Not stated" }] },
+        { "type": "select", "id": "m3", "label": "Column 3", "default": "dash", "options": [{ "value": "yes", "label": "Yes" }, { "value": "no", "label": "No" }, { "value": "dash", "label": "Not stated" }] },
+        { "type": "select", "id": "m4", "label": "Column 4", "default": "dash", "options": [{ "value": "yes", "label": "Yes" }, { "value": "no", "label": "No" }, { "value": "dash", "label": "Not stated" }] }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MUTO Creatine — Compare",
+      "blocks": [
+        { "type": "row", "settings": { "claim": "Pure creatine monohydrate, nothing else", "m1": "yes", "m2": "yes", "m3": "yes", "m4": "no" } },
+        { "type": "row", "settings": { "claim": "Micronised to mix cleanly", "m1": "yes", "m2": "dash", "m3": "yes", "m4": "dash" } },
+        { "type": "row", "settings": { "claim": "Every batch independently tested", "m1": "yes", "m2": "no", "m3": "dash", "m4": "dash" } },
+        { "type": "row", "settings": { "claim": "No fillers, flavours or sweeteners", "m1": "yes", "m2": "dash", "m3": "dash", "m4": "no" } },
+        { "type": "row", "settings": { "claim": "No stimulants", "m1": "yes", "m2": "yes", "m3": "yes", "m4": "no" } },
+        { "type": "row", "settings": { "claim": "Made in the UK", "m1": "yes", "m2": "dash", "m3": "dash", "m4": "dash" } },
+        { "type": "row", "settings": { "claim": "Lowest price per gram", "m1": "no", "m2": "yes", "m3": "dash", "m4": "no" } }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": ["product", "page", "index"]
+  }
+}
+{% endschema %}

@@ -99,6 +99,7 @@
         "text": "<p>Premium nylon socks designed for activity, with shaping that holds its fit through every session. Light, breathable and built to move with you, from the first mile to the last rep. Made to the same standard as everything else in the protocol.</p>",
         "image_fallback": "",
         "image_alt": "A pouch of MUTO Performance Socks, the white sock visible through the front",
+        "gallery_from_product": true,
         "gallery_position": "",
         "note_title": "",
         "note_text": "",
@@ -106,6 +107,19 @@
         "plans_label": "Choose an option",
         "hidden_plans": "",
         "kit_title": "",
+        "kit_itemised": false,
+        "kit_main": "",
+        "kit_main_note": "Included",
+        "kit_foot_1": "",
+        "kit_foot_1_pop_title": "",
+        "kit_foot_1_pop": "",
+        "kit_foot_2": "",
+        "kit_foot_3": "",
+        "kit_foot_3_pop_title": "",
+        "kit_foot_3_pop": "",
+        "kit_foot_4": "",
+        "kit_foot_4_pop_title": "",
+        "kit_foot_4_pop": "",
         "gifts_label": "",
         "gifts_text": "",
         "onetime_label": "",
@@ -121,8 +135,7 @@
         "schema_on": true,
         "fit": "crea",
         "space_top": 0,
-        "space_bottom": 100,
-        "gallery_from_product": true
+        "space_bottom": 100
       }
     },
     "gallery": {
