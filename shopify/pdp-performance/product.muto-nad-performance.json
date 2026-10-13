@@ -39,25 +39,25 @@
         "b1": {
           "type": "point",
           "settings": {
-            "text": "Energy that lasts past the 4pm meeting"
+            "text": "Energy that lasts through the afternoon"
           }
         },
         "b2": {
           "type": "point",
           "settings": {
-            "text": "Bounce back from big days and hard sessions"
+            "text": "Bounce back from late nights, travel and workouts"
           }
         },
         "b3": {
           "type": "point",
           "settings": {
-            "text": "Built for weeks when everything peaks at once"
+            "text": "Built for busy, stressful weeks"
           }
         },
         "b4": {
           "type": "point",
           "settings": {
-            "text": "Track it on your wearable for 90 days, or your money back"
+            "text": "Feel the difference in 90 days, or your money back"
           }
         },
         "t1": {
@@ -231,7 +231,7 @@
           "type": "fold",
           "settings": {
             "title": "How to take it",
-            "text": "<p>Two capsules together each morning with your first meal. Fat helps the fat-soluble ingredients absorb, so whatever you already eat first is the right time. Before a meeting or after a session doesn’t matter; taking it every day does. No caffeine, no cycling, no loading and no rest days.</p>"
+            "text": "<p>Two capsules together each morning with your first meal. Fat helps the fat-soluble ingredients absorb, so whatever you already eat first is the right time. Taking it every day is what matters. No caffeine, no cycling, no loading and no rest days.</p>"
           }
         },
         "a4": {
@@ -245,7 +245,7 @@
           "type": "fold",
           "settings": {
             "title": "90-Day Money back Guarantee",
-            "text": "<p>Take a 7-day baseline, give it ninety days and compare: HRV, resting heart rate, sleep, your recovery or stress score, or simply how you feel. If you don’t see a difference, you get your money back in full.</p>"
+            "text": "<p>Note your starting point, give it ninety days and compare: how your days feel, or your wearable’s HRV, sleep and recovery. If you don’t see a difference, you get your money back in full.</p>"
           }
         },
         "w1": {
@@ -392,13 +392,13 @@
         "w2",
         "w3",
         "w4",
-        "snippet_6",
         "snippet_1",
+        "snippet_6",
         "snippet_2",
-        "snippet_3",
-        "snippet_7",
-        "snippet_4",
         "snippet_5",
+        "snippet_7",
+        "snippet_3",
+        "snippet_4",
         "snippet_8",
         "snippet_9"
       ],
@@ -411,7 +411,7 @@
         "eyebrow": "MUTO",
         "heading": "NAD+ Cellular\nComplex",
         "serving": "60 capsules | 30 day supply | Take 2 daily",
-        "text": "<p>For people who perform at a high level, at work, in training and at home, and track how it’s going. Energy that lasts past the 4pm meeting and into the evening. Recovery that keeps up with your week. A steadier head when everything peaks at once. Two capsules a day built around 300mg NR, the NAD+ building block, with B vitamins that contribute to normal energy-yielding metabolism and normal psychological function, and vitamin D for normal muscle function. Take a baseline on your wearable and judge it on your own numbers.</p>",
+        "text": "<p>For full lives: work, family, workouts, friends, and never enough hours. Energy that lasts through the afternoon and into the evening. Recovery from late nights, travel and hard workouts. A steadier head when life piles on. Two capsules a day built around 300mg NR, the NAD+ building block, with B vitamins that contribute to normal energy-yielding metabolism and normal psychological function, and vitamin D for normal muscle function. Check it with a 30-second weekly note or your wearable, and judge it for yourself.</p>",
         "image_fallback": "",
         "image_alt": "The MUTO creatine pouch photographed with the NAD+ Cellular Complex set",
         "gallery_position": "100% 50%",
@@ -460,7 +460,7 @@
           "type": "card",
           "settings": {
             "quote": "“Sharp at 9am. Gone by 4pm.”",
-            "text": "The afternoon is where the real work, and the evening, get decided.",
+            "text": "The afternoon is where the day, and the evening, get decided.",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-problem-tired.jpg?v=1791018569",
             "image_alt": "An athlete head down on a gym bike, sweating, a watch on their wrist",
             "image_position": "50% 35%"
@@ -469,8 +469,8 @@
         "c2": {
           "type": "card",
           "settings": {
-            "quote": "“A big day costs me two.”",
-            "text": "A late night, a long flight or a hard session, and the next day pays for it.",
+            "quote": "“One late night costs me two days.”",
+            "text": "A late night, a long trip or a hard workout, and the next day pays for it.",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-problem-recovery.jpg?v=1791018568",
             "image_alt": "A runner bent over with hands on knees, catching her breath at sunset",
             "image_position": "50% 35%"
@@ -489,8 +489,8 @@
         "c4": {
           "type": "card",
           "settings": {
-            "quote": "“HRV down. Deadline up.”",
-            "text": "Work stress and training stress land in the same numbers. Your watch can’t tell them apart.",
+            "quote": "“Always on. Never off.”",
+            "text": "Work, home, training: it all lands in the same place, and it all adds up.",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-problem-data.jpg?v=1791018568",
             "image_alt": "Two athletes at a table reading a recovery score on a phone, trackers on both wrists",
             "image_position": "50% 65%"
@@ -505,8 +505,8 @@
       ],
       "settings": {
         "eyebrow": "The problem",
-        "heading": "High output.\nSame body.\nOne recovery budget.",
-        "lede": "Your body doesn’t keep separate accounts. A board meeting, a long-haul flight and a hard session all draw from the same place, and your HRV shows it. Most supplements ask you to trust them. MUTO is one protocol you can test against your own data.",
+        "heading": "Busy life.\nSame body.\nOne energy budget.",
+        "lede": "Your body doesn’t keep separate accounts. Work, workouts, kids, late nights and travel all draw from the same place, and you feel it by mid-afternoon. Most supplements ask you to trust them. MUTO is one protocol you can check for yourself.",
         "space_top": 100,
         "space_bottom": 100
       }
@@ -518,7 +518,7 @@
           "type": "card",
           "settings": {
             "title": "Built by a scientist\nyou can talk to.",
-            "text": "Formulated by Richie Barclay, PhD in cellular biology and nutrition, and reviewed by a board of performance, sleep, metabolism and longevity experts. Got a question? Ask him.",
+            "text": "Formulated by Richie Barclay, PhD in cellular biology and nutrition, and reviewed by our Scientific Advisory Board of doctors and scientists. Got a question? Ask him.",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-founder.jpg?v=1790751995",
             "image_alt": "Dr Richie Barclay holding a jar of NAD+ Cellular Complex",
             "image_position": "50% 20%",
@@ -538,8 +538,8 @@
         "w3": {
           "type": "card",
           "settings": {
-            "title": "Built to be measured.",
-            "text": "Take a 7-day baseline of HRV, resting heart rate, sleep, recovery and stress, then compare 30-day averages at day 30 and day 90. Your data, your verdict, with a 90-day guarantee behind it.",
+            "title": "Built to be checked.",
+            "text": "Note how you feel on day 0, or take a 7-day baseline on your wearable, then check in at day 30 and day 90. Your verdict, with a 90-day guarantee behind it.",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-why-wearable.jpg?v=1790767821",
             "image_alt": "A wrist wearing a sports watch, seen underwater",
             "image_position": ""
@@ -674,7 +674,7 @@
       "settings": {
         "field": true,
         "heading": "Meet our\nscientific board.",
-        "note": "Our Scientific Advisory Board: performance, sleep, metabolism and longevity, from international rugby to clinical practice.",
+        "note": "Our Scientific Advisory Board: scientists and clinicians in performance, metabolism and longevity.",
         "rail_gap": 64,
         "fit": "nad",
         "space_top": 104,
@@ -704,25 +704,25 @@
             "panel": "feel",
             "title": "Energy past 4pm",
             "sub": "“No afternoon slump and in general feeling great” – Lynda",
-            "text": "<p>The real test isn’t the first hour. It’s the 4pm meeting, the evening session, and still being present at home. NAD+ sits at the centre of how your cells turn food into usable energy, and B vitamins contribute to normal energy-yielding metabolism and the reduction of tiredness and fatigue. No caffeine, so no 4pm crash.</p>"
+            "text": "<p>The real test isn’t the first hour. It’s the 4pm slump, the evening workout, and still having something left for the people at home. NAD+ sits at the centre of how your cells turn food into usable energy, and B vitamins contribute to normal energy-yielding metabolism and the reduction of tiredness and fatigue. No caffeine, so no crash.</p>"
           }
         },
         "f2": {
           "type": "benefit",
           "settings": {
             "panel": "feel",
-            "title": "Bounce back from big days",
+            "title": "Bounce back faster",
             "sub": "“Has actually changed my recovery” – Adam H",
-            "text": "<p>A late night, a long-haul flight, a hard session: the cost shows up the next day. How quickly that next day feels normal is what customers most often tell us changes, often before anything moves in their data. Vitamin D contributes to normal muscle function.</p>"
+            "text": "<p>A late night, a long trip, a hard workout: the cost shows up the next day. How quickly that next day feels normal is what customers most often tell us changes. Vitamin D contributes to normal muscle function.</p>"
           }
         },
         "f3": {
           "type": "benefit",
           "settings": {
             "panel": "feel",
-            "title": "A steadier head when it all peaks",
+            "title": "A steadier head in busy weeks",
             "sub": "“More focused during the day” – Alexandra",
-            "text": "<p>Launch week, board week, race week: same body. Vitamins B6, B12, thiamin, niacin and biotin contribute to normal psychological function, and pantothenic acid to normal mental performance. Customers describe the heavy weeks feeling less heavy.</p>"
+            "text": "<p>Deadlines, family, everything at once: same body. Vitamins B6, B12, thiamin, niacin and biotin contribute to normal psychological function, and pantothenic acid to normal mental performance. Customers describe the heavy weeks feeling less heavy.</p>"
           }
         },
         "f4": {
@@ -737,10 +737,10 @@
         "pt": {
           "type": "panel",
           "settings": {
-            "label": "What to track",
+            "label": "Ways to check",
             "key": "track",
-            "heading": "Four numbers.\nOne feeling.",
-            "lede": "Energy, recovery and stress all show up on your wearable. Take a 7-day baseline, then compare 30-day averages at day 30, 60 and 90, against your own starting point.",
+            "heading": "Check it\nyour way.",
+            "lede": "With a wearable or without one. Note your starting point, then compare at day 30, 60 and 90.",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-benefits-track.jpg?v=1791020038",
             "image_alt": "A runner sitting on a log after a session, checking the watch on their wrist",
             "image_position": "",
@@ -753,8 +753,8 @@
           "settings": {
             "panel": "track",
             "title": "HRV",
-            "sub": "Recovery and stress load",
-            "text": "<p>The number that reacts to everything: hard sessions, deadlines, long flights, short nights. Read it as a 30-day average against your baseline, never a single morning. If your device shows a stress score, track it alongside.</p>"
+            "sub": "If you wear a device",
+            "text": "<p>The number that reacts to everything: busy weeks, workouts, short nights. Read it as a 30-day average against your own baseline, never a single morning. If your device shows a stress score, track it alongside.</p>"
           }
         },
         "ck2": {
@@ -762,8 +762,8 @@
           "settings": {
             "panel": "track",
             "title": "Resting heart rate",
-            "sub": "Recovery and overall load",
-            "text": "<p>Slow to move and easy to read. Creeping up usually means your week is outrunning your recovery. Compare the 30-day average at day 30 and day 90 with your baseline week.</p>"
+            "sub": "Slow to move, easy to read",
+            "text": "<p>Creeping up usually means your week is outrunning your recovery. Compare the 30-day average at day 30 and day 90 with your starting point.</p>"
           }
         },
         "ck3": {
@@ -781,16 +781,16 @@
             "panel": "track",
             "title": "Readiness or Body Battery",
             "sub": "Your energy for the day",
-            "text": "<p>WHOOP Recovery, Oura Readiness, Garmin Body Battery or Training Readiness. Read the trend, next to how the day actually felt.</p>"
+            "text": "<p>WHOOP Recovery, Oura Readiness, Garmin Body Battery and others. Read the trend, next to how the day actually felt.</p>"
           }
         },
         "ck5": {
           "type": "benefit",
           "settings": {
             "panel": "track",
-            "title": "How you feel",
-            "sub": "Energy, recovery, stress: 1–10",
-            "text": "<p>Once a week, rate energy, recovery, stress and sleep out of 10. Thirty seconds. The numbers show what changed; this shows whether you noticed.</p>"
+            "title": "A 30-second weekly check-in",
+            "sub": "No device needed",
+            "text": "<p>Once a week, rate your energy, recovery, stress and sleep out of 10. Felt changes are easy to forget, so writing them down turns a feeling into a record you can look back on.</p>"
           }
         }
       },
@@ -801,11 +801,11 @@
         "f3",
         "f4",
         "pt",
+        "ck5",
         "ck1",
         "ck2",
         "ck3",
-        "ck4",
-        "ck5"
+        "ck4"
       ],
       "settings": {
         "eyebrow": "Benefits",
@@ -1090,9 +1090,9 @@
         "s1": {
           "type": "step",
           "settings": {
-            "chip": "Days −7 to 0",
-            "title": "Baseline week.",
-            "text": "Seven days on your wearable before the first capsule: HRV, resting heart rate, sleep and recovery. Add a 1–10 score for energy, recovery and stress.",
+            "chip": "Day 0",
+            "title": "Note your starting point.",
+            "text": "A 30-second check-in on energy, recovery, stress and sleep, or a 7-day average if you wear a device.",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-baseline.jpg?v=1791020791",
             "image_alt": "A cyclist checking the watch on their wrist, hands resting on the bars",
             "image_position": "50% 35%"
@@ -1102,8 +1102,8 @@
           "type": "step",
           "settings": {
             "chip": "Weeks 1–4",
-            "title": "Hold the variables.",
-            "text": "Same routine, same training, so any difference is easier to read. Travel, illness, alcohol and big weeks all move your numbers; log them and read around them.",
+            "title": "Keep the rest steady.",
+            "text": "Same routine, so any difference is easier to read. Travel, illness, alcohol and big weeks all move how you feel; note them and read around them.",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-steady.jpg?v=1791020790",
             "image_alt": "An athlete between sets in the gym",
             "image_position": "50% 15%"
@@ -1113,8 +1113,8 @@
           "type": "step",
           "settings": {
             "chip": "Day 30",
-            "title": "First read.",
-            "text": "Compare 30-day averages with your baseline week, not single nights. Customers often notice energy and recovery before anything shows in their data.",
+            "title": "First check-in.",
+            "text": "Compare with day 0. Customers often notice energy and recovery in how their days feel before anything shows in their data.",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-checkin-close.jpg?v=1791021630",
             "image_alt": "A wrist resting on an ice bath, the watch showing a live heart rate of 97 BPM",
             "image_position": "50% 50%"
@@ -1125,7 +1125,7 @@
           "settings": {
             "chip": "Day 60–90",
             "title": "Your verdict.",
-            "text": "Put day 90 next to your baseline. If it’s not for you, you’re covered.",
+            "text": "Put day 90 next to day 0. If it’s not for you, you’re covered.",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-verdict.jpg?v=1791020808",
             "image_alt": "Three athletes laughing together after a session, city skyline behind",
             "image_position": "50% 8%"
@@ -1139,8 +1139,8 @@
         "s4"
       ],
       "settings": {
-        "heading": "Run it like",
-        "heading_right": "an experiment.",
+        "heading": "Not a quick fix.",
+        "heading_right": "A 90-day check.",
         "fit": "nad",
         "space_top": 102,
         "space_bottom": 100
@@ -1288,7 +1288,7 @@
           "type": "card",
           "settings": {
             "title": "Two, with your first meal",
-            "text": "Both capsules together with food. Fat helps the fat-soluble ingredients absorb. Before a meeting or after a session doesn’t matter; every day does.",
+            "text": "Both capsules together with food. Fat helps the fat-soluble ingredients absorb. Whatever you eat first is the right time; every day is what matters.",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-take-two.jpg?v=1791017315",
             "image_alt": "Two MUTO capsules held in an open palm, beside the jar, a glass of water and avocado on toast",
             "image_position": "50% 20%"
@@ -1298,7 +1298,7 @@
           "type": "card",
           "settings": {
             "title": "Not a stimulant",
-            "text": "No caffeine, nothing to time around meetings or sessions. A daily routine, so the only thing that matters is that tomorrow looks like today.",
+            "text": "No caffeine, nothing to time around your day. A daily routine, so the only thing that matters is that tomorrow looks like today. Most people keep the jar next to the coffee.",
             "image": "shopify://shop_images/Coffee_MUTO.jpg",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-jar-coffee.jpg?v=1791021631",
             "image_alt": "The MUTO jar and carton standing beside a coffee machine on a kitchen counter",
@@ -1308,8 +1308,8 @@
         "o3": {
           "type": "card",
           "settings": {
-            "title": "Check it where you already look",
-            "text": "Your watch or ring is already recording the numbers. Take your baseline week, then read 30-day averages at day 30 and day 90.",
+            "title": "Check it your way",
+            "text": "A 30-second weekly note, or the watch or ring you already wear. Note your starting point on day 0, then check in at day 30 and day 90.",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-check-wearable.jpg?v=1791017018",
             "image_alt": "A runner checking the sports watch on their wrist at the end of a session",
             "image_position": ""
@@ -1366,7 +1366,7 @@
         "aside": "Feel it or track a difference, or get your money back.",
         "number": "90",
         "unit": "day guarantee",
-        "text": "<p>Take a 7-day baseline, give it 90 days, then compare: HRV, resting heart rate, sleep, your recovery or stress score, and how you feel. If you don’t see a difference, you’re covered with a full refund. And you’re always free to leave: skip, pause or cancel online.</p>",
+        "text": "<p>Note your starting point, give it 90 days, then compare: how your days feel, or your wearable’s HRV, sleep and recovery. If you don’t see a difference, you’re covered with a full refund. And you’re always free to leave: skip, pause or cancel online.</p>",
         "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-guarantee-bottle.jpg?v=1791023640",
         "image_alt": "Harry Insley resting on a log after a session, drinking from a MUTO bottle",
         "image_position": "50% 8%",
@@ -1380,8 +1380,8 @@
         "q1": {
           "type": "q",
           "settings": {
-            "title": "How do I track it?",
-            "text": "<p>Take a 7-day baseline before your first capsule: HRV, resting heart rate, sleep and your device’s recovery or readiness score, plus a 1–10 rating for how you feel. Then compare 30-day averages at day 30, 60 and 90. Single nights are noise; months are signal.</p>"
+            "title": "How will I know if it’s working?",
+            "text": "<p>Note your starting point before your first capsule: a 30-second check-in (energy, recovery, stress and sleep, each out of 10), or a 7-day average from your wearable. Then compare at day 30, 60 and 90. Single days are noise; months are signal.</p>"
           }
         },
         "q2": {
@@ -1415,22 +1415,22 @@
         "q6": {
           "type": "q",
           "settings": {
-            "title": "Which devices work?",
-            "text": "<p>Any device that records HRV, resting heart rate and sleep: Garmin, WHOOP, Oura, Apple Watch, Polar, Coros and others. Use the same device for the whole 90 days so you’re comparing like with like. No device? The weekly 1–10 check-in works too.</p>"
+            "title": "Do I need a wearable?",
+            "text": "<p>No. The 30-second weekly check-in works on its own. If you do wear one (Garmin, WHOOP, Oura, Apple Watch and others), use the same device for the whole 90 days and compare 30-day averages of HRV, resting heart rate and sleep.</p>"
           }
         },
         "q7": {
           "type": "q",
           "settings": {
             "title": "Is there caffeine in it?",
-            "text": "<p>No. No caffeine and no stimulants, so there’s nothing to time around meetings, training or bedtime, and your coffee stays as it is. Every batch is third-party tested for identity, potency and contaminants before release.</p>"
+            "text": "<p>No. No caffeine and no stimulants, so there’s nothing to time around your day, and your coffee stays as it is. Every batch is third-party tested for identity, potency and contaminants before release.</p>"
           }
         },
         "q8": {
           "type": "q",
           "settings": {
             "title": "Will it help with stress?",
-            "text": "<p>It isn’t a calming supplement, and it won’t make a hard week easy. Vitamins B6, B12, thiamin, niacin and biotin contribute to normal psychological function, and pantothenic acid to normal mental performance. To see how heavy weeks land, track HRV and your device’s stress score through the 90 days and compare them with your baseline.</p>"
+            "text": "<p>It isn’t a calming supplement, and it won’t make a hard week easy. Vitamins B6, B12, thiamin, niacin and biotin contribute to normal psychological function, and pantothenic acid to normal mental performance. To see how busy weeks land, rate stress in your weekly check-in, or track HRV and your device’s stress score, and compare with your starting point.</p>"
           }
         }
       },
