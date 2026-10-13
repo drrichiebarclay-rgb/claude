@@ -1142,7 +1142,7 @@
         "r2": {
           "type": "row",
           "settings": {
-            "claim": "Plus 18 ingredients that work with it",
+            "claim": "Plus TMG 450mg, alongside the NR",
             "m1": "yes",
             "m2": "no",
             "m3": "yes",
@@ -1152,6 +1152,36 @@
         "r3": {
           "type": "row",
           "settings": {
+            "claim": "Plus 12 vitamins and minerals: B group, D3, K2, zinc and copper",
+            "m1": "yes",
+            "m2": "no",
+            "m3": "yes",
+            "m4": "dash"
+          }
+        },
+        "r4": {
+          "type": "row",
+          "settings": {
+            "claim": "Plus CoQ10 150mg and PQQ 20mg",
+            "m1": "yes",
+            "m2": "no",
+            "m3": "yes",
+            "m4": "dash"
+          }
+        },
+        "r5": {
+          "type": "row",
+          "settings": {
+            "claim": "Plus grape seed, trans-resveratrol and BioPerine®",
+            "m1": "yes",
+            "m2": "no",
+            "m3": "yes",
+            "m4": "dash"
+          }
+        },
+        "r6": {
+          "type": "row",
+          "settings": {
             "claim": "One routine: two capsules a day",
             "m1": "yes",
             "m2": "yes",
@@ -1159,7 +1189,7 @@
             "m4": "no"
           }
         },
-        "r4": {
+        "r7": {
           "type": "row",
           "settings": {
             "claim": "All 19 ingredients for £2 a day",
@@ -1169,7 +1199,7 @@
             "m4": "no"
           }
         },
-        "r5": {
+        "r8": {
           "type": "row",
           "settings": {
             "claim": "Every dose on the label, made in the UK",
@@ -1179,7 +1209,7 @@
             "m4": "dash"
           }
         },
-        "r6": {
+        "r9": {
           "type": "row",
           "settings": {
             "claim": "90-day money-back guarantee",
@@ -1189,7 +1219,7 @@
             "m4": "no"
           }
         },
-        "r7": {
+        "r10": {
           "type": "row",
           "settings": {
             "claim": "Free Ultrapure Creatine (worth £30) with your first order",
@@ -1207,7 +1237,10 @@
         "r4",
         "r5",
         "r6",
-        "r7"
+        "r7",
+        "r8",
+        "r9",
+        "r10"
       ],
       "settings": {
         "heading": "The smarter way\nto buy NAD⁺.",

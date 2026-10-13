@@ -104,7 +104,10 @@ COMPARE = {
         cols=("MUTO", "NAD+ alone", "Buying separately", "NAD+ drips"),
         rows=[
             ("NR 300mg, the NAD+ building block", "yes", "yes", "yes", "dash"),
-            ("Plus 18 ingredients that work with it", "yes", "no", "yes", "dash"),
+            ("Plus TMG 450mg, alongside the NR", "yes", "no", "yes", "dash"),
+            ("Plus 12 vitamins and minerals: B group, D3, K2, zinc and copper", "yes", "no", "yes", "dash"),
+            ("Plus CoQ10 150mg and PQQ 20mg", "yes", "no", "yes", "dash"),
+            ("Plus grape seed, trans-resveratrol and BioPerine\u00ae", "yes", "no", "yes", "dash"),
             ("One routine: two capsules a day", "yes", "yes", "no", "no"),
             ("All 19 ingredients for \u00a32 a day", "yes", "no", "no", "no"),
             ("Every dose on the label, made in the UK", "yes", "dash", "dash", "dash"),
@@ -116,7 +119,10 @@ COMPARE = {
         cols=("MUTO", "NAD+ alone", "Lots of pills", "NAD+ drips"),
         rows=[
             ("NR, the building block for NAD+", "yes", "yes", "yes", "dash"),
-            ("Plus 18 more ingredients that work with it", "yes", "no", "yes", "dash"),
+            ("Plus TMG, which works alongside NR", "yes", "no", "yes", "dash"),
+            ("Plus 12 vitamins and minerals", "yes", "no", "yes", "dash"),
+            ("Plus CoQ10 and PQQ", "yes", "no", "yes", "dash"),
+            ("Plus 3 plant extracts, like grape seed", "yes", "no", "yes", "dash"),
             ("Just 2 capsules a day", "yes", "yes", "no", "no"),
             ("All 19 ingredients for \u00a32 a day", "yes", "no", "no", "no"),
             ("Every amount on the label", "yes", "dash", "dash", "dash"),
