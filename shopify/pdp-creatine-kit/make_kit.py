@@ -95,10 +95,12 @@ else:
 # Gallery follows the product images in Shopify admin
 st["gallery_from_product"] = True
 
+# Headings use NAD⁺ (U+207A): custom.js wraps an ASCII 'NAD+' plus in <sup>, which breaks
+# the flex-column heading onto extra lines.
 # Comparison: position against NAD+-only products, then what MUTO adds, trust signals and the kit
 COMPARE = {
     "normal": dict(
-        heading="More than NAD+.\nOne daily protocol.",
+        heading="More than NAD⁺.\nOne daily protocol.",
         cols=("MUTO", "NAD+ alone", "DIY stack", "Drips & clinics"),
         rows=[
             ("Nicotinamide riboside (NR), the NAD+ building block, 300mg", "yes", "yes", "yes", "dash"),
@@ -114,7 +116,7 @@ COMPARE = {
             ("An instant effect you feel in minutes", "no", "dash", "dash", "dash"),
         ]),
     "simple": dict(
-        heading="NAD+, plus everything\nit works with.",
+        heading="NAD⁺, plus everything\nit works with.",
         cols=("MUTO", "NAD+ alone", "Lots of pills", "Drips and clinics"),
         rows=[
             ("NR, the building block for NAD+", "yes", "yes", "yes", "dash"),
