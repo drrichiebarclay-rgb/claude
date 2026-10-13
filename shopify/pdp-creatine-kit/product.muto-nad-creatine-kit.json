@@ -1129,6 +1129,12 @@
     "compare": {
       "type": "muto-crea-compare",
       "blocks": {
+        "g1": {
+          "type": "group",
+          "settings": {
+            "label": "The NAD+ part"
+          }
+        },
         "r1": {
           "type": "row",
           "settings": {
@@ -1137,6 +1143,12 @@
             "m2": "yes",
             "m3": "yes",
             "m4": "dash"
+          }
+        },
+        "g2": {
+          "type": "group",
+          "settings": {
+            "label": "What else is inside"
           }
         },
         "r2": {
@@ -1179,6 +1191,12 @@
             "m4": "no"
           }
         },
+        "g6": {
+          "type": "group",
+          "settings": {
+            "label": "Proof and promises"
+          }
+        },
         "r6": {
           "type": "row",
           "settings": {
@@ -1219,6 +1237,12 @@
             "m4": "no"
           }
         },
+        "g10": {
+          "type": "group",
+          "settings": {
+            "label": "With your first order"
+          }
+        },
         "r10": {
           "type": "row",
           "settings": {
@@ -1227,6 +1251,12 @@
             "m2": "dash",
             "m3": "dash",
             "m4": "dash"
+          }
+        },
+        "g11": {
+          "type": "group",
+          "settings": {
+            "label": "Worth knowing"
           }
         },
         "r11": {
@@ -1241,34 +1271,40 @@
         }
       },
       "block_order": [
+        "g1",
         "r1",
+        "g2",
         "r2",
         "r3",
         "r4",
         "r5",
+        "g6",
         "r6",
         "r7",
         "r8",
         "r9",
+        "g10",
         "r10",
+        "g11",
         "r11"
       ],
       "settings": {
         "heading": "More than NAD⁺.\nOne daily protocol.",
         "table_caption": "How the MUTO protocol compares with the alternatives",
         "claim_label": "What we compare",
-        "head_gap": 108,
-        "claim_width": 582,
-        "col_pitch": 210,
-        "panel_width": 147,
+        "head_gap": 40,
+        "claim_width": 560,
+        "col_pitch": 160,
+        "panel_width": 120,
         "col_1": "MUTO",
         "col_1_logo": true,
         "col_2": "NAD+ alone",
         "col_3": "DIY stack",
         "col_4": "Drips & clinics",
         "fit": "nad",
-        "space_top": 100,
-        "space_bottom": 100
+        "space_top": 70,
+        "space_bottom": 70,
+        "density": "compact"
       }
     },
     "twocaps": {

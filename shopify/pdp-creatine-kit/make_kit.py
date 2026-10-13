@@ -138,9 +138,21 @@ cmp["settings"].update({
     "col_1": COMPARE["cols"][0], "col_2": COMPARE["cols"][1],
     "col_3": COMPARE["cols"][2], "col_4": COMPARE["cols"][3],
 })
+# Compact layout: short rows, smaller type, hairlines, and group labels so the table scans in one view
+cmp["settings"].update({"density": "compact", "head_gap": 40, "claim_width": 560, "col_pitch": 160,
+                        "panel_width": 120, "space_top": 70, "space_bottom": 70})
+GROUPS = {
+    "normal": {1: "The NAD+ part", 2: "What else is inside", 6: "Proof and promises",
+               10: "With your first order", 11: "Worth knowing"},
+    "simple": {1: "The NAD+ part", 2: "What else is in it", 6: "Why you can trust it",
+               10: "In your first box", 11: "Worth knowing"},
+}[tone]
 cmp["blocks"] = {}
 cmp["block_order"] = []
 for n, (claim, m1, m2, m3, m4) in enumerate(COMPARE["rows"], 1):
+    if n in GROUPS:
+        cmp["blocks"][f"g{n}"] = {"type": "group", "settings": {"label": GROUPS[n]}}
+        cmp["block_order"].append(f"g{n}")
     cmp["blocks"][f"r{n}"] = {"type": "row", "settings": {"claim": claim, "m1": m1, "m2": m2, "m3": m3, "m4": m4}}
     cmp["block_order"].append(f"r{n}")
 
