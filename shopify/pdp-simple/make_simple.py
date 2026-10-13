@@ -247,5 +247,11 @@ for _sec in d["sections"].values():
     if _sec["type"] == "muto-crea-buy":
         _sec["settings"]["gallery_from_product"] = True
 
+# Comparison table, shared with the other NAD+ pages
+import os
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+import compare_table  # noqa: E402
+compare_table.apply(d, "simple", kit=False)
+
 open(out, "w").write(head + json.dumps(d, ensure_ascii=False, indent=2) + "\n")
 print("written", out)

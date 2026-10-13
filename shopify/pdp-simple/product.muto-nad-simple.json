@@ -1078,14 +1078,74 @@
         "r1": {
           "type": "row",
           "settings": {
-            "claim": "Works inside your body, every day",
+            "claim": "NR, the building block for NAD+",
             "m1": "yes",
-            "m2": "dash",
-            "m3": "dash",
-            "m4": "yes"
+            "m2": "yes",
+            "m3": "yes",
+            "m4": "dash"
           }
         },
         "r2": {
+          "type": "row",
+          "settings": {
+            "claim": "Plus TMG, which works alongside NR",
+            "m1": "yes",
+            "m2": "no",
+            "m3": "yes",
+            "m4": "dash"
+          }
+        },
+        "r3": {
+          "type": "row",
+          "settings": {
+            "claim": "Plus 12 vitamins and minerals",
+            "m1": "yes",
+            "m2": "no",
+            "m3": "yes",
+            "m4": "dash"
+          }
+        },
+        "r4": {
+          "type": "row",
+          "settings": {
+            "claim": "Plus CoQ10 and PQQ",
+            "m1": "yes",
+            "m2": "no",
+            "m3": "yes",
+            "m4": "dash"
+          }
+        },
+        "r5": {
+          "type": "row",
+          "settings": {
+            "claim": "Plus 3 plant extracts, like grape seed",
+            "m1": "yes",
+            "m2": "no",
+            "m3": "yes",
+            "m4": "dash"
+          }
+        },
+        "r6": {
+          "type": "row",
+          "settings": {
+            "claim": "Just 2 capsules a day",
+            "m1": "yes",
+            "m2": "yes",
+            "m3": "no",
+            "m4": "no"
+          }
+        },
+        "r7": {
+          "type": "row",
+          "settings": {
+            "claim": "All 19 ingredients for £2 a day",
+            "m1": "yes",
+            "m2": "no",
+            "m3": "no",
+            "m4": "no"
+          }
+        },
+        "r8": {
           "type": "row",
           "settings": {
             "claim": "Every amount on the label",
@@ -1095,51 +1155,21 @@
             "m4": "dash"
           }
         },
-        "r3": {
+        "r9": {
           "type": "row",
           "settings": {
-            "claim": "Just 2 capsules a day",
-            "m1": "yes",
-            "m2": "dash",
-            "m3": "no",
-            "m4": "no"
-          }
-        },
-        "r4": {
-          "type": "row",
-          "settings": {
-            "claim": "Costs less than a coffee a day",
-            "m1": "yes",
-            "m2": "yes",
-            "m3": "dash",
-            "m4": "no"
-          }
-        },
-        "r5": {
-          "type": "row",
-          "settings": {
-            "claim": "Help to see if it’s working",
-            "m1": "yes",
-            "m2": "no",
-            "m3": "no",
-            "m4": "dash"
-          }
-        },
-        "r6": {
-          "type": "row",
-          "settings": {
-            "claim": "Money back if it’s not for you",
+            "claim": "Money back for 90 days",
             "m1": "yes",
             "m2": "dash",
             "m3": "dash",
             "m4": "no"
           }
         },
-        "r7": {
+        "r10": {
           "type": "row",
           "settings": {
-            "claim": "Instant buzz",
-            "m1": "no",
+            "claim": "Free gifts in your first box",
+            "m1": "yes",
             "m2": "dash",
             "m3": "dash",
             "m4": "dash"
@@ -1153,24 +1183,28 @@
         "r4",
         "r5",
         "r6",
-        "r7"
+        "r7",
+        "r8",
+        "r9",
+        "r10"
       ],
       "settings": {
-        "heading": "One jar instead\nof lots of pills.",
+        "heading": "The easy way\nto get NAD⁺.",
         "table_caption": "How MUTO compares",
         "claim_label": "What we compare",
-        "head_gap": 108,
-        "claim_width": 582,
-        "col_pitch": 210,
-        "panel_width": 147,
+        "head_gap": 40,
+        "claim_width": 562,
+        "col_pitch": 160,
+        "panel_width": 120,
         "col_1": "MUTO",
         "col_1_logo": true,
-        "col_2": "Healthy habits only",
+        "col_2": "NAD+ alone",
         "col_3": "Lots of pills",
-        "col_4": "Drips and clinics",
+        "col_4": "NAD+ drips",
         "fit": "nad",
-        "space_top": 100,
-        "space_bottom": 100
+        "space_top": 70,
+        "space_bottom": 70,
+        "density": "compact"
       }
     },
     "twocaps": {

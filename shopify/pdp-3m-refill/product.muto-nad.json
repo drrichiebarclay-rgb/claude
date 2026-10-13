@@ -1150,68 +1150,98 @@
         "r1": {
           "type": "row",
           "settings": {
-            "claim": "Supports the cellular system beneath your numbers",
+            "claim": "NR 300mg, the NAD+ building block",
             "m1": "yes",
-            "m2": "dash",
-            "m3": "dash",
-            "m4": "yes"
+            "m2": "yes",
+            "m3": "yes",
+            "m4": "dash"
           }
         },
         "r2": {
           "type": "row",
           "settings": {
-            "claim": "Every dose on the label",
+            "claim": "Plus TMG 450mg, alongside the NR",
             "m1": "yes",
-            "m2": "dash",
-            "m3": "dash",
+            "m2": "no",
+            "m3": "yes",
             "m4": "dash"
           }
         },
         "r3": {
           "type": "row",
           "settings": {
-            "claim": "One daily routine, no appointments",
+            "claim": "Plus 12 vitamins and minerals: B group, D3, K2, zinc and copper",
             "m1": "yes",
-            "m2": "dash",
-            "m3": "no",
-            "m4": "no"
+            "m2": "no",
+            "m3": "yes",
+            "m4": "dash"
           }
         },
         "r4": {
           "type": "row",
           "settings": {
-            "claim": "Less than the price of a daily coffee",
+            "claim": "Plus CoQ10 150mg and PQQ 20mg",
             "m1": "yes",
-            "m2": "yes",
-            "m3": "dash",
-            "m4": "no"
+            "m2": "no",
+            "m3": "yes",
+            "m4": "dash"
           }
         },
         "r5": {
           "type": "row",
           "settings": {
-            "claim": "A baseline, check-ins and a guided 90-day test",
+            "claim": "Plus grape seed, trans-resveratrol and BioPerine®",
             "m1": "yes",
             "m2": "no",
-            "m3": "no",
+            "m3": "yes",
             "m4": "dash"
           }
         },
         "r6": {
           "type": "row",
           "settings": {
-            "claim": "Money back if you don't see a difference",
+            "claim": "One routine: two capsules a day",
             "m1": "yes",
-            "m2": "dash",
-            "m3": "dash",
+            "m2": "yes",
+            "m3": "no",
             "m4": "no"
           }
         },
         "r7": {
           "type": "row",
           "settings": {
-            "claim": "An instant effect you feel in minutes",
-            "m1": "no",
+            "claim": "All 19 ingredients for £2 a day",
+            "m1": "yes",
+            "m2": "no",
+            "m3": "no",
+            "m4": "no"
+          }
+        },
+        "r8": {
+          "type": "row",
+          "settings": {
+            "claim": "Every dose on the label, made in the UK",
+            "m1": "yes",
+            "m2": "dash",
+            "m3": "dash",
+            "m4": "dash"
+          }
+        },
+        "r9": {
+          "type": "row",
+          "settings": {
+            "claim": "90-day money-back guarantee",
+            "m1": "yes",
+            "m2": "dash",
+            "m3": "dash",
+            "m4": "no"
+          }
+        },
+        "r10": {
+          "type": "row",
+          "settings": {
+            "claim": "Free welcome kit with your first order",
+            "m1": "yes",
             "m2": "dash",
             "m3": "dash",
             "m4": "dash"
@@ -1225,24 +1255,28 @@
         "r4",
         "r5",
         "r6",
-        "r7"
+        "r7",
+        "r8",
+        "r9",
+        "r10"
       ],
       "settings": {
-        "heading": "One protocol can\nreplace the stack.",
+        "heading": "The smarter way\nto buy NAD⁺.",
         "table_caption": "How the MUTO protocol compares with the alternatives",
         "claim_label": "What we compare",
-        "head_gap": 108,
-        "claim_width": 582,
-        "col_pitch": 210,
-        "panel_width": 147,
+        "head_gap": 40,
+        "claim_width": 562,
+        "col_pitch": 160,
+        "panel_width": 120,
         "col_1": "MUTO",
         "col_1_logo": true,
-        "col_2": "Lifestyle alone",
-        "col_3": "DIY stack",
-        "col_4": "Drips & clinics",
+        "col_2": "NAD+ alone",
+        "col_3": "Buying separately",
+        "col_4": "NAD+ drips",
         "fit": "nad",
-        "space_top": 100,
-        "space_bottom": 100
+        "space_top": 70,
+        "space_bottom": 70,
+        "density": "compact"
       }
     },
     "twocaps": {

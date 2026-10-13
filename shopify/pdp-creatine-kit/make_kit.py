@@ -4,6 +4,7 @@ Usage: python3 make_kit.py <base template> <out template> <normal|simple>
 Adds a creatine gift as the first welcome-kit tile and updates the first-order reassurance row.
 """
 import json
+import os
 import sys
 
 src, out, tone = sys.argv[1:]
@@ -95,59 +96,10 @@ else:
 # Gallery follows the product images in Shopify admin
 st["gallery_from_product"] = True
 
-# Headings use NAD⁺ (U+207A): custom.js wraps an ASCII 'NAD+' plus in <sup>, which breaks
-# the flex-column heading onto extra lines.
-# Comparison: position against NAD+-only products, then what MUTO adds, trust signals and the kit
-COMPARE = {
-    "normal": dict(
-        heading="The smarter way\nto buy NAD\u207a.",
-        cols=("MUTO", "NAD+ alone", "Buying separately", "NAD+ drips"),
-        rows=[
-            ("NR 300mg, the NAD+ building block", "yes", "yes", "yes", "dash"),
-            ("Plus TMG 450mg, alongside the NR", "yes", "no", "yes", "dash"),
-            ("Plus 12 vitamins and minerals: B group, D3, K2, zinc and copper", "yes", "no", "yes", "dash"),
-            ("Plus CoQ10 150mg and PQQ 20mg", "yes", "no", "yes", "dash"),
-            ("Plus grape seed, trans-resveratrol and BioPerine\u00ae", "yes", "no", "yes", "dash"),
-            ("One routine: two capsules a day", "yes", "yes", "no", "no"),
-            ("All 19 ingredients for \u00a32 a day", "yes", "no", "no", "no"),
-            ("Every dose on the label, made in the UK", "yes", "dash", "dash", "dash"),
-            ("90-day money-back guarantee", "yes", "dash", "dash", "no"),
-            ("Free Ultrapure Creatine (worth \u00a330) with your first order", "yes", "dash", "dash", "dash"),
-        ]),
-    "simple": dict(
-        heading="The easy way\nto get NAD\u207a.",
-        cols=("MUTO", "NAD+ alone", "Lots of pills", "NAD+ drips"),
-        rows=[
-            ("NR, the building block for NAD+", "yes", "yes", "yes", "dash"),
-            ("Plus TMG, which works alongside NR", "yes", "no", "yes", "dash"),
-            ("Plus 12 vitamins and minerals", "yes", "no", "yes", "dash"),
-            ("Plus CoQ10 and PQQ", "yes", "no", "yes", "dash"),
-            ("Plus 3 plant extracts, like grape seed", "yes", "no", "yes", "dash"),
-            ("Just 2 capsules a day", "yes", "yes", "no", "no"),
-            ("All 19 ingredients for \u00a32 a day", "yes", "no", "no", "no"),
-            ("Every amount on the label", "yes", "dash", "dash", "dash"),
-            ("Money back for 90 days", "yes", "dash", "dash", "no"),
-            ("Free creatine (worth \u00a330) in your first box", "yes", "dash", "dash", "dash"),
-        ]),
-}[tone]
-cmp = d["sections"]["compare"]
-cmp["settings"].update({
-    "heading": COMPARE["heading"],
-    "col_1": COMPARE["cols"][0], "col_2": COMPARE["cols"][1],
-    "col_3": COMPARE["cols"][2], "col_4": COMPARE["cols"][3],
-})
-# Compact layout: short rows, smaller type, hairlines, and group labels so the table scans in one view
-cmp["settings"].update({"density": "compact", "head_gap": 40, "claim_width": 562, "col_pitch": 160,
-                        "panel_width": 120, "space_top": 70, "space_bottom": 70})
-GROUPS = {}  # seven rows read fine without group labels
-cmp["blocks"] = {}
-cmp["block_order"] = []
-for n, (claim, m1, m2, m3, m4) in enumerate(COMPARE["rows"], 1):
-    if n in GROUPS:
-        cmp["blocks"][f"g{n}"] = {"type": "group", "settings": {"label": GROUPS[n]}}
-        cmp["block_order"].append(f"g{n}")
-    cmp["blocks"][f"r{n}"] = {"type": "row", "settings": {"claim": claim, "m1": m1, "m2": m2, "m3": m3, "m4": m4}}
-    cmp["block_order"].append(f"r{n}")
+# Comparison table, shared with the pages without the kit
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+import compare_table  # noqa: E402
+compare_table.apply(d, tone, kit=True)
 
 # One claim window everywhere: 14 days after the 90 days end
 q4 = d["sections"]["faq"]["blocks"]["q4"]["settings"]
