@@ -3,7 +3,7 @@ title: "MUTO NAD+ product pages: new main page and page order"
 subtitle: "13 October 2026"
 ---
 
-Two new NAD+ product page templates are ready. One becomes the **main product page**, the other goes on **-2**, and your existing test pages move to **-3, -4 and -5**. Nothing in the shared sections changes: this is **2 template files to copy** and **template changes on 4 products**.
+Two new NAD+ product page templates are ready. One becomes the **main product page**, the other goes on **-2**, and your existing test pages move to **-3, -4 and -5**. Nothing in the shared sections changes: this is **2 template files to copy** and **template changes on 3 products**, plus product images so each page has its own carousel.
 
 # Before you start
 
@@ -37,6 +37,27 @@ Set each product's **Theme template** in Shopify admin (Products → product →
 Your three pages (`muto-3`, `muto-6`, `muto-5`) end up on -3, -4 and -5. Only `muto-3` moves, from `-old` to `-3`.
 
 Nothing is deleted. The old templates (`muto-nad-creatine-kit`, `muto-nad-live-creatine-kit`, `muto-nad-simple-creatine-kit`) stay in the theme unused, so you can switch any product back in one click.
+
+# Product carousel images: separate for each page
+
+Each URL is its **own product**, and every page takes its carousel from **that product's Media** (Products → product → Media, shown in that order). So each page's images are already independent: change one product's media and only that page changes.
+
+| Page | How its carousel is sourced | Product whose Media it shows |
+|---|---|---|
+| Main | `muto-crea-buy` with **"Use the product's own images"** on (`gallery_from_product: true`) | NAD+ Cellular Complex (main) |
+| -2 | Same setting, on | NAD+ Cellular Complex 2 |
+| -3, -4, -5 | Your `main-product` section (standard product media gallery) | Each product's own Media |
+
+To do:
+
+- [ ] **-2 needs its own images.** It currently has 3 images (`newmain.png`, `Frame_2147230140.png`, `Frame_2147230136.png`), the same 3 as -3. Add the 45–55 carousel images to **NAD+ Cellular Complex 2 → Media** when they're ready.
+- [ ] **-3 needs your `muto-3` images.** `muto-3` currently runs on `-old`, which has 11 images (`Frame_2147229992.png`, `Frame_2147229969.png`, `5_advantage.webp` …). The -3 product only has the 3 simple-page images. Copy `-old`'s media onto **NAD+ Cellular Complex 3** (or upload new ones), or -3 will show the wrong carousel after the switch.
+- [ ] **-4 and -5:** no change; they keep their own media.
+- [ ] **Main:** no change; it keeps its current 8 images (`new_garmin.png` first).
+
+**Don't use Files → Replace on a shared image.** Several products use the same image files (for example `Frame_2147230136.png` is on main, -2 and -3). Replacing a file in Content → Files changes it on every product that uses it. To change one page, add, remove or reorder images in that product's Media instead.
+
+If a product has no images at all, the main and -2 pages fall back to the gallery image blocks in the template.
 
 # What's on each page
 
@@ -80,5 +101,6 @@ Nothing is deleted. The old templates (`muto-nad-creatine-kit`, `muto-nad-live-c
 1. **Main page:** the intro starts "You're doing more than ever", the banner says £62, only the monthly plan shows, and the benefits tabs read "What you'll feel" and "Check it your way".
 2. **-2:** "You don't feel old. So why so tired?" is the problem heading. The Garmin tile and the plain-English comparison table ("The easy way to get NAD⁺.") show, the text is visibly larger, and the trust pills each sit on one line on desktop.
 3. **-3, -4, -5:** your own pages, as before.
-4. **Add to cart** works on all five, with the welcome kit added.
-5. **On a phone:** check -2 for wrapping in the plan cards and gift labels.
+4. **Carousels:** each page shows its own product's images. As a test, reorder the images on -2 and check that main doesn't change.
+5. **Add to cart** works on all five, with the welcome kit added.
+6. **On a phone:** check -2 for wrapping in the plan cards and gift labels.
