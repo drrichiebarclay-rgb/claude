@@ -1060,14 +1060,54 @@
         "r1": {
           "type": "row",
           "settings": {
-            "claim": "Works inside your body, every day",
+            "claim": "NR, the building block for NAD+",
             "m1": "yes",
-            "m2": "dash",
-            "m3": "dash",
-            "m4": "yes"
+            "m2": "yes",
+            "m3": "yes",
+            "m4": "dash"
           }
         },
         "r2": {
+          "type": "row",
+          "settings": {
+            "claim": "Plus B vitamins that help reduce tiredness",
+            "m1": "yes",
+            "m2": "no",
+            "m3": "yes",
+            "m4": "dash"
+          }
+        },
+        "r3": {
+          "type": "row",
+          "settings": {
+            "claim": "Plus zinc, copper, vitamin D and K2",
+            "m1": "yes",
+            "m2": "no",
+            "m3": "yes",
+            "m4": "dash"
+          }
+        },
+        "r4": {
+          "type": "row",
+          "settings": {
+            "claim": "Plus CoQ10, TMG, PQQ and resveratrol",
+            "m1": "yes",
+            "m2": "no",
+            "m3": "yes",
+            "m4": "no"
+          }
+        },
+        "r5": {
+          "type": "row",
+          "settings": {
+            "claim": "All of it in just 2 capsules a day",
+            "m1": "yes",
+            "m2": "no",
+            "m3": "no",
+            "m4": "no"
+          }
+        },
+        "r6": {
           "type": "row",
           "settings": {
             "claim": "Every amount on the label",
@@ -1077,47 +1117,47 @@
             "m4": "dash"
           }
         },
-        "r3": {
+        "r7": {
           "type": "row",
           "settings": {
-            "claim": "Just 2 capsules a day",
+            "claim": "Made in the UK",
             "m1": "yes",
             "m2": "dash",
-            "m3": "no",
-            "m4": "no"
-          }
-        },
-        "r4": {
-          "type": "row",
-          "settings": {
-            "claim": "Costs less than a coffee a day",
-            "m1": "yes",
-            "m2": "yes",
             "m3": "dash",
-            "m4": "no"
-          }
-        },
-        "r5": {
-          "type": "row",
-          "settings": {
-            "claim": "Help to see if it’s working",
-            "m1": "yes",
-            "m2": "no",
-            "m3": "no",
             "m4": "dash"
           }
         },
-        "r6": {
+        "r8": {
           "type": "row",
           "settings": {
-            "claim": "Money back if it’s not for you",
+            "claim": "Checked by our team of scientists",
+            "m1": "yes",
+            "m2": "dash",
+            "m3": "dash",
+            "m4": "dash"
+          }
+        },
+        "r9": {
+          "type": "row",
+          "settings": {
+            "claim": "Money back for 90 days",
             "m1": "yes",
             "m2": "dash",
             "m3": "dash",
             "m4": "no"
           }
         },
-        "r7": {
+        "r10": {
+          "type": "row",
+          "settings": {
+            "claim": "Free creatine and gifts in your first box",
+            "m1": "yes",
+            "m2": "dash",
+            "m3": "dash",
+            "m4": "dash"
+          }
+        },
+        "r11": {
           "type": "row",
           "settings": {
             "claim": "Instant buzz",
@@ -1135,10 +1175,14 @@
         "r4",
         "r5",
         "r6",
-        "r7"
+        "r7",
+        "r8",
+        "r9",
+        "r10",
+        "r11"
       ],
       "settings": {
-        "heading": "One jar instead\nof lots of pills.",
+        "heading": "NAD+, plus everything\nit works with.",
         "table_caption": "How MUTO compares",
         "claim_label": "What we compare",
         "head_gap": 108,
@@ -1147,7 +1191,7 @@
         "panel_width": 147,
         "col_1": "MUTO",
         "col_1_logo": true,
-        "col_2": "Healthy habits only",
+        "col_2": "NAD+ alone",
         "col_3": "Lots of pills",
         "col_4": "Drips and clinics",
         "fit": "nad",

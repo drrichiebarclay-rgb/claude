@@ -1119,64 +1119,104 @@
         "r1": {
           "type": "row",
           "settings": {
-            "claim": "Supports the cellular system beneath your numbers",
+            "claim": "Nicotinamide riboside (NR), the NAD+ building block, 300mg",
             "m1": "yes",
-            "m2": "dash",
-            "m3": "dash",
-            "m4": "yes"
+            "m2": "yes",
+            "m3": "yes",
+            "m4": "dash"
           }
         },
         "r2": {
           "type": "row",
           "settings": {
-            "claim": "Every dose on the label",
+            "claim": "Plus methylated B vitamins for normal energy-yielding metabolism",
             "m1": "yes",
-            "m2": "dash",
-            "m3": "dash",
+            "m2": "no",
+            "m3": "yes",
             "m4": "dash"
           }
         },
         "r3": {
           "type": "row",
           "settings": {
-            "claim": "One daily routine, no appointments",
+            "claim": "Plus zinc, copper, vitamin D3 and K2",
             "m1": "yes",
-            "m2": "dash",
-            "m3": "no",
-            "m4": "no"
+            "m2": "no",
+            "m3": "yes",
+            "m4": "dash"
           }
         },
         "r4": {
           "type": "row",
           "settings": {
-            "claim": "Less than the price of a daily coffee",
+            "claim": "Plus CoQ10, TMG, PQQ, grape seed and resveratrol",
             "m1": "yes",
-            "m2": "yes",
-            "m3": "dash",
+            "m2": "no",
+            "m3": "yes",
             "m4": "no"
           }
         },
         "r5": {
           "type": "row",
           "settings": {
-            "claim": "A baseline, check-ins and a guided 90-day test",
+            "claim": "All 19 ingredients in two capsules a day",
             "m1": "yes",
             "m2": "no",
             "m3": "no",
-            "m4": "dash"
+            "m4": "no"
           }
         },
         "r6": {
           "type": "row",
           "settings": {
-            "claim": "Money back if you don't see a difference",
+            "claim": "Every dose on the label, no proprietary blends",
+            "m1": "yes",
+            "m2": "dash",
+            "m3": "dash",
+            "m4": "dash"
+          }
+        },
+        "r7": {
+          "type": "row",
+          "settings": {
+            "claim": "Made in the UK to GMP standards",
+            "m1": "yes",
+            "m2": "dash",
+            "m3": "dash",
+            "m4": "dash"
+          }
+        },
+        "r8": {
+          "type": "row",
+          "settings": {
+            "claim": "Reviewed by our Scientific Advisory Board",
+            "m1": "yes",
+            "m2": "dash",
+            "m3": "dash",
+            "m4": "dash"
+          }
+        },
+        "r9": {
+          "type": "row",
+          "settings": {
+            "claim": "90-day money-back guarantee",
             "m1": "yes",
             "m2": "dash",
             "m3": "dash",
             "m4": "no"
           }
         },
-        "r7": {
+        "r10": {
+          "type": "row",
+          "settings": {
+            "claim": "Free Ultrapure Creatine and welcome kit with your first order",
+            "m1": "yes",
+            "m2": "dash",
+            "m3": "dash",
+            "m4": "dash"
+          }
+        },
+        "r11": {
           "type": "row",
           "settings": {
             "claim": "An instant effect you feel in minutes",
@@ -1194,10 +1234,14 @@
         "r4",
         "r5",
         "r6",
-        "r7"
+        "r7",
+        "r8",
+        "r9",
+        "r10",
+        "r11"
       ],
       "settings": {
-        "heading": "One protocol can\nreplace the stack.",
+        "heading": "More than NAD+.\nOne daily protocol.",
         "table_caption": "How the MUTO protocol compares with the alternatives",
         "claim_label": "What we compare",
         "head_gap": 108,
@@ -1206,7 +1250,7 @@
         "panel_width": 147,
         "col_1": "MUTO",
         "col_1_logo": true,
-        "col_2": "Lifestyle alone",
+        "col_2": "NAD+ alone",
         "col_3": "DIY stack",
         "col_4": "Drips & clinics",
         "fit": "nad",

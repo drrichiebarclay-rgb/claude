@@ -95,6 +95,53 @@ else:
 # Gallery follows the product images in Shopify admin
 st["gallery_from_product"] = True
 
+# Comparison: position against NAD+-only products, then what MUTO adds, trust signals and the kit
+COMPARE = {
+    "normal": dict(
+        heading="More than NAD+.\nOne daily protocol.",
+        cols=("MUTO", "NAD+ alone", "DIY stack", "Drips & clinics"),
+        rows=[
+            ("Nicotinamide riboside (NR), the NAD+ building block, 300mg", "yes", "yes", "yes", "dash"),
+            ("Plus methylated B vitamins for normal energy-yielding metabolism", "yes", "no", "yes", "dash"),
+            ("Plus zinc, copper, vitamin D3 and K2", "yes", "no", "yes", "dash"),
+            ("Plus CoQ10, TMG, PQQ, grape seed and resveratrol", "yes", "no", "yes", "no"),
+            ("All 19 ingredients in two capsules a day", "yes", "no", "no", "no"),
+            ("Every dose on the label, no proprietary blends", "yes", "dash", "dash", "dash"),
+            ("Made in the UK to GMP standards", "yes", "dash", "dash", "dash"),
+            ("Reviewed by our Scientific Advisory Board", "yes", "dash", "dash", "dash"),
+            ("90-day money-back guarantee", "yes", "dash", "dash", "no"),
+            ("Free Ultrapure Creatine and welcome kit with your first order", "yes", "dash", "dash", "dash"),
+            ("An instant effect you feel in minutes", "no", "dash", "dash", "dash"),
+        ]),
+    "simple": dict(
+        heading="NAD+, plus everything\nit works with.",
+        cols=("MUTO", "NAD+ alone", "Lots of pills", "Drips and clinics"),
+        rows=[
+            ("NR, the building block for NAD+", "yes", "yes", "yes", "dash"),
+            ("Plus B vitamins that help reduce tiredness", "yes", "no", "yes", "dash"),
+            ("Plus zinc, copper, vitamin D and K2", "yes", "no", "yes", "dash"),
+            ("Plus CoQ10, TMG, PQQ and resveratrol", "yes", "no", "yes", "no"),
+            ("All of it in just 2 capsules a day", "yes", "no", "no", "no"),
+            ("Every amount on the label", "yes", "dash", "dash", "dash"),
+            ("Made in the UK", "yes", "dash", "dash", "dash"),
+            ("Checked by our team of scientists", "yes", "dash", "dash", "dash"),
+            ("Money back for 90 days", "yes", "dash", "dash", "no"),
+            ("Free creatine and gifts in your first box", "yes", "dash", "dash", "dash"),
+            ("Instant buzz", "no", "dash", "dash", "dash"),
+        ]),
+}[tone]
+cmp = d["sections"]["compare"]
+cmp["settings"].update({
+    "heading": COMPARE["heading"],
+    "col_1": COMPARE["cols"][0], "col_2": COMPARE["cols"][1],
+    "col_3": COMPARE["cols"][2], "col_4": COMPARE["cols"][3],
+})
+cmp["blocks"] = {}
+cmp["block_order"] = []
+for n, (claim, m1, m2, m3, m4) in enumerate(COMPARE["rows"], 1):
+    cmp["blocks"][f"r{n}"] = {"type": "row", "settings": {"claim": claim, "m1": m1, "m2": m2, "m3": m3, "m4": m4}}
+    cmp["block_order"].append(f"r{n}")
+
 # One claim window everywhere: 14 days after the 90 days end
 q4 = d["sections"]["faq"]["blocks"]["q4"]["settings"]
 for old in ("within 90 days of your first order", "within 104 days of your first order"):
