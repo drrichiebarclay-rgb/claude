@@ -48,7 +48,12 @@ for bid, label in labels.items():
     buy["blocks"][bid]["settings"]["row_label"] = label
 buy["blocks"]["k4"]["settings"]["row_note"] = "Free entry"
 # Giveaway prize is now a Garmin Watch (caption under the kit image)
-buy["blocks"]["k4"]["settings"].update({"value": "Garmin Watch", "name": "giveaway entry"})
+buy["blocks"]["k4"]["settings"].update({
+    "value": "Garmin Watch", "name": "giveaway entry",
+    "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-garmin.jpg?v=1791883127",
+    "image_alt": "A white Garmin watch, the giveaway prize in the welcome kit",
+})
+buy["blocks"]["k4"]["settings"].pop("image", None)
 
 # The ticked reassurance rows go: the itemised list now carries that message
 terms = [b for b in buy["block_order"] if buy["blocks"][b]["type"] == "term"]
