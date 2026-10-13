@@ -36,17 +36,19 @@ if tone == "normal":
                "kit_foot_1": "90-day money-back guarantee", "kit_foot_2": "Free next-day delivery",
                "kit_foot_3": "Skip or cancel anytime"})
     labels = {"k0": "Ultrapure Micronised Creatine", "k1": "Performance Socks (Size UK 6-11)", "k2": "Forever Jar",
-              "k3": "12-Week Protocol Guide", "k4": "Oura Ring 5 prize draw entry"}
+              "k3": "12-Week Protocol Guide", "k4": "Chance to win a Garmin Watch"}
 else:
     st.update({"kit_title": "Your first box includes:", "kit_itemised": True,
                "kit_main": "NAD+ Cellular Complex", "kit_main_note": "Included",
                "kit_foot_1": "Money back for 90 days", "kit_foot_2": "Free delivery",
                "kit_foot_3": "Stop any time"})
     labels = {"k0": "Creatine", "k1": "Socks (Size UK 6-11)", "k2": "Jar to keep", "k3": "12-week guide",
-              "k4": "Chance to win an Oura Ring"}
+              "k4": "Chance to win a Garmin Watch"}
 for bid, label in labels.items():
     buy["blocks"][bid]["settings"]["row_label"] = label
 buy["blocks"]["k4"]["settings"]["row_note"] = "Free entry"
+# Giveaway prize is now a Garmin Watch (caption under the kit image)
+buy["blocks"]["k4"]["settings"].update({"value": "Garmin Watch", "name": "giveaway entry"})
 
 # The ticked reassurance rows go: the itemised list now carries that message
 terms = [b for b in buy["block_order"] if buy["blocks"][b]["type"] == "term"]

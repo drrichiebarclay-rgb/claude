@@ -126,12 +126,12 @@
         "k4": {
           "type": "gift",
           "settings": {
-            "value": "OURA ring 5",
-            "name": "Chance to win",
+            "value": "Garmin Watch",
+            "name": "giveaway entry",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-oura.jpg?v=1791022787",
             "image_alt": "An Oura smart ring, the giveaway entry in the welcome kit",
             "plans": "",
-            "row_label": "Chance to win an Oura Ring",
+            "row_label": "Chance to win a Garmin Watch",
             "row_note": "Free entry"
           }
         },
