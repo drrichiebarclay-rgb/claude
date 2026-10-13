@@ -34,7 +34,7 @@ def b(sec, blk, **kw):
 # Three benefits: energy, recovery, stress, for busy lives in general (work, family,
 # workouts, travel). Felt benefits are framed as what customers report; effect claims
 # are the authorised ones only (B vitamins, vitamin D, zinc, copper). A wearable is optional.
-s("buy", text="<p>For full lives: work, family, workouts, friends, and never enough hours. Energy that lasts through the afternoon and into the evening. Recovery from late nights, travel and hard workouts. A steadier head when life piles on. Two capsules a day built around 300mg NR, the NAD+ building block, with B vitamins that contribute to normal energy-yielding metabolism and normal psychological function, and vitamin D for normal muscle function. Check it with a 30-second weekly note or your wearable, and judge it for yourself.</p>")
+s("buy", text="<p>For full, busy lives. Energy that lasts into the evening, a faster bounce-back from late nights and workouts, and a steadier head when life piles on. Two capsules a day: 300mg NR plus B vitamins for normal energy-yielding metabolism. 90 days to judge it yourself.</p>")
 b("buy", "b1", text="Energy that lasts through the afternoon")
 b("buy", "b2", text="Bounce back from late nights, travel and workouts")
 b("buy", "b3", text="Built for busy, stressful weeks")
