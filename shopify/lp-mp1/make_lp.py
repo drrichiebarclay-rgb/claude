@@ -120,8 +120,8 @@ S["value"] = {"type": "muto-lp-value", "settings": {
 
 # ---- 6. The offer, itemised ------------------------------------------------------------------
 S["offer"] = {"type": "muto-lp-offer", "settings": {
-    "image": pimg("guarantee", None), "image_fallback": img("g1"),
-    "image_alt": "A MUTO customer after a session with their MUTO bottle",
+    "image": "", "image_fallback": M2_LEAD,
+    "image_alt": "MUTO NAD+ Cellular Complex",
     "heading": "Start your 90 days today.",
     "product_name": "NAD+ Cellular Complex (30 days)", "product_price": "£60",
     "product_sub": "£2 a day on subscription. Usually £70.",
@@ -214,8 +214,8 @@ WHY = kit["why"]["blocks"]
 S["formula"] = {"type": "muto-lp-formula", "settings": {
     "heading": "One formula, built to be checked.",
     "body": "Most supplements never test their formula as a complete product. MUTO is being studied with four UK universities, and we’ll publish what we find, whatever it shows. Until then, every dose is on the label, and you get 90 days to check it yourself.",
-    "image_fallback": WHY["w2"]["settings"].get("image_fallback", ""),
-    "image_alt": WHY["w2"]["settings"].get("image_alt", ""),
+    "image_fallback": SHOP_NAD,
+    "image_alt": "A jar of MUTO NAD+ Cellular Complex",
     "source": "* Conze et al., 2019. NR taken on its own, not MUTO. MUTO contains 300mg NR, the most allowed in Great Britain."},
     "blocks": {}, "block_order": []}
 for i, (fig, unit, text) in enumerate([
@@ -231,7 +231,21 @@ rv = S["reviews"]["settings"]
 rv["heading"] = "<p>Energy, recovery, routine: what customers say about MUTO</p>"
 rv["bg_color"] = "#ffffff"
 rv["show_button"] = False
-rv["review_content"] = rv["review_content"].replace("enable_rich_snippets: true", "enable_rich_snippets: false")
+rc = rv["review_content"]
+for old, new in [("enable_rich_snippets: true", "enable_rich_snippets: false"),
+                 ("per_page: 15", "per_page: 6"),
+                 ("enable_sentiment_analysis: true", "enable_sentiment_analysis: false"),
+                 ("enable: true, //Show filtering options", "enable: false, //Show filtering options"),
+                 ("enable_text_search: true", "enable_text_search: false"),
+                 ("enable_sorting: true", "enable_sorting: false"),
+                 ("enable_write_review: true", "enable_write_review: false"),
+                 ("enable_sub_header: true", "enable_sub_header: false")]:
+    assert old in rc, old
+    rc = rc.replace(old, new)
+rv["review_content"] = rc
+rv["padding_top"] = 80
+rv["padding_bottom"] = 40
+rv["show_review_bar"] = False
 
 # ---- 9. Athletes and experts ------------------------------------------------------------
 BOARD = kit["board"]["blocks"]
@@ -267,6 +281,13 @@ for i, (q_, a_) in enumerate([
     S["lp_faq"]["blocks"][f"q{i}"] = {"type": "q", "settings": {"q": q_, "a": a_}}
     S["lp_faq"]["block_order"].append(f"q{i}")
 
+# ---- 11. Second offer, after the FAQ --------------------------------------------------
+S["offer2"] = copy(S["offer"])
+S["offer2"]["settings"].update(
+    heading="Ready when you are.",
+    image=pimg("guarantee", None), image_fallback=img("g1"),
+    image_alt="A MUTO customer in his 50s after a ride")
+
 # Superseded by the AG1-style sections above
 for k in ("results", "founder", "steps", "guarantee", "faq", "banner", "easy_read"):
     S.pop(k, None)
@@ -281,7 +302,7 @@ S["easy_read"] = {"type": "custom-liquid",
 
 S.pop("easy_read", None)
 order = ["lp_hero", "trust", "problem", "benefits", "value", "offer",
-         "formula", "reviews", "experts", "lp_faq", "bar"]
+         "formula", "reviews", "experts", "lp_faq", "offer2", "bar"]
 assert set(order) == set(S)
 with open(out, "w") as fh:
     json.dump({"sections": S, "order": order}, fh, ensure_ascii=False, indent=2)

@@ -14,7 +14,7 @@
   assign ticks = s.ticks | newline_to_br | split: '<br />'
 -%}
 <div class="mlp">
-  <section class="mlp-offer" id="offer" aria-labelledby="mlp-offer-{{ section.id }}">
+  <section class="mlp-offer" id="offer-{{ section.id }}" aria-labelledby="mlp-offer-{{ section.id }}">
     <div class="mlp-offer__media">{%- if img_src != blank -%}<img src="{{ img_src }}" alt="{{ s.image_alt | escape }}" width="1400" height="1050" loading="lazy">{%- endif -%}</div>
     <div class="mlp-offer__panel">
       <h2 class="mlp-offer__h" id="mlp-offer-{{ section.id }}">{{ s.heading | escape | newline_to_br }}</h2>
