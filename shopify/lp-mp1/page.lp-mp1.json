@@ -3,259 +3,256 @@
     "lp_hero": {
       "type": "muto-lp-hero",
       "settings": {
-        "kit_title": "Your £62 welcome kit.\nOn us.",
-        "main_image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-gallery-1.jpg?v=1790879783",
-        "main_image_alt": "The MUTO NAD+ Cellular Complex jar, pouch, sachets and bottle photographed together on a dark background",
-        "badge_mark": "<strong>PhD</strong>Formulated",
-        "badge_text": "By Dr Richie Barclay, cell biologist. Reviewed by our Scientific Advisory Board.",
-        "heading": "The £62 welcome kit.\nFree with your first subscription.",
-        "heading_accent": "Start your 90 days.",
-        "body": "<p>Same training, slower recovery? It’s not your discipline. It starts underneath. MUTO is one daily protocol for people who aren’t done yet: two capsules with breakfast, every dose on the label, and 90 days to judge it yourself.</p>",
-        "rating": "4.83",
-        "reviews": "150+ reviews",
-        "proof_image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-founder.jpg?v=1790751995",
-        "proof_text": "<p><strong>Built by a scientist you can talk to.</strong> Richie answers formula questions himself. <a href=\"#mlp-doses-doses\">See every dose</a></p>",
+        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-gallery-1.jpg?v=1790879783",
+        "image_alt": "The MUTO NAD+ Cellular Complex jar, pouch, sachets and bottle photographed together on a dark background",
+        "rating_text": "Rated 4.83 from 150+ reviews",
+        "heading": "Same training.\nSlower recovery.\nIt’s not your discipline.",
+        "body": "<p>MUTO is the daily cellular protocol for people who still train: two capsules with breakfast, 19 ingredients, every dose on the label. Start now and your first order includes a free welcome kit, with Ultrapure Creatine.</p>",
+        "strong": "Two capsules. One routine. 90 days to judge it yourself.",
         "cta_label": "Start your 90 days",
-        "cta_sub": "Save 14% + free welcome kit",
         "cta_link": "/products/muto-nad-cellular-complex-2",
-        "cta_note": "90-day money-back guarantee · Skip, pause or cancel online"
-      },
-      "blocks": {
-        "k0": {
-          "type": "gift",
-          "settings": {
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
-            "image_alt": "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate, part of the welcome kit",
-            "name": "Ultrapure Creatine",
-            "was": "£30",
-            "now": "Free"
-          }
-        },
-        "k1": {
-          "type": "gift",
-          "settings": {
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-socks.jpg?v=1791023071",
-            "image_alt": "A pouch of MUTO Performance Socks, part of the welcome kit",
-            "name": "Performance Socks",
-            "was": "£12",
-            "now": "Free"
-          }
-        },
-        "k2": {
-          "type": "gift",
-          "settings": {
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-forever-jar.jpg?v=1791023224",
-            "image_alt": "The MUTO Forever Jar in its presentation box, part of the welcome kit",
-            "name": "Forever Jar",
-            "was": "£10",
-            "now": "Free"
-          }
-        },
-        "k3": {
-          "type": "gift",
-          "settings": {
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-gift-guide-v2.jpg?v=1791392560",
-            "image_alt": "The MUTO 12 Week Protocol Guide, a black book with the formula listed down its cover",
-            "name": "12-Week Protocol Guide",
-            "was": "£10",
-            "now": "Free"
-          }
-        }
-      },
-      "block_order": [
-        "k0",
-        "k1",
-        "k2",
-        "k3"
-      ]
-    },
-    "stats": {
-      "type": "muto-lp-stats",
-      "settings": {
-        "press_label": "As featured in",
-        "stats_label": "MUTO in numbers"
-      },
-      "blocks": {
-        "st1": {
-          "type": "stat",
-          "settings": {
-            "figure": "19",
-            "label": "Ingredients, every dose on the label"
-          }
-        },
-        "st2": {
-          "type": "stat",
-          "settings": {
-            "figure": "300mg",
-            "label": "NR, the most allowed in Great Britain"
-          }
-        },
-        "st3": {
-          "type": "stat",
-          "settings": {
-            "figure": "90 days",
-            "label": "To decide, or your money back"
-          }
-        },
-        "st4": {
-          "type": "stat",
-          "settings": {
-            "figure": "4.83★",
-            "label": "From 150+ reviews"
-          }
-        }
-      },
-      "block_order": [
-        "st1",
-        "st2",
-        "st3",
-        "st4"
-      ]
-    },
-    "compare": {
-      "type": "muto-lp-compare",
-      "settings": {
-        "pill": "The supplement problem",
-        "heading": "Too many pots.",
-        "heading_accent": "Too little proof.",
-        "sub": "Most people take a cupboard of supplements and still aren’t sure any of them work. MUTO is built to be checked.",
-        "old_title": "The old way",
-        "old_items": "5+ separate pots, pills and powders\nProprietary blends with hidden doses\nSingle ingredients at token doses\n£100+ a month and a cupboard full of clutter\nNo way to tell if any of it is working",
-        "new_title": "The MUTO way",
-        "new_items": "Two capsules with breakfast. That’s it.\nEvery dose on the label. No proprietary blends.\n300mg NR, the most allowed in Great Britain\nOne routine, about £2 a day\n90 days to check it yourself, or your money back",
-        "cta_label": "Start your 90 days",
-        "cta_link": "/products/muto-nad-cellular-complex-2"
+        "ticks": "Free next-day delivery\n90-day money-back guarantee"
       }
     },
-    "notice": {
-      "type": "muto-lp-cards",
+    "trust": {
+      "type": "muto-lp-trust",
       "settings": {
-        "tint": true,
-        "pill": "Real people, real check-ins",
-        "heading": "What people notice",
-        "heading_accent": "in their own words",
-        "foot": "Individual experiences. We won’t promise what MUTO will do for you."
+        "heading": "Built for people who still train,\nstill work, and aren’t done yet."
       },
       "blocks": {
-        "n1": {
-          "type": "card",
+        "t1": {
+          "type": "item",
           "settings": {
-            "figure": "",
-            "title": "Afternoons",
-            "text": "“No afternoon slump and in general feeling great”",
-            "cite": "Lynda, MUTO customer"
+            "icon": "award",
+            "text": "Built by a PhD cell biologist"
           }
         },
-        "n2": {
-          "type": "card",
+        "t2": {
+          "type": "item",
           "settings": {
-            "figure": "",
-            "title": "Recovery",
-            "text": "“Has actually changed my recovery”",
-            "cite": "Adam H, MUTO customer"
+            "icon": "shield",
+            "text": "Made in the UK, every batch third-party tested"
           }
         },
-        "n3": {
-          "type": "card",
+        "t3": {
+          "type": "item",
           "settings": {
-            "figure": "",
-            "title": "Training",
-            "text": "“I’ve noticed how Muto has helped me recover faster meaning I can train harder, more often”",
-            "cite": "Ayo P, MUTO customer"
+            "icon": "flask",
+            "text": "Research underway with 4 UK universities"
+          }
+        },
+        "pw1": {
+          "type": "photo",
+          "settings": {
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-athlete-harry.jpg?v=1791021221",
+            "alt": "Harry Insley running across open parkland in a black vest",
+            "position": "50% 6%"
+          }
+        },
+        "pw2": {
+          "type": "photo",
+          "settings": {
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-athlete-yolanda.jpg?v=1791021221",
+            "alt": "Yolanda King standing with her arms folded in front of a row of treadmills",
+            "position": "50% 32%"
+          }
+        },
+        "pw3": {
+          "type": "photo",
+          "settings": {
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-athlete-kaisa.jpg?v=1791025477",
+            "alt": "Kaisa Larkas running between stations at a HYROX event",
+            "position": "50% 27%"
+          }
+        },
+        "pw4": {
+          "type": "photo",
+          "settings": {
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-athlete-cyclist.jpg?v=1790767821",
+            "alt": "Sam Ekstrom on the drops during a Team GB time trial",
+            "position": "50% 30%"
           }
         }
       },
       "block_order": [
-        "n1",
-        "n2",
-        "n3"
+        "t1",
+        "t2",
+        "t3",
+        "pw1",
+        "pw2",
+        "pw3",
+        "pw4"
       ]
     },
-    "doses": {
-      "type": "muto-lp-doses",
+    "problem": {
+      "type": "muto-lp-problem",
       "settings": {
-        "pill": "Full transparency",
-        "heading": "Every dose.",
-        "heading_accent": "Nothing hidden.",
-        "sub": "A few of the 19 ingredients in two capsules, every dose printed on the label.",
-        "tags": "Energy-yielding metabolism\nTiredness and fatigue\nMuscle function\nNormal bones\nCell protection",
-        "foot": "Ask your AI, your GP or Richie what’s in it."
+        "pill": "Sound familiar?",
+        "heading": "When did Sunday start lasting until Wednesday?",
+        "lede": "You’re fitter than most people your age, and you still turn up. But the session that used to be gone by Monday now hangs around for days. More rest isn’t fixing it, and neither is the cupboard of supplements.",
+        "reframe_heading": "It’s not your discipline.\nIt starts underneath.",
+        "reframe_text": "Recovery is where ageing tends to show up first, in the cells that make your energy. MUTO supports the 30 trillion cells in your body through NAD+ and other nutrients, in one daily routine you can check yourself."
       },
       "blocks": {
-        "d1": {
-          "type": "dose",
+        "x1": {
+          "type": "pain",
           "settings": {
-            "amount": "300mg",
-            "name": "Nicotinamide riboside (NR)",
-            "role": "the NAD+ building block"
+            "quote": "“I need longer to recover than I used to.”",
+            "text": "Same training. Same sleep. Slower bounce-back."
           }
         },
-        "d2": {
-          "type": "dose",
+        "x2": {
+          "type": "pain",
           "settings": {
-            "amount": "450mg",
-            "name": "TMG",
-            "role": "works alongside NR"
+            "quote": "“My legs are still heavy on Sunday.”",
+            "text": "Thursday’s session hasn’t left yet."
           }
         },
-        "d3": {
-          "type": "dose",
+        "x3": {
+          "type": "pain",
           "settings": {
-            "amount": "150mg",
-            "name": "CoQ10",
-            "role": "found in every cell"
-          }
-        },
-        "d4": {
-          "type": "dose",
-          "settings": {
-            "amount": "2000IU",
-            "name": "Vitamin D3",
-            "role": "normal muscle function"
-          }
-        },
-        "d5": {
-          "type": "dose",
-          "settings": {
-            "amount": "100µg",
-            "name": "Vitamin K2 (MK-7)",
-            "role": "works alongside D3"
-          }
-        },
-        "d6": {
-          "type": "dose",
-          "settings": {
-            "amount": "8 B vitamins",
-            "name": "Methylated B complex",
-            "role": "normal energy-yielding metabolism"
-          }
-        },
-        "d7": {
-          "type": "dose",
-          "settings": {
-            "amount": "15mg",
-            "name": "Zinc",
-            "role": "protects cells from oxidative stress"
-          }
-        },
-        "d8": {
-          "type": "dose",
-          "settings": {
-            "amount": "50mg",
-            "name": "Trans-resveratrol",
-            "role": "a plant polyphenol"
+            "quote": "“A cupboard full of pots.”",
+            "text": "Five supplements, and no idea which one’s working."
           }
         }
       },
       "block_order": [
-        "d1",
-        "d2",
-        "d3",
-        "d4",
-        "d5",
-        "d6",
-        "d7",
-        "d8"
+        "x1",
+        "x2",
+        "x3"
+      ]
+    },
+    "benefits": {
+      "type": "muto-lp-benefits",
+      "settings": {
+        "heading": "What’s working underneath.",
+        "foot": ""
+      },
+      "blocks": {
+        "b1": {
+          "type": "benefit",
+          "settings": {
+            "title": "Steadier energy, all day.",
+            "text": "Vitamins B6, B12 and folate contribute to the reduction of tiredness and fatigue."
+          }
+        },
+        "b2": {
+          "type": "benefit",
+          "settings": {
+            "title": "Energy made in your cells.",
+            "text": "Thiamin, riboflavin, niacin, vitamins B6 and B12, and copper contribute to normal energy-yielding metabolism."
+          }
+        },
+        "b3": {
+          "type": "benefit",
+          "settings": {
+            "title": "Built for people who train.",
+            "text": "Vitamin D contributes to the maintenance of normal muscle function."
+          }
+        },
+        "b4": {
+          "type": "benefit",
+          "settings": {
+            "title": "Protection from everyday wear.",
+            "text": "Zinc, copper and riboflavin contribute to the protection of cells from oxidative stress."
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ]
+    },
+    "value": {
+      "type": "muto-lp-value",
+      "settings": {
+        "heading": "19 ingredients.\nTwo capsules.",
+        "body": "Most supplements cover one thing. Add more and the cupboard fills up fast, with no way to tell what’s working. MUTO puts 19 ingredients in one daily routine, every dose on the label.",
+        "more_label": "See every dose",
+        "more_list": "Nicotinamide riboside (NR) | 300mg\nTrimethylglycine (TMG) | 450mg\nCoenzyme Q10 | 150mg\nGrapeseed extract | 150mg\nTrans-resveratrol | 50mg\nPQQ | 20mg\nVitamin D3 | 2000IU\nVitamin K2 (MK-7) | 100µg\nThiamin (B1) | 5mg\nRiboflavin (B2) | 5mg\nNiacin (B3) | 16mg NE\nPantothenic acid (B5) | 10mg\nVitamin B6 (P5P) | 5mg\nFolate | 400µg\nVitamin B12 | 100µg\nBiotin | 300µg\nZinc bisglycinate | 15mg\nCopper bisglycinate | 1mg\nBioPerine® | 5mg",
+        "without_placeholder": "Photo needed: a cupboard of supplement pots",
+        "without_label": "Without MUTO: a cupboard of separate pots",
+        "without_price": "£3.30+",
+        "with_image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-shop-nad-v2.jpg?v=1791288517",
+        "with_image_alt": "A jar of MUTO NAD+ Cellular Complex",
+        "with_label": "With MUTO: two capsules a day",
+        "with_price": "£2",
+        "cta_label": "Start your 90 days",
+        "cta_link": "/products/muto-nad-cellular-complex-2",
+        "foot": "£3.30+ a day is the £100+ a month buyers told us they spent on supplements before MUTO. MUTO is £60 a month on subscription."
+      }
+    },
+    "offer": {
+      "type": "muto-lp-offer",
+      "settings": {
+        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-gallery-1.jpg?v=1790879783",
+        "image_alt": "The MUTO NAD+ Cellular Complex jar, pouch, sachets and bottle photographed together on a dark background",
+        "heading": "Start your 90 days today.",
+        "product_name": "NAD+ Cellular Complex (30 days)",
+        "product_price": "£60",
+        "product_sub": "£2 a day on subscription. Usually £70.",
+        "includes_label": "First order includes:",
+        "total_was": "£132",
+        "total_now": "£60",
+        "cta_label": "Start your 90 days",
+        "cta_link": "/products/muto-nad-cellular-complex-2",
+        "ticks": "Free next-day delivery\nSkip, pause or cancel online\n90-day money-back guarantee"
+      },
+      "blocks": {
+        "i1": {
+          "type": "item",
+          "settings": {
+            "name": "Ultrapure Creatine",
+            "desc": "Micronised creatine monohydrate, every batch tested",
+            "was": "£30",
+            "now": "free"
+          }
+        },
+        "i2": {
+          "type": "item",
+          "settings": {
+            "name": "Performance Socks",
+            "desc": "Size UK 6–11",
+            "was": "£12",
+            "now": "free"
+          }
+        },
+        "i3": {
+          "type": "item",
+          "settings": {
+            "name": "Forever Jar",
+            "desc": "Refill it from the pouch every month",
+            "was": "£10",
+            "now": "free"
+          }
+        },
+        "i4": {
+          "type": "item",
+          "settings": {
+            "name": "12-Week Protocol Guide",
+            "desc": "How to run your 90 days and check it yourself",
+            "was": "£10",
+            "now": "free"
+          }
+        },
+        "i5": {
+          "type": "item",
+          "settings": {
+            "name": "Garmin watch prize draw",
+            "desc": "Entry into our quarterly draw",
+            "was": "",
+            "now": "included"
+          }
+        }
+      },
+      "block_order": [
+        "i1",
+        "i2",
+        "i3",
+        "i4",
+        "i5"
       ]
     },
     "results": {
@@ -630,10 +627,11 @@
   },
   "order": [
     "lp_hero",
-    "stats",
-    "compare",
-    "notice",
-    "doses",
+    "trust",
+    "problem",
+    "benefits",
+    "value",
+    "offer",
     "results",
     "founder",
     "steps",

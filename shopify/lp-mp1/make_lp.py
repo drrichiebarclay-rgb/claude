@@ -36,86 +36,104 @@ CTA = "Start your 90 days"
 
 S = {}
 
-# Images reused from the creatine-kit product page
+# Images reused from the creatine-kit product page and the home page
 B = kit["buy"]["blocks"]
 img = lambda k: B[k]["settings"].get("image_fallback", "")
-FOUNDER = home["founder"]["settings"]["image_fallback"]
+SHOP_NAD = home["shop"]["blocks"]["pn"]["settings"].get("image_fallback", "")
 
-# ---- 1. Offer hero (IM8-style split: kit panel + offer copy) ---------------------
+# ---- 1. Hero: product photo | offer copy ---------------------------------------
 S["lp_hero"] = {"type": "muto-lp-hero", "settings": {
-    "kit_title": "Your £62 welcome kit.\nOn us.",
-    "main_image_fallback": img("g1"),
-    "main_image_alt": B["g1"]["settings"].get("image_alt", "The MUTO NAD+ Cellular Complex set"),
-    "badge_mark": "<strong>PhD</strong>Formulated",
-    "badge_text": "By Dr Richie Barclay, cell biologist. Reviewed by our Scientific Advisory Board.",
-    "heading": "The £62 welcome kit.\nFree with your first subscription.",
-    "heading_accent": "Start your 90 days.",
-    "body": "<p>Same training, slower recovery? It’s not your discipline. It starts underneath. MUTO is one daily protocol for people who aren’t done yet: two capsules with breakfast, every dose on the label, and 90 days to judge it yourself.</p>",
-    "rating": "4.83", "reviews": "150+ reviews",
-    "proof_image_fallback": FOUNDER,
-    "proof_text": "<p><strong>Built by a scientist you can talk to.</strong> Richie answers formula questions himself. <a href=\"#mlp-doses-doses\">See every dose</a></p>",
-    "cta_label": CTA, "cta_sub": "Save 14% + free welcome kit", "cta_link": PDP,
-    "cta_note": "90-day money-back guarantee · Skip, pause or cancel online"},
+    "image_fallback": img("g1"),
+    "image_alt": B["g1"]["settings"].get("image_alt", "The MUTO NAD+ Cellular Complex set"),
+    "rating_text": "Rated 4.83 from 150+ reviews",
+    "heading": "Same training.\nSlower recovery.\nIt’s not your discipline.",
+    "body": "<p>MUTO is the daily cellular protocol for people who still train: two capsules with breakfast, 19 ingredients, every dose on the label. Start now and your first order includes a free welcome kit, with Ultrapure Creatine.</p>",
+    "strong": "Two capsules. One routine. 90 days to judge it yourself.",
+    "cta_label": CTA, "cta_link": PDP,
+    "ticks": "Free next-day delivery\n90-day money-back guarantee"}}
+
+# ---- 2. Trust strip + the people it's for -----------------------------------------
+S["trust"] = {"type": "muto-lp-trust", "settings": {
+    "heading": "Built for people who still train,\nstill work, and aren’t done yet."},
     "blocks": {}, "block_order": []}
-for key, name, was in [("k0", "Ultrapure Creatine", "£30"), ("k1", "Performance Socks", "£12"),
-                       ("k2", "Forever Jar", "£10"), ("k3", "12-Week Protocol Guide", "£10")]:
-    S["lp_hero"]["blocks"][key] = {"type": "gift", "settings": {
-        "image_fallback": img(key), "image_alt": B[key]["settings"].get("image_alt", name),
-        "name": name, "was": was, "now": "Free"}}
-    S["lp_hero"]["block_order"].append(key)
+for i, (icon, text) in enumerate([("award", "Built by a PhD cell biologist"),
+                                  ("shield", "Made in the UK, every batch third-party tested"),
+                                  ("flask", "Research underway with 4 UK universities")], 1):
+    S["trust"]["blocks"][f"t{i}"] = {"type": "item", "settings": {"icon": icon, "text": text}}
+    S["trust"]["block_order"].append(f"t{i}")
+for k in ("w1", "w2", "w3", "w4"):
+    st_ = B[k]["settings"]
+    S["trust"]["blocks"][f"p{k}"] = {"type": "photo", "settings": {
+        "image_fallback": st_.get("image_fallback", ""), "alt": st_.get("image_alt", ""),
+        "position": st_.get("image_position", "")}}
+    S["trust"]["block_order"].append(f"p{k}")
 
-# ---- 2. Stats band (press logos row stays hidden until logos are added) -----------
-S["stats"] = {"type": "muto-lp-stats", "settings": {"press_label": "As featured in", "stats_label": "MUTO in numbers"},
-              "blocks": {}, "block_order": []}
-for i, (fig, label) in enumerate([("19", "Ingredients, every dose on the label"),
-                                  ("300mg", "NR, the most allowed in Great Britain"),
-                                  ("90 days", "To decide, or your money back"),
-                                  ("4.83★", "From 150+ reviews")], 1):
-    S["stats"]["blocks"][f"st{i}"] = {"type": "stat", "settings": {"figure": fig, "label": label}}
-    S["stats"]["block_order"].append(f"st{i}")
-
-# ---- 3. The supplement problem: old way vs the MUTO way -----------------------------
-S["compare"] = {"type": "muto-lp-compare", "settings": {
-    "pill": "The supplement problem",
-    "heading": "Too many pots.", "heading_accent": "Too little proof.",
-    "sub": "Most people take a cupboard of supplements and still aren’t sure any of them work. MUTO is built to be checked.",
-    "old_title": "The old way",
-    "old_items": "5+ separate pots, pills and powders\nProprietary blends with hidden doses\nSingle ingredients at token doses\n£100+ a month and a cupboard full of clutter\nNo way to tell if any of it is working",
-    "new_title": "The MUTO way",
-    "new_items": "Two capsules with breakfast. That’s it.\nEvery dose on the label. No proprietary blends.\n300mg NR, the most allowed in Great Britain\nOne routine, about £2 a day\n90 days to check it yourself, or your money back",
-    "cta_label": CTA, "cta_link": PDP}}
-
-# ---- 4. What people notice (customer words until survey figures are supplied) -------
-S["notice"] = {"type": "muto-lp-cards", "settings": {
-    "tint": True, "pill": "Real people, real check-ins",
-    "heading": "What people notice", "heading_accent": "in their own words",
-    "foot": "Individual experiences. We won’t promise what MUTO will do for you."},
+# ---- 3. Problem framing (added above benefits) ---------------------------------------
+S["problem"] = {"type": "muto-lp-problem", "settings": {
+    "pill": "Sound familiar?",
+    "heading": "When did Sunday start lasting until Wednesday?",
+    "lede": "You’re fitter than most people your age, and you still turn up. But the session that used to be gone by Monday now hangs around for days. More rest isn’t fixing it, and neither is the cupboard of supplements.",
+    "reframe_heading": "It’s not your discipline.\nIt starts underneath.",
+    "reframe_text": "Recovery is where ageing tends to show up first, in the cells that make your energy. MUTO supports the 30 trillion cells in your body through NAD+ and other nutrients, in one daily routine you can check yourself."},
     "blocks": {}, "block_order": []}
-for i, (title, quote, who) in enumerate([
-        ("Afternoons", "“No afternoon slump and in general feeling great”", "Lynda, MUTO customer"),
-        ("Recovery", "“Has actually changed my recovery”", "Adam H, MUTO customer"),
-        ("Training", "“I’ve noticed how Muto has helped me recover faster meaning I can train harder, more often”", "Ayo P, MUTO customer")], 1):
-    S["notice"]["blocks"][f"n{i}"] = {"type": "card", "settings": {"figure": "", "title": title, "text": quote, "cite": who}}
-    S["notice"]["block_order"].append(f"n{i}")
+for i, (q_, t_) in enumerate([
+        ("“I need longer to recover than I used to.”", "Same training. Same sleep. Slower bounce-back."),
+        ("“My legs are still heavy on Sunday.”", "Thursday’s session hasn’t left yet."),
+        ("“A cupboard full of pots.”", "Five supplements, and no idea which one’s working.")], 1):
+    S["problem"]["blocks"][f"x{i}"] = {"type": "pain", "settings": {"quote": q_, "text": t_}}
+    S["problem"]["block_order"].append(f"x{i}")
 
-# ---- 5. Full transparency: the doses -------------------------------------------------------
-S["doses"] = {"type": "muto-lp-doses", "settings": {
-    "pill": "Full transparency", "heading": "Every dose.", "heading_accent": "Nothing hidden.",
-    "sub": "A few of the 19 ingredients in two capsules, every dose printed on the label.",
-    "tags": "Energy-yielding metabolism\nTiredness and fatigue\nMuscle function\nNormal bones\nCell protection",
-    "foot": "Ask your AI, your GP or Richie what’s in it."},
+# ---- 4. Benefits: plain-English benefit + the authorised claim, worded exactly -------
+S["benefits"] = {"type": "muto-lp-benefits", "settings": {
+    "heading": "What’s working underneath.", "foot": ""}, "blocks": {}, "block_order": []}
+for i, (title, claim) in enumerate([
+        ("Steadier energy, all day.", "Vitamins B6, B12 and folate contribute to the reduction of tiredness and fatigue."),
+        ("Energy made in your cells.", "Thiamin, riboflavin, niacin, vitamins B6 and B12, and copper contribute to normal energy-yielding metabolism."),
+        ("Built for people who train.", "Vitamin D contributes to the maintenance of normal muscle function."),
+        ("Protection from everyday wear.", "Zinc, copper and riboflavin contribute to the protection of cells from oxidative stress.")], 1):
+    S["benefits"]["blocks"][f"b{i}"] = {"type": "benefit", "settings": {"title": title, "text": claim}}
+    S["benefits"]["block_order"].append(f"b{i}")
+
+# ---- 5. Value: a cupboard of pots vs two capsules ----------------------------------------
+S["value"] = {"type": "muto-lp-value", "settings": {
+    "heading": "19 ingredients.\nTwo capsules.",
+    "body": "Most supplements cover one thing. Add more and the cupboard fills up fast, with no way to tell what’s working. MUTO puts 19 ingredients in one daily routine, every dose on the label.",
+    "more_label": "See every dose",
+    "more_list": "\n".join([
+        "Nicotinamide riboside (NR) | 300mg", "Trimethylglycine (TMG) | 450mg", "Coenzyme Q10 | 150mg",
+        "Grapeseed extract | 150mg", "Trans-resveratrol | 50mg", "PQQ | 20mg", "Vitamin D3 | 2000IU",
+        "Vitamin K2 (MK-7) | 100µg", "Thiamin (B1) | 5mg", "Riboflavin (B2) | 5mg", "Niacin (B3) | 16mg NE",
+        "Pantothenic acid (B5) | 10mg", "Vitamin B6 (P5P) | 5mg", "Folate | 400µg", "Vitamin B12 | 100µg",
+        "Biotin | 300µg", "Zinc bisglycinate | 15mg", "Copper bisglycinate | 1mg", "BioPerine® | 5mg"]),
+    "without_placeholder": "Photo needed: a cupboard of supplement pots",
+    "without_label": "Without MUTO: a cupboard of separate pots",
+    "without_price": "£3.30+",
+    "with_image_fallback": SHOP_NAD, "with_image_alt": "A jar of MUTO NAD+ Cellular Complex",
+    "with_label": "With MUTO: two capsules a day",
+    "with_price": "£2",
+    "cta_label": CTA, "cta_link": PDP,
+    "foot": "£3.30+ a day is the £100+ a month buyers told us they spent on supplements before MUTO. MUTO is £60 a month on subscription."}}
+
+# ---- 6. The offer, itemised ------------------------------------------------------------------
+S["offer"] = {"type": "muto-lp-offer", "settings": {
+    "image_fallback": img("g1"), "image_alt": B["g1"]["settings"].get("image_alt", ""),
+    "heading": "Start your 90 days today.",
+    "product_name": "NAD+ Cellular Complex (30 days)", "product_price": "£60",
+    "product_sub": "£2 a day on subscription. Usually £70.",
+    "includes_label": "First order includes:",
+    "total_was": "£132", "total_now": "£60",
+    "cta_label": CTA, "cta_link": PDP,
+    "ticks": "Free next-day delivery\nSkip, pause or cancel online\n90-day money-back guarantee"},
     "blocks": {}, "block_order": []}
-for i, (amt, name, role) in enumerate([
-        ("300mg", "Nicotinamide riboside (NR)", "the NAD+ building block"),
-        ("450mg", "TMG", "works alongside NR"),
-        ("150mg", "CoQ10", "found in every cell"),
-        ("2000IU", "Vitamin D3", "normal muscle function"),
-        ("100µg", "Vitamin K2 (MK-7)", "works alongside D3"),
-        ("8 B vitamins", "Methylated B complex", "normal energy-yielding metabolism"),
-        ("15mg", "Zinc", "protects cells from oxidative stress"),
-        ("50mg", "Trans-resveratrol", "a plant polyphenol")], 1):
-    S["doses"]["blocks"][f"d{i}"] = {"type": "dose", "settings": {"amount": amt, "name": name, "role": role}}
-    S["doses"]["block_order"].append(f"d{i}")
+for i, (name, desc, was) in enumerate([
+        ("Ultrapure Creatine", "Micronised creatine monohydrate, every batch tested", "£30"),
+        ("Performance Socks", "Size UK 6–11", "£12"),
+        ("Forever Jar", "Refill it from the pouch every month", "£10"),
+        ("12-Week Protocol Guide", "How to run your 90 days and check it yourself", "£10"),
+        ("Garmin watch prize draw", "Entry into our quarterly draw", "")], 1):
+    S["offer"]["blocks"][f"i{i}"] = {"type": "item", "settings": {"name": name, "desc": desc, "was": was,
+                                                                  "now": "free" if was else "included"}}
+    S["offer"]["block_order"].append(f"i{i}")
 
 # ---- 4. Proof: people like them, Day 1 to Day 90 -----------------------------------
 S["results"] = copy(kit["results"])
@@ -194,7 +212,7 @@ S["easy_read"] = {"type": "custom-liquid",
                   "settings": {"custom_liquid": "<style>\n" + css + "\n</style>", "color_scheme": "scheme-1",
                                "padding_top": 0, "padding_bottom": 0}}
 
-order = ["lp_hero", "stats", "compare", "notice", "doses",
+order = ["lp_hero", "trust", "problem", "benefits", "value", "offer",
          "results", "founder", "steps", "guarantee", "faq", "banner", "bar", "easy_read"]
 assert set(order) == set(S)
 with open(out, "w") as fh:

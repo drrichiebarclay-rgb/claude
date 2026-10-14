@@ -1,0 +1,55 @@
+{%- comment -%}
+  MUTO landing page — problem framing. Headline and lede beside the pain in the
+  customer's own words, then a dark reframe card: what's actually going on.
+{%- endcomment -%}
+{{ 'muto-lp.css' | asset_url | stylesheet_tag }}
+{%- assign s = section.settings -%}
+<div class="mlp">
+  <section class="mlp__band" aria-labelledby="mlp-prob-{{ section.id }}">
+    <div class="mlp__wrap">
+      <div class="mlp-prob">
+        <div>
+          {%- if s.pill != blank -%}<p class="mlp__pill" style="margin-bottom:18px">{{ s.pill }}</p>{%- endif -%}
+          <h2 class="mlp-prob__h" id="mlp-prob-{{ section.id }}">{{ s.heading | escape | newline_to_br }}</h2>
+          {%- if s.lede != blank -%}<p class="mlp-prob__lede">{{ s.lede }}</p>{%- endif -%}
+        </div>
+        <ul class="mlp-prob__list">
+          {%- for block in section.blocks -%}
+            <li {{ block.shopify_attributes }}>
+              <p class="mlp-prob__q">{{ block.settings.quote }}</p>
+              {%- if block.settings.text != blank -%}<p class="mlp-prob__t">{{ block.settings.text }}</p>{%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+      {%- if s.reframe_heading != blank -%}
+        <div class="mlp-reframe">
+          <p class="mlp-reframe__h">{{ s.reframe_heading | escape | newline_to_br }}</p>
+          <p class="mlp-reframe__t">{{ s.reframe_text }}</p>
+        </div>
+      {%- endif -%}
+    </div>
+  </section>
+</div>
+{% schema %}
+{
+  "name": "MUTO LP — Problem",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "pill", "label": "Label" },
+    { "type": "textarea", "id": "heading", "label": "Heading" },
+    { "type": "textarea", "id": "lede", "label": "Lede" },
+    { "type": "textarea", "id": "reframe_heading", "label": "Reframe heading" },
+    { "type": "textarea", "id": "reframe_text", "label": "Reframe text" }
+  ],
+  "blocks": [
+    { "type": "pain", "name": "Pain", "settings": [
+      { "type": "text", "id": "quote", "label": "In their words" },
+      { "type": "text", "id": "text", "label": "Line under it" }
+    ] }
+  ],
+  "max_blocks": 6,
+  "presets": [{ "name": "MUTO LP — Problem" }],
+  "enabled_on": { "templates": ["page", "index", "product"] }
+}
+{% endschema %}
