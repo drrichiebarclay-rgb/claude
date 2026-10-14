@@ -1,0 +1,72 @@
+{%- comment -%}
+  MUTO landing page — athletes and experts. A dark band with a swipeable row of
+  portrait cards: name over the photo, then role and an optional quote. Arrows
+  scroll one card at a time on desktop; on a phone it's a native swipe.
+{%- endcomment -%}
+{{ 'muto-lp.css' | asset_url | stylesheet_tag }}
+<div class="mlp">
+  <section class="mlp-exp" aria-labelledby="mlp-exp-{{ section.id }}">
+    <h2 class="mlp-exp__h" id="mlp-exp-{{ section.id }}">{{ section.settings.heading | escape | newline_to_br }}</h2>
+    <div class="mlp-exp__track" id="mlp-exp-track-{{ section.id }}" tabindex="0" aria-label="{{ section.settings.heading | escape }}">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          if block.settings.image != blank
+            assign e_src = block.settings.image | image_url: width: 800
+          else
+            assign e_src = block.settings.image_fallback
+          endif
+        -%}
+        <article class="mlp-exp__card" {{ block.shopify_attributes }}>
+          <div class="mlp-exp__img">
+            <p class="mlp-exp__name">{{ block.settings.name }}</p>
+            {%- if e_src != blank -%}<img src="{{ e_src }}" alt="{{ block.settings.alt | escape }}" width="800" height="1000" loading="lazy"{% if block.settings.position != blank %} style="object-position:{{ block.settings.position }}"{% endif %}>{%- endif -%}
+          </div>
+          <div class="mlp-exp__body">
+            {%- if block.settings.role != blank -%}<p class="mlp-exp__role">{{ block.settings.role }}</p>{%- endif -%}
+            {%- if block.settings.quote != blank -%}<p class="mlp-exp__quote">{{ block.settings.quote }}</p>{%- endif -%}
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+    <div class="mlp-exp__nav">
+      <button type="button" aria-label="Previous" data-dir="-1">&#8592;</button>
+      <button type="button" aria-label="Next" data-dir="1">&#8594;</button>
+    </div>
+  </section>
+</div>
+<script>
+  (function () {
+    var t = document.getElementById('mlp-exp-track-{{ section.id }}');
+    if (!t) return;
+    t.parentNode.querySelectorAll('.mlp-exp__nav button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var card = t.querySelector('.mlp-exp__card');
+        var step = card ? card.getBoundingClientRect().width + 24 : 300;
+        t.scrollBy({ left: step * Number(b.dataset.dir), behavior: 'smooth' });
+      });
+    });
+  })();
+</script>
+{% schema %}
+{
+  "name": "MUTO LP — Experts",
+  "tag": "section",
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "Heading" }
+  ],
+  "blocks": [
+    { "type": "person", "name": "Person", "settings": [
+      { "type": "image_picker", "id": "image", "label": "Photo" },
+      { "type": "text", "id": "image_fallback", "label": "Photo URL (fallback)" },
+      { "type": "text", "id": "alt", "label": "Alt text" },
+      { "type": "text", "id": "position", "label": "Focus (object-position)" },
+      { "type": "text", "id": "name", "label": "Name" },
+      { "type": "text", "id": "role", "label": "Role" },
+      { "type": "textarea", "id": "quote", "label": "Quote (their own words only)" }
+    ] }
+  ],
+  "max_blocks": 12,
+  "presets": [{ "name": "MUTO LP — Experts" }],
+  "enabled_on": { "templates": ["page", "index", "product"] }
+}
+{% endschema %}

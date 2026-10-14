@@ -204,6 +204,68 @@ S["bar"] = {"type": "muto-lp-bar", "settings": {
     "text": "Welcome offer: a free £62 welcome kit with your first subscription, and 90 days to decide.",
     "cta_label": CTA, "cta_sub": "Save 14%", "cta_link": PDP}}
 
+# ---- 7. Formula proof (honest version: research under way, one cited NR study) -------
+WHY = kit["why"]["blocks"]
+S["formula"] = {"type": "muto-lp-formula", "settings": {
+    "heading": "One formula, built to be checked.",
+    "body": "Most supplements never test their formula as a complete product. MUTO is being studied with four UK universities, and we’ll publish what we find, whatever it shows. Until then, every dose is on the label, and you get 90 days to check it yourself.",
+    "image_fallback": WHY["w2"]["settings"].get("image_fallback", ""),
+    "image_alt": WHY["w2"]["settings"].get("image_alt", ""),
+    "source": "* Conze et al., 2019. NR taken on its own, not MUTO. MUTO contains 300mg NR, the most allowed in Great Britain."},
+    "blocks": {}, "block_order": []}
+for i, (fig, unit, text) in enumerate([
+        ("51%", "in 14 days*", "300mg of NR a day raised blood NAD+ by 51% in 14 days in a published study."),
+        ("4", "universities", "Westminster, King’s College London, Coventry and Newcastle are researching MUTO."),
+        ("90", "days", "To judge it yourself. If you don’t see a difference, you’re covered.")], 1):
+    S["formula"]["blocks"][f"f{i}"] = {"type": "stat", "settings": {"figure": fig, "unit": unit, "text": text}}
+    S["formula"]["block_order"].append(f"f{i}")
+
+# ---- 8. Real customer reviews (the store's Reviews.io widget) -------------------------
+S["reviews"] = copy(kit["custom_reviews_KpXTpD"])
+rv = S["reviews"]["settings"]
+rv["heading"] = "<p>Energy, recovery, routine: what customers say about MUTO</p>"
+rv["bg_color"] = "#ffffff"
+rv["show_button"] = False
+rv["review_content"] = rv["review_content"].replace("enable_rich_snippets: true", "enable_rich_snippets: false")
+
+# ---- 9. Athletes and experts ------------------------------------------------------------
+BOARD = kit["board"]["blocks"]
+S["experts"] = {"type": "muto-lp-experts", "settings": {"heading": "Trusted by athletes.\nReviewed by experts."},
+                "blocks": {}, "block_order": []}
+people = [{"image_fallback": home["founder"]["settings"]["image_fallback"], "alt": "Dr Richie Barclay holding a jar of MUTO",
+           "name": "Dr Richie Barclay, PhD", "role": "Founder · cell biologist",
+           "quote": "“I built MUTO because I was tired of supplements that ask you to take them on trust. So every ingredient and every dose is on the label.”"}]
+for k in ("m1", "m2", "m3", "m4"):
+    bs = BOARD[k]["settings"]
+    people.append({"image": bs.get("image", ""), "image_fallback": bs.get("image_fallback", ""),
+                   "alt": bs["name"], "name": bs["name"],
+                   "role": bs["role"].capitalize() + " · Scientific Advisory Board", "quote": ""})
+for k in ("w1", "w2", "w3", "w4"):
+    bs = B[k]["settings"]
+    people.append({"image_fallback": bs.get("image_fallback", ""), "alt": bs.get("image_alt", ""),
+                   "position": bs.get("image_position", ""), "name": bs["name"], "role": "MUTO athlete", "quote": ""})
+for i, pp in enumerate(people, 1):
+    S["experts"]["blocks"][f"e{i}"] = {"type": "person", "settings": pp}
+    S["experts"]["block_order"].append(f"e{i}")
+
+# ---- 10. FAQ ----------------------------------------------------------------------------
+S["lp_faq"] = {"type": "muto-lp-faq", "settings": {"heading": "You’ve got questions?\nWe’ve got answers.",
+                                                   "open_first": True, "schema_on": True},
+               "blocks": {}, "block_order": []}
+for i, (q_, a_) in enumerate([
+        ("What is MUTO?", "<p>A daily cellular protocol for people who still train and aren’t done yet. Two capsules with breakfast, 19 ingredients, every dose on the label. MUTO supports the 30 trillion cells in your body through NAD+ and other nutrients.</p>"),
+        ("Which ingredients are in MUTO?", "<p>300mg NR (the most allowed in Great Britain), 450mg TMG, 150mg CoQ10, a methylated B complex, vitamin D3 and K2, zinc, copper, PQQ, grapeseed, trans-resveratrol and BioPerine®. Every dose is on the label. Ask your AI, your GP or Richie, who answers formula questions himself.</p>"),
+        ("How do I know if MUTO is right for me?", "<p>Try it. Note how you feel before you start, or take a 7-day average if you wear a watch. Give it 90 days, then compare. If you don’t see a difference, you’re covered.</p>"),
+        ("What does MUTO replace?", "<p>For many customers, several separate pots: B vitamins, vitamin D, K2, zinc and CoQ10 are all in here, at the doses shown. Don’t stop anything you take for a medical reason, and check with your GP if you take medicine.</p>"),
+        ("How do I take it?", "<p>Two capsules with breakfast, every day. No caffeine and no stimulants, so there’s nothing to time around training.</p>"),
+        ("Can I cancel?", "<p>Yes. Skip, pause or cancel online, any time. We remind you 5 days before every payment.</p>")], 1):
+    S["lp_faq"]["blocks"][f"q{i}"] = {"type": "q", "settings": {"q": q_, "a": a_}}
+    S["lp_faq"]["block_order"].append(f"q{i}")
+
+# Superseded by the AG1-style sections above
+for k in ("results", "founder", "steps", "guarantee", "faq", "banner", "easy_read"):
+    S.pop(k, None)
+
 # ---- Easier reading (shared with the 45-55 product page) ---------------------------------------
 css = open(os.path.join(SH, "pdp-45/easy-read.css")).read()
 css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
@@ -212,8 +274,9 @@ S["easy_read"] = {"type": "custom-liquid",
                   "settings": {"custom_liquid": "<style>\n" + css + "\n</style>", "color_scheme": "scheme-1",
                                "padding_top": 0, "padding_bottom": 0}}
 
+S.pop("easy_read", None)
 order = ["lp_hero", "trust", "problem", "benefits", "value", "offer",
-         "results", "founder", "steps", "guarantee", "faq", "banner", "bar", "easy_read"]
+         "formula", "reviews", "experts", "lp_faq", "bar"]
 assert set(order) == set(S)
 with open(out, "w") as fh:
     json.dump({"sections": S, "order": order}, fh, ensure_ascii=False, indent=2)
