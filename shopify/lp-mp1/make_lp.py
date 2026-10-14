@@ -44,6 +44,8 @@ SHOP_NAD = home["shop"]["blocks"]["pn"]["settings"].get("image_fallback", "")
 # snapshot in live-snapshot/) and its lead product image.
 P45 = load("lp-mp1/live-snapshot/templates__product.muto-nad-45.json")["sections"]
 M2_LEAD = "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/newmain.png?v=1791796643"
+# The current offer image on the main PDP (Garmin prize draw)
+OFFER_IMG = "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/new_garmin.png?v=1791890671"
 pimg = lambda sec, blk: P45[sec]["blocks"][blk]["settings"].get("image", "") if blk else P45[sec]["settings"].get("image", "")
 
 # ---- 1. Hero: product photo | offer copy ---------------------------------------
@@ -124,8 +126,8 @@ S["value"] = {"type": "muto-lp-value", "settings": {
 
 # ---- 6. The offer, itemised ------------------------------------------------------------------
 S["offer"] = {"type": "muto-lp-offer", "settings": {
-    "image": "", "image_fallback": M2_LEAD,
-    "image_alt": "MUTO NAD+ Cellular Complex",
+    "image": "", "image_fallback": OFFER_IMG,
+    "image_alt": "Everything in your first MUTO order: NAD+ Cellular Complex and Forever Jar, Ultrapure Creatine, socks, the 12-Week Protocol Guide and entry to win a Garmin watch",
     "heading": "Start your 90 days today.",
     "product_name": "NAD+ Cellular Complex and Forever Jar (30 days)", "product_price": "£60",
     "product_sub": "£2 a day on subscription. Usually £70.",
@@ -305,8 +307,7 @@ for i, (q_, a_) in enumerate([
 S["offer2"] = copy(S["offer"])
 S["offer2"]["settings"].update(
     heading="Ready when you are.",
-    image=pimg("guarantee", None), image_fallback=img("g1"),
-    image_alt="A MUTO customer in his 50s after a ride")
+    image="", image_fallback=OFFER_IMG)
 
 # Superseded by the AG1-style sections above
 for k in ("results", "founder", "steps", "guarantee", "faq", "banner", "easy_read"):

@@ -231,3 +231,10 @@ html body .mlp .mlp-faq__h{font-size:clamp(32px,4vw,56px);line-height:1.06;font-
 @media (min-width:990px){.mlp-form__grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
 .mlp-form__media{aspect-ratio:1/1}
 .mlp-form__media>img{object-position:50% 80%}
+/* Offer image: anchored to the bottom of its column, with the space above filled in the
+   photo's own dark backdrop, so a taller panel never leaves a gap under the image. */
+@media (min-width:990px){
+  .mlp-offer{align-items:stretch}
+  .mlp-offer__media{position:relative;top:auto;align-self:stretch;display:flex;align-items:flex-end;background:#2a2b2e}
+  .mlp-offer__media img{width:100%;height:auto}
+}

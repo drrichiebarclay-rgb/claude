@@ -190,8 +190,8 @@
       "type": "muto-lp-offer",
       "settings": {
         "image": "",
-        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/newmain.png?v=1791796643",
-        "image_alt": "MUTO NAD+ Cellular Complex",
+        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/new_garmin.png?v=1791890671",
+        "image_alt": "Everything in your first MUTO order: NAD+ Cellular Complex and Forever Jar, Ultrapure Creatine, socks, the 12-Week Protocol Guide and entry to win a Garmin watch",
         "heading": "Start your 90 days today.",
         "product_name": "NAD+ Cellular Complex and Forever Jar (30 days)",
         "product_price": "£60",
@@ -497,9 +497,9 @@
     "offer2": {
       "type": "muto-lp-offer",
       "settings": {
-        "image": "shopify://shop_images/42FB6D71-CEAF-4B0A-962A-E043F6098596.png",
-        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-gallery-1.jpg?v=1790879783",
-        "image_alt": "A MUTO customer in his 50s after a ride",
+        "image": "",
+        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/new_garmin.png?v=1791890671",
+        "image_alt": "Everything in your first MUTO order: NAD+ Cellular Complex and Forever Jar, Ultrapure Creatine, socks, the 12-Week Protocol Guide and entry to win a Garmin watch",
         "heading": "Ready when you are.",
         "product_name": "NAD+ Cellular Complex and Forever Jar (30 days)",
         "product_price": "£60",
