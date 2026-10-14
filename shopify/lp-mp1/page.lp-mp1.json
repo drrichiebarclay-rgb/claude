@@ -126,35 +126,49 @@
     "benefits": {
       "type": "muto-lp-benefits",
       "settings": {
-        "heading": "What’s working underneath.",
+        "heading": "Keep doing what you love.",
+        "lede": "You’ve built a life around turning up: for work, for training, for the people who count on you. This is about keeping it that way, for a long time yet.",
+        "claim_label": "What’s inside: ",
         "foot": ""
       },
       "blocks": {
         "b1": {
           "type": "benefit",
           "settings": {
-            "title": "Steadier energy, all day.",
+            "image": "shopify://shop_images/46EE29F8-4F3F-4512-A6FB-1FE3B7D0CDA8.png",
+            "image_alt": "A MUTO customer in their 40s or 50s",
+            "title": "Still all there at 6pm.",
+            "line": "The late meeting, the school run, the evening session. You want to be fully present for all of it, not running on fumes by the end of the day.",
             "text": "Vitamins B6, B12 and folate contribute to the reduction of tiredness and fatigue."
           }
         },
         "b2": {
           "type": "benefit",
           "settings": {
-            "title": "Energy made in your cells.",
+            "image": "shopify://shop_images/1BBE18C7-9CBA-4EA3-BB3F-60C13D1F4F19.png",
+            "image_alt": "A MUTO customer in their 40s or 50s",
+            "title": "Energy you make, not borrow.",
+            "line": "Not another coffee or a quick hit. A daily routine that supports the system your energy actually comes from, deep in your cells.",
             "text": "Thiamin, riboflavin, niacin, vitamins B6 and B12, and copper contribute to normal energy-yielding metabolism."
           }
         },
         "b3": {
           "type": "benefit",
           "settings": {
-            "title": "Built for people who train.",
+            "image": "shopify://shop_images/333AFFA4-7F5A-41E9-A34E-780C1C51FBDE.png",
+            "image_alt": "A MUTO customer in their 40s or 50s",
+            "title": "Ready for the next session.",
+            "line": "Thursday’s intervals shouldn’t still be in your legs on Sunday. You train to keep going, not to spend the week getting over it.",
             "text": "Vitamin D contributes to the maintenance of normal muscle function."
           }
         },
         "b4": {
           "type": "benefit",
           "settings": {
-            "title": "Protection from everyday wear.",
+            "image": "shopify://shop_images/42FB6D71-CEAF-4B0A-962A-E043F6098596.png",
+            "image_alt": "A MUTO customer in their 40s or 50s",
+            "title": "Still going in ten years’ time.",
+            "line": "Not one race or one training block. The long game: still doing what you love, still keeping up, still the one who shows up.",
             "text": "Zinc, copper and riboflavin contribute to the protection of cells from oxidative stress."
           }
         }

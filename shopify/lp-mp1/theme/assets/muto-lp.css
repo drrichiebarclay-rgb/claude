@@ -238,3 +238,17 @@ html body .mlp .mlp-faq__h{font-size:clamp(32px,4vw,56px);line-height:1.06;font-
   .mlp-offer__media{position:relative;top:auto;align-self:stretch;display:flex;align-items:flex-end;background:#2a2b2e}
   .mlp-offer__media img{width:100%;height:auto}
 }
+
+/* ---- Benefits with photos: the moment first, the claim as small print ---- */
+html body .mlp .mlp-ben__lede{max-width:760px;margin:-16px 0 36px;font-size:18px;line-height:1.6;color:var(--body)}
+.mlp .mlp-ben__h,.mlp .mlp-ben__lede{max-width:1200px}
+.mlp-ben__card--img{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.mlp-ben__img{aspect-ratio:16/10;overflow:hidden;background:var(--mint)}
+.mlp-ben__img img{width:100%;height:100%;object-fit:cover}
+.mlp-ben__card--img .mlp-ben__copy{padding:26px 26px 30px;display:flex;flex-direction:column;flex:1}
+@media (min-width:750px){.mlp-ben__card--img .mlp-ben__copy{padding:32px 40px 36px}}
+html body .mlp .mlp-ben__card--img .mlp-ben__title{margin-top:0;font-size:clamp(24px,2.2vw,30px);line-height:1.15;font-weight:600;letter-spacing:-.01em}
+.mlp-ben__line{margin-top:12px;font-size:18px;line-height:1.55;color:var(--ink2)}
+.mlp-ben__card--img .mlp-ben__text{margin-top:auto;padding-top:22px;font-size:14px;line-height:1.5;color:var(--muted)}
+.mlp-ben__card--img .mlp-ben__text{border-top:0}
+.mlp-ben__text span{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-right:6px}

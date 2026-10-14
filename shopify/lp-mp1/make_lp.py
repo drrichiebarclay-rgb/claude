@@ -94,13 +94,25 @@ for i, (q_, t_) in enumerate([
 
 # ---- 4. Benefits: plain-English benefit + the authorised claim, worded exactly -------
 S["benefits"] = {"type": "muto-lp-benefits", "settings": {
-    "heading": "What’s working underneath.", "foot": ""}, "blocks": {}, "block_order": []}
-for i, (title, claim) in enumerate([
-        ("Steadier energy, all day.", "Vitamins B6, B12 and folate contribute to the reduction of tiredness and fatigue."),
-        ("Energy made in your cells.", "Thiamin, riboflavin, niacin, vitamins B6 and B12, and copper contribute to normal energy-yielding metabolism."),
-        ("Built for people who train.", "Vitamin D contributes to the maintenance of normal muscle function."),
-        ("Protection from everyday wear.", "Zinc, copper and riboflavin contribute to the protection of cells from oxidative stress.")], 1):
-    S["benefits"]["blocks"][f"b{i}"] = {"type": "benefit", "settings": {"title": title, "text": claim}}
+    "heading": "Keep doing what you love.",
+    "lede": "You’ve built a life around turning up: for work, for training, for the people who count on you. This is about keeping it that way, for a long time yet.",
+    "claim_label": "What’s inside: ", "foot": ""}, "blocks": {}, "block_order": []}
+for i, (img_key, title, line, claim) in enumerate([
+        (("problem", "c4"), "Still all there at 6pm.",
+         "The late meeting, the school run, the evening session. You want to be fully present for all of it, not running on fumes by the end of the day.",
+         "Vitamins B6, B12 and folate contribute to the reduction of tiredness and fatigue."),
+        (("steps", "s1"), "Energy you make, not borrow.",
+         "Not another coffee or a quick hit. A daily routine that supports the system your energy actually comes from, deep in your cells.",
+         "Thiamin, riboflavin, niacin, vitamins B6 and B12, and copper contribute to normal energy-yielding metabolism."),
+        (("steps", "s2"), "Ready for the next session.",
+         "Thursday’s intervals shouldn’t still be in your legs on Sunday. You train to keep going, not to spend the week getting over it.",
+         "Vitamin D contributes to the maintenance of normal muscle function."),
+        (("guarantee", None), "Still going in ten years’ time.",
+         "Not one race or one training block. The long game: still doing what you love, still keeping up, still the one who shows up.",
+         "Zinc, copper and riboflavin contribute to the protection of cells from oxidative stress.")], 1):
+    S["benefits"]["blocks"][f"b{i}"] = {"type": "benefit", "settings": {
+        "image": pimg(*img_key), "image_alt": "A MUTO customer in their 40s or 50s",
+        "title": title, "line": line, "text": claim}}
     S["benefits"]["block_order"].append(f"b{i}")
 
 # ---- 5. Value: a cupboard of pots vs two capsules ----------------------------------------
