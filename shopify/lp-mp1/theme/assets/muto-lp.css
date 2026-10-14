@@ -253,3 +253,59 @@ html body .mlp .mlp-offer__h{font-size:clamp(32px,3.8vw,52px);line-height:1.06;f
 .mlp-offer__cta .mlp__btn{width:100%;background:#fff;color:var(--ink)}
 .mlp-offer .mlp-ticks{justify-content:center;margin-top:18px;color:rgba(255,255,255,.85)}
 .mlp-offer .mlp-ticks li::before{color:var(--cyan)}
+
+/* ---- Mobile pass (AG1 pattern): image-first centred hero, three-up trust strip,
+   four-up photo row, compact cards ---- */
+@media (max-width:749px){
+  /* Hero: short wide image on top, then centred copy */
+  .mlp-hero__media{order:0;aspect-ratio:16/9}
+  .mlp-hero__copy{order:1;padding:24px 20px 36px;text-align:center}
+  .mlp-rating{justify-content:center;font-size:14px}
+  html body .mlp .mlp-hero__h1{margin-top:14px;font-size:clamp(32px,9vw,40px);line-height:1.06}
+  .mlp-hero__body{margin:16px auto 0;font-size:17px;line-height:1.55}
+  .mlp-hero__strong{margin:14px auto 0;font-size:17px}
+  .mlp-hero__cta{margin-top:24px}
+  .mlp-hero__cta .mlp__btn{width:100%}
+  .mlp-hero .mlp-ticks{justify-content:center;gap:6px 16px;font-size:14px}
+
+  /* Trust strip: three across, icon above text */
+  .mlp-trust__row{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .mlp-trust__item{flex-direction:column;gap:6px;padding:14px 8px;font-size:13px;line-height:1.3}
+  .mlp-trust__item+.mlp-trust__item{border-top:0;border-left:1px solid var(--hair)}
+  .mlp-trust__item svg{width:24px;height:24px}
+
+  /* People: one row of four portraits under the heading; let the heading wrap naturally */
+  .mlp-people__h br{display:none}
+  html body .mlp .mlp-people__h{padding:44px 20px 28px;font-size:clamp(28px,8vw,34px);line-height:1.1}
+  .mlp-people__row{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .mlp-people__row div{aspect-ratio:9/17}
+
+  /* Section rhythm */
+  .mlp__band{padding:56px 0}
+  html body .mlp .mlp-prob__h,html body .mlp .mlp-ben__h,html body .mlp .mlp-val__h,
+  html body .mlp .mlp-form__h,html body .mlp .mlp-faq__h,html body .mlp .mlp-offer__h,
+  html body .mlp .mlp-exp__h{font-size:clamp(28px,8vw,36px);line-height:1.08}
+  .mlp-prob__lede,.mlp-val__body,.mlp-form__body{font-size:17px}
+  .mlp-prob__list li{padding:18px 0}
+  .mlp-prob__q{font-size:21px}
+  .mlp .mlp-reframe{margin-top:28px;padding:26px 22px}
+
+  /* Benefit cards: shorter photos, tighter copy */
+  html body .mlp .mlp-ben__lede{margin:-12px 0 24px;font-size:17px}
+  .mlp-ben__img{aspect-ratio:16/9}
+  .mlp-ben__card--img .mlp-ben__copy{padding:22px 22px 24px}
+  html body .mlp .mlp-ben__card--img .mlp-ben__title{font-size:23px}
+  .mlp-ben__line{font-size:16px}
+  .mlp-ben__card--img .mlp-ben__text{padding-top:16px;font-size:13px}
+
+  /* Experts: most of a card visible, with a peek of the next */
+  .mlp-exp{padding:56px 0 60px}
+  .mlp-exp__track{grid-auto-columns:84%}
+  .mlp-exp__card{min-height:460px}
+  .mlp-exp__img{min-height:300px}
+  .mlp-exp__nav{display:none}
+
+  /* FAQ */
+  .mlp-faq summary{padding:20px 0;font-size:17px}
+  .mlp-faq__a{font-size:16px}
+}
