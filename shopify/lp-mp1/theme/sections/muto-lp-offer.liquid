@@ -15,48 +15,56 @@
 -%}
 <div class="mlp">
   <section class="mlp-offer" id="offer-{{ section.id }}" aria-labelledby="mlp-offer-{{ section.id }}">
-    <div class="mlp-offer__media"{% if img_src != blank %} style="--mlp-offer-bg:url('{{ img_src }}')"{% endif %}>{%- if img_src != blank -%}<img src="{{ img_src }}" alt="{{ s.image_alt | escape }}" width="1400" height="1050" loading="lazy">{%- endif -%}</div>
-    <div class="mlp-offer__panel">
+    <div class="mlp-offer__in">
       <h2 class="mlp-offer__h" id="mlp-offer-{{ section.id }}">{{ s.heading | escape | newline_to_br }}</h2>
-      <div class="mlp-offer__main">
-        <div class="mlp-offer__line"><p class="mlp-offer__name">{{ s.product_name }}</p><p class="mlp-offer__price">{{ s.product_price }}</p></div>
-        {%- if s.product_sub != blank -%}<p class="mlp-offer__sub">{{ s.product_sub }}</p>{%- endif -%}
+      <div class="mlp-offer__grid">
+        {%- if img_src != blank -%}
+          <div class="mlp-offer__media"><img src="{{ img_src }}" alt="{{ s.image_alt | escape }}" width="1290" height="968" loading="lazy"></div>
+        {%- endif -%}
+        <div class="mlp-offer__panel">
+          <div class="mlp-offer__main">
+            <div class="mlp-offer__line"><p class="mlp-offer__name">{{ s.product_name }}</p><p class="mlp-offer__price">{{ s.product_price }}</p></div>
+            {%- if s.product_sub != blank -%}<p class="mlp-offer__sub">{{ s.product_sub }}</p>{%- endif -%}
+          </div>
+          {%- if s.includes_label != blank -%}<p class="mlp-offer__label">{{ s.includes_label }}</p>{%- endif -%}
+          <ul class="mlp-offer__items">
+            {%- assign items = section.blocks | where: 'type', 'item' -%}
+            {%- for block in items -%}
+              <li {{ block.shopify_attributes }}>
+                <div class="mlp-offer__line"><p class="mlp-offer__name">{{ block.settings.name }}</p><p>{% if block.settings.was != blank %}<s>{{ block.settings.was }}</s>{% endif %}<span class="mlp-offer__free">{{ block.settings.now | default: 'free' }}</span></p></div>
+                {%- if block.settings.desc != blank -%}<p class="mlp-offer__sub">{{ block.settings.desc }}</p>{%- endif -%}
+              </li>
+            {%- endfor -%}
+          </ul>
+          {%- if s.total_now != blank -%}
+            <div class="mlp-offer__line mlp-offer__total"><p>{{ s.total_label | default: 'Total' }}</p><p>{% if s.total_was != blank %}<s>{{ s.total_was }}</s>{% endif %}{{ s.total_now }}</p></div>
+          {%- endif -%}
+        </div>
       </div>
-      {%- if s.includes_label != blank -%}<p class="mlp-offer__label">{{ s.includes_label }}</p>{%- endif -%}
-      <ul class="mlp-offer__items">
-        {%- assign items = section.blocks | where: 'type', 'item' -%}
-        {%- for block in items -%}
-          <li {{ block.shopify_attributes }}>
-            <div class="mlp-offer__line"><p class="mlp-offer__name">{{ block.settings.name }}</p><p>{% if block.settings.was != blank %}<s>{{ block.settings.was }}</s>{% endif %}<span class="mlp-offer__free">{{ block.settings.now | default: 'free' }}</span></p></div>
-            {%- if block.settings.desc != blank -%}<p class="mlp-offer__sub">{{ block.settings.desc }}</p>{%- endif -%}
-          </li>
-        {%- endfor -%}
-      </ul>
-      {%- if s.total_now != blank -%}
-        <div class="mlp-offer__line mlp-offer__total"><p>{{ s.total_label | default: 'Total' }}</p><p>{% if s.total_was != blank %}<s>{{ s.total_was }}</s>{% endif %}{{ s.total_now }}</p></div>
-      {%- endif -%}
       {%- assign future = section.blocks | where: 'type', 'future' -%}
       {%- if future.size > 0 -%}
-        <p class="mlp-offer__label">{{ s.future_label | default: 'Future monthly gifts' }}</p>
-        <ul class="mlp-future">
-          {%- for block in future -%}
-            {%- liquid
-              if block.settings.image != blank
-                assign f_src = block.settings.image | image_url: width: 240
-              else
-                assign f_src = block.settings.image_fallback
-              endif
-            -%}
-            <li class="mlp-future__item" {{ block.shopify_attributes }}>
-              <span class="mlp-future__img">{%- if f_src != blank -%}<img src="{{ f_src }}" alt="{{ block.settings.image_alt | escape }}" width="120" height="120" loading="lazy">{%- endif -%}</span>
-              <span class="mlp-future__txt">
-                <span class="mlp-future__when">{{ block.settings.when }}</span>
-                <span class="mlp-future__what">{{ block.settings.name }}</span>
-                <span class="mlp-future__val">{{ block.settings.value }}</span>
-              </span>
-            </li>
-          {%- endfor -%}
-        </ul>
+        <div class="mlp-offer__future">
+          <p class="mlp-offer__label">{{ s.future_label | default: 'Future monthly gifts' }}</p>
+          <ul class="mlp-future">
+            {%- for block in future -%}
+              {%- liquid
+                if block.settings.image != blank
+                  assign f_src = block.settings.image | image_url: width: 240
+                else
+                  assign f_src = block.settings.image_fallback
+                endif
+              -%}
+              <li class="mlp-future__item" {{ block.shopify_attributes }}>
+                <span class="mlp-future__img">{%- if f_src != blank -%}<img src="{{ f_src }}" alt="{{ block.settings.image_alt | escape }}" width="120" height="120" loading="lazy">{%- endif -%}</span>
+                <span class="mlp-future__txt">
+                  <span class="mlp-future__when">{{ block.settings.when }}</span>
+                  <span class="mlp-future__what">{{ block.settings.name }}</span>
+                  <span class="mlp-future__val">{{ block.settings.value }}</span>
+                </span>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
       {%- endif -%}
       {%- if s.cta_label != blank -%}<div class="mlp-offer__cta"><a class="mlp__btn mlp__btn--arrow" href="{{ s.cta_link | default: routes.all_products_collection_url }}">{{ s.cta_label }}</a></div>{%- endif -%}
       {%- if s.ticks != blank -%}<ul class="mlp-ticks">{%- for t in ticks -%}{%- assign x = t | strip -%}{%- if x != blank -%}<li>{{ x }}</li>{%- endif -%}{%- endfor -%}</ul>{%- endif -%}
