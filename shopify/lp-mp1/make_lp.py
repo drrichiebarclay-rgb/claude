@@ -40,11 +40,16 @@ S = {}
 B = kit["buy"]["blocks"]
 img = lambda k: B[k]["settings"].get("image_fallback", "")
 SHOP_NAD = home["shop"]["blocks"]["pn"]["settings"].get("image_fallback", "")
+# Persona images: the 45-55 photos on the live -2 product page (product.muto-nad-45.json,
+# snapshot in live-snapshot/) and its lead product image.
+P45 = load("lp-mp1/live-snapshot/templates__product.muto-nad-45.json")["sections"]
+M2_LEAD = "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/newmain.png?v=1791796643"
+pimg = lambda sec, blk: P45[sec]["blocks"][blk]["settings"].get("image", "") if blk else P45[sec]["settings"].get("image", "")
 
 # ---- 1. Hero: product photo | offer copy ---------------------------------------
 S["lp_hero"] = {"type": "muto-lp-hero", "settings": {
-    "image_fallback": img("g1"),
-    "image_alt": B["g1"]["settings"].get("image_alt", "The MUTO NAD+ Cellular Complex set"),
+    "image_fallback": M2_LEAD,
+    "image_alt": "MUTO NAD+ Cellular Complex",
     "rating_text": "Rated 4.83 from 150+ reviews",
     "heading": "Same training.\nSlower recovery.\nIt’s not your discipline.",
     "body": "<p>MUTO is the daily cellular protocol for people who still train: two capsules with breakfast, 19 ingredients, every dose on the label. Start now and your first order includes a free welcome kit, with Ultrapure Creatine.</p>",
@@ -61,12 +66,10 @@ for i, (icon, text) in enumerate([("award", "Built by a PhD cell biologist"),
                                   ("flask", "Research underway with 4 UK universities")], 1):
     S["trust"]["blocks"][f"t{i}"] = {"type": "item", "settings": {"icon": icon, "text": text}}
     S["trust"]["block_order"].append(f"t{i}")
-for k in ("w1", "w2", "w3", "w4"):
-    st_ = B[k]["settings"]
-    S["trust"]["blocks"][f"p{k}"] = {"type": "photo", "settings": {
-        "image_fallback": st_.get("image_fallback", ""), "alt": st_.get("image_alt", ""),
-        "position": st_.get("image_position", "")}}
-    S["trust"]["block_order"].append(f"p{k}")
+for i, (sec, blk) in enumerate([("problem", "c2"), ("benefits", "pf"), ("problem", "c1"), ("steps", "s4")], 1):
+    S["trust"]["blocks"][f"ph{i}"] = {"type": "photo", "settings": {
+        "image": pimg(sec, blk), "alt": "A MUTO customer in their 40s or 50s, still training"}}
+    S["trust"]["block_order"].append(f"ph{i}")
 
 # ---- 3. Problem framing (added above benefits) ---------------------------------------
 S["problem"] = {"type": "muto-lp-problem", "settings": {
@@ -105,18 +108,20 @@ S["value"] = {"type": "muto-lp-value", "settings": {
         "Vitamin K2 (MK-7) | 100µg", "Thiamin (B1) | 5mg", "Riboflavin (B2) | 5mg", "Niacin (B3) | 16mg NE",
         "Pantothenic acid (B5) | 10mg", "Vitamin B6 (P5P) | 5mg", "Folate | 400µg", "Vitamin B12 | 100µg",
         "Biotin | 300µg", "Zinc bisglycinate | 15mg", "Copper bisglycinate | 1mg", "BioPerine® | 5mg"]),
-    "without_placeholder": "Photo needed: a cupboard of supplement pots",
-    "without_label": "Without MUTO: a cupboard of separate pots",
+    "without_pots": "Vitamin B complex\nVitamin D3\nVitamin K2\nZinc\nCopper\nCoQ10\nNR\nTMG\nResveratrol\nPQQ\nGrapeseed",
+    "without_label": "Without MUTO: separate pots",
     "without_price": "£3.30+",
-    "with_image_fallback": SHOP_NAD, "with_image_alt": "A jar of MUTO NAD+ Cellular Complex",
-    "with_label": "With MUTO: two capsules a day",
+    "with_image": P45["problem"]["blocks"]["c3"]["settings"].get("image", ""), "with_image_fallback": SHOP_NAD,
+    "with_image_alt": "The MUTO NAD+ Cellular Complex box open, with the jar and refill",
+    "with_label": "With MUTO: two capsules",
     "with_price": "£2",
     "cta_label": CTA, "cta_link": PDP,
     "foot": "£3.30+ a day is the £100+ a month buyers told us they spent on supplements before MUTO. MUTO is £60 a month on subscription."}}
 
 # ---- 6. The offer, itemised ------------------------------------------------------------------
 S["offer"] = {"type": "muto-lp-offer", "settings": {
-    "image_fallback": img("g1"), "image_alt": B["g1"]["settings"].get("image_alt", ""),
+    "image": pimg("guarantee", None), "image_fallback": img("g1"),
+    "image_alt": "A MUTO customer after a session with their MUTO bottle",
     "heading": "Start your 90 days today.",
     "product_name": "NAD+ Cellular Complex (30 days)", "product_price": "£60",
     "product_sub": "£2 a day on subscription. Usually £70.",

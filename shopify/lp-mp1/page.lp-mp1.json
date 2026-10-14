@@ -3,8 +3,8 @@
     "lp_hero": {
       "type": "muto-lp-hero",
       "settings": {
-        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-gallery-1.jpg?v=1790879783",
-        "image_alt": "The MUTO NAD+ Cellular Complex jar, pouch, sachets and bottle photographed together on a dark background",
+        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/newmain.png?v=1791796643",
+        "image_alt": "MUTO NAD+ Cellular Complex",
         "rating_text": "Rated 4.83 from 150+ reviews",
         "heading": "Same training.\nSlower recovery.\nIt’s not your discipline.",
         "body": "<p>MUTO is the daily cellular protocol for people who still train: two capsules with breakfast, 19 ingredients, every dose on the label. Start now and your first order includes a free welcome kit, with Ultrapure Creatine.</p>",
@@ -41,36 +41,32 @@
             "text": "Research underway with 4 UK universities"
           }
         },
-        "pw1": {
+        "ph1": {
           "type": "photo",
           "settings": {
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-athlete-harry.jpg?v=1791021221",
-            "alt": "Harry Insley running across open parkland in a black vest",
-            "position": "50% 6%"
+            "image": "shopify://shop_images/55EA0B34-E750-455E-A653-69C748D79E57.png",
+            "alt": "A MUTO customer in their 40s or 50s, still training"
           }
         },
-        "pw2": {
+        "ph2": {
           "type": "photo",
           "settings": {
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-athlete-yolanda.jpg?v=1791021221",
-            "alt": "Yolanda King standing with her arms folded in front of a row of treadmills",
-            "position": "50% 32%"
+            "image": "shopify://shop_images/D2AA08A2-83BB-4249-AC48-A8261A413D04.png",
+            "alt": "A MUTO customer in their 40s or 50s, still training"
           }
         },
-        "pw3": {
+        "ph3": {
           "type": "photo",
           "settings": {
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-athlete-kaisa.jpg?v=1791025477",
-            "alt": "Kaisa Larkas running between stations at a HYROX event",
-            "position": "50% 27%"
+            "image": "shopify://shop_images/image14.png",
+            "alt": "A MUTO customer in their 40s or 50s, still training"
           }
         },
-        "pw4": {
+        "ph4": {
           "type": "photo",
           "settings": {
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-athlete-cyclist.jpg?v=1790767821",
-            "alt": "Sam Ekstrom on the drops during a Team GB time trial",
-            "position": "50% 30%"
+            "image": "shopify://shop_images/1C46F449-B491-4589-BF89-04157F7CB0F6.png",
+            "alt": "A MUTO customer in their 40s or 50s, still training"
           }
         }
       },
@@ -78,10 +74,10 @@
         "t1",
         "t2",
         "t3",
-        "pw1",
-        "pw2",
-        "pw3",
-        "pw4"
+        "ph1",
+        "ph2",
+        "ph3",
+        "ph4"
       ]
     },
     "problem": {
@@ -172,12 +168,13 @@
         "body": "Most supplements cover one thing. Add more and the cupboard fills up fast, with no way to tell what’s working. MUTO puts 19 ingredients in one daily routine, every dose on the label.",
         "more_label": "See every dose",
         "more_list": "Nicotinamide riboside (NR) | 300mg\nTrimethylglycine (TMG) | 450mg\nCoenzyme Q10 | 150mg\nGrapeseed extract | 150mg\nTrans-resveratrol | 50mg\nPQQ | 20mg\nVitamin D3 | 2000IU\nVitamin K2 (MK-7) | 100µg\nThiamin (B1) | 5mg\nRiboflavin (B2) | 5mg\nNiacin (B3) | 16mg NE\nPantothenic acid (B5) | 10mg\nVitamin B6 (P5P) | 5mg\nFolate | 400µg\nVitamin B12 | 100µg\nBiotin | 300µg\nZinc bisglycinate | 15mg\nCopper bisglycinate | 1mg\nBioPerine® | 5mg",
-        "without_placeholder": "Photo needed: a cupboard of supplement pots",
-        "without_label": "Without MUTO: a cupboard of separate pots",
+        "without_pots": "Vitamin B complex\nVitamin D3\nVitamin K2\nZinc\nCopper\nCoQ10\nNR\nTMG\nResveratrol\nPQQ\nGrapeseed",
+        "without_label": "Without MUTO: separate pots",
         "without_price": "£3.30+",
+        "with_image": "shopify://shop_images/Frame_2147230149.png",
         "with_image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-shop-nad-v2.jpg?v=1791288517",
-        "with_image_alt": "A jar of MUTO NAD+ Cellular Complex",
-        "with_label": "With MUTO: two capsules a day",
+        "with_image_alt": "The MUTO NAD+ Cellular Complex box open, with the jar and refill",
+        "with_label": "With MUTO: two capsules",
         "with_price": "£2",
         "cta_label": "Start your 90 days",
         "cta_link": "/products/muto-nad-cellular-complex-2",
@@ -187,8 +184,9 @@
     "offer": {
       "type": "muto-lp-offer",
       "settings": {
+        "image": "shopify://shop_images/42FB6D71-CEAF-4B0A-962A-E043F6098596.png",
         "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-gallery-1.jpg?v=1790879783",
-        "image_alt": "The MUTO NAD+ Cellular Complex jar, pouch, sachets and bottle photographed together on a dark background",
+        "image_alt": "A MUTO customer after a session with their MUTO bottle",
         "heading": "Start your 90 days today.",
         "product_name": "NAD+ Cellular Complex (30 days)",
         "product_price": "£60",
