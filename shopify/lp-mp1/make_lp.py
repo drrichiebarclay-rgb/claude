@@ -271,7 +271,7 @@ ROLE_LINES = {
     "Dr Richard Mackenzie": "Advises MUTO on metabolism: how your cells turn food into energy.",
     "Dr Maciej Zatonski": "Advises MUTO on sleep and recovery, and on reading them over weeks, not nights.",
     "Harry Insley": "Runner and MUTO athlete.",
-    "Yolanda King": "MUTO athlete, training alongside a full working life.",
+    "Yolanda King": "MUTO athlete.",
     "Kaisa Larkas": "HYROX athlete and MUTO athlete.",
     "Sam Ekstrom": "Time-trial cyclist and MUTO athlete.",
 }
