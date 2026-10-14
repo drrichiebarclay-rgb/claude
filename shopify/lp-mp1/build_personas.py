@@ -8,7 +8,7 @@ worded exactly; invented lines are never shown as customer quotes.
 
 Run make_lp.py first, then: python3 build_personas.py
 """
-import copy, json, os
+import copy, json, os, re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 BASE = json.load(open(os.path.join(HERE, "page.lp-mp1.json")))
@@ -74,6 +74,9 @@ def build(p):
     S["offer"]["settings"]["heading"] = p["offer_heading"]
     S["offer2"]["settings"]["heading"] = p["offer2_heading"]
     S["bar"]["settings"]["text"] = p["bar"]
+    # Extra sections (timeline, results)
+    for k, v in p.get("extra_sections", {}).items():
+        S[k] = copy.deepcopy(v)
     # Order
     d["order"] = p["order"]
     assert set(d["order"]) == set(S), set(S) ^ set(d["order"])
@@ -239,7 +242,32 @@ HP_TRUST = [("award", "Built by a PhD cell biologist"), ("shield", "Made in the 
             ("label", "No caffeine, no stimulants")]
 TRACK = ("How do I track it?", "<p>Take a 7-day baseline before your first capsule: HRV, resting heart rate, sleep and your recovery or readiness score, plus a 1–10 rating for how you feel. Then compare 30-day averages at day 30, 60 and 90. Single nights are noise; months are signal.</p>")
 DEVICES = ("Which devices work?", "<p>Any device that records HRV, resting heart rate and sleep: Garmin, WHOOP, Oura, Apple Watch, Polar, Coros and others. Use the same one for the whole 90 days. No device? A weekly 1–10 check-in works too.</p>")
-HP_ORDER = COMMON_ORDER
+HP_ORDER = ["lp_hero", "trust", "problem", "benefits", "timeline", "results", "value", "offer",
+            "formula", "reviews", "experts", "lp_faq", "offer2", "bar"]
+
+# Customer videos from the live kit page (real people, their own words)
+_KIT = json.loads(re.sub(r"^/\*.*?\*/", "", open(os.path.join(
+    HERE, "..", "pdp-rollout", "live-snapshot", "templates__product.muto-nad-creatine-kit.json")).read(), flags=re.S))
+RESULTS = copy.deepcopy(_KIT["sections"]["results"])
+RESULTS["settings"].update(heading="Day 1 to Day 90.\nIn their own words.", note="In their own words")
+
+
+def timeline(quote, cite):
+    steps = [
+        ("Day 0", "Take your baseline.",
+         "Seven days on your wearable before your first capsule: HRV, resting heart rate and sleep. Add a 1–10 rating for how you feel.", "", ""),
+        ("Day 30", "First read.",
+         "Compare your 30-day averages with your baseline. Single nights are noise; the trend is the signal.", quote, cite),
+        ("Day 90", "Your verdict.",
+         "Three months of your own data and your own rating. If you don’t see a difference, you’re covered.", "", ""),
+    ]
+    return {"type": "muto-lp-timeline",
+            "settings": {"pill": "Your 90 days", "heading": "Here’s how you’ll know.",
+                         "lede": "No guesswork and no taking our word for it. Three checkpoints, on the device you already wear.",
+                         "cta_label": CTA, "cta_link": MAIN},
+            "blocks": {f"s{i}": {"type": "step", "settings": dict(zip(("chip", "title", "text", "quote", "cite"), st))}
+                       for i, st in enumerate(steps, 1)},
+            "block_order": ["s1", "s2", "s3"]}
 
 PERSONAS += [
     # ------------------------------------------------------------ HP: energy
@@ -247,7 +275,7 @@ PERSONAS += [
      "hero": {"image": "", "image_fallback": IMG["feel"],
               "image_alt": "A cyclist pausing mid-ride in the sun, sunglasses pushed up", "image_position": "50% 20%",
               "heading": "Big job.\nHard training.\nEnergy for both.",
-              "body": "<p>MUTO is the daily cellular protocol for people running at full output: two capsules with breakfast, 19 ingredients, every dose on the label. Not a stimulant. A better baseline, judged on your own numbers.</p>",
+              "body": "<p><strong>A daily NAD+ supplement you can check yourself.</strong> Two capsules with breakfast, 19 ingredients, every dose on the label. No caffeine. Track it on your wearable for 90 days, or get your money back.</p>",
               "strong": "Take a 7-day baseline on your wearable. Then give it 90 days."},
      "trust": HP_TRUST, "people_heading": "Built for people who\nrun at full output.", "people_images": HP_PEOPLE,
      "problem": {"pill": "Sound familiar?",
@@ -273,6 +301,7 @@ PERSONAS += [
              TRACK, DEVICES, WORK, SUB],
      "offer_heading": "Start your 90 days today.", "offer2_heading": "Take your baseline. Start your 90 days.",
      "bar": "Welcome offer: £122 of value for £60 on your first subscription, and 90 days to decide.",
+     "extra_sections": {"timeline": timeline("“No afternoon slump and in general feeling great”", "Lynda, MUTO customer"), "results": RESULTS},
      "order": HP_ORDER},
 
     # ------------------------------------------------------------ HP: recovery
@@ -280,7 +309,7 @@ PERSONAS += [
      "hero": {"image": "", "image_fallback": IMG["bottle"],
               "image_alt": "An athlete resting on a log after a session, drinking from a MUTO bottle", "image_position": "50% 10%",
               "heading": "Your readiness score says no.\nYour diary says go.",
-              "body": "<p>MUTO is the daily cellular protocol for people who train hard and work harder: two capsules with breakfast, 19 ingredients, every dose on the label. Recovery starts underneath, so that’s where MUTO starts.</p>",
+              "body": "<p><strong>A daily NAD+ supplement you can check yourself.</strong> Two capsules with breakfast, built around 300mg NR, every dose on the label. Take your baseline, train as normal, and judge it on your own recovery data over 90 days, or get your money back.</p>",
               "strong": "Take your baseline. Read the 30-day trend, not the single night."},
      "trust": HP_TRUST, "people_heading": "Built for people who\ntrain like it matters.", "people_images": HP_PEOPLE,
      "problem": {"pill": "Sound familiar?",
@@ -309,6 +338,7 @@ PERSONAS += [
              TRACK, DEVICES, SUB],
      "offer_heading": "Start your 90 days today.", "offer2_heading": "Your next training block starts here.",
      "bar": "Welcome offer: £122 of value for £60 on your first subscription, and 90 days to decide.",
+     "extra_sections": {"timeline": timeline("“Has actually changed my recovery”", "Adam H, MUTO customer"), "results": RESULTS},
      "order": HP_ORDER},
 
     # ------------------------------------------------------------ HP: stress
@@ -316,8 +346,8 @@ PERSONAS += [
      "hero": {"image": "", "image_fallback": IMG["data"],
               "image_alt": "Two athletes at a table reading a recovery score on a phone", "image_position": "50% 60%",
               "heading": "Work stress.\nTraining stress.\nOne recovery budget.",
-              "body": "<p>Your body doesn’t keep separate accounts. A deadline week and a threshold session draw from the same place, and your HRV shows it. MUTO is one daily foundation for high-output weeks: two capsules with breakfast, every dose on the label.</p>",
-              "strong": "Not a calming pill. A daily foundation you can check."},
+              "body": "<p><strong>A daily NAD+ supplement for high-output weeks, built to be checked.</strong> A deadline week and a threshold session draw from the same place. Two capsules with breakfast, every dose on the label, and 90 days to see the difference or your money back.</p>",
+              "strong": "Built so heavy weeks don’t wipe you out. Check it on your own data."},
      "trust": HP_TRUST, "people_heading": "Built for people who\ncarry a lot, and still train.", "people_images": HP_PEOPLE,
      "problem": {"pill": "Sound familiar?",
                  "heading": "HRV down. Deadline up.",
@@ -327,8 +357,8 @@ PERSONAS += [
      "pains": [("Always on. Never off.", "Work, home and training, with no gap between them."),
                ("The deadline lands in your sleep score.", "You can see the heavy weeks in your data before you feel them."),
                ("Busy weeks drain more than any session.", "The training isn’t the hard part. Everything around it is.")],
-     "benefits": {"heading": "A steadier head in heavy weeks.",
-                  "lede": "It won’t make a hard week easy. It’s a daily foundation for the weeks when work, life and training all peak at once."},
+     "benefits": {"heading": "Heavy weeks that don’t wipe you out.",
+                  "lede": "The deadline still lands. The difference is having a foundation under you when it does: clearer at 5pm, something left for the session, and a Monday that doesn’t start in the red."},
      "benefit_cards": [
         ("Steady when it all peaks.", "Launch week, board week, race week: same body. One routine that doesn’t change when everything else does."),
         ("Energy that lasts the week.", "Not a spike to get through Monday. A steadier supply for Thursday and Friday too."),
@@ -346,6 +376,7 @@ PERSONAS += [
              TRACK, WORK, SUB],
      "offer_heading": "Start your 90 days today.", "offer2_heading": "One foundation for heavy weeks.",
      "bar": "Welcome offer: £122 of value for £60 on your first subscription, and 90 days to decide.",
+     "extra_sections": {"timeline": timeline("“More focused during the day”", "Alexandra, MUTO customer"), "results": RESULTS},
      "order": HP_ORDER},
 ]
 

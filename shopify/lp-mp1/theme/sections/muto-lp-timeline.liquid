@@ -1,0 +1,56 @@
+{%- comment -%}
+  MUTO landing page — "Your 90 days". Three steps (Day 0, 30, 90) that make the
+  outcome concrete without promising it: what you do, what customers tend to
+  mention, and when you decide. Optional real customer quote on any step.
+{%- endcomment -%}
+{{ 'muto-lp.css' | asset_url | stylesheet_tag }}
+{%- assign s = section.settings -%}
+<div class="mlp">
+  <section class="mlp__band mlp-tl" aria-labelledby="mlp-tl-{{ section.id }}">
+    <div class="mlp__wrap">
+      <div class="mlp-tl__head">
+        {%- if s.pill != blank -%}<p class="mlp__pill">{{ s.pill }}</p>{%- endif -%}
+        <h2 class="mlp-tl__h" id="mlp-tl-{{ section.id }}">{{ s.heading | escape | newline_to_br }}</h2>
+        {%- if s.lede != blank -%}<p class="mlp-tl__lede">{{ s.lede }}</p>{%- endif -%}
+      </div>
+      <ol class="mlp-tl__steps">
+        {%- for block in section.blocks -%}
+          <li class="mlp-tl__step" {{ block.shopify_attributes }}>
+            <p class="mlp-tl__chip">{{ block.settings.chip }}</p>
+            <h3 class="mlp-tl__title">{{ block.settings.title }}</h3>
+            <p class="mlp-tl__text">{{ block.settings.text }}</p>
+            {%- if block.settings.quote != blank -%}
+              <blockquote class="mlp-tl__quote"><p>{{ block.settings.quote }}</p>{% if block.settings.cite != blank %}<cite>{{ block.settings.cite }}</cite>{% endif %}</blockquote>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ol>
+      {%- if s.cta_label != blank -%}<div class="mlp-tl__cta"><a class="mlp__btn mlp__btn--cyan mlp__btn--arrow" href="{{ s.cta_link | default: routes.all_products_collection_url }}">{{ s.cta_label }}</a></div>{%- endif -%}
+    </div>
+  </section>
+</div>
+{% schema %}
+{
+  "name": "MUTO LP — 90 days",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "pill", "label": "Label" },
+    { "type": "textarea", "id": "heading", "label": "Heading" },
+    { "type": "textarea", "id": "lede", "label": "Lede" },
+    { "type": "text", "id": "cta_label", "label": "Button" },
+    { "type": "url", "id": "cta_link", "label": "Button link" }
+  ],
+  "blocks": [
+    { "type": "step", "name": "Step", "settings": [
+      { "type": "text", "id": "chip", "label": "When", "default": "Day 0" },
+      { "type": "text", "id": "title", "label": "Title" },
+      { "type": "textarea", "id": "text", "label": "Text" },
+      { "type": "textarea", "id": "quote", "label": "Customer quote (real words only)" },
+      { "type": "text", "id": "cite", "label": "Customer name" }
+    ] }
+  ],
+  "max_blocks": 4,
+  "presets": [{ "name": "MUTO LP — 90 days" }],
+  "enabled_on": { "templates": ["page", "index", "product"] }
+}
+{% endschema %}

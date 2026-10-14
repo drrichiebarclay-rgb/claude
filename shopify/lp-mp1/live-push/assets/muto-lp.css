@@ -11,7 +11,7 @@
   font-family:var(--font);color:var(--ink);background:var(--ground);-webkit-font-smoothing:antialiased;font-size:17px;line-height:1.5}
 .mlp *,.mlp *::before,.mlp *::after{box-sizing:border-box}
 /* Zero-specificity reset, so every component's own spacing wins */
-.mlp :where(h1,h2,h3,p,ul,li){margin:0;padding:0}
+.mlp :where(h1,h2,h3,p,ul,ol,li){margin:0;padding:0}
 .mlp :where(ul){list-style:none}
 /* The theme sets headings in heavy uppercase; this page uses the brand's sentence case */
 html body .mlp :is(h1,h2,h3){text-transform:none;font-family:var(--font);letter-spacing:-.015em;font-style:normal}
@@ -309,3 +309,24 @@ html body .mlp .mlp-offer__h{font-size:clamp(32px,3.8vw,52px);line-height:1.06;f
   .mlp-faq summary{padding:20px 0;font-size:17px}
   .mlp-faq__a{font-size:16px}
 }
+
+/* ---- Your 90 days: three steps that make the outcome concrete ---- */
+.mlp-tl{background:var(--paper)}
+.mlp-tl__head{max-width:760px;margin-bottom:36px}
+html body .mlp .mlp-tl__h{margin-top:16px;font-size:clamp(30px,4vw,52px);line-height:1.06;font-weight:600;color:var(--ink)}
+.mlp-tl__lede{margin-top:14px;font-size:18px;line-height:1.55;color:var(--body)}
+.mlp-tl__steps{display:grid;grid-template-columns:1fr;gap:14px;list-style:none;counter-reset:none}
+@media (min-width:750px){.mlp-tl__steps{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}}
+.mlp-tl__step{position:relative;background:#eef1f0;border-radius:20px;padding:26px 24px 28px;display:flex;flex-direction:column}
+@media (min-width:750px){.mlp-tl__step{padding:32px 30px 34px}}
+.mlp-tl__step:last-child{background:var(--dark);color:#fff}
+.mlp-tl__chip{display:inline-block;align-self:flex-start;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:7px 12px;border-radius:999px;background:#fff;color:var(--ink)}
+.mlp-tl__step:last-child .mlp-tl__chip{background:var(--cyan);color:var(--ink2)}
+html body .mlp .mlp-tl__title{margin-top:18px;font-size:24px;line-height:1.15;font-weight:600;color:inherit}
+.mlp-tl__text{margin-top:10px;font-size:16px;line-height:1.55;color:var(--body)}
+.mlp-tl__step:last-child .mlp-tl__text{color:rgba(255,255,255,.85)}
+.mlp-tl__quote{margin:18px 0 0;padding-top:16px;border-top:1px solid var(--hair)}
+.mlp-tl__quote p{font-size:17px;line-height:1.45;font-weight:500;color:var(--ink)}
+.mlp-tl__quote cite{display:block;margin-top:8px;font-style:normal;font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--muted)}
+.mlp-tl__cta{margin-top:32px}
+@media (max-width:749px){.mlp-tl__cta .mlp__btn{width:100%}html body .mlp .mlp-tl__h{font-size:clamp(28px,8vw,36px)}}

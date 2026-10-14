@@ -12,8 +12,8 @@
         "schema_description": "A daily cellular protocol for people who still train: two capsules with breakfast, 19 ingredients including 300mg nicotinamide riboside (NR), every dose on the label. Made in the UK, every batch third-party tested, with a 90-day money-back guarantee for subscribers.",
         "rating_text": "Rated 4.83 from 150+ reviews",
         "heading": "Work stress.\nTraining stress.\nOne recovery budget.",
-        "body": "<p>Your body doesn’t keep separate accounts. A deadline week and a threshold session draw from the same place, and your HRV shows it. MUTO is one daily foundation for high-output weeks: two capsules with breakfast, every dose on the label.</p>",
-        "strong": "Not a calming pill. A daily foundation you can check.",
+        "body": "<p><strong>A daily NAD+ supplement for high-output weeks, built to be checked.</strong> A deadline week and a threshold session draw from the same place. Two capsules with breakfast, every dose on the label, and 90 days to see the difference or your money back.</p>",
+        "strong": "Built so heavy weeks don’t wipe you out. Check it on your own data.",
         "cta_label": "Start your 90 days",
         "cta_link": "/products/muto-nad-cellular-complex",
         "ticks": "Free next-day delivery\n90-day money-back guarantee",
@@ -135,8 +135,8 @@
     "benefits": {
       "type": "muto-lp-benefits",
       "settings": {
-        "heading": "A steadier head in heavy weeks.",
-        "lede": "It won’t make a hard week easy. It’s a daily foundation for the weeks when work, life and training all peak at once.",
+        "heading": "Heavy weeks that don’t wipe you out.",
+        "lede": "The deadline still lands. The difference is having a foundation under you when it does: clearer at 5pm, something left for the session, and a Monday that doesn’t start in the red.",
         "claim_label": "What’s inside: ",
         "foot": ""
       },
@@ -752,6 +752,185 @@
         "fg_mg6a",
         "fg_mg6b"
       ]
+    },
+    "timeline": {
+      "type": "muto-lp-timeline",
+      "settings": {
+        "pill": "Your 90 days",
+        "heading": "Here’s how you’ll know.",
+        "lede": "No guesswork and no taking our word for it. Three checkpoints, on the device you already wear.",
+        "cta_label": "Start your 90 days",
+        "cta_link": "/products/muto-nad-cellular-complex"
+      },
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "chip": "Day 0",
+            "title": "Take your baseline.",
+            "text": "Seven days on your wearable before your first capsule: HRV, resting heart rate and sleep. Add a 1–10 rating for how you feel.",
+            "quote": "",
+            "cite": ""
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "chip": "Day 30",
+            "title": "First read.",
+            "text": "Compare your 30-day averages with your baseline. Single nights are noise; the trend is the signal.",
+            "quote": "“More focused during the day”",
+            "cite": "Alexandra, MUTO customer"
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "chip": "Day 90",
+            "title": "Your verdict.",
+            "text": "Three months of your own data and your own rating. If you don’t see a difference, you’re covered.",
+            "quote": "",
+            "cite": ""
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ]
+    },
+    "results": {
+      "type": "muto-home-results",
+      "blocks": {
+        "r1": {
+          "type": "result",
+          "settings": {
+            "image": "shopify://shop_images/about-pillar-stress-harry.jpg",
+            "image_fallback": "",
+            "image_alt": "A MUTO customer talking to camera about their 90 days",
+            "image_position": "",
+            "video": "shopify://files/videos/Nothing Gets in on Trust_V01.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "result": "",
+            "quote": "",
+            "name": "Harry Insley",
+            "tag": "",
+            "detail": ""
+          }
+        },
+        "r2": {
+          "type": "result",
+          "settings": {
+            "image": "shopify://shop_images/home-athlete-yolanda.jpg",
+            "image_fallback": "",
+            "image_alt": "A MUTO customer talking to camera about their 90 days",
+            "image_position": "",
+            "video": "shopify://files/videos/The Baseline.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "result": "",
+            "quote": "",
+            "name": "Yolanda King",
+            "tag": "",
+            "detail": ""
+          }
+        },
+        "r3": {
+          "type": "result",
+          "settings": {
+            "image": "shopify://shop_images/IMG_3566_JPG.jpg",
+            "image_fallback": "",
+            "image_alt": "A MUTO customer talking to camera about their 90 days",
+            "image_position": "",
+            "video": "shopify://files/videos/clip 3.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "result": "",
+            "quote": "",
+            "name": "Adam Facey",
+            "tag": "",
+            "detail": ""
+          }
+        },
+        "r4": {
+          "type": "result",
+          "settings": {
+            "image": "shopify://shop_images/Ellen_Gray.jpg",
+            "image_fallback": "",
+            "image_alt": "A MUTO customer talking to camera about their 90 days",
+            "image_position": "",
+            "video": "shopify://files/videos/MU12_MUTO_VIDEO AD_TOFU_PROBLEM AWARE_HIGH PERFORMER_METRICS_HRV_TESTIMONIAL_ELLEN_CREATOR AD.MP4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "result": "",
+            "quote": "",
+            "name": "Ellen Gray",
+            "tag": "",
+            "detail": ""
+          }
+        },
+        "r5": {
+          "type": "result",
+          "settings": {
+            "image": "shopify://shop_images/max-richards.jpg",
+            "image_fallback": "",
+            "image_alt": "A MUTO customer talking to camera about their 90 days",
+            "image_position": "",
+            "video": "shopify://files/videos/MUTO_Creator-Ad_Max-Richards_Script-B.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "result": "",
+            "quote": "",
+            "name": "Max Richards",
+            "tag": "",
+            "detail": ""
+          }
+        },
+        "result_NmUnkJ": {
+          "type": "result",
+          "settings": {
+            "image": "shopify://shop_images/IMG_1115_JPG.jpg",
+            "image_fallback": "",
+            "image_alt": "",
+            "image_position": "",
+            "video": "shopify://files/videos/MU06_26_MUTO_VIDEO-1.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "result": "",
+            "quote": "",
+            "name": "Adam Hamilton",
+            "tag": "",
+            "detail": ""
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5",
+        "result_NmUnkJ"
+      ],
+      "settings": {
+        "heading": "Day 1 to Day 90.\nIn their own words.",
+        "note": "In their own words",
+        "ratio": "9/16",
+        "field": false,
+        "fit": "nad",
+        "rail_gap": 48,
+        "foot": "Individual results. MUTO supports the cellular system beneath these numbers; it does not promise them.",
+        "space_top": 100,
+        "space_bottom": 100
+      }
     }
   },
   "order": [
@@ -759,6 +938,8 @@
     "trust",
     "problem",
     "benefits",
+    "timeline",
+    "results",
     "value",
     "offer",
     "formula",

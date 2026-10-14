@@ -1,6 +1,6 @@
 # MUTO landing pages: files for the live theme
 
-18 files. Copy them into the live theme (Clone Of Live | Buy Box Redesign [31-08], ID 200736047451),
+19 files. Copy them into the live theme (Clone Of Live | Buy Box Redesign [31-08], ID 200736047451),
 sections and the stylesheet first, then the 7 templates.
 
 Pages already created in Shopify (published, hidden from search), each set to its template:
@@ -25,8 +25,10 @@ MP1, MP2, MP3 and MP5 buttons link to /products/muto-nad-cellular-complex-2; the
 ## Option B: Shopify admin
 
 Online Store → Themes → live theme → … → Edit code.
-1. Sections → Add a new section, for each muto-lp-*.liquid (10 files), paste the contents, save.
+1. Sections → Add a new section, for each muto-lp-*.liquid (11 files), paste the contents, save.
 2. Assets → Add a new asset → muto-lp.css, paste, save.
 3. Templates → Add a new template → page → name lp-mp1 (then lp-mp2, lp-mp3, lp-mp5, lp-hp-energy, lp-hp-recovery, lp-hp-stress), paste the JSON, save.
+
+The three high-performer pages also use `muto-home-results` (the customer videos), which is already on the live theme; nothing to copy for it.
 
 Check each page on mobile and desktop once live.
