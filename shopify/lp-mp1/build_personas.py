@@ -37,6 +37,14 @@ def build(p):
     for key, (icon, text) in zip(("t1", "t2", "t3"), p["trust"]):
         S["trust"]["blocks"][key]["settings"].update(icon=icon, text=text)
     S["trust"]["settings"]["heading"] = p["people_heading"]
+    # Image overrides (people row and benefit cards)
+    if p.get("people_images"):
+        photos = [k for k in S["trust"]["block_order"] if S["trust"]["blocks"][k]["type"] == "photo"]
+        for key, (url, alt) in zip(photos, p["people_images"]):
+            S["trust"]["blocks"][key]["settings"].update(image="", image_fallback=url, alt=alt, position="")
+    if p.get("benefit_images"):
+        for key, (url, alt) in zip(("b1", "b2", "b3", "b4"), p["benefit_images"]):
+            S["benefits"]["blocks"][key]["settings"].update(image="", image_fallback=url, image_alt=alt)
     # Problem
     S["problem"]["settings"].update(p["problem"])
     for key, (q, t) in zip(("x1", "x2", "x3"), p["pains"]):
@@ -209,6 +217,136 @@ PERSONAS = [
      "bar": "Welcome offer: £122 of value for £60 on your first subscription, and 90 days to decide.",
      "order": ["lp_hero", "trust", "problem", "benefits", "formula", "experts", "reviews",
                "value", "offer", "lp_faq", "offer2", "bar"]},
+]
+
+
+# ======================================================================================
+# High performer, 30-40: three angles (energy, recovery, stress). Wearable-literate,
+# career plus training. Images: the athlete shots. Buttons: the main product page.
+# ======================================================================================
+IMG = {k: CDN + v for k, v in {
+    "feel": "nad-benefits-feel.jpg?v=1791019769", "track": "nad-benefits-track.jpg?v=1791020038",
+    "tired": "nad-problem-tired.jpg?v=1791018569", "recovery": "nad-problem-recovery.jpg?v=1791018568",
+    "data": "nad-problem-data.jpg?v=1791018568", "bottle": "nad-guarantee-bottle.jpg?v=1791023640",
+    "wearable": "nad-check-wearable.jpg?v=1791017018", "baseline": "nad-step-baseline.jpg?v=1791020791",
+    "steady": "nad-step-steady.jpg?v=1791020790", "checkin": "nad-step-checkin-close.jpg?v=1791021630",
+    "verdict": "nad-step-verdict.jpg?v=1791020808", "harry": "home-athlete-harry.jpg?v=1791021221",
+    "yolanda": "home-athlete-yolanda.jpg?v=1791021221", "kaisa": "home-athlete-kaisa.jpg?v=1791025477",
+    "cyclist": "home-athlete-cyclist.jpg?v=1790767821"}.items()}
+HP_PEOPLE = [(IMG["harry"], "A runner crossing open parkland"), (IMG["yolanda"], "An athlete in front of a row of treadmills"),
+             (IMG["kaisa"], "An athlete running between stations at a HYROX event"), (IMG["cyclist"], "A cyclist on the drops in a time trial")]
+HP_TRUST = [("award", "Built by a PhD cell biologist"), ("shield", "Made in the UK, every batch third-party tested"),
+            ("label", "No caffeine, no stimulants")]
+TRACK = ("How do I track it?", "<p>Take a 7-day baseline before your first capsule: HRV, resting heart rate, sleep and your recovery or readiness score, plus a 1–10 rating for how you feel. Then compare 30-day averages at day 30, 60 and 90. Single nights are noise; months are signal.</p>")
+DEVICES = ("Which devices work?", "<p>Any device that records HRV, resting heart rate and sleep: Garmin, WHOOP, Oura, Apple Watch, Polar, Coros and others. Use the same one for the whole 90 days. No device? A weekly 1–10 check-in works too.</p>")
+HP_ORDER = COMMON_ORDER
+
+PERSONAS += [
+    # ------------------------------------------------------------ HP: energy
+    {"key": "hp-energy", "link": MAIN,
+     "hero": {"image": "", "image_fallback": IMG["feel"],
+              "image_alt": "A cyclist pausing mid-ride in the sun, sunglasses pushed up", "image_position": "50% 20%",
+              "heading": "Big job.\nHard training.\nEnergy for both.",
+              "body": "<p>MUTO is the daily cellular protocol for people running at full output: two capsules with breakfast, 19 ingredients, every dose on the label. Not a stimulant. A better baseline, judged on your own numbers.</p>",
+              "strong": "Take a 7-day baseline on your wearable. Then give it 90 days."},
+     "trust": HP_TRUST, "people_heading": "Built for people who\nrun at full output.", "people_images": HP_PEOPLE,
+     "problem": {"pill": "Sound familiar?",
+                 "heading": "Crushing the 6am session. Gone by the 4pm meeting.",
+                 "lede": "You’ve optimised the training plan, the sleep and the macros. But the afternoons still fade, the third coffee does less than it used to, and the evening session gets whatever’s left.",
+                 "reframe_heading": "Energy you make,\nnot energy you borrow.",
+                 "reframe_text": "Your energy is made in your cells. MUTO supports the 30 trillion cells in your body through NAD+ and other nutrients, with B vitamins that contribute to normal energy-yielding metabolism and the reduction of tiredness and fatigue."},
+     "pains": [("“Start well but fade later in the day.”", "The most common answer in our customer quiz."),
+               ("“Tired of feeling tired.”", "However dialled-in the rest of the plan is."),
+               ("Your third coffee is a loan.", "It borrows from 4pm, and 4pm always pays it back.")],
+     "benefits": {"heading": "Full output, all day.",
+                  "lede": "Not a pre-workout and not a buzz. A daily foundation, so the 4pm meeting and the 6pm session both get the version of you that turned up at 6am."},
+     "benefit_cards": [
+        ("Still sharp at 4pm.", "The pitch, the deadline, the late call. A steadier supply through the afternoon instead of a crash-and-coffee cycle."),
+        ("Energy made in your cells.", "Not a stimulant or a quick hit. A daily routine that supports the system your energy actually comes from."),
+        ("Something left for the evening session.", "A full workday shouldn’t mean skipping the session you planned. Turn up to it with something in the tank."),
+        ("Built for high-output weeks.", "Big work weeks and big training weeks, back to back. One routine with breakfast, every day.")],
+     "benefit_images": [(IMG["baseline"], "A cyclist checking the watch on their wrist"), (IMG["wearable"], "A runner checking a sports watch after a session"),
+                        (IMG["steady"], "An athlete between sets in the gym"), (IMG["verdict"], "Three athletes laughing together after a session")],
+     "reviews_heading": "<p>Energy, focus, training: what customers say about MUTO</p>",
+     "faq": [("Is it a stimulant?", "<p>No. No caffeine and no stimulants, so there’s nothing to time around meetings or sessions. It’s a daily routine you judge over weeks, not hours.</p>"),
+             ("Can I still drink coffee?", "<p>Yes. Take your two capsules with breakfast, coffee included.</p>"),
+             TRACK, DEVICES, WORK, SUB],
+     "offer_heading": "Start your 90 days today.", "offer2_heading": "Take your baseline. Start your 90 days.",
+     "bar": "Welcome offer: £122 of value for £60 on your first subscription, and 90 days to decide.",
+     "order": HP_ORDER},
+
+    # ------------------------------------------------------------ HP: recovery
+    {"key": "hp-recovery", "link": MAIN,
+     "hero": {"image": "", "image_fallback": IMG["bottle"],
+              "image_alt": "An athlete resting on a log after a session, drinking from a MUTO bottle", "image_position": "50% 10%",
+              "heading": "Your readiness score says no.\nYour diary says go.",
+              "body": "<p>MUTO is the daily cellular protocol for people who train hard and work harder: two capsules with breakfast, 19 ingredients, every dose on the label. Recovery starts underneath, so that’s where MUTO starts.</p>",
+              "strong": "Take your baseline. Read the 30-day trend, not the single night."},
+     "trust": HP_TRUST, "people_heading": "Built for people who\ntrain like it matters.", "people_images": HP_PEOPLE,
+     "problem": {"pill": "Sound familiar?",
+                 "heading": "Tuesday’s intervals. Wednesday’s dead legs.",
+                 "lede": "The hard session is fine. It’s the one after it that tells you how you’re recovering. Add a heavy work week and short nights, and the readiness score stays red for days.",
+                 "reframe_heading": "Recovery starts\nunderneath.",
+                 "reframe_text": "Recovery happens in the cells that make your energy and run their repair work. MUTO supports the 30 trillion cells in your body through NAD+ and other nutrients, with vitamin D, which contributes to the maintenance of normal muscle function."},
+     "pains": [("“HRV been trash for months.”", "A real customer, before they started."),
+               ("“Struggling with recovery according to Whoop.”", "Another, describing what their data showed."),
+               ("Readiness says red. The plan says go.", "So you train anyway, or you skip and fall behind.")],
+     "benefits": {"heading": "Ready for the next session.",
+                  "lede": "You train to keep progressing, not to spend the week getting over it. Here’s what’s working underneath."},
+     "benefit_cards": [
+        ("Back for the next session.", "Thursday’s intervals shouldn’t still be in your legs on Sunday. Train, recover, go again."),
+        ("Energy made in your cells.", "Your sessions run on the energy your cells make. MUTO supports that system every day, not just on training days."),
+        ("Read the trend, not the night.", "Take a 7-day baseline, then compare 30-day averages of HRV, resting heart rate and sleep. Your data, your verdict."),
+        ("Built for training blocks.", "Two capsules every day through the block, whatever the plan says. Nothing to time around sessions.")],
+     "benefit_claims": {"b1": "Vitamin D contributes to the maintenance of normal muscle function.",
+                        "b3": "Vitamins B6, B12 and folate contribute to the reduction of tiredness and fatigue."},
+     "benefit_images": [(IMG["recovery"], "A runner catching her breath, hands on knees"), (IMG["tired"], "An athlete head down on a gym bike"),
+                        (IMG["checkin"], "A wrist on an ice bath, the watch showing a live heart rate"), (IMG["baseline"], "A cyclist checking the watch on their wrist")],
+     "reviews_heading": "<p>Recovery, training, routine: what customers say about MUTO</p>",
+     "faq": [("Will it improve my HRV?", "<p>We won’t promise what any number will do. Take a 7-day baseline, read 30-day averages rather than single nights, and judge it yourself over 90 days. If you don’t see a difference, you’re covered.</p>"),
+             ("When should I take it around training?", "<p>It doesn’t matter. Two capsules with your first meal, every day, training day or not. Consistency is what counts.</p>"),
+             ("Can I take it with creatine and protein?", "<p>Yes. MUTO sits alongside creatine and protein; your first order even includes our Ultrapure Creatine.</p>"),
+             TRACK, DEVICES, SUB],
+     "offer_heading": "Start your 90 days today.", "offer2_heading": "Your next training block starts here.",
+     "bar": "Welcome offer: £122 of value for £60 on your first subscription, and 90 days to decide.",
+     "order": HP_ORDER},
+
+    # ------------------------------------------------------------ HP: stress
+    {"key": "hp-stress", "link": MAIN,
+     "hero": {"image": "", "image_fallback": IMG["data"],
+              "image_alt": "Two athletes at a table reading a recovery score on a phone", "image_position": "50% 60%",
+              "heading": "Work stress.\nTraining stress.\nOne recovery budget.",
+              "body": "<p>Your body doesn’t keep separate accounts. A deadline week and a threshold session draw from the same place, and your HRV shows it. MUTO is one daily foundation for high-output weeks: two capsules with breakfast, every dose on the label.</p>",
+              "strong": "Not a calming pill. A daily foundation you can check."},
+     "trust": HP_TRUST, "people_heading": "Built for people who\ncarry a lot, and still train.", "people_images": HP_PEOPLE,
+     "problem": {"pill": "Sound familiar?",
+                 "heading": "HRV down. Deadline up.",
+                 "lede": "Launch week, a sick kid, a red-eye, a race block. You’ve read about cortisol and stress load, and you can see it in your numbers: the heavy weeks land in your sleep score and your morning HRV.",
+                 "reframe_heading": "It all lands\nin the same place.",
+                 "reframe_text": "Stress, training and short nights all draw on the same reserves. MUTO is one daily foundation: B vitamins that contribute to normal psychological function, pantothenic acid for normal mental performance, and NAD+ support for the cells that make your energy."},
+     "pains": [("Always on. Never off.", "Work, home and training, with no gap between them."),
+               ("The deadline lands in your sleep score.", "You can see the heavy weeks in your data before you feel them."),
+               ("Busy weeks drain more than any session.", "The training isn’t the hard part. Everything around it is.")],
+     "benefits": {"heading": "A steadier head in heavy weeks.",
+                  "lede": "It won’t make a hard week easy. It’s a daily foundation for the weeks when work, life and training all peak at once."},
+     "benefit_cards": [
+        ("Steady when it all peaks.", "Launch week, board week, race week: same body. One routine that doesn’t change when everything else does."),
+        ("Energy that lasts the week.", "Not a spike to get through Monday. A steadier supply for Thursday and Friday too."),
+        ("Clearer thinking under load.", "The decisions still need making at 5pm. Support for normal mental performance, every day."),
+        ("Built for high-output weeks.", "Big work weeks and big training weeks, back to back. One routine with breakfast.")],
+     "benefit_claims": {"b1": "Vitamins B6, B12, thiamin, niacin and biotin contribute to normal psychological function.",
+                        "b2": "Vitamins B6, B12 and folate contribute to the reduction of tiredness and fatigue.",
+                        "b3": "Pantothenic acid contributes to normal mental performance."},
+     "benefit_images": [(IMG["data"], "Two athletes reading a recovery score on a phone"), (IMG["feel"], "A cyclist pausing mid-ride in the sun"),
+                        (IMG["wearable"], "A runner checking a sports watch after a session"), (IMG["verdict"], "Three athletes laughing together after a session")],
+     "reviews_heading": "<p>Focus, energy, routine: what customers say about MUTO</p>",
+     "faq": [("Does MUTO lower cortisol?", "<p>No, and we won’t claim it does. There’s no authorised claim for that, and you should be wary of anyone who makes one. MUTO contains B vitamins that contribute to normal psychological function, and pantothenic acid for normal mental performance. To see how heavy weeks land, track HRV, resting heart rate and sleep through the 90 days.</p>"),
+             ("Is it a calming supplement?", "<p>No. It isn’t a sedative or an adaptogen blend, and it won’t make a hard week easy. It’s a daily foundation you take with breakfast and judge over 90 days.</p>"),
+             ("Is it a stimulant?", "<p>No caffeine and no stimulants, so nothing to time around your day.</p>"),
+             TRACK, WORK, SUB],
+     "offer_heading": "Start your 90 days today.", "offer2_heading": "One foundation for heavy weeks.",
+     "bar": "Welcome offer: £122 of value for £60 on your first subscription, and 90 days to decide.",
+     "order": HP_ORDER},
 ]
 
 if __name__ == "__main__":
