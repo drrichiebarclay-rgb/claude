@@ -124,17 +124,16 @@ S["offer"] = {"type": "muto-lp-offer", "settings": {
     "image": "", "image_fallback": M2_LEAD,
     "image_alt": "MUTO NAD+ Cellular Complex",
     "heading": "Start your 90 days today.",
-    "product_name": "NAD+ Cellular Complex (30 days)", "product_price": "£60",
+    "product_name": "NAD+ Cellular Complex and Forever Jar (30 days)", "product_price": "£60",
     "product_sub": "£2 a day on subscription. Usually £70.",
     "includes_label": "First order includes:",
-    "total_was": "£132", "total_now": "£60",
+    "total_was": "£122", "total_now": "£60",
     "cta_label": CTA, "cta_link": PDP,
-    "ticks": "Free next-day delivery\nSkip, pause or cancel online\n90-day money-back guarantee"},
+    "ticks": "More free gifts along the way\nFree next-day delivery\nSkip, pause or cancel online\n90-day money-back guarantee"},
     "blocks": {}, "block_order": []}
 for i, (name, desc, was) in enumerate([
         ("Ultrapure Creatine", "Micronised creatine monohydrate, every batch tested", "£30"),
         ("Performance Socks", "Size UK 6–11", "£12"),
-        ("Forever Jar", "Refill it from the pouch every month", "£10"),
         ("12-Week Protocol Guide", "How to run your 90 days and check it yourself", "£10"),
         ("Garmin watch prize draw", "Entry into our quarterly draw", "")], 1):
     S["offer"]["blocks"][f"i{i}"] = {"type": "item", "settings": {"name": name, "desc": desc, "was": was,
@@ -207,7 +206,7 @@ S["banner"] = copy(home["banner"])
 S["banner"]["settings"].update(line_a="Not\ndone\nyet.", line_b="Start your\n90 days.")
 
 S["bar"] = {"type": "muto-lp-bar", "settings": {
-    "text": "Welcome offer: a free £62 welcome kit with your first subscription, and 90 days to decide.",
+    "text": "Welcome offer: £122 of value for £60 on your first subscription, and 90 days to decide.",
     "cta_label": CTA, "cta_sub": "Save 14%", "cta_link": PDP}}
 
 # ---- 7. Formula proof (honest version: research under way, one cited NR study) -------

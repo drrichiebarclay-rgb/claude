@@ -189,15 +189,15 @@
         "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/newmain.png?v=1791796643",
         "image_alt": "MUTO NAD+ Cellular Complex",
         "heading": "Start your 90 days today.",
-        "product_name": "NAD+ Cellular Complex (30 days)",
+        "product_name": "NAD+ Cellular Complex and Forever Jar (30 days)",
         "product_price": "£60",
         "product_sub": "£2 a day on subscription. Usually £70.",
         "includes_label": "First order includes:",
-        "total_was": "£132",
+        "total_was": "£122",
         "total_now": "£60",
         "cta_label": "Start your 90 days",
         "cta_link": "/products/muto-nad-cellular-complex-2",
-        "ticks": "Free next-day delivery\nSkip, pause or cancel online\n90-day money-back guarantee"
+        "ticks": "More free gifts along the way\nFree next-day delivery\nSkip, pause or cancel online\n90-day money-back guarantee"
       },
       "blocks": {
         "i1": {
@@ -221,22 +221,13 @@
         "i3": {
           "type": "item",
           "settings": {
-            "name": "Forever Jar",
-            "desc": "Refill it from the pouch every month",
-            "was": "£10",
-            "now": "free"
-          }
-        },
-        "i4": {
-          "type": "item",
-          "settings": {
             "name": "12-Week Protocol Guide",
             "desc": "How to run your 90 days and check it yourself",
             "was": "£10",
             "now": "free"
           }
         },
-        "i5": {
+        "i4": {
           "type": "item",
           "settings": {
             "name": "Garmin watch prize draw",
@@ -250,14 +241,13 @@
         "i1",
         "i2",
         "i3",
-        "i4",
-        "i5"
+        "i4"
       ]
     },
     "bar": {
       "type": "muto-lp-bar",
       "settings": {
-        "text": "Welcome offer: a free £62 welcome kit with your first subscription, and 90 days to decide.",
+        "text": "Welcome offer: £122 of value for £60 on your first subscription, and 90 days to decide.",
         "cta_label": "Start your 90 days",
         "cta_sub": "Save 14%",
         "cta_link": "/products/muto-nad-cellular-complex-2"
@@ -507,15 +497,15 @@
         "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-gallery-1.jpg?v=1790879783",
         "image_alt": "A MUTO customer in his 50s after a ride",
         "heading": "Ready when you are.",
-        "product_name": "NAD+ Cellular Complex (30 days)",
+        "product_name": "NAD+ Cellular Complex and Forever Jar (30 days)",
         "product_price": "£60",
         "product_sub": "£2 a day on subscription. Usually £70.",
         "includes_label": "First order includes:",
-        "total_was": "£132",
+        "total_was": "£122",
         "total_now": "£60",
         "cta_label": "Start your 90 days",
         "cta_link": "/products/muto-nad-cellular-complex-2",
-        "ticks": "Free next-day delivery\nSkip, pause or cancel online\n90-day money-back guarantee"
+        "ticks": "More free gifts along the way\nFree next-day delivery\nSkip, pause or cancel online\n90-day money-back guarantee"
       },
       "blocks": {
         "i1": {
@@ -539,22 +529,13 @@
         "i3": {
           "type": "item",
           "settings": {
-            "name": "Forever Jar",
-            "desc": "Refill it from the pouch every month",
-            "was": "£10",
-            "now": "free"
-          }
-        },
-        "i4": {
-          "type": "item",
-          "settings": {
             "name": "12-Week Protocol Guide",
             "desc": "How to run your 90 days and check it yourself",
             "was": "£10",
             "now": "free"
           }
         },
-        "i5": {
+        "i4": {
           "type": "item",
           "settings": {
             "name": "Garmin watch prize draw",
@@ -568,8 +549,7 @@
         "i1",
         "i2",
         "i3",
-        "i4",
-        "i5"
+        "i4"
       ]
     }
   },
