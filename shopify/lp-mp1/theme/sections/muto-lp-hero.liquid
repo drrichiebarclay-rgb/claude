@@ -30,6 +30,55 @@
     </div>
   </section>
 </div>
+{%- if section.settings.schema_on -%}
+  {%- assign sp = all_products[section.settings.schema_product] -%}
+  {%- if sp != blank -%}
+    {%- assign sp_url = shop.url | append: sp.url -%}
+    {%- assign sp_variant = sp.selected_or_first_available_variant -%}
+    {%- if section.settings.image != blank -%}
+      {%- assign sp_page_img = section.settings.image | image_url: width: 1200 | prepend: 'https:' -%}
+    {%- elsif section.settings.image_fallback != blank -%}
+      {%- assign sp_page_img = section.settings.image_fallback -%}
+    {%- else -%}
+      {%- assign sp_page_img = sp.featured_image | image_url: width: 1200 | prepend: 'https:' -%}
+    {%- endif -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": {{ canonical_url | append: '#webpage' | json }},
+      "url": {{ canonical_url | json }},
+      "name": {{ page_title | json }},
+      "description": {{ page_description | default: section.settings.heading | json }},
+      "inLanguage": "en-GB",
+      "isPartOf": { "@type": "WebSite", "name": {{ shop.name | json }}, "url": {{ shop.url | json }} },
+      "about": { "@id": {{ sp_url | append: '#product' | json }} },
+      "primaryImageOfPage": {{ sp_page_img | json }}
+    },
+    {
+      "@type": "Product",
+      "@id": {{ sp_url | append: '#product' | json }},
+      "name": {{ section.settings.schema_name | default: sp.title | json }},
+      "brand": { "@type": "Brand", "name": "MUTO" },
+      "description": {{ section.settings.schema_description | default: sp.description | strip_html | truncate: 300 | json }},
+      "image": {{ sp.featured_image | image_url: width: 1200 | prepend: 'https:' | json }},
+      "url": {{ sp_url | json }},
+      "offers": {
+        "@type": "Offer",
+        "url": {{ sp_url | json }},
+        "priceCurrency": {{ cart.currency.iso_code | json }},
+        "price": {{ sp_variant.price | divided_by: 100.0 | json }},
+        "availability": "https://schema.org/{% if sp.available %}InStock{% else %}OutOfStock{% endif %}",
+        "seller": { "@type": "Organization", "name": "MUTO" }
+      }
+    }
+  ]
+}
+</script>
+  {%- endif -%}
+{%- endif -%}
 {% schema %}
 {
   "name": "MUTO LP — Hero",
@@ -45,7 +94,12 @@
     { "type": "text", "id": "strong", "label": "Bold line" },
     { "type": "text", "id": "cta_label", "label": "Button" },
     { "type": "url", "id": "cta_link", "label": "Button link" },
-    { "type": "textarea", "id": "ticks", "label": "Ticks", "info": "One per line." }
+    { "type": "textarea", "id": "ticks", "label": "Ticks", "info": "One per line." },
+    { "type": "header", "content": "Search and answer engines" },
+    { "type": "checkbox", "id": "schema_on", "label": "Emit WebPage and Product structured data", "default": true },
+    { "type": "text", "id": "schema_product", "label": "Product handle", "default": "muto-nad-cellular-complex" },
+    { "type": "text", "id": "schema_name", "label": "Product name for structured data" },
+    { "type": "textarea", "id": "schema_description", "label": "Product description for structured data" }
   ],
   "presets": [{ "name": "MUTO LP — Hero" }],
   "enabled_on": { "templates": ["page", "index", "product"] }
