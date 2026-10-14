@@ -263,6 +263,23 @@ for k in ("w1", "w2", "w3", "w4"):
     bs = B[k]["settings"]
     people.append({"image_fallback": bs.get("image_fallback", ""), "alt": bs.get("image_alt", ""),
                    "position": bs.get("image_position", ""), "name": bs["name"], "role": "MUTO athlete", "quote": ""})
+# What each person brings, in MUTO's voice. Not quotes: replace with their own approved
+# words when they come back.
+ROLE_LINES = {
+    "Dr James Morehen": "Advises MUTO on performance nutrition for people who still train hard.",
+    "Dr Alka Patel": "Advises MUTO on longevity: helping people keep doing what they love for longer.",
+    "Dr Richard Mackenzie": "Advises MUTO on metabolism: how your cells turn food into energy.",
+    "Dr Maciej Zatonski": "Advises MUTO on sleep and recovery, and on reading them over weeks, not nights.",
+    "Harry Insley": "Runner and MUTO athlete.",
+    "Yolanda King": "MUTO athlete, training alongside a full working life.",
+    "Kaisa Larkas": "HYROX athlete and MUTO athlete.",
+    "Sam Ekstrom": "Time-trial cyclist and MUTO athlete.",
+}
+for pp in people:
+    if not pp.get("quote"):
+        pp["quote"] = ROLE_LINES.get(pp["name"], "")
+        if pp["role"] == "MUTO athlete":
+            pp["role"] = "Athlete"
 for i, pp in enumerate(people, 1):
     S["experts"]["blocks"][f"e{i}"] = {"type": "person", "settings": pp}
     S["experts"]["block_order"].append(f"e{i}")

@@ -337,7 +337,7 @@
             "alt": "Dr James Morehen",
             "name": "Dr James Morehen",
             "role": "Performance nutritionist, international rugby · Scientific Advisory Board",
-            "quote": ""
+            "quote": "Advises MUTO on performance nutrition for people who still train hard."
           }
         },
         "e3": {
@@ -348,7 +348,7 @@
             "alt": "Dr Alka Patel",
             "name": "Dr Alka Patel",
             "role": "Longevity doctor & global speaker · Scientific Advisory Board",
-            "quote": ""
+            "quote": "Advises MUTO on longevity: helping people keep doing what they love for longer."
           }
         },
         "e4": {
@@ -359,7 +359,7 @@
             "alt": "Dr Richard Mackenzie",
             "name": "Dr Richard Mackenzie",
             "role": "Leading metabolism researcher · Scientific Advisory Board",
-            "quote": ""
+            "quote": "Advises MUTO on metabolism: how your cells turn food into energy."
           }
         },
         "e5": {
@@ -370,7 +370,7 @@
             "alt": "Dr Maciej Zatonski",
             "name": "Dr Maciej Zatonski",
             "role": "Performance & sleep doctor · Scientific Advisory Board",
-            "quote": ""
+            "quote": "Advises MUTO on sleep and recovery, and on reading them over weeks, not nights."
           }
         },
         "e6": {
@@ -380,8 +380,8 @@
             "alt": "Harry Insley running across open parkland in a black vest",
             "position": "50% 6%",
             "name": "Harry Insley",
-            "role": "MUTO athlete",
-            "quote": ""
+            "role": "Athlete",
+            "quote": "Runner and MUTO athlete."
           }
         },
         "e7": {
@@ -391,8 +391,8 @@
             "alt": "Yolanda King standing with her arms folded in front of a row of treadmills",
             "position": "50% 32%",
             "name": "Yolanda King",
-            "role": "MUTO athlete",
-            "quote": ""
+            "role": "Athlete",
+            "quote": "MUTO athlete, training alongside a full working life."
           }
         },
         "e8": {
@@ -402,8 +402,8 @@
             "alt": "Kaisa Larkas running between stations at a HYROX event",
             "position": "50% 27%",
             "name": "Kaisa Larkas",
-            "role": "MUTO athlete",
-            "quote": ""
+            "role": "Athlete",
+            "quote": "HYROX athlete and MUTO athlete."
           }
         },
         "e9": {
@@ -413,8 +413,8 @@
             "alt": "Sam Ekstrom on the drops during a Team GB time trial",
             "position": "50% 30%",
             "name": "Sam Ekstrom",
-            "role": "MUTO athlete",
-            "quote": ""
+            "role": "Athlete",
+            "quote": "Time-trial cyclist and MUTO athlete."
           }
         }
       },
