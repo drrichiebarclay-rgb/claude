@@ -1,0 +1,67 @@
+{%- comment -%}
+  MUTO landing page — formula proof. Heading and body across the top; below, a
+  card of dark stat rows (figure, unit, text) and a photograph with an optional
+  certification badge. A source line sits under the card for any cited figure.
+{%- endcomment -%}
+{{ 'muto-lp.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign s = section.settings
+  if s.image != blank
+    assign img_src = s.image | image_url: width: 1400
+  else
+    assign img_src = s.image_fallback
+  endif
+-%}
+<div class="mlp">
+  <section class="mlp__band" style="background:#fff" aria-labelledby="mlp-form-{{ section.id }}">
+    <div class="mlp__wrap">
+      <h2 class="mlp-form__h" id="mlp-form-{{ section.id }}">{{ s.heading | escape | newline_to_br }}</h2>
+      {%- if s.body != blank -%}<p class="mlp-form__body">{{ s.body }}</p>{%- endif -%}
+      <div class="mlp-form__grid">
+        <div>
+          <div class="mlp-form__card">
+            <div class="mlp-form__stats">
+              {%- for block in section.blocks -%}
+                <div class="mlp-form__row" {{ block.shopify_attributes }}>
+                  <p class="mlp-form__fig"><strong>{{ block.settings.figure }}</strong>{% if block.settings.unit != blank %}<span>{{ block.settings.unit }}</span>{% endif %}</p>
+                  <p class="mlp-form__text">{{ block.settings.text }}</p>
+                </div>
+              {%- endfor -%}
+            </div>
+          </div>
+          {%- if s.source != blank -%}<p class="mlp-form__src">{{ s.source }}</p>{%- endif -%}
+        </div>
+        <div class="mlp-form__media">
+          {%- if img_src != blank -%}<img src="{{ img_src }}" alt="{{ s.image_alt | escape }}" width="1400" height="1050" loading="lazy">{%- endif -%}
+          {%- if s.badge != blank -%}<img class="mlp-form__badge" src="{{ s.badge | image_url: width: 300 }}" alt="{{ s.badge_alt | escape }}" width="120" loading="lazy">{%- endif -%}
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% schema %}
+{
+  "name": "MUTO LP — Formula",
+  "tag": "section",
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "Heading" },
+    { "type": "textarea", "id": "body", "label": "Body" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "image_fallback", "label": "Image URL (fallback)" },
+    { "type": "text", "id": "image_alt", "label": "Image alt text" },
+    { "type": "image_picker", "id": "badge", "label": "Certification badge", "info": "E.g. Informed Sport, once the certificate is live." },
+    { "type": "text", "id": "badge_alt", "label": "Badge alt text" },
+    { "type": "textarea", "id": "source", "label": "Source line" }
+  ],
+  "blocks": [
+    { "type": "stat", "name": "Stat row", "settings": [
+      { "type": "text", "id": "figure", "label": "Figure" },
+      { "type": "text", "id": "unit", "label": "Under the figure" },
+      { "type": "textarea", "id": "text", "label": "Text" }
+    ] }
+  ],
+  "max_blocks": 4,
+  "presets": [{ "name": "MUTO LP — Formula" }],
+  "enabled_on": { "templates": ["page", "index", "product"] }
+}
+{% endschema %}

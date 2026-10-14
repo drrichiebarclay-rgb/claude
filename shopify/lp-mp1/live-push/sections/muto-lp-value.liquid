@@ -1,0 +1,89 @@
+{%- comment -%}
+  MUTO landing page — value. Copy and a "show more" ingredient list on the left;
+  on the right a without/with card comparing the cost per day.
+{%- endcomment -%}
+{{ 'muto-lp.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign s = section.settings
+  assign rows = s.more_list | newline_to_br | split: '<br />'
+  if s.without_image != blank
+    assign w_src = s.without_image | image_url: width: 700
+  else
+    assign w_src = s.without_image_fallback
+  endif
+  if s.with_image != blank
+    assign m_src = s.with_image | image_url: width: 700
+  else
+    assign m_src = s.with_image_fallback
+  endif
+-%}
+<div class="mlp">
+  <section class="mlp__band" aria-labelledby="mlp-val-{{ section.id }}">
+    <div class="mlp__wrap">
+      <div class="mlp-val">
+        <div>
+          <h2 class="mlp-val__h" id="mlp-val-{{ section.id }}">{{ s.heading | escape | newline_to_br }}</h2>
+          {%- if s.body != blank -%}<p class="mlp-val__body">{{ s.body }}</p>{%- endif -%}
+          {%- if s.more_list != blank -%}
+            <details>
+              <summary>{{ s.more_label | default: 'Show more' }}</summary>
+              <ul class="mlp-val__more">
+                {%- for r in rows -%}
+                  {%- assign parts = r | strip | split: '|' -%}
+                  {%- if parts.size > 0 -%}<li><span>{{ parts[0] | strip }}</span><span>{{ parts[1] | strip }}</span></li>{%- endif -%}
+                {%- endfor -%}
+              </ul>
+            </details>
+          {%- endif -%}
+        </div>
+        <div>
+          <div class="mlp-vcard">
+            <div class="mlp-vcard__img">{%- if w_src != blank -%}<img src="{{ w_src }}" alt="{{ s.without_image_alt | escape }}" width="700" height="700" loading="lazy">{%- elsif s.without_pots != blank -%}{%- assign pots = s.without_pots | newline_to_br | split: '<br />' -%}<ul class="mlp-pots" aria-label="{{ s.without_label | escape }}">{%- for x in pots -%}{%- assign y = x | strip -%}{%- if y != blank -%}<li>{{ y }}</li>{%- endif -%}{%- endfor -%}</ul>{%- endif -%}</div>
+            <div class="mlp-vcard__img" style="background:#fff">{%- if m_src != blank -%}<img src="{{ m_src }}" alt="{{ s.with_image_alt | escape }}" width="700" height="700" loading="lazy">{%- endif -%}</div>
+            <div class="mlp-vcard__cell">
+              <p class="mlp-vcard__label">{{ s.without_label }}</p>
+              <p class="mlp-vcard__price">{{ s.without_price }}</p>
+              <p class="mlp-vcard__per">{{ s.per_label | default: 'per day' }}</p>
+            </div>
+            <div class="mlp-vcard__cell mlp-vcard__cell--with">
+              <p class="mlp-vcard__label">{{ s.with_label }}</p>
+              <p class="mlp-vcard__price">{{ s.with_price }}</p>
+              <p class="mlp-vcard__per">{{ s.per_label | default: 'per day' }}</p>
+              {%- if s.cta_label != blank -%}<a class="mlp__btn mlp__btn--cyan mlp__btn--arrow" href="{{ s.cta_link | default: routes.all_products_collection_url }}">{{ s.cta_label }}</a>{%- endif -%}
+            </div>
+          </div>
+          {%- if s.foot != blank -%}<p class="mlp-val__foot">{{ s.foot }}</p>{%- endif -%}
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% schema %}
+{
+  "name": "MUTO LP — Value",
+  "tag": "section",
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "Heading" },
+    { "type": "textarea", "id": "body", "label": "Body" },
+    { "type": "text", "id": "more_label", "label": "Show more button", "default": "Show more" },
+    { "type": "textarea", "id": "more_list", "label": "Show more list", "info": "One per line: name | dose" },
+    { "type": "image_picker", "id": "without_image", "label": "Without image" },
+    { "type": "text", "id": "without_image_fallback", "label": "Without image URL (fallback)" },
+    { "type": "text", "id": "without_image_alt", "label": "Without image alt" },
+    { "type": "textarea", "id": "without_pots", "label": "Pots shown when there's no 'without' image", "info": "One per line." },
+    { "type": "text", "id": "without_label", "label": "Without label" },
+    { "type": "text", "id": "without_price", "label": "Without price" },
+    { "type": "image_picker", "id": "with_image", "label": "With image" },
+    { "type": "text", "id": "with_image_fallback", "label": "With image URL (fallback)" },
+    { "type": "text", "id": "with_image_alt", "label": "With image alt" },
+    { "type": "text", "id": "with_label", "label": "With label" },
+    { "type": "text", "id": "with_price", "label": "With price" },
+    { "type": "text", "id": "per_label", "label": "Price unit", "default": "per day" },
+    { "type": "text", "id": "cta_label", "label": "Button" },
+    { "type": "url", "id": "cta_link", "label": "Button link" },
+    { "type": "text", "id": "foot", "label": "Footnote" }
+  ],
+  "presets": [{ "name": "MUTO LP — Value" }],
+  "enabled_on": { "templates": ["page", "index", "product"] }
+}
+{% endschema %}

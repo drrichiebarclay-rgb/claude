@@ -1,0 +1,47 @@
+{%- comment -%}
+  MUTO landing page — FAQ. Heading left, accordion right; the first answer opens.
+  Emits FAQPage structured data from the same blocks.
+{%- endcomment -%}
+{{ 'muto-lp.css' | asset_url | stylesheet_tag }}
+<div class="mlp">
+  <section class="mlp__band" style="background:#fff" aria-labelledby="mlp-faq-{{ section.id }}">
+    <div class="mlp__wrap">
+      <div class="mlp-faq">
+        <h2 class="mlp-faq__h" id="mlp-faq-{{ section.id }}">{{ section.settings.heading | escape | newline_to_br }}</h2>
+        <div>
+          {%- for block in section.blocks -%}
+            <details {% if forloop.first and section.settings.open_first %}open{% endif %} {{ block.shopify_attributes }}>
+              <summary>{{ block.settings.q }}</summary>
+              <div class="mlp-faq__a">{{ block.settings.a }}</div>
+            </details>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{%- if section.settings.schema_on and section.blocks.size > 0 -%}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{%- for block in section.blocks -%}{"@type":"Question","name":{{ block.settings.q | strip_html | json }},"acceptedAnswer":{"@type":"Answer","text":{{ block.settings.a | strip_html | json }}}}{% unless forloop.last %},{% endunless %}{%- endfor -%}]}
+</script>
+{%- endif -%}
+{% schema %}
+{
+  "name": "MUTO LP — FAQ",
+  "tag": "section",
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "Heading" },
+    { "type": "checkbox", "id": "open_first", "label": "Open the first answer", "default": true },
+    { "type": "checkbox", "id": "schema_on", "label": "FAQ structured data", "default": true }
+  ],
+  "blocks": [
+    { "type": "q", "name": "Question", "settings": [
+      { "type": "text", "id": "q", "label": "Question" },
+      { "type": "richtext", "id": "a", "label": "Answer" }
+    ] }
+  ],
+  "max_blocks": 12,
+  "presets": [{ "name": "MUTO LP — FAQ" }],
+  "enabled_on": { "templates": ["page", "index", "product"] }
+}
+{% endschema %}

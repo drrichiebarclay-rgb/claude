@@ -1,0 +1,63 @@
+{%- comment -%}
+  MUTO landing page — benefit cards, two by two. The title is the plain-English
+  benefit; the small text underneath is the authorised claim, worded exactly.
+{%- endcomment -%}
+{{ 'muto-lp.css' | asset_url | stylesheet_tag }}
+<div class="mlp">
+  <section class="mlp__band mlp-ben" aria-label="{{ section.settings.heading | default: 'Benefits' | escape }}">
+    <div class="mlp__wrap">
+      {%- if section.settings.heading != blank -%}<h2 class="mlp-ben__h">{{ section.settings.heading | escape | newline_to_br }}</h2>{%- endif -%}
+      {%- if section.settings.lede != blank -%}<p class="mlp-ben__lede">{{ section.settings.lede }}</p>{%- endif -%}
+      <div class="mlp-ben__grid">
+        {%- for block in section.blocks -%}
+          {%- liquid
+            if block.settings.image != blank
+              assign b_src = block.settings.image | image_url: width: 900
+            else
+              assign b_src = block.settings.image_fallback
+            endif
+          -%}
+          <div class="mlp-ben__card{% if b_src != blank %} mlp-ben__card--img{% endif %}" {{ block.shopify_attributes }}>
+            {%- if b_src != blank -%}
+              <div class="mlp-ben__img"><img src="{{ b_src }}" alt="{{ block.settings.image_alt | escape }}" width="900" height="560" loading="lazy"{% if block.settings.image_position != blank %} style="object-position:{{ block.settings.image_position }}"{% endif %}></div>
+            {%- else -%}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M12 2.5l2 1.6 2.5-.3 1 2.3 2.3 1-.3 2.5 1.6 2-1.6 2 .3 2.5-2.3 1-1 2.3-2.5-.3-2 1.6-2-1.6-2.5.3-1-2.3-2.3-1 .3-2.5L2.5 12l1.6-2-.3-2.5 2.3-1 1-2.3 2.5.3z"/><path d="M8.5 12l2.3 2.3 4.7-4.6"/></svg>
+            {%- endif -%}
+            <div class="mlp-ben__copy">
+              <h3 class="mlp-ben__title">{{ block.settings.title }}</h3>
+              {%- if block.settings.line != blank -%}<p class="mlp-ben__line">{{ block.settings.line }}</p>{%- endif -%}
+              {%- if block.settings.text != blank -%}<p class="mlp-ben__text">{% if section.settings.claim_label != blank %}<span>{{ section.settings.claim_label }}</span>{% endif %}{{ block.settings.text }}</p>{%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+      {%- if section.settings.foot != blank -%}<p class="mlp-ben__foot">{{ section.settings.foot }}</p>{%- endif -%}
+    </div>
+  </section>
+</div>
+{% schema %}
+{
+  "name": "MUTO LP — Benefits",
+  "tag": "section",
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "Heading" },
+    { "type": "textarea", "id": "lede", "label": "Lede" },
+    { "type": "text", "id": "claim_label", "label": "Label before each claim", "default": "What's inside: " },
+    { "type": "text", "id": "foot", "label": "Footnote" }
+  ],
+  "blocks": [
+    { "type": "benefit", "name": "Benefit", "settings": [
+      { "type": "image_picker", "id": "image", "label": "Photo" },
+      { "type": "text", "id": "image_fallback", "label": "Photo URL (fallback)" },
+      { "type": "text", "id": "image_alt", "label": "Photo alt text" },
+      { "type": "text", "id": "image_position", "label": "Photo focus (object-position)" },
+      { "type": "text", "id": "title", "label": "Benefit" },
+      { "type": "textarea", "id": "line", "label": "The moment, in their world" },
+      { "type": "textarea", "id": "text", "label": "Claim, worded exactly" }
+    ] }
+  ],
+  "max_blocks": 6,
+  "presets": [{ "name": "MUTO LP — Benefits" }],
+  "enabled_on": { "templates": ["page", "index", "product"] }
+}
+{% endschema %}
