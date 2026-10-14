@@ -1,5 +1,7 @@
 """Build the MP1 (Slowing Competitor) Meta top-of-funnel landing page:
-product.lp-mp1.json, viewed at /products/muto-nad-cellular-complex?view=lp-mp1.
+page.lp-mp1.json, a page template (the home hero, founder and banner
+sections only run on page and home templates). Assign it to a page such as
+/pages/not-done-yet; preview on any page with ?view=lp-mp1.
 
 Built from the existing MUTO sections (home hero, problem, why, results, founder,
 steps, guarantee, FAQ, banner, sticky) so it carries the brand as-is. Copy follows
@@ -14,7 +16,7 @@ import json, os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SH = os.path.join(HERE, "..")
-out = sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, "product.lp-mp1.json")
+out = sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, "page.lp-mp1.json")
 
 
 def load(p):
