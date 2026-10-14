@@ -301,7 +301,7 @@ ROLE_LINES = {
     "Dr Alka Patel": "Advises MUTO on longevity: helping people keep doing what they love for longer.",
     "Dr Richard Mackenzie": "Advises MUTO on metabolism: how your cells turn food into energy.",
     "Dr Maciej Zatonski": "Advises MUTO on sleep and recovery, and on reading them over weeks, not nights.",
-    "Dr Ash Kapoor": "Advises MUTO on longevity and human optimisation, from his clinical work at Levitas One.",
+    "Dr Ash Kapoor": "Advises MUTO on longevity and human optimisation.",
     "Dr Jamie Paweleck": "Advises MUTO on longevity medicine and medical education.",
     "Harry Insley": "Runner and MUTO athlete.",
     "Yolanda King": "MUTO athlete.",
