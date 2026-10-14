@@ -48,8 +48,9 @@ pimg = lambda sec, blk: P45[sec]["blocks"][blk]["settings"].get("image", "") if 
 
 # ---- 1. Hero: product photo | offer copy ---------------------------------------
 S["lp_hero"] = {"type": "muto-lp-hero", "settings": {
-    "image_fallback": M2_LEAD,
-    "image_alt": "MUTO NAD+ Cellular Complex",
+    "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-lp-kit-hero.jpg?v=1791969959",
+    "image_alt": "The MUTO welcome kit: NAD+ Cellular Complex jar and refill pouches, Ultrapure Creatine, the bottle and the presentation box",
+    "image_position": "55% 62%",
     "rating_text": "Rated 4.83 from 150+ reviews",
     "heading": "Same training.\nSlower recovery.\nIt’s not your discipline.",
     "body": "<p>MUTO is the daily cellular protocol for people who still train: two capsules with breakfast, 19 ingredients, every dose on the label. Start now and your first order includes a free welcome kit, with Ultrapure Creatine.</p>",
