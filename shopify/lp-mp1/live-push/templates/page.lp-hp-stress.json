@@ -149,7 +149,8 @@
             "title": "Steady when it all peaks.",
             "line": "Launch week, board week, race week: same body. One routine that doesn’t change when everything else does.",
             "text": "Vitamins B6, B12, thiamin, niacin and biotin contribute to normal psychological function.",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-problem-data.jpg?v=1791018568"
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-problem-data.jpg?v=1791018568",
+            "image_position": ""
           }
         },
         "b2": {
@@ -160,18 +161,20 @@
             "title": "Energy that lasts the week.",
             "line": "Not a spike to get through Monday. A steadier supply for Thursday and Friday too.",
             "text": "Vitamins B6, B12 and folate contribute to the reduction of tiredness and fatigue.",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-benefits-feel.jpg?v=1791019769"
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-benefits-feel.jpg?v=1791019769",
+            "image_position": "50% 0%"
           }
         },
         "b3": {
           "type": "benefit",
           "settings": {
             "image": "",
-            "image_alt": "A runner checking a sports watch after a session",
+            "image_alt": "A commuter resting against a train window, lost in thought",
             "title": "Clearer thinking under load.",
             "line": "The decisions still need making at 5pm. Support for normal mental performance, every day.",
             "text": "Pantothenic acid contributes to normal mental performance.",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-check-wearable.jpg?v=1791017018"
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-problem.jpg?v=1790879783",
+            "image_position": ""
           }
         },
         "b4": {
@@ -182,7 +185,8 @@
             "title": "Built for high-output weeks.",
             "line": "Big work weeks and big training weeks, back to back. One routine with breakfast.",
             "text": "Zinc, copper and riboflavin contribute to the protection of cells from oxidative stress.",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-verdict.jpg?v=1791020808"
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-verdict.jpg?v=1791020808",
+            "image_position": ""
           }
         }
       },

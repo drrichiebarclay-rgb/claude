@@ -43,8 +43,9 @@ def build(p):
         for key, (url, alt) in zip(photos, p["people_images"]):
             S["trust"]["blocks"][key]["settings"].update(image="", image_fallback=url, alt=alt, position="")
     if p.get("benefit_images"):
-        for key, (url, alt) in zip(("b1", "b2", "b3", "b4"), p["benefit_images"]):
-            S["benefits"]["blocks"][key]["settings"].update(image="", image_fallback=url, image_alt=alt)
+        for key, (url, alt, *pos) in zip(("b1", "b2", "b3", "b4"), p["benefit_images"]):
+            S["benefits"]["blocks"][key]["settings"].update(image="", image_fallback=url, image_alt=alt,
+                                                            image_position=pos[0] if pos else "")
     # Problem
     S["problem"]["settings"].update(p["problem"])
     for key, (q, t) in zip(("x1", "x2", "x3"), p["pains"]):
@@ -235,7 +236,8 @@ IMG = {k: CDN + v for k, v in {
     "steady": "nad-step-steady.jpg?v=1791020790", "checkin": "nad-step-checkin-close.jpg?v=1791021630",
     "verdict": "nad-step-verdict.jpg?v=1791020808", "harry": "home-athlete-harry.jpg?v=1791021221",
     "yolanda": "home-athlete-yolanda.jpg?v=1791021221", "kaisa": "home-athlete-kaisa.jpg?v=1791025477",
-    "cyclist": "home-athlete-cyclist.jpg?v=1790767821"}.items()}
+    "cyclist": "home-athlete-cyclist.jpg?v=1790767821",
+    "commuter": "nad-problem.jpg?v=1790879783"}.items()}
 HP_PEOPLE = [(IMG["harry"], "A runner crossing open parkland"), (IMG["yolanda"], "An athlete in front of a row of treadmills"),
              (IMG["kaisa"], "An athlete running between stations at a HYROX event"), (IMG["cyclist"], "A cyclist on the drops in a time trial")]
 HP_TRUST = [("award", "Built by a PhD cell biologist"), ("shield", "Made in the UK, every batch third-party tested"),
@@ -294,7 +296,7 @@ PERSONAS += [
         ("Something left for the evening session.", "A full workday shouldn’t mean skipping the session you planned. Turn up to it with something in the tank."),
         ("Built for high-output weeks.", "Big work weeks and big training weeks, back to back. One routine with breakfast, every day.")],
      "benefit_images": [(IMG["baseline"], "A cyclist checking the watch on their wrist"), (IMG["wearable"], "A runner checking a sports watch after a session"),
-                        (IMG["steady"], "An athlete between sets in the gym"), (IMG["verdict"], "Three athletes laughing together after a session")],
+                        (IMG["steady"], "An athlete between sets in the gym", "50% 0%"), (IMG["verdict"], "Three athletes laughing together after a session")],
      "reviews_heading": "<p>Energy, focus, training: what customers say about MUTO</p>",
      "faq": [("Is it a stimulant?", "<p>No. No caffeine and no stimulants, so there’s nothing to time around meetings or sessions. It’s a daily routine you judge over weeks, not hours.</p>"),
              ("Can I still drink coffee?", "<p>Yes. Take your two capsules with breakfast, coffee included.</p>"),
@@ -329,7 +331,7 @@ PERSONAS += [
         ("Built for training blocks.", "Two capsules every day through the block, whatever the plan says. Nothing to time around sessions.")],
      "benefit_claims": {"b1": "Vitamin D contributes to the maintenance of normal muscle function.",
                         "b3": "Vitamins B6, B12 and folate contribute to the reduction of tiredness and fatigue."},
-     "benefit_images": [(IMG["recovery"], "A runner catching her breath, hands on knees"), (IMG["tired"], "An athlete head down on a gym bike"),
+     "benefit_images": [(IMG["recovery"], "A runner catching her breath, hands on knees", "50% 0%"), (IMG["tired"], "An athlete head down on a gym bike"),
                         (IMG["checkin"], "A wrist on an ice bath, the watch showing a live heart rate"), (IMG["baseline"], "A cyclist checking the watch on their wrist")],
      "reviews_heading": "<p>Recovery, training, routine: what customers say about MUTO</p>",
      "faq": [("Will it improve my HRV?", "<p>We won’t promise what any number will do. Take a 7-day baseline, read 30-day averages rather than single nights, and judge it yourself over 90 days. If you don’t see a difference, you’re covered.</p>"),
@@ -367,8 +369,8 @@ PERSONAS += [
      "benefit_claims": {"b1": "Vitamins B6, B12, thiamin, niacin and biotin contribute to normal psychological function.",
                         "b2": "Vitamins B6, B12 and folate contribute to the reduction of tiredness and fatigue.",
                         "b3": "Pantothenic acid contributes to normal mental performance."},
-     "benefit_images": [(IMG["data"], "Two athletes reading a recovery score on a phone"), (IMG["feel"], "A cyclist pausing mid-ride in the sun"),
-                        (IMG["wearable"], "A runner checking a sports watch after a session"), (IMG["verdict"], "Three athletes laughing together after a session")],
+     "benefit_images": [(IMG["data"], "Two athletes reading a recovery score on a phone"), (IMG["feel"], "A cyclist pausing mid-ride in the sun", "50% 0%"),
+                        (IMG["commuter"], "A commuter resting against a train window, lost in thought"), (IMG["verdict"], "Three athletes laughing together after a session")],
      "reviews_heading": "<p>Focus, energy, routine: what customers say about MUTO</p>",
      "faq": [("Does MUTO lower cortisol?", "<p>No, and we won’t claim it does. There’s no authorised claim for that, and you should be wary of anyone who makes one. MUTO contains B vitamins that contribute to normal psychological function, and pantothenic acid for normal mental performance. To see how heavy weeks land, track HRV, resting heart rate and sleep through the 90 days.</p>"),
              ("Is it a calming supplement?", "<p>No. It isn’t a sedative or an adaptogen blend, and it won’t make a hard week easy. It’s a daily foundation you take with breakfast and judge over 90 days.</p>"),
