@@ -1,0 +1,533 @@
+{
+  "sections": {
+    "hero": {
+      "type": "muto-home-hero",
+      "settings": {
+        "allow_transparent_header": true,
+        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-home-hero-spill-16x9.jpg?v=1791292252",
+        "image_alt": "A jar of MUTO NAD+ Cellular Complex on its side with its lid off, capsules spilled in front, lit against a dark set",
+        "image_position": "100% 50%",
+        "full_bleed": true,
+        "image_mobile_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-hero-mobile-nad-v4.jpg?v=1791449687",
+        "image_position_mobile": "50% 50%",
+        "align": "center",
+        "rating": "4.83",
+        "stars": 5,
+        "heading": "Same training.\nSlower recovery.",
+        "subheading": "It’s not your discipline. Recovery is where ageing shows up first, and it starts underneath. MUTO is two capsules with breakfast, every dose on the label, and 90 days to judge it yourself.",
+        "cta_label": "Start your 90 days",
+        "cta_link": "/products/muto-nad-cellular-complex-2",
+        "schema_on": false,
+        "schema_title": "MUTO — precision cellular longevity supplements",
+        "schema_summary": "MUTO is a UK precision cellular supplement company. Its NAD+ Cellular Complex declares every ingredient, form and dose on the label, is made in the UK to GMP standards and third-party tested, and is under study with UK universities.",
+        "schema_org": "MUTO",
+        "schema_slogan": "Above the standard. Beneath the surface.",
+        "schema_logo": "",
+        "schema_founder": "Dr Richie Barclay",
+        "schema_founder_role": "Founder",
+        "schema_country": "GB",
+        "schema_topics": "NAD+, cellular health, longevity supplements, creatine monohydrate, heart rate variability, recovery, healthy ageing",
+        "schema_profiles": "",
+        "space_top": 100,
+        "space_bottom": 100
+      }
+    },
+    "problem": {
+      "type": "muto-crea-problem",
+      "blocks": {
+        "c1": {
+          "type": "card",
+          "settings": {
+            "quote": "“My legs are still heavy on Sunday.”",
+            "text": "Thursday’s session hasn’t left yet.",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-problem-tired.jpg?v=1791018569",
+            "image_alt": "An athlete head down on a gym bike, sweating, a watch on their wrist",
+            "image_position": "50% 35%"
+          }
+        },
+        "c2": {
+          "type": "card",
+          "settings": {
+            "quote": "“I need longer to recover than I used to.”",
+            "text": "Same training. Same sleep. Slower bounce-back.",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-problem-recovery.jpg?v=1791018568",
+            "image_alt": "A runner bent over with hands on knees, catching her breath at sunset",
+            "image_position": "50% 35%"
+          }
+        },
+        "c3": {
+          "type": "card",
+          "settings": {
+            "quote": "“A cupboard full of pots.”",
+            "text": "Five supplements, and no idea which one’s working.",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-problem-box.jpg?v=1791018999",
+            "image_alt": "The MUTO NAD+ Cellular Complex box open, with the jar, vial and refill pouch inside",
+            "image_position": ""
+          }
+        },
+        "c4": {
+          "type": "card",
+          "settings": {
+            "quote": "“No hype. I want science.”",
+            "text": "Big promises, and nothing you can check.",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-problem-data.jpg?v=1791018568",
+            "image_alt": "Two athletes at a table reading a recovery score on a phone, trackers on both wrists",
+            "image_position": "50% 65%"
+          }
+        }
+      },
+      "block_order": [
+        "c2",
+        "c1",
+        "c3",
+        "c4"
+      ],
+      "settings": {
+        "eyebrow": "Sound familiar?",
+        "heading": "When did Sunday\nstart lasting\nuntil Wednesday?",
+        "lede": "You’re fitter than most people your age, and you still turn up. But the session that used to be gone by Monday now hangs around for days, and more rest isn’t fixing it.",
+        "space_top": 100,
+        "space_bottom": 100
+      }
+    },
+    "protocol": {
+      "type": "muto-home-why",
+      "blocks": {
+        "o1": {
+          "type": "card",
+          "settings": {
+            "title": "Underneath",
+            "text": "Your cells use NAD+ to make energy, and levels fall with age. MUTO supports the 30 trillion cells in your body through NAD+ and other nutrients.",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-jar-coffee.jpg?v=1791021631",
+            "image_alt": "The MUTO jar and carton standing beside a coffee machine on a kitchen counter",
+            "image_position": "50% 50%",
+            "image": "shopify://shop_images/Coffee_MUTO.jpg"
+          }
+        },
+        "o2": {
+          "type": "card",
+          "settings": {
+            "title": "One routine",
+            "text": "Two capsules with breakfast. 19 ingredients, every dose on the label. No caffeine, no stimulants, nothing to time around training.",
+            "image": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-take-two.jpg?v=1791017315",
+            "image_alt": "Two MUTO capsules held in an open palm, beside the jar, a glass of water and avocado on toast",
+            "image_position": "50% 20%"
+          }
+        },
+        "o3": {
+          "type": "card",
+          "settings": {
+            "title": "Nothing hidden",
+            "text": "Built by Dr Richie Barclay, PhD in cell biology. Made in the UK, every batch third-party tested. Ask your AI what’s in it.",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-check-wearable.jpg?v=1791017018",
+            "image_alt": "A runner checking the sports watch on their wrist at the end of a session",
+            "image_position": ""
+          }
+        }
+      },
+      "block_order": [
+        "o1",
+        "o2",
+        "o3"
+      ],
+      "settings": {
+        "heading": "It starts\nunderneath.",
+        "heading_right": "So start there.",
+        "align": "left",
+        "ink": "alt",
+        "card_min": 408,
+        "head_gap": 64,
+        "field": false,
+        "fit": "home",
+        "space_top": 108,
+        "space_bottom": 100
+      }
+    },
+    "results": {
+      "type": "muto-home-results",
+      "blocks": {
+        "r1": {
+          "type": "result",
+          "settings": {
+            "image": "shopify://shop_images/about-pillar-stress-harry.jpg",
+            "image_fallback": "",
+            "image_alt": "A MUTO customer talking to camera about their 90 days",
+            "image_position": "",
+            "video": "shopify://files/videos/Nothing Gets in on Trust_V01.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "result": "",
+            "quote": "",
+            "name": "Harry Insley",
+            "tag": "",
+            "detail": ""
+          }
+        },
+        "r2": {
+          "type": "result",
+          "settings": {
+            "image": "shopify://shop_images/home-athlete-yolanda.jpg",
+            "image_fallback": "",
+            "image_alt": "A MUTO customer talking to camera about their 90 days",
+            "image_position": "",
+            "video": "shopify://files/videos/The Baseline.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "result": "",
+            "quote": "",
+            "name": "Yolanda King",
+            "tag": "",
+            "detail": ""
+          }
+        },
+        "r3": {
+          "type": "result",
+          "settings": {
+            "image": "shopify://shop_images/IMG_3566_JPG.jpg",
+            "image_fallback": "",
+            "image_alt": "A MUTO customer talking to camera about their 90 days",
+            "image_position": "",
+            "video": "shopify://files/videos/clip 3.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "result": "",
+            "quote": "",
+            "name": "Adam Facey",
+            "tag": "",
+            "detail": ""
+          }
+        },
+        "r4": {
+          "type": "result",
+          "settings": {
+            "image": "shopify://shop_images/Ellen_Gray.jpg",
+            "image_fallback": "",
+            "image_alt": "A MUTO customer talking to camera about their 90 days",
+            "image_position": "",
+            "video": "shopify://files/videos/MU12_MUTO_VIDEO AD_TOFU_PROBLEM AWARE_HIGH PERFORMER_METRICS_HRV_TESTIMONIAL_ELLEN_CREATOR AD.MP4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "result": "",
+            "quote": "",
+            "name": "Ellen Gray",
+            "tag": "",
+            "detail": ""
+          }
+        },
+        "r5": {
+          "type": "result",
+          "settings": {
+            "image": "shopify://shop_images/max-richards.jpg",
+            "image_fallback": "",
+            "image_alt": "A MUTO customer talking to camera about their 90 days",
+            "image_position": "",
+            "video": "shopify://files/videos/MUTO_Creator-Ad_Max-Richards_Script-B.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "result": "",
+            "quote": "",
+            "name": "Max Richards",
+            "tag": "",
+            "detail": ""
+          }
+        },
+        "result_NmUnkJ": {
+          "type": "result",
+          "settings": {
+            "image": "shopify://shop_images/IMG_1115_JPG.jpg",
+            "image_fallback": "",
+            "image_alt": "",
+            "image_position": "",
+            "video": "shopify://files/videos/MU06_26_MUTO_VIDEO-1.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "result": "",
+            "quote": "",
+            "name": "Adam Hamilton",
+            "tag": "",
+            "detail": ""
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5",
+        "result_NmUnkJ"
+      ],
+      "settings": {
+        "heading": "People like you.\nDay 1 to Day 90.",
+        "note": "In their own words",
+        "ratio": "9/16",
+        "field": false,
+        "fit": "nad",
+        "rail_gap": 48,
+        "foot": "Individual experiences. We won’t promise what MUTO will do for you.",
+        "space_top": 100,
+        "space_bottom": 100
+      }
+    },
+    "founder": {
+      "type": "muto-home-founder",
+      "blocks": {
+        "p1": {
+          "type": "para",
+          "settings": {
+            "text": "I’m a cell biologist and a former cricketer. I built MUTO because I was tired of supplements that ask you to take them on trust."
+          }
+        },
+        "p2": {
+          "type": "para",
+          "settings": {
+            "text": "So every ingredient and every dose is on the label, with the reason it’s there. Got a question about the formula? Ask me."
+          }
+        },
+        "p4": {
+          "type": "para",
+          "settings": {
+            "text": "And don’t take my word for it. Note your starting point, give it 90 days, and make your own call."
+          }
+        },
+        "p1b": {
+          "type": "para",
+          "settings": {
+            "text": "I’m not done yet either. Most people who take MUTO are in their 40s and 50s, still training, still working."
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p1b",
+        "p2",
+        "p4"
+      ],
+      "settings": {
+        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-founder.jpg?v=1790751995",
+        "image_alt": "Dr Richie Barclay sitting on a sofa at home, holding a jar of MUTO NAD+ Cellular Complex over a glass coffee table",
+        "heading": "Meet the scientist\nbehind it.",
+        "name": "Dr Richie Barclay, Ph.D.",
+        "cta_label": "Start your 90 days",
+        "cta_link": "/products/muto-nad-cellular-complex-2",
+        "field": true,
+        "space_top": 100,
+        "space_bottom": 100
+      }
+    },
+    "steps": {
+      "type": "muto-crea-steps",
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "chip": "Day 0",
+            "title": "Note your starting point.",
+            "text": "How your legs feel the day after a hard session, out of 10. Or a 7-day average, if you wear a watch.",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-baseline.jpg?v=1791020791",
+            "image_alt": "A cyclist checking the watch on their wrist, hands resting on the bars",
+            "image_position": "50% 35%"
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "chip": "Weeks 1–4",
+            "title": "Train as normal.",
+            "text": "Two capsules with breakfast, every day. Keep everything else the same.",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-steady.jpg?v=1791020790",
+            "image_alt": "An athlete between sets in the gym",
+            "image_position": "50% 15%"
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "chip": "Day 30",
+            "title": "First check-in.",
+            "text": "Compare with day 0. How did the days after your hard sessions feel?",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-checkin-close.jpg?v=1791021630",
+            "image_alt": "A wrist resting on an ice bath, the watch showing a live heart rate of 97 BPM",
+            "image_position": "50% 50%"
+          }
+        },
+        "s4": {
+          "type": "step",
+          "settings": {
+            "chip": "Day 90",
+            "title": "Your call.",
+            "text": "If you don’t see a difference, you’re covered.",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-verdict.jpg?v=1791020808",
+            "image_alt": "Three athletes laughing together after a session, city skyline behind",
+            "image_position": "50% 8%"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
+      "settings": {
+        "heading": "Don’t take it on trust.",
+        "heading_right": "Check it yourself.",
+        "fit": "nad",
+        "space_top": 102,
+        "space_bottom": 100
+      }
+    },
+    "guarantee": {
+      "type": "muto-crea-guarantee",
+      "blocks": {
+        "c1": {
+          "type": "chip",
+          "settings": {
+            "text": "90-day guarantee"
+          }
+        },
+        "c2": {
+          "type": "chip",
+          "settings": {
+            "text": "Free shipping"
+          }
+        },
+        "c3": {
+          "type": "chip",
+          "settings": {
+            "text": "Cancel anytime"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3"
+      ],
+      "settings": {
+        "heading": "90 days.\nYour verdict.",
+        "aside": "If you don’t see a difference, you’re covered.",
+        "number": "90",
+        "unit": "day guarantee",
+        "text": "<p>Subscribe, take it every day for 90 days, and judge it yourself. If you don’t see a difference, we’ll refund you, minus delivery. Skip, pause or cancel online whenever you like. We remind you 5 days before every payment.</p>",
+        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-guarantee-bottle.jpg?v=1791023640",
+        "image_alt": "Harry Insley resting on a log after a session, drinking from a MUTO bottle",
+        "image_position": "50% 8%",
+        "space_top": 100,
+        "space_bottom": 100
+      }
+    },
+    "faq": {
+      "type": "muto-crea-faq",
+      "blocks": {
+        "q1": {
+          "type": "q",
+          "settings": {
+            "title": "Will it work for me?",
+            "text": "<p>We won’t promise what it’ll do for you. Note your starting point, give it 90 days, and judge it yourself. If you don’t see a difference, you’re covered.</p>"
+          }
+        },
+        "q2": {
+          "type": "q",
+          "settings": {
+            "title": "What’s actually in it?",
+            "text": "<p>19 ingredients, every dose on the label: 300mg NR (the most allowed in Great Britain), a full B complex, vitamin D3 and K2, zinc, copper, CoQ10 and more. Ask your AI, your GP, or Richie, who answers formula questions himself.</p>"
+          }
+        },
+        "q3": {
+          "type": "q",
+          "settings": {
+            "title": "Is it worth the money?",
+            "text": "<p>Compare it with your cupboard, not with zero. MUTO is about £2 a day, in one routine instead of several separate pots, and you have 90 days to decide.</p>"
+          }
+        },
+        "q4": {
+          "type": "q",
+          "settings": {
+            "title": "Am I locked into a subscription?",
+            "text": "<p>No. Skip, pause or cancel online, any time. We remind you 5 days before every payment.</p>"
+          }
+        },
+        "q5": {
+          "type": "q",
+          "settings": {
+            "title": "Is it a stimulant?",
+            "text": "<p>No caffeine and no stimulants. This won’t give you energy in an hour. It’s a daily routine you judge over 90 days.</p>"
+          }
+        },
+        "q6": {
+          "type": "q",
+          "settings": {
+            "title": "Is it safe with what I already take?",
+            "text": "<p>Usually, yes. If you take medicine, check with your GP first, and don’t stop anything you take for a medical reason.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6"
+      ],
+      "settings": {
+        "heading": "Fair questions",
+        "schema_on": true,
+        "space_top": 100,
+        "space_bottom": 100
+      }
+    },
+    "banner": {
+      "type": "muto-home-banner",
+      "settings": {
+        "line_a": "Not\ndone\nyet.",
+        "line_b": "Start your\n90 days.",
+        "cutout_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-cutout.png?v=1790751995",
+        "space_top": 100,
+        "space_bottom": 100
+      }
+    },
+    "sticky": {
+      "type": "muto-home-sticky",
+      "settings": {
+        "product": "",
+        "sticky_cta_label": "Start your 90 days",
+        "sticky_label": "NAD+ Cellular Complex",
+        "plan_cta_label": "",
+        "cta_link": "/products/muto-nad-cellular-complex-2",
+        "sticky_sub": "90 days to decide. Cancel any time.",
+        "schema_on": false
+      }
+    },
+    "easy_read": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<style>\nhtml body .mc .mc__buy-text,html body .mc .mc__body,html body .mc .mc__point,\nhtml body .mc .mc__acc-body,html body .mc .mc__acc-sum,html body .mc .mc__ben-body,\nhtml body .mc .mc__ben-lede,html body .mc .mc__ben-name,html body .mc .mc__ben-sub,\nhtml body .mc .mc__step-text,html body .mc .mc__faq-body,html body .mc .mc__faq-sum,\nhtml body .mc .mc__gua-text,html body .mc .mc__onetime,html body .mc .mc__note-text{font-size:17px;line-height:1.5}\nhtml body .mc .mc__buy-text > * + *{margin-top:12px}\nhtml body .mc .mc__buy-text p:first-child{font-size:19px;line-height:1.4;color:var(--mc-ink-alt)}\nhtml body .mc .mc__ben-body,html body .mc .mc__acc-body,html body .mc .mc__faq-body{color:#242223}\nhtml body .mc .mc__plan-term,html body .mc .mc__buy-serving,html body .mc .mc__rating-text{font-size:16px}\nhtml body .mc .mc__plan-name,html body .mc .mc__plan-price{font-size:20px}\nhtml body .mc .mc__plan-note,html body .mc .mc__plan-detail,html body .mc .mc__plan-save{font-size:15px;line-height:1.4;color:#242223}\nhtml body .mc .mc__plans-banner{font-size:16px}\nhtml body .mc .mc__kit-title{font-size:17px}\nhtml body .mc .mc__kit-body{font-size:16px;color:#242223}\nhtml body .mc .mc__kit-name,html body .mc .mc__kit-value,html body .mc .mc__kit-month-n,\nhtml body .mc .mc__kit-month-v,html body .mc .mc__kit-month-t{font-size:13px;color:#242223}\nhtml body .mc .mc__btn{font-size:17px;min-height:56px}\nhtml body .mc .mc__prob-lede{font-size:20px;line-height:1.45}\nhtml body .mc .mc__prob-quote{font-size:25px;line-height:1.2}\nhtml body .mc .mc__prob-text{font-size:17px;line-height:1.45}\nhtml body .mc .mc__step-title{font-size:23px;line-height:1.2}\nhtml body .mc .mc__step-chip,html body .mc .mc__gua-chip{font-size:16px}\nhtml body .mc .mc__gua-aside{font-size:22px}\n@media (min-width:750px){html body .mc .mc__trust li{white-space:nowrap}}\nhtml body .mc .mc__tabs{display:none}\nhtml body .mh .mh__why-title{font-size:25px}\nhtml body .mh .mh__why-text{font-size:17px;line-height:1.5;color:var(--mh-ink,#162f31)}\nhtml body .mh .mh__board-note,html body .mh .mh__res-note{font-size:16px;color:#242223}\nhtml body .mh .mh__res-quote{font-size:16px;line-height:1.45;color:#242223}\nhtml body .mh .mh__res-detail,html body .mh .mh__res-foot{font-size:14px;color:rgba(35,33,35,.8)}\nhtml body .mh__sticky-sub{font-size:13px;color:rgba(249,249,249,.85)}\nhtml body .mh__sticky-btn{font-size:16px}\n@media (max-width:749px){\nhtml body .mc .mc__buy-text,html body .mc .mc__body,html body .mc .mc__point,\nhtml body .mc .mc__acc-body,html body .mc .mc__acc-sum,html body .mc .mc__ben-body,\nhtml body .mc .mc__ben-lede,html body .mc .mc__ben-name,html body .mc .mc__ben-sub,\nhtml body .mc .mc__step-text,html body .mc .mc__faq-body,html body .mc .mc__faq-sum,\nhtml body .mc .mc__gua-text,html body .mc .mc__onetime{font-size:17px}\nhtml body .mc .mc__buy-text p:first-child,html body .mc .mc__prob-lede{font-size:18px}\nhtml body .mc .mc__prob-quote{font-size:22px}\nhtml body .mc .mc__step-title{font-size:21px}\nhtml body .mh .mh__why-text{font-size:17px}\n}\n</style>",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "problem",
+    "protocol",
+    "results",
+    "founder",
+    "steps",
+    "guarantee",
+    "faq",
+    "banner",
+    "sticky",
+    "easy_read"
+  ]
+}
