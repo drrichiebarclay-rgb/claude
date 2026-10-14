@@ -467,6 +467,28 @@
         "e6": {
           "type": "person",
           "settings": {
+            "image": "shopify://shop_images/Dr-ash-cover-hq.webp",
+            "image_fallback": "",
+            "alt": "Dr Ash Kapoor",
+            "name": "Dr Ash Kapoor",
+            "role": "Longevity & Human Optimisation Doctor & Founder of Levitas One · Scientific Advisory Board",
+            "quote": "Advises MUTO on longevity and human optimisation, from his clinical work at Levitas One."
+          }
+        },
+        "e7": {
+          "type": "person",
+          "settings": {
+            "image": "shopify://shop_images/Jamie-Paweleck.jpg",
+            "image_fallback": "",
+            "alt": "Dr Jamie Paweleck",
+            "name": "Dr Jamie Paweleck",
+            "role": "Longevity doctor and medical educator · Scientific Advisory Board",
+            "quote": "Advises MUTO on longevity medicine and medical education."
+          }
+        },
+        "e8": {
+          "type": "person",
+          "settings": {
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-athlete-harry.jpg?v=1791021221",
             "alt": "Harry Insley running across open parkland in a black vest",
             "position": "50% 6%",
@@ -475,7 +497,7 @@
             "quote": "Runner and MUTO athlete."
           }
         },
-        "e7": {
+        "e9": {
           "type": "person",
           "settings": {
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-athlete-yolanda.jpg?v=1791021221",
@@ -486,7 +508,7 @@
             "quote": "MUTO athlete."
           }
         },
-        "e8": {
+        "e10": {
           "type": "person",
           "settings": {
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-athlete-kaisa.jpg?v=1791025477",
@@ -497,7 +519,7 @@
             "quote": "HYROX athlete and MUTO athlete."
           }
         },
-        "e9": {
+        "e11": {
           "type": "person",
           "settings": {
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-athlete-cyclist.jpg?v=1790767821",
@@ -518,7 +540,9 @@
         "e6",
         "e7",
         "e8",
-        "e9"
+        "e9",
+        "e10",
+        "e11"
       ]
     },
     "lp_faq": {

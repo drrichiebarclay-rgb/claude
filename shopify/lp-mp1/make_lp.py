@@ -284,11 +284,12 @@ S["experts"] = {"type": "muto-lp-experts", "settings": {"heading": "Trusted by a
 people = [{"image_fallback": home["founder"]["settings"]["image_fallback"], "alt": "Dr Richie Barclay holding a jar of MUTO",
            "name": "Dr Richie Barclay, PhD", "role": "Founder · cell biologist",
            "quote": "“I built MUTO because I was tired of supplements that ask you to take them on trust. So every ingredient and every dose is on the label.”"}]
-for k in ("m1", "m2", "m3", "m4"):
+for k in ("m1", "m2", "m3", "m4", "m5", "m6"):
     bs = BOARD[k]["settings"]
     people.append({"image": bs.get("image", ""), "image_fallback": bs.get("image_fallback", ""),
                    "alt": bs["name"], "name": bs["name"],
-                   "role": bs["role"].capitalize() + " · Scientific Advisory Board", "quote": ""})
+                   "role": (bs["role"].capitalize() if bs["role"].isupper() else bs["role"]) + " · Scientific Advisory Board",
+                   "quote": ""})
 for k in ("w1", "w2", "w3", "w4"):
     bs = B[k]["settings"]
     people.append({"image_fallback": bs.get("image_fallback", ""), "alt": bs.get("image_alt", ""),
@@ -300,6 +301,8 @@ ROLE_LINES = {
     "Dr Alka Patel": "Advises MUTO on longevity: helping people keep doing what they love for longer.",
     "Dr Richard Mackenzie": "Advises MUTO on metabolism: how your cells turn food into energy.",
     "Dr Maciej Zatonski": "Advises MUTO on sleep and recovery, and on reading them over weeks, not nights.",
+    "Dr Ash Kapoor": "Advises MUTO on longevity and human optimisation, from his clinical work at Levitas One.",
+    "Dr Jamie Paweleck": "Advises MUTO on longevity medicine and medical education.",
     "Harry Insley": "Runner and MUTO athlete.",
     "Yolanda King": "MUTO athlete.",
     "Kaisa Larkas": "HYROX athlete and MUTO athlete.",
