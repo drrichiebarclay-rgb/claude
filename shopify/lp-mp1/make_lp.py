@@ -144,9 +144,10 @@ S["offer"] = {"type": "muto-lp-offer", "settings": {
     "product_name": "NAD+ Cellular Complex and Forever Jar (30 days)", "product_price": "£60",
     "product_sub": "£2 a day on subscription. Usually £70.",
     "includes_label": "First order includes:",
+    "future_label": "Then, free with future orders:",
     "total_was": "£122", "total_now": "£60",
     "cta_label": CTA, "cta_link": PDP,
-    "ticks": "More free gifts along the way\nFree next-day delivery\nSkip, pause or cancel online\n90-day money-back guarantee"},
+    "ticks": "Free next-day delivery\nSkip, pause or cancel online\n90-day money-back guarantee"},
     "blocks": {}, "block_order": []}
 for i, (name, desc, was) in enumerate([
         ("Ultrapure Creatine", "Micronised creatine monohydrate, every batch tested", "£30"),
@@ -156,6 +157,18 @@ for i, (name, desc, was) in enumerate([
     S["offer"]["blocks"][f"i{i}"] = {"type": "item", "settings": {"name": name, "desc": desc, "was": was,
                                                                   "now": "free" if was else "included"}}
     S["offer"]["block_order"].append(f"i{i}")
+# Future monthly gifts, as on the live product page
+LIVE_KIT = load("pdp-rollout/live-snapshot/templates__product.muto-nad-creatine-kit.json")["sections"]["buy"]
+for k in LIVE_KIT["block_order"]:
+    blk = LIVE_KIT["blocks"][k]
+    if blk["type"] != "month":
+        continue
+    ms = blk["settings"]
+    S["offer"]["blocks"][f"fg_{k}"] = {"type": "future", "settings": {
+        "image": ms.get("image", ""), "image_fallback": ms.get("image_fallback", ""),
+        "image_alt": ms.get("image_alt", ""), "when": ms.get("label", ""),
+        "name": ms.get("text", ""), "value": ms.get("value", "")}}
+    S["offer"]["block_order"].append(f"fg_{k}")
 
 # ---- 4. Proof: people like them, Day 1 to Day 90 -----------------------------------
 S["results"] = copy(kit["results"])

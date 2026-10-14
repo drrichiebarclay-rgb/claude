@@ -18,8 +18,21 @@
     var bar = document.getElementById('mlp-bar-{{ section.id }}');
     if (!bar) return;
     var link = bar.querySelector('a');
+    // Hide while an offer panel is on screen: it has its own button.
+    var inView = [];
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          var i = inView.indexOf(e.target);
+          if (e.isIntersecting && i < 0) inView.push(e.target);
+          if (!e.isIntersecting && i > -1) inView.splice(i, 1);
+        });
+        check();
+      }, { threshold: 0.15 });
+      document.querySelectorAll('.mlp-offer').forEach(function (el) { io.observe(el); });
+    }
     function check() {
-      var on = window.scrollY > window.innerHeight * 0.6;
+      var on = window.scrollY > window.innerHeight * 0.6 && inView.length === 0;
       bar.classList.toggle('is-on', on);
       bar.setAttribute('aria-hidden', on ? 'false' : 'true');
       link.tabIndex = on ? 0 : -1;

@@ -211,11 +211,12 @@
         "product_price": "£60",
         "product_sub": "£2 a day on subscription. Usually £70.",
         "includes_label": "First order includes:",
+        "future_label": "Then, free with future orders:",
         "total_was": "£122",
         "total_now": "£60",
         "cta_label": "Start your 90 days",
         "cta_link": "/products/muto-nad-cellular-complex-2",
-        "ticks": "More free gifts along the way\nFree next-day delivery\nSkip, pause or cancel online\n90-day money-back guarantee"
+        "ticks": "Free next-day delivery\nSkip, pause or cancel online\n90-day money-back guarantee"
       },
       "blocks": {
         "i1": {
@@ -253,13 +254,85 @@
             "was": "",
             "now": "included"
           }
+        },
+        "fg_mg2": {
+          "type": "future",
+          "settings": {
+            "image": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-bottle.jpg?v=1791022787",
+            "image_alt": "The MUTO Performance Bottle, free with order 2",
+            "when": "Order 2",
+            "name": "Bottle",
+            "value": "£15"
+          }
+        },
+        "fg_mg3": {
+          "type": "future",
+          "settings": {
+            "image": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-socks.jpg?v=1791023071",
+            "image_alt": "A pouch of MUTO Performance Socks, free with order 3",
+            "when": "Order 3",
+            "name": "Performance Socks",
+            "value": "£12"
+          }
+        },
+        "fg_mg4a": {
+          "type": "future",
+          "settings": {
+            "image": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
+            "image_alt": "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate, free with order 4",
+            "when": "Order 4",
+            "name": "Creatine",
+            "value": "£30"
+          }
+        },
+        "fg_mg4b": {
+          "type": "future",
+          "settings": {
+            "image": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-gift-credit-v2.jpg?v=1791392560",
+            "image_alt": "A black MUTO gift card for £10 store credit",
+            "when": "Order 4",
+            "name": "Store credit",
+            "value": "£10"
+          }
+        },
+        "fg_mg6a": {
+          "type": "future",
+          "settings": {
+            "image": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
+            "image_alt": "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate, free with order 6",
+            "when": "Order 6",
+            "name": "Creatine",
+            "value": "£30"
+          }
+        },
+        "fg_mg6b": {
+          "type": "future",
+          "settings": {
+            "image": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-gift-consultation-v2.jpg?v=1791392559",
+            "image_alt": "A silver MUTO gift card for a one-to-one consultation",
+            "when": "Order 6",
+            "name": "Consultation",
+            "value": "£120"
+          }
         }
       },
       "block_order": [
         "i1",
         "i2",
         "i3",
-        "i4"
+        "i4",
+        "fg_mg2",
+        "fg_mg3",
+        "fg_mg4a",
+        "fg_mg4b",
+        "fg_mg6a",
+        "fg_mg6b"
       ]
     },
     "bar": {
@@ -519,11 +592,12 @@
         "product_price": "£60",
         "product_sub": "£2 a day on subscription. Usually £70.",
         "includes_label": "First order includes:",
+        "future_label": "Then, free with future orders:",
         "total_was": "£122",
         "total_now": "£60",
         "cta_label": "Start your 90 days",
         "cta_link": "/products/muto-nad-cellular-complex-2",
-        "ticks": "More free gifts along the way\nFree next-day delivery\nSkip, pause or cancel online\n90-day money-back guarantee"
+        "ticks": "Free next-day delivery\nSkip, pause or cancel online\n90-day money-back guarantee"
       },
       "blocks": {
         "i1": {
@@ -561,13 +635,85 @@
             "was": "",
             "now": "included"
           }
+        },
+        "fg_mg2": {
+          "type": "future",
+          "settings": {
+            "image": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-bottle.jpg?v=1791022787",
+            "image_alt": "The MUTO Performance Bottle, free with order 2",
+            "when": "Order 2",
+            "name": "Bottle",
+            "value": "£15"
+          }
+        },
+        "fg_mg3": {
+          "type": "future",
+          "settings": {
+            "image": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-socks.jpg?v=1791023071",
+            "image_alt": "A pouch of MUTO Performance Socks, free with order 3",
+            "when": "Order 3",
+            "name": "Performance Socks",
+            "value": "£12"
+          }
+        },
+        "fg_mg4a": {
+          "type": "future",
+          "settings": {
+            "image": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
+            "image_alt": "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate, free with order 4",
+            "when": "Order 4",
+            "name": "Creatine",
+            "value": "£30"
+          }
+        },
+        "fg_mg4b": {
+          "type": "future",
+          "settings": {
+            "image": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-gift-credit-v2.jpg?v=1791392560",
+            "image_alt": "A black MUTO gift card for £10 store credit",
+            "when": "Order 4",
+            "name": "Store credit",
+            "value": "£10"
+          }
+        },
+        "fg_mg6a": {
+          "type": "future",
+          "settings": {
+            "image": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
+            "image_alt": "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate, free with order 6",
+            "when": "Order 6",
+            "name": "Creatine",
+            "value": "£30"
+          }
+        },
+        "fg_mg6b": {
+          "type": "future",
+          "settings": {
+            "image": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-gift-consultation-v2.jpg?v=1791392559",
+            "image_alt": "A silver MUTO gift card for a one-to-one consultation",
+            "when": "Order 6",
+            "name": "Consultation",
+            "value": "£120"
+          }
         }
       },
       "block_order": [
         "i1",
         "i2",
         "i3",
-        "i4"
+        "i4",
+        "fg_mg2",
+        "fg_mg3",
+        "fg_mg4a",
+        "fg_mg4b",
+        "fg_mg6a",
+        "fg_mg6b"
       ]
     }
   },

@@ -252,3 +252,21 @@ html body .mlp .mlp-ben__card--img .mlp-ben__title{margin-top:0;font-size:clamp(
 .mlp-ben__card--img .mlp-ben__text{margin-top:auto;padding-top:22px;font-size:14px;line-height:1.5;color:var(--muted)}
 .mlp-ben__card--img .mlp-ben__text{border-top:0}
 .mlp-ben__text span{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-right:6px}
+/* Offer image, final: centred in its column, with a blurred, darkened copy of the same
+   image filling the space around it, so the column never shows a flat block. */
+@media (min-width:990px){
+  .mlp-offer__media{position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#1d1f22}
+  .mlp-offer__media::before{content:"";position:absolute;inset:-60px;background:var(--mlp-offer-bg) center/cover no-repeat;filter:blur(40px) brightness(.5) saturate(.9);transform:scale(1.15)}
+  .mlp-offer__media img{position:relative;z-index:1;box-shadow:0 30px 60px rgba(0,0,0,.35)}
+}
+/* Future monthly gifts in the offer panel */
+.mlp-future{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}
+.mlp-future__item{display:flex;flex-direction:column;gap:4px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:8px}
+.mlp-future__img{display:block;aspect-ratio:1/1;border-radius:8px;overflow:hidden;background:rgba(255,255,255,.08)}
+.mlp-future__img img{width:100%;height:100%;object-fit:cover}
+.mlp-future__when{margin-top:4px;font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.mlp-future__what{font-size:13px;font-weight:600;line-height:1.2;color:#fff}
+.mlp-future__val{font-size:13px;color:var(--cyan)}
+
+.mlp-future__txt{display:flex;flex-direction:column;gap:3px;min-width:0}
+@media (min-width:750px){.mlp-future{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.mlp-future__item{flex-direction:row;align-items:center;gap:10px;padding:8px 10px}.mlp-future__img{flex:none;width:52px;height:52px;aspect-ratio:auto}.mlp-future__when{margin-top:0}.mlp-future__txt{display:flex;flex-direction:column;gap:2px;min-width:0}}
