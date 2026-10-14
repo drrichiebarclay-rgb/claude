@@ -127,14 +127,14 @@ S["value"] = {"type": "muto-lp-value", "settings": {
         "Pantothenic acid (B5) | 10mg", "Vitamin B6 (P5P) | 5mg", "Folate | 400µg", "Vitamin B12 | 100µg",
         "Biotin | 300µg", "Zinc bisglycinate | 15mg", "Copper bisglycinate | 1mg", "BioPerine® | 5mg"]),
     "without_pots": "Vitamin B complex\nVitamin D3\nVitamin K2\nZinc\nCopper\nCoQ10\nNR\nTMG\nResveratrol\nPQQ\nGrapeseed",
-    "without_label": "Without MUTO: separate pots",
-    "without_price": "£3.30+",
+    "without_label": "Without MUTO: bought separately",
+    "without_price": "£4.30+",
     "with_image": "", "with_image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-problem-box.jpg?v=1791018999",
     "with_image_alt": "The MUTO NAD+ Cellular Complex box open, with the jar inside",
     "with_label": "With MUTO: two capsules",
     "with_price": "£2",
     "cta_label": CTA, "cta_link": PDP,
-    "foot": "£3.30+ a day is the £100+ a month buyers told us they spent on supplements before MUTO. MUTO is £60 a month on subscription."}}
+    "foot": "£4.30+ a day is UK retail for NR, CoQ10, PQQ, resveratrol, D3 and K2, TMG and a B complex bought as separate products at similar doses (Oct 2026). Zinc, copper, grapeseed and BioPerine not counted. MUTO is £60 a month on subscription."}}
 
 # ---- 6. The offer, itemised ------------------------------------------------------------------
 S["offer"] = {"type": "muto-lp-offer", "settings": {
