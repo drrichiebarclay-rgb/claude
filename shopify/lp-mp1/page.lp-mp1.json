@@ -1,148 +1,262 @@
 {
   "sections": {
-    "hero": {
-      "type": "muto-home-hero",
+    "lp_hero": {
+      "type": "muto-lp-hero",
       "settings": {
-        "allow_transparent_header": true,
-        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-home-hero-spill-16x9.jpg?v=1791292252",
-        "image_alt": "A jar of MUTO NAD+ Cellular Complex on its side with its lid off, capsules spilled in front, lit against a dark set",
-        "image_position": "100% 50%",
-        "full_bleed": true,
-        "image_mobile_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-hero-mobile-nad-v4.jpg?v=1791449687",
-        "image_position_mobile": "50% 50%",
-        "align": "center",
+        "kit_title": "Your £62 welcome kit.\nOn us.",
+        "main_image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-gallery-1.jpg?v=1790879783",
+        "main_image_alt": "The MUTO NAD+ Cellular Complex jar, pouch, sachets and bottle photographed together on a dark background",
+        "badge_mark": "<strong>PhD</strong>Formulated",
+        "badge_text": "By Dr Richie Barclay, cell biologist. Reviewed by our Scientific Advisory Board.",
+        "heading": "The £62 welcome kit.\nFree with your first subscription.",
+        "heading_accent": "Start your 90 days.",
+        "body": "<p>Same training, slower recovery? It’s not your discipline. It starts underneath. MUTO is one daily protocol for people who aren’t done yet: two capsules with breakfast, every dose on the label, and 90 days to judge it yourself.</p>",
         "rating": "4.83",
-        "stars": 5,
-        "heading": "Same training.\nSlower recovery.",
-        "subheading": "It’s not your discipline. Recovery is where ageing shows up first, and it starts underneath. MUTO is two capsules with breakfast, every dose on the label, and 90 days to judge it yourself.",
+        "reviews": "150+ reviews",
+        "proof_image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-founder.jpg?v=1790751995",
+        "proof_text": "<p><strong>Built by a scientist you can talk to.</strong> Richie answers formula questions himself. <a href=\"#mlp-doses-doses\">See every dose</a></p>",
         "cta_label": "Start your 90 days",
+        "cta_sub": "Save 14% + free welcome kit",
         "cta_link": "/products/muto-nad-cellular-complex-2",
-        "schema_on": false,
-        "schema_title": "MUTO — precision cellular longevity supplements",
-        "schema_summary": "MUTO is a UK precision cellular supplement company. Its NAD+ Cellular Complex declares every ingredient, form and dose on the label, is made in the UK to GMP standards and third-party tested, and is under study with UK universities.",
-        "schema_org": "MUTO",
-        "schema_slogan": "Above the standard. Beneath the surface.",
-        "schema_logo": "",
-        "schema_founder": "Dr Richie Barclay",
-        "schema_founder_role": "Founder",
-        "schema_country": "GB",
-        "schema_topics": "NAD+, cellular health, longevity supplements, creatine monohydrate, heart rate variability, recovery, healthy ageing",
-        "schema_profiles": "",
-        "space_top": 100,
-        "space_bottom": 100
-      }
-    },
-    "problem": {
-      "type": "muto-crea-problem",
+        "cta_note": "90-day money-back guarantee · Skip, pause or cancel online"
+      },
       "blocks": {
-        "c1": {
-          "type": "card",
+        "k0": {
+          "type": "gift",
           "settings": {
-            "quote": "“My legs are still heavy on Sunday.”",
-            "text": "Thursday’s session hasn’t left yet.",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-problem-tired.jpg?v=1791018569",
-            "image_alt": "An athlete head down on a gym bike, sweating, a watch on their wrist",
-            "image_position": "50% 35%"
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
+            "image_alt": "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate, part of the welcome kit",
+            "name": "Ultrapure Creatine",
+            "was": "£30",
+            "now": "Free"
           }
         },
-        "c2": {
-          "type": "card",
+        "k1": {
+          "type": "gift",
           "settings": {
-            "quote": "“I need longer to recover than I used to.”",
-            "text": "Same training. Same sleep. Slower bounce-back.",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-problem-recovery.jpg?v=1791018568",
-            "image_alt": "A runner bent over with hands on knees, catching her breath at sunset",
-            "image_position": "50% 35%"
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-socks.jpg?v=1791023071",
+            "image_alt": "A pouch of MUTO Performance Socks, part of the welcome kit",
+            "name": "Performance Socks",
+            "was": "£12",
+            "now": "Free"
           }
         },
-        "c3": {
-          "type": "card",
+        "k2": {
+          "type": "gift",
           "settings": {
-            "quote": "“A cupboard full of pots.”",
-            "text": "Five supplements, and no idea which one’s working.",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-problem-box.jpg?v=1791018999",
-            "image_alt": "The MUTO NAD+ Cellular Complex box open, with the jar, vial and refill pouch inside",
-            "image_position": ""
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-forever-jar.jpg?v=1791023224",
+            "image_alt": "The MUTO Forever Jar in its presentation box, part of the welcome kit",
+            "name": "Forever Jar",
+            "was": "£10",
+            "now": "Free"
           }
         },
-        "c4": {
-          "type": "card",
+        "k3": {
+          "type": "gift",
           "settings": {
-            "quote": "“No hype. I want science.”",
-            "text": "Big promises, and nothing you can check.",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-problem-data.jpg?v=1791018568",
-            "image_alt": "Two athletes at a table reading a recovery score on a phone, trackers on both wrists",
-            "image_position": "50% 65%"
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-gift-guide-v2.jpg?v=1791392560",
+            "image_alt": "The MUTO 12 Week Protocol Guide, a black book with the formula listed down its cover",
+            "name": "12-Week Protocol Guide",
+            "was": "£10",
+            "now": "Free"
           }
         }
       },
       "block_order": [
-        "c2",
-        "c1",
-        "c3",
-        "c4"
-      ],
-      "settings": {
-        "eyebrow": "Sound familiar?",
-        "heading": "When did Sunday\nstart lasting\nuntil Wednesday?",
-        "lede": "You’re fitter than most people your age, and you still turn up. But the session that used to be gone by Monday now hangs around for days, and more rest isn’t fixing it.",
-        "space_top": 100,
-        "space_bottom": 100
-      }
+        "k0",
+        "k1",
+        "k2",
+        "k3"
+      ]
     },
-    "protocol": {
-      "type": "muto-home-why",
+    "stats": {
+      "type": "muto-lp-stats",
+      "settings": {
+        "press_label": "As featured in",
+        "stats_label": "MUTO in numbers"
+      },
       "blocks": {
-        "o1": {
-          "type": "card",
+        "st1": {
+          "type": "stat",
           "settings": {
-            "title": "Underneath",
-            "text": "Your cells use NAD+ to make energy, and levels fall with age. MUTO supports the 30 trillion cells in your body through NAD+ and other nutrients.",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-jar-coffee.jpg?v=1791021631",
-            "image_alt": "The MUTO jar and carton standing beside a coffee machine on a kitchen counter",
-            "image_position": "50% 50%",
-            "image": "shopify://shop_images/Coffee_MUTO.jpg"
+            "figure": "19",
+            "label": "Ingredients, every dose on the label"
           }
         },
-        "o2": {
-          "type": "card",
+        "st2": {
+          "type": "stat",
           "settings": {
-            "title": "One routine",
-            "text": "Two capsules with breakfast. 19 ingredients, every dose on the label. No caffeine, no stimulants, nothing to time around training.",
-            "image": "",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-take-two.jpg?v=1791017315",
-            "image_alt": "Two MUTO capsules held in an open palm, beside the jar, a glass of water and avocado on toast",
-            "image_position": "50% 20%"
+            "figure": "300mg",
+            "label": "NR, the most allowed in Great Britain"
           }
         },
-        "o3": {
-          "type": "card",
+        "st3": {
+          "type": "stat",
           "settings": {
-            "title": "Nothing hidden",
-            "text": "Built by Dr Richie Barclay, PhD in cell biology. Made in the UK, every batch third-party tested. Ask your AI what’s in it.",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-check-wearable.jpg?v=1791017018",
-            "image_alt": "A runner checking the sports watch on their wrist at the end of a session",
-            "image_position": ""
+            "figure": "90 days",
+            "label": "To decide, or your money back"
+          }
+        },
+        "st4": {
+          "type": "stat",
+          "settings": {
+            "figure": "4.83★",
+            "label": "From 150+ reviews"
           }
         }
       },
       "block_order": [
-        "o1",
-        "o2",
-        "o3"
-      ],
+        "st1",
+        "st2",
+        "st3",
+        "st4"
+      ]
+    },
+    "compare": {
+      "type": "muto-lp-compare",
       "settings": {
-        "heading": "It starts\nunderneath.",
-        "heading_right": "So start there.",
-        "align": "left",
-        "ink": "alt",
-        "card_min": 408,
-        "head_gap": 64,
-        "field": false,
-        "fit": "home",
-        "space_top": 108,
-        "space_bottom": 100
+        "pill": "The supplement problem",
+        "heading": "Too many pots.",
+        "heading_accent": "Too little proof.",
+        "sub": "Most people take a cupboard of supplements and still aren’t sure any of them work. MUTO is built to be checked.",
+        "old_title": "The old way",
+        "old_items": "5+ separate pots, pills and powders\nProprietary blends with hidden doses\nSingle ingredients at token doses\n£100+ a month and a cupboard full of clutter\nNo way to tell if any of it is working",
+        "new_title": "The MUTO way",
+        "new_items": "Two capsules with breakfast. That’s it.\nEvery dose on the label. No proprietary blends.\n300mg NR, the most allowed in Great Britain\nOne routine, about £2 a day\n90 days to check it yourself, or your money back",
+        "cta_label": "Start your 90 days",
+        "cta_link": "/products/muto-nad-cellular-complex-2"
       }
+    },
+    "notice": {
+      "type": "muto-lp-cards",
+      "settings": {
+        "tint": true,
+        "pill": "Real people, real check-ins",
+        "heading": "What people notice",
+        "heading_accent": "in their own words",
+        "foot": "Individual experiences. We won’t promise what MUTO will do for you."
+      },
+      "blocks": {
+        "n1": {
+          "type": "card",
+          "settings": {
+            "figure": "",
+            "title": "Afternoons",
+            "text": "“No afternoon slump and in general feeling great”",
+            "cite": "Lynda, MUTO customer"
+          }
+        },
+        "n2": {
+          "type": "card",
+          "settings": {
+            "figure": "",
+            "title": "Recovery",
+            "text": "“Has actually changed my recovery”",
+            "cite": "Adam H, MUTO customer"
+          }
+        },
+        "n3": {
+          "type": "card",
+          "settings": {
+            "figure": "",
+            "title": "Training",
+            "text": "“I’ve noticed how Muto has helped me recover faster meaning I can train harder, more often”",
+            "cite": "Ayo P, MUTO customer"
+          }
+        }
+      },
+      "block_order": [
+        "n1",
+        "n2",
+        "n3"
+      ]
+    },
+    "doses": {
+      "type": "muto-lp-doses",
+      "settings": {
+        "pill": "Full transparency",
+        "heading": "Every dose.",
+        "heading_accent": "Nothing hidden.",
+        "sub": "A few of the 19 ingredients in two capsules, every dose printed on the label.",
+        "tags": "Energy-yielding metabolism\nTiredness and fatigue\nMuscle function\nNormal bones\nCell protection",
+        "foot": "Ask your AI, your GP or Richie what’s in it."
+      },
+      "blocks": {
+        "d1": {
+          "type": "dose",
+          "settings": {
+            "amount": "300mg",
+            "name": "Nicotinamide riboside (NR)",
+            "role": "the NAD+ building block"
+          }
+        },
+        "d2": {
+          "type": "dose",
+          "settings": {
+            "amount": "450mg",
+            "name": "TMG",
+            "role": "works alongside NR"
+          }
+        },
+        "d3": {
+          "type": "dose",
+          "settings": {
+            "amount": "150mg",
+            "name": "CoQ10",
+            "role": "found in every cell"
+          }
+        },
+        "d4": {
+          "type": "dose",
+          "settings": {
+            "amount": "2000IU",
+            "name": "Vitamin D3",
+            "role": "normal muscle function"
+          }
+        },
+        "d5": {
+          "type": "dose",
+          "settings": {
+            "amount": "100µg",
+            "name": "Vitamin K2 (MK-7)",
+            "role": "works alongside D3"
+          }
+        },
+        "d6": {
+          "type": "dose",
+          "settings": {
+            "amount": "8 B vitamins",
+            "name": "Methylated B complex",
+            "role": "normal energy-yielding metabolism"
+          }
+        },
+        "d7": {
+          "type": "dose",
+          "settings": {
+            "amount": "15mg",
+            "name": "Zinc",
+            "role": "protects cells from oxidative stress"
+          }
+        },
+        "d8": {
+          "type": "dose",
+          "settings": {
+            "amount": "50mg",
+            "name": "Trans-resveratrol",
+            "role": "a plant polyphenol"
+          }
+        }
+      },
+      "block_order": [
+        "d1",
+        "d2",
+        "d3",
+        "d4",
+        "d5",
+        "d6",
+        "d7",
+        "d8"
+      ]
     },
     "results": {
       "type": "muto-home-results",
@@ -495,16 +609,13 @@
         "space_bottom": 100
       }
     },
-    "sticky": {
-      "type": "muto-home-sticky",
+    "bar": {
+      "type": "muto-lp-bar",
       "settings": {
-        "product": "",
-        "sticky_cta_label": "Start your 90 days",
-        "sticky_label": "NAD+ Cellular Complex",
-        "plan_cta_label": "",
-        "cta_link": "/products/muto-nad-cellular-complex-2",
-        "sticky_sub": "90 days to decide. Cancel any time.",
-        "schema_on": false
+        "text": "Welcome offer: a free £62 welcome kit with your first subscription, and 90 days to decide.",
+        "cta_label": "Start your 90 days",
+        "cta_sub": "Save 14%",
+        "cta_link": "/products/muto-nad-cellular-complex-2"
       }
     },
     "easy_read": {
@@ -518,16 +629,18 @@
     }
   },
   "order": [
-    "hero",
-    "problem",
-    "protocol",
+    "lp_hero",
+    "stats",
+    "compare",
+    "notice",
+    "doses",
     "results",
     "founder",
     "steps",
     "guarantee",
     "faq",
     "banner",
-    "sticky",
+    "bar",
     "easy_read"
   ]
 }

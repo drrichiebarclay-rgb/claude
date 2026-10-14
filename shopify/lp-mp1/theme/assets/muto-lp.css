@@ -1,0 +1,125 @@
+/* MUTO landing pages (muto-lp-* sections). One stylesheet for the offer hero,
+   stats band, old-way/MUTO-way comparison, result cards, dose grid and the
+   sticky offer bar. Brand tokens match muto-home.css / muto-crea.css. */
+@font-face{font-family:"Neue Haas Grotesk Display Pro";src:url("https://cdn.shopify.com/s/files/1/0976/2724/2843/files/NeueHaasDisplay-Roman.woff2?v=1788216240") format("woff2");font-weight:400 450;font-style:normal;font-display:swap}
+@font-face{font-family:"Neue Haas Grotesk Display Pro";src:url("https://cdn.shopify.com/s/files/1/0976/2724/2843/files/NeueHaasDisplay-Mediu.woff2?v=1788216243") format("woff2");font-weight:500 550;font-style:normal;font-display:swap}
+@font-face{font-family:"Neue Haas Grotesk Display Pro";src:url("https://cdn.shopify.com/s/files/1/0976/2724/2843/files/NeueHaasDisplay-Bold.woff2?v=1788216239") format("woff2");font-weight:600 700;font-style:normal;font-display:swap}
+@font-face{font-family:"Sometype Mono";src:url("https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gempages_SometypeMono-VariableFont_wght.ttf?v=1788157466") format("truetype-variations");font-weight:400 700;font-style:normal;font-display:swap}
+
+.mlp{--ink:#162f31;--ink2:#242223;--body:#3d4f50;--muted:#5d7476;--cyan:#5efaff;--mint:#c8d2cf;--sage:#e3e9e7;--ground:#f9f9f9;--paper:#fff;--accent:#2a6e72;--hair:rgba(22,47,49,.14);--dark:#162f31;
+  --font:"Neue Haas Grotesk Display Pro",-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;--mono:"Sometype Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  font-family:var(--font);color:var(--ink);background:var(--ground);-webkit-font-smoothing:antialiased;font-size:17px;line-height:1.5}
+.mlp *,.mlp *::before,.mlp *::after{box-sizing:border-box}
+.mlp h1,.mlp h2,.mlp h3,.mlp p,.mlp ul{margin:0;padding:0}
+.mlp ul{list-style:none}
+.mlp img{display:block;max-width:100%;height:auto}
+.mlp__wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.mlp__band{padding:72px 0}
+@media (min-width:750px){.mlp__wrap{padding:0 32px}.mlp__band{padding:104px 0}}
+.mlp__pill{display:inline-block;font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:var(--sage);border-radius:999px;padding:9px 18px;font-weight:500}
+.mlp__head{text-align:center;max-width:820px;margin:0 auto 44px}
+.mlp__h2{margin-top:20px;font-size:clamp(34px,5vw,60px);line-height:1.04;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+.mlp__h2 span{display:block;color:var(--accent)}
+.mlp__sub{margin-top:18px;font-size:18px;line-height:1.5;color:var(--body)}
+.mlp__btn{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;min-height:58px;padding:12px 34px;border-radius:999px;background:var(--ink);color:#fff;text-decoration:none;font-weight:600;font-size:17px;letter-spacing:.02em;text-align:center;transition:opacity .2s}
+.mlp__btn:hover{opacity:.88}
+.mlp__btn small{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.06em;opacity:.8;margin-top:2px}
+.mlp__btn--cyan{background:var(--cyan);color:var(--ink2)}
+
+/* ---- Hero: kit panel + offer copy ---- */
+.mlp-hero{display:grid;grid-template-columns:1fr;background:var(--ground)}
+.mlp-hero__copy{padding:24px 20px 36px;order:1}
+.mlp-hero__kit{order:2;background:linear-gradient(160deg,var(--sage),var(--mint));padding:28px 20px 32px}
+@media (min-width:990px){
+  .mlp-hero{grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:640px}
+  .mlp-hero__kit{order:1;padding:56px 48px;display:flex;flex-direction:column;justify-content:center}
+  .mlp-hero__copy{order:2;padding:56px 64px;display:flex;flex-direction:column;justify-content:center}
+}
+.mlp-hero__kit-title{font-size:clamp(26px,3vw,40px);font-weight:600;line-height:1.05;color:var(--ink);margin-bottom:20px}
+.mlp-hero__main{border-radius:18px;overflow:hidden;background:#fff;aspect-ratio:4/3}
+.mlp-hero__main img{width:100%;height:100%;object-fit:cover}
+.mlp-hero__gifts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
+@media (min-width:600px){.mlp-hero__gifts{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.mlp-gift{background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.9);border-radius:14px;padding:10px;display:flex;flex-direction:column;gap:8px}
+.mlp-gift__img{border-radius:10px;overflow:hidden;aspect-ratio:1/1;background:#fff}
+.mlp-gift__img img{width:100%;height:100%;object-fit:cover}
+.mlp-gift__name{font-size:15px;font-weight:500;line-height:1.2;color:var(--ink2)}
+.mlp-gift__price{font-size:15px;font-weight:600;color:var(--accent)}
+.mlp-gift__price s{color:var(--muted);font-weight:500;margin-right:6px}
+.mlp-badge{display:flex;align-items:center;gap:14px;border:1px solid var(--hair);background:var(--paper);border-radius:14px;padding:10px 14px;max-width:520px}
+.mlp-badge__mark{flex:none;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;line-height:1.25;color:var(--ink);text-align:center;border-right:1px solid var(--hair);padding-right:14px}
+.mlp-badge__mark strong{display:block;font-family:var(--font);font-size:22px;letter-spacing:0;font-weight:600;text-transform:none}
+.mlp-badge__text{font-size:14px;line-height:1.35;color:var(--body);font-weight:500}
+.mlp-hero__h1{margin-top:20px;font-size:clamp(30px,4.2vw,56px);line-height:1.04;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+.mlp-hero__h1 span{display:block;color:var(--accent)}
+.mlp-hero__body{margin-top:16px;font-size:17px;line-height:1.5;color:var(--body);max-width:560px}
+.mlp-hero__body p+p{margin-top:12px}
+.mlp-rating{display:flex;align-items:center;gap:10px;margin-top:18px;font-size:16px;color:var(--body)}
+.mlp-rating__stars{color:var(--ink);letter-spacing:2px;font-size:18px}
+.mlp-rating strong{color:var(--ink);font-weight:600}
+.mlp-proof{display:flex;align-items:center;gap:12px;margin-top:14px;font-size:15px;line-height:1.4;color:var(--body)}
+.mlp-proof__img{flex:none;width:44px;height:44px;border-radius:50%;overflow:hidden;background:var(--mint)}
+.mlp-proof__img img{width:100%;height:100%;object-fit:cover}
+.mlp-proof a{color:var(--ink);text-underline-offset:3px}
+.mlp-hero__cta{margin-top:22px;display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.mlp-hero__cta .mlp__btn{width:100%;max-width:420px}
+.mlp-hero__note{font-size:14px;color:var(--muted)}
+
+/* ---- Press logos + stats band ---- */
+.mlp-press{padding:36px 0;text-align:center;background:var(--ground)}
+.mlp-press__label{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
+.mlp-press__logos{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:22px 40px;margin-top:20px}
+.mlp-press__logos img{height:28px;width:auto;filter:grayscale(1);opacity:.75}
+.mlp-stats{background:var(--dark);color:#fff;padding:56px 0}
+.mlp-stats__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 16px;text-align:center}
+@media (min-width:750px){.mlp-stats{padding:72px 0}.mlp-stats__grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.mlp-stat__fig{font-size:clamp(40px,5vw,64px);font-weight:600;line-height:1;color:var(--cyan);letter-spacing:-.01em}
+.mlp-stat__label{margin-top:10px;font-size:16px;line-height:1.35;color:rgba(255,255,255,.88)}
+
+/* ---- Old way vs MUTO way ---- */
+.mlp-vs{display:grid;grid-template-columns:1fr;gap:16px;max-width:1040px;margin:0 auto}
+@media (min-width:750px){.mlp-vs{grid-template-columns:1fr 1fr;gap:24px}}
+.mlp-vs__card{border-radius:22px;padding:30px 26px;border:1px solid var(--hair)}
+@media (min-width:750px){.mlp-vs__card{padding:44px 44px}}
+.mlp-vs__card--old{background:var(--sage)}
+.mlp-vs__card--new{background:var(--paper);box-shadow:0 18px 40px rgba(22,47,49,.08)}
+.mlp-vs__title{font-size:26px;font-weight:600;color:var(--ink);margin-bottom:18px}
+.mlp-vs__list li{position:relative;padding-left:34px;font-size:17px;line-height:1.45;margin-top:14px}
+.mlp-vs__card--old li{color:var(--muted)}
+.mlp-vs__card--new li{color:var(--ink2)}
+.mlp-vs__list li::before{position:absolute;left:0;top:-1px;font-size:20px;font-weight:600}
+.mlp-vs__card--old li::before{content:"\2715";color:var(--muted);font-size:16px;top:1px}
+.mlp-vs__card--new li::before{content:"\2713";color:var(--accent)}
+.mlp-vs__cta{text-align:center;margin-top:36px}
+
+/* ---- Result / proof cards ---- */
+.mlp-cards--tint{background:var(--sage)}
+.mlp-cards__grid{display:grid;grid-template-columns:1fr;gap:16px;max-width:1100px;margin:0 auto}
+@media (min-width:750px){.mlp-cards__grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}}
+.mlp-card{background:var(--paper);border:1px solid var(--hair);border-radius:22px;padding:32px 26px;text-align:center;box-shadow:0 12px 30px rgba(22,47,49,.05)}
+.mlp-card__fig{font-size:clamp(46px,5vw,64px);font-weight:600;line-height:1;color:var(--accent)}
+.mlp-card__title{margin-top:14px;font-size:22px;font-weight:600;color:var(--ink)}
+.mlp-card__text{margin-top:10px;font-size:17px;line-height:1.5;color:var(--body)}
+.mlp-card__cite{margin-top:12px;font-family:var(--mono);font-size:13px;letter-spacing:.06em;color:var(--muted)}
+.mlp-cards__foot{text-align:center;margin-top:28px;font-size:14px;color:var(--muted)}
+
+/* ---- Dose grid ---- */
+.mlp-doses{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:1100px;margin:0 auto}
+@media (min-width:990px){.mlp-doses{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}}
+.mlp-dose{background:var(--paper);border:1px solid var(--hair);border-radius:18px;padding:20px 18px}
+@media (min-width:750px){.mlp-dose{padding:26px 26px}}
+.mlp-dose__amt{font-size:clamp(24px,2.6vw,32px);font-weight:600;line-height:1.05;color:var(--ink)}
+.mlp-dose__name{margin-top:8px;font-size:16px;line-height:1.35;color:var(--body)}
+.mlp-dose__name strong{color:var(--ink2);font-weight:500}
+.mlp-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:32px}
+.mlp-tags li{border:1px solid var(--hair);background:var(--paper);border-radius:999px;padding:10px 18px;font-size:15px;font-weight:500;color:var(--ink2)}
+.mlp-doses__foot{text-align:center;margin-top:22px;font-size:14px;color:var(--muted)}
+
+/* ---- Sticky offer bar ---- */
+.mlp-bar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--dark);color:#fff;transform:translateY(110%);transition:transform .3s cubic-bezier(.2,0,.2,1);font-family:var(--font)}
+.mlp-bar.is-on{transform:none}
+.mlp-bar__in{max-width:1200px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.mlp-bar__text{font-size:14px;line-height:1.3;color:rgba(255,255,255,.92)}
+.mlp-bar .mlp__btn{min-height:50px;padding:8px 22px;font-size:15px;flex:none}
+@media (min-width:750px){.mlp-bar__in{padding:16px 32px}.mlp-bar__text{font-size:17px}.mlp-bar .mlp__btn{min-height:58px;padding:10px 40px;font-size:17px}}
+.mlp-bar-spacer{height:80px}

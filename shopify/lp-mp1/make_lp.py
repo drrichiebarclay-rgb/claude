@@ -36,48 +36,86 @@ CTA = "Start your 90 days"
 
 S = {}
 
-# ---- 1. Recognition (hero) ----------------------------------------------------
-S["hero"] = copy(home["hero"])
-S["hero"]["settings"].update(
-    heading="Same training.\nSlower recovery.",
-    subheading="It’s not your discipline. Recovery is where ageing shows up first, and it starts underneath. MUTO is two capsules with breakfast, every dose on the label, and 90 days to judge it yourself.",
-    cta_label=CTA, cta_link=PDP, schema_on=False)
+# Images reused from the creatine-kit product page
+B = kit["buy"]["blocks"]
+img = lambda k: B[k]["settings"].get("image_fallback", "")
+FOUNDER = home["founder"]["settings"]["image_fallback"]
 
-# ---- 1b. Recognition, in their words (problem) ---------------------------------
-S["problem"] = copy(kit["problem"])
-p = S["problem"]
-p["settings"].update(
-    eyebrow="Sound familiar?",
-    heading="When did Sunday\nstart lasting\nuntil Wednesday?",
-    lede="You’re fitter than most people your age, and you still turn up. But the session that used to be gone by Monday now hangs around for days, and more rest isn’t fixing it.")
-# Card images: c2 runner catching breath, c1 head down on a bike, c3 the box, c4 reading a score
-p["blocks"]["c2"]["settings"].update(quote="“I need longer to recover than I used to.”",
-                                     text="Same training. Same sleep. Slower bounce-back.")
-p["blocks"]["c1"]["settings"].update(quote="“My legs are still heavy on Sunday.”",
-                                     text="Thursday’s session hasn’t left yet.")
-p["blocks"]["c3"]["settings"].update(quote="“A cupboard full of pots.”",
-                                     text="Five supplements, and no idea which one’s working.")
-p["blocks"]["c4"]["settings"].update(quote="“No hype. I want science.”",
-                                     text="Big promises, and nothing you can check.")
-p["block_order"] = ["c2", "c1", "c3", "c4"]
+# ---- 1. Offer hero (IM8-style split: kit panel + offer copy) ---------------------
+S["lp_hero"] = {"type": "muto-lp-hero", "settings": {
+    "kit_title": "Your £62 welcome kit.\nOn us.",
+    "main_image_fallback": img("g1"),
+    "main_image_alt": B["g1"]["settings"].get("image_alt", "The MUTO NAD+ Cellular Complex set"),
+    "badge_mark": "<strong>PhD</strong>Formulated",
+    "badge_text": "By Dr Richie Barclay, cell biologist. Reviewed by our Scientific Advisory Board.",
+    "heading": "The £62 welcome kit.\nFree with your first subscription.",
+    "heading_accent": "Start your 90 days.",
+    "body": "<p>Same training, slower recovery? It’s not your discipline. It starts underneath. MUTO is one daily protocol for people who aren’t done yet: two capsules with breakfast, every dose on the label, and 90 days to judge it yourself.</p>",
+    "rating": "4.83", "reviews": "150+ reviews",
+    "proof_image_fallback": FOUNDER,
+    "proof_text": "<p><strong>Built by a scientist you can talk to.</strong> Richie answers formula questions himself. <a href=\"#mlp-doses-doses\">See every dose</a></p>",
+    "cta_label": CTA, "cta_sub": "Save 14% + free welcome kit", "cta_link": PDP,
+    "cta_note": "90-day money-back guarantee · Skip, pause or cancel online"},
+    "blocks": {}, "block_order": []}
+for key, name, was in [("k0", "Ultrapure Creatine", "£30"), ("k1", "Performance Socks", "£12"),
+                       ("k2", "Forever Jar", "£10"), ("k3", "12-Week Protocol Guide", "£10")]:
+    S["lp_hero"]["blocks"][key] = {"type": "gift", "settings": {
+        "image_fallback": img(key), "image_alt": B[key]["settings"].get("image_alt", name),
+        "name": name, "was": was, "now": "Free"}}
+    S["lp_hero"]["block_order"].append(key)
 
-# ---- 2 + 3. Underneath, then the protocol ----------------------------------------
-S["protocol"] = copy(kit["twocaps"])
-w = S["protocol"]
-w["settings"].update(heading="It starts\nunderneath.", heading_right="So start there.")
-w["blocks"]["o1"]["settings"].update(
-    title="Underneath",
-    text="Your cells use NAD+ to make energy, and levels fall with age. MUTO supports the 30 trillion cells in your body through NAD+ and other nutrients.")
-w["blocks"]["o2"]["settings"].update(
-    title="One routine",
-    text="Two capsules with breakfast. 19 ingredients, every dose on the label. No caffeine, no stimulants, nothing to time around training.")
-w["blocks"]["o3"]["settings"].update(
-    title="Nothing hidden",
-    text="Built by Dr Richie Barclay, PhD in cell biology. Made in the UK, every batch third-party tested. Ask your AI what’s in it.")
-# o1 needs the founder/cells image less than a product shot: swap o1 and o2 images
-o1, o2 = w["blocks"]["o1"]["settings"], w["blocks"]["o2"]["settings"]
-for k in ("image", "image_fallback", "image_alt", "image_position"):
-    o1[k], o2[k] = o2.get(k, ""), o1.get(k, "")
+# ---- 2. Stats band (press logos row stays hidden until logos are added) -----------
+S["stats"] = {"type": "muto-lp-stats", "settings": {"press_label": "As featured in", "stats_label": "MUTO in numbers"},
+              "blocks": {}, "block_order": []}
+for i, (fig, label) in enumerate([("19", "Ingredients, every dose on the label"),
+                                  ("300mg", "NR, the most allowed in Great Britain"),
+                                  ("90 days", "To decide, or your money back"),
+                                  ("4.83★", "From 150+ reviews")], 1):
+    S["stats"]["blocks"][f"st{i}"] = {"type": "stat", "settings": {"figure": fig, "label": label}}
+    S["stats"]["block_order"].append(f"st{i}")
+
+# ---- 3. The supplement problem: old way vs the MUTO way -----------------------------
+S["compare"] = {"type": "muto-lp-compare", "settings": {
+    "pill": "The supplement problem",
+    "heading": "Too many pots.", "heading_accent": "Too little proof.",
+    "sub": "Most people take a cupboard of supplements and still aren’t sure any of them work. MUTO is built to be checked.",
+    "old_title": "The old way",
+    "old_items": "5+ separate pots, pills and powders\nProprietary blends with hidden doses\nSingle ingredients at token doses\n£100+ a month and a cupboard full of clutter\nNo way to tell if any of it is working",
+    "new_title": "The MUTO way",
+    "new_items": "Two capsules with breakfast. That’s it.\nEvery dose on the label. No proprietary blends.\n300mg NR, the most allowed in Great Britain\nOne routine, about £2 a day\n90 days to check it yourself, or your money back",
+    "cta_label": CTA, "cta_link": PDP}}
+
+# ---- 4. What people notice (customer words until survey figures are supplied) -------
+S["notice"] = {"type": "muto-lp-cards", "settings": {
+    "tint": True, "pill": "Real people, real check-ins",
+    "heading": "What people notice", "heading_accent": "in their own words",
+    "foot": "Individual experiences. We won’t promise what MUTO will do for you."},
+    "blocks": {}, "block_order": []}
+for i, (title, quote, who) in enumerate([
+        ("Afternoons", "“No afternoon slump and in general feeling great”", "Lynda, MUTO customer"),
+        ("Recovery", "“Has actually changed my recovery”", "Adam H, MUTO customer"),
+        ("Training", "“I’ve noticed how Muto has helped me recover faster meaning I can train harder, more often”", "Ayo P, MUTO customer")], 1):
+    S["notice"]["blocks"][f"n{i}"] = {"type": "card", "settings": {"figure": "", "title": title, "text": quote, "cite": who}}
+    S["notice"]["block_order"].append(f"n{i}")
+
+# ---- 5. Full transparency: the doses -------------------------------------------------------
+S["doses"] = {"type": "muto-lp-doses", "settings": {
+    "pill": "Full transparency", "heading": "Every dose.", "heading_accent": "Nothing hidden.",
+    "sub": "A few of the 19 ingredients in two capsules, every dose printed on the label.",
+    "tags": "Energy-yielding metabolism\nTiredness and fatigue\nMuscle function\nNormal bones\nCell protection",
+    "foot": "Ask your AI, your GP or Richie what’s in it."},
+    "blocks": {}, "block_order": []}
+for i, (amt, name, role) in enumerate([
+        ("300mg", "Nicotinamide riboside (NR)", "the NAD+ building block"),
+        ("450mg", "TMG", "works alongside NR"),
+        ("150mg", "CoQ10", "found in every cell"),
+        ("2000IU", "Vitamin D3", "normal muscle function"),
+        ("100µg", "Vitamin K2 (MK-7)", "works alongside D3"),
+        ("8 B vitamins", "Methylated B complex", "normal energy-yielding metabolism"),
+        ("15mg", "Zinc", "protects cells from oxidative stress"),
+        ("50mg", "Trans-resveratrol", "a plant polyphenol")], 1):
+    S["doses"]["blocks"][f"d{i}"] = {"type": "dose", "settings": {"amount": amt, "name": name, "role": role}}
+    S["doses"]["block_order"].append(f"d{i}")
 
 # ---- 4. Proof: people like them, Day 1 to Day 90 -----------------------------------
 S["results"] = copy(kit["results"])
@@ -144,9 +182,9 @@ q["settings"]["heading"] = "Fair questions"
 S["banner"] = copy(home["banner"])
 S["banner"]["settings"].update(line_a="Not\ndone\nyet.", line_b="Start your\n90 days.")
 
-S["sticky"] = copy(kit["sticky"])
-S["sticky"]["settings"].update(sticky_cta_label=CTA, cta_link=PDP, sticky_label="NAD+ Cellular Complex",
-                               sticky_sub="90 days to decide. Cancel any time.")
+S["bar"] = {"type": "muto-lp-bar", "settings": {
+    "text": "Welcome offer: a free £62 welcome kit with your first subscription, and 90 days to decide.",
+    "cta_label": CTA, "cta_sub": "Save 14%", "cta_link": PDP}}
 
 # ---- Easier reading (shared with the 45-55 product page) ---------------------------------------
 css = open(os.path.join(SH, "pdp-45/easy-read.css")).read()
@@ -156,8 +194,8 @@ S["easy_read"] = {"type": "custom-liquid",
                   "settings": {"custom_liquid": "<style>\n" + css + "\n</style>", "color_scheme": "scheme-1",
                                "padding_top": 0, "padding_bottom": 0}}
 
-order = ["hero", "problem", "protocol", "results", "founder", "steps", "guarantee", "faq",
-         "banner", "sticky", "easy_read"]
+order = ["lp_hero", "stats", "compare", "notice", "doses",
+         "results", "founder", "steps", "guarantee", "faq", "banner", "bar", "easy_read"]
 assert set(order) == set(S)
 with open(out, "w") as fh:
     json.dump({"sections": S, "order": order}, fh, ensure_ascii=False, indent=2)

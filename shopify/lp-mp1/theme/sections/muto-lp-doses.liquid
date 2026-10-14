@@ -1,0 +1,55 @@
+{%- comment -%}
+  MUTO landing page — full transparency: a grid of dose cards and a row of tags.
+{%- endcomment -%}
+{{ 'muto-lp.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign s = section.settings
+  assign tags = s.tags | newline_to_br | split: '<br />'
+-%}
+<div class="mlp">
+  <section class="mlp__band" aria-labelledby="mlp-doses-{{ section.id }}">
+    <div class="mlp__wrap">
+      <div class="mlp__head">
+        {%- if s.pill != blank -%}<p class="mlp__pill">{{ s.pill }}</p>{%- endif -%}
+        <h2 class="mlp__h2" id="mlp-doses-{{ section.id }}">{{ s.heading | escape }}{% if s.heading_accent != blank %}<span>{{ s.heading_accent | escape }}</span>{% endif %}</h2>
+        {%- if s.sub != blank -%}<p class="mlp__sub">{{ s.sub }}</p>{%- endif -%}
+      </div>
+      <div class="mlp-doses">
+        {%- for block in section.blocks -%}
+          <div class="mlp-dose" {{ block.shopify_attributes }}>
+            <p class="mlp-dose__amt">{{ block.settings.amount }}</p>
+            <p class="mlp-dose__name"><strong>{{ block.settings.name }}</strong>{% if block.settings.role != blank %}: {{ block.settings.role }}{% endif %}</p>
+          </div>
+        {%- endfor -%}
+      </div>
+      {%- if s.tags != blank -%}
+        <ul class="mlp-tags">{%- for t in tags -%}{%- assign x = t | strip -%}{%- if x != blank -%}<li>{{ x }}</li>{%- endif -%}{%- endfor -%}</ul>
+      {%- endif -%}
+      {%- if s.foot != blank -%}<p class="mlp-doses__foot">{{ s.foot }}</p>{%- endif -%}
+    </div>
+  </section>
+</div>
+{% schema %}
+{
+  "name": "MUTO LP — Doses",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "pill", "label": "Label" },
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "text", "id": "heading_accent", "label": "Heading, accent" },
+    { "type": "textarea", "id": "sub", "label": "Subheading" },
+    { "type": "textarea", "id": "tags", "label": "Tags", "info": "One per line." },
+    { "type": "text", "id": "foot", "label": "Footnote" }
+  ],
+  "blocks": [
+    { "type": "dose", "name": "Dose", "settings": [
+      { "type": "text", "id": "amount", "label": "Amount" },
+      { "type": "text", "id": "name", "label": "Ingredient" },
+      { "type": "text", "id": "role", "label": "What it's there for" }
+    ] }
+  ],
+  "max_blocks": 12,
+  "presets": [{ "name": "MUTO LP — Doses" }],
+  "enabled_on": { "templates": ["page", "index", "product"] }
+}
+{% endschema %}

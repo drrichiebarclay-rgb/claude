@@ -1,0 +1,63 @@
+{%- comment -%}
+  MUTO landing page — press logos (optional; the row is hidden until a logo is
+  added) above a dark stats band of up to four figures.
+{%- endcomment -%}
+{{ 'muto-lp.css' | asset_url | stylesheet_tag }}
+{%- assign logos = section.blocks | where: 'type', 'logo' -%}
+{%- assign stats = section.blocks | where: 'type', 'stat' -%}
+<div class="mlp">
+  {%- if logos.size > 0 -%}
+    <div class="mlp-press">
+      <div class="mlp__wrap">
+        {%- if section.settings.press_label != blank -%}<p class="mlp-press__label">{{ section.settings.press_label }}</p>{%- endif -%}
+        <div class="mlp-press__logos">
+          {%- for block in logos -%}
+            {%- if block.settings.image != blank -%}
+              <img src="{{ block.settings.image | image_url: height: 60 }}" alt="{{ block.settings.name | escape }}" height="28" loading="lazy" {{ block.shopify_attributes }}>
+            {%- elsif block.settings.image_fallback != blank -%}
+              <img src="{{ block.settings.image_fallback }}" alt="{{ block.settings.name | escape }}" height="28" loading="lazy" {{ block.shopify_attributes }}>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+  {%- if stats.size > 0 -%}
+    <section class="mlp-stats" aria-label="{{ section.settings.stats_label | escape }}">
+      <div class="mlp__wrap">
+        <div class="mlp-stats__grid">
+          {%- for block in stats -%}
+            <div class="mlp-stat" {{ block.shopify_attributes }}>
+              <p class="mlp-stat__fig">{{ block.settings.figure }}</p>
+              <p class="mlp-stat__label">{{ block.settings.label }}</p>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </section>
+  {%- endif -%}
+</div>
+{% schema %}
+{
+  "name": "MUTO LP — Press and stats",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "press_label", "label": "Press label", "default": "As featured in" },
+    { "type": "text", "id": "stats_label", "label": "Stats label (screen readers)", "default": "MUTO in numbers" }
+  ],
+  "blocks": [
+    { "type": "logo", "name": "Press logo", "settings": [
+      { "type": "image_picker", "id": "image", "label": "Logo" },
+      { "type": "text", "id": "image_fallback", "label": "Logo URL (fallback)" },
+      { "type": "text", "id": "name", "label": "Publication name" }
+    ] },
+    { "type": "stat", "name": "Stat", "settings": [
+      { "type": "text", "id": "figure", "label": "Figure" },
+      { "type": "text", "id": "label", "label": "Label" }
+    ] }
+  ],
+  "max_blocks": 12,
+  "presets": [{ "name": "MUTO LP — Press and stats" }],
+  "enabled_on": { "templates": ["page", "index", "product"] }
+}
+{% endschema %}

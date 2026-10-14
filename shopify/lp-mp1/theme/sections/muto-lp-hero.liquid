@@ -1,0 +1,119 @@
+{%- comment -%}
+  MUTO landing page — offer hero. Kit panel (main image + gift tiles with their
+  usual price struck through) beside the offer copy: an endorsement badge, the
+  headline, body, rating, a second proof line and the CTA. On a phone the copy
+  leads and the kit follows, so the offer and the button are on the first screen.
+{%- endcomment -%}
+{{ 'muto-lp.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign s = section.settings
+  if s.main_image != blank
+    assign main_src = s.main_image | image_url: width: 1200
+  else
+    assign main_src = s.main_image_fallback
+  endif
+-%}
+<div class="mlp">
+  <section class="mlp-hero" aria-labelledby="mlp-hero-{{ section.id }}">
+    <div class="mlp-hero__kit">
+      {%- if s.kit_title != blank -%}<p class="mlp-hero__kit-title">{{ s.kit_title | escape | newline_to_br }}</p>{%- endif -%}
+      {%- if main_src != blank -%}
+        <div class="mlp-hero__main"><img src="{{ main_src }}" alt="{{ s.main_image_alt | escape }}" width="1200" height="900" loading="eager" fetchpriority="high"></div>
+      {%- endif -%}
+      <div class="mlp-hero__gifts">
+        {%- for block in section.blocks -%}
+          {%- liquid
+            if block.settings.image != blank
+              assign g_src = block.settings.image | image_url: width: 400
+            else
+              assign g_src = block.settings.image_fallback
+            endif
+          -%}
+          <div class="mlp-gift" {{ block.shopify_attributes }}>
+            {%- if g_src != blank -%}<div class="mlp-gift__img"><img src="{{ g_src }}" alt="{{ block.settings.image_alt | escape }}" width="400" height="400" loading="lazy"></div>{%- endif -%}
+            <p class="mlp-gift__name">{{ block.settings.name }}</p>
+            <p class="mlp-gift__price">{% if block.settings.was != blank %}<s>{{ block.settings.was }}</s>{% endif %}{{ block.settings.now }}</p>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <div class="mlp-hero__copy">
+      {%- if s.badge_mark != blank -%}
+        <div class="mlp-badge">
+          <p class="mlp-badge__mark">{{ s.badge_mark }}</p>
+          <p class="mlp-badge__text">{{ s.badge_text }}</p>
+        </div>
+      {%- endif -%}
+      <h1 class="mlp-hero__h1" id="mlp-hero-{{ section.id }}">{{ s.heading | escape | newline_to_br }}{% if s.heading_accent != blank %}<span>{{ s.heading_accent | escape | newline_to_br }}</span>{% endif %}</h1>
+      {%- if s.body != blank -%}<div class="mlp-hero__body">{{ s.body }}</div>{%- endif -%}
+      {%- if s.rating != blank -%}
+        <p class="mlp-rating"><span class="mlp-rating__stars" aria-hidden="true">★★★★★</span><strong>{{ s.rating }}</strong><span aria-hidden="true">·</span><span>{{ s.reviews }}</span></p>
+      {%- endif -%}
+      {%- if s.proof_text != blank -%}
+        {%- liquid
+          if s.proof_image != blank
+            assign p_src = s.proof_image | image_url: width: 120
+          else
+            assign p_src = s.proof_image_fallback
+          endif
+        -%}
+        <div class="mlp-proof">
+          {%- if p_src != blank -%}<span class="mlp-proof__img"><img src="{{ p_src }}" alt="" width="52" height="52" loading="lazy"></span>{%- endif -%}
+          <p>{{ s.proof_text }}</p>
+        </div>
+      {%- endif -%}
+      {%- if s.cta_label != blank -%}
+        <div class="mlp-hero__cta">
+          <a class="mlp__btn" href="{{ s.cta_link | default: routes.all_products_collection_url }}">{{ s.cta_label }}{% if s.cta_sub != blank %}<small>{{ s.cta_sub }}</small>{% endif %}</a>
+          {%- if s.cta_note != blank -%}<p class="mlp-hero__note">{{ s.cta_note }}</p>{%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </section>
+</div>
+{% schema %}
+{
+  "name": "MUTO LP — Offer hero",
+  "tag": "section",
+  "settings": [
+    { "type": "textarea", "id": "kit_title", "label": "Kit panel title" },
+    { "type": "image_picker", "id": "main_image", "label": "Kit image" },
+    { "type": "text", "id": "main_image_fallback", "label": "Kit image URL (fallback)" },
+    { "type": "text", "id": "main_image_alt", "label": "Kit image alt text" },
+    { "type": "header", "content": "Endorsement badge" },
+    { "type": "text", "id": "badge_mark", "label": "Badge mark", "info": "Short, e.g. a number and label. HTML allowed." },
+    { "type": "text", "id": "badge_text", "label": "Badge text" },
+    { "type": "header", "content": "Offer copy" },
+    { "type": "textarea", "id": "heading", "label": "Heading" },
+    { "type": "textarea", "id": "heading_accent", "label": "Heading, accent lines" },
+    { "type": "richtext", "id": "body", "label": "Body" },
+    { "type": "text", "id": "rating", "label": "Rating", "default": "4.83" },
+    { "type": "text", "id": "reviews", "label": "Review count text", "default": "150+ reviews" },
+    { "type": "image_picker", "id": "proof_image", "label": "Proof line image" },
+    { "type": "text", "id": "proof_image_fallback", "label": "Proof line image URL (fallback)" },
+    { "type": "richtext", "id": "proof_text", "label": "Proof line" },
+    { "type": "text", "id": "cta_label", "label": "Button" },
+    { "type": "text", "id": "cta_sub", "label": "Button small line" },
+    { "type": "url", "id": "cta_link", "label": "Button link" },
+    { "type": "text", "id": "cta_note", "label": "Line under the button" }
+  ],
+  "blocks": [
+    {
+      "type": "gift",
+      "name": "Kit item",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_fallback", "label": "Image URL (fallback)" },
+        { "type": "text", "id": "image_alt", "label": "Alt text" },
+        { "type": "text", "id": "name", "label": "Name" },
+        { "type": "text", "id": "was", "label": "Usual price" },
+        { "type": "text", "id": "now", "label": "Price now", "default": "Free" }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [{ "name": "MUTO LP — Offer hero" }],
+  "enabled_on": { "templates": ["page", "index", "product"] }
+}
+{% endschema %}
