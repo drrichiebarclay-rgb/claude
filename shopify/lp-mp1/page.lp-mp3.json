@@ -7,7 +7,7 @@
         "image_alt": "A jar of MUTO NAD+ Cellular Complex on a shelf among separate supplement pots",
         "image_position": "50% 50%",
         "schema_on": true,
-        "schema_product": "muto-nad-cellular-complex",
+        "schema_product": "muto-nad-cellular-complex-2",
         "schema_name": "MUTO NAD+ Cellular Complex",
         "schema_description": "A daily cellular protocol for people who still train: two capsules with breakfast, 19 ingredients including 300mg nicotinamide riboside (NR), every dose on the label. Made in the UK, every batch third-party tested, with a 90-day money-back guarantee for subscribers.",
         "rating_text": "Rated 4.83 from 150+ reviews",
@@ -15,7 +15,7 @@
         "body": "<p>MUTO is one daily protocol instead of a cupboard of guesses: 19 ingredients, every dose on the label, built by a PhD cell biologist. Ask your AI what’s in it. Then give it 90 days and judge it yourself.</p>",
         "strong": "£5.25 a day bought separately. £2 a day in two capsules.",
         "cta_label": "Start your 90 days",
-        "cta_link": "/products/muto-nad-cellular-complex",
+        "cta_link": "/products/muto-nad-cellular-complex-2",
         "ticks": "Free next-day delivery\n90-day money-back guarantee",
         "image": "shopify://shop_images/Frame_2147230149.png"
       }
@@ -197,7 +197,7 @@
         "with_label": "With MUTO: two capsules",
         "with_price": "£2",
         "cta_label": "Start your 90 days",
-        "cta_link": "/products/muto-nad-cellular-complex",
+        "cta_link": "/products/muto-nad-cellular-complex-2",
         "foot": "£5.25 a day is UK retail for NR, CoQ10, PQQ, resveratrol, grapeseed, D3 and K2, TMG, B complex, zinc, copper and BioPerine bought as separate products at similar doses (Oct 2026). MUTO is £60 a month on subscription."
       }
     },
@@ -216,7 +216,7 @@
         "total_was": "£122",
         "total_now": "£60",
         "cta_label": "Start your 90 days",
-        "cta_link": "/products/muto-nad-cellular-complex",
+        "cta_link": "/products/muto-nad-cellular-complex-2",
         "ticks": "Free next-day delivery\nSkip, pause or cancel online\n90-day money-back guarantee"
       },
       "blocks": {
@@ -342,7 +342,7 @@
         "text": "Welcome offer: £122 of value for £60 on your first subscription, and 90 days to decide.",
         "cta_label": "Start your 90 days",
         "cta_sub": "Save 14%",
-        "cta_link": "/products/muto-nad-cellular-complex"
+        "cta_link": "/products/muto-nad-cellular-complex-2"
       }
     },
     "formula": {
@@ -621,7 +621,7 @@
         "total_was": "£122",
         "total_now": "£60",
         "cta_label": "Start your 90 days",
-        "cta_link": "/products/muto-nad-cellular-complex",
+        "cta_link": "/products/muto-nad-cellular-complex-2",
         "ticks": "Free next-day delivery\nSkip, pause or cancel online\n90-day money-back guarantee"
       },
       "blocks": {

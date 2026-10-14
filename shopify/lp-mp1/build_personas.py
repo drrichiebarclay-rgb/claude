@@ -89,7 +89,7 @@ INSIDE = ("What’s actually in it?",
 
 PERSONAS = [
     # ---------------------------------------------------------------- MP2
-    {"key": "mp2", "link": MAIN,
+    {"key": "mp2", "link": PDP_45,
      "hero": {
         "image": "", "image_fallback": CDN + "nad-take-two.jpg?v=1791017315",
         "image_alt": "Two MUTO capsules in an open palm beside the jar, a glass of water and breakfast",
@@ -129,7 +129,7 @@ PERSONAS = [
      "order": COMMON_ORDER},
 
     # ---------------------------------------------------------------- MP3
-    {"key": "mp3", "link": MAIN,
+    {"key": "mp3", "link": PDP_45,
      "hero": {
         "image": "shopify://shop_images/Frame_2147230149.png", "image_fallback": "",
         "image_alt": "A jar of MUTO NAD+ Cellular Complex on a shelf among separate supplement pots",
