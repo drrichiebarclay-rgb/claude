@@ -128,13 +128,13 @@ S["value"] = {"type": "muto-lp-value", "settings": {
         "Biotin | 300µg", "Zinc bisglycinate | 15mg", "Copper bisglycinate | 1mg", "BioPerine® | 5mg"]),
     "without_pots": "Vitamin B complex\nVitamin D3\nVitamin K2\nZinc\nCopper\nCoQ10\nNR\nTMG\nResveratrol\nPQQ\nGrapeseed",
     "without_label": "Without MUTO: bought separately",
-    "without_price": "£4.30+",
+    "without_price": "£5.25",
     "with_image": "", "with_image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-problem-box.jpg?v=1791018999",
     "with_image_alt": "The MUTO NAD+ Cellular Complex box open, with the jar inside",
     "with_label": "With MUTO: two capsules",
     "with_price": "£2",
     "cta_label": CTA, "cta_link": PDP,
-    "foot": "£4.30+ a day is UK retail for NR, CoQ10, PQQ, resveratrol, D3 and K2, TMG and a B complex bought as separate products at similar doses (Oct 2026). Zinc, copper, grapeseed and BioPerine not counted. MUTO is £60 a month on subscription."}}
+    "foot": "£5.25 a day is UK retail for NR, CoQ10, PQQ, resveratrol, grapeseed, D3 and K2, TMG, B complex, zinc, copper and BioPerine bought as separate products at similar doses (Oct 2026). MUTO is £60 a month on subscription."}}
 
 # ---- 6. The offer, itemised ------------------------------------------------------------------
 S["offer"] = {"type": "muto-lp-offer", "settings": {

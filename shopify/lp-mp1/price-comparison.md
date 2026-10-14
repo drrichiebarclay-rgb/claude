@@ -1,7 +1,7 @@
 # "Without MUTO" daily cost: bought separately (checked 14 Oct 2026)
 
 UK retail prices for the main MUTO ingredients bought as separate products, at or near MUTO's dose.
-Standard (non-clearance, non-BOGOF) prices where shown. Zinc, copper, grapeseed and BioPerine not counted.
+Standard (non-clearance, non-BOGOF) prices where shown.
 
 | Ingredient (MUTO dose) | Product | Price | Per day |
 |---|---|---|---|
@@ -12,7 +12,11 @@ Standard (non-clearance, non-BOGOF) prices where shown. Zinc, copper, grapeseed 
 | Vitamin D3 + K2 | Holland & Barrett Vitamin K2 + D3, 60 softgels | £19.99 | £0.33 |
 | TMG 450mg | Swanson TMG 500mg, 90 caps (Landys Chemist via Cosmetify) | £7.81 | £0.09 |
 | B complex | Holland & Barrett Complete Vit B Complex, 120 tabs | £5.35 | £0.04 |
-| **Total** | | | **£4.34** |
+| Grapeseed extract 150mg | Viridian Grape Seed Extract 100mg, 30 caps (1.5/day, John Bell & Croyden) | £14.25 | £0.71 |
+| BioPerine 5mg | Swanson BioPerine 10mg, 60 caps (Landys Chemist via Cosmetify) | £5.59 | £0.09 |
+| Zinc 15mg | Holland & Barrett Zinc 15mg, 120 tabs | £7.09 | £0.06 |
+| Copper 1mg | Peak Supps Copper Bisglycinate 2mg, 90 tabs (OnBuy) | £4.07 | £0.05 |
+| **Total** | | | **£5.25** |
 
-Shown on the page as "£4.30+" per day (about £130 a month), against MUTO at £2 a day (£60 a month).
+Shown on the page as "£5.25" per day (about £158 a month), against MUTO at £2 a day (£60 a month).
 Re-check before launch: retail prices and promotions change.
