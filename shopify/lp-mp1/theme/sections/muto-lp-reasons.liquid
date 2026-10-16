@@ -1,0 +1,67 @@
+{%- comment -%}
+  MUTO landing page — numbered reasons for an advertorial. Each reason has a
+  number badge, a title, rich-text body and an optional MUTO answer panel and
+  photo; "cta" blocks drop a button between reasons. Numbering is automatic.
+{%- endcomment -%}
+{{ 'muto-lp.css' | asset_url | stylesheet_tag }}
+<div class="mlp">
+  <section class="mlp-rs" id="{{ section.settings.anchor | default: 'reasons' }}">
+    <ol class="mlp-rs__list">
+      {%- assign n = 0 -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'reason' -%}
+          {%- assign n = n | plus: 1 -%}
+          {%- liquid
+            if block.settings.image != blank
+              assign r_src = block.settings.image | image_url: width: 1200
+            else
+              assign r_src = block.settings.image_fallback
+            endif
+          -%}
+          <li class="mlp-rs__item" {{ block.shopify_attributes }}>
+            <div class="mlp-rs__top"><span class="mlp-rs__num" aria-hidden="true">{{ n }}</span><h2 class="mlp-rs__h">{{ block.settings.title }}</h2></div>
+            <div class="mlp-rs__body">{{ block.settings.body }}</div>
+            {%- if r_src != blank -%}<div class="mlp-rs__img"><img src="{{ r_src }}" alt="{{ block.settings.image_alt | escape }}" width="1200" height="750" loading="lazy"{% if block.settings.image_position != blank %} style="object-position:{{ block.settings.image_position }}"{% endif %}></div>{%- endif -%}
+            {%- if block.settings.answer != blank -%}
+              <div class="mlp-rs__answer"><p class="mlp-rs__answer-label">{{ block.settings.answer_label | default: 'The MUTO way' }}</p>{{ block.settings.answer }}</div>
+            {%- endif -%}
+          </li>
+        {%- else -%}
+          <li class="mlp-rs__cta" {{ block.shopify_attributes }}>
+            {%- if block.settings.text != blank -%}<p>{{ block.settings.text }}</p>{%- endif -%}
+            <a class="mlp__btn mlp__btn--cyan mlp__btn--arrow" href="{{ block.settings.link | default: routes.all_products_collection_url }}">{{ block.settings.label }}</a>
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ol>
+  </section>
+</div>
+{% schema %}
+{
+  "name": "MUTO LP — Reasons",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "Anchor id", "default": "reasons" }
+  ],
+  "blocks": [
+    { "type": "reason", "name": "Reason", "settings": [
+      { "type": "text", "id": "title", "label": "Title" },
+      { "type": "richtext", "id": "body", "label": "Body" },
+      { "type": "image_picker", "id": "image", "label": "Photo (optional)" },
+      { "type": "text", "id": "image_fallback", "label": "Photo URL" },
+      { "type": "text", "id": "image_alt", "label": "Photo description" },
+      { "type": "text", "id": "image_position", "label": "Photo focus" },
+      { "type": "text", "id": "answer_label", "label": "Answer panel label", "default": "The MUTO way" },
+      { "type": "richtext", "id": "answer", "label": "Answer panel" }
+    ] },
+    { "type": "cta", "name": "Button", "settings": [
+      { "type": "text", "id": "text", "label": "Line above button" },
+      { "type": "text", "id": "label", "label": "Button" },
+      { "type": "url", "id": "link", "label": "Button link" }
+    ] }
+  ],
+  "max_blocks": 12,
+  "presets": [{ "name": "MUTO LP — Reasons" }],
+  "enabled_on": { "templates": ["page", "index", "product"] }
+}
+{% endschema %}

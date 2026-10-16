@@ -1,0 +1,124 @@
+"""Build the broad-persona advertorial landing page (page.lp-stack.json).
+
+Structure follows the "7 reasons your supplement stack isn't working" listicle
+format, in MUTO's design: announcement line, article hero with author, real
+customer review cards, intro, seven numbered reasons with the MUTO answer in
+each, then MP1's offer, FAQ, second offer and sticky bar.
+Claims guardrails as the other pages: authorised nutrient claims worded exactly,
+real customer words only in quote marks, Richie is a PhD scientist (not a
+medical doctor), results never promised.
+
+Run make_lp.py first, then: python3 make_advertorial.py
+"""
+import copy, json, os
+from build_personas import BASE, MAIN, CDN, CTA, faq, SAFE, SUB, WORK, INSIDE
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+d = copy.deepcopy(BASE)
+S = d["sections"]
+for k in ("offer", "offer2", "bar"):
+    S[k]["settings"]["cta_link"] = MAIN
+
+FOUNDER = CDN + "about-founder.jpg?v=1790751995"
+
+
+def blocks(items):
+    return ({f"b{i}": b for i, b in enumerate(items, 1)}, [f"b{i}" for i in range(1, len(items) + 1)])
+
+
+# ---------------------------------------------------------------- hero
+hb, ho = blocks([{"type": "stat", "settings": {"figure": "4.83★", "label": "150+ reviews"}},
+                 {"type": "stat", "settings": {"figure": "19", "label": "Doses on the label"}},
+                 {"type": "stat", "settings": {"figure": "90", "label": "Days to decide"}}])
+S["art_hero"] = {"type": "muto-lp-article-hero", "blocks": hb, "block_order": ho, "settings": {
+    "announcement": "Taking five or more supplements and still can’t tell if any of them work? Here’s why.",
+    "image_fallback": FOUNDER, "image_alt": "Richie Barclay, PhD cell biologist and MUTO founder, holding a jar of NAD+ Cellular Complex",
+    "image_position": "50% 22%",
+    "kicker": "For active 40–60s",
+    "heading": "7 reasons your supplement stack isn’t adding up, and the one protocol built to replace it.",
+    "sub": "For anyone taking five or more supplements who still can’t say which one is doing anything.",
+    "cta_label": CTA, "cta_link": MAIN,
+    "jump_label": "See the 7 reasons", "jump_target": "#reasons",
+    "author_image_fallback": FOUNDER, "author_label": "Written by",
+    "author_name": "Richie Barclay, PhD", "author_title": "Cell biologist and founder, MUTO"}}
+
+# ---------------------------------------------------------------- real reviews
+REVIEWS = [
+    ("Replacing several pots", "“I love that this replaces multiple products”", "Amy C"),
+    ("Afternoons", "“No afternoon slump and in general feeling great”", "Lynda"),
+    ("A scientist who picks up the phone", "“Richie from the team gave me a call just to chat about my background and goals”", "Mathew H"),
+    ("Feeling like yourself", "“I didn't realise how flat I'd been feeling until this helped lift me out of it”", "Holly P"),
+    ("Recovery", "“Has actually changed my recovery”", "Adam H"),
+    ("Marathon training", "“I started taking Muto for my Boston Marathon training hoping to have better recovery; and it did not disappoint”", "Rebeca"),
+    ("Focus", "“More focused during the day”", "Alexandra"),
+]
+rb, ro = blocks([{"type": "review", "settings": {"topic": t, "quote": q, "name": n}} for t, q, n in REVIEWS])
+S["review_cards"] = {"type": "muto-lp-review-cards", "blocks": rb, "block_order": ro, "settings": {
+    "label": "What customers say about MUTO", "foot": "Customer reviews, in their own words. Individual experiences; results vary."}}
+
+# ---------------------------------------------------------------- intro
+S["intro"] = {"type": "muto-lp-article", "settings": {
+    "body": "<p>You read the labels and listened to the podcasts. You ended up with the names that keep coming up: NR, CoQ10, vitamin D3 with K2, a B complex, maybe zinc and resveratrol. <strong>You’ve been consistent for months.</strong> And you still can’t point at one pot and say “this is the one that’s working.”</p>"
+            "<p>That isn’t a discipline problem. It’s a design problem: doses you can’t see, ingredients sold one at a time, and no way to check any of it.</p>"
+            "<p>Here are seven reasons a cupboard of pots does less than it should, and why one daily protocol, two capsules with breakfast, can replace a good part of it.</p>",
+    "band_main": "Rated 4.83 from 150+ reviews",
+    "band_sub": "Made in the UK · Every batch third-party tested · 90 days to decide"}}
+
+# ---------------------------------------------------------------- the 7 reasons
+R = [
+    ("You’ve been taking it for months. You still can’t tell what’s working. Here’s why.",
+     "<p>A pot can list an ingredient without giving you a meaningful amount of it, and an all-in-one can list thirty ingredients at amounts too small to matter. The label has the name. You get a trace.</p>"
+     "<p>To take MUTO’s doses as separate products you’d need eleven pots on the kitchen side, every day. Nobody keeps that up for long, so the routine drifts, and then you blame yourself.</p>"
+     "<p><strong>You’re not inconsistent. The routine was never built to be checked.</strong></p>",
+     "<p>Every dose is on the label: <strong>300mg NR</strong> (the most allowed in Great Britain), <strong>150mg CoQ10</strong>, 20mg PQQ, 50mg trans-resveratrol, 450mg TMG and 150mg grapeseed extract, with a full B complex, vitamin D3 and K2, zinc, copper and BioPerine®. Two capsules with breakfast.</p>"),
+    ("Your body doesn’t use nutrients one at a time.",
+     "<p>Vitamin D3 and K2 belong together: both contribute to the maintenance of normal bones. The B vitamins work as a group: thiamin, riboflavin, niacin, B6 and B12 contribute to normal energy-yielding metabolism. Zinc and copper are balanced against each other.</p>"
+     "<p>Seven pots from seven brands were never designed to sit together. Nobody checked how they fit.</p>",
+     "<p>MUTO was built as one formula: NR alongside TMG, D3 alongside K2, a full B complex, and BioPerine® in the same two capsules. One design, one label, chosen by a PhD cell biologist.</p>"),
+    ("Proprietary blends hide the dose.",
+     "<p>If a label says “performance blend, 800mg”, you can’t tell whether the ingredient you bought it for is 400mg or 4mg. You can’t check it, and neither can your GP or your AI.</p>"
+     "<p><strong>If you can’t read the dose, you can’t judge the product.</strong></p>",
+     "<p>No blends. All 19 ingredients and their doses are on the label. Paste it into your AI and ask what it thinks, or ask Richie: he answers formula questions himself.</p>"),
+    ("You never took a starting point.",
+     "<p>Without a baseline there’s no verdict, just a feeling on a good week or a bad one. Most people start a new supplement on a Monday and judge it on a Thursday.</p>"
+     "<p>Single days are noise. Months are signal.</p>",
+     "<p>Before your first capsule, rate how you feel at 3pm out of 10. If you wear a watch, note seven days of HRV, resting heart rate and sleep. Then compare at day 30 and day 90. Your numbers, your call.</p>"),
+    ("You changed five things at once.",
+     "<p>New pot, new training plan, earlier nights, less wine. When something improves, you can’t say what did it, so you keep paying for all of it.</p>",
+     "<p>One protocol in place of several pots means one clean change you can actually judge.</p>"),
+    ("It costs more than you think.",
+     "<p>Bought separately at similar doses, MUTO’s main ingredients cost about <strong>£5.25 a day</strong> at UK retail: around £158 a month, across eleven pots and eleven reorders.</p>",
+     "<p><strong>£2 a day</strong> on subscription. One jar, one delivery, and you can skip, pause or cancel online any time.</p>"),
+    ("Nobody stands behind it.",
+     "<p>Most supplement guarantees run 30 days, too short to judge anything. And when you have a question, there’s rarely a scientist on the other end.</p>",
+     "<p><strong>90 days to decide.</strong> If you don’t see a difference, you’re covered on subscription. MUTO is built by Richie Barclay, a PhD cell biologist, and checked by our Scientific Advisory Board, and it’s being studied with four UK universities.</p>"),
+]
+items = []
+for i, (title, body, answer) in enumerate(R, 1):
+    items.append({"type": "reason", "settings": {"title": title, "body": body, "answer": answer, "answer_label": "The MUTO way"}})
+    if i in (3, 6):
+        items.append({"type": "cta", "settings": {
+            "text": "Two capsules. Every dose on the label. 90 days to decide." if i == 3 else "£5.25 a day bought separately. £2 a day in two capsules.",
+            "label": CTA, "link": MAIN}})
+xb, xo = blocks(items)
+S["reasons"] = {"type": "muto-lp-reasons", "blocks": xb, "block_order": xo, "settings": {"anchor": "reasons"}}
+
+# ---------------------------------------------------------------- close
+S["offer"]["settings"]["heading"] = "Swap the guesswork for a 90-day test."
+S["offer2"]["settings"]["heading"] = "One protocol. 90 days. Your call."
+S["bar"]["settings"]["text"] = "One routine. Every dose on the label. £122 of value for £60 on your first subscription."
+S["reviews"]["settings"]["heading"] = "<p>One routine instead of many: what customers say about MUTO</p>"
+S["lp_faq"]["blocks"], S["lp_faq"]["block_order"] = faq([
+    ("What does MUTO replace?", "<p>For many customers, several separate pots: NR, CoQ10, PQQ, B vitamins, vitamin D3, K2, zinc and resveratrol are all in here, at the doses shown. Never stop anything you take for a medical reason, and check with your GP if you take medicine.</p>"),
+    INSIDE,
+    ("Is it worth the money?", "<p>Bought separately at similar doses, the main ingredients cost about £5.25 a day at UK retail. MUTO is £2 a day on subscription, and you have 90 days to decide.</p>"),
+    ("Who is Richie Barclay?", "<p>MUTO’s founder: a PhD cell biologist and former cricketer. He isn’t a medical doctor; our Scientific Advisory Board includes doctors and scientists who review the formula.</p>"),
+    SAFE, WORK, SUB])
+
+d["order"] = ["art_hero", "review_cards", "intro", "reasons", "offer", "reviews", "lp_faq", "offer2", "bar"]
+for k in [k for k in S if k not in d["order"]]:
+    del S[k]
+out = os.path.join(HERE, "page.lp-stack.json")
+json.dump(d, open(out, "w"), ensure_ascii=False, indent=2)
+open(out, "a").write("\n")
+print("wrote", out)

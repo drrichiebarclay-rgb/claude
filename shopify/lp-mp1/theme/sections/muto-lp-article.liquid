@@ -1,0 +1,33 @@
+{%- comment -%}
+  MUTO landing page — article intro: a narrow column of body copy with an
+  optional proof band underneath.
+{%- endcomment -%}
+{{ 'muto-lp.css' | asset_url | stylesheet_tag }}
+<div class="mlp">
+  <section class="mlp-art">
+    <div class="mlp-art__in">
+      {%- if section.settings.heading != blank -%}<h2 class="mlp-art__h">{{ section.settings.heading | escape | newline_to_br }}</h2>{%- endif -%}
+      <div class="mlp-art__body">{{ section.settings.body }}</div>
+      {%- if section.settings.band_main != blank -%}
+        <div class="mlp-art__band">
+          <p class="mlp-art__band-main"><span class="mlp-art__stars" aria-hidden="true">★★★★★</span> {{ section.settings.band_main }}</p>
+          {%- if section.settings.band_sub != blank -%}<p class="mlp-art__band-sub">{{ section.settings.band_sub }}</p>{%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </section>
+</div>
+{% schema %}
+{
+  "name": "MUTO LP — Article text",
+  "tag": "section",
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "Heading (optional)" },
+    { "type": "richtext", "id": "body", "label": "Body" },
+    { "type": "text", "id": "band_main", "label": "Proof band, main line" },
+    { "type": "text", "id": "band_sub", "label": "Proof band, small line" }
+  ],
+  "presets": [{ "name": "MUTO LP — Article text" }],
+  "enabled_on": { "templates": ["page", "index", "product"] }
+}
+{% endschema %}
