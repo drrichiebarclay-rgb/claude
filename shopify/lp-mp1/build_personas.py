@@ -394,8 +394,8 @@ MP4_TL["settings"].update(heading="Run a proper 90-day test.",
 PERSONAS.append(
     {"key": "mp4", "link": MAIN,
      "hero": {
-        "image": P + "46EE29F8-4F3F-4512-A6FB-1FE3B7D0CDA8.png", "image_fallback": "",
-        "image_alt": "A MUTO customer in their 40s or 50s", "image_position": "50% 40%",
+        "image": P + "muto-lp-mp4-hrv-watch.jpg", "image_fallback": "",
+        "image_alt": "An athlete after a session checking HRV on a sports watch", "image_position": "55% 45%",
         "heading": "Don’t take it on trust.\nTake your baseline.",
         "body": "<p><strong>One daily protocol, built to be checked.</strong> Two capsules with breakfast, 19 ingredients, every dose on the label. Take a 7-day baseline on your watch, then judge it on your own 30-day averages. If you don’t see a difference in 90 days, you’re covered.</p>",
         "strong": "Your data. Your verdict. 90 days to decide."},

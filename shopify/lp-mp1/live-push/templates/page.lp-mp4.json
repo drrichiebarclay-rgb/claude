@@ -4,8 +4,8 @@
       "type": "muto-lp-hero",
       "settings": {
         "image_fallback": "",
-        "image_alt": "A MUTO customer in their 40s or 50s",
-        "image_position": "50% 40%",
+        "image_alt": "An athlete after a session checking HRV on a sports watch",
+        "image_position": "55% 45%",
         "schema_on": true,
         "schema_product": "muto-nad-cellular-complex",
         "schema_name": "MUTO NAD+ Cellular Complex",
@@ -17,7 +17,7 @@
         "cta_label": "Start your 90 days",
         "cta_link": "/products/muto-nad-cellular-complex",
         "ticks": "Free next-day delivery\n90-day money-back guarantee",
-        "image": "shopify://shop_images/46EE29F8-4F3F-4512-A6FB-1FE3B7D0CDA8.png"
+        "image": "shopify://shop_images/muto-lp-mp4-hrv-watch.jpg"
       }
     },
     "trust": {
