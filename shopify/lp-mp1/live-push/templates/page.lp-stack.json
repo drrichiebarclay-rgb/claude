@@ -257,7 +257,7 @@
       ]
     },
     "lp_faq": {
-      "type": "muto-lp-faq",
+      "type": "muto-lp-faq-2",
       "settings": {
         "heading": "You’ve got questions?\nWe’ve got answers.",
         "open_first": true,

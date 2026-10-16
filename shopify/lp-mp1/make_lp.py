@@ -49,7 +49,7 @@ OFFER_IMG = "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/new_garmin.p
 pimg = lambda sec, blk: P45[sec]["blocks"][blk]["settings"].get("image", "") if blk else P45[sec]["settings"].get("image", "")
 
 # ---- 1. Hero: product photo | offer copy ---------------------------------------
-S["lp_hero"] = {"type": "muto-lp-hero", "settings": {
+S["lp_hero"] = {"type": "muto-lp-hero-2", "settings": {
     "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-lp-kit-hero.jpg?v=1791969959",
     "image_alt": "The MUTO welcome kit: NAD+ Cellular Complex jar and refill pouches, Ultrapure Creatine, the bottle and the presentation box",
     "image_position": "55% 62%",
@@ -318,7 +318,7 @@ for i, pp in enumerate(people, 1):
     S["experts"]["block_order"].append(f"e{i}")
 
 # ---- 10. FAQ ----------------------------------------------------------------------------
-S["lp_faq"] = {"type": "muto-lp-faq", "settings": {"heading": "You’ve got questions?\nWe’ve got answers.",
+S["lp_faq"] = {"type": "muto-lp-faq-2", "settings": {"heading": "You’ve got questions?\nWe’ve got answers.",
                                                    "open_first": True, "schema_on": True},
                "blocks": {}, "block_order": []}
 for i, (q_, a_) in enumerate([

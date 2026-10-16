@@ -1,7 +1,7 @@
 {
   "sections": {
     "lp_hero": {
-      "type": "muto-lp-hero",
+      "type": "muto-lp-hero-2",
       "settings": {
         "image_fallback": "",
         "image_alt": "An athlete after a session checking HRV on a sports watch",
@@ -555,7 +555,7 @@
       ]
     },
     "lp_faq": {
-      "type": "muto-lp-faq",
+      "type": "muto-lp-faq-2",
       "settings": {
         "heading": "You’ve got questions?\nWe’ve got answers.",
         "open_first": true,
