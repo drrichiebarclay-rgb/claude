@@ -33,4 +33,6 @@ Online Store → Themes → live theme → … → Edit code.
 
 The three high-performer pages also use `muto-home-results` (the customer videos), which is already on the live theme; nothing to copy for it.
 
+**Always replace `assets/muto-lp.css` along with the sections.** Every landing page shares this one stylesheet. If the live copy is older than the sections, new parts of the page (such as the 90-day timeline) show up unstyled. It also hides the store header and announcement bar on the landing pages only (any page using a `page.lp-*` template).
+
 Check each page on mobile and desktop once live.
