@@ -549,8 +549,8 @@
         "b6": {
           "type": "stat",
           "settings": {
-            "figure": "£1,180 a year",
-            "text": "Roughly the gap between buying MUTO’s main ingredients as separate products (£5.25 a day) and MUTO on subscription (£2 a day).",
+            "figure": "£1,170 a year",
+            "text": "Roughly the gap between buying MUTO’s main ingredients as separate products (about £158 a month) and MUTO on subscription (£60 a month).",
             "source": "UK retail prices at similar doses, checked October 2026."
           }
         },
@@ -574,36 +574,51 @@
         "b9": {
           "type": "reason",
           "settings": {
-            "title": "Proprietary blends hide the dose.",
-            "body": "<p>If a label says “performance blend, 800mg”, you can’t tell whether the ingredient you bought it for is 400mg or 4mg. You can’t check it, and neither can your GP or your AI.</p><p><strong>If you can’t read the dose, you can’t judge the product.</strong></p>",
-            "answer": "<p>No blends. All 19 ingredients and their doses are on the label. Paste it into your AI and ask what it thinks, or ask Richie: he answers formula questions himself.</p>",
+            "title": "“Pixie dusting” is the industry’s open secret. Plenty of stacks are built on it.",
+            "body": "<p>Pixie dusting means listing an impressive ingredient at a dose too small to do anything. The ingredient is on the label. The dose is a trace. The label looks powerful; the formula is theatre.</p><p>It shows up in two main forms:</p><p><strong>1. The proprietary blend.</strong> “Longevity blend: 2,500mg”, with no individual amounts. You can’t tell what’s doing the work, and neither can your GP or your AI. If a brand won’t show the milligrams, ask why.</p><p><strong>2. The big-percentage multivitamin.</strong> 1,000% of a cheap water-soluble vitamin makes the label look generous. The ingredients that cost something are missing, or there in a pinch.</p>",
+            "answer": "<p>No blends and no pixie dust. All 19 ingredients and their doses are on the label, with the forms named: 300mg NR, 150mg CoQ10, zinc and copper as bisglycinate, B6 as P5P, B12 as methylcobalamin. Paste it into your AI, or ask Richie: he answers formula questions himself.</p>",
             "answer_label": "The MUTO way"
           }
         },
         "b10": {
           "type": "reason",
           "settings": {
-            "title": "You never took a starting point, and you changed five things at once.",
-            "body": "<p>Without a baseline there’s no verdict, just a feeling on a good week or a bad one. And with a new pot, a new plan and earlier nights all at once, you can’t say what did what, so you keep paying for all of it.</p><p>Single days are noise. Months are signal.</p>",
-            "answer": "<p>One protocol in place of several pots: one clean change. Before your first capsule, rate how you feel at 3pm out of 10; if you wear a watch, note seven days of HRV, resting heart rate and sleep. Compare at day 30 and day 90. Your numbers, your call.</p>",
+            "title": "Bought separately, the same ingredients cost about £158 a month. Here’s the maths.",
+            "body": "<p>If you take your supplements seriously, you’re probably buying several already: several brands, several deliveries, several reorder dates. MUTO puts all 19 ingredients in two capsules for £60 a month on subscription. About £2 a day.</p>",
+            "answer": "",
             "answer_label": "The MUTO way"
           }
         },
         "b11": {
-          "type": "reason",
+          "type": "table",
           "settings": {
-            "title": "Nobody stands behind it.",
-            "body": "<p>Most supplement guarantees run 30 days, too short to judge anything. And when you have a question, there’s rarely a scientist on the other end.</p>",
-            "answer": "<p><strong>90 days to decide.</strong> If you don’t see a difference, you’re covered on subscription. MUTO is built by Richie Barclay, a PhD cell biologist, reviewed by our Scientific Advisory Board, and being studied with four UK universities.</p>",
-            "answer_label": "The MUTO way"
+            "heading": "What’s inside, and what it would cost separately",
+            "col1": "Ingredient",
+            "col2": "Cost a month*",
+            "rows": "NR (300mg) | £56.10\nCoQ10 (150mg) | £28.50\nGrapeseed extract (150mg) | £21.30\nPQQ (20mg) | £21.00\nTrans-resveratrol (50mg) | £10.80\nVitamin D3 and K2 | £9.90\nTMG (450mg) | £2.70\nBioPerine® (5mg) | £2.70\nZinc (15mg) | £1.80\nCopper (1mg) | £1.50\nB complex | £1.20",
+            "total_label": "Total a month",
+            "ours": "£60",
+            "theirs": "£157.50",
+            "note": "*UK retail prices for each ingredient as a separate product, at or near MUTO’s dose, checked 14 October 2026 (Superdrug, Holland & Barrett and other UK retailers). Roughly £1,170 a year more than MUTO on subscription, before delivery charges."
           }
         },
         "b12": {
-          "type": "cta",
+          "type": "reason",
           "settings": {
-            "text": "Two capsules. Every dose on the label. 90 days to decide.",
-            "label": "Start your 90 days",
-            "link": "/products/muto-nad-cellular-complex"
+            "title": "At what point does this become ridiculous?",
+            "body": "<p>You know the moment. Sunday evening, refilling the pill organiser. NR, CoQ10, PQQ, D3 and K2, a B complex, zinc, resveratrol. Eleven pots. Ten minutes every morning. <strong>And a growing suspicion that you’ve become the supplement industry’s favourite customer.</strong></p><p><strong>It’s not your fault. It’s how the industry is set up.</strong></p><p>The best-designed routine does nothing if you give up on it in month three because the ritual wore you down. <strong>Don’t abandon it. Replace it.</strong> The routine that counts is the one you keep every day, for years, without thinking.</p>",
+            "answer": "<p>Two capsules with breakfast, nothing to sort or time. Rate how you feel at 3pm today and, if you wear a watch, note a week of HRV, resting heart rate and sleep. Judge it at day 30 and day 90. If you don’t see a difference, you’re covered.</p>",
+            "answer_label": "The MUTO way"
+          }
+        },
+        "b13": {
+          "type": "replaces",
+          "settings": {
+            "label": "Two capsules replace",
+            "figure": "Up to 11 separate pots*",
+            "cta_label": "Start your 90 days",
+            "cta_link": "/products/muto-nad-cellular-complex",
+            "note": "*The 11 single-ingredient products in the price comparison above. Never stop anything you take for a medical reason."
           }
         }
       },
@@ -619,7 +634,8 @@
         "b9",
         "b10",
         "b11",
-        "b12"
+        "b12",
+        "b13"
       ],
       "settings": {
         "anchor": "reasons"

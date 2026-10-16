@@ -59,6 +59,34 @@
             <div class="mlp-rs__stat"><p class="mlp-rs__stat-fig">{{ block.settings.figure }}</p><p class="mlp-rs__stat-text">{{ block.settings.text }}</p></div>
             {%- if block.settings.source != blank -%}<p class="mlp-rs__source">{{ block.settings.source }}</p>{%- endif -%}
           </li>
+        {%- elsif block.type == 'table' -%}
+          {%- assign rows = block.settings.rows | newline_to_br | split: '<br />' -%}
+          <li class="mlp-rs__item" {{ block.shopify_attributes }}>
+            <div class="mlp-rs__table">
+              {%- if block.settings.heading != blank -%}<h3 class="mlp-rs__table-h">{{ block.settings.heading }}</h3>{%- endif -%}
+              <table>
+                <thead><tr><th scope="col">{{ block.settings.col1 | default: 'Ingredient' }}</th><th scope="col">{{ block.settings.col2 | default: 'Cost a month*' }}</th></tr></thead>
+                <tbody>
+                  {%- for r in rows -%}
+                    {%- assign parts = r | split: '|' -%}
+                    {%- assign nm = parts[0] | strip -%}
+                    {%- if nm != blank -%}<tr><td><span class="mlp-rs__tick" aria-hidden="true">✓</span>{{ nm }}</td><td>{{ parts[1] | strip }}</td></tr>{%- endif -%}
+                  {%- endfor -%}
+                </tbody>
+              </table>
+              <p class="mlp-rs__table-total"><span>{{ block.settings.total_label | default: 'Total a month' }}</span><strong>{{ block.settings.ours }}</strong><em>vs</em><s>{{ block.settings.theirs }}</s></p>
+              {%- if block.settings.note != blank -%}<p class="mlp-rs__table-note">{{ block.settings.note }}</p>{%- endif -%}
+            </div>
+          </li>
+        {%- elsif block.type == 'replaces' -%}
+          <li class="mlp-rs__item" {{ block.shopify_attributes }}>
+            <div class="mlp-rs__replaces">
+              <p class="mlp-rs__replaces-label">{{ block.settings.label }}</p>
+              <p class="mlp-rs__replaces-fig">{{ block.settings.figure }}</p>
+              {%- if block.settings.cta_label != blank -%}<a class="mlp__btn mlp__btn--cyan mlp__btn--arrow" href="{{ block.settings.cta_link | default: routes.all_products_collection_url }}">{{ block.settings.cta_label }}</a>{%- endif -%}
+              {%- if block.settings.note != blank -%}<p class="mlp-rs__replaces-note">{{ block.settings.note }}</p>{%- endif -%}
+            </div>
+          </li>
         {%- elsif block.type == 'callout' -%}
           {%- liquid
             if block.settings.image != blank
@@ -117,6 +145,23 @@
       { "type": "text", "id": "figure", "label": "Figure" },
       { "type": "textarea", "id": "text", "label": "Text" },
       { "type": "text", "id": "source", "label": "Source line" }
+    ] },
+    { "type": "table", "name": "Cost table", "settings": [
+      { "type": "text", "id": "heading", "label": "Heading" },
+      { "type": "text", "id": "col1", "label": "Column 1", "default": "Ingredient" },
+      { "type": "text", "id": "col2", "label": "Column 2", "default": "Cost a month*" },
+      { "type": "textarea", "id": "rows", "label": "Rows (one per line: Name | price)" },
+      { "type": "text", "id": "total_label", "label": "Total label", "default": "Total a month" },
+      { "type": "text", "id": "ours", "label": "Our price" },
+      { "type": "text", "id": "theirs", "label": "Their price (struck through)" },
+      { "type": "textarea", "id": "note", "label": "Footnote" }
+    ] },
+    { "type": "replaces", "name": "Replaces card", "settings": [
+      { "type": "text", "id": "label", "label": "Small label" },
+      { "type": "text", "id": "figure", "label": "Big line" },
+      { "type": "text", "id": "cta_label", "label": "Button" },
+      { "type": "url", "id": "cta_link", "label": "Button link" },
+      { "type": "text", "id": "note", "label": "Footnote" }
     ] },
     { "type": "callout", "name": "Callout", "settings": [
       { "type": "richtext", "id": "text", "label": "Text" },
