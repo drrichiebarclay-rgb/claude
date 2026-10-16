@@ -44,7 +44,8 @@ def build(p):
             S["trust"]["blocks"][key]["settings"].update(image="", image_fallback=url, alt=alt, position="")
     if p.get("benefit_images"):
         for key, (url, alt, *pos) in zip(("b1", "b2", "b3", "b4"), p["benefit_images"]):
-            S["benefits"]["blocks"][key]["settings"].update(image="", image_fallback=url, image_alt=alt,
+            shop = url.startswith("shopify://")
+            S["benefits"]["blocks"][key]["settings"].update(image=url if shop else "", image_fallback="" if shop else url, image_alt=alt,
                                                             image_position=pos[0] if pos else "")
     # Problem
     S["problem"]["settings"].update(p["problem"])
@@ -381,6 +382,62 @@ PERSONAS += [
      "extra_sections": {"timeline": timeline("“More focused during the day”", "Alexandra, MUTO customer"), "results": RESULTS},
      "order": HP_ORDER},
 ]
+
+# ======================================================================================
+# MP4, the Stuck Scorekeeper, 40-60: wearable owners and sceptics. Same design and
+# structure as MP3, plus the 90-day test. Buttons: the main product page.
+# ======================================================================================
+P = "shopify://shop_images/"
+MP4_TL = timeline("“Has actually changed my recovery”", "Adam H, MUTO customer")
+MP4_TL["settings"].update(heading="Run a proper 90-day test.",
+                          lede="No faith required. Three checkpoints, on the watch or ring you already wear.")
+PERSONAS.append(
+    {"key": "mp4", "link": MAIN,
+     "hero": {
+        "image": P + "46EE29F8-4F3F-4512-A6FB-1FE3B7D0CDA8.png", "image_fallback": "",
+        "image_alt": "A MUTO customer in their 40s or 50s", "image_position": "50% 40%",
+        "heading": "Don’t take it on trust.\nTake your baseline.",
+        "body": "<p><strong>One daily protocol, built to be checked.</strong> Two capsules with breakfast, 19 ingredients, every dose on the label. Take a 7-day baseline on your watch, then judge it on your own 30-day averages. If you don’t see a difference in 90 days, you’re covered.</p>",
+        "strong": "Your data. Your verdict. 90 days to decide."},
+     "trust": [("label", "Every dose on the label, no proprietary blends"), ("shield", "Made in the UK, every batch third-party tested"),
+               ("award", "Built by a PhD cell biologist")],
+     "people_heading": "Built for people who\ncheck the numbers.",
+     "problem": {
+        "pill": "Sound familiar?",
+        "heading": "You track everything. The trend still won’t move.",
+        "lede": "Sleep, HRV, resting heart rate, readiness: you see them every morning. You’ve tried earlier nights, less wine, another pot from the cupboard. Months later the line is still flat, and you can’t tell what, if anything, made a difference.",
+        "reframe_heading": "Don’t trust it.\nTest it.",
+        "reframe_text": "Most supplements ask for faith. MUTO gives you a method: a 7-day baseline, 30-day averages, and 90 days to judge one complete protocol against your own starting point. If you don’t see a difference, you’re covered."},
+     "pains": [("“HRV been trash for months.”", "A real customer, before they started."),
+               ("“Struggling with recovery according to Whoop.”", "Another, describing what their data showed."),
+               ("“Several supplements, unsure what’s working.”", "So when a number does move, you can’t say why.")],
+     "value": {"heading": "One variable.\nNot five.",
+               "body": "Change five things at once and your data can’t tell you which one worked. MUTO puts 19 ingredients into one daily protocol: about £5.25 a day bought separately, £2 a day in two capsules, every dose on the label."},
+     "benefits": {"heading": "A test you can actually read.",
+                  "lede": "You don’t need another promise. You need one clean change, a fair method, and enough time to see it in your own data."},
+     "benefit_cards": [
+        ("One clean change.", "Swap a shelf of guesses for one protocol, so if your numbers move, you know what changed."),
+        ("Read the trend, not the night.", "Single nights are noise. Compare 30-day averages of HRV, resting heart rate and sleep against your baseline."),
+        ("Know exactly what you’re testing.", "19 ingredients, each with its dose on the label. Paste it into your AI and ask what it thinks."),
+        ("Your data. Your call.", "At day 90 you decide, on your numbers and on how you feel. If you don’t see a difference, you’re covered.")],
+     "benefit_claims": {"b1": "Thiamin, riboflavin, niacin, vitamins B6 and B12, and copper contribute to normal energy-yielding metabolism.",
+                        "b2": "Vitamin D contributes to the maintenance of normal muscle function.",
+                        "b3": "Zinc, copper and riboflavin contribute to the protection of cells from oxidative stress.",
+                        "b4": "Vitamins B6, B12 and folate contribute to the reduction of tiredness and fatigue."},
+     "benefit_images": [(P + "1BBE18C7-9CBA-4EA3-BB3F-60C13D1F4F19.png", "A MUTO customer in their 40s or 50s"),
+                        (P + "333AFFA4-7F5A-41E9-A34E-780C1C51FBDE.png", "A MUTO customer in their 40s or 50s"),
+                        (P + "42FB6D71-CEAF-4B0A-962A-E043F6098596.png", "A MUTO customer in their 40s or 50s"),
+                        (P + "1C46F449-B491-4589-BF89-04157F7CB0F6.png", "MUTO customers in their 40s and 50s")],
+     "reviews_heading": "<p>Data, recovery, routine: what customers say about MUTO</p>",
+     "faq": [("Will it improve my HRV?", "<p>We won’t promise what any number will do. Take a 7-day baseline, read 30-day averages rather than single nights, and judge it yourself over 90 days. If you don’t see a difference, you’re covered.</p>"),
+             TRACK, DEVICES,
+             ("What if my numbers don’t change?", "<p>Then you’re covered. On a subscription, if you don’t see a difference by day 90, tell us and we’ll refund you.</p>"),
+             INSIDE, SUB],
+     "extra_sections": {"timeline": MP4_TL},
+     "offer_heading": "Take your baseline. Start your 90 days.", "offer2_heading": "Don’t take it on trust. Test it.",
+     "bar": "Welcome offer: £122 of value for £60 on your first subscription, and 90 days to decide.",
+     "order": ["lp_hero", "trust", "problem", "timeline", "value", "benefits", "offer",
+               "formula", "reviews", "experts", "lp_faq", "offer2", "bar"]})
 
 if __name__ == "__main__":
     for p in PERSONAS:
