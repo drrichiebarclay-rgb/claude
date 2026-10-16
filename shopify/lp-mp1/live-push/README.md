@@ -35,4 +35,6 @@ The three high-performer pages also use `muto-home-results` (the customer videos
 
 **Always replace `assets/muto-lp.css` along with the sections.** Every landing page shares this one stylesheet. If the live copy is older than the sections, new parts of the page (such as the 90-day timeline) show up unstyled. It also hides the store header and announcement bar on the landing pages only (any page using a `page.lp-*` template).
 
+**Don't touch `muto-lp-hero.liquid` or `muto-lp-faq.liquid` on live.** Those are older sections from 5 October that the earlier landing pages still use. These pages use `muto-lp-hero-2` and `muto-lp-faq-2` instead, the same names already on live. The CLI command above only adds or replaces the files in this folder; `--nodelete` keeps everything else.
+
 Check each page on mobile and desktop once live.
