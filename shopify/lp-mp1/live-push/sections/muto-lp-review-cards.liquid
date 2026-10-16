@@ -1,0 +1,42 @@
+{%- comment -%}
+  MUTO landing page — a swipeable row of customer review cards. Real customer
+  words only: the quote is theirs; the topic line above it is ours.
+{%- endcomment -%}
+{{ 'muto-lp.css' | asset_url | stylesheet_tag }}
+<div class="mlp">
+  <section class="mlp-rc" aria-label="{{ section.settings.label | default: 'Customer reviews' | escape }}">
+    {%- if section.settings.heading != blank -%}<h2 class="mlp-rc__h">{{ section.settings.heading }}</h2>{%- endif -%}
+    <ul class="mlp-rc__row">
+      {%- for block in section.blocks -%}
+        <li class="mlp-rc__card" {{ block.shopify_attributes }}>
+          <p class="mlp-rc__stars" aria-label="5 out of 5 stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></p>
+          {%- if block.settings.topic != blank -%}<p class="mlp-rc__topic">{{ block.settings.topic }}</p>{%- endif -%}
+          <p class="mlp-rc__quote">{{ block.settings.quote }}</p>
+          <p class="mlp-rc__name"><span aria-hidden="true">✓</span> {{ block.settings.name }}</p>
+        </li>
+      {%- endfor -%}
+    </ul>
+    {%- if section.settings.foot != blank -%}<p class="mlp-rc__foot">{{ section.settings.foot }}</p>{%- endif -%}
+  </section>
+</div>
+{% schema %}
+{
+  "name": "MUTO LP — Review cards",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading (optional)" },
+    { "type": "text", "id": "label", "label": "Label for screen readers", "default": "Customer reviews" },
+    { "type": "text", "id": "foot", "label": "Small line below" }
+  ],
+  "blocks": [
+    { "type": "review", "name": "Review", "settings": [
+      { "type": "text", "id": "topic", "label": "Topic (our words)" },
+      { "type": "textarea", "id": "quote", "label": "Customer quote (real words only)" },
+      { "type": "text", "id": "name", "label": "Customer name" }
+    ] }
+  ],
+  "max_blocks": 10,
+  "presets": [{ "name": "MUTO LP — Review cards" }],
+  "enabled_on": { "templates": ["page", "index", "product"] }
+}
+{% endschema %}

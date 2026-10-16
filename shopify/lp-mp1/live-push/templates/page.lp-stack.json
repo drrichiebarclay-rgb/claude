@@ -1,0 +1,609 @@
+{
+  "sections": {
+    "offer": {
+      "type": "muto-lp-offer",
+      "settings": {
+        "image": "",
+        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/new_garmin.png?v=1791890671",
+        "image_alt": "Everything in your first MUTO order: NAD+ Cellular Complex and Forever Jar, Ultrapure Creatine, socks, the 12-Week Protocol Guide and entry to win a Garmin watch",
+        "heading": "Swap the guesswork for a 90-day test.",
+        "product_name": "NAD+ Cellular Complex and Forever Jar (30 days)",
+        "product_price": "£60",
+        "product_sub": "£2 a day on subscription. Usually £70.",
+        "includes_label": "First order includes:",
+        "future_label": "Then, free with future orders:",
+        "total_was": "£122",
+        "total_now": "£60",
+        "cta_label": "Start your 90 days",
+        "cta_link": "/products/muto-nad-cellular-complex",
+        "ticks": "Free next-day delivery\nSkip, pause or cancel online\n90-day money-back guarantee"
+      },
+      "blocks": {
+        "i1": {
+          "type": "item",
+          "settings": {
+            "name": "Ultrapure Creatine",
+            "desc": "Micronised creatine monohydrate, every batch tested",
+            "was": "£30",
+            "now": "free"
+          }
+        },
+        "i2": {
+          "type": "item",
+          "settings": {
+            "name": "Performance Socks",
+            "desc": "Size UK 6–11",
+            "was": "£12",
+            "now": "free"
+          }
+        },
+        "i3": {
+          "type": "item",
+          "settings": {
+            "name": "12-Week Protocol Guide",
+            "desc": "How to run your 90 days and check it yourself",
+            "was": "£10",
+            "now": "free"
+          }
+        },
+        "i4": {
+          "type": "item",
+          "settings": {
+            "name": "Garmin watch prize draw",
+            "desc": "Entry into our quarterly draw",
+            "was": "",
+            "now": "included"
+          }
+        },
+        "fg_mg2": {
+          "type": "future",
+          "settings": {
+            "image": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-bottle.jpg?v=1791022787",
+            "image_alt": "The MUTO Performance Bottle, free with order 2",
+            "when": "Order 2",
+            "name": "Bottle",
+            "value": "£15"
+          }
+        },
+        "fg_mg3": {
+          "type": "future",
+          "settings": {
+            "image": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-socks.jpg?v=1791023071",
+            "image_alt": "A pouch of MUTO Performance Socks, free with order 3",
+            "when": "Order 3",
+            "name": "Performance Socks",
+            "value": "£12"
+          }
+        },
+        "fg_mg4a": {
+          "type": "future",
+          "settings": {
+            "image": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
+            "image_alt": "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate, free with order 4",
+            "when": "Order 4",
+            "name": "Creatine",
+            "value": "£30"
+          }
+        },
+        "fg_mg4b": {
+          "type": "future",
+          "settings": {
+            "image": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-gift-credit-v2.jpg?v=1791392560",
+            "image_alt": "A black MUTO gift card for £10 store credit",
+            "when": "Order 4",
+            "name": "Store credit",
+            "value": "£10"
+          }
+        },
+        "fg_mg6a": {
+          "type": "future",
+          "settings": {
+            "image": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
+            "image_alt": "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate, free with order 6",
+            "when": "Order 6",
+            "name": "Creatine",
+            "value": "£30"
+          }
+        },
+        "fg_mg6b": {
+          "type": "future",
+          "settings": {
+            "image": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-gift-consultation-v2.jpg?v=1791392559",
+            "image_alt": "A silver MUTO gift card for a one-to-one consultation",
+            "when": "Order 6",
+            "name": "Consultation",
+            "value": "£120"
+          }
+        }
+      },
+      "block_order": [
+        "i1",
+        "i2",
+        "i3",
+        "i4",
+        "fg_mg2",
+        "fg_mg3",
+        "fg_mg4a",
+        "fg_mg4b",
+        "fg_mg6a",
+        "fg_mg6b"
+      ]
+    },
+    "bar": {
+      "type": "muto-lp-bar",
+      "settings": {
+        "text": "One routine. Every dose on the label. £122 of value for £60 on your first subscription.",
+        "cta_label": "Start your 90 days",
+        "cta_sub": "Save 14%",
+        "cta_link": "/products/muto-nad-cellular-complex"
+      }
+    },
+    "reviews": {
+      "type": "custom-reviews",
+      "name": "Custom Reviews",
+      "settings": {
+        "bg_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 40,
+        "custom_class": "",
+        "heading": "<p>One routine instead of many: what customers say about MUTO</p>",
+        "heading_tag": "h2",
+        "heading_color": "#242223",
+        "show_review_bar": false,
+        "review_content": "<script src=\"https://widget.reviews.io/polaris/build.js\"></script>\n<div id=\"ReviewsWidget\"></div>\n<script>\nnew ReviewsWidget('#ReviewsWidget', {\n//Your REVIEWS.io Store ID and widget type:\nstore: 'mutolongevity.com',\nwidget: 'polaris',\n\n//Content settings (store_review,product_review,third_party_review,questions). Choose what to display in this widget:\noptions: {\n    types: 'product_review',\n    enable_sentiment_analysis: false,\n    lang: 'en',\n    //Possible layout options: bordered, large and reverse.\n    layout: '',\n    //How many reviews & questions to show per page?\n    per_page: 6,\n    store_review:{\n      hide_if_no_results: true,\n    },\n    third_party_review:{\n      hide_if_no_results: true,\n    },\n    product_review: {\n      sku: \"MR-OTP;MRS-1M;MRS-3M;52975220851035;52975220883803;52975220916571;10478822981979;muto-nad-cellular-complex;CREATINE-POUCH-OTP;CREATINE-POUCH-1M;CREATINE-POUCH-1.5M;WATER-BOTTLE;WHITE-SOCKS;NAD-1M-Month1;NAD-1M-Month2;NAD-1M-Month3;NAD-1M-Month4;NAD-1M-Month5;NAD-1M-Month6;NAD-3M-Month1;NAD-3M-Month4;NAD-3M-Month7andOn;NAD-1M-Month7andOn\",\n      enable_rich_snippets: false,\n\n      /* Your custom Structured Data */\n      structured_data: {\n\n        name: {{ product.title | strip_html | json }},\n        category: \"\",\n        {% capture gtin_length %}{{ product.variants.first.barcode | size }}{% endcapture %}\n\n\n        {% if gtin_length == \"14\" %}\n           gtin14:\"{{product.variants.first.barcode}}\",\n        {% elsif gtin_length == \"13\" %}\n           gtin13:\"{{product.variants.first.barcode}}\",\n        {% elsif gtin_length == \"12\" %}\n           gtin12:\"{{product.variants.first.barcode}}\",\n        {% endif %}\n\n        url: \"{{ shop.url }}{{ product.url }}\",\n\n        {%- if product.featured_image -%}\n          image: \"https:{{ product.featured_image | image_url: 'grande' }}\",\n        {%- endif -%}\n\n        {% if variant.image %}\n          {% assign variant_image_size = variant.image.width | append: 'x' %}\n          image: \"http:{{ variant.image.src | image_url: variant_image_size }}\",\n        {% endif %}\n\n        description: \"{{ product.description | strip_html | strip_newlines | escape }}\",\n        {% assign ruk_current_variant = product.selected_or_first_available_variant %}\n        {% assign ruk_variant_count = product.variants | size %}\n        {% assign ruk_count = 0 %}\n\n        {% if product.variants %}\n          {% assign ruk_count = ruk_count | plus: 1 %}\n\n          offers: [{\n              type: \"Offer\",\n              priceCurrency: \"{{ cart.currency.iso_code }}\",\n              price: \"{{ ruk_current_variant.price | money_without_currency }}\",\n              itemCondition: \"http://schema.org/NewCondition\",\n              availability: \"http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}\",\n              url: \"{{ shop.url }}{{ ruk_current_variant.url }}\",\n\n              {% if ruk_current_variant.image %}\n                  {% assign variant_image_size = ruk_current_variant.image.width | append: 'x' %}\n                  image: \"https:{{ ruk_current_variant.image.src | image_url: variant_image_size }}\",\n              {% else %}\n                  image: \"https:{{ product.featured_image.src | image_url: 'grande' }}\",\n              {% endif %}\n\n              {% if ruk_current_variant.title != 'Default Title' %}\n                  name: \"{{ product.title | strip_html | escape }} - {{ fa_current_variant.title | escape }}\",\n              {% else %}\n                  name: \"{{ product.title | strip_html | escape }}\",\n              {% endif %}\n\n              {% if ruk_current_variant.barcode.size == 12 %}\n                  gtin12: \"{{ ruk_current_variant.barcode }}\",\n              {% endif %}\n\n              {% if ruk_current_variant.barcode.size == 13 %}\n                  gtin13: \"{{ ruk_current_variant.barcode }}\",\n              {% endif %}\n\n              {% if ruk_current_variant.barcode.size == 14 %}\n                  gtin14: \"{{ ruk_current_variant.barcode }}\",\n              {% endif %}\n\n              {% if ruk_current_variant.sku != blank %}\n                  sku: \"{{ ruk_current_variant.sku }}\",\n              {% else %}\n                  sku: \"{{ ruk_current_variant.id }}\",\n              {% endif %}\n\n              {% if product.description != blank %}\n                  description: \"{{ product.description | strip_html | escape | strip_newlines }}\",\n              {% endif %}\n\n              priceValidUntil: \"{{ 'now' | date: '%s' | plus: 31536000 | date: '%Y-%m-%d' | replace:' ','%20' }}\"\n          }],\n        {% endif %}\n\n        brand: {\n          type: 'Brand',\n          name: '{{ product.vendor | escape }}',\n        },\n      },\n    },\n\n    /* Toggle Options */\n    questions:{\n          hide_if_no_results:false,\n          enable_ask_question:true,\n          show_dates:true,\n          grouping:\"{{ product.variants | map: 'sku' | join: ';' }};{{ product.variants | map: 'id' | join: ';' }}\"\n    },\n\n    //Header settings:\n    header:{\n        enable_summary: true, //Show overall rating & review count\n        enable_ratings: true,\n        enable_attributes: false,\n        enable_image_gallery: false, //Show photo & video gallery\n        enable_percent_recommended: false, //Show what percentage of reviewers recommend it\n        enable_write_review: false, //Show \"Write Review\" button\n        enable_ask_question: false, //Show \"Ask Question\" button\n        enable_sub_header: false, //Show subheader\n        rating_decimal_places: 2,\n        use_write_review_button:  true, //Show \"be the first to leave a review\" text as a button\n        enable_if_no_results:  true, //Show header when there are no results\n        show_review_title_field:  true, //Show review title field in write review form\n    },\n\n    //AI summary settings\n    sentiment:{\n        badge_text: 'Our Customers Say'\n    },\n\n    //Filtering settings:\n    filtering:{\n        enable: false, //Show filtering options\n        enable_text_search: false, //Show search field\n        enable_sorting: false, //Show sorting options (most recent, most popular)\n        enable_product_filter: false, //Show product options filter\n        enable_media_filter: false, //Show reviews with images/video/media options\n        enable_overall_rating_filter: false, //Show overall rating breakdown filter\n        enable_language_filter: false, // Filter by review language\n        enable_language_filter_language_change: false, // Update widget language based on language selected\n        enable_ratings_filters: false, //Show product attributes filter\n        enable_attributes_filters: false, //Show author attributes filter\n        enable_expanded_filters: false, //Show filters as a section instead of dropdown\n    },\n\n    //Review settings:\n    reviews:{\n        enable_avatar: false, //Show author avatar\n        enable_reviewer_name:  true, //Show author name\n        enable_reviewer_address:  true, //Show author location\n        reviewer_address_format: 'city, country', //Author location display format\n        enable_verified_badge: false, //Show \"Verified Customer\" badge\n        enable_subscriber_badge: false, //Show \"Verified Subscriber\" badge\n        review_content_filter: 'undefined', //Filter content\n        enable_reviewer_recommends: false, //Show \"I recommend it\" badge\n        enable_attributes: false, //Show author attributes\n        enable_product_name: false, //Show display product name\n        enable_link_product: false, //Link review to product page\n        enable_review_title: undefined, //Show review title\n        enable_replies: false, //Show review replies\n        enable_images: false, //Show display review photos\n        enable_ratings: false, //Show product attributes (additional ratings)\n        enable_share: false, //Show share buttons\n        enable_helpful_vote: false, //Show \"was this helpful?\" section\n        enable_helpful_display: false, //Show how many times times review upvoted\n        enable_report: false, //Show report button\n        enable_date: false, //Show when review was published\n        date_format: 'undefined', ////Review date format (undefined, 'DD/MM/YYYY', 'MM/DD/YYYY', 'YYYY/MM/DD')\n        date_location: 'undefined', //Review date location (undefined, 'top-right')\n        enable_third_party_source: true, //Show third party source\n        enable_duplicate_reviews: undefined, //Show multiple reviews from the same user\n        combine_title_stars: true, //Combine review title and star rating in a single line\n        show_untranslated: false, //Show untranslated reviews\n\n    },\n},\n//Translation settings\ntranslations: {\n    'Verified Customer': 'Verified Customer'\n},\n//Style settings:\nstyles: {\n    //Base font size is a reference size for all text elements. When base value gets changed, all TextHeading and TexBody elements get proportionally adjusted.\n    '--base-font-size': '16px',\n\n    //Button styles (shared between buttons):\n    '--common-button-font-family': 'inherit',\n    '--common-button-font-size':'16px',\n    '--common-button-font-weight':'500',\n    '--common-button-letter-spacing':'0',\n    '--common-button-text-transform':'none',\n    '--common-button-vertical-padding':'10px',\n    '--common-button-horizontal-padding':'20px',\n    '--common-button-border-width':'2px',\n    '--common-button-border-radius':'0px',\n\n    //Primary button styles:\n    '--primary-button-bg-color': '#0E1311',\n    '--primary-button-border-color': '#0E1311',\n    '--primary-button-text-color': '#ffffff',\n\n    //Secondary button styles:\n    '--secondary-button-bg-color': 'transparent',\n    '--secondary-button-border-color': '#0E1311',\n    '--secondary-button-text-color': '#0E1311',\n\n    //Star styles:\n    '--common-star-color': '#0E1311',\n    '--common-star-disabled-color': 'rgba(0,0,0,0.25)',\n    '--medium-star-size': '22px',\n    '--small-star-size': '19px',\n\n    //Heading styles:\n    '--heading-text-color': '#0E1311',\n    '--heading-text-font-weight': '600',\n    '--heading-text-font-family': 'inherit',\n    '--heading-text-line-height': '1.4',\n    '--heading-text-letter-spacing': '0',\n    '--heading-text-transform': 'none',\n\n    //Body text styles:\n    '--body-text-color': '#0E1311',\n    '--body-text-font-weight': '400',\n    '--body-text-font-family': 'inherit',\n    '--body-text-line-height': '1.4',\n    '--body-text-letter-spacing': '0',\n    '--body-text-transform': 'none',\n\n    //Input field styles:\n    '--inputfield-text-font-family': 'inherit',\n    '--input-text-font-size': '14px',\n    '--inputfield-text-font-weight': '400',\n    '--inputfield-text-color': '#0E1311',\n    '--inputfield-border-color': 'rgba(0,0,0,0.2)',\n    '--inputfield-background-color': 'transparent',\n    '--inputfield-border-width': '1px',\n    '--inputfield-border-radius': '0px',\n\n    '--common-border-color': 'rgba(0,0,0,0.15)',\n    '--common-border-width': '1px',\n    '--common-sidebar-width': '190px',\n\n    //Filters panel styles:\n    '--filters-panel-bg-color': 'transparent',\n    '--filters-panel-font-size': '16px',\n    '--filters-panel-text-color': '16px',\n    '--filters-panel-horizontal-padding': '0',\n    '--filters-panel-vertical-padding': '0',\n\n    //Slider indicator (for attributes) styles:\n    '--slider-indicator-bg-color': 'rgba(0,0,0,0.1)',\n    '--slider-indicator-button-color': '#0E1311',\n    '--slider-indicator-width': '190px',\n\n    //Badge styles:\n    '--badge-icon-color': '#0E1311',\n    '--badge-icon-font-size': 'inherit',\n    '--badge-text-color': '#0E1311',\n    '--badge-text-font-size': 'inherit',\n    '--badge-text-letter-spacing': 'inherit',\n    '--badge-text-transform': 'inherit',\n\n    //Author styles:\n    '--author-font-size': 'inherit',\n    '--author-text-transform': 'none',\n\n    //Author avatar styles:\n    '--avatar-thumbnail-size': '60px',\n    '--avatar-thumbnail-border-radius': '100px',\n    '--avatar-thumbnail-text-color': '#0E1311',\n    '--avatar-thumbnail-bg-color': 'rgba(0,0,0,0.1)',\n\n    //Product photo or review photo styles:\n    '--photo-video-thumbnail-size': '80px',\n    '--photo-video-thumbnail-border-radius': '0px',\n\n    //Media (photo & video) slider styles:\n    '--mediaslider-scroll-button-icon-color': '#0E1311',\n    '--mediaslider-scroll-button-bg-color': 'rgba(255, 255, 255, 0.85)',\n    '--mediaslider-overlay-text-color': '#ffffff',\n    '--mediaslider-overlay-bg-color': 'rgba(0, 0, 0, 0.8))',\n    '--mediaslider-item-size': '110px',\n\n    //Pagination & tabs styles (normal):\n    '--pagination-tab-text-color': '#0E1311',\n    '--pagination-tab-text-transform': 'none',\n    '--pagination-tab-text-letter-spacing': '0',\n    '--pagination-tab-text-font-size': '16px',\n    '--pagination-tab-text-font-weight': '600',\n\n    //Pagination & tabs styles (active):\n    '--pagination-tab-active-text-color': '#0E1311',\n    '--pagination-tab-active-text-font-weight': '600',\n    '--pagination-tab-active-border-color': '#0E1311',\n    '--pagination-tab-border-width': '3px',\n\n    //AI summary styles\n    '--sentiment-base-font-size': '15px',\n    '--sentiment-panel-bg-color': 'transparent',\n    '--sentiment-panel-border-size': '1px',\n    '--sentiment-panel-border-color': 'rgba(0, 0, 0, 0.1)',\n    '--sentiment-panel-border-radius': '0px',\n    '--sentiment-panel-shadow-size': '0px',\n    '--sentiment-panel-shadow-color': 'rgba(0, 0, 0, 0.1)',\n    '--sentiment-heading-text-color': '#0E1311',\n    '--sentiment-heading-text-font-weight': '600',\n    '--sentiment-heading-text-font-family': 'inherit',\n    '--sentiment-heading-text-line-height': '1.4',\n    '--sentiment-heading-text-letter-spacing': '0',\n    '--sentiment-heading-text-transform': 'none',\n    '--sentiment-body-text-color': '#0E1311',\n    '--sentiment-body-text-font-weight': '400',\n    '--sentiment-body-text-font-family': 'inherit',\n    '--sentiment-body-text-line-height': '1.4',\n    '--sentiment-body-text-letter-spacing': '0',\n    '--sentiment-body-text-transform': 'none',\n    '--sentiment-panel-vertical-padding': '25px',\n    '--sentiment-panel-horizontal-padding': '20px',\n    '--sentiment-header-text-color': 'inherit',\n    '--sentiment-header-text-font-size': '12px',\n    '--sentiment-header-text-font-weight': 'inherit',\n    '--sentiment-header-bg-color': 'rgba(0, 0, 0, 0.04)',\n    '--sentiment-header-border-radius': '50px',\n    '--sentiment-header-shadow-size': '0px',\n    '--sentiment-header-shadow-color': 'rgba(0, 0, 0, 0.1)',\n    '--sentiment-header-vertical-padding': '7px',\n    '--sentiment-header-horizontal-padding': '10px',\n    '--sentiment-pagination-tab-text-font-size': '13px',\n    '--sentiment-pagination-tab-text-font-weight': '600',\n    '--sentiment-pagination-tab-text-color': '#0E1311',\n    '--sentiment-pagination-tab-text-transform': 'none',\n    '--sentiment-pagination-tab-text-letter-spacing': '0',\n    '--sentiment-pagination-tab-active-text-color': '#0E1311',\n    '--sentiment-pagination-tab-active-text-font-weight': '600',\n    '--sentiment-pagination-tab-active-border-color': '#0E1311',\n    '--sentiment-pagination-tab-border-width': '3px',\n},\n});\n</script>",
+        "show_button": false,
+        "button_label": "Load more reviews",
+        "button_link": "#",
+        "button_style": "gradient-secondary"
+      }
+    },
+    "lp_faq": {
+      "type": "muto-lp-faq",
+      "settings": {
+        "heading": "You’ve got questions?\nWe’ve got answers.",
+        "open_first": true,
+        "schema_on": true
+      },
+      "blocks": {
+        "q1": {
+          "type": "q",
+          "settings": {
+            "q": "What does MUTO replace?",
+            "a": "<p>For many customers, several separate pots: NR, CoQ10, PQQ, B vitamins, vitamin D3, K2, zinc and resveratrol are all in here, at the doses shown. Never stop anything you take for a medical reason, and check with your GP if you take medicine.</p>"
+          }
+        },
+        "q2": {
+          "type": "q",
+          "settings": {
+            "q": "What’s actually in it?",
+            "a": "<p>19 ingredients, every dose on the label: 300mg NR (the most allowed in Great Britain), a full B complex, vitamin D3 and K2, zinc, copper, CoQ10, PQQ, TMG, grapeseed, trans-resveratrol and BioPerine®. Ask your AI, your GP, or Richie, who answers formula questions himself.</p>"
+          }
+        },
+        "q3": {
+          "type": "q",
+          "settings": {
+            "q": "Is it worth the money?",
+            "a": "<p>Bought separately at similar doses, the main ingredients cost about £5.25 a day at UK retail. MUTO is £2 a day on subscription, and you have 90 days to decide.</p>"
+          }
+        },
+        "q4": {
+          "type": "q",
+          "settings": {
+            "q": "Who is Richie Barclay?",
+            "a": "<p>MUTO’s founder: a PhD cell biologist and former cricketer. He isn’t a medical doctor; our Scientific Advisory Board includes doctors and scientists who review the formula.</p>"
+          }
+        },
+        "q5": {
+          "type": "q",
+          "settings": {
+            "q": "Is it safe with what I already take?",
+            "a": "<p>Usually, yes. If you take medicine, check with your GP first, and don’t stop anything you take for a medical reason.</p>"
+          }
+        },
+        "q6": {
+          "type": "q",
+          "settings": {
+            "q": "Will it work for me?",
+            "a": "<p>We won’t promise what it’ll do for you. Note your starting point, give it 90 days, and judge it yourself. If you don’t see a difference, you’re covered.</p>"
+          }
+        },
+        "q7": {
+          "type": "q",
+          "settings": {
+            "q": "Am I locked into a subscription?",
+            "a": "<p>No. Skip, pause or cancel online, any time. We remind you 5 days before every payment.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7"
+      ]
+    },
+    "offer2": {
+      "type": "muto-lp-offer",
+      "settings": {
+        "image": "",
+        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/new_garmin.png?v=1791890671",
+        "image_alt": "Everything in your first MUTO order: NAD+ Cellular Complex and Forever Jar, Ultrapure Creatine, socks, the 12-Week Protocol Guide and entry to win a Garmin watch",
+        "heading": "One protocol. 90 days. Your call.",
+        "product_name": "NAD+ Cellular Complex and Forever Jar (30 days)",
+        "product_price": "£60",
+        "product_sub": "£2 a day on subscription. Usually £70.",
+        "includes_label": "First order includes:",
+        "future_label": "Then, free with future orders:",
+        "total_was": "£122",
+        "total_now": "£60",
+        "cta_label": "Start your 90 days",
+        "cta_link": "/products/muto-nad-cellular-complex",
+        "ticks": "Free next-day delivery\nSkip, pause or cancel online\n90-day money-back guarantee"
+      },
+      "blocks": {
+        "i1": {
+          "type": "item",
+          "settings": {
+            "name": "Ultrapure Creatine",
+            "desc": "Micronised creatine monohydrate, every batch tested",
+            "was": "£30",
+            "now": "free"
+          }
+        },
+        "i2": {
+          "type": "item",
+          "settings": {
+            "name": "Performance Socks",
+            "desc": "Size UK 6–11",
+            "was": "£12",
+            "now": "free"
+          }
+        },
+        "i3": {
+          "type": "item",
+          "settings": {
+            "name": "12-Week Protocol Guide",
+            "desc": "How to run your 90 days and check it yourself",
+            "was": "£10",
+            "now": "free"
+          }
+        },
+        "i4": {
+          "type": "item",
+          "settings": {
+            "name": "Garmin watch prize draw",
+            "desc": "Entry into our quarterly draw",
+            "was": "",
+            "now": "included"
+          }
+        },
+        "fg_mg2": {
+          "type": "future",
+          "settings": {
+            "image": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-bottle.jpg?v=1791022787",
+            "image_alt": "The MUTO Performance Bottle, free with order 2",
+            "when": "Order 2",
+            "name": "Bottle",
+            "value": "£15"
+          }
+        },
+        "fg_mg3": {
+          "type": "future",
+          "settings": {
+            "image": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-socks.jpg?v=1791023071",
+            "image_alt": "A pouch of MUTO Performance Socks, free with order 3",
+            "when": "Order 3",
+            "name": "Performance Socks",
+            "value": "£12"
+          }
+        },
+        "fg_mg4a": {
+          "type": "future",
+          "settings": {
+            "image": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
+            "image_alt": "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate, free with order 4",
+            "when": "Order 4",
+            "name": "Creatine",
+            "value": "£30"
+          }
+        },
+        "fg_mg4b": {
+          "type": "future",
+          "settings": {
+            "image": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-gift-credit-v2.jpg?v=1791392560",
+            "image_alt": "A black MUTO gift card for £10 store credit",
+            "when": "Order 4",
+            "name": "Store credit",
+            "value": "£10"
+          }
+        },
+        "fg_mg6a": {
+          "type": "future",
+          "settings": {
+            "image": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
+            "image_alt": "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate, free with order 6",
+            "when": "Order 6",
+            "name": "Creatine",
+            "value": "£30"
+          }
+        },
+        "fg_mg6b": {
+          "type": "future",
+          "settings": {
+            "image": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-gift-consultation-v2.jpg?v=1791392559",
+            "image_alt": "A silver MUTO gift card for a one-to-one consultation",
+            "when": "Order 6",
+            "name": "Consultation",
+            "value": "£120"
+          }
+        }
+      },
+      "block_order": [
+        "i1",
+        "i2",
+        "i3",
+        "i4",
+        "fg_mg2",
+        "fg_mg3",
+        "fg_mg4a",
+        "fg_mg4b",
+        "fg_mg6a",
+        "fg_mg6b"
+      ]
+    },
+    "art_hero": {
+      "type": "muto-lp-article-hero",
+      "blocks": {
+        "b1": {
+          "type": "stat",
+          "settings": {
+            "figure": "4.83★",
+            "label": "150+ reviews"
+          }
+        },
+        "b2": {
+          "type": "stat",
+          "settings": {
+            "figure": "19",
+            "label": "Doses on the label"
+          }
+        },
+        "b3": {
+          "type": "stat",
+          "settings": {
+            "figure": "90",
+            "label": "Days to decide"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ],
+      "settings": {
+        "announcement": "Taking five or more supplements and still can’t tell if any of them work? Here’s why.",
+        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-founder.jpg?v=1790751995",
+        "image_alt": "Richie Barclay, PhD cell biologist and MUTO founder, holding a jar of NAD+ Cellular Complex",
+        "image_position": "50% 22%",
+        "kicker": "For active 40–60s",
+        "heading": "7 reasons your supplement stack isn’t adding up, and the one protocol built to replace it.",
+        "sub": "For anyone taking five or more supplements who still can’t say which one is doing anything.",
+        "cta_label": "Start your 90 days",
+        "cta_link": "/products/muto-nad-cellular-complex",
+        "jump_label": "See the 7 reasons",
+        "jump_target": "#reasons",
+        "author_image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-founder.jpg?v=1790751995",
+        "author_label": "Written by",
+        "author_name": "Richie Barclay, PhD",
+        "author_title": "Cell biologist and founder, MUTO"
+      }
+    },
+    "review_cards": {
+      "type": "muto-lp-review-cards",
+      "blocks": {
+        "b1": {
+          "type": "review",
+          "settings": {
+            "topic": "Replacing several pots",
+            "quote": "“I love that this replaces multiple products”",
+            "name": "Amy C"
+          }
+        },
+        "b2": {
+          "type": "review",
+          "settings": {
+            "topic": "Afternoons",
+            "quote": "“No afternoon slump and in general feeling great”",
+            "name": "Lynda"
+          }
+        },
+        "b3": {
+          "type": "review",
+          "settings": {
+            "topic": "A scientist who picks up the phone",
+            "quote": "“Richie from the team gave me a call just to chat about my background and goals”",
+            "name": "Mathew H"
+          }
+        },
+        "b4": {
+          "type": "review",
+          "settings": {
+            "topic": "Feeling like yourself",
+            "quote": "“I didn't realise how flat I'd been feeling until this helped lift me out of it”",
+            "name": "Holly P"
+          }
+        },
+        "b5": {
+          "type": "review",
+          "settings": {
+            "topic": "Recovery",
+            "quote": "“Has actually changed my recovery”",
+            "name": "Adam H"
+          }
+        },
+        "b6": {
+          "type": "review",
+          "settings": {
+            "topic": "Marathon training",
+            "quote": "“I started taking Muto for my Boston Marathon training hoping to have better recovery; and it did not disappoint”",
+            "name": "Rebeca"
+          }
+        },
+        "b7": {
+          "type": "review",
+          "settings": {
+            "topic": "Focus",
+            "quote": "“More focused during the day”",
+            "name": "Alexandra"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "b7"
+      ],
+      "settings": {
+        "label": "What customers say about MUTO",
+        "foot": "Customer reviews, in their own words. Individual experiences; results vary."
+      }
+    },
+    "intro": {
+      "type": "muto-lp-article",
+      "settings": {
+        "body": "<p>You read the labels and listened to the podcasts. You ended up with the names that keep coming up: NR, CoQ10, vitamin D3 with K2, a B complex, maybe zinc and resveratrol. <strong>You’ve been consistent for months.</strong> And you still can’t point at one pot and say “this is the one that’s working.”</p><p>That isn’t a discipline problem. It’s a design problem: doses you can’t see, ingredients sold one at a time, and no way to check any of it.</p><p>Here are seven reasons a cupboard of pots does less than it should, and why one daily protocol, two capsules with breakfast, can replace a good part of it.</p>",
+        "band_main": "Rated 4.83 from 150+ reviews",
+        "band_sub": "Made in the UK · Every batch third-party tested · 90 days to decide"
+      }
+    },
+    "reasons": {
+      "type": "muto-lp-reasons",
+      "blocks": {
+        "b1": {
+          "type": "reason",
+          "settings": {
+            "title": "You’ve been taking it for months. You still can’t tell what’s working. Here’s why.",
+            "body": "<p>A pot can list an ingredient without giving you a meaningful amount of it, and an all-in-one can list thirty ingredients at amounts too small to matter. The label has the name. You get a trace.</p><p>To take MUTO’s doses as separate products you’d need eleven pots on the kitchen side, every day. Nobody keeps that up for long, so the routine drifts, and then you blame yourself.</p><p><strong>You’re not inconsistent. The routine was never built to be checked.</strong></p>",
+            "answer": "<p>Every dose is on the label: <strong>300mg NR</strong> (the most allowed in Great Britain), <strong>150mg CoQ10</strong>, 20mg PQQ, 50mg trans-resveratrol, 450mg TMG and 150mg grapeseed extract, with a full B complex, vitamin D3 and K2, zinc, copper and BioPerine®. Two capsules with breakfast.</p>",
+            "answer_label": "The MUTO way"
+          }
+        },
+        "b2": {
+          "type": "reason",
+          "settings": {
+            "title": "Your body doesn’t use nutrients one at a time.",
+            "body": "<p>Vitamin D3 and K2 belong together: both contribute to the maintenance of normal bones. The B vitamins work as a group: thiamin, riboflavin, niacin, B6 and B12 contribute to normal energy-yielding metabolism. Zinc and copper are balanced against each other.</p><p>Seven pots from seven brands were never designed to sit together. Nobody checked how they fit.</p>",
+            "answer": "<p>MUTO was built as one formula: NR alongside TMG, D3 alongside K2, a full B complex, and BioPerine® in the same two capsules. One design, one label, chosen by a PhD cell biologist.</p>",
+            "answer_label": "The MUTO way"
+          }
+        },
+        "b3": {
+          "type": "reason",
+          "settings": {
+            "title": "Proprietary blends hide the dose.",
+            "body": "<p>If a label says “performance blend, 800mg”, you can’t tell whether the ingredient you bought it for is 400mg or 4mg. You can’t check it, and neither can your GP or your AI.</p><p><strong>If you can’t read the dose, you can’t judge the product.</strong></p>",
+            "answer": "<p>No blends. All 19 ingredients and their doses are on the label. Paste it into your AI and ask what it thinks, or ask Richie: he answers formula questions himself.</p>",
+            "answer_label": "The MUTO way"
+          }
+        },
+        "b4": {
+          "type": "cta",
+          "settings": {
+            "text": "Two capsules. Every dose on the label. 90 days to decide.",
+            "label": "Start your 90 days",
+            "link": "/products/muto-nad-cellular-complex"
+          }
+        },
+        "b5": {
+          "type": "reason",
+          "settings": {
+            "title": "You never took a starting point.",
+            "body": "<p>Without a baseline there’s no verdict, just a feeling on a good week or a bad one. Most people start a new supplement on a Monday and judge it on a Thursday.</p><p>Single days are noise. Months are signal.</p>",
+            "answer": "<p>Before your first capsule, rate how you feel at 3pm out of 10. If you wear a watch, note seven days of HRV, resting heart rate and sleep. Then compare at day 30 and day 90. Your numbers, your call.</p>",
+            "answer_label": "The MUTO way"
+          }
+        },
+        "b6": {
+          "type": "reason",
+          "settings": {
+            "title": "You changed five things at once.",
+            "body": "<p>New pot, new training plan, earlier nights, less wine. When something improves, you can’t say what did it, so you keep paying for all of it.</p>",
+            "answer": "<p>One protocol in place of several pots means one clean change you can actually judge.</p>",
+            "answer_label": "The MUTO way"
+          }
+        },
+        "b7": {
+          "type": "reason",
+          "settings": {
+            "title": "It costs more than you think.",
+            "body": "<p>Bought separately at similar doses, MUTO’s main ingredients cost about <strong>£5.25 a day</strong> at UK retail: around £158 a month, across eleven pots and eleven reorders.</p>",
+            "answer": "<p><strong>£2 a day</strong> on subscription. One jar, one delivery, and you can skip, pause or cancel online any time.</p>",
+            "answer_label": "The MUTO way"
+          }
+        },
+        "b8": {
+          "type": "cta",
+          "settings": {
+            "text": "£5.25 a day bought separately. £2 a day in two capsules.",
+            "label": "Start your 90 days",
+            "link": "/products/muto-nad-cellular-complex"
+          }
+        },
+        "b9": {
+          "type": "reason",
+          "settings": {
+            "title": "Nobody stands behind it.",
+            "body": "<p>Most supplement guarantees run 30 days, too short to judge anything. And when you have a question, there’s rarely a scientist on the other end.</p>",
+            "answer": "<p><strong>90 days to decide.</strong> If you don’t see a difference, you’re covered on subscription. MUTO is built by Richie Barclay, a PhD cell biologist, and checked by our Scientific Advisory Board, and it’s being studied with four UK universities.</p>",
+            "answer_label": "The MUTO way"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "b7",
+        "b8",
+        "b9"
+      ],
+      "settings": {
+        "anchor": "reasons"
+      }
+    }
+  },
+  "order": [
+    "art_hero",
+    "review_cards",
+    "intro",
+    "reasons",
+    "offer",
+    "reviews",
+    "lp_faq",
+    "offer2",
+    "bar"
+  ]
+}

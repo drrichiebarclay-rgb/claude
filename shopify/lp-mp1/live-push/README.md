@@ -1,7 +1,7 @@
 # MUTO landing pages: files for the live theme
 
-20 files. Copy them into the live theme (Clone Of Live | Buy Box Redesign [31-08], ID 200736047451),
-sections and the stylesheet first, then the 8 templates.
+25 files. Copy them into the live theme (Clone Of Live | Buy Box Redesign [31-08], ID 200736047451),
+sections and the stylesheet first, then the 9 templates.
 
 Pages already created in Shopify (published, hidden from search), each set to its template:
 
@@ -11,12 +11,13 @@ Pages already created in Shopify (published, hidden from search), each set to it
 | /pages/sharp-all-day | page.lp-mp2 | MP2 Afternoon Fader |
 | /pages/one-protocol | page.lp-mp3 | MP3 Stack Doubter |
 | /pages/take-your-baseline | page.lp-mp4 | MP4 Stuck Scorekeeper, 40-60 |
+| /pages/why-your-stack-isnt-adding-up | page.lp-stack | Broad persona, "7 reasons" advertorial |
 | /pages/live-better-for-longer | page.lp-mp5 | MP5 Wake-Up Call |
 | /pages/full-output | page.lp-hp-energy | High performer 30-40: energy |
 | /pages/ready-for-the-next-session | page.lp-hp-recovery | High performer 30-40: recovery |
 | /pages/one-recovery-budget | page.lp-hp-stress | High performer 30-40: stress |
 
-MP1, MP2, MP3 and MP5 buttons link to /products/muto-nad-cellular-complex-2; MP4 and the three high-performer pages link to /products/muto-nad-cellular-complex.
+MP1, MP2, MP3 and MP5 buttons link to /products/muto-nad-cellular-complex-2; MP4, the advertorial and the three high-performer pages link to /products/muto-nad-cellular-complex.
 
 ## Option A: Shopify CLI (one command, from this folder)
 
@@ -26,9 +27,9 @@ MP1, MP2, MP3 and MP5 buttons link to /products/muto-nad-cellular-complex-2; MP4
 ## Option B: Shopify admin
 
 Online Store → Themes → live theme → … → Edit code.
-1. Sections → Add a new section, for each muto-lp-*.liquid (11 files), paste the contents, save.
+1. Sections → Add a new section, for each muto-lp-*.liquid (15 files), paste the contents, save.
 2. Assets → Add a new asset → muto-lp.css, paste, save.
-3. Templates → Add a new template → page → name lp-mp1 (then lp-mp2, lp-mp3, lp-mp4, lp-mp5, lp-hp-energy, lp-hp-recovery, lp-hp-stress), paste the JSON, save.
+3. Templates → Add a new template → page → name lp-mp1 (then lp-mp2, lp-mp3, lp-mp4, lp-mp5, lp-hp-energy, lp-hp-recovery, lp-hp-stress, lp-stack), paste the JSON, save.
 
 The three high-performer pages also use `muto-home-results` (the customer videos), which is already on the live theme; nothing to copy for it.
 

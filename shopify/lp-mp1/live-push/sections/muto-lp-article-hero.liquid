@@ -1,0 +1,95 @@
+{%- comment -%}
+  MUTO landing page — advertorial hero. Announcement line, a square portrait,
+  the article headline, a one-line subhead, the button, a jump link to the
+  reasons, a row of proof figures and an author pill. Dark band in brand ink.
+{%- endcomment -%}
+{{ 'muto-lp.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign s = section.settings
+  if s.image != blank
+    assign img_src = s.image | image_url: width: 900
+  else
+    assign img_src = s.image_fallback
+  endif
+  if s.author_image != blank
+    assign au_src = s.author_image | image_url: width: 160
+  else
+    assign au_src = s.author_image_fallback
+  endif
+  assign stats = section.blocks | where: 'type', 'stat'
+-%}
+<div class="mlp">
+  {%- if s.announcement != blank -%}<p class="mlp-ah__bar">{{ s.announcement }}</p>{%- endif -%}
+  <section class="mlp-ah" aria-labelledby="mlp-ah-{{ section.id }}">
+    <div class="mlp-ah__in">
+      {%- if img_src != blank -%}
+        <div class="mlp-ah__img"><img src="{{ img_src }}" alt="{{ s.image_alt | escape }}" width="900" height="900" loading="eager" fetchpriority="high"{% if s.image_position != blank %} style="object-position:{{ s.image_position }}"{% endif %}></div>
+      {%- endif -%}
+      <div class="mlp-ah__copy">
+        {%- if s.kicker != blank -%}<p class="mlp-ah__kicker">{{ s.kicker }}</p>{%- endif -%}
+        <h1 class="mlp-ah__h1" id="mlp-ah-{{ section.id }}">{{ s.heading | escape | newline_to_br }}</h1>
+        {%- if s.sub != blank -%}<p class="mlp-ah__sub">{{ s.sub }}</p>{%- endif -%}
+        {%- if s.cta_label != blank -%}<a class="mlp__btn mlp__btn--cyan mlp__btn--arrow mlp-ah__btn" href="{{ s.cta_link | default: routes.all_products_collection_url }}">{{ s.cta_label }}</a>{%- endif -%}
+        {%- if s.jump_label != blank -%}<a class="mlp-ah__jump" href="{{ s.jump_target | default: '#reasons' }}">{{ s.jump_label }} <span aria-hidden="true">↓</span></a>{%- endif -%}
+        {%- if stats.size > 0 -%}
+          <ul class="mlp-ah__stats">
+            {%- for block in stats -%}<li {{ block.shopify_attributes }}><strong>{{ block.settings.figure }}</strong><span>{{ block.settings.label }}</span></li>{%- endfor -%}
+          </ul>
+        {%- endif -%}
+        {%- if s.author_name != blank -%}
+          <p class="mlp-ah__author">
+            {%- if au_src != blank -%}<img src="{{ au_src }}" alt="" width="80" height="80" loading="eager">{%- endif -%}
+            <span><small>{{ s.author_label | default: 'Written by' }}</small>{{ s.author_name }}</span>
+          </p>
+        {%- endif -%}
+      </div>
+    </div>
+  </section>
+</div>
+{%- if s.author_name != blank -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ s.heading | strip_newlines | json }},
+  "description": {{ s.sub | strip_html | json }},
+  "author": { "@type": "Person", "name": {{ s.author_name | json }}{% if s.author_title != blank %}, "jobTitle": {{ s.author_title | json }}{% endif %} },
+  "publisher": { "@type": "Organization", "name": {{ shop.name | json }}, "url": {{ shop.url | json }} },
+  "mainEntityOfPage": {{ shop.url | append: request.path | json }}
+}
+</script>
+{%- endif -%}
+{% schema %}
+{
+  "name": "MUTO LP — Article hero",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "announcement", "label": "Announcement line" },
+    { "type": "image_picker", "id": "image", "label": "Photo" },
+    { "type": "text", "id": "image_fallback", "label": "Photo URL (if no photo picked)" },
+    { "type": "text", "id": "image_alt", "label": "Photo description" },
+    { "type": "text", "id": "image_position", "label": "Photo focus (object-position)" },
+    { "type": "text", "id": "kicker", "label": "Small line above headline" },
+    { "type": "textarea", "id": "heading", "label": "Headline" },
+    { "type": "textarea", "id": "sub", "label": "Subhead" },
+    { "type": "text", "id": "cta_label", "label": "Button" },
+    { "type": "url", "id": "cta_link", "label": "Button link" },
+    { "type": "text", "id": "jump_label", "label": "Jump link label" },
+    { "type": "text", "id": "jump_target", "label": "Jump link target", "default": "#reasons" },
+    { "type": "image_picker", "id": "author_image", "label": "Author photo" },
+    { "type": "text", "id": "author_image_fallback", "label": "Author photo URL" },
+    { "type": "text", "id": "author_label", "label": "Author label", "default": "Written by" },
+    { "type": "text", "id": "author_name", "label": "Author name" },
+    { "type": "text", "id": "author_title", "label": "Author job title (structured data)" }
+  ],
+  "blocks": [
+    { "type": "stat", "name": "Figure", "settings": [
+      { "type": "text", "id": "figure", "label": "Figure" },
+      { "type": "text", "id": "label", "label": "Label" }
+    ] }
+  ],
+  "max_blocks": 4,
+  "presets": [{ "name": "MUTO LP — Article hero" }],
+  "enabled_on": { "templates": ["page", "index", "product"] }
+}
+{% endschema %}
