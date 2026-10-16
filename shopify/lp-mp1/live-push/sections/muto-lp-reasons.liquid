@@ -1,7 +1,8 @@
 {%- comment -%}
   MUTO landing page — numbered reasons for an advertorial. Each reason has a
   number badge, a title, rich-text body and an optional MUTO answer panel and
-  photo; "cta" blocks drop a button between reasons. Numbering is automatic.
+  photo. Dose grid, featured review, big figure, callout and button blocks sit
+  between reasons as their own cards. Numbering is automatic.
 {%- endcomment -%}
 {{ 'muto-lp.css' | asset_url | stylesheet_tag }}
 <div class="mlp">
@@ -25,6 +26,50 @@
             {%- if block.settings.answer != blank -%}
               <div class="mlp-rs__answer"><p class="mlp-rs__answer-label">{{ block.settings.answer_label | default: 'The MUTO way' }}</p>{{ block.settings.answer }}</div>
             {%- endif -%}
+          </li>
+        {%- elsif block.type == 'doses' -%}
+          {%- assign rows = block.settings.items | newline_to_br | split: '<br />' -%}
+          <li class="mlp-rs__item mlp-rs__item--doses" {{ block.shopify_attributes }}>
+            <div class="mlp-rs__doses">
+              <p class="mlp-rs__doses-fig">{{ block.settings.figure }}</p>
+              <p class="mlp-rs__doses-label">{{ block.settings.label }}</p>
+              {%- if block.settings.sub != blank -%}<p class="mlp-rs__doses-sub">{{ block.settings.sub }}</p>{%- endif -%}
+              <ul class="mlp-rs__doses-grid">
+                {%- for r in rows -%}
+                  {%- assign parts = r | split: '|' -%}
+                  {%- assign nm = parts[0] | strip -%}
+                  {%- if nm != blank -%}<li><strong>{{ nm }}</strong><span>{{ parts[1] | strip }}</span></li>{%- endif -%}
+                {%- endfor -%}
+              </ul>
+              {%- if block.settings.foot != blank -%}<p class="mlp-rs__doses-foot">{{ block.settings.foot }}</p>{%- endif -%}
+            </div>
+          </li>
+        {%- elsif block.type == 'review' -%}
+          <li class="mlp-rs__item" {{ block.shopify_attributes }}>
+            {%- if block.settings.lead != blank -%}<div class="mlp-rs__body mlp-rs__body--lead">{{ block.settings.lead }}</div>{%- endif -%}
+            <figure class="mlp-rs__review">
+              <p class="mlp-rs__review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <blockquote>{{ block.settings.quote }}</blockquote>
+              {%- if block.settings.name != blank -%}<figcaption>{{ block.settings.name }}</figcaption>{%- endif -%}
+            </figure>
+            {%- if block.settings.cta_label != blank -%}<p class="mlp-rs__review-cta"><a class="mlp__btn mlp__btn--arrow" href="{{ block.settings.cta_link | default: routes.all_products_collection_url }}">{{ block.settings.cta_label }}</a></p>{%- endif -%}
+          </li>
+        {%- elsif block.type == 'stat' -%}
+          <li class="mlp-rs__item mlp-rs__item--flat" {{ block.shopify_attributes }}>
+            <div class="mlp-rs__stat"><p class="mlp-rs__stat-fig">{{ block.settings.figure }}</p><p class="mlp-rs__stat-text">{{ block.settings.text }}</p></div>
+            {%- if block.settings.source != blank -%}<p class="mlp-rs__source">{{ block.settings.source }}</p>{%- endif -%}
+          </li>
+        {%- elsif block.type == 'callout' -%}
+          {%- liquid
+            if block.settings.image != blank
+              assign c_src = block.settings.image | image_url: width: 1200
+            else
+              assign c_src = block.settings.image_fallback
+            endif
+          -%}
+          <li class="mlp-rs__item" {{ block.shopify_attributes }}>
+            <div class="mlp-rs__callout">{{ block.settings.text }}</div>
+            {%- if c_src != blank -%}<div class="mlp-rs__img mlp-rs__img--product"><img src="{{ c_src }}" alt="{{ block.settings.image_alt | escape }}" width="1200" height="800" loading="lazy"></div>{%- endif -%}
           </li>
         {%- else -%}
           <li class="mlp-rs__cta" {{ block.shopify_attributes }}>
@@ -54,13 +99,38 @@
       { "type": "text", "id": "answer_label", "label": "Answer panel label", "default": "The MUTO way" },
       { "type": "richtext", "id": "answer", "label": "Answer panel" }
     ] },
+    { "type": "doses", "name": "Dose grid", "settings": [
+      { "type": "text", "id": "figure", "label": "Big figure" },
+      { "type": "text", "id": "label", "label": "Label" },
+      { "type": "text", "id": "sub", "label": "Small line" },
+      { "type": "textarea", "id": "items", "label": "Ingredients (one per line: Name | dose)" },
+      { "type": "text", "id": "foot", "label": "Line under grid" }
+    ] },
+    { "type": "review", "name": "Featured review", "settings": [
+      { "type": "richtext", "id": "lead", "label": "Text above (optional)" },
+      { "type": "textarea", "id": "quote", "label": "Customer quote (real words only)" },
+      { "type": "text", "id": "name", "label": "Customer name" },
+      { "type": "text", "id": "cta_label", "label": "Button (optional)" },
+      { "type": "url", "id": "cta_link", "label": "Button link" }
+    ] },
+    { "type": "stat", "name": "Big figure", "settings": [
+      { "type": "text", "id": "figure", "label": "Figure" },
+      { "type": "textarea", "id": "text", "label": "Text" },
+      { "type": "text", "id": "source", "label": "Source line" }
+    ] },
+    { "type": "callout", "name": "Callout", "settings": [
+      { "type": "richtext", "id": "text", "label": "Text" },
+      { "type": "image_picker", "id": "image", "label": "Photo (optional)" },
+      { "type": "text", "id": "image_fallback", "label": "Photo URL" },
+      { "type": "text", "id": "image_alt", "label": "Photo description" }
+    ] },
     { "type": "cta", "name": "Button", "settings": [
       { "type": "text", "id": "text", "label": "Line above button" },
       { "type": "text", "id": "label", "label": "Button" },
       { "type": "url", "id": "link", "label": "Button link" }
     ] }
   ],
-  "max_blocks": 12,
+  "max_blocks": 20,
   "presets": [{ "name": "MUTO LP — Reasons" }],
   "enabled_on": { "templates": ["page", "index", "product"] }
 }

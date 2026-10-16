@@ -65,41 +65,60 @@ S["intro"] = {"type": "muto-lp-article", "settings": {
     "band_sub": "Made in the UK · Every batch third-party tested · 90 days to decide"}}
 
 # ---------------------------------------------------------------- the 7 reasons
-R = [
-    ("You’ve been taking it for months. You still can’t tell what’s working. Here’s why.",
-     "<p>A pot can list an ingredient without giving you a meaningful amount of it, and an all-in-one can list thirty ingredients at amounts too small to matter. The label has the name. You get a trace.</p>"
-     "<p>To take MUTO’s doses as separate products you’d need eleven pots on the kitchen side, every day. Nobody keeps that up for long, so the routine drifts, and then you blame yourself.</p>"
-     "<p><strong>You’re not inconsistent. The routine was never built to be checked.</strong></p>",
-     "<p>Every dose is on the label: <strong>300mg NR</strong> (the most allowed in Great Britain), <strong>150mg CoQ10</strong>, 20mg PQQ, 50mg trans-resveratrol, 450mg TMG and 150mg grapeseed extract, with a full B complex, vitamin D3 and K2, zinc, copper and BioPerine®. Two capsules with breakfast.</p>"),
-    ("Your body doesn’t use nutrients one at a time.",
-     "<p>Vitamin D3 and K2 belong together: both contribute to the maintenance of normal bones. The B vitamins work as a group: thiamin, riboflavin, niacin, B6 and B12 contribute to normal energy-yielding metabolism. Zinc and copper are balanced against each other.</p>"
-     "<p>Seven pots from seven brands were never designed to sit together. Nobody checked how they fit.</p>",
-     "<p>MUTO was built as one formula: NR alongside TMG, D3 alongside K2, a full B complex, and BioPerine® in the same two capsules. One design, one label, chosen by a PhD cell biologist.</p>"),
-    ("Proprietary blends hide the dose.",
-     "<p>If a label says “performance blend, 800mg”, you can’t tell whether the ingredient you bought it for is 400mg or 4mg. You can’t check it, and neither can your GP or your AI.</p>"
-     "<p><strong>If you can’t read the dose, you can’t judge the product.</strong></p>",
-     "<p>No blends. All 19 ingredients and their doses are on the label. Paste it into your AI and ask what it thinks, or ask Richie: he answers formula questions himself.</p>"),
-    ("You never took a starting point.",
-     "<p>Without a baseline there’s no verdict, just a feeling on a good week or a bad one. Most people start a new supplement on a Monday and judge it on a Thursday.</p>"
-     "<p>Single days are noise. Months are signal.</p>",
-     "<p>Before your first capsule, rate how you feel at 3pm out of 10. If you wear a watch, note seven days of HRV, resting heart rate and sleep. Then compare at day 30 and day 90. Your numbers, your call.</p>"),
-    ("You changed five things at once.",
-     "<p>New pot, new training plan, earlier nights, less wine. When something improves, you can’t say what did it, so you keep paying for all of it.</p>",
-     "<p>One protocol in place of several pots means one clean change you can actually judge.</p>"),
-    ("It costs more than you think.",
-     "<p>Bought separately at similar doses, MUTO’s main ingredients cost about <strong>£5.25 a day</strong> at UK retail: around £158 a month, across eleven pots and eleven reorders.</p>",
-     "<p><strong>£2 a day</strong> on subscription. One jar, one delivery, and you can skip, pause or cancel online any time.</p>"),
-    ("Nobody stands behind it.",
-     "<p>Most supplement guarantees run 30 days, too short to judge anything. And when you have a question, there’s rarely a scientist on the other end.</p>",
-     "<p><strong>90 days to decide.</strong> If you don’t see a difference, you’re covered on subscription. MUTO is built by Richie Barclay, a PhD cell biologist, and checked by our Scientific Advisory Board, and it’s being studied with four UK universities.</p>"),
+PRODUCT = CDN + "nad-gallery-1.jpg?v=1790879783"
+
+
+def reason(title, body, answer=""):
+    return {"type": "reason", "settings": {"title": title, "body": body, "answer": answer, "answer_label": "The MUTO way"}}
+
+
+items = [
+    reason("You’ve been taking it for months. You still can’t tell what’s working. Here’s why.",
+           "<p>A pot can list an ingredient without giving you a meaningful amount of it, and an all-in-one can list thirty ingredients at amounts too small to matter. The label has the name. You get a trace.</p>"
+           "<p>To take MUTO’s doses as separate products you’d need eleven pots on the kitchen side, every day. Nobody keeps that up for long, so the routine drifts, and then you blame yourself.</p>"
+           "<p><strong>You’re not inconsistent. The routine was never built to be checked.</strong></p>",
+           "<p>MUTO runs <strong>300mg NR</strong>, the most allowed in Great Britain, and <strong>150mg CoQ10</strong>, with every other dose printed on the label. Two capsules with breakfast.</p>"),
+    reason("Your body doesn’t use nutrients one at a time.",
+           "<p>Vitamin D3 and K2 belong together: both contribute to the maintenance of normal bones. The B vitamins work as a group: thiamin, riboflavin, niacin, B6 and B12 contribute to normal energy-yielding metabolism. Zinc and copper are balanced against each other.</p>"
+           "<p>Seven pots from seven brands were never designed to sit together. Nobody checked how they fit.</p>",
+           "<p>MUTO was built as one formula: NR alongside TMG, D3 alongside K2, a full B complex in active forms, and BioPerine® in the same two capsules. One design, one label, chosen by a PhD cell biologist.</p>"),
+    {"type": "doses", "settings": {
+        "figure": "19", "label": "Ingredients built to work together",
+        "sub": "Every dose on the label, no blends",
+        "items": "NR | 300mg\nCoQ10 | 150mg\nTMG | 450mg\nGrapeseed extract | 150mg\nTrans-resveratrol | 50mg\nPQQ | 20mg\nVitamin D3 | 2,000 IU\nVitamin K2 (MK-7) | 100µg\nZinc | 15mg bisglycinate\nCopper | 1mg bisglycinate\nB complex | All 8, active forms\nBioPerine® | 5mg",
+        "foot": "Plus thiamin, riboflavin, niacin, pantothenic acid, B6 (P5P), folate, B12 and biotin: the full label is on the product page."}},
+    {"type": "review", "settings": {
+        "lead": "<p>That’s the point. <strong>Not a longer ingredient list. A clearer one.</strong></p>",
+        "quote": "“I love that this replaces multiple products”", "name": "Amy C",
+        "cta_label": "Compare the labels yourself", "cta_link": MAIN}},
+    reason("You’re paying more than you think, and you’ve lost the overview.",
+           "<p>Separate pots look cheap until you add them up. NR, CoQ10, PQQ, resveratrol, D3 and K2, a B complex, zinc: bought at MUTO’s doses, that’s about <strong>£5.25 a day</strong>, roughly £158 a month.</p>"
+           "<p>Then eleven reorders, eleven delivery charges, eleven chances to run out on a Wednesday. <strong>The worst part isn’t the money. It’s suspecting you’re paying for a result you can’t see.</strong></p>",
+           "<p>19 ingredients in two capsules for <strong>£2 a day</strong> on subscription, £60 a month. Less than a coffee.</p>"),
+    {"type": "stat", "settings": {
+        "figure": "£1,180 a year",
+        "text": "Roughly the gap between buying MUTO’s main ingredients as separate products (£5.25 a day) and MUTO on subscription (£2 a day).",
+        "source": "UK retail prices at similar doses, checked October 2026."}},
+    reason("“Fine” isn’t the same as feeling like yourself.",
+           "<p>The check-up comes back fine. On paper, nothing to see. In real life, the afternoons are slower, Sunday’s run is still in your legs on Wednesday, and your morning leans on coffee it didn’t used to.</p>"
+           "<p>Reference ranges exist to rule out deficiency, not to describe you at your best.</p>"
+           "<p><strong>You’re not done yet. You just don’t want to settle for fine.</strong></p>"),
+    {"type": "callout", "settings": {
+        "text": "<p>MUTO is one daily routine for people who aren’t ready to settle for fine: two capsules with breakfast, every dose on the label, and 90 days to judge it on how your days feel.</p>",
+        "image_fallback": PRODUCT, "image_alt": "The MUTO NAD+ Cellular Complex jar, pouch, sachets and bottle together"}},
+    reason("Proprietary blends hide the dose.",
+           "<p>If a label says “performance blend, 800mg”, you can’t tell whether the ingredient you bought it for is 400mg or 4mg. You can’t check it, and neither can your GP or your AI.</p>"
+           "<p><strong>If you can’t read the dose, you can’t judge the product.</strong></p>",
+           "<p>No blends. All 19 ingredients and their doses are on the label. Paste it into your AI and ask what it thinks, or ask Richie: he answers formula questions himself.</p>"),
+    reason("You never took a starting point, and you changed five things at once.",
+           "<p>Without a baseline there’s no verdict, just a feeling on a good week or a bad one. And with a new pot, a new plan and earlier nights all at once, you can’t say what did what, so you keep paying for all of it.</p>"
+           "<p>Single days are noise. Months are signal.</p>",
+           "<p>One protocol in place of several pots: one clean change. Before your first capsule, rate how you feel at 3pm out of 10; if you wear a watch, note seven days of HRV, resting heart rate and sleep. Compare at day 30 and day 90. Your numbers, your call.</p>"),
+    reason("Nobody stands behind it.",
+           "<p>Most supplement guarantees run 30 days, too short to judge anything. And when you have a question, there’s rarely a scientist on the other end.</p>",
+           "<p><strong>90 days to decide.</strong> If you don’t see a difference, you’re covered on subscription. MUTO is built by Richie Barclay, a PhD cell biologist, reviewed by our Scientific Advisory Board, and being studied with four UK universities.</p>"),
+    {"type": "cta", "settings": {"text": "Two capsules. Every dose on the label. 90 days to decide.", "label": CTA, "link": MAIN}},
 ]
-items = []
-for i, (title, body, answer) in enumerate(R, 1):
-    items.append({"type": "reason", "settings": {"title": title, "body": body, "answer": answer, "answer_label": "The MUTO way"}})
-    if i in (3, 6):
-        items.append({"type": "cta", "settings": {
-            "text": "Two capsules. Every dose on the label. 90 days to decide." if i == 3 else "£5.25 a day bought separately. £2 a day in two capsules.",
-            "label": CTA, "link": MAIN}})
 xb, xo = blocks(items)
 S["reasons"] = {"type": "muto-lp-reasons", "blocks": xb, "block_order": xo, "settings": {"anchor": "reasons"}}
 
