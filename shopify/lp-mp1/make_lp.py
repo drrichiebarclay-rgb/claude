@@ -125,7 +125,8 @@ S["value"] = {"type": "muto-lp-value", "settings": {
         "Grapeseed extract | 150mg", "Trans-resveratrol | 50mg", "PQQ | 20mg", "Vitamin D3 | 2000IU",
         "Vitamin K2 (MK-7) | 100µg", "Thiamin (B1) | 5mg", "Riboflavin (B2) | 5mg", "Niacin (B3) | 16mg NE",
         "Pantothenic acid (B5) | 10mg", "Vitamin B6 (P5P) | 5mg", "Folate | 400µg", "Vitamin B12 | 100µg",
-        "Biotin | 300µg", "Zinc bisglycinate | 15mg", "Copper bisglycinate | 1mg", "BioPerine® | 5mg"]),
+        "Biotin | 300µg", "Zinc bisglycinate | 15mg", "Copper bisglycinate | 1mg", "BioPerine® | 5mg",
+        "Plus: Ultrapure Creatine, separate pouch | 3g"]),
     "without_pots": "Vitamin B complex\nVitamin D3\nVitamin K2\nZinc\nCopper\nCoQ10\nNR\nTMG\nResveratrol\nPQQ\nGrapeseed",
     "without_label": "Without MUTO: bought separately",
     "without_price": "£5.25",
@@ -133,6 +134,7 @@ S["value"] = {"type": "muto-lp-value", "settings": {
     "with_image_alt": "The MUTO NAD+ Cellular Complex box open, with the jar inside",
     "with_label": "With MUTO: two capsules",
     "with_price": "£2",
+    "plus_label": "Plus", "plus": "Creatine, 3g a day: about £1 a day bought separately (£30 for 30 days). With MUTO, a pouch of Ultrapure Creatine is free with your 1st, 4th and 6th orders.",
     "cta_label": CTA, "cta_link": PDP,
     "foot": "£5.25 a day is UK retail for NR, CoQ10, PQQ, resveratrol, grapeseed, D3 and K2, TMG, B complex, zinc, copper and BioPerine bought as separate products at similar doses (Oct 2026). MUTO is £60 a month on subscription."}}
 

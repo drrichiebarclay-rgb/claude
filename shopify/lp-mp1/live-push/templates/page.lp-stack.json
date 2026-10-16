@@ -616,8 +616,8 @@
             "figure": "19",
             "label": "Ingredients built to work together",
             "sub": "Every dose on the label, no blends",
-            "items": "NR | 300mg\nCoQ10 | 150mg\nTMG | 450mg\nGrapeseed extract | 150mg\nTrans-resveratrol | 50mg\nPQQ | 20mg\nVitamin D3 | 2,000 IU\nVitamin K2 (MK-7) | 100µg\nZinc | 15mg bisglycinate\nCopper | 1mg bisglycinate\nB complex | All 8, active forms\nBioPerine® | 5mg",
-            "foot": "Plus thiamin, riboflavin, niacin, pantothenic acid, B6 (P5P), folate, B12 and biotin: the full label is on the product page."
+            "items": "NR | 300mg\nCoQ10 | 150mg\nTMG | 450mg\nGrapeseed extract | 150mg\nTrans-resveratrol | 50mg\nPQQ | 20mg\nVitamin D3 | 2,000 IU\nVitamin K2 (MK-7) | 100µg\nZinc | 15mg bisglycinate\nCopper | 1mg bisglycinate\nB complex | All 8, active forms\nBioPerine® | 5mg\nCreatine* | 3g, own pouch",
+            "foot": "Plus thiamin, riboflavin, niacin, pantothenic acid, B6 (P5P), folate, B12 and biotin: the full label is on the product page. *Ultrapure Creatine comes in its own pouch, free with your 1st, 4th and 6th orders. Creatine increases physical performance in successive bursts of short-term, high-intensity exercise; the benefit comes from a daily intake of 3g."
           }
         },
         "b4": {
@@ -693,6 +693,8 @@
             "total_label": "Total a month",
             "ours": "£60",
             "theirs": "£157.50",
+            "plus_label": "Plus",
+            "plus": "Creatine, 3g a day: £30 a month bought separately. With MUTO, a pouch of Ultrapure Creatine is free with your 1st, 4th and 6th orders.",
             "note": "*UK retail prices for each ingredient as a separate product, at or near MUTO’s dose, checked 14 October 2026 (Superdrug, Holland & Barrett and other UK retailers). Roughly £1,170 a year more than MUTO on subscription, before delivery charges."
           }
         },
@@ -713,7 +715,7 @@
             "items": "NR | bolt\nCoQ10 | heart\nPQQ | sparkle\nResveratrol | leaf\nGrapeseed | drop\nVitamin D3 + K2 | sun\nB complex | capsule\nZinc | shield\nCopper | shield\nTMG | flask\nBioPerine® | leaf",
             "cta_label": "Two capsules of MUTO",
             "cta_link": "/products/muto-nad-cellular-complex",
-            "note": "*The 11 single-ingredient products in the price comparison above. Never stop anything you take for a medical reason."
+            "note": "*The 11 single-ingredient products in the price comparison above. Plus a free pouch of Ultrapure Creatine with your 1st, 4th and 6th orders. Never stop anything you take for a medical reason."
           }
         },
         "b14": {
@@ -723,7 +725,7 @@
             "col1": "What you actually want",
             "col2": "Self-built stack",
             "col3": "MUTO",
-            "rows": "Every dose printed on the label | Depends on the brand | All 19 listed\nNR, CoQ10, PQQ and resveratrol at real doses | 4 pots, 4 reorders | All four, two capsules\nForms named on the label | Varies wildly | Every form named\nIndependent testing | Varies brand to brand | Every batch third-party tested\nMorning routine | 10 minutes, 11 pots | Two capsules with breakfast\nMonthly cost at these doses | About £158 | £60\nTime to judge it | Often 30 days | 90 days, or your money back",
+            "rows": "Every dose printed on the label | Depends on the brand | All 19 listed\nNR, CoQ10, PQQ and resveratrol at real doses | 4 pots, 4 reorders | All four, two capsules\nForms named on the label | Varies wildly | Every form named\nIndependent testing | Varies brand to brand | Every batch third-party tested\nMorning routine | 10 minutes, 11 pots | Two capsules with breakfast\nMonthly cost at these doses | About £158 | £60\nTime to judge it | Often 30 days | 90 days, or your money back\nCreatine | Another pot, £30 a month | Free pouch with orders 1, 4 and 6",
             "note": "Self-built stack: the 11 single-ingredient products in our October 2026 UK price check."
           }
         },

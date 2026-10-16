@@ -85,8 +85,8 @@ items = [
     {"type": "doses", "settings": {
         "figure": "19", "label": "Ingredients built to work together",
         "sub": "Every dose on the label, no blends",
-        "items": "NR | 300mg\nCoQ10 | 150mg\nTMG | 450mg\nGrapeseed extract | 150mg\nTrans-resveratrol | 50mg\nPQQ | 20mg\nVitamin D3 | 2,000 IU\nVitamin K2 (MK-7) | 100µg\nZinc | 15mg bisglycinate\nCopper | 1mg bisglycinate\nB complex | All 8, active forms\nBioPerine® | 5mg",
-        "foot": "Plus thiamin, riboflavin, niacin, pantothenic acid, B6 (P5P), folate, B12 and biotin: the full label is on the product page."}},
+        "items": "NR | 300mg\nCoQ10 | 150mg\nTMG | 450mg\nGrapeseed extract | 150mg\nTrans-resveratrol | 50mg\nPQQ | 20mg\nVitamin D3 | 2,000 IU\nVitamin K2 (MK-7) | 100µg\nZinc | 15mg bisglycinate\nCopper | 1mg bisglycinate\nB complex | All 8, active forms\nBioPerine® | 5mg\nCreatine* | 3g, own pouch",
+        "foot": "Plus thiamin, riboflavin, niacin, pantothenic acid, B6 (P5P), folate, B12 and biotin: the full label is on the product page. *Ultrapure Creatine comes in its own pouch, free with your 1st, 4th and 6th orders. Creatine increases physical performance in successive bursts of short-term, high-intensity exercise; the benefit comes from a daily intake of 3g."}},
     {"type": "review", "settings": {
         "lead": "<p>That’s the point. <strong>Not a longer ingredient list. A clearer one.</strong></p>",
         "quote": "“I love that this replaces multiple products”", "name": "Amy C",
@@ -120,6 +120,7 @@ items = [
         "col1": "Ingredient", "col2": "Cost a month*",
         "rows": "NR (300mg) | £56.10\nCoQ10 (150mg) | £28.50\nGrapeseed extract (150mg) | £21.30\nPQQ (20mg) | £21.00\nTrans-resveratrol (50mg) | £10.80\nVitamin D3 and K2 | £9.90\nTMG (450mg) | £2.70\nBioPerine® (5mg) | £2.70\nZinc (15mg) | £1.80\nCopper (1mg) | £1.50\nB complex | £1.20",
         "total_label": "Total a month", "ours": "£60", "theirs": "£157.50",
+        "plus_label": "Plus", "plus": "Creatine, 3g a day: £30 a month bought separately. With MUTO, a pouch of Ultrapure Creatine is free with your 1st, 4th and 6th orders.",
         "note": "*UK retail prices for each ingredient as a separate product, at or near MUTO’s dose, checked 14 October 2026 (Superdrug, Holland & Barrett and other UK retailers). Roughly £1,170 a year more than MUTO on subscription, before delivery charges."}},
     reason("At what point does this become ridiculous?",
            "<p>You know the moment. Sunday evening, refilling the pill organiser. NR, CoQ10, PQQ, D3 and K2, a B complex, zinc, resveratrol. Eleven pots. Ten minutes every morning. <strong>And a growing suspicion that you’ve become the supplement industry’s favourite customer.</strong></p>"
@@ -130,7 +131,7 @@ items = [
         "label": "Two capsules replace", "figure": "Up to 11 separate pots*",
         "items": "NR | bolt\nCoQ10 | heart\nPQQ | sparkle\nResveratrol | leaf\nGrapeseed | drop\nVitamin D3 + K2 | sun\nB complex | capsule\nZinc | shield\nCopper | shield\nTMG | flask\nBioPerine® | leaf",
         "cta_label": "Two capsules of MUTO", "cta_link": MAIN,
-        "note": "*The 11 single-ingredient products in the price comparison above. Never stop anything you take for a medical reason."}},
+        "note": "*The 11 single-ingredient products in the price comparison above. Plus a free pouch of Ultrapure Creatine with your 1st, 4th and 6th orders. Never stop anything you take for a medical reason."}},
     {"type": "compare", "settings": {
         "heading": "MUTO vs the stack you built yourself",
         "col1": "What you actually want", "col2": "Self-built stack", "col3": "MUTO",
@@ -140,7 +141,8 @@ items = [
                 "Independent testing | Varies brand to brand | Every batch third-party tested\n"
                 "Morning routine | 10 minutes, 11 pots | Two capsules with breakfast\n"
                 "Monthly cost at these doses | About £158 | £60\n"
-                "Time to judge it | Often 30 days | 90 days, or your money back",
+                "Time to judge it | Often 30 days | 90 days, or your money back\n"
+                "Creatine | Another pot, £30 a month | Free pouch with orders 1, 4 and 6",
         "note": "Self-built stack: the 11 single-ingredient products in our October 2026 UK price check."}},
     {"type": "person", "settings": {
         "label": "From the scientist who built it",

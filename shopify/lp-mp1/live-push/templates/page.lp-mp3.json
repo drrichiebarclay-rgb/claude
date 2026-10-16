@@ -187,7 +187,7 @@
         "heading": "Eleven pots.\nTwo capsules.",
         "body": "Bought separately at similar doses, MUTO’s ingredients cost about £5.25 a day and fill a shelf. In MUTO they’re £2 a day in two capsules, every dose on the label.",
         "more_label": "See every dose",
-        "more_list": "Nicotinamide riboside (NR) | 300mg\nTrimethylglycine (TMG) | 450mg\nCoenzyme Q10 | 150mg\nGrapeseed extract | 150mg\nTrans-resveratrol | 50mg\nPQQ | 20mg\nVitamin D3 | 2000IU\nVitamin K2 (MK-7) | 100µg\nThiamin (B1) | 5mg\nRiboflavin (B2) | 5mg\nNiacin (B3) | 16mg NE\nPantothenic acid (B5) | 10mg\nVitamin B6 (P5P) | 5mg\nFolate | 400µg\nVitamin B12 | 100µg\nBiotin | 300µg\nZinc bisglycinate | 15mg\nCopper bisglycinate | 1mg\nBioPerine® | 5mg",
+        "more_list": "Nicotinamide riboside (NR) | 300mg\nTrimethylglycine (TMG) | 450mg\nCoenzyme Q10 | 150mg\nGrapeseed extract | 150mg\nTrans-resveratrol | 50mg\nPQQ | 20mg\nVitamin D3 | 2000IU\nVitamin K2 (MK-7) | 100µg\nThiamin (B1) | 5mg\nRiboflavin (B2) | 5mg\nNiacin (B3) | 16mg NE\nPantothenic acid (B5) | 10mg\nVitamin B6 (P5P) | 5mg\nFolate | 400µg\nVitamin B12 | 100µg\nBiotin | 300µg\nZinc bisglycinate | 15mg\nCopper bisglycinate | 1mg\nBioPerine® | 5mg\nPlus: Ultrapure Creatine, separate pouch | 3g",
         "without_pots": "Vitamin B complex\nVitamin D3\nVitamin K2\nZinc\nCopper\nCoQ10\nNR\nTMG\nResveratrol\nPQQ\nGrapeseed",
         "without_label": "Without MUTO: bought separately",
         "without_price": "£5.25",
@@ -198,7 +198,9 @@
         "with_price": "£2",
         "cta_label": "Start your 90 days",
         "cta_link": "/products/muto-nad-cellular-complex-2",
-        "foot": "£5.25 a day is UK retail for NR, CoQ10, PQQ, resveratrol, grapeseed, D3 and K2, TMG, B complex, zinc, copper and BioPerine bought as separate products at similar doses (Oct 2026). MUTO is £60 a month on subscription."
+        "foot": "£5.25 a day is UK retail for NR, CoQ10, PQQ, resveratrol, grapeseed, D3 and K2, TMG, B complex, zinc, copper and BioPerine bought as separate products at similar doses (Oct 2026). MUTO is £60 a month on subscription.",
+        "plus_label": "Plus",
+        "plus": "Creatine, 3g a day: about £1 a day bought separately (£30 for 30 days). With MUTO, a pouch of Ultrapure Creatine is free with your 1st, 4th and 6th orders."
       }
     },
     "offer": {

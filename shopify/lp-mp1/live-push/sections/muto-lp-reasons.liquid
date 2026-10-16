@@ -84,6 +84,7 @@
                 </tbody>
               </table>
               <p class="mlp-rs__table-total"><span>{{ block.settings.total_label | default: 'Total a month' }}</span><strong>{{ block.settings.ours }}</strong><em>vs</em><s>{{ block.settings.theirs }}</s></p>
+              {%- if block.settings.plus != blank -%}<p class="mlp-val__plus mlp-rs__table-plus"><span class="mlp-val__plus-tag">{{ block.settings.plus_label | default: 'Plus' }}</span><span>{{ block.settings.plus }}</span></p>{%- endif -%}
               {%- if block.settings.note != blank -%}<p class="mlp-rs__table-note">{{ block.settings.note }}</p>{%- endif -%}
             </div>
           </li>
@@ -212,6 +213,8 @@
       { "type": "text", "id": "total_label", "label": "Total label", "default": "Total a month" },
       { "type": "text", "id": "ours", "label": "Our price" },
       { "type": "text", "id": "theirs", "label": "Their price (struck through)" },
+      { "type": "text", "id": "plus_label", "label": "Extra line tag", "default": "Plus" },
+      { "type": "textarea", "id": "plus", "label": "Extra line under the total" },
       { "type": "textarea", "id": "note", "label": "Footnote" }
     ] },
     { "type": "replaces", "name": "Replaces card", "settings": [
