@@ -155,7 +155,7 @@
           -%}
           <li class="mlp-rs__item" {{ block.shopify_attributes }}>
             <div class="mlp-rs__callout">{{ block.settings.text }}</div>
-            {%- if c_src != blank -%}<div class="mlp-rs__img mlp-rs__img--product"><img src="{{ c_src }}" alt="{{ block.settings.image_alt | escape }}" width="1200" height="800" loading="lazy"></div>{%- endif -%}
+            {%- if c_src != blank -%}<div class="mlp-rs__img mlp-rs__img--product"><img src="{{ c_src }}" alt="{{ block.settings.image_alt | escape }}" width="1200" height="800" loading="lazy"{% if block.settings.image_position != blank %} style="object-position:{{ block.settings.image_position }}"{% endif %}></div>{%- endif -%}
           </li>
         {%- else -%}
           <li class="mlp-rs__cta" {{ block.shopify_attributes }}>
@@ -243,7 +243,8 @@
       { "type": "richtext", "id": "text", "label": "Text" },
       { "type": "image_picker", "id": "image", "label": "Photo (optional)" },
       { "type": "text", "id": "image_fallback", "label": "Photo URL" },
-      { "type": "text", "id": "image_alt", "label": "Photo description" }
+      { "type": "text", "id": "image_alt", "label": "Photo description" },
+      { "type": "text", "id": "image_position", "label": "Photo focus" }
     ] },
     { "type": "cta", "name": "Button", "settings": [
       { "type": "text", "id": "text", "label": "Line above button" },

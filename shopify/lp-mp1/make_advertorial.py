@@ -65,7 +65,7 @@ S["intro"] = {"type": "muto-lp-article", "settings": {
     "band_sub": "Made in the UK · Every batch third-party tested · 90 days to decide"}}
 
 # ---------------------------------------------------------------- the 7 reasons
-PRODUCT = CDN + "nad-gallery-1.jpg?v=1790879783"
+PRODUCT = CDN + "muto-lp-kit-hero.jpg?v=1791969959"
 
 
 def reason(title, body, answer=""):
@@ -105,7 +105,8 @@ items = [
            "<p><strong>You’re not done yet. You just don’t want to settle for fine.</strong></p>"),
     {"type": "callout", "settings": {
         "text": "<p>MUTO is one daily routine for people who aren’t ready to settle for fine: two capsules with breakfast, every dose on the label, and 90 days to judge it on how your days feel.</p>",
-        "image_fallback": PRODUCT, "image_alt": "The MUTO NAD+ Cellular Complex jar, pouch, sachets and bottle together"}},
+        "image_fallback": PRODUCT, "image_position": "55% 62%",
+        "image_alt": "The MUTO welcome kit: NAD+ Cellular Complex jar and refill pouches, Ultrapure Creatine, the bottle and the presentation box"}},
     reason("“Pixie dusting” is the industry’s open secret. Plenty of stacks are built on it.",
            "<p>Pixie dusting means listing an impressive ingredient at a dose too small to do anything. The ingredient is on the label. The dose is a trace. The label looks powerful; the formula is theatre.</p>"
            "<p>It shows up in two main forms:</p>"
