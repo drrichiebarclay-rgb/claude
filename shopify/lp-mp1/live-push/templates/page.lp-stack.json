@@ -152,7 +152,7 @@
         "padding_top": 80,
         "padding_bottom": 40,
         "custom_class": "",
-        "heading": "<p>One routine instead of many: what customers say about MUTO</p>",
+        "heading": "<p>What customers say</p>",
         "heading_tag": "h2",
         "heading_color": "#242223",
         "show_review_bar": false,
@@ -162,6 +162,99 @@
         "button_link": "#",
         "button_style": "gradient-secondary"
       }
+    },
+    "experts": {
+      "type": "muto-lp-experts",
+      "settings": {
+        "heading": "Who built it.\nOur Scientific Advisory Board."
+      },
+      "blocks": {
+        "e1": {
+          "type": "person",
+          "settings": {
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-founder.jpg?v=1790751995",
+            "alt": "Dr Richie Barclay holding a jar of MUTO",
+            "name": "Dr Richie Barclay, PhD",
+            "role": "Founder · cell biologist",
+            "quote": "“I built MUTO because I was tired of supplements that ask you to take them on trust. So every ingredient and every dose is on the label.”"
+          }
+        },
+        "e2": {
+          "type": "person",
+          "settings": {
+            "image": "shopify://shop_images/Dr_James_Cover_Final.png",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-board-3.jpg?v=1790751994",
+            "alt": "Dr James Morehen",
+            "name": "Dr James Morehen",
+            "role": "Performance nutritionist, international rugby · Scientific Advisory Board",
+            "quote": "Advises MUTO on performance nutrition for people who still train hard."
+          }
+        },
+        "e3": {
+          "type": "person",
+          "settings": {
+            "image": "shopify://shop_images/Dr_Alka_Cover_Final.png",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-board-1.jpg?v=1790751995",
+            "alt": "Dr Alka Patel",
+            "name": "Dr Alka Patel",
+            "role": "Longevity doctor & global speaker · Scientific Advisory Board",
+            "quote": "Advises MUTO on longevity: helping people keep doing what they love for longer."
+          }
+        },
+        "e4": {
+          "type": "person",
+          "settings": {
+            "image": "shopify://shop_images/Dr_Richard_Cover_Final.png",
+            "image_fallback": "",
+            "alt": "Dr Richard Mackenzie",
+            "name": "Dr Richard Mackenzie",
+            "role": "Leading metabolism researcher · Scientific Advisory Board",
+            "quote": "Advises MUTO on metabolism: how your cells turn food into energy."
+          }
+        },
+        "e5": {
+          "type": "person",
+          "settings": {
+            "image": "shopify://shop_images/Dr_Matt.png",
+            "image_fallback": "",
+            "alt": "Dr Maciej Zatonski",
+            "name": "Dr Maciej Zatonski",
+            "role": "Performance & sleep doctor · Scientific Advisory Board",
+            "quote": "Advises MUTO on sleep and recovery, and on reading them over weeks, not nights."
+          }
+        },
+        "e6": {
+          "type": "person",
+          "settings": {
+            "image": "shopify://shop_images/Dr-ash-cover-hq.webp",
+            "image_fallback": "",
+            "alt": "Dr Ash Kapoor",
+            "name": "Dr Ash Kapoor",
+            "role": "Longevity & Human Optimisation Doctor & Founder of Levitas One · Scientific Advisory Board",
+            "quote": "Advises MUTO on longevity and human optimisation."
+          }
+        },
+        "e7": {
+          "type": "person",
+          "settings": {
+            "image": "shopify://shop_images/Jamie-Paweleck.jpg",
+            "image_fallback": "",
+            "alt": "Dr Jamie Paweleck",
+            "name": "Dr Jamie Paweleck",
+            "role": "Longevity doctor and medical educator · Scientific Advisory Board",
+            "quote": "Advises MUTO on longevity medicine and medical education."
+          }
+        }
+      },
+      "block_order": [
+        "e1",
+        "e2",
+        "e3",
+        "e4",
+        "e5",
+        "e6",
+        "e7"
+      ]
     },
     "lp_faq": {
       "type": "muto-lp-faq",
@@ -616,9 +709,32 @@
           "settings": {
             "label": "Two capsules replace",
             "figure": "Up to 11 separate pots*",
-            "cta_label": "Start your 90 days",
+            "items": "NR | bolt\nCoQ10 | heart\nPQQ | sparkle\nResveratrol | leaf\nGrapeseed | drop\nVitamin D3 + K2 | sun\nB complex | capsule\nZinc | shield\nCopper | shield\nTMG | flask\nBioPerine® | leaf",
+            "cta_label": "Two capsules of MUTO",
             "cta_link": "/products/muto-nad-cellular-complex",
             "note": "*The 11 single-ingredient products in the price comparison above. Never stop anything you take for a medical reason."
+          }
+        },
+        "b14": {
+          "type": "compare",
+          "settings": {
+            "heading": "MUTO vs the stack you built yourself",
+            "col1": "What you actually want",
+            "col2": "Self-built stack",
+            "col3": "MUTO",
+            "rows": "Every dose printed on the label | Depends on the brand | All 19 listed\nNR, CoQ10, PQQ and resveratrol at real doses | 4 pots, 4 reorders | All four, two capsules\nForms named on the label | Varies wildly | Every form named\nIndependent testing | Varies brand to brand | Every batch third-party tested\nMorning routine | 10 minutes, 11 pots | Two capsules with breakfast\nMonthly cost at these doses | About £158 | £60\nTime to judge it | Often 30 days | 90 days, or your money back",
+            "note": "Self-built stack: the 11 single-ingredient products in our October 2026 UK price check."
+          }
+        },
+        "b15": {
+          "type": "person",
+          "settings": {
+            "label": "From the scientist who built it",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-founder.jpg?v=1790751995",
+            "position": "50% 20%",
+            "quote": "“The interesting question isn’t which supplement is best. It’s why ten separate products so often add up to less than their labels. It usually comes down to dose, form and fit. So I built one formula, put every dose on the label, and gave people 90 days to check it for themselves.”",
+            "name": "Richie Barclay, PhD",
+            "role": "Cell biologist and MUTO founder"
           }
         }
       },
@@ -635,7 +751,9 @@
         "b10",
         "b11",
         "b12",
-        "b13"
+        "b13",
+        "b14",
+        "b15"
       ],
       "settings": {
         "anchor": "reasons"
@@ -647,8 +765,9 @@
     "review_cards",
     "intro",
     "reasons",
-    "offer",
     "reviews",
+    "experts",
+    "offer",
     "lp_faq",
     "offer2",
     "bar"

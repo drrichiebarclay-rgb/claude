@@ -127,8 +127,25 @@ items = [
            "<p>Two capsules with breakfast, nothing to sort or time. Rate how you feel at 3pm today and, if you wear a watch, note a week of HRV, resting heart rate and sleep. Judge it at day 30 and day 90. If you don’t see a difference, you’re covered.</p>"),
     {"type": "replaces", "settings": {
         "label": "Two capsules replace", "figure": "Up to 11 separate pots*",
-        "cta_label": CTA, "cta_link": MAIN,
+        "items": "NR | bolt\nCoQ10 | heart\nPQQ | sparkle\nResveratrol | leaf\nGrapeseed | drop\nVitamin D3 + K2 | sun\nB complex | capsule\nZinc | shield\nCopper | shield\nTMG | flask\nBioPerine® | leaf",
+        "cta_label": "Two capsules of MUTO", "cta_link": MAIN,
         "note": "*The 11 single-ingredient products in the price comparison above. Never stop anything you take for a medical reason."}},
+    {"type": "compare", "settings": {
+        "heading": "MUTO vs the stack you built yourself",
+        "col1": "What you actually want", "col2": "Self-built stack", "col3": "MUTO",
+        "rows": "Every dose printed on the label | Depends on the brand | All 19 listed\n"
+                "NR, CoQ10, PQQ and resveratrol at real doses | 4 pots, 4 reorders | All four, two capsules\n"
+                "Forms named on the label | Varies wildly | Every form named\n"
+                "Independent testing | Varies brand to brand | Every batch third-party tested\n"
+                "Morning routine | 10 minutes, 11 pots | Two capsules with breakfast\n"
+                "Monthly cost at these doses | About £158 | £60\n"
+                "Time to judge it | Often 30 days | 90 days, or your money back",
+        "note": "Self-built stack: the 11 single-ingredient products in our October 2026 UK price check."}},
+    {"type": "person", "settings": {
+        "label": "From the scientist who built it",
+        "image_fallback": FOUNDER, "position": "50% 20%",
+        "quote": "“The interesting question isn’t which supplement is best. It’s why ten separate products so often add up to less than their labels. It usually comes down to dose, form and fit. So I built one formula, put every dose on the label, and gave people 90 days to check it for themselves.”",
+        "name": "Richie Barclay, PhD", "role": "Cell biologist and MUTO founder"}},
 ]
 xb, xo = blocks(items)
 S["reasons"] = {"type": "muto-lp-reasons", "blocks": xb, "block_order": xo, "settings": {"anchor": "reasons"}}
@@ -137,7 +154,11 @@ S["reasons"] = {"type": "muto-lp-reasons", "blocks": xb, "block_order": xo, "set
 S["offer"]["settings"]["heading"] = "Swap the guesswork for a 90-day test."
 S["offer2"]["settings"]["heading"] = "One protocol. 90 days. Your call."
 S["bar"]["settings"]["text"] = "One routine. Every dose on the label. £122 of value for £60 on your first subscription."
-S["reviews"]["settings"]["heading"] = "<p>One routine instead of many: what customers say about MUTO</p>"
+S["reviews"]["settings"]["heading"] = "<p>What customers say</p>"
+S["experts"]["settings"]["heading"] = "Who built it.\nOur Scientific Advisory Board."
+keep = [k for k in S["experts"]["block_order"] if S["experts"]["blocks"][k]["settings"]["role"] != "Athlete"]
+S["experts"]["blocks"] = {k: S["experts"]["blocks"][k] for k in keep}
+S["experts"]["block_order"] = keep
 S["lp_faq"]["blocks"], S["lp_faq"]["block_order"] = faq([
     ("What does MUTO replace?", "<p>For many customers, several separate pots: NR, CoQ10, PQQ, B vitamins, vitamin D3, K2, zinc and resveratrol are all in here, at the doses shown. Never stop anything you take for a medical reason, and check with your GP if you take medicine.</p>"),
     INSIDE,
@@ -145,7 +166,7 @@ S["lp_faq"]["blocks"], S["lp_faq"]["block_order"] = faq([
     ("Who is Richie Barclay?", "<p>MUTO’s founder: a PhD cell biologist and former cricketer. He isn’t a medical doctor; our Scientific Advisory Board includes doctors and scientists who review the formula.</p>"),
     SAFE, WORK, SUB])
 
-d["order"] = ["art_hero", "review_cards", "intro", "reasons", "offer", "reviews", "lp_faq", "offer2", "bar"]
+d["order"] = ["art_hero", "review_cards", "intro", "reasons", "reviews", "experts", "offer", "lp_faq", "offer2", "bar"]
 for k in [k for k in S if k not in d["order"]]:
     del S[k]
 out = os.path.join(HERE, "page.lp-stack.json")
