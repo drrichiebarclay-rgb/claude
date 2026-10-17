@@ -1,0 +1,1521 @@
+{%- comment -%}
+  MUTO Creatine — the buy block.
+
+  Artboard band 0–2540 of CREATINE.pdf. A 792-wide photograph card at x24 with
+  a five-thumbnail rail overlaid at its top left, and a 567-wide copy column at
+  x849 on a 33 gutter. The left column stops after the "Why this?" note at 906;
+  the right one runs on to 2450 — two columns of unequal length, not a grid.
+
+  One section rather than five, because every part of it is positioned against
+  that one two-column grid: split up, the research card and the athlete grid
+  would have to be full-bleed bands with an empty left half.
+
+  BLOCKS, so each part can be hidden, edited, reordered or deleted on its own:
+    Gallery image · Bullet · Trust pill · Plan · Accordion · Statistic · Athlete
+
+  THE PRODUCT IS THE PAGE'S. There is deliberately no product picker here: this
+  band is built for a product template, where the product is already the page's
+  subject, and a picked product would be a second answer to a question the URL
+  has already settled. It also breaks subscriptions — Skio reads the product,
+  the variant and the selling plan off the line item the product page submits,
+  so the add to cart has to be the real one for this product, not a link to
+  somewhere else. On a page or an index template there is no product in scope
+  and the typed figures show instead, so the band still looks like the artboard.
+
+  PRICES AND CART. Each plan resolves to a live variant and, when it is a
+  subscription, to one of that variant's selling plans. Price, compare-at price
+  and availability come from there, and the Add to Cart button POSTs id +
+  selling_plan to /cart/add through a real product form. A plan naming a variant
+  or a plan that doesn't exist is skipped rather than rendered dead.
+
+  The two carts are two forms rather than one with a script behind it, so the
+  one-time line works with no JS: a <button form="..."> may sit outside the form
+  it submits, which is what keeps the artboard's order — plans, one-time line,
+  Add to Cart — without nesting one form inside another.
+
+  The plan cards carry the home page's data-mh-plan contract on purpose: the
+  sticky add-to-cart bar is the home page's section, and one selection should
+  drive every route to checkout rather than two implementations drifting apart.
+
+  MOBILE: the photograph leads full width with the rail as a strip beneath it,
+  then the copy in artboard order. The "Why this?" note is the exception: it
+  moves to the foot of the band, because at 390px it would otherwise put eight
+  lines of explanation between the product's picture and its name.
+{%- endcomment -%}
+
+{{ 'muto-crea.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'muto-crea.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'muto-home.js' | asset_url }}" defer="defer"></script>
+{%- comment -%}
+  The theme's own add to cart. <product-form> is the custom element this file
+  defines, and it is what turns a plain form submit into the AJAX add and the
+  cart drawer render. Loaded the same way main-product.liquid loads it; the
+  file guards its own definition, so a second copy on the page is a no-op.
+{%- endcomment -%}
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign spt = section.settings.space_top | default: 100 | times: 0.01
+  assign spb = section.settings.space_bottom | default: 100 | times: 0.01
+  assign heading_id = 'mc-buy-' | append: section.id
+  # `product` is the template's own — not assigned from a setting, because
+  # there is no setting. On page and index templates it is nil.
+  assign sub_form = 'mc-sub-' | append: section.id
+  assign one_form = 'mc-one-' | append: section.id
+  assign qty_id = 'mc-qty-' | append: section.id
+
+  assign slides = section.blocks | where: 'type', 'slide'
+  comment
+    Gallery from the product's own media (Shopify admin → Products → Media), so
+    changing the product images there changes this page. Falls back to the
+    Gallery image blocks when the setting is off or the product has no images.
+  endcomment
+  assign use_pm = false
+  if section.settings.gallery_from_product and product != blank
+    assign pm = product.media | where: 'media_type', 'image'
+    if pm.size > 0
+      assign use_pm = true
+      assign slides = pm
+    endif
+  endif
+  assign points = section.blocks | where: 'type', 'point'
+  assign pills = section.blocks | where: 'type', 'trust'
+  assign plans = section.blocks | where: 'type', 'plan'
+  assign folds = section.blocks | where: 'type', 'fold'
+  assign stats = section.blocks | where: 'type', 'stat'
+  assign athletes = section.blocks | where: 'type', 'athlete'
+  assign terms = section.blocks | where: 'type', 'term'
+  assign gifts = section.blocks | where: 'type', 'gift'
+  assign months = section.blocks | where: 'type', 'month'
+  assign snippets = section.blocks | where: 'type', 'snippet'
+
+  assign fallback_href = section.settings.cta_link | default: routes.all_products_collection_url
+  if product != blank
+    assign fallback_href = product.url
+  endif
+
+  # Plans held back from the strip, named one per entry by Skio id or by Skio
+  # name. An OPT-OUT, deliberately, rather than a count or an opt-in list: a
+  # plan nobody has named here shows, so one added in Skio next month appears
+  # by itself. Capping the strip at N would have hidden that one too, and a
+  # list of plans to show would have to be edited before any of them appeared.
+  #
+  # Showing a held-back plan again is emptying its entry out of this setting.
+  # Nothing else changes: it keeps its own price, name and cadence, because
+  # none of those were ever written down here.
+  #
+  # Matched on both id and name so either will do — the id survives a rename
+  # in Skio, the name is the one a human recognises. Commas separate, spaces
+  # around them are ignored, case is ignored.
+  assign hide_hay = ''
+  if section.settings.hidden_plans != blank
+    assign hide_hay = section.settings.hidden_plans | downcase | strip | replace: ', ', ',' | replace: ' ,', ',' | prepend: ',' | append: ','
+  endif
+
+  # How many subscriptions the strip will show, counted once here rather than
+  # per plan block. The plan loop indexes into this list, and a product with
+  # none falls back to its plain variants.
+  assign sub_count = 0
+  assign seen_options = ''
+  if product != blank
+    for pv in product.variants
+      assign marker = '|' | append: pv.option1 | append: '|'
+      unless seen_options contains marker
+        assign seen_options = seen_options | append: marker
+        for alloc in pv.selling_plan_allocations
+          assign sp_id = ',' | append: alloc.selling_plan.id | append: ','
+          assign sp_nm = alloc.selling_plan.name | downcase | prepend: ',' | append: ','
+          unless hide_hay contains sp_id or hide_hay contains sp_nm
+            assign sub_count = sub_count | plus: 1
+          endunless
+        endfor
+      endunless
+    endfor
+  endif
+
+  # How many plan cards to draw. THE PRODUCT DECIDES, not the block list: one
+  # card per subscription the product actually sells, so adding a plan in Skio
+  # adds a card here with nothing to edit in the theme. Driving this off the
+  # blocks instead is what used to hide every subscription past the first —
+  # a product with a 1-month and a 3-month plan rendered one card, because the
+  # template happened to carry one Plan block.
+  #
+  # The blocks are copy, and only copy. Block N dresses card N; a card with no
+  # block takes its name from the selling plan itself. Price, compare-at price,
+  # variant, selling plan and availability are always the product's.
+  #
+  # Two fallbacks, both unchanged: a product with no selling plans at all (a
+  # staging product, or Skio not yet attached) still draws its typed blocks as
+  # variant pickers, and a page or index template with no product in scope
+  # draws them exactly as typed.
+  assign card_count = plans.size
+  if sub_count > 0
+    assign card_count = sub_count
+  endif
+
+
+  # The one-time line buys the same thing with no subscription attached, so it
+  # is the product's own first variant that sells without a selling plan. Not a
+  # title typed into the theme editor: the product already knows which of its
+  # variants is the one-off, and a typed title is one rename away from being
+  # wrong. If every variant carries a plan, the page's own variant stands in.
+  assign one_variant = blank
+  if product != blank
+    for pv in product.variants
+      if one_variant == blank and pv.selling_plan_allocations.size == 0
+        assign one_variant = pv
+      endif
+    endfor
+    if one_variant == blank
+      assign one_variant = product.selected_or_first_available_variant
+    endif
+  endif
+-%}
+
+<div class="mc mc--buy mc--fit-{{ section.settings.fit | default: 'crea' }}" data-mc style="--mc-spt:{{ spt }};--mc-spb:{{ spb }}" {% if section.settings.allow_transparent_header %} allow-transparent-header {% endif %}>
+  <div class="mc__wrap">
+    <section class="mc__buy" aria-labelledby="{{ heading_id }}">
+      <div class="mc__buy-grid">
+
+        {%- comment -%}
+          ---- Left: the photograph and the note ----
+          The wrapper is display:contents at phone width, so its two children
+          become items of the band's own flex column and `order` can move the
+          note below the copy. From 990 up it is a grid cell, and sticky.
+        {%- endcomment -%}
+        <div class="mc__buy-left">
+          <div class="mc__buy-media">
+            <div class="mc__gallery" data-mc-gallery>
+              <div class="mc__gallery-main"{% if section.settings.gallery_position != blank %} style="--mc-gallery-pos:{{ section.settings.gallery_position }}"{% endif %}>
+                {%- if slides.size > 0 -%}
+                  {%- for slide in slides -%}
+                    {%- comment -%}
+                      Only the lead photograph is eager; it is the page's LCP.
+                      The other five are hidden until a thumbnail is clicked, so
+                      fetching them up front would be five requests for nothing.
+                    {%- endcomment -%}
+                    {%- liquid
+                      assign slide_loading = 'lazy'
+                      assign slide_fetch = 'auto'
+                      if forloop.first
+                        assign slide_loading = 'eager'
+                        assign slide_fetch = 'high'
+                      endif
+                    -%}
+                    {%- liquid
+                      if use_pm
+                        assign slide_img = slide.preview_image
+                        assign slide_fb = ''
+                        assign slide_alt = slide.alt | default: product.title
+                      else
+                        assign slide_img = slide.settings.image
+                        assign slide_fb = slide.settings.image_fallback
+                        assign slide_alt = slide.settings.image_alt
+                      endif
+                    -%}
+                    <div data-mc-slide {% unless forloop.first %}hidden{% endunless %} {% unless use_pm %}{{ slide.shopify_attributes }}{% endunless %}>
+                      {% render 'muto-image',
+                        image: slide_img,
+                        fallback: slide_fb,
+                        alt: slide_alt,
+                        ratio: '792/594',
+                        sizes: '(min-width: 990px) 792px, 92vw',
+                        widths: '560,792,1100,1584',
+                        loading: slide_loading,
+                        fetchpriority: slide_fetch %}
+                    </div>
+                  {%- endfor -%}
+                {%- else -%}
+                  {% render 'muto-image',
+                    image: section.settings.image,
+                    fallback: section.settings.image_fallback,
+                    alt: section.settings.image_alt,
+                    ratio: '792/594',
+                    sizes: '(min-width: 990px) 792px, 92vw',
+                    widths: '560,792,1100,1584',
+                    loading: 'eager',
+                    fetchpriority: 'high' %}
+                {%- endif -%}
+              </div>
+
+              {%- if slides.size > 1 -%}
+                <div class="mc__thumbs mc__rail" data-mc-rail hidden>
+                  {%- for slide in slides -%}
+                    {%- liquid
+                      if use_pm
+                        assign thumb_img = slide.preview_image
+                        assign thumb_fb = ''
+                        assign thumb_alt = slide.alt | default: 'Product view'
+                      else
+                        assign thumb_img = slide.settings.image
+                        assign thumb_fb = slide.settings.image_fallback
+                        assign thumb_alt = slide.settings.image_alt | default: 'Product view'
+                      endif
+                    -%}
+                    <button class="mc__thumb" type="button" data-mc-thumb
+                      aria-current="{% if forloop.first %}true{% else %}false{% endif %}"
+                      aria-label="{{ 'Show image ' | append: forloop.index | escape }}">
+                      {% render 'muto-image',
+                        image: thumb_img,
+                        fallback: thumb_fb,
+                        alt: thumb_alt,
+                        ratio: '1/1',
+                        sizes: '56px',
+                        widths: '56,80,112,160' %}
+                    </button>
+                  {%- endfor -%}
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+
+          {%- comment -%}
+          Inside the left column so the two travel together: on desktop the
+          whole column is sticky while the copy scrolls past it.
+
+          Its title is a <p>, not a heading. The column has to come before
+          the copy in the document for the sticky wrapper to hold both, and
+          a heading here would then sit above the page's own h1; the aside
+          carries the same words as its label instead.
+
+          At 390px the wrapper is display:contents and `order` sends this
+          below the copy, because eight lines of explanation between the
+          product's picture and its name is the wrong first screen.
+          {%- endcomment -%}
+          {%- if section.settings.note_title != blank or section.settings.note_text != blank -%}
+            <aside class="mc__note" aria-label="{{ section.settings.note_title | default: 'Why this' | escape }}">
+              {%- if section.settings.note_title != blank -%}
+                <p class="mc__note-title">{{ section.settings.note_title }}</p>
+              {%- endif -%}
+              {%- if section.settings.note_text != blank -%}
+                <div class="mc__note-text mc__rt">{{ section.settings.note_text }}</div>
+              {%- endif -%}
+            </aside>
+          {%- endif -%}
+        </div>
+
+        {%- comment -%} ---- Right: the copy, the price and the proof ---- {%- endcomment -%}
+        <div class="mc__buy-copy">
+          {%- if section.settings.rating_score != blank -%}
+            {%- comment -%}
+              The stars are drawn, not an image or a font glyph, and the row
+              reads as one sentence to a screen reader rather than five
+              separate star characters.
+            {%- endcomment -%}
+            <p class="mc__rating">
+              {%- if section.settings.rating_link != blank -%}
+                <style>.mc__rating-link{display:contents;color:inherit;text-decoration:none;cursor:pointer}#ReviewsWidget{scroll-margin-top:140px}html{scroll-behavior:smooth}</style>
+                <a class="mc__rating-link" href="{{ section.settings.rating_link }}">
+              {%- endif -%}
+              <span class="mc__stars" aria-hidden="true">
+                {%- assign mc_full = section.settings.rating_stars | default: 5 -%}
+                {%- for i in (1..5) -%}
+                  <span{% if forloop.index > mc_full %} class="is-empty"{% endif %}></span>
+                {%- endfor -%}
+              </span>
+              <span class="mc__rating-text">{{ section.settings.rating_score }}{% if section.settings.rating_count != blank %} &nbsp; {{ section.settings.rating_count }}{% endif %}</span>
+              {%- if section.settings.rating_link != blank -%}</a>{%- endif -%}
+            </p>
+          {%- endif -%}
+
+          {%- if section.settings.eyebrow != blank -%}
+            <p class="mc__eyebrow">{{ section.settings.eyebrow }}</p>
+          {%- endif -%}
+
+          <h1 class="mc__h1 mc__buy-title" id="{{ heading_id }}">
+            {{- section.settings.heading | escape | newline_to_br -}}
+          </h1>
+
+          {%- if section.settings.serving != blank -%}
+            <p class="mc__buy-serving">{{ section.settings.serving }}</p>
+          {%- endif -%}
+
+          {%- if section.settings.text != blank -%}
+            <div class="mc__buy-text mc__rt">{{ section.settings.text }}</div>
+          {%- endif -%}
+
+          {%- if points.size > 0 -%}
+            <ul class="mc__buy-points">
+              {%- for point in points -%}
+                <li class="mc__point" {{ point.shopify_attributes }}>{{ point.settings.text }}</li>
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+
+          {%- if pills.size > 0 -%}
+            <ul class="mc__trust">
+              {%- for pill in pills -%}
+                <li {{ pill.shopify_attributes }}>{{ pill.settings.text }}</li>
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+
+          {%- if card_count > 0 -%}
+            {%- comment -%}
+              The offer bar. A dark strip flush to the card's top edge, naming
+              what the subscription comes with before the prices are read.
+
+              Inside the card rather than above it, so it carries the card's
+              own two top corners and there is no seam between the two: the
+              card drops its top padding and clips to its radius, and the bar's
+              bottom margin puts that padding back underneath it.
+
+              Empty, and nothing is drawn — the card keeps its padding and
+              every page without an offer renders exactly as it did.
+            {%- endcomment -%}
+            {%- assign banner = section.settings.plans_banner -%}
+            <div class="mc__plans{% if banner != blank %} mc__plans--banner{% endif %}" role="radiogroup" aria-label="{{ section.settings.plans_label | default: 'Choose a plan' | escape }}">
+              {%- if banner != blank -%}
+                <p class="mc__plans-banner">{{ banner }}</p>
+              {%- endif -%}
+              {%- assign group = 'mc-plan-' | append: section.id -%}
+              {%- assign chosen = false -%}
+              {%- for card in (1..card_count) -%}
+                {%- liquid
+                  # The block is this card's copy, when the template carries one
+                  # that far. Past the last block there is still a card, because
+                  # the product still sells that subscription.
+                  assign block = blank
+                  if forloop.index0 < plans.size
+                    assign block = plans[forloop.index0]
+                  endif
+                  # The variant and the selling plan come off the product, not
+                  # out of a setting: card N is the product's Nth subscription,
+                  # in the product's own variant order. There is no id or title
+                  # to type into the theme editor and nothing to keep in step by
+                  # hand — add a selling plan in Skio and it appears here,
+                  # rename one and nothing breaks.
+                  #
+                  # Price and availability are always the product's.
+                  assign want = forloop.index0
+                  assign plan_name = ''
+                  assign seen = 0
+                  assign v = blank
+                  assign plan_id = ''
+                  assign unit = 0
+                  assign was_unit = 0
+                  assign seen_options = ''
+                  if product != blank
+                    if sub_count > 0
+                      for pv in product.variants
+                        assign marker = '|' | append: pv.option1 | append: '|'
+                        unless seen_options contains marker
+                          assign seen_options = seen_options | append: marker
+                          for alloc in pv.selling_plan_allocations
+                            assign sp_id = ',' | append: alloc.selling_plan.id | append: ','
+                            assign sp_nm = alloc.selling_plan.name | downcase | prepend: ',' | append: ','
+                            # Held back by the setting above: not a card, and not
+                            # counted, so the plans after it keep their places.
+                            if hide_hay contains sp_id or hide_hay contains sp_nm
+                              continue
+                            endif
+                            if seen == want
+                              assign v = pv
+                              assign plan_id = alloc.selling_plan.id
+                              assign unit = alloc.price
+                              # Skio's own name for this plan. It is what the card
+                              # is called when the template carries no block to
+                              # name it, so a plan added in Skio is legible here
+                              # without anybody editing the theme.
+                              assign plan_name = alloc.selling_plan.name
+                              # What this costs without the plan. Skio's intro and
+                              # discount prices live on the allocation, so the
+                              # variant's own compare-at is often unset or equal
+                              # to its price and would strike nothing through.
+                              assign was_unit = alloc.compare_at_price
+                            endif
+                            assign seen = seen | plus: 1
+                          endfor
+                        endunless
+                      endfor
+                    else
+                      # No selling plans on the product at all — a staging
+                      # product, or Skio not yet attached. The card still works
+                      # as a variant picker rather than collapsing to nothing.
+                      for pv in product.variants
+                        if seen == want
+                          assign v = pv
+                          assign unit = pv.price
+                          assign plan_name = pv.title
+                        endif
+                        assign seen = seen | plus: 1
+                      endfor
+                    endif
+                    if v == blank
+                      continue
+                    endif
+                  endif
+
+                  assign price_text = block.settings.price
+                  assign was_text = block.settings.was
+                  assign href = fallback_href
+                  assign available = true
+
+                  if v != blank
+                    assign price_text = unit | money_without_trailing_zeros | strip_html
+                    assign was_text = ''
+                    if was_unit == 0 or was_unit == blank
+                      assign was_unit = v.compare_at_price
+                    endif
+                    if was_unit > unit
+                      assign was_text = was_unit | money_without_trailing_zeros | strip_html
+                    endif
+                    assign href = product.url | append: '?variant=' | append: v.id
+                    if plan_id != blank
+                      assign href = href | append: '&selling_plan=' | append: plan_id
+                    endif
+                    assign available = v.available
+                  endif
+
+                  assign price_full = price_text | append: block.settings.price_suffix
+
+                  assign is_first = false
+                  if chosen == false
+                    assign is_first = true
+                    assign chosen = true
+                    # What the Add to Cart button shows, server-rendered, so the
+                    # price is on it before any script runs — and what the cart
+                    # form carries, so the button works before one does too.
+                    assign cta_price = price_full
+                    assign sub_variant = v.id
+                    assign sub_plan = plan_id
+                    # Which card opens. The copy below the strip is per plan, and
+                    # this is the one whose copy is rendered showing — so the
+                    # right rows and tiles are on the page before any script
+                    # runs, and with none they stay right.
+                    assign open_index = forloop.index
+                  endif
+
+                  # The card's name: the block's when the template carries one,
+                  # otherwise the selling plan's own. Never empty on a live
+                  # product, so a subscription past the last block is still a
+                  # card somebody can read and choose.
+                  assign card_name = block.settings.name | default: plan_name
+
+                  # Selection is synced across the page by this key, so it has
+                  # to be unique and stable per card. It comes off the variant
+                  # and the plan where there is one — a block id would be empty
+                  # on a card the template does not carry, and two empty keys
+                  # would make the two cards one.
+                  assign card_key = block.id
+                  if v != blank
+                    assign card_key = v.id | append: '-' | append: plan_id
+                  endif
+                -%}
+                <label
+                  class="mc__plan{% if is_first %} is-selected{% endif %}{% unless available %} is-unavailable{% endunless %}"
+                  data-mh-plan
+                  data-key="{{ card_key }}"
+                  {%- comment -%}
+                    The card's position in the strip. What the copy below is
+                    tagged against, so a reassurance row or a kit tile can
+                    belong to this plan and not the next one.
+                  {%- endcomment -%}
+                  data-index="{{ forloop.index }}"
+                  data-href="{{ href }}"
+                  data-name="{{ card_name | escape }}"
+                  data-price="{{ price_text | escape }}"
+                  data-price-full="{{ price_full | escape }}"
+                  {%- comment -%}
+                    The unit in cents, the shop's own money format and the
+                    suffix, so the button can show what this selection actually
+                    costs at the chosen quantity. Only emitted when the card
+                    resolved to a live variant: without one the typed figure is
+                    all there is, and the script leaves it alone.
+                  {%- endcomment -%}
+                  {%- if v != blank %} data-unit="{{ unit }}" data-money-format="{{ shop.money_format | strip_html | escape }}" data-money-trim="1" data-suffix="{{ block.settings.price_suffix | escape }}"{% endif -%}
+                  {%- if v != blank %} data-variant="{{ v.id }}" data-plan="{{ plan_id }}"{% endif -%}
+                  {{ block.shopify_attributes }}
+                >
+                  <input class="mc__plan-input" type="radio" name="{{ group }}"
+                    {% if is_first %}checked{% endif %}{% unless available %} disabled{% endunless %}>
+                  <span class="mc__plan-head">
+                    <span class="mc__plan-dot" aria-hidden="true"></span>
+                    <span class="mc__plan-name">{{ card_name }}</span>
+                    {%- if block.settings.save != blank -%}
+                      <span class="mc__plan-save">{{ block.settings.save }}</span>
+                    {%- endif -%}
+                  </span>
+                  {%- comment -%}
+                    The price column sits beside the name and the note, not
+                    inside the name's row: on the artboard it starts above the
+                    name's line box and finishes below the note.
+                  {%- endcomment -%}
+                  <span class="mc__plan-prices">
+                    <span class="mc__plan-price">{{ price_text }}{{ block.settings.price_suffix }}</span>
+                    {%- if was_text != blank -%}
+                      <span class="mc__plan-was">{{ was_text }}</span>
+                    {%- endif -%}
+                  </span>
+                  {%- if block.settings.note != blank -%}
+                    <span class="mc__plan-note">{{ block.settings.note }}</span>
+                  {%- endif -%}
+                </label>
+              {%- endfor -%}
+
+              {%- comment -%}
+                EVERYTHING BELOW THE STRIP IS PER PLAN.
+
+                With one subscription there was nothing to choose between, so
+                the detail, the reassurance rows and the welcome kit were drawn
+                once and belonged to the page. With two they belong to a plan:
+                a 45-day protocol does not bill like a 30-day one and may not
+                arrive with the same kit.
+
+                So each piece is tagged with the card ordinals it belongs to and
+                every piece is rendered, with the opening card's showing and the
+                rest carrying is-plan-off. The script swaps the classes when the
+                selection changes; nothing is fetched and nothing re-renders,
+                which is what keeps the swap instant and keeps it working in the
+                theme editor. A block left untagged belongs to every card, so a
+                page that never had two plans reads exactly as it did.
+
+                The padding on both sides of the haystack and the needle is what
+                stops card 12 answering to a search for card 2.
+              {%- endcomment -%}
+              {%- liquid
+                assign open_index = open_index | default: 1
+                assign open_s = open_index | prepend: ' ' | append: ' '
+              -%}
+
+              {%- comment -%}
+                A plan's own detail. The one piece of copy that is purely this
+                plan's — what the cadence means, who it suits — and the reason
+                the Plan block is no longer just a name and a price.
+              {%- endcomment -%}
+              {%- for b in plans -%}
+                {%- if b.settings.detail != blank -%}
+                  {%- liquid
+                    assign d_scope = forloop.index | append: ''
+                    assign d_off = ''
+                    assign d_hay = d_scope | prepend: ' ' | append: ' '
+                    unless d_hay contains open_s
+                      assign d_off = ' is-plan-off'
+                    endunless
+                  -%}
+                  <div class="mc__plan-detail mc__rt{{ d_off }}" data-mc-plan-for="{{ d_scope }}" {{ b.shopify_attributes }}>
+                    {{- b.settings.detail -}}
+                  </div>
+                {%- endif -%}
+              {%- endfor -%}
+
+              {%- if terms.size > 0 -%}
+                {%- assign terms_scope = '' -%}
+                {%- capture terms_html -%}
+                  {%- for term in terms -%}
+                    {%- capture t_scope -%}
+                      {%- render 'muto-plan-scope', value: term.settings.plans, count: card_count -%}
+                    {%- endcapture -%}
+                    {%- assign t_scope = t_scope | strip -%}
+                    {%- if t_scope != '' -%}
+                      {%- liquid
+                        assign t_off = ''
+                        assign t_hay = t_scope | prepend: ' ' | append: ' '
+                        unless t_hay contains open_s
+                          assign t_off = ' is-plan-off'
+                        endunless
+                        assign terms_scope = terms_scope | append: t_scope | append: ' '
+                      -%}
+                      <li class="mc__plan-term{{ t_off }}" data-mc-plan-for="{{ t_scope }}" {{ term.shopify_attributes }}>{{ term.settings.text }}</li>
+                    {%- endif -%}
+                  {%- endfor -%}
+                {%- endcapture -%}
+                {%- if terms_scope != blank -%}
+                  {%- comment -%}
+                    The list carries the union of its rows, so a plan with no
+                    rows of its own loses the rule above them too rather than
+                    keeping an empty box.
+                  {%- endcomment -%}
+                  {%- liquid
+                    assign terms_scope = terms_scope | strip
+                    assign tl_off = ''
+                    assign tl_hay = terms_scope | prepend: ' ' | append: ' '
+                    unless tl_hay contains open_s
+                      assign tl_off = ' is-plan-off'
+                    endunless
+                  -%}
+                  <ul class="mc__plan-terms{{ tl_off }}" data-mc-plan-for="{{ terms_scope }}">
+                    {{- terms_html -}}
+                  </ul>
+                {%- endif -%}
+              {%- endif -%}
+
+              {%- comment -%}
+                The welcome kit sits inside the plan card, below a second rule:
+                it is part of what the subscription buys, not a band of its own.
+                The tiles are an unordered list because they are a set, not a
+                sequence, and each one names its own value.
+              {%- endcomment -%}
+              {%- comment -%}
+                The kit's tiles are tagged per plan like the rows above, and the
+                wrapper carries the union of everything inside it — so a plan
+                that brings no kit loses the heading and the expander with it,
+                rather than showing a title over nothing. With no gift or future
+                order blocks at all there is nothing to scope, and the kit
+                belongs to every card exactly as it did.
+              {%- endcomment -%}
+              {%- assign kit_scope = '' -%}
+              {%- assign inc_rows = '' -%}
+              {%- capture gifts_html -%}
+                {%- for gift in gifts -%}
+                  {%- capture g_scope -%}
+                    {%- render 'muto-plan-scope', value: gift.settings.plans, count: card_count -%}
+                  {%- endcapture -%}
+                  {%- assign g_scope = g_scope | strip -%}
+                  {%- if g_scope != '' -%}
+                    {%- liquid
+                      assign gift_alt = gift.settings.image_alt | default: gift.settings.name
+                      assign g_off = ''
+                      assign g_hay = g_scope | prepend: ' ' | append: ' '
+                      unless g_hay contains open_s
+                        assign g_off = ' is-plan-off'
+                      endunless
+                      assign kit_scope = kit_scope | append: g_scope | append: ' '
+                    -%}
+                    <li class="{{ g_off | strip }}" data-mc-plan-for="{{ g_scope }}" {{ gift.shopify_attributes }}>
+                      <div class="mc__kit-frame">
+                        {% render 'muto-image',
+                          image: gift.settings.image,
+                          fallback: gift.settings.image_fallback,
+                          alt: gift_alt,
+                          placeholder: false,
+                          ratio: '67/84',
+                          sizes: '67px',
+                          widths: '67,100,134,201' %}
+                      </div>
+                      {%- if gift.settings.value != blank -%}
+                        <span class="mc__kit-value">
+                          {%- render 'muto-crea-worth', value: gift.settings.value -%}
+                        </span>
+                      {%- endif -%}
+                      <span class="mc__kit-name">{{ gift.settings.name }}</span>
+                    </li>
+                    {%- if section.settings.kit_itemised -%}
+                      {%- capture inc_row -%}
+                        <li class="mc__inc-row {{ g_off | strip }}" data-mc-plan-for="{{ g_scope }}">
+                          <span class="mc__inc-name">{{ gift.settings.row_label | default: gift.settings.name | strip_newlines }}</span>
+                          <span class="mc__inc-price">
+                            {%- if gift.settings.row_note != blank -%}
+                              <span class="mc__inc-free">{{ gift.settings.row_note }}</span>
+                            {%- else -%}
+                              {%- if gift.settings.value contains '£' -%}<s class="mc__inc-was">{{ gift.settings.value }}</s> {% endif -%}
+                              <span class="mc__inc-free">Free</span>
+                            {%- endif -%}
+                          </span>
+                        </li>
+                      {%- endcapture -%}
+                      {%- assign inc_rows = inc_rows | append: inc_row -%}
+                    {%- endif -%}
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- endcapture -%}
+              {%- comment -%}
+                The future orders sit inside the expander, further down, but
+                they count towards the kit's own scope — a plan whose only kit
+                content is a later delivery still has a kit. So they are scoped
+                here, before the wrapper is written, and scoped again where they
+                are drawn.
+              {%- endcomment -%}
+              {%- assign months_scope = '' -%}
+              {%- for month in months -%}
+                {%- capture m_pre -%}
+                  {%- render 'muto-plan-scope', value: month.settings.plans, count: card_count -%}
+                {%- endcapture -%}
+                {%- comment -%}
+                  Stripped before it is appended, not after: the padded contains
+                  checks below only work on single spaces, and a stray newline
+                  between two entries would make ' 2 ' stop matching.
+                {%- endcomment -%}
+                {%- assign m_pre = m_pre | strip -%}
+                {%- if m_pre != '' -%}
+                  {%- assign months_scope = months_scope | append: m_pre | append: ' ' -%}
+                {%- endif -%}
+              {%- endfor -%}
+              {%- liquid
+                # Nothing tagged below means nothing to scope: the kit keeps the
+                # whole strip, which is the behaviour every page had before.
+                assign months_scope = months_scope | strip
+                assign kit_scope = kit_scope | append: ' ' | append: months_scope | strip
+                assign kit_off = ''
+                if kit_scope != ''
+                  assign kit_hay = kit_scope | prepend: ' ' | append: ' '
+                  unless kit_hay contains open_s
+                    assign kit_off = ' is-plan-off'
+                  endunless
+                endif
+                assign months_off = ''
+                if months_scope != ''
+                  assign months_hay = months_scope | prepend: ' ' | append: ' '
+                  unless months_hay contains open_s
+                    assign months_off = ' is-plan-off'
+                  endunless
+                endif
+              -%}
+              {%- if gifts.size > 0 or section.settings.kit_title != blank -%}
+                <div class="mc__kit{{ kit_off }}"{% if kit_scope != '' %} data-mc-plan-for="{{ kit_scope }}"{% endif %}>
+                  {%- if section.settings.kit_title != blank -%}
+                    <p class="mc__kit-title">{{ section.settings.kit_title }}</p>
+                  {%- endif -%}
+                  {%- if section.settings.kit_itemised and inc_rows != '' -%}
+                    <style>
+                      #shopify-section-{{ section.id }} .mc__inc{margin:12px 0 0;padding:0;list-style:none}
+                      #shopify-section-{{ section.id }} .mc__inc-row{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:7px 0;font-size:15px;line-height:1.3;color:var(--mc-ink)}
+                      #shopify-section-{{ section.id }} .mc__inc-row.is-plan-off{display:none}
+                      #shopify-section-{{ section.id }} .mc__inc-price{flex:0 0 auto;white-space:nowrap;text-align:right}
+                      #shopify-section-{{ section.id }} .mc__inc-was{margin-right:6px;color:rgba(36,34,35,.45);text-decoration:line-through}
+                      #shopify-section-{{ section.id }} .mc__inc-free{font-weight:500}
+                      #shopify-section-{{ section.id }} .mc__inc-main .mc__inc-free{font-weight:400;color:rgba(36,34,35,.72)}
+                      #shopify-section-{{ section.id }} .mc__inc-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 16px;margin:10px 0 0;padding:12px 0 0;border-top:1px solid var(--mc-ink);list-style:none;font-size:12.5px;line-height:1.3;color:var(--mc-ink)}
+                      #shopify-section-{{ section.id }} .mc__inc-foot li{display:inline-flex;align-items:center;gap:6px}
+                      #shopify-section-{{ section.id }} .mc__inc-foot svg{flex:0 0 auto;width:14px;height:14px}
+                      #shopify-section-{{ section.id }} .mc__inc-foot li.mc__inc-foot-m{display:none}
+                      @media (max-width:749px){#shopify-section-{{ section.id }} .mc__inc-foot--4{display:grid;grid-template-columns:1fr 1fr;gap:10px 16px}#shopify-section-{{ section.id }} .mc__inc-foot li.mc__inc-foot-m{display:inline-flex}}
+                      #shopify-section-{{ section.id }} .mc__inc-link{padding:0;border:0;background:none;font:inherit;text-align:left;color:inherit;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+                      #shopify-section-{{ section.id }} .mc__pop{width:min(560px,calc(100% - 32px));padding:0;border:0;border-radius:20px;background:#fff;color:var(--mc-ink);box-shadow:0 20px 60px rgba(22,47,49,.25)}
+                      #shopify-section-{{ section.id }} .mc__pop::backdrop{background:rgba(22,47,49,.45)}
+                      #shopify-section-{{ section.id }} .mc__pop-box{position:relative;padding:36px 40px 40px;text-align:center}
+                      #shopify-section-{{ section.id }} .mc__pop-x{position:absolute;top:14px;right:16px;width:36px;height:36px;padding:0;border:0;background:none;font-size:28px;line-height:1;color:var(--mc-ink);cursor:pointer}
+                      #shopify-section-{{ section.id }} .mc__pop-title{margin:0;font-size:22px;font-weight:500;line-height:1.2;letter-spacing:-.01em}
+                      #shopify-section-{{ section.id }} .mc__pop-text{margin-top:16px;font-size:16px;line-height:1.5;color:rgba(36,34,35,.84)}
+                      #shopify-section-{{ section.id }} .mc__pop-text > * + *{margin-top:12px}
+                      #shopify-section-{{ section.id }} .mc__pop-text a{color:inherit;text-decoration:underline}
+                      #shopify-section-{{ section.id }} .mc__inc + .mc__kit-list,
+                      #shopify-section-{{ section.id }} .mc__inc-foot + .mc__kit-list{margin-top:18px}
+                    </style>
+                    <ul class="mc__inc">
+                      {%- if section.settings.kit_main != blank -%}
+                        <li class="mc__inc-row mc__inc-main">
+                          <span class="mc__inc-name">{{ section.settings.kit_main }}</span>
+                          <span class="mc__inc-price"><span class="mc__inc-free">{{ section.settings.kit_main_note | default: 'Included' }}</span></span>
+                        </li>
+                      {%- endif -%}
+                      {{- inc_rows -}}
+                    </ul>
+                    {%- if section.settings.kit_foot_1 != blank or section.settings.kit_foot_2 != blank or section.settings.kit_foot_3 != blank or section.settings.kit_foot_4 != blank -%}
+                      <ul class="mc__inc-foot{% if section.settings.kit_foot_4 != blank %} mc__inc-foot--4{% endif %}">
+                        {%- if section.settings.kit_foot_1 != blank -%}
+                          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg>
+                            {%- if section.settings.kit_foot_1_pop != blank -%}
+                              <button type="button" class="mc__inc-link" aria-haspopup="dialog" onclick="this.nextElementSibling.showModal()">{{ section.settings.kit_foot_1 }}</button>
+                              <dialog class="mc__pop" aria-labelledby="{{ section.id }}-pop1" onclick="if(event.target===this)this.close()">
+                                <div class="mc__pop-box">
+                                  <form method="dialog"><button class="mc__pop-x" aria-label="Close">&times;</button></form>
+                                  <p class="mc__pop-title" id="{{ section.id }}-pop1">{{ section.settings.kit_foot_1_pop_title | default: section.settings.kit_foot_1 }}</p>
+                                  <div class="mc__pop-text">{{ section.settings.kit_foot_1_pop }}</div>
+                                </div>
+                              </dialog>
+                            {%- else -%}
+                              {{ section.settings.kit_foot_1 }}
+                            {%- endif -%}
+                          </li>
+                        {%- endif -%}
+                        {%- if section.settings.kit_foot_2 != blank -%}
+                          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="8" cy="8" r="6.3"/><path d="M8 4.5V8l2.4 1.6"/></svg>{{ section.settings.kit_foot_2 }}</li>
+                        {%- endif -%}
+                        {%- if section.settings.kit_foot_3 != blank -%}
+                          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 3.5L10.5 8 6 12.5"/></svg>
+                            {%- if section.settings.kit_foot_3_pop != blank -%}
+                              <button type="button" class="mc__inc-link" aria-haspopup="dialog" onclick="this.nextElementSibling.showModal()">{{ section.settings.kit_foot_3 }}</button>
+                              <dialog class="mc__pop" aria-labelledby="{{ section.id }}-pop3" onclick="if(event.target===this)this.close()">
+                                <div class="mc__pop-box">
+                                  <form method="dialog"><button class="mc__pop-x" aria-label="Close">&times;</button></form>
+                                  <p class="mc__pop-title" id="{{ section.id }}-pop3">{{ section.settings.kit_foot_3_pop_title | default: section.settings.kit_foot_3 }}</p>
+                                  <div class="mc__pop-text">{{ section.settings.kit_foot_3_pop }}</div>
+                                </div>
+                              </dialog>
+                            {%- else -%}
+                              {{ section.settings.kit_foot_3 }}
+                            {%- endif -%}
+                          </li>
+                        {%- endif -%}
+                        {%- if section.settings.kit_foot_4 != blank -%}
+                          <li class="mc__inc-foot-m"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7"/></svg>
+                            {%- if section.settings.kit_foot_4_pop != blank -%}
+                              <button type="button" class="mc__inc-link" aria-haspopup="dialog" onclick="this.nextElementSibling.showModal()">{{ section.settings.kit_foot_4 }}</button>
+                              <dialog class="mc__pop" aria-labelledby="{{ section.id }}-pop4" onclick="if(event.target===this)this.close()">
+                                <div class="mc__pop-box">
+                                  <form method="dialog"><button class="mc__pop-x" aria-label="Close">&times;</button></form>
+                                  <p class="mc__pop-title" id="{{ section.id }}-pop4">{{ section.settings.kit_foot_4_pop_title | default: section.settings.kit_foot_4 }}</p>
+                                  <div class="mc__pop-text">{{ section.settings.kit_foot_4_pop }}</div>
+                                </div>
+                              </dialog>
+                            {%- else -%}
+                              {{ section.settings.kit_foot_4 }}
+                            {%- endif -%}
+                          </li>
+                        {%- endif -%}
+                      </ul>
+                    {%- endif -%}
+                  {%- endif -%}
+                  {%- if gifts.size > 0 -%}
+                    <ul class="mc__kit-list"{% if gifts.size > 4 %} style="grid-template-columns:repeat({{ gifts.size }},minmax(0,1fr));gap:12px"{% endif %}>
+                      {{- gifts_html -}}
+                    </ul>
+                  {%- endif -%}
+                  {%- if section.settings.gifts_label != blank -%}
+                    {%- comment -%}
+                      A checkbox and its label. Not a <details>, and not a
+                      button with a click handler — both were tried here and both
+                      were reported dead on the live theme.
+
+                      What is left is the only mechanism with no moving parts:
+                      clicking a <label for> toggles its checkbox inside the
+                      browser, and muto-crea.css reads :checked to show the
+                      panel. No JavaScript is involved at any point, so there is
+                      no script to fail to load, nothing to bind, and no click
+                      for another script to swallow before ours sees it. The one
+                      remaining failure mode is a handler that calls
+                      preventDefault on the click, and the script below is only
+                      there for that: it checks afterwards whether the box
+                      actually changed, and sets it if it didn't.
+
+                      The checkbox carries no name, so it is never submitted,
+                      even though a plan radio group sits above it.
+                    {%- endcomment -%}
+                    {%- assign kit_id = 'mc-kit-' | append: section.id -%}
+                    <div class="mc__kit-more" data-mc-kit>
+                      <input class="mc__kit-cb" type="checkbox"
+                        id="{{ kit_id }}-t" aria-controls="{{ kit_id }}" data-mc-kit-cb>
+                      <label class="mc__kit-sum" for="{{ kit_id }}-t" data-mc-kit-toggle>
+                        <span>{{ section.settings.gifts_label }}</span>
+                        <span class="mc__kit-chev" aria-hidden="true"></span>
+                      </label>
+                      <div class="mc__kit-body" id="{{ kit_id }}">
+                        {%- if section.settings.gifts_text != blank -%}
+                          <div class="mc__rt">{{ section.settings.gifts_text }}</div>
+                        {%- endif -%}
+                        {%- if months.size > 0 -%}
+                          {%- comment -%}
+                            The same tile as the welcome kit above, laid out the
+                            same way across: a picture, what it would have cost
+                            and what it is. The only addition is the order it
+                            arrives with, set above the picture so the strip
+                            reads as a timeline rather than a shelf.
+
+                            A rail rather than a grid, because five tiles fit the
+                            488 card at desktop and do not fit 390. It only
+                            scrolls where it has to.
+                          {%- endcomment -%}
+                          <ul class="mc__kit-months mc__rail{{ months_off }}"{% if months_scope != '' %} data-mc-plan-for="{{ months_scope }}"{% endif %}>
+                            {%- for month in months -%}
+                              {%- capture m_scope -%}
+                                {%- render 'muto-plan-scope', value: month.settings.plans, count: card_count -%}
+                              {%- endcapture -%}
+                              {%- assign m_scope = m_scope | strip -%}
+                              {%- if m_scope == '' -%}{%- continue -%}{%- endif -%}
+                              {%- liquid
+                                assign month_alt = month.settings.image_alt | default: month.settings.text
+                                assign m_off = ''
+                                assign m_hay = m_scope | prepend: ' ' | append: ' '
+                                unless m_hay contains open_s
+                                  assign m_off = ' is-plan-off'
+                                endunless
+                              -%}
+                              <li class="mc__kit-month{{ m_off }}" data-mc-plan-for="{{ m_scope }}" {{ month.shopify_attributes }}>
+                                {%- if month.settings.label != blank -%}
+                                  <span class="mc__kit-month-n">{{ month.settings.label }}</span>
+                                {%- endif -%}
+                                <div class="mc__kit-frame">
+                                  {% render 'muto-image',
+                                    image: month.settings.image,
+                                    fallback: month.settings.image_fallback,
+                                    alt: month_alt,
+                                    placeholder: false,
+                                    ratio: '67/84',
+                                    sizes: '84px',
+                                    widths: '84,126,168,252' %}
+                                </div>
+                                {%- comment -%}
+                                  Always rendered, even empty: Order 5 brings no
+                                  gift, and without the row its caption would
+                                  climb a line above the others and break the
+                                  strip's baseline.
+                                {%- endcomment -%}
+                                <span class="mc__kit-month-v">
+                                  {%- if month.settings.value != blank -%}
+                                    {%- render 'muto-crea-worth', value: month.settings.value -%}
+                                  {%- endif -%}
+                                </span>
+                                <span class="mc__kit-month-t">{{ month.settings.text }}</span>
+                              </li>
+                            {%- endfor -%}
+                          </ul>
+                        {%- endif -%}
+                      </div>
+                    </div>
+                    <script>
+                      /* The one thing the label cannot survive on its own: a
+                       * handler calling preventDefault on the click, which stops
+                       * the browser running the label's activation behaviour.
+                       * This does not toggle anything itself — it waits for the
+                       * browser's turn, and only acts if the box did not change.
+                       * Where the label works, which is everywhere it is not
+                       * being interfered with, this does nothing at all.
+                       *
+                       * Guarded on the document element so a theme editor
+                       * section reload re-runs it without binding twice, and
+                       * delegated to window and document so it keeps working on
+                       * markup the editor replaces underneath it. */
+                      (function () {
+                        var h = document.documentElement;
+                        if (h.getAttribute('data-mc-kit-bound') === 'true') return;
+                        h.setAttribute('data-mc-kit-bound', 'true');
+                        function rescue(e) {
+                          if (!e || e.mcKit) return;
+                          var t = e.target;
+                          if (!t || !t.closest) return;
+                          var lab = t.closest('[data-mc-kit-toggle]');
+                          if (!lab) return;
+                          var box = lab.closest('[data-mc-kit]');
+                          if (!box) return;
+                          var cb = box.querySelector('[data-mc-kit-cb]');
+                          if (!cb) return;
+                          e.mcKit = true;
+                          var was = cb.checked;
+                          setTimeout(function () { if (cb.checked === was) cb.checked = !was; }, 0);
+                        }
+                        window.addEventListener('click', rescue, true);
+                        document.addEventListener('click', rescue, true);
+                      })();
+                    </script>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+          {%- comment -%}
+            The carts. Two real product forms, each holding nothing but its
+            hidden fields, so neither wraps the layout and the plan radios stay
+            out of the payload. The buttons reach them by `form`, which is what
+            lets the artboard keep its order — plans, one-time line, Add to
+            Cart — without a form inside a form, and the form itself is
+            display:none so the button could not live inside it anyway.
+
+            Each form and the button that submits it are wrapped in the theme's
+            own <product-form>. That element is the whole add to cart: its
+            constructor takes the first form inside it and binds the submit,
+            and its handler posts to /cart/add and hands the response to the
+            cart drawer. Without it the browser submits natively and the page
+            navigates away instead of the drawer opening. The wrapper is
+            display:contents, so it carries the behaviour and none of the
+            layout.
+
+            `id` and `selling_plan` are what Skio reads off the line item, and
+            both are server-rendered from the opening selection: the button adds
+            the right thing before any script has run.
+          {%- endcomment -%}
+          {%- liquid
+            # A <product-form> needs a form AND a submit button inside it — its
+            # constructor reads both without checking — so each one is rendered
+            # only when its own pair is complete.
+            assign sub_cart = false
+            if product != blank and sub_variant != blank
+              assign sub_cart = true
+            endif
+            assign one_cart = false
+            if product != blank and one_variant != blank and section.settings.onetime_link == blank and section.settings.onetime_label != blank
+              assign one_cart = true
+            endif
+          -%}
+
+          {%- if section.settings.onetime_label != blank -%}
+            {%- comment -%}
+              [price] in the line is replaced with what this variant actually
+              costs, so the one price on the card that used to be typed by hand
+              now comes off the product like every other one. A line without the
+              placeholder is left exactly as written.
+            {%- endcomment -%}
+            {%- liquid
+              assign one_label = section.settings.onetime_label
+              if one_variant != blank and one_label contains '[price]'
+                assign one_money = one_variant.price | money_without_trailing_zeros | strip_html
+                assign one_label = one_label | replace: '[price]', one_money
+              endif
+            -%}
+            {%- if one_cart -%}
+              <product-form class="mc__pf" data-hide-errors="false">
+                <div class="product-form__error-message-wrapper" role="alert" hidden>
+                  <span class="product-form__error-message"></span>
+                </div>
+                {%- form 'product', product, id: one_form, class: 'mc__cart-form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+                  <input type="hidden" name="id" value="{{ one_variant.id }}">
+                  {%- comment -%}
+                    A field belongs to one form, so the visible picker cannot
+                    also be this one's. muto-crea.js mirrors the number across;
+                    with no script this line adds one, which is the old
+                    behaviour rather than a broken one.
+                  {%- endcomment -%}
+                  <input type="hidden" name="quantity" value="1" data-mc-qty-mirror>
+                {%- endform -%}
+                {%- comment -%}
+                  The label is wrapped because product-form.js reaches for a
+                  span inside the submit button, and the spinner is the element
+                  its handler un-hides while the request is in flight. Both are
+                  what the theme's own buy-buttons snippet renders.
+                {%- endcomment -%}
+                <button type="submit" name="add" form="{{ one_form }}" class="mc__onetime">
+                  <span>{{ one_label }}</span>
+                  <span class="loading__spinner hidden" aria-hidden="true"></span>
+                </button>
+              </product-form>
+            {%- else -%}
+              <a class="mc__onetime" href="{{ section.settings.onetime_link | default: fallback_href }}">
+                {{- one_label -}}
+              </a>
+            {%- endif -%}
+          {%- endif -%}
+
+          {%- if section.settings.cta_label != blank -%}
+            {%- comment -%}
+              The quantity picker and the button share a row when the picker is
+              on, and the button is alone in the markup when it is off, so every
+              page that never asked for one is byte-identical to before.
+
+              It is a plain <input type="number"> reaching the cart form by
+              `form`: it posts the right number with no script, and the browser
+              brings the stepper, the keyboard and the validation with it.
+            {%- endcomment -%}
+            {%- liquid
+              assign qty_on = false
+              if section.settings.show_quantity and product != blank and sub_variant != blank
+                assign qty_on = true
+              endif
+            -%}
+            {%- if sub_cart -%}
+              <product-form class="mc__pf" data-hide-errors="false">
+                <div class="product-form__error-message-wrapper" role="alert" hidden>
+                  <span class="product-form__error-message"></span>
+                </div>
+                {%- form 'product', product, id: sub_form, class: 'mc__cart-form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+                  <input type="hidden" name="id" value="{{ sub_variant }}" data-mh-cart-id>
+                  {%- comment -%}
+                    Disabled when the selection is a one-time plan, because a
+                    disabled field is not submitted at all — posting an empty
+                    selling_plan is not the same as posting none. The script
+                    flips it back the moment a subscription plan is chosen.
+                  {%- endcomment -%}
+                  <input type="hidden" name="selling_plan" value="{{ sub_plan }}"
+                    {% if sub_plan == blank %}disabled{% endif %} data-mh-cart-plan>
+                  {%- comment -%}
+                    With the quantity picker on, the visible field is this
+                    form's quantity — it sits beside the button and reaches
+                    this form by `form`, so one field is submitted, not two.
+                  {%- endcomment -%}
+                  {%- unless section.settings.show_quantity -%}
+                    <input type="hidden" name="quantity" value="1">
+                  {%- endunless -%}
+                {%- endform -%}
+            {%- endif -%}
+            {%- if qty_on -%}
+              <div class="mc__buy-actions">
+                <label class="mc__vh" for="{{ qty_id }}">{{ section.settings.qty_label | default: 'Quantity' }}</label>
+                <input class="mc__qty" id="{{ qty_id }}" type="number" name="quantity"
+                  value="1" min="1" max="99" step="1" inputmode="numeric"
+                  form="{{ sub_form }}" data-mc-qty>
+            {%- endif -%}
+            {%- comment -%}
+              The selected plan's price rides on the button. It is rendered
+              here from the opening selection rather than left to the script,
+              so it is there on first paint; the script rewrites the one span
+              when the selection changes. The span is empty when no plan
+              resolves, and an empty one is hidden in CSS.
+            {%- endcomment -%}
+            {%- if sub_cart -%}
+              <button type="submit" name="add" form="{{ sub_form }}"
+                class="mc__btn mc__btn--cyan mc__buy-cta" data-mh-plan-cta>
+            {%- else -%}
+              <a class="mc__btn mc__btn--cyan mc__buy-cta" href="{{ fallback_href }}" data-mh-plan-cta>
+            {%- endif -%}
+              <div class="btn-label-wrapper">
+                <span>{{ section.settings.cta_label }}</span>
+                {%- if section.settings.cta_price -%}
+                  <span class="mc__btn-price" data-mh-cta-price>{{ cta_price }}</span>
+                {%- endif -%}
+                {%- if sub_cart -%}
+                  <span class="loading__spinner hidden" aria-hidden="true"></span>
+                {%- endif -%}
+              </div>
+              <span class="pre-order-text">Pre-Order Now - Arrives 15/10 </span>
+            {%- if sub_cart -%}</button>{%- else -%}</a>{%- endif -%}
+            {%- if qty_on -%}</div>{%- endif -%}
+            {%- if sub_cart -%}</product-form>{%- endif -%}
+          {%- endif -%}
+
+          {%- if snippets.size > 0 -%}
+            <style>
+              .mc__revs{
+                position:relative;margin-top:20px;padding:20px 24px 18px;border-radius:20px;
+                background:rgba(249,249,249,.62);
+                backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+                box-shadow:inset 0 0 0 1px rgba(255,255,255,.66);
+                color:var(--mc-ink);
+              }
+              .mc__revs-list{display:grid;margin:0;padding:0;list-style:none}
+              .mc__rev{
+                grid-area:1/1;margin:0;opacity:0;visibility:hidden;transform:translateY(6px);
+                transition:opacity 400ms var(--mc-ease),transform 400ms var(--mc-ease),visibility 0s linear 400ms;
+              }
+              .mc__rev.is-active{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+              .mc__rev-q{
+                margin:0;padding:0;border:0;quotes:none;
+                font-family:var(--mc-font);font-size:18px;font-weight:500;line-height:1.3;letter-spacing:-.01em;
+              }
+              .mc__rev-q::before,.mc__rev-q::after{content:none}
+              .mc__rev-n{
+                display:block;margin-top:10px;font-family:var(--mc-mono);font-size:12px;line-height:1;
+                letter-spacing:.06em;text-transform:uppercase;color:var(--mc-muted);
+              }
+              .mc__revs-dots{display:flex;gap:6px;margin-top:16px}
+              .mc__revs-dot{
+                width:8px;height:8px;padding:0;border:0;border-radius:4px;cursor:pointer;
+                background:var(--mc-rule);transition:width var(--mc-dur) var(--mc-ease),background var(--mc-dur) var(--mc-ease);
+              }
+              .mc__revs-dot[aria-current="true"]{width:24px;background:var(--mc-ink)}
+              .mc__revs-dot:focus-visible{outline:2px solid var(--mc-ink);outline-offset:2px}
+              @media (prefers-reduced-motion: reduce){
+                .mc__rev,.mc__revs-dot{transition:none;transform:none}
+              }
+            </style>
+            <section class="mc__revs" aria-label="What customers say" data-mc-revs>
+              <ul class="mc__revs-list">
+                {%- for snippet in snippets -%}
+                  <li class="mc__rev{% if forloop.first %} is-active{% endif %}" {{ snippet.shopify_attributes }}{% unless forloop.first %} aria-hidden="true"{% endunless %}>
+                    <figure style="margin:0">
+                      <blockquote class="mc__rev-q">{{ snippet.settings.quote }}</blockquote>
+                      {%- if snippet.settings.name != blank -%}
+                        <figcaption class="mc__rev-n">{{ snippet.settings.name }}</figcaption>
+                      {%- endif -%}
+                    </figure>
+                  </li>
+                {%- endfor -%}
+              </ul>
+              {%- if snippets.size > 1 -%}
+                <div class="mc__revs-dots">
+                  {%- for snippet in snippets -%}
+                    <button type="button" class="mc__revs-dot" aria-label="Show review {{ forloop.index }} of {{ snippets.size }}"{% if forloop.first %} aria-current="true"{% endif %}></button>
+                  {%- endfor -%}
+                </div>
+                <script>
+                  (function () {
+                    var root = document.currentScript.closest('[data-mc-revs]');
+                    if (!root) return;
+                    var items = root.querySelectorAll('.mc__rev');
+                    var dots = root.querySelectorAll('.mc__revs-dot');
+                    var i = 0, timer = null, held = false;
+                    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                    function show(n) {
+                      items[i].classList.remove('is-active'); items[i].setAttribute('aria-hidden', 'true');
+                      dots[i].removeAttribute('aria-current');
+                      i = (n + items.length) % items.length;
+                      items[i].classList.add('is-active'); items[i].removeAttribute('aria-hidden');
+                      dots[i].setAttribute('aria-current', 'true');
+                    }
+                    function start() { if (!still && !held && !timer) timer = setInterval(function () { show(i + 1); }, 2000); }
+                    function stop() { clearInterval(timer); timer = null; }
+                    dots.forEach(function (d, n) { d.addEventListener('click', function () { show(n); stop(); start(); }); });
+                    root.addEventListener('mouseenter', function () { held = true; stop(); });
+                    root.addEventListener('mouseleave', function () { held = false; start(); });
+                    root.addEventListener('focusin', function () { held = true; stop(); });
+                    root.addEventListener('focusout', function () { held = false; start(); });
+                    document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
+                    start();
+                  })();
+                </script>
+              {%- endif -%}
+            </section>
+          {%- endif -%}
+
+          {%- if folds.size > 0 -%}
+            <div class="mc__acc">
+              {%- for fold in folds -%}
+                <details class="mc__acc-item" name="{{ section.id }}-acc" {{ fold.shopify_attributes }}>
+                  <summary class="mc__acc-sum">
+                    <span>{{ fold.settings.title }}</span>
+                    <span class="mc__acc-mark" aria-hidden="true"></span>
+                  </summary>
+                  <div class="mc__acc-body mc__rt">{{ fold.settings.text }}</div>
+                </details>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+
+          {%- if stats.size > 0 -%}
+            <section class="mc__card" aria-labelledby="{{ section.id }}-research">
+              {%- if section.settings.research_title != blank -%}
+                <h2 class="mc__card-title" id="{{ section.id }}-research">{{ section.settings.research_title }}</h2>
+              {%- endif -%}
+              <ul class="mc__stats">
+                {%- for stat in stats -%}
+                  <li class="mc__stat" {{ stat.shopify_attributes }}>
+                    <span class="mc__stat-v">{{ stat.settings.value }}</span>
+                    <span class="mc__stat-t">{{ stat.settings.text }}</span>
+                  </li>
+                {%- endfor -%}
+              </ul>
+              {%- if section.settings.refs != blank -%}
+                <div class="mc__refs mc__rt">{{ section.settings.refs }}</div>
+              {%- endif -%}
+            </section>
+          {%- endif -%}
+
+          {%- if athletes.size > 0 -%}
+            <section class="mc__card" aria-labelledby="{{ section.id }}-who">
+              {%- if section.settings.who_title != blank -%}
+                <h2 class="mc__card-title" id="{{ section.id }}-who">{{ section.settings.who_title }}</h2>
+              {%- endif -%}
+              <hr class="mc__who-rule">
+              <ul class="mc__who">
+                {%- for athlete in athletes -%}
+                  {%- assign who_alt = athlete.settings.image_alt | default: athlete.settings.name -%}
+                  <li {{ athlete.shopify_attributes }}>
+                    <div class="mc__who-frame">
+                      {% render 'muto-image',
+                        image: athlete.settings.image,
+                        fallback: athlete.settings.image_fallback,
+                        alt: who_alt,
+                        placeholder: false,
+                        ratio: '230/196',
+                        sizes: '(min-width: 990px) 230px, 44vw',
+                        widths: '230,340,460,690',
+                        position: athlete.settings.image_position %}
+                    </div>
+                    <p class="mc__who-name">{{ athlete.settings.name }}</p>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </section>
+          {%- endif -%}
+        </div>
+
+      </div>
+    </section>
+  </div>
+</div>
+
+{%- comment -%}
+  The product's structured data is emitted here because this is the section
+  that knows which product the page is selling. One Offer per live variant.
+{%- endcomment -%}
+{%- if section.settings.schema_on and product != blank -%}
+  {% render 'muto-home-product-schema', product: product %}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "MUTO Creatine — Buy",
+  "tag": "section",
+  "class": "mc-section mc-section--buy",
+  "max_blocks": 50,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "allow_transparent_header",
+      "label": "Allow Transparent Header",
+      "info": "Only works when this section added as first section",
+      "default": false
+    },
+    { "type": "paragraph", "content": "This band sells the product whose page it is on. There is no product to pick: the add to cart posts that product's own variant and selling plan, which is what a subscription app reads off the line item. On a page or an index template there is no product in scope and the typed figures below show instead." },
+    { "type": "header", "content": "Headline" },
+    { "type": "text", "id": "rating_score", "label": "Rating", "info": "E.g. \u201c4.83\u201d. Leave empty to hide the star row." },
+    { "type": "text", "id": "rating_count", "label": "Review count", "info": "E.g. \u201c150+ reviews\u201d." },
+    { "type": "range", "id": "rating_stars", "label": "Stars filled", "min": 0, "max": 5, "step": 1, "default": 5 },
+    { "type": "text", "id": "rating_link", "label": "Rating link", "info": "Optional. Makes the star row a link, e.g. \u201c#ReviewsWidget\u201d to jump to the reviews on this page." },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "MUTO" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Ultrapure\nmicronised\ncreatine\nmonohydrate" },
+    { "type": "text", "id": "serving", "label": "Serving line", "default": "250g | 5–10g per serving" },
+    { "type": "richtext", "id": "text", "label": "Copy", "default": "<p>The fast reserve your muscles draw on when effort spikes. Pure creatine monohydrate, micronised to mix cleanly, independently tested, and taken alongside your NAD+ Cellular Complex as one daily routine.</p><p>Selected by Richie Barclay, PhD in cellular biology and nutrition, and reviewed by a Scientific Advisory Board of seven scientists and clinicians.</p>" },
+    { "type": "header", "content": "Lead photograph", "info": "Used when there are no Gallery image blocks." },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "image_fallback", "label": "Fallback image URL" },
+    { "type": "text", "id": "image_alt", "label": "Alt text", "default": "The MUTO creatine pouch photographed with the NAD+ Cellular Complex set" },
+    { "type": "checkbox", "id": "gallery_from_product", "label": "Use the product's own images", "default": false, "info": "Gallery shows the images from Products → Media in Shopify admin, in that order. Change them there and this page updates. Gallery image blocks are used only when this is off or the product has no images." },
+    { "type": "text", "id": "gallery_position", "label": "Image focus", "info": "CSS object-position. The artboard crops to the right of the set.", "default": "100% 50%" },
+    { "type": "header", "content": "Why this? note" },
+    { "type": "text", "id": "note_title", "label": "Title", "default": "Why this?" },
+    { "type": "richtext", "id": "note_text", "label": "Copy", "default": "<p>Monohydrate is monohydrate, and we won't pretend otherwise. What's different is the standard: micronised to 200 mesh so it mixes cleanly, nothing added, every batch tested, and it fits the routine you already have. Your NAD+ looks after the steady supply; creatine looks after the fast reserve.</p>" },
+    { "type": "header", "content": "Price and action" },
+    { "type": "text", "id": "plans_banner", "label": "Offer bar", "info": "A dark strip across the top of the plan card, set in caps — e.g. “Welcome offer with free gifts worth £249”. Empty and the card is drawn without one." },
+    { "type": "text", "id": "plans_label", "label": "Plan group label", "default": "Choose a plan", "info": "Read by screen readers, not shown." },
+    { "type": "text", "id": "hidden_plans", "label": "Plans to hide", "info": "Every subscription on this product shows, including ones added later. To hold one back, name it here by its Skio name or id — separate several with commas. Empty it again and the plan comes back with its own price and cadence." },
+    { "type": "header", "content": "Welcome kit", "info": "Sits inside the plan card, under the reassurance rows." },
+    { "type": "text", "id": "kit_title", "label": "Title" },
+    { "type": "checkbox", "id": "kit_itemised", "label": "Show the kit as an itemised list", "default": false, "info": "Lists each kit item with its value crossed out and 'Free', above the images." },
+    { "type": "text", "id": "kit_main", "label": "Itemised list: first row", "info": "E.g. the product itself. Leave empty to skip." },
+    { "type": "text", "id": "kit_main_note", "label": "Itemised list: first row note", "default": "Included" },
+    { "type": "text", "id": "kit_foot_1", "label": "Itemised list: footer point 1" },
+    { "type": "text", "id": "kit_foot_1_pop_title", "label": "Footer point 1: pop-up title", "info": "Defaults to the point's own text." },
+    { "type": "richtext", "id": "kit_foot_1_pop", "label": "Footer point 1: pop-up text", "info": "When set, point 1 becomes a link that opens this in a pop-up." },
+    { "type": "text", "id": "kit_foot_2", "label": "Itemised list: footer point 2" },
+    { "type": "text", "id": "kit_foot_3", "label": "Itemised list: footer point 3" },
+    { "type": "text", "id": "kit_foot_3_pop_title", "label": "Footer point 3: pop-up title", "info": "Defaults to the point's own text." },
+    { "type": "richtext", "id": "kit_foot_3_pop", "label": "Footer point 3: pop-up text", "info": "When set, point 3 becomes a link that opens this in a pop-up." },
+    { "type": "text", "id": "kit_foot_4", "label": "Itemised list: footer point 4 (mobile only)", "info": "Shown on phones only, under the other three." },
+    { "type": "text", "id": "kit_foot_4_pop_title", "label": "Footer point 4: pop-up title", "info": "Defaults to the point's own text." },
+    { "type": "richtext", "id": "kit_foot_4_pop", "label": "Footer point 4: pop-up text", "info": "When set, point 4 becomes a link that opens this in a pop-up." },
+    { "type": "text", "id": "gifts_label", "label": "Expander" },
+    { "type": "richtext", "id": "gifts_text", "label": "Expander copy", "default": "<p>Add what arrives in the months after the first.</p>" },
+    { "type": "text", "id": "onetime_label", "label": "One-time line", "default": "Prefer to buy one? One-time purchase – [price]", "info": "Write [price] where the price should go and it is filled in from the product. Anything else here is used exactly as typed." },
+    { "type": "url", "id": "onetime_link", "label": "One-time link", "info": "Overrides the add to cart above and links somewhere else instead. Leave empty on a product page." },
+    { "type": "text", "id": "cta_label", "label": "Button", "default": "Add to Cart" },
+    { "type": "checkbox", "id": "show_quantity", "label": "Quantity picker", "default": false, "info": "A number field beside Add to Cart. Off on the protocols, where a second jar is a second plan rather than a second unit." },
+    { "type": "text", "id": "qty_label", "label": "Quantity label", "default": "Quantity", "info": "Read by screen readers, not shown." },
+    { "type": "checkbox", "id": "cta_price", "label": "Show the price on the button", "default": true, "info": "The selected plan's price, including its suffix — \u201cAdd to Cart \u00b7 \u00a319.99/mo\u201d." },
+    { "type": "url", "id": "cta_link", "label": "Button link", "info": "Used only off a product template, where there is no product to add." },
+    { "type": "header", "content": "What the research shows" },
+    { "type": "text", "id": "research_title", "label": "Title", "default": "What The Research Shows" },
+    { "type": "richtext", "id": "refs", "label": "References", "default": "<p>¹Kreider, R. B. (2003). Mol Cell Biochem, 244, 89–94. ²Rawson, E. S., &amp; Volek, J. S. (2003). J Strength Cond Res, 17(4), 822–831.</p><p>³Chilibeck, P. D., et al. (2017). Open Access J Sports Med, 8, 213–226. ⁴Avgerinos, K. I., et al. (2018). Exp Gerontol, 108, 166–173.</p>" },
+    { "type": "header", "content": "Who takes it" },
+    { "type": "text", "id": "who_title", "label": "Title", "default": "Who Takes It" },
+    { "type": "header", "content": "Search engines and answer engines" },
+    { "type": "checkbox", "id": "schema_on", "label": "Emit product structured data", "default": true, "info": "Product, brand and one offer per variant, read from the live product. Turn off if an SEO app already publishes it." },
+    { "type": "select", "id": "fit", "label": "Which wash", "default": "crea", "options": [{ "value": "crea", "label": "Creatine page" }, { "value": "nad", "label": "NAD+ page" }], "info": "The mint wash is least-squares fitted to one artboard's own pixels, and the two product pages wash this band differently." },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 2, "unit": "%", "default": 100 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 2, "unit": "%", "default": 100 }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Gallery image",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_fallback", "label": "Fallback image URL" },
+        { "type": "text", "id": "image_alt", "label": "Alt text", "info": "Describe what the photograph shows." }
+      ]
+    },
+    {
+      "type": "point",
+      "name": "Bullet",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "Repeat hard efforts with less drop-off" }
+      ]
+    },
+    {
+      "type": "snippet",
+      "name": "Review snippet",
+      "settings": [
+        { "type": "text", "id": "quote", "label": "Quote", "info": "Verbatim, with quotation marks. Shown under the add to cart button." },
+        { "type": "text", "id": "name", "label": "Name" }
+      ]
+    },
+    {
+      "type": "term",
+      "name": "Reassurance row",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "90-Day money back guarantee" },
+        { "type": "text", "id": "plans", "label": "Show on which plans", "info": "Empty shows it on every plan. Otherwise the plan's position in the strip — 1 for the first card, 2 for the second. Separate several with commas." }
+      ]
+    },
+    {
+      "type": "month",
+      "name": "Future order",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Order", "default": "Order 2" },
+        { "type": "text", "id": "text", "label": "What arrives", "default": "Refill pouch + bottle" },
+        { "type": "text", "id": "value", "label": "Worth", "default": "\u00a315", "info": "Struck through, because the gift is free and this is what it would otherwise cost. Two values separated by a space are struck separately \u2014 \u201c\u00a330 \u00a310\u201d. Anything that isn\u2019t a run of currency figures is left alone." },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_fallback", "label": "Fallback image URL" },
+        { "type": "text", "id": "image_alt", "label": "Alt text", "info": "Describe the gift. Defaults to what arrives." },
+        { "type": "text", "id": "plans", "label": "Show on which plans", "info": "Empty shows it on every plan. Otherwise the plan's position in the strip — 1 for the first card, 2 for the second. Separate several with commas." }
+      ]
+    },
+    {
+      "type": "gift",
+      "name": "Welcome kit item",
+      "settings": [
+        { "type": "text", "id": "value", "label": "Value", "info": "E.g. \u201c\u00a312\u201d." },
+        { "type": "textarea", "id": "name", "label": "Name", "default": "Performance Socks" },
+        { "type": "text", "id": "row_label", "label": "Itemised list label", "info": "Optional. Defaults to the name." },
+        { "type": "text", "id": "row_note", "label": "Itemised list note", "info": "Optional. Replaces the struck-out value and 'Free', e.g. 'Free entry'." },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_fallback", "label": "Fallback image URL" },
+        { "type": "text", "id": "image_alt", "label": "Alt text", "info": "Describe the item. Defaults to its name." },
+        { "type": "text", "id": "plans", "label": "Show on which plans", "info": "Empty shows it on every plan. Otherwise the plan's position in the strip — 1 for the first card, 2 for the second. Separate several with commas." }
+      ]
+    },
+    {
+      "type": "trust",
+      "name": "Trust pill",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "90-day guarantee" }
+      ]
+    },
+    {
+      "type": "plan",
+      "name": "Plan",
+      "settings": [
+        { "type": "paragraph", "content": "One card is drawn per subscription this product actually sells, in its own variant order — add a plan in Skio and a card appears here with nothing to edit. These blocks are copy only: the first Plan block dresses the first subscription, the second dresses the second, and a subscription with no block takes its name from Skio. Nothing to pick here, and a block past the last subscription simply doesn't render." },
+        { "type": "text", "id": "name", "label": "Name", "default": "30 Day Protocol" },
+        { "type": "text", "id": "price", "label": "Price", "default": "£19.99", "info": "Shown only when no live variant is found." },
+        { "type": "text", "id": "price_suffix", "label": "Price suffix", "default": "/mo" },
+        { "type": "text", "id": "was", "label": "Was", "default": "£29.99", "info": "Shown only when no live variant is found." },
+        { "type": "text", "id": "save", "label": "Badge", "default": "Save 31%" },
+        { "type": "text", "id": "note", "label": "Note", "default": "Billed £19.99 every 4 weeks, 66p/day." },
+        { "type": "richtext", "id": "detail", "label": "Details", "info": "This plan's own copy — what the cadence means, who it suits. Shown under the strip only while this plan is the one chosen, and swapped as the customer switches. Leave empty and nothing is drawn." }
+      ]
+    },
+    {
+      "type": "fold",
+      "name": "Accordion",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Ingredients" },
+        { "type": "richtext", "id": "text", "label": "Copy", "default": "<p>Add the detail for this row.</p>" }
+      ]
+    },
+    {
+      "type": "stat",
+      "name": "Statistic",
+      "settings": [
+        { "type": "text", "id": "value", "label": "Figure", "default": "+15%" },
+        { "type": "textarea", "id": "text", "label": "Caption", "default": "More work done across repeated sprints¹" }
+      ]
+    },
+    {
+      "type": "athlete",
+      "name": "Athlete",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Name", "default": "Harry Insley" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_fallback", "label": "Fallback image URL" },
+        { "type": "text", "id": "image_alt", "label": "Alt text", "info": "Describe the photograph. Defaults to the name." },
+        { "type": "text", "id": "image_position", "label": "Image focus", "info": "CSS object-position, e.g. \"50% 30%\". Blank centres it." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MUTO Creatine — Buy",
+      "blocks": [
+        { "type": "point", "settings": { "text": "Repeat hard efforts with less drop-off" } },
+        { "type": "point", "settings": { "text": "Nothing in the pouch but ultrapure micronised creatine" } },
+        { "type": "point", "settings": { "text": "Micronised, independently tested, made in the UK" } },
+        { "type": "point", "settings": { "text": "One scoop with your first meal; up to 10 g on demanding days" } },
+        { "type": "trust", "settings": { "text": "90-day guarantee" } },
+        { "type": "trust", "settings": { "text": "Skip, pause or cancel online" } },
+        { "type": "trust", "settings": { "text": "Third-party tested" } },
+        { "type": "plan", "settings": { "name": "30 Day Protocol", "price": "£19.99", "price_suffix": "/mo", "was": "£29.99", "save": "Save 31%", "note": "Billed £19.99 every 4 weeks, 66p/day." } },
+        { "type": "term", "settings": { "text": "90-Day money back guarantee" } },
+        { "type": "term", "settings": { "text": "Cancel, skip or pause anytime" } },
+        { "type": "fold", "settings": { "title": "Ingredients", "text": "<p>Ultrapure micronised creatine monohydrate (250 g). Nothing else: no fillers, flavourings, sweeteners or flow agents.</p>" } },
+        { "type": "fold", "settings": { "title": "Testing &amp; Manufacturing", "text": "<p>Every batch is independently tested before release and screened for creatinine, DCD and heavy metals. Made in the UK by a GMP-certified manufacturer.</p>" } },
+        { "type": "fold", "settings": { "title": "How To Enjoy", "text": "<p>One 5 g scoop a day, stirred into water, coffee or a shake, alongside your NAD+ capsules. No loading phase, no cycling, no rest days.</p>" } },
+        { "type": "fold", "settings": { "title": "Delivery, Skips &amp; Cancelling", "text": "<p>Free UK delivery. Skip, pause or cancel online at any time from your account.</p>" } },
+        { "type": "fold", "settings": { "title": "90-Day Money Back Guarantee", "text": "<p>Take it for 90 days. If the numbers in your own log haven't moved, tell us and we'll refund you.</p>" } },
+        { "type": "stat", "settings": { "value": "+15%", "text": "More work done across repeated sprints¹" } },
+        { "type": "stat", "settings": { "value": "+8%", "text": "strength gain, alongside resistance training²" } },
+        { "type": "stat", "settings": { "value": "+1.37kg", "text": "Lean mass vs placebo in adults over 50 who train³" } },
+        { "type": "stat", "settings": { "value": "6 RCTs", "text": "Linked creatine to better short-term memory⁴" } },
+        { "type": "athlete", "settings": { "name": "Harry Insley" } },
+        { "type": "athlete", "settings": { "name": "Yolanda King" } },
+        { "type": "athlete", "settings": { "name": "Kaisa Larkas" } },
+        { "type": "athlete", "settings": { "name": "Sam Ekstrom" } }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": ["product", "page", "index"]
+  }
+}
+{% endschema %}
+
