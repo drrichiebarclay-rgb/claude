@@ -113,6 +113,16 @@ def main(src, dst):
     buy["settings"]["hidden_plans"] = ""
     # Page CSS + the ingredients link
     d["sections"]["easy_read"]["settings"]["custom_liquid"] = "<style>\n" + CSS + "\n</style>\n<script>\n" + JS + "\n</script>"
+    # Age: "over 40" becomes "over 35" anywhere on the page
+    def walk(o):
+        if isinstance(o, dict):
+            return {k: walk(v) for k, v in o.items()}
+        if isinstance(o, list):
+            return [walk(v) for v in o]
+        if isinstance(o, str):
+            return o.replace("over 40", "over 35").replace("Over 40", "Over 35")
+        return o
+    d = walk(d)
     json.dump(d, open(dst, "w"), ensure_ascii=False, indent=2)
     print("wrote", dst, "points:", new, "plan:", p1)
 

@@ -247,7 +247,7 @@
           "type": "fold",
           "settings": {
             "title": "Who it’s for",
-            "text": "<p><strong>Made for adults over 40.</strong> Most of our customers are in their 40s and 50s.</p><p><strong>It’s for you if:</strong> you still work, exercise or look after a family, and you’re not ready to slow down. You feel more tired in the afternoon than you used to. Exercise takes longer to get over. Or you take lots of supplements and don’t know which ones work.</p><p><strong>You don’t need</strong> to be sporty, or own a smartwatch. Walkers, gardeners and gym-goers all take it.</p><p><strong>It’s not for</strong> anyone under 18, or if you’re pregnant or breastfeeding. Take medicine? Ask your doctor first.</p>"
+            "text": "<p><strong>Made for adults over 35.</strong> Most of our customers are in their 40s and 50s.</p><p><strong>It’s for you if:</strong> you still work, exercise or look after a family, and you’re not ready to slow down. You feel more tired in the afternoon than you used to. Exercise takes longer to get over. Or you take lots of supplements and don’t know which ones work.</p><p><strong>You don’t need</strong> to be sporty, or own a smartwatch. Walkers, gardeners and gym-goers all take it.</p><p><strong>It’s not for</strong> anyone under 18, or if you’re pregnant or breastfeeding. Take medicine? Ask your doctor first.</p>"
           }
         },
         "k0": {
@@ -1261,7 +1261,7 @@
           "type": "q",
           "settings": {
             "title": "Is it right for my age?",
-            "text": "<p>Yes. MUTO is made for adults over 40, and most of our customers are in their 40s and 50s. You don’t need to be sporty or own a smartwatch.</p>"
+            "text": "<p>Yes. MUTO is made for adults over 35, and most of our customers are in their 40s and 50s. You don’t need to be sporty or own a smartwatch.</p>"
           }
         }
       },
