@@ -60,3 +60,12 @@ document.addEventListener('click', function (e) {
   }
   if (document.readyState === 'complete') start(); else window.addEventListener('load', start);
 })();
+
+/* Clicking anywhere in a plan's gifts box selects that plan */
+document.addEventListener('click', function (e) {
+  var d = e.target.closest && e.target.closest('.mc__plans > .mc__plan-detail[data-mc-plan-for]');
+  if (!d || (e.target.closest && e.target.closest('a'))) return;
+  var n = parseInt(d.getAttribute('data-mc-plan-for'), 10);
+  var card = document.querySelectorAll('.mc__plans > label.mc__plan')[n - 1];
+  if (card && !card.classList.contains('is-selected')) card.click();
+});

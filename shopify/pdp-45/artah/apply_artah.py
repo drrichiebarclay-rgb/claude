@@ -38,14 +38,25 @@ POINTS = [
 ]
 PLAN = {"name": "Monthly plan", "price_suffix": "", "save": "Save 14% + free gifts",
         "note": "£2 a day. £60 every 4 weeks.",
-        "detail": "<ul><li>Welcome kit worth £62, plus gifts in boxes 2 to 6</li><li>Skip, pause or cancel any time</li>"
-                  "<li>30-day supply, delivered every 4 weeks</li><li>Free next-day delivery</li></ul>"}
+        "detail": "<p><strong>Free in your first box (worth £62)</strong></p>"
+                  "<ul><li>Creatine, worth £30</li><li>Socks, worth £12</li><li>Jar to keep, worth £10</li>"
+                  "<li>12-week guide, worth £10</li><li>Entry to win a Garmin watch</li></ul>"
+                  "<p><strong>Then free in later boxes</strong></p>"
+                  "<ul><li>Box 2: Performance Bottle</li><li>Box 3: Socks</li><li>Box 4: Creatine and £10 store credit</li>"
+                  "<li>Box 6: Creatine and a chat with an expert</li></ul>"
+                  "<p>30-day supply every 4 weeks · Free delivery · Skip, pause or cancel any time</p>"}
 # Quarterly: the price itself comes from Skio's 3-MONTH SUBSCRIPTION plan (set it to £150 there).
 PLAN3 = {"name": "Quarterly plan", "price": "£150", "price_suffix": "", "was": "£210",
          "save": "Save 28% + free gifts",
          "note": "£50 a month, about £1.67 a day. £150 every 3 months.",
-         "detail": "<ul><li>Welcome kit worth £67, plus gifts in boxes 2 and 3</li><li>Skip, pause or cancel any time</li>"
-                   "<li>90-day supply, delivered every 3 months</li><li>Free next-day delivery</li></ul>"}
+         "detail": "<p><strong>Free in your first box (worth £77)</strong></p>"
+                   "<ul><li>Creatine, worth £30</li><li>Socks, worth £12</li><li>Jar to keep, worth £10</li>"
+                   "<li>Performance Bottle, worth £15</li><li>12-week guide, worth £10</li><li>Entry to win a Garmin watch</li></ul>"
+                   "<p><strong>Then free in later boxes</strong></p>"
+                   "<ul><li>Box 2: Socks, Creatine and £10 store credit</li><li>Box 3: Creatine and a chat with an expert</li>"
+                   "<li>From box 4: Creatine in every box</li></ul>"
+                   "<p>90-day supply every 3 months · Free delivery · Skip, pause or cancel any time</p>"}
+
 CDN = "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/"
 IMG = {"creatine": CDN + "gift-creatine.jpg?v=1791022787", "socks": CDN + "gift-socks.jpg?v=1791023071",
        "jar": CDN + "gift-forever-jar.jpg?v=1791023224", "bottle": CDN + "gift-bottle.jpg?v=1791022787",
@@ -57,6 +68,8 @@ Q_GIFTS = [  # quarterly first box, per the fulfilment sheet (bag not listed)
     ("qk1", "£12", "Socks", "Socks (Size UK 6-11)", IMG["socks"], "A pouch of MUTO Performance Socks"),
     ("qk2", "£10", "Jar to keep", "Jar to keep", IMG["jar"], "The MUTO Forever Jar in its presentation box"),
     ("qk3", "£15", "Bottle", "Performance Bottle", IMG["bottle"], "The MUTO Performance Bottle in translucent blue"),
+    ("qk4", "£10", "12-week guide", "12-week guide", CDN + "muto-gift-guide-v2.jpg?v=1791392560", "The MUTO 12 Week Protocol Guide"),
+    ("qk5", "Garmin Watch", "giveaway entry", "Chance to win a Garmin Watch", CDN + "gift-garmin.jpg?v=1791883127", "A white Garmin watch, the giveaway prize"),
 ]
 Q_MONTHS = [  # quarterly later boxes
     ("qm2a", "Box 2", "Socks", "£12", IMG["socks"], "A pouch of MUTO Performance Socks, free with box 2"),
