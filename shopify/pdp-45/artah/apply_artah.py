@@ -42,9 +42,9 @@ PLAN = {"name": "Monthly plan", "price_suffix": "/mo", "save": "Save 14% + free 
                   "<li>30-day supply, delivered every 4 weeks</li><li>Free next-day delivery</li></ul>"}
 # Quarterly: the price itself comes from Skio's 3-MONTH SUBSCRIPTION plan (set it to £150 there).
 PLAN3 = {"name": "Quarterly plan", "price": "£150", "price_suffix": "", "was": "£210",
-         "save": "Save 29% + free gifts",
-         "note": "£50 a month. £150 every 3 months.",
-         "detail": "<ul><li>Save 29% on every box, plus free gifts</li><li>Skip, pause or cancel any time</li>"
+         "save": "Save 28% + free gifts",
+         "note": "£50 a month, about £1.67 a day. £150 every 3 months.",
+         "detail": "<ul><li>Save £60 on every box vs buying once, plus free gifts</li><li>Skip, pause or cancel any time</li>"
                    "<li>90-day supply, delivered every 3 months</li><li>Free next-day delivery</li></ul>"}
 
 
