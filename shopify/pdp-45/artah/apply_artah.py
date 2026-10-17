@@ -20,10 +20,10 @@ SETTINGS = {
             "your body turns into NAD+, with TMG, CoQ10, PQQ, resveratrol, vitamins D3 and K2 and all 8 B vitamins. "
             "19 ingredients in 2 capsules, every dose on the label.</p>"
             "<p><a href=\"#whats-inside\">Ingredients + nutritional information</a></p>",
-    "plans_banner": "Welcome kit worth £62, free with your first box",
+    "plans_banner": "Free welcome kit with your first box",
     "plans_label": "Choose your plan",
-    "kit_title": "Free in your first box (worth £62):",
-    "gifts_label": "Plus free gifts in boxes 2 to 6",
+    "kit_title": "Free in your first box:",
+    "gifts_label": "Plus free gifts in later boxes",
     "onetime_label": "One-time purchase, no gifts – [price]",
     "cta_label": "Subscribe",
     "cta_price": True,
@@ -38,14 +38,34 @@ POINTS = [
 ]
 PLAN = {"name": "Monthly plan", "price_suffix": "", "save": "Save 14% + free gifts",
         "note": "£2 a day. £60 every 4 weeks.",
-        "detail": "<ul><li>Save 14% on every box, plus free gifts</li><li>Skip, pause or cancel any time</li>"
+        "detail": "<ul><li>Welcome kit worth £62, plus gifts in boxes 2 to 6</li><li>Skip, pause or cancel any time</li>"
                   "<li>30-day supply, delivered every 4 weeks</li><li>Free next-day delivery</li></ul>"}
 # Quarterly: the price itself comes from Skio's 3-MONTH SUBSCRIPTION plan (set it to £150 there).
 PLAN3 = {"name": "Quarterly plan", "price": "£150", "price_suffix": "", "was": "£210",
          "save": "Save 28% + free gifts",
          "note": "£50 a month, about £1.67 a day. £150 every 3 months.",
-         "detail": "<ul><li>Save £60 on every box vs buying once, plus free gifts</li><li>Skip, pause or cancel any time</li>"
+         "detail": "<ul><li>Welcome kit worth £67, plus gifts in boxes 2 and 3</li><li>Skip, pause or cancel any time</li>"
                    "<li>90-day supply, delivered every 3 months</li><li>Free next-day delivery</li></ul>"}
+CDN = "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/"
+IMG = {"creatine": CDN + "gift-creatine.jpg?v=1791022787", "socks": CDN + "gift-socks.jpg?v=1791023071",
+       "jar": CDN + "gift-forever-jar.jpg?v=1791023224", "bottle": CDN + "gift-bottle.jpg?v=1791022787",
+       "icon": CDN + "gift-icon.png?v=1770138065", "credit": CDN + "muto-gift-credit-v2.jpg?v=1791392560",
+       "consult": CDN + "muto-gift-consultation-v2.jpg?v=1791392559"}
+# Plan positions follow Skio's order: 1 = monthly, 2 = quarterly (the page shows quarterly first visually).
+Q_GIFTS = [  # quarterly first box, per the fulfilment sheet (bag not listed)
+    ("qk0", "£30", "Creatine", "Creatine", IMG["creatine"], "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate"),
+    ("qk1", "£12", "Socks", "Socks (Size UK 6-11)", IMG["socks"], "A pouch of MUTO Performance Socks"),
+    ("qk2", "£10", "Jar to keep", "Jar to keep", IMG["jar"], "The MUTO Forever Jar in its presentation box"),
+    ("qk3", "£15", "Bottle", "Performance Bottle", IMG["bottle"], "The MUTO Performance Bottle in translucent blue"),
+]
+Q_MONTHS = [  # quarterly later boxes
+    ("qm2a", "Box 2", "Socks", "£12", IMG["socks"], "A pouch of MUTO Performance Socks, free with box 2"),
+    ("qm2b", "Box 2", "Creatine", "£30", IMG["creatine"], "A pouch of MUTO creatine, free with box 2"),
+    ("qm2c", "Box 2", "Store credit", "£10", IMG["credit"], "A black MUTO gift card for £10 store credit"),
+    ("qm3a", "Box 3", "Creatine", "£30", IMG["creatine"], "A pouch of MUTO creatine, free with box 3"),
+    ("qm3b", "Box 3", "Chat with an expert", "£120", IMG["consult"], "A silver MUTO gift card for a one-to-one consultation"),
+    ("qm4", "Box 4 on", "Creatine, every box", "£30", IMG["creatine"], "A pouch of MUTO creatine, free in every box from box 4"),
+]
 
 
 def main(src, dst):
@@ -69,6 +89,22 @@ def main(src, dst):
     buy["blocks"][p1]["settings"].update(PLAN)
     if len(plans) > 1:
         buy["blocks"][plans[1]]["settings"].update(PLAN3)
+    # Gifts per plan: existing gifts and later-box gifts belong to the monthly plan (1);
+    # the quarterly plan (2) gets its own first box and later boxes.
+    B = buy["blocks"]
+    for k in order:
+        if B[k]["type"] in ("gift", "month") and not k.startswith("q"):
+            B[k]["settings"]["plans"] = "1"
+    last_gift = max(i for i, k in enumerate(order) if B[k]["type"] == "gift")
+    for j, (k, val, name, row, img, alt) in enumerate(Q_GIFTS):
+        B[k] = {"type": "gift", "settings": {"value": val, "name": name, "row_label": row, "row_note": "",
+                                             "image_fallback": img, "image_alt": alt, "plans": "2"}}
+        if k not in order: order.insert(last_gift + 1 + j, k)
+    last_month = max(i for i, k in enumerate(order) if B[k]["type"] == "month")
+    for j, (k, label, text, val, img, alt) in enumerate(Q_MONTHS):
+        B[k] = {"type": "month", "settings": {"label": label, "text": text, "value": val,
+                                              "image_fallback": img, "image_alt": alt, "plans": "2"}}
+        if k not in order: order.insert(last_month + 1 + j, k)
     # Show the quarterly plan (live had it hidden)
     buy["settings"]["hidden_plans"] = ""
     # Page CSS + the ingredients link

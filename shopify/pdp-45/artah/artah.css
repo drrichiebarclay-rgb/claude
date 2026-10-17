@@ -113,3 +113,6 @@ html body .mc .mc-art__cta-was:not(:empty) + .mc__btn-price::before{content:"";m
   html body .mc .mc__thumbs[hidden]{display:none}
   html body .mc .mc__thumb{width:64px;flex:0 0 auto;border-radius:10px}
 }
+
+/* First-box gift tiles: the section sizes the row by counting both plans' gifts; size it to the visible tiles instead */
+html body .mc .mc__kit-list{grid-template-columns:none !important;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:10px !important}
