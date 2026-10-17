@@ -22,8 +22,9 @@ SETTINGS = {
             "<p><a href=\"#whats-inside\">Ingredients + nutritional information</a></p>",
     "plans_banner": "Free welcome kit with your first box",
     "plans_label": "Choose your plan",
-    "kit_title": "Free in your first box:",
-    "gifts_label": "Plus free gifts in later boxes",
+    "kit_title": "Welcome kit — arrives with your first box",
+    "kit_itemised": False,
+    "gifts_label": "Future gifts",
     "onetime_label": "One-time purchase, no gifts – [price]",
     "cta_label": "Subscribe",
     "cta_price": True,
@@ -37,25 +38,15 @@ POINTS = [
     "One jar instead of several pots",
 ]
 PLAN = {"name": "Monthly plan", "price_suffix": "", "save": "Save 14% + free gifts",
-        "note": "£2 a day. £60 every 4 weeks.",
-        "detail": "<p><strong>Free in your first box (worth £62)</strong></p>"
-                  "<ul><li>Creatine, worth £30</li><li>Socks, worth £12</li><li>Jar to keep, worth £10</li>"
-                  "<li>12-week guide, worth £10</li><li>Entry to win a Garmin watch</li></ul>"
-                  "<p><strong>Then free in later boxes</strong></p>"
-                  "<ul><li>Box 2: Performance Bottle</li><li>Box 3: Socks</li><li>Box 4: Creatine and £10 store credit</li>"
-                  "<li>Box 6: Creatine and a chat with an expert</li></ul>"
-                  "<p>30-day supply every 4 weeks · Free delivery · Skip, pause or cancel any time</p>"}
+        "note": "Billed £60 every 4 weeks · £2 a day",
+        "detail": "<ul><li>Free welcome kit (£62 in value)</li><li>Free gifts in boxes 2 to 6</li>"
+                  "<li>Cancel or pause anytime</li><li>90-day money-back guarantee</li></ul>"}
 # Quarterly: the price itself comes from Skio's 3-MONTH SUBSCRIPTION plan (set it to £150 there).
 PLAN3 = {"name": "Quarterly plan", "price": "£150", "price_suffix": "", "was": "£210",
          "save": "Save 28% + free gifts",
-         "note": "£50 a month, about £1.67 a day. £150 every 3 months.",
-         "detail": "<p><strong>Free in your first box (worth £77)</strong></p>"
-                   "<ul><li>Creatine, worth £30</li><li>Socks, worth £12</li><li>Jar to keep, worth £10</li>"
-                   "<li>Performance Bottle, worth £15</li><li>12-week guide, worth £10</li><li>Entry to win a Garmin watch</li></ul>"
-                   "<p><strong>Then free in later boxes</strong></p>"
-                   "<ul><li>Box 2: Socks, Creatine and £10 store credit</li><li>Box 3: Creatine and a chat with an expert</li>"
-                   "<li>From box 4: Creatine in every box</li></ul>"
-                   "<p>90-day supply every 3 months · Free delivery · Skip, pause or cancel any time</p>"}
+         "note": "Billed £150 every 3 months · £1.67 a day",
+         "detail": "<ul><li>Free welcome kit (£77 in value)</li><li>Free gifts in boxes 2 and 3, then creatine in every box</li>"
+                   "<li>Cancel or pause anytime</li><li>90-day money-back guarantee</li></ul>"}
 
 CDN = "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/"
 IMG = {"creatine": CDN + "gift-creatine.jpg?v=1791022787", "socks": CDN + "gift-socks.jpg?v=1791023071",
