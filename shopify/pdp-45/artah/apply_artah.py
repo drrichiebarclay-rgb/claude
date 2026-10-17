@@ -56,14 +56,10 @@ IMG = {"creatine": CDN + "gift-creatine.jpg?v=1791022787", "socks": CDN + "gift-
        "icon": CDN + "gift-icon.png?v=1770138065", "credit": CDN + "muto-gift-credit-v2.jpg?v=1791392560",
        "consult": CDN + "muto-gift-consultation-v2.jpg?v=1791392559"}
 # Plan positions follow Skio's order: 1 = monthly, 2 = quarterly (the page shows quarterly first visually).
-Q_GIFTS = [  # quarterly first box, per the fulfilment sheet (bag not listed)
-    ("qk0", "£30", "Creatine", "Creatine", IMG["creatine"], "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate"),
-    ("qk1", "£12", "Socks", "Socks (Size UK 6-11)", IMG["socks"], "A pouch of MUTO Performance Socks"),
-    ("qk2", "£10", "Jar to keep", "Jar to keep", IMG["jar"], "The MUTO Forever Jar in its presentation box"),
+Q_GIFTS = [  # quarterly-only first-box gift; the others are the page's own gifts, shared by both plans
     ("qk3", "£15", "Bottle", "Performance Bottle", IMG["bottle"], "The MUTO Performance Bottle in translucent blue"),
-    ("qk4", "£10", "12-week guide", "12-week guide", CDN + "muto-gift-guide-v2.jpg?v=1791392560", "The MUTO 12 Week Protocol Guide"),
-    ("qk5", "Garmin Watch", "giveaway entry", "Chance to win a Garmin Watch", CDN + "gift-garmin.jpg?v=1791883127", "A white Garmin watch, the giveaway prize"),
 ]
+SHARED_GIFTS = 5  # the first five existing gifts (creatine, socks, jar, guide, Garmin entry) show on both plans
 Q_MONTHS = [  # quarterly later boxes
     ("qm2a", "Box 2", "Socks", "£12", IMG["socks"], "A pouch of MUTO Performance Socks, free with box 2"),
     ("qm2b", "Box 2", "Creatine", "£30", IMG["creatine"], "A pouch of MUTO creatine, free with box 2"),
@@ -98,14 +94,20 @@ def main(src, dst, include_rest=True):
     # Gifts per plan: existing gifts and later-box gifts belong to the monthly plan (1);
     # the quarterly plan (2) gets its own first box and later boxes.
     B = buy["blocks"]
+    # Drop earlier quarterly duplicates and the hidden trust pills (the section allows 50 blocks)
+    for k in [k for k in order if k in ("qk0", "qk1", "qk2", "qk4", "qk5") or B[k]["type"] == "trust"]:
+        order.remove(k); B.pop(k, None)
+    own_gifts = [k for k in order if B[k]["type"] == "gift" and not k.startswith("q")]
+    for i, k in enumerate(own_gifts):
+        B[k]["settings"]["plans"] = "" if i < SHARED_GIFTS else "1"
     for k in order:
-        if B[k]["type"] in ("gift", "month") and not k.startswith("q"):
+        if B[k]["type"] == "month" and not k.startswith("q"):
             B[k]["settings"]["plans"] = "1"
-    last_gift = max(i for i, k in enumerate(order) if B[k]["type"] == "gift")
+    after = order.index(own_gifts[2])  # bottle sits after the jar
     for j, (k, val, name, row, img, alt) in enumerate(Q_GIFTS):
         B[k] = {"type": "gift", "settings": {"value": val, "name": name, "row_label": row, "row_note": "",
                                              "image_fallback": img, "image_alt": alt, "plans": "2"}}
-        if k not in order: order.insert(last_gift + 1 + j, k)
+        if k not in order: order.insert(after + 1 + j, k)
     last_month = max(i for i, k in enumerate(order) if B[k]["type"] == "month")
     for j, (k, label, text, val, img, alt) in enumerate(Q_MONTHS):
         B[k] = {"type": "month", "settings": {"label": label, "text": text, "value": val,

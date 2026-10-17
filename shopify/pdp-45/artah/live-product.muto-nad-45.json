@@ -27,24 +27,6 @@
             "image_alt": "A cyclist at speed, shot with motion blur"
           }
         },
-        "t1": {
-          "type": "trust",
-          "settings": {
-            "text": "Money back for 90 days"
-          }
-        },
-        "t2": {
-          "type": "trust",
-          "settings": {
-            "text": "Stop any time"
-          }
-        },
-        "t3": {
-          "type": "trust",
-          "settings": {
-            "text": "Checked by an outside lab"
-          }
-        },
         "p1": {
           "type": "plan",
           "settings": {
@@ -66,7 +48,7 @@
             "row_note": "",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
             "image_alt": "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate, part of the welcome kit",
-            "plans": "1"
+            "plans": ""
           }
         },
         "k1": {
@@ -78,7 +60,7 @@
             "row_note": "",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-socks.jpg?v=1791023071",
             "image_alt": "A pouch of MUTO Performance Socks, part of the welcome kit",
-            "plans": "1"
+            "plans": ""
           }
         },
         "k2": {
@@ -90,7 +72,7 @@
             "row_note": "",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-forever-jar.jpg?v=1791023224",
             "image_alt": "The MUTO Forever Jar in its presentation box, part of the welcome kit",
-            "plans": "1"
+            "plans": ""
           }
         },
         "k3": {
@@ -102,7 +84,7 @@
             "row_note": "",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-gift-guide-v2.jpg?v=1791392560",
             "image_alt": "The MUTO 12 Week Protocol Guide, a black book with the formula listed down its cover",
-            "plans": "1"
+            "plans": ""
           }
         },
         "k4": {
@@ -114,7 +96,7 @@
             "row_note": "Free entry",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-garmin.jpg?v=1791883127",
             "image_alt": "A white Garmin watch, the giveaway prize in the welcome kit",
-            "plans": "1"
+            "plans": ""
           }
         },
         "mg2": {
@@ -301,42 +283,6 @@
             "text": "One jar instead of several pots"
           }
         },
-        "qk0": {
-          "type": "gift",
-          "settings": {
-            "value": "£30",
-            "name": "Creatine",
-            "row_label": "Creatine",
-            "row_note": "",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
-            "image_alt": "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate",
-            "plans": "2"
-          }
-        },
-        "qk1": {
-          "type": "gift",
-          "settings": {
-            "value": "£12",
-            "name": "Socks",
-            "row_label": "Socks (Size UK 6-11)",
-            "row_note": "",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-socks.jpg?v=1791023071",
-            "image_alt": "A pouch of MUTO Performance Socks",
-            "plans": "2"
-          }
-        },
-        "qk2": {
-          "type": "gift",
-          "settings": {
-            "value": "£10",
-            "name": "Jar to keep",
-            "row_label": "Jar to keep",
-            "row_note": "",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-forever-jar.jpg?v=1791023224",
-            "image_alt": "The MUTO Forever Jar in its presentation box",
-            "plans": "2"
-          }
-        },
         "qk3": {
           "type": "gift",
           "settings": {
@@ -346,30 +292,6 @@
             "row_note": "",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-bottle.jpg?v=1791022787",
             "image_alt": "The MUTO Performance Bottle in translucent blue",
-            "plans": "2"
-          }
-        },
-        "qk4": {
-          "type": "gift",
-          "settings": {
-            "value": "£10",
-            "name": "12-week guide",
-            "row_label": "12-week guide",
-            "row_note": "",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-gift-guide-v2.jpg?v=1791392560",
-            "image_alt": "The MUTO 12 Week Protocol Guide",
-            "plans": "2"
-          }
-        },
-        "qk5": {
-          "type": "gift",
-          "settings": {
-            "value": "Garmin Watch",
-            "name": "giveaway entry",
-            "row_label": "Chance to win a Garmin Watch",
-            "row_note": "",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-garmin.jpg?v=1791883127",
-            "image_alt": "A white Garmin watch, the giveaway prize",
             "plans": "2"
           }
         },
@@ -450,21 +372,13 @@
         "ben4",
         "ben5",
         "ben6",
-        "t1",
-        "t2",
-        "t3",
         "p1",
         "k0",
         "k1",
         "k2",
+        "qk3",
         "k3",
         "k4",
-        "qk0",
-        "qk1",
-        "qk2",
-        "qk3",
-        "qk4",
-        "qk5",
         "mg2",
         "mg3",
         "mg4a",
