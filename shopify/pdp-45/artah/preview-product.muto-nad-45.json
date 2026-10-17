@@ -50,7 +50,7 @@
           "settings": {
             "name": "Monthly plan",
             "price": "£60",
-            "price_suffix": "/mo",
+            "price_suffix": "",
             "was": "£70",
             "save": "Save 14% + free gifts",
             "note": "£2 a day. £60 every 4 weeks.",

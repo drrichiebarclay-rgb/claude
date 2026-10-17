@@ -36,7 +36,7 @@ POINTS = [
     "Supports normal muscle function",
     "One jar instead of several pots",
 ]
-PLAN = {"name": "Monthly plan", "price_suffix": "/mo", "save": "Save 14% + free gifts",
+PLAN = {"name": "Monthly plan", "price_suffix": "", "save": "Save 14% + free gifts",
         "note": "£2 a day. £60 every 4 weeks.",
         "detail": "<ul><li>Save 14% on every box, plus free gifts</li><li>Skip, pause or cancel any time</li>"
                   "<li>30-day supply, delivered every 4 weeks</li><li>Free next-day delivery</li></ul>"}
