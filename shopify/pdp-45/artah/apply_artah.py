@@ -36,10 +36,16 @@ POINTS = [
     "Supports normal muscle function",
     "One jar instead of several pots",
 ]
-PLAN = {"name": "Monthly subscription", "price_suffix": "/mo", "save": "Save 14%",
+PLAN = {"name": "Monthly plan", "price_suffix": "/mo", "save": "Save 14% + free gifts",
         "note": "£2 a day. £60 every 4 weeks.",
         "detail": "<ul><li>Save 14% on every box, plus free gifts</li><li>Skip, pause or cancel any time</li>"
                   "<li>30-day supply, delivered every 4 weeks</li><li>Free next-day delivery</li></ul>"}
+# Quarterly: the price itself comes from Skio's 3-MONTH SUBSCRIPTION plan (set it to £150 there).
+PLAN3 = {"name": "Quarterly plan", "price": "£150", "price_suffix": "", "was": "£210",
+         "save": "Save 29% + free gifts",
+         "note": "£50 a month. £150 every 3 months.",
+         "detail": "<ul><li>Save 29% on every box, plus free gifts</li><li>Skip, pause or cancel any time</li>"
+                   "<li>90-day supply, delivered every 3 months</li><li>Free next-day delivery</li></ul>"}
 
 
 def main(src, dst):
@@ -58,8 +64,13 @@ def main(src, dst):
         buy["blocks"][k] = {"type": "point", "settings": {"text": t}}
     order[at:at] = new
     # The monthly plan card (the first plan block)
-    p1 = next(k for k in order if buy["blocks"][k]["type"] == "plan")
+    plans = [k for k in order if buy["blocks"][k]["type"] == "plan"]
+    p1 = plans[0]
     buy["blocks"][p1]["settings"].update(PLAN)
+    if len(plans) > 1:
+        buy["blocks"][plans[1]]["settings"].update(PLAN3)
+    # Show the quarterly plan (live had it hidden)
+    buy["settings"]["hidden_plans"] = ""
     # Page CSS + the ingredients link
     d["sections"]["easy_read"]["settings"]["custom_liquid"] = "<style>\n" + CSS + "\n</style>\n<script>\n" + JS + "\n</script>"
     json.dump(d, open(dst, "w"), ensure_ascii=False, indent=2)
