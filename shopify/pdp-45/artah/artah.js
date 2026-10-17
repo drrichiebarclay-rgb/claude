@@ -11,22 +11,18 @@ document.addEventListener('click', function (e) {
   d.scrollIntoView({ behavior: 'smooth', block: 'center' });
 });
 
-/* Start on the quarterly plan (the second card in Skio's order), once the section script is ready */
-window.addEventListener('load', function () {
-  setTimeout(function () {
-    var cards = document.querySelectorAll('.mc__plans > label.mc__plan');
-    var q = cards[1] && cards[1].querySelector('.mc__plan-input');
-    if (q && !q.checked && !q.disabled) q.click();
-  }, 50);
-});
-
-/* The button shows the selected plan's old price struck through before its price */
 (function () {
+  var norm = function (t) { return (t || '').replace(/\s+/g, '').replace(/\/mo$/, ''); };
+  function cards() { return [].slice.call(document.querySelectorAll('.mc__plans > label.mc__plan')); }
+
+  /* The button shows the old price of whichever plan its price belongs to, struck through */
   function syncWas() {
     var price = document.querySelector('.mc__buy-cta [data-mh-cta-price]');
     if (!price) return;
-    var input = document.querySelector('.mc__plans .mc__plan-input:checked');
-    var card = input && input.closest('.mc__plan');
+    var now = norm(price.textContent);
+    var card = cards().find(function (c) {
+      var p = c.querySelector('.mc__plan-price'); return p && norm(p.textContent) === now;
+    }) || document.querySelector('.mc__plans > label.mc__plan.is-selected');
     var was = card && card.querySelector('.mc__plan-was');
     var s = price.parentNode.querySelector('.mc-art__cta-was');
     if (!s) {
@@ -34,11 +30,33 @@ window.addEventListener('load', function () {
       s.className = 'mc-art__cta-was';
       price.parentNode.insertBefore(s, price);
     }
-    s.textContent = was ? was.textContent.trim() : '';
+    var t = was ? was.textContent.trim() : '';
+    if (s.textContent !== t) s.textContent = t;
   }
-  document.addEventListener('change', function (e) {
-    if (e.target.classList && e.target.classList.contains('mc__plan-input')) setTimeout(syncWas, 0);
-  });
-  window.addEventListener('load', function () { setTimeout(syncWas, 120); });
-  document.addEventListener('DOMContentLoaded', syncWas);
+
+  /* Start on the quarterly plan (the second card in Skio's order) */
+  function selectQuarterly(tries) {
+    var c = cards()[1];
+    if (!c) return;
+    if (c.classList.contains('is-selected')) return;
+    var input = c.querySelector('.mc__plan-input');
+    if (input && input.disabled) return;
+    c.click();
+    if (input && !input.checked) { input.checked = true; input.dispatchEvent(new Event('change', { bubbles: true })); }
+    if (tries > 0) setTimeout(function () { selectQuarterly(tries - 1); }, 250);
+  }
+
+  function start() {
+    var price = document.querySelector('.mc__buy-cta [data-mh-cta-price]');
+    if (price && window.MutationObserver) {
+      new MutationObserver(syncWas).observe(price, { childList: true, characterData: true, subtree: true });
+    }
+    document.addEventListener('change', function () { setTimeout(syncWas, 0); });
+    document.addEventListener('click', function (e) {
+      if (e.target.closest && e.target.closest('.mc__plan')) setTimeout(syncWas, 0);
+    });
+    syncWas();
+    setTimeout(function () { selectQuarterly(4); setTimeout(syncWas, 50); }, 300);
+  }
+  if (document.readyState === 'complete') start(); else window.addEventListener('load', start);
 })();
