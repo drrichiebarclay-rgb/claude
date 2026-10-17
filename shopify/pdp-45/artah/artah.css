@@ -97,3 +97,8 @@ html body .mh__sticky-btn{font-size:15px}
   html body .mc .mc__prob-quote{font-size:20px}
   html body .mc .mc__step-title{font-size:19px}
 }
+
+/* Button: old price struck through, then the price ("Subscribe · £70 £60") */
+html body .mc .mc-art__cta-was{font-weight:500;opacity:.55;text-decoration:line-through}
+html body .mc .mc-art__cta-was:not(:empty)::before{content:"\00b7";display:inline-block;margin:0 .42em;opacity:.9;text-decoration:none}
+html body .mc .mc-art__cta-was:not(:empty) + .mc__btn-price::before{content:"";margin:0 0 0 .35em}
