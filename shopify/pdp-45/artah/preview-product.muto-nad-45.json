@@ -397,7 +397,8 @@
             "text": "Now the afternoon slump turns up every day.",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-problem-tired.jpg?v=1791018569",
             "image_alt": "An athlete head down on a gym bike, sweating, a watch on their wrist",
-            "image_position": "50% 35%"
+            "image_position": "50% 35%",
+            "image": "shopify://shop_images/image14.png"
           }
         },
         "c2": {
@@ -407,7 +408,8 @@
             "text": "A long walk or a game of tennis costs you the next day.",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-problem-recovery.jpg?v=1791018568",
             "image_alt": "A runner bent over with hands on knees, catching her breath at sunset",
-            "image_position": "50% 35%"
+            "image_position": "50% 35%",
+            "image": "shopify://shop_images/55EA0B34-E750-455E-A653-69C748D79E57.png"
           }
         },
         "c3": {
@@ -417,7 +419,8 @@
             "text": "A cupboard full, and no idea which ones work.",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-problem-box.jpg?v=1791018999",
             "image_alt": "The MUTO NAD+ Cellular Complex box open, with the jar, vial and refill pouch inside",
-            "image_position": ""
+            "image_position": "",
+            "image": "shopify://shop_images/Frame_2147230149.png"
           }
         },
         "c4": {
@@ -427,7 +430,8 @@
             "text": "Not younger. Just yourself, with something left at the end of the day.",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-problem-data.jpg?v=1791018568",
             "image_alt": "Two athletes at a table reading a recovery score on a phone, trackers on both wrists",
-            "image_position": "50% 65%"
+            "image_position": "50% 65%",
+            "image": "shopify://shop_images/46EE29F8-4F3F-4512-A6FB-1FE3B7D0CDA8.png"
           }
         }
       },
@@ -629,7 +633,8 @@
             "image_alt": "A cyclist pausing mid-ride in the sun, sunglasses pushed up, catching their breath",
             "image_position": "50% 8%",
             "cta_label": "Try it for 90 days",
-            "cta_link": ""
+            "cta_link": "",
+            "image": "shopify://shop_images/D2AA08A2-83BB-4249-AC48-A8261A413D04.png"
           }
         },
         "f1": {
@@ -826,7 +831,8 @@
             "text": "Energy and sleep, out of 10. It takes 30 seconds.",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-baseline.jpg?v=1791020791",
             "image_alt": "A cyclist checking the watch on their wrist, hands resting on the bars",
-            "image_position": "50% 35%"
+            "image_position": "50% 35%",
+            "image": "shopify://shop_images/1BBE18C7-9CBA-4EA3-BB3F-60C13D1F4F19.png"
           }
         },
         "s2": {
@@ -837,7 +843,8 @@
             "text": "Keep the jar by the kettle, so you don’t forget.",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-steady.jpg?v=1791020790",
             "image_alt": "An athlete between sets in the gym",
-            "image_position": "50% 15%"
+            "image_position": "50% 15%",
+            "image": "shopify://shop_images/333AFFA4-7F5A-41E9-A34E-780C1C51FBDE.png"
           }
         },
         "s3": {
@@ -848,7 +855,8 @@
             "text": "Many people notice the afternoons first.",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-checkin-close.jpg?v=1791021630",
             "image_alt": "A wrist resting on an ice bath, the watch showing a live heart rate of 97 BPM",
-            "image_position": "50% 50%"
+            "image_position": "50% 50%",
+            "image": "shopify://shop_images/image6.png"
           }
         },
         "s4": {
@@ -859,7 +867,8 @@
             "text": "Feel the difference, or get your money back.",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-verdict.jpg?v=1791020808",
             "image_alt": "Three athletes laughing together after a session, city skyline behind",
-            "image_position": "50% 8%"
+            "image_position": "50% 8%",
+            "image": "shopify://shop_images/1C46F449-B491-4589-BF89-04157F7CB0F6.png"
           }
         }
       },
@@ -1049,7 +1058,8 @@
         "image_alt": "Harry Insley resting on a log after a session, drinking from a MUTO bottle",
         "image_position": "50% 8%",
         "space_top": 100,
-        "space_bottom": 100
+        "space_bottom": 100,
+        "image": "shopify://shop_images/42FB6D71-CEAF-4B0A-962A-E043F6098596.png"
       }
     },
     "faq": {
