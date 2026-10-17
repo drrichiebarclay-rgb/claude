@@ -9,6 +9,7 @@ Usage: python3 apply_artah.py <in template.json> <out template.json>
 import json, re, sys
 
 CSS = open(__file__.replace("apply_artah.py", "artah.css")).read()
+REST_CSS = open(__file__.replace("apply_artah.py", "artah-rest.css")).read()
 JS = open(__file__.replace("apply_artah.py", "artah.js")).read()
 
 SETTINGS = {
@@ -28,6 +29,7 @@ SETTINGS = {
     "onetime_label": "One-time purchase, no gifts – [price]",
     "cta_label": "Subscribe",
     "cta_price": True,
+    "rating_link": "#ReviewsWidget",
 }
 POINTS = [
     "Supports your cells’ NAD+",
@@ -72,7 +74,7 @@ Q_MONTHS = [  # quarterly later boxes
 ]
 
 
-def main(src, dst):
+def main(src, dst, include_rest=True):
     raw = open(src).read()
     d = json.loads(re.sub(r"^/\*.*?\*/", "", raw, flags=re.S))
     buy = d["sections"]["buy"]
@@ -112,7 +114,11 @@ def main(src, dst):
     # Show the quarterly plan (live had it hidden)
     buy["settings"]["hidden_plans"] = ""
     # Page CSS + the ingredients link
-    d["sections"]["easy_read"]["settings"]["custom_liquid"] = "<style>\n" + CSS + "\n</style>\n<script>\n" + JS + "\n</script>"
+    if "easy_read" not in d["sections"]:
+        d["sections"]["easy_read"] = {"type": "custom-liquid", "settings": {"custom_liquid": "", "color_scheme": "scheme-1", "padding_top": 0, "padding_bottom": 0}}
+        d["order"].append("easy_read")
+    css = CSS + ("\n" + REST_CSS if include_rest else "")
+    d["sections"]["easy_read"]["settings"]["custom_liquid"] = "<style>\n" + css + "\n</style>\n<script>\n" + JS + "\n</script>"
     # Age: "over 40" becomes "over 35" anywhere on the page
     def walk(o):
         if isinstance(o, dict):
@@ -128,4 +134,4 @@ def main(src, dst):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:3])
+    main(sys.argv[1], sys.argv[2], include_rest="--buybox-only" not in sys.argv)

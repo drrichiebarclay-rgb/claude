@@ -3,7 +3,7 @@ document.addEventListener('click', function (e) {
   var a = e.target.closest && e.target.closest('a[href="#whats-inside"]');
   if (!a) return;
   var d = [].find.call(document.querySelectorAll('.mc__acc-item'), function (x) {
-    var s = x.querySelector('summary'); return s && /inside/i.test(s.textContent);
+    var s = x.querySelector('summary'); return s && /inside|ingredient/i.test(s.textContent);
   });
   if (!d) return;
   e.preventDefault();

@@ -77,26 +77,6 @@ html body .mc .mc__acc-sum{font-size:15px;min-height:52px}
 html body .mc .mc__acc-body{font-size:15px;line-height:1.5;color:#242223}
 html body .mc .mc__rev-q{font-size:15px}
 
-/* ---- Rest of the page: back to standard sizes (was enlarged) ---- */
-html body .mc .mc__body,html body .mc .mc__ben-body,html body .mc .mc__ben-lede,html body .mc .mc__ben-name,
-html body .mc .mc__ben-sub,html body .mc .mc__step-text,html body .mc .mc__faq-body,html body .mc .mc__faq-sum,
-html body .mc .mc__gua-text,html body .mc .mc__note-text{font-size:16px;line-height:1.5}
-html body .mc .mc__ben-body,html body .mc .mc__faq-body{color:#242223}
-html body .mc .mc__prob-lede{font-size:18px;line-height:1.45}
-html body .mc .mc__prob-quote{font-size:22px;line-height:1.2}
-html body .mc .mc__prob-text{font-size:16px;line-height:1.45}
-html body .mc .mc__step-title{font-size:21px;line-height:1.2}
-html body .mc .mc__step-chip,html body .mc .mc__gua-chip{font-size:14px}
-html body .mc .mc__gua-aside{font-size:20px}
-html body .mc .mc__tabs{display:none}
-html body .mh .mh__why-title{font-size:22px}
-html body .mh .mh__why-text{font-size:16px;line-height:1.5;color:var(--mh-ink,#162f31)}
-html body .mh .mh__board-note,html body .mh .mh__res-note{font-size:15px;color:#242223}
-html body .mh .mh__res-quote{font-size:15px;line-height:1.45;color:#242223}
-html body .mh .mh__res-detail,html body .mh .mh__res-foot{font-size:13px;color:rgba(35,33,35,.8)}
-html body .mh__sticky-sub{font-size:13px;color:rgba(249,249,249,.85)}
-html body .mh__sticky-btn{font-size:15px}
-
 @media (max-width:749px){
   html body .mc .mc__buy-title{font-size:32px}
   html body .mc .mc__buy-text p:first-child{font-size:17px}
@@ -104,8 +84,6 @@ html body .mh__sticky-btn{font-size:15px}
   html body .mc .mc__point{font-size:13.5px}
   html body .mc .mc__buy-points::after{font-size:18px;background-size:calc(50% - 95px) 2px,calc(50% - 95px) 2px}
   html body .mc .mc__plan-detail ul{grid-template-columns:1fr}
-  html body .mc .mc__prob-quote{font-size:20px}
-  html body .mc .mc__step-title{font-size:19px}
 }
 
 /* Button: old price struck through, then the price ("Subscribe · £70 £60") */
