@@ -20,7 +20,7 @@ SETTINGS = {
             "your body turns into NAD+, with TMG, CoQ10, PQQ, resveratrol, vitamins D3 and K2 and all 8 B vitamins. "
             "19 ingredients in 2 capsules, every dose on the label.</p>"
             "<p><a href=\"#whats-inside\">Ingredients + nutritional information</a></p>",
-    "plans_banner": "Free welcome kit with your first box",
+    "plans_banner": "New customer offer, free welcome kit worth up to £77",
     "plans_label": "Choose your plan",
     "kit_title": "Welcome kit — arrives with your first box",
     "kit_itemised": False,

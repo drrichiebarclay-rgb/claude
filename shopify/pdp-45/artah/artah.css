@@ -54,11 +54,11 @@ html body .mc .mc__plan-detail li::before{content:"";position:absolute;left:0;to
 /* Gifts for the selected plan, closing the box */
 html body .mc .mc__plans > .mc__kit{margin:0;padding:16px 18px 18px;border-top:0;border-radius:0 0 14px 14px;background:#fff;box-shadow:inset 2px 0 0 #242223,inset -2px 0 0 #242223,inset 0 -2px 0 #242223}
 html body .mc .mc__kit-title{font-family:var(--mc-mono,monospace);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
-html body .mc .mc__kit-list{display:grid !important;grid-template-columns:repeat(3,minmax(0,1fr)) !important;grid-auto-flow:row;gap:14px 12px !important;margin-top:12px}
+html body .mc .mc__kit-list{display:grid !important;grid-template-columns:none !important;grid-auto-flow:column;grid-auto-columns:minmax(0,72px);justify-content:start;gap:10px !important;margin-top:12px}
 html body .mc .mc__kit-list li{text-align:center}
-html body .mc .mc__kit-frame{border-radius:10px;overflow:hidden}
-html body .mc .mc__kit-value{font-size:12.5px;margin-top:6px}
-html body .mc .mc__kit-name{font-size:13.5px;line-height:1.25}
+html body .mc .mc__kit-frame{border-radius:8px;overflow:hidden}
+html body .mc .mc__kit-value{font-size:11.5px;margin-top:5px}
+html body .mc .mc__kit-name{font-size:11.5px;line-height:1.25}
 html body .mc .mc__kit-more{margin-top:16px}
 html body .mc .mc__kit-sum{display:flex;align-items:center;justify-content:center;gap:8px;min-height:46px;border-radius:23px;background:rgba(36,34,35,.07);font-size:15px;font-weight:500;cursor:pointer}
 

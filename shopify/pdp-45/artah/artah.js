@@ -46,6 +46,19 @@ document.addEventListener('click', function (e) {
     if (tries > 0) setTimeout(function () { selectQuarterly(tries - 1); }, 250);
   }
 
+  /* The offer bar names the selected plan's welcome kit value */
+  var KIT = ['£62', '£77']; /* Skio order: 1 = monthly, 2 = quarterly */
+  function syncBanner() {
+    var bar = document.querySelector('.mc__plans-banner');
+    if (!bar) return;
+    var i = cards().findIndex(function (c) { return c.classList.contains('is-selected'); });
+    if (i < 0 || !KIT[i]) return;
+    var t = 'New customer offer, free welcome kit worth ' + KIT[i];
+    if (bar.textContent !== t) bar.textContent = t;
+  }
+  var _syncWas = syncWas;
+  syncWas = function () { _syncWas(); syncBanner(); };
+
   function start() {
     var price = document.querySelector('.mc__buy-cta [data-mh-cta-price]');
     if (price && window.MutationObserver) {
