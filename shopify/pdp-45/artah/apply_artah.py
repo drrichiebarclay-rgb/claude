@@ -19,7 +19,7 @@ SETTINGS = {
             "<p>NAD+ is the molecule your cells use to make energy. MUTO is built around 300mg NR, a form of vitamin B3 "
             "your body turns into NAD+, with TMG, CoQ10, PQQ, resveratrol, vitamins D3 and K2 and all 8 B vitamins. "
             "19 ingredients in 2 capsules, every dose on the label.</p>"
-            "<p><a href=\"#whats-inside\" class=\"mc-art__inside\">Ingredients + nutritional information</a></p>",
+            "<p><a href=\"#whats-inside\">Ingredients + nutritional information</a></p>",
     "plans_banner": "Welcome kit worth £62, free with your first box",
     "plans_label": "Choose your plan",
     "kit_title": "Free in your first box (worth £62):",

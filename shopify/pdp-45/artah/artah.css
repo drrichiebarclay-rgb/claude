@@ -9,7 +9,7 @@ html body .mc .mc__buy-text{margin-top:14px;font-size:15px;line-height:1.55;colo
 html body .mc .mc__buy-text p:first-child{font-size:18px;line-height:1.35;padding-bottom:14px;margin-bottom:14px;border-bottom:2px solid var(--mc-ink-alt,#242223);color:var(--mc-ink-alt,#242223)}
 html body .mc .mc__buy-text p:first-child strong{font-weight:500}
 html body .mc .mc__buy-text > * + *{margin-top:10px}
-html body .mc .mc-art__inside{color:rgba(36,34,35,.7);font-weight:500;text-decoration:underline;text-underline-offset:4px}
+html body .mc .mc__buy-text a[href="#whats-inside"]{color:rgba(36,34,35,.7);font-weight:500;text-decoration:underline;text-underline-offset:4px}
 
 /* ---- Benefits: two columns with rules, like a spec list ---- */
 html body .mc .mc__buy-points{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;column-gap:28px}
