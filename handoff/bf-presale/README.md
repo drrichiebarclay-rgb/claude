@@ -7,7 +7,6 @@ A new box above the plan boxes on the product pages. **It's one paste on each of
 
 # Before you start
 
-- **Do this after the 17 October buy-box update.** The box sits above the new plan boxes and goes into the `easy_read` Custom Liquid block that update added.
 - **File:** `black-friday-presale-box.liquid`, in `MUTO_BF_Presale_Box.zip` and also in GitHub at `handoff/bf-presale/` (repo drrichiebarclay-rgb/claude, branch `claude/faq-page-shopify-redesign-hbqcg8`).
 - **Preview:** it's already on the 3M refill plan theme (ID 202682564955):
   - <https://muto.co/products/muto-nad-cellular-complex?preview_theme_id=202682564955>
