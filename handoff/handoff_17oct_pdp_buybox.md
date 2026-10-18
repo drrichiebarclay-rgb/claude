@@ -5,7 +5,7 @@ subtitle: "17 October 2026"
 
 The -2 page's design (template `muto-nad-45`) becomes the **main product page**. The current main page's template (`muto-nad-performance`) moves to **-3**, and -2 keeps its design. Both templates also have a new buy box.
 
-That means **3 theme files to copy**, **template changes on 2 products** and **photos on 1 product**.
+That means **3 theme files to copy**, **template changes on 2 products**, **photos on 1 product** and a **Shopify Flow** for the Black Friday pre-sale box.
 
 # Before you start
 
@@ -85,6 +85,42 @@ Every page takes its carousel from **its own product's Media**, not from the tem
 - **The quarterly plan is shown.** `hidden_plans` is now empty. Card prices come from Skio, currently £60 (1-month) and £150 (3-month).
 - **Gifts are tagged by plan.** 1 = monthly and 2 = quarterly, in Skio's order; empty means both plans. Only the Bottle is quarterly-only in the first box. The quarterly box shows first because of the page's CSS and opens on load because of its script.
 - **Block limit.** The section allows **50 blocks**. `muto-nad-performance` uses 47 and `muto-nad-45` uses 39. Remove a block before adding new ones to the performance template.
+
+# Black Friday pre-sale box (both templates)
+
+A dark box sits above the plan boxes. It runs from page load until **23:59 UK time on Wednesday 28 October**, then hides itself.
+
+- **What it shows:**
+  - "BLACK FRIDAY PRE-SALE".
+  - "Extra 10% off the Quarterly plan, plus a free welcome kit worth £77".
+  - "£135 for your first box instead of £150. Code MUTO10 is applied automatically at checkout".
+  - A live countdown in days, hours, minutes and seconds.
+  - "Pre-sale ends 23:59, Wednesday 28 October."
+  - "92 of 500 free welcome kits left at this price", with a progress bar.
+- **How it's built:** template-only, in the same `easy_read` block. The source is `shopify/pdp-45/artah/bf.js` and `bf.css`. The end date, the code and the total of 500 are set at the top of `bf.js`.
+- **The code:** the page calls `/discount/MUTO10` when it loads, so Shopify applies the code at checkout. MUTO10 already exists: 10% off, applies to subscriptions and one-time purchases, once per customer. It works on both plans, even though the box only promotes the Quarterly plan.
+
+## Welcome kits left
+
+The number comes from a shop metafield, `muto.bf_boxes_left`. It's set to **92**, the real pre-Black Friday allocation. To edit it: Settings → Custom data → Shop → "Black Friday welcome kits left". If it's blank, the line is hidden.
+
+## Set up: Shopify Flow to lower the count by 1 per new customer
+
+1. Flow → Create workflow → Trigger: **Order created**.
+2. Condition, all of:
+   - the customer's number of orders is equal to 1 (welcome kits only go out with first orders, so Skio renewals don't count);
+   - `muto.bf_boxes_left` is greater than 0.
+3. Action: **Update shop metafield**:
+   - namespace `muto`, key `bf_boxes_left`, type Integer;
+   - value = the current value minus 1, e.g. `{{ … bf_boxes_left.value | minus: 1 }}` using Flow's variable picker for the shop metafield.
+4. Turn it on before the box goes live.
+
+## Before launch
+
+- [ ] In Discounts, give **MUTO10 an end date** of 28 Oct 2026, 23:59. Today it has none.
+- [ ] **Test orders** on the Quarterly plan, the Monthly plan and one-time purchase. Check MUTO10 applies **and** the welcome-kit gifts still arrive. MUTO10 doesn't combine with product discounts, so if the gifts use a product discount, one will cancel the other.
+- [ ] **Check the Flow:** after one test order, the count drops from 92 to 91.
+- [ ] **When the count reaches 0:** the free kit or the price must change, because the box says "at this price". Tell Richie so the box can be updated.
 
 # Notes
 
