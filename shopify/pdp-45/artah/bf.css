@@ -11,6 +11,11 @@ html body .mc .mc-bf__clock{grid-column:2;grid-row:2/4;display:flex;gap:6px;text
 html body .mc .mc-bf__clock span{min-width:38px;padding:6px 4px 4px;border-radius:8px;background:rgba(255,255,255,.1);font-size:18px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1}
 html body .mc .mc-bf__clock small{display:block;margin-top:3px;font-size:9px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;opacity:.7}
 html body .mc .mc-bf__ends{grid-column:1/-1;font-size:12px;opacity:.75;margin:2px 0 0}
+html body .mc .mc-bf__stock{grid-column:1/-1;margin-top:6px}
+html body .mc .mc-bf__stock p{margin:0 0 6px;font-size:13px}
+html body .mc .mc-bf__stock b{color:#7ee0f0}
+html body .mc .mc-bf__bar{display:block;height:6px;border-radius:3px;background:rgba(255,255,255,.15);overflow:hidden}
+html body .mc .mc-bf__bar i{display:block;height:100%;background:#7ee0f0;border-radius:3px}
 @media (max-width:420px){
   html body .mc .mc-bf{grid-template-columns:1fr}
   html body .mc .mc-bf__clock{grid-column:1;grid-row:auto;margin-top:4px}

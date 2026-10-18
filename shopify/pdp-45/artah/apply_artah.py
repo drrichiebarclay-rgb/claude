@@ -13,6 +13,7 @@ REST_CSS = open(__file__.replace("apply_artah.py", "artah-rest.css")).read()
 JS = open(__file__.replace("apply_artah.py", "artah.js")).read()
 BF_CSS = open(__file__.replace("apply_artah.py", "bf.css")).read()  # Black Friday early access box
 BF_JS = open(__file__.replace("apply_artah.py", "bf.js")).read()
+BF_DATA = '<div id="mc-bf-data" hidden data-left="{{ shop.metafields.muto.bf_boxes_left.value }}"></div>'
 
 SETTINGS = {
     "eyebrow": "MUTO",
@@ -122,7 +123,7 @@ def main(src, dst, include_rest=True):
         d["sections"]["easy_read"] = {"type": "custom-liquid", "settings": {"custom_liquid": "", "color_scheme": "scheme-1", "padding_top": 0, "padding_bottom": 0}}
         d["order"].append("easy_read")
     css = CSS + "\n" + BF_CSS + ("\n" + REST_CSS if include_rest else "")
-    d["sections"]["easy_read"]["settings"]["custom_liquid"] = "<style>\n" + css + "\n</style>\n<script>\n" + JS + "\n" + BF_JS + "\n</script>"
+    d["sections"]["easy_read"]["settings"]["custom_liquid"] = "<style>\n" + css + "\n</style>\n" + BF_DATA + "\n<script>\n" + JS + "\n" + BF_JS + "\n</script>"
     # Age: "over 40" becomes "over 35" anywhere on the page
     def walk(o):
         if isinstance(o, dict):
