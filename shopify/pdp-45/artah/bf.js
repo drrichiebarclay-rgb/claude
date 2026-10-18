@@ -1,6 +1,6 @@
 /* Black Friday early access: real countdown to the offer's end, code applied automatically.
    Change END and CODE here. After END the box disappears and the code is no longer applied.
-   Boxes left comes from the shop metafield muto.bf_boxes_left (printed into #mc-bf-data by the
+   Welcome kits left comes from the shop metafield muto.bf_boxes_left (printed into #mc-bf-data by the
    template); it must be the real number left. Blank hides the count. */
 (function () {
   var CODE = 'MUTO10';
@@ -27,7 +27,7 @@
     box.setAttribute('role', 'note');
     box.innerHTML =
       '<p class="mc-bf__tag"><span class="mc-bf__dot"></span>Black Friday early access</p>' +
-      '<p class="mc-bf__offer">Extra 10% off the Quarterly plan</p>' +
+      '<p class="mc-bf__offer">Extra 10% off the Quarterly plan, plus a free welcome kit worth £77</p>' +
       '<p class="mc-bf__note">£135 for your first box instead of £150. Code <b>' + CODE + '</b> is applied automatically at checkout</p>' +
       '<div class="mc-bf__clock" aria-live="off">' +
         '<span data-u="d">00<small>days</small></span><span data-u="h">00<small>hrs</small></span>' +
@@ -38,7 +38,7 @@
     if (left >= 0 && left <= TOTAL) {
       var stock = document.createElement('div');
       stock.className = 'mc-bf__stock';
-      stock.innerHTML = '<p><b>' + left + ' of ' + TOTAL + '</b> early-access boxes left</p>' +
+      stock.innerHTML = '<p><b>' + left + ' of ' + TOTAL + '</b> free welcome kits left</p>' +
         '<span class="mc-bf__bar"><i style="width:' + Math.max(2, Math.round((TOTAL - left) / TOTAL * 100)) + '%"></i></span>';
       box.appendChild(stock);
     }
