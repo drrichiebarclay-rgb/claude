@@ -38,7 +38,7 @@
     if (left >= 0 && left <= TOTAL) {
       var stock = document.createElement('div');
       stock.className = 'mc-bf__stock';
-      stock.innerHTML = '<p><b>' + left + ' of ' + TOTAL + '</b> free welcome kits left</p>' +
+      stock.innerHTML = '<p><b>' + left + ' of ' + TOTAL + '</b> free welcome kits left at this price</p>' +
         '<span class="mc-bf__bar"><i style="width:' + Math.max(2, Math.round((TOTAL - left) / TOTAL * 100)) + '%"></i></span>';
       box.appendChild(stock);
     }
