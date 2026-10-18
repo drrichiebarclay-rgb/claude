@@ -1,0 +1,17 @@
+/* Black Friday early access box, above the plans */
+html body .mc .mc-bf{margin:18px 0 0;padding:14px 16px;border-radius:12px;background:#242223;color:#fff;display:grid;grid-template-columns:1fr auto;gap:6px 14px;align-items:center}
+html body .mc .mc-bf[hidden]{display:none}
+html body .mc .mc-bf__tag{grid-column:1/-1;display:flex;align-items:center;gap:8px;font-family:var(--mc-mono,monospace);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7ee0f0}
+html body .mc .mc-bf__dot{width:7px;height:7px;border-radius:50%;background:#7ee0f0;animation:mcBfPulse 1.6s ease-in-out infinite}
+@keyframes mcBfPulse{50%{opacity:.25}}
+html body .mc .mc-bf__offer{font-size:17px;font-weight:600;line-height:1.25;margin:0}
+html body .mc .mc-bf__note{grid-column:1;font-size:12px;line-height:1.35;opacity:.75;margin:0}
+html body .mc .mc-bf__note b{font-family:var(--mc-mono,monospace);letter-spacing:.06em;opacity:1;color:#fff}
+html body .mc .mc-bf__clock{grid-column:2;grid-row:2/4;display:flex;gap:6px;text-align:center}
+html body .mc .mc-bf__clock span{min-width:38px;padding:6px 4px 4px;border-radius:8px;background:rgba(255,255,255,.1);font-size:18px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1}
+html body .mc .mc-bf__clock small{display:block;margin-top:3px;font-size:9px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;opacity:.7}
+html body .mc .mc-bf__ends{grid-column:1/-1;font-size:12px;opacity:.75;margin:2px 0 0}
+@media (max-width:420px){
+  html body .mc .mc-bf{grid-template-columns:1fr}
+  html body .mc .mc-bf__clock{grid-column:1;grid-row:auto;margin-top:4px}
+}
