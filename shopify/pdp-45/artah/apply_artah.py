@@ -11,7 +11,7 @@ import json, re, sys
 CSS = open(__file__.replace("apply_artah.py", "artah.css")).read()
 REST_CSS = open(__file__.replace("apply_artah.py", "artah-rest.css")).read()
 JS = open(__file__.replace("apply_artah.py", "artah.js")).read()
-BF_CSS = open(__file__.replace("apply_artah.py", "bf.css")).read()  # Black Friday early access box
+BF_CSS = open(__file__.replace("apply_artah.py", "bf.css")).read()  # Black Friday pre-sale box
 BF_JS = open(__file__.replace("apply_artah.py", "bf.js")).read()
 BF_DATA = '<div id="mc-bf-data" hidden data-left="{{ shop.metafields.muto.bf_boxes_left.value }}"></div>'
 

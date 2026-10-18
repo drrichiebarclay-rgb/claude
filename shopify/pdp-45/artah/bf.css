@@ -1,4 +1,4 @@
-/* Black Friday early access box, above the plans */
+/* Black Friday pre-sale box, above the plans */
 html body .mc .mc-bf{margin:18px 0 0;padding:14px 16px;border-radius:12px;background:#242223;color:#fff;display:grid;grid-template-columns:1fr auto;gap:6px 14px;align-items:center}
 html body .mc .mc-bf[hidden]{display:none}
 html body .mc .mc-bf__tag{grid-column:1/-1;display:flex;align-items:center;gap:8px;font-family:var(--mc-mono,monospace);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7ee0f0}
