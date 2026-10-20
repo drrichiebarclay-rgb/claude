@@ -146,7 +146,7 @@ assert len(buy["block_order"]) <= 50, len(buy["block_order"])
 put("buy", buy)
 
 # ---- Section links: pinned chips for the sections below, as on the science page ----
-NAV = [("Benefits", "benefits"), ("The experts", "board"), ("Ingredients", "library"), ("Vs the usual", "compare"),
+NAV = [("Benefits", "benefits"), ("The experts", "board"), ("Ingredients", "library"), ("Comparison", "compare"),
        ("What to expect", "timeline"), ("How to take it", "howto"), ("FAQs", "faq"), ("Reviews", "reviews")]
 put("nav", {"type": "muto-section-nav", "settings": {"label": "On this page", "nav_top": 0},
             "blocks": {f"n{i}": {"type": "link", "settings": {"label": l, "target": t}} for i, (l, t) in enumerate(NAV, 1)},

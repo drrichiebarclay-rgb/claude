@@ -18,6 +18,9 @@
   #shopify-section-{{ sid }} .msn__bar{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--mc-cyan);transform-origin:0 50%;transform:scaleX(0)}
   #shopify-section-{{ sid }} .msn__nav ol{display:flex;gap:8px;height:100%;align-items:center;margin:0 auto;max-width:var(--mc-max);padding:0 var(--mc-gutter);list-style:none;overflow-x:auto;scrollbar-width:none}
   #shopify-section-{{ sid }} .msn__nav ol::-webkit-scrollbar{display:none}
+  /* Centred when they fit; from the left when they scroll, so the first chip is never cut off */
+  #shopify-section-{{ sid }} .msn__nav li:first-child{margin-left:auto}
+  #shopify-section-{{ sid }} .msn__nav li:last-child{margin-right:auto}
   #shopify-section-{{ sid }} .msn__nav a{display:flex;align-items:center;gap:8px;height:44px;padding:0 16px;border:1px solid var(--mc-hair);border-radius:22px;white-space:nowrap;text-decoration:none;font-family:var(--mc-font);font-weight:500;font-size:15px;letter-spacing:.02em;text-transform:uppercase;color:var(--mc-ink-alt);transition:background var(--mc-dur) var(--mc-ease),color var(--mc-dur) var(--mc-ease)}
   #shopify-section-{{ sid }} .msn__nav a:hover{background:var(--mc-sage)}
   #shopify-section-{{ sid }} .msn__nav a.is-on{background:var(--mc-ink);border-color:var(--mc-ink);color:#fff}

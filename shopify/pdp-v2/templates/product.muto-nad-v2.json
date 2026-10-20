@@ -576,7 +576,7 @@
         "n4": {
           "type": "link",
           "settings": {
-            "label": "Vs the usual",
+            "label": "Comparison",
             "target": "compare"
           }
         },
