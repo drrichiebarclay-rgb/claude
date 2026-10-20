@@ -1,0 +1,292 @@
+<style>
+/* -2 product page (product.muto-nad-45): Artah-style buy box.
+   Scoped to this template only (this block lives in the template). */
+
+/* ---- Title block ---- */
+html body .mc .mc__eyebrow{font-size:13px;letter-spacing:.12em}
+html body .mc .mc__buy-title{font-size:clamp(30px,3.2vw,46px);line-height:.95;margin-top:6px}
+html body .mc .mc__buy-serving{margin-top:14px;font-size:12px;line-height:1.5;letter-spacing:.08em}
+html body .mc .mc__buy-text{margin-top:14px;font-size:15px;line-height:1.55;color:#242223}
+html body .mc .mc__buy-text p:first-child{font-size:18px;line-height:1.35;padding-bottom:14px;margin-bottom:14px;border-bottom:2px solid var(--mc-ink-alt,#242223);color:var(--mc-ink-alt,#242223)}
+html body .mc .mc__buy-text p:first-child strong{font-weight:500}
+html body .mc .mc__buy-text > * + *{margin-top:10px}
+html body .mc .mc__buy-text a[href="#whats-inside"]{color:rgba(36,34,35,.7);font-weight:500;text-decoration:underline;text-underline-offset:4px}
+
+/* ---- Benefits: two columns with rules, like a spec list ---- */
+html body .mc .mc__buy-points{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;column-gap:28px}
+html body .mc .mc__buy-points::before{content:"Benefits";grid-column:1/-1;font-size:14px;font-weight:500;color:rgba(36,34,35,.6);padding-bottom:8px}
+html body .mc .mc__point{padding:11px 0;padding-left:0;border-top:1px solid rgba(36,34,35,.14);font-size:14px;line-height:1.35;font-weight:500}
+html body .mc .mc__point + .mc__point{margin-top:0}
+html body .mc .mc__point::before{display:none}
+/* "Choose your plan", with a rule either side */
+html body .mc .mc__buy-points::after{content:"Choose your plan";grid-column:1/-1;margin-top:26px;display:flex;align-items:center;gap:16px;font-size:20px;font-weight:500;letter-spacing:-.01em;color:var(--mc-ink-alt,#242223);
+  background:linear-gradient(var(--mc-ink-alt,#242223),var(--mc-ink-alt,#242223)) left center/calc(50% - 110px) 2px no-repeat,linear-gradient(var(--mc-ink-alt,#242223),var(--mc-ink-alt,#242223)) right center/calc(50% - 110px) 2px no-repeat;justify-content:center}
+html body .mc .mc__trust{display:none}
+
+/* ---- Plans: one box per plan; clicking a box selects it and expands it ---- */
+html body .mc .mc__plans{margin-top:16px;padding:0;border-radius:0;background:none;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;overflow:visible;display:flex;flex-direction:column}
+html body .mc .mc__plans > *{order:9}
+html body .mc .mc__plans-banner{order:1;margin:0;padding:12px 18px;border-radius:14px 14px 0 0;font-size:13px;line-height:1.3;letter-spacing:.06em}
+/* Skio order is monthly (1) then quarterly (2); quarterly leads. The selected plan's detail and
+   the gift area (which the section fills for the selected plan) sit inside that plan's box. */
+html body .mc .mc__plans > label.mc__plan:nth-of-type(2){order:2;margin-top:0}
+html body .mc .mc__plans > .mc__plan-detail[data-mc-plan-for="2"]{order:3}
+html body .mc .mc__plans:has(> label.mc__plan:nth-of-type(2).is-selected) > .mc__kit{order:4}
+html body .mc .mc__plans > label.mc__plan:nth-of-type(1){order:5;margin-top:14px}
+html body .mc .mc__plans > .mc__plan-detail[data-mc-plan-for="1"]{order:6}
+html body .mc .mc__plans:has(> label.mc__plan:nth-of-type(1).is-selected) > .mc__kit{order:7}
+/* Collapsed box */
+html body .mc .mc__plan{padding:18px 18px 16px;border:0;border-radius:14px;background:#fff;box-shadow:inset 0 0 0 1px #242223}
+html body .mc .mc__plan + .mc__plan{padding-top:18px;border-top:0}
+html body .mc .mc__plans > label.mc__plan:nth-of-type(2){border-radius:0 0 14px 14px;box-shadow:inset 1px 0 0 #242223,inset -1px 0 0 #242223,inset 0 -1px 0 #242223}
+/* Open box: card, then ticks, then gifts, all inside one outline */
+html body .mc .mc__plan.is-selected{border-radius:14px 14px 0 0;box-shadow:inset 2px 0 0 #242223,inset -2px 0 0 #242223,inset 0 2px 0 #242223}
+html body .mc .mc__plans > label.mc__plan:nth-of-type(2).is-selected{border-radius:0;box-shadow:inset 2px 0 0 #242223,inset -2px 0 0 #242223}
+html body .mc .mc__plan-head{gap:12px;flex-wrap:wrap}
+html body .mc .mc__plan-name{font-size:18px;line-height:1.25}
+html body .mc .mc__plan-save{height:26px;margin-left:0;padding:0 11px;border-radius:13px;font-size:11.5px;background:#242223;color:#fff;letter-spacing:.06em}
+html body .mc .mc__plan-price{font-size:20px}
+html body .mc .mc__plan-was{font-size:14px;margin-top:3px}
+html body .mc .mc__plan-note{font-size:13px;line-height:1.35;margin-top:6px;margin-left:33px;color:rgba(36,34,35,.7)}
+html body .mc .mc__plans > .mc__plan-detail{margin:0;padding:0 18px 4px;border-radius:0;background:#fff;box-shadow:inset 2px 0 0 #242223,inset -2px 0 0 #242223;font-size:15px;line-height:1.4;color:#242223}
+html body .mc .mc__plan-detail ul{margin:0;padding:14px 0 0;border-top:1.5px solid #242223;display:grid;gap:8px}
+html body .mc .mc__plan-detail li{margin:0;padding-left:24px;list-style:none;position:relative;font-weight:500}
+html body .mc .mc__plan-detail li::before{content:"";position:absolute;left:0;top:.38em;width:13px;height:10px;background:currentColor;clip-path:polygon(0 52%,13% 38%,38% 64%,88% 2%,100% 16%,38% 92%)}
+/* Gifts for the selected plan, closing the box */
+html body .mc .mc__plans > .mc__kit{margin:0;padding:16px 18px 18px;border-top:0;border-radius:0 0 14px 14px;background:#fff;box-shadow:inset 2px 0 0 #242223,inset -2px 0 0 #242223,inset 0 -2px 0 #242223}
+html body .mc .mc__kit-title{font-family:var(--mc-mono,monospace);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+html body .mc .mc__kit-list{display:grid !important;grid-template-columns:none !important;grid-auto-flow:column;grid-auto-columns:minmax(0,72px);justify-content:start;gap:10px !important;margin-top:12px}
+html body .mc .mc__kit-list li{text-align:center}
+html body .mc .mc__kit-frame{border-radius:8px;overflow:hidden}
+html body .mc .mc__kit-value{font-size:11.5px;margin-top:5px}
+html body .mc .mc__kit-name{font-size:11.5px;line-height:1.25}
+html body .mc .mc__kit-more{margin-top:16px}
+html body .mc .mc__kit-sum{display:flex;align-items:center;justify-content:center;gap:8px;min-height:46px;border-radius:23px;background:rgba(36,34,35,.07);font-size:15px;font-weight:500;cursor:pointer}
+
+/* ---- Welcome kit and later gifts ---- */
+html body .mc .mc__kit-month-n,html body .mc .mc__kit-month-v,html body .mc .mc__kit-month-t{font-size:12px;color:#242223}
+html body .mc .mc__kit-body{font-size:14px;color:#242223}
+
+/* ---- One-time purchase as its own row, then the button ---- */
+html body .mc .mc__onetime{display:block;width:100%;margin-top:14px;padding:16px 20px;border:1px solid rgba(36,34,35,.2);border-radius:14px;background:#fff;text-align:left;text-decoration:none;font-size:15px;line-height:1.3}
+html body .mc .mc__onetime:hover{border-color:var(--mc-ink-alt,#242223)}
+html body .mc .mc__buy-cta{margin-top:16px;height:58px}
+html body .mc .mc__btn{font-size:16px}
+
+/* ---- Folds and review quotes under the button ---- */
+html body .mc .mc__acc-sum{font-size:15px;min-height:52px}
+html body .mc .mc__acc-body{font-size:15px;line-height:1.5;color:#242223}
+html body .mc .mc__rev-q{font-size:15px}
+
+@media (max-width:749px){
+  html body .mc .mc__buy-title{font-size:32px}
+  html body .mc .mc__buy-text p:first-child{font-size:17px}
+  html body .mc .mc__buy-points{column-gap:16px}
+  html body .mc .mc__point{font-size:13.5px}
+  html body .mc .mc__buy-points::after{font-size:18px;background-size:calc(50% - 95px) 2px,calc(50% - 95px) 2px}
+  html body .mc .mc__plan-detail ul{grid-template-columns:1fr}
+}
+
+/* Button: old price struck through, then the price ("Subscribe · £70 £60") */
+html body .mc .mc-art__cta-was{font-weight:500;opacity:.55;text-decoration:line-through}
+html body .mc .mc-art__cta-was:not(:empty)::before{content:"\00b7";display:inline-block;margin:0 .42em;opacity:.9;text-decoration:none}
+html body .mc .mc-art__cta-was:not(:empty) + .mc__btn-price::before{content:"";margin:0 0 0 .35em}
+
+/* Desktop gallery: thumbnails in their own column to the left of the main image (not over it) */
+@media screen and (min-width:990px){
+  html body .mc .mc__gallery{display:grid;grid-template-columns:72px minmax(0,1fr);column-gap:16px;align-items:start}
+  html body .mc .mc__gallery-main{grid-column:2;grid-row:1}
+  html body .mc .mc__thumbs{grid-column:1;grid-row:1;position:static;left:auto;top:auto;z-index:auto;
+    display:flex;flex-direction:column;gap:12px;margin:0;padding:2px;
+    align-self:stretch;height:0;min-height:100%;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin}
+  html body .mc .mc__thumbs[hidden]{display:none}
+  html body .mc .mc__thumb{width:64px;flex:0 0 auto;border-radius:10px}
+}
+
+
+/* Black Friday pre-sale box, above the plans */
+html body .mc .mc-bf{margin:18px 0 0;padding:14px 16px;border-radius:12px;background:#242223;color:#fff;display:grid;grid-template-columns:1fr auto;gap:6px 14px;align-items:center}
+html body .mc .mc-bf[hidden]{display:none}
+html body .mc .mc-bf__tag{grid-column:1/-1;display:flex;align-items:center;gap:8px;font-family:var(--mc-mono,monospace);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7ee0f0}
+html body .mc .mc-bf__dot{width:7px;height:7px;border-radius:50%;background:#7ee0f0;animation:mcBfPulse 1.6s ease-in-out infinite}
+@keyframes mcBfPulse{50%{opacity:.25}}
+html body .mc .mc-bf__offer{font-size:17px;font-weight:600;line-height:1.25;margin:0}
+html body .mc .mc-bf__note{grid-column:1;font-size:12px;line-height:1.35;opacity:.75;margin:0}
+html body .mc .mc-bf__note b{font-family:var(--mc-mono,monospace);letter-spacing:.06em;opacity:1;color:#fff}
+html body .mc .mc-bf__clock{grid-column:2;grid-row:2/4;display:flex;gap:6px;text-align:center}
+html body .mc .mc-bf__clock span{min-width:38px;padding:6px 4px 4px;border-radius:8px;background:rgba(255,255,255,.1);font-size:18px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1}
+html body .mc .mc-bf__clock small{display:block;margin-top:3px;font-size:9px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;opacity:.7}
+html body .mc .mc-bf__ends{grid-column:1/-1;font-size:12px;opacity:.75;margin:2px 0 0}
+html body .mc .mc-bf__stock{grid-column:1/-1;margin-top:6px}
+html body .mc .mc-bf__stock p{margin:0 0 6px;font-size:13px}
+html body .mc .mc-bf__stock b{color:#7ee0f0}
+html body .mc .mc-bf__bar{display:block;height:6px;border-radius:3px;background:rgba(255,255,255,.15);overflow:hidden}
+html body .mc .mc-bf__bar i{display:block;height:100%;background:#7ee0f0;border-radius:3px}
+@media (max-width:420px){
+  html body .mc .mc-bf{grid-template-columns:1fr}
+  html body .mc .mc-bf__clock{grid-column:1;grid-row:auto;margin-top:4px}
+}
+
+/* -2 page only: sections below the buy box back to standard sizes (they were enlarged) */
+/* ---- Rest of the page: back to standard sizes (was enlarged) ---- */
+html body .mc .mc__body,html body .mc .mc__ben-body,html body .mc .mc__ben-lede,html body .mc .mc__ben-name,
+html body .mc .mc__ben-sub,html body .mc .mc__step-text,html body .mc .mc__faq-body,html body .mc .mc__faq-sum,
+html body .mc .mc__gua-text,html body .mc .mc__note-text{font-size:16px;line-height:1.5}
+html body .mc .mc__ben-body,html body .mc .mc__faq-body{color:#242223}
+html body .mc .mc__prob-lede{font-size:18px;line-height:1.45}
+html body .mc .mc__prob-quote{font-size:22px;line-height:1.2}
+html body .mc .mc__prob-text{font-size:16px;line-height:1.45}
+html body .mc .mc__step-title{font-size:21px;line-height:1.2}
+html body .mc .mc__step-chip,html body .mc .mc__gua-chip{font-size:14px}
+html body .mc .mc__gua-aside{font-size:20px}
+html body .mc .mc__tabs{display:none}
+html body .mh .mh__why-title{font-size:22px}
+html body .mh .mh__why-text{font-size:16px;line-height:1.5;color:var(--mh-ink,#162f31)}
+html body .mh .mh__board-note,html body .mh .mh__res-note{font-size:15px;color:#242223}
+html body .mh .mh__res-quote{font-size:15px;line-height:1.45;color:#242223}
+html body .mh .mh__res-detail,html body .mh .mh__res-foot{font-size:13px;color:rgba(35,33,35,.8)}
+html body .mh__sticky-sub{font-size:13px;color:rgba(249,249,249,.85)}
+html body .mh__sticky-btn{font-size:15px}
+
+@media (max-width:749px){
+  html body .mc .mc__prob-quote{font-size:20px}
+  html body .mc .mc__step-title{font-size:19px}
+}
+
+</style>
+<div id="mc-bf-data" hidden data-left="{{ shop.metafields.muto.bf_boxes_left.value }}"></div>
+<script>
+/* "Ingredients + nutritional information" opens the What's inside fold and scrolls to it */
+document.addEventListener('click', function (e) {
+  var a = e.target.closest && e.target.closest('a[href="#whats-inside"]');
+  if (!a) return;
+  var d = [].find.call(document.querySelectorAll('.mc__acc-item'), function (x) {
+    var s = x.querySelector('summary'); return s && /inside|ingredient/i.test(s.textContent);
+  });
+  if (!d) return;
+  e.preventDefault();
+  d.open = true;
+  d.scrollIntoView({ behavior: 'smooth', block: 'center' });
+});
+
+(function () {
+  var norm = function (t) { return (t || '').replace(/\s+/g, '').replace(/\/mo$/, ''); };
+  function cards() { return [].slice.call(document.querySelectorAll('.mc__plans > label.mc__plan')); }
+
+  /* The button shows the old price of whichever plan its price belongs to, struck through */
+  function syncWas() {
+    var price = document.querySelector('.mc__buy-cta [data-mh-cta-price]');
+    if (!price) return;
+    var now = norm(price.textContent);
+    var card = cards().find(function (c) {
+      var p = c.querySelector('.mc__plan-price'); return p && norm(p.textContent) === now;
+    }) || document.querySelector('.mc__plans > label.mc__plan.is-selected');
+    var was = card && card.querySelector('.mc__plan-was');
+    var s = price.parentNode.querySelector('.mc-art__cta-was');
+    if (!s) {
+      s = document.createElement('s');
+      s.className = 'mc-art__cta-was';
+      price.parentNode.insertBefore(s, price);
+    }
+    var t = was ? was.textContent.trim() : '';
+    if (s.textContent !== t) s.textContent = t;
+  }
+
+  /* Start on the quarterly plan (the second card in Skio's order) */
+  function selectQuarterly(tries) {
+    var c = cards()[1];
+    if (!c) return;
+    if (c.classList.contains('is-selected')) return;
+    var input = c.querySelector('.mc__plan-input');
+    if (input && input.disabled) return;
+    c.click();
+    if (input && !input.checked) { input.checked = true; input.dispatchEvent(new Event('change', { bubbles: true })); }
+    if (tries > 0) setTimeout(function () { selectQuarterly(tries - 1); }, 250);
+  }
+
+  function start() {
+    var price = document.querySelector('.mc__buy-cta [data-mh-cta-price]');
+    if (price && window.MutationObserver) {
+      new MutationObserver(syncWas).observe(price, { childList: true, characterData: true, subtree: true });
+    }
+    document.addEventListener('change', function () { setTimeout(syncWas, 0); });
+    document.addEventListener('click', function (e) {
+      if (e.target.closest && e.target.closest('.mc__plan')) setTimeout(syncWas, 0);
+    });
+    syncWas();
+    setTimeout(function () { selectQuarterly(4); setTimeout(syncWas, 50); }, 300);
+  }
+  if (document.readyState === 'complete') start(); else window.addEventListener('load', start);
+})();
+
+/* Clicking anywhere in a plan's gifts box selects that plan */
+document.addEventListener('click', function (e) {
+  var d = e.target.closest && e.target.closest('.mc__plans > .mc__plan-detail[data-mc-plan-for]');
+  if (!d || (e.target.closest && e.target.closest('a'))) return;
+  var n = parseInt(d.getAttribute('data-mc-plan-for'), 10);
+  var card = document.querySelectorAll('.mc__plans > label.mc__plan')[n - 1];
+  if (card && !card.classList.contains('is-selected')) card.click();
+});
+
+/* Black Friday pre-sale: real countdown to the offer's end, code applied automatically.
+   Change END and CODE here. After END the box disappears and the code is no longer applied.
+   Welcome kits left comes from the shop metafield muto.bf_boxes_left (printed into #mc-bf-data by the
+   template); it must be the real number left. Blank hides the count. */
+(function () {
+  var CODE = 'MUTO10';
+  var TOTAL = 500;
+  var END = new Date('2026-10-28T23:59:00Z'); /* 23:59 UK time, Wed 28 Oct */
+  if (Date.now() >= END.getTime()) return;
+
+  /* Apply the code: Shopify keeps it for the cart and checkout */
+  try {
+    if (!sessionStorage.getItem('mcBf' + CODE)) {
+      fetch('/discount/' + encodeURIComponent(CODE), { credentials: 'same-origin' })
+        .then(function () { try { sessionStorage.setItem('mcBf' + CODE, '1'); } catch (e) {} });
+    }
+  } catch (e) {
+    fetch('/discount/' + encodeURIComponent(CODE), { credentials: 'same-origin' });
+  }
+
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function mount() {
+    var plans = document.querySelector('.mc .mc__plans');
+    if (!plans || document.querySelector('.mc-bf')) return;
+    var box = document.createElement('div');
+    box.className = 'mc-bf';
+    box.setAttribute('role', 'note');
+    box.innerHTML =
+      '<p class="mc-bf__tag"><span class="mc-bf__dot"></span>Black Friday pre-sale</p>' +
+      '<p class="mc-bf__offer">Extra 10% off the Quarterly plan, plus a free welcome kit worth £77</p>' +
+      '<p class="mc-bf__note">£135 for your first box instead of £150. Code <b>' + CODE + '</b> is applied automatically at checkout</p>' +
+      '<div class="mc-bf__clock" aria-live="off">' +
+        '<span data-u="d">00<small>days</small></span><span data-u="h">00<small>hrs</small></span>' +
+        '<span data-u="m">00<small>min</small></span><span data-u="s">00<small>sec</small></span></div>' +
+      '<p class="mc-bf__ends">Pre-sale ends 23:59, Wednesday 28 October.</p>';
+    var data = document.getElementById('mc-bf-data');
+    var left = data ? parseInt(data.getAttribute('data-left'), 10) : NaN;
+    if (left >= 0 && left <= TOTAL) {
+      var stock = document.createElement('div');
+      stock.className = 'mc-bf__stock';
+      stock.innerHTML = '<p><b>' + left + ' of ' + TOTAL + '</b> free welcome kits left at this price</p>' +
+        '<span class="mc-bf__bar"><i style="width:' + Math.max(2, Math.round((TOTAL - left) / TOTAL * 100)) + '%"></i></span>';
+      box.appendChild(stock);
+    }
+    plans.parentNode.insertBefore(box, plans);
+    var u = {};
+    [].forEach.call(box.querySelectorAll('[data-u]'), function (el) { u[el.getAttribute('data-u')] = el.firstChild; });
+    function tick() {
+      var t = Math.floor((END.getTime() - Date.now()) / 1000);
+      if (t <= 0) { box.hidden = true; clearInterval(iv); return; }
+      u.d.nodeValue = pad(Math.floor(t / 86400));
+      u.h.nodeValue = pad(Math.floor(t % 86400 / 3600));
+      u.m.nodeValue = pad(Math.floor(t % 3600 / 60));
+      u.s.nodeValue = pad(t % 60);
+    }
+    var iv = setInterval(tick, 1000);
+    tick();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount); else mount();
+})();
+
+</script>

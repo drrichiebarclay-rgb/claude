@@ -1,0 +1,47 @@
+/* Main PDP buy box for 40-60 year olds who aren't sport focused.
+   Loaded after artah.css + bf.css in the easy_read block, so it only overrides. */
+
+/* ---- Easier to read: bigger type, darker greys ---- */
+html body .mc .mc__buy-serving{font-size:13px;color:#242223}
+html body .mc .mc__buy-text{font-size:17px;line-height:1.55}
+html body .mc .mc__buy-text p:first-child{font-size:21px;line-height:1.3}
+html body .mc .mc__buy-text a[href="#whats-inside"]{color:#242223}
+html body .mc .mc__point{font-size:16px;line-height:1.35;padding:12px 0}
+html body .mc .mc__buy-points::before{content:"How it helps";font-size:15px;color:#242223}
+html body .mc .mc__plan-name{font-size:19px}
+html body .mc .mc__plan-save{font-size:12.5px}
+html body .mc .mc__plan-price{font-size:22px}
+html body .mc .mc__plan-note{font-size:15px;color:#242223}
+html body .mc .mc__plans > .mc__plan-detail{font-size:16px}
+html body .mc .mc__plans-banner{font-size:14px}
+html body .mc .mc__kit-title{font-size:13px}
+html body .mc .mc__kit-list{grid-auto-columns:minmax(0,80px)}
+html body .mc .mc__kit-value,html body .mc .mc__kit-name{font-size:13px}
+html body .mc .mc__kit-month-n,html body .mc .mc__kit-month-v,html body .mc .mc__kit-month-t{font-size:13px}
+html body .mc .mc__kit-sum{font-size:16px;min-height:50px}
+html body .mc .mc__onetime{font-size:16px;padding:18px 20px}
+html body .mc .mc__btn{font-size:18px}
+html body .mc .mc__buy-cta{height:62px}
+html body .mc .mc__acc-sum{font-size:17px;min-height:56px}
+html body .mc .mc__acc-body{font-size:16px}
+html body .mc .mc__rev-q{font-size:18px}
+html body .mc .mc__rev-n{font-size:13px;color:#242223}
+
+/* ---- Reassurance before the price: three ticks in one row, then "Choose your plan" ---- */
+html body .mc .mc__buy-points::after{content:none}
+html body .mc .mc__trust{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:18px 0 0;padding:0;list-style:none}
+html body .mc .mc__trust li{display:flex;align-items:flex-start;gap:8px;margin:0;padding:12px;border-radius:12px;background:rgba(36,34,35,.06);font-size:14px;line-height:1.3;font-weight:500;color:#242223}
+html body .mc .mc__trust li::before{content:"";flex:0 0 13px;height:10px;margin-top:.3em;background:currentColor;clip-path:polygon(0 52%,13% 38%,38% 64%,88% 2%,100% 16%,38% 92%)}
+html body .mc .mc__trust::after{content:"Choose your plan";grid-column:1/-1;margin-top:20px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:500;letter-spacing:-.01em;color:var(--mc-ink-alt,#242223);
+  background:linear-gradient(var(--mc-ink-alt,#242223),var(--mc-ink-alt,#242223)) left center/calc(50% - 110px) 2px no-repeat,linear-gradient(var(--mc-ink-alt,#242223),var(--mc-ink-alt,#242223)) right center/calc(50% - 110px) 2px no-repeat}
+
+@media (max-width:749px){
+  html body .mc .mc__buy-text p:first-child{font-size:19px}
+  html body .mc .mc__buy-text{font-size:16px}
+  html body .mc .mc__buy-points{grid-template-columns:1fr}
+  html body .mc .mc__point{font-size:16px}
+  html body .mc .mc__trust{grid-template-columns:1fr;gap:6px}
+  html body .mc .mc__trust li{padding:10px 12px;font-size:15px}
+  html body .mc .mc__trust::after{font-size:18px;margin-top:16px;background-size:calc(50% - 95px) 2px,calc(50% - 95px) 2px}
+  html body .mc .mc__kit-list{grid-auto-columns:minmax(0,72px)}
+}
