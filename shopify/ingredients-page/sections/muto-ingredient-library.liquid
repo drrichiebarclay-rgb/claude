@@ -58,6 +58,11 @@
   .mil__open:focus-visible{outline:2px solid var(--mil-accent);outline-offset:6px;border-radius:4px}
   .mil__frame{position:relative;display:block;aspect-ratio:1/1;border-radius:4px;overflow:hidden;background:var(--mil-tile)}
   .mil__frame canvas,.mil__frame img{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;transition:transform .5s ease}
+  {%- if section.settings.grade -%}
+  /* The soft grade (as Diome's): every photo is lifted, softened and warmed, then washed with a little stone, so stock from different sources reads as one set */
+  .mil__frame img,.mil-d__media img{filter:saturate(.72) sepia(.14) contrast(.9) brightness(1.04)}
+  .mil__frame:has(img)::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(236,232,224,.18),rgba(200,210,207,.14));mix-blend-mode:soft-light;pointer-events:none}
+  {%- endif -%}
   .mil__open:hover canvas,.mil__open:hover img{transform:scale(1.04)}
   .mil__tagline{display:block;font-family:var(--mil-mono);font-size:11.5px;line-height:1.4;letter-spacing:.12em;text-transform:uppercase;color:var(--mil-muted);margin-bottom:-6px}
   .mil__tags{position:absolute;left:14px;top:14px;display:grid;gap:8px;justify-items:start;z-index:2}
@@ -405,6 +410,7 @@
     { "type": "text", "id": "cta_label", "label": "Button under the statement", "default": "Start your 90 days" },
     { "type": "url", "id": "cta_link", "label": "Button link" },
     { "type": "text", "id": "foot", "label": "Note under the grid", "default": "Every dose is on the label. No blends, no fillers, vegan." },
+    { "type": "checkbox", "id": "grade", "label": "Soft grade on ingredient photos", "default": true, "info": "Lifts, softens and warms every photo so they read as one set." },
     { "type": "color", "id": "bg", "label": "Background", "default": "#f9f9f9" },
     { "type": "range", "id": "pad_top", "label": "Space above", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 72 },
     { "type": "range", "id": "pad_bottom", "label": "Space below", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 96 }
