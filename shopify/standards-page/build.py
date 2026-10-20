@@ -70,23 +70,27 @@ STANDARDS = [
     ("Only UK-authorised ingredients", "Every ingredient in MUTO is authorised for use in UK food supplements. That’s why we use NR rather than NMN, which is still under assessment.",
      "Ask us about any ingredient’s status: " + MAIL, "jar", "factory"),
     ("Every batch third-party tested", "Not just the first batch. Every batch is tested by an independent lab before it’s released.",
-     "See every test and result for the current batch, or ask us for your batch’s certificate: " + MAIL, "tested", "factory"),
+     "See every test and result for the current batch below, or ask us for your batch’s certificate: " + MAIL, "tested", "factory"),
     ("Made in the UK, to GMP", "Manufactured in the UK to GMP (Good Manufacturing Practice) standards, in an ISO-certified facility.",
      "Ask us for our manufacturing standards.", "factory", "tested"),
     ("Nothing you don’t need", "Vegan capsules made from plant cellulose (HPMC). Vitamin D3 from algae. No major allergens, no fillers, no caffeine and no stimulants.",
      "It’s all on the label.", "tested", "kit"),
     ("Scientists with names", "Formulated by Dr Richie Barclay, PhD in cell biology and nutrition, with a six-member scientific advisory board. The board meets every quarter to guide our research and every new formula. It doesn’t endorse products.",
      "Meet the board on our <a href=\"/pages/about\">About page</a>.", "scientists", "board1"),
-    ("Research we’ll publish", "A University of Westminster study starts in December 2026, with work at King’s College London, Coventry and Newcastle to follow. There are no results yet, and we’ll never say there are.",
+    ("Research we’ll publish", "A University of Westminster study starts in December 2026, with work at Coventry and Newcastle to follow.",
      "We’ll share every update on this page.", "board3", "scientists"),
     ("Honest claims only", "We only make the health claims UK law authorises, worded exactly. We’ll tell you what MUTO won’t do as clearly as what it will. Every review is genuine, and every creator we work with is disclosed.",
      "Every claim on our site carries its authorised wording.", "declared", "founder"),
     ("Built to be checked", "Note how you feel today. Give it 90 days. If you don’t feel the difference, you get every subscription payment back. Skip, pause or cancel online anytime, with a reminder five days before every payment.",
      "Guarantee terms are in our <a href=\"/pages/faqs#guarantee\">FAQs</a>.", "checkin", "founder"),
 ]
-EDITOR_PHOTOS = {1: "shopify://shop_images/MUTO0266.png"}  # photos picked in the theme editor (kept on rebuild)
+# Changes made in the theme editor, kept on rebuild
+EDITOR_PHOTOS = {1: "shopify://shop_images/MUTO0266.png", 2: "shopify://shop_images/MUTO0296.png", 3: "shopify://shop_images/nad-jar.jpg",
+                 6: "shopify://shop_images/nad-guarantee-runner.jpg", 8: "shopify://shop_images/about-founder.jpg",
+                 10: "shopify://shop_images/nad-step-baseline.jpg"}
+EDITOR_HIDDEN = {9}  # "Honest claims only", switched off
 add("standards", "muto-standards", {
-    "heading": "The standards\nbehind MUTO",
+    "heading": "The standards\nthat set us apart",
     "lede": "Supplements don’t have to prove much to go on sale in the UK. So we built MUTO to a higher bar, and we show you all of it: every dose on the label, every batch tested, made in the UK.",
     "list_label": "Our standards", "sticky_top": 120, "space_top": 120, "space_bottom": 100}, [
     (f"s{i}", {"type": "standard", "settings": {"title": t, "text": p(x), "check": p(c),
@@ -95,6 +99,8 @@ add("standards", "muto-standards", {
                                                 **({"image_1": EDITOR_PHOTOS[i]} if i in EDITOR_PHOTOS else {})}})
     for i, (t, x, c, a, b) in enumerate(STANDARDS, 1)
 ])
+for i in EDITOR_HIDDEN:
+    S["standards"]["blocks"][f"s{i}"]["disabled"] = True
 
 # The scientific board, as on the About and home pages (interview videos, tags)
 board = copy.deepcopy(ABOUT["board"])
@@ -103,7 +109,11 @@ S["board"] = board; ORDER.append("board")
 
 add("start", "muto-get-started", {
     "image_fallback": IMG["kit"], "image_position": "55% 62%",
+    "image": "shopify://shop_images/Frame2147230123.png",  # picked in the theme editor
     "image_alt": "The MUTO first order: NAD+ Cellular Complex jar and refill pouches, Ultrapure Creatine, the bottle and the presentation box",
+    # framed just wider than the products (they span 25–76% across, centred at 50.6% / 63%)
+    "image_fit": 58, "image_focus_x": 50.6, "image_focus_y": 63, "image_focus_at": 72, "image_ratio": "1.3333",
+    "image_fill": "linear-gradient(90deg,#16171b,#292b32 50%,#141419)",
     "heading": "Start your\n90 days",
     "product_name": "NAD+ Cellular Complex (30 days)", "product_price": "£60",
     "product_sub": "£2 a day on the monthly plan",

@@ -3,7 +3,7 @@
     "standards": {
       "type": "muto-standards",
       "settings": {
-        "heading": "The standards\nbehind MUTO",
+        "heading": "The standards\nthat set us apart",
         "lede": "Supplements don’t have to prove much to go on sale in the UK. So we built MUTO to a higher bar, and we show you all of it: every dose on the label, every batch tested, made in the UK.",
         "list_label": "Our standards",
         "sticky_top": 120,
@@ -27,7 +27,8 @@
             "title": "Doses chosen for a reason",
             "text": "<p>NR at 300mg, the most allowed in Great Britain. Vitamin D3 at 2,000 IU. B vitamins in their active, methylated forms. Zinc and copper dosed as a pair, because they compete for absorption. Nothing added just to make the list longer.</p>",
             "check": "<p>Every dose and form is in the ingredient table.</p>",
-            "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-gift-guide-v2.jpg?v=1791392560"
+            "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-gift-guide-v2.jpg?v=1791392560",
+            "image_1": "shopify://shop_images/MUTO0296.png"
           }
         },
         "s3": {
@@ -36,7 +37,8 @@
             "title": "Only UK-authorised ingredients",
             "text": "<p>Every ingredient in MUTO is authorised for use in UK food supplements. That’s why we use NR rather than NMN, which is still under assessment.</p>",
             "check": "<p>Ask us about any ingredient’s status: <a href=\"mailto:hello@mutolongevity.com\">hello@mutolongevity.com</a></p>",
-            "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-gallery-1.jpg?v=1790879783"
+            "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-gallery-1.jpg?v=1790879783",
+            "image_1": "shopify://shop_images/nad-jar.jpg"
           }
         },
         "s4": {
@@ -44,7 +46,7 @@
           "settings": {
             "title": "Every batch third-party tested",
             "text": "<p>Not just the first batch. Every batch is tested by an independent lab before it’s released.</p>",
-            "check": "<p>See every test and result for the current batch, or ask us for your batch’s certificate: <a href=\"mailto:hello@mutolongevity.com\">hello@mutolongevity.com</a></p>",
+            "check": "<p>See every test and result for the current batch below, or ask us for your batch’s certificate: <a href=\"mailto:hello@mutolongevity.com\">hello@mutolongevity.com</a></p>",
             "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-made-tested.jpg?v=1790752123",
             "tests_button": "View third-party testing results"
           }
@@ -64,7 +66,8 @@
             "title": "Nothing you don’t need",
             "text": "<p>Vegan capsules made from plant cellulose (HPMC). Vitamin D3 from algae. No major allergens, no fillers, no caffeine and no stimulants.</p>",
             "check": "<p>It’s all on the label.</p>",
-            "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-made-tested.jpg?v=1790752123"
+            "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-made-tested.jpg?v=1790752123",
+            "image_1": "shopify://shop_images/nad-guarantee-runner.jpg"
           }
         },
         "s7": {
@@ -80,9 +83,10 @@
           "type": "standard",
           "settings": {
             "title": "Research we’ll publish",
-            "text": "<p>A University of Westminster study starts in December 2026, with work at King’s College London, Coventry and Newcastle to follow. There are no results yet, and we’ll never say there are.</p>",
+            "text": "<p>A University of Westminster study starts in December 2026, with work at Coventry and Newcastle to follow.</p>",
             "check": "<p>We’ll share every update on this page.</p>",
-            "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-board-3.jpg?v=1790751994"
+            "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-board-3.jpg?v=1790751994",
+            "image_1": "shopify://shop_images/about-founder.jpg"
           }
         },
         "s9": {
@@ -92,7 +96,8 @@
             "text": "<p>We only make the health claims UK law authorises, worded exactly. We’ll tell you what MUTO won’t do as clearly as what it will. Every review is genuine, and every creator we work with is disclosed.</p>",
             "check": "<p>Every claim on our site carries its authorised wording.</p>",
             "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-made-declared.jpg?v=1790752124"
-          }
+          },
+          "disabled": true
         },
         "s10": {
           "type": "standard",
@@ -100,7 +105,8 @@
             "title": "Built to be checked",
             "text": "<p>Note how you feel today. Give it 90 days. If you don’t feel the difference, you get every subscription payment back. Skip, pause or cancel online anytime, with a reminder five days before every payment.</p>",
             "check": "<p>Guarantee terms are in our <a href=\"/pages/faqs#guarantee\">FAQs</a>.</p>",
-            "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-checkin-close.jpg?v=1791021630"
+            "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-checkin-close.jpg?v=1791021630",
+            "image_1": "shopify://shop_images/nad-step-baseline.jpg"
           }
         }
       },
@@ -240,7 +246,14 @@
       "settings": {
         "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-lp-kit-hero.jpg?v=1791969959",
         "image_position": "55% 62%",
+        "image": "shopify://shop_images/Frame2147230123.png",
         "image_alt": "The MUTO first order: NAD+ Cellular Complex jar and refill pouches, Ultrapure Creatine, the bottle and the presentation box",
+        "image_fit": 58,
+        "image_focus_x": 50.6,
+        "image_focus_y": 63,
+        "image_focus_at": 72,
+        "image_ratio": "1.3333",
+        "image_fill": "linear-gradient(90deg,#16171b,#292b32 50%,#141419)",
         "heading": "Start your\n90 days",
         "product_name": "NAD+ Cellular Complex (30 days)",
         "product_price": "£60",

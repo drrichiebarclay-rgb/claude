@@ -27,6 +27,15 @@
   #shopify-section-{{ sid }} .mg__in{display:grid;grid-template-columns:1fr 1fr;min-height:720px}
   #shopify-section-{{ sid }} .mg__img{position:relative;background:var(--mc-ground-buy)}
   #shopify-section-{{ sid }} .mg__img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  /* Framed on the products: a set share of the photo's width fills the box, centred across on the
+     products, whose centre sits at a set height in the box. The photo always reaches the bottom of the
+     box; if the box is taller than the photo, the strip above is filled to match the photo's top edge
+     and the photo fades into it. */
+  #shopify-section-{{ sid }} .mg__img--fit{container-type:size;overflow:hidden{% if s.image_fill != blank %};background:{{ s.image_fill }}{% endif %}}
+  #shopify-section-{{ sid }} .mg__img--fit img{--w:calc(100cqw * 100 / {{ s.image_fit }});--h:calc(var(--w) / {{ s.image_ratio }});
+    inset:auto;left:50%;width:var(--w);height:var(--h);max-width:none;object-fit:fill;transform:translateX(-{{ s.image_focus_x }}%);
+    top:max(calc({{ s.image_focus_at }} * 1cqh - var(--h) * {{ s.image_focus_y }} / 100), calc(100cqh - var(--h)));
+    -webkit-mask-image:linear-gradient(transparent,#000 12%);mask-image:linear-gradient(transparent,#000 12%)}
   #shopify-section-{{ sid }} .mg__panel{background:var(--mc-ink-alt,#242223);color:#fff;padding:80px clamp(24px,6vw,120px);display:flex;flex-direction:column}
   #shopify-section-{{ sid }} .mg__h{color:#fff}
   #shopify-section-{{ sid }} .mg__row{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
@@ -58,7 +67,7 @@
 <div class="mc mg">
   <div>
     <div class="mg__in">
-      <div class="mg__img">
+      <div class="mg__img{% if s.image_fit < 100 %} mg__img--fit{% endif %}">
         {%- if img_src != blank -%}<img src="{{ img_src }}" alt="{{ s.image_alt | escape }}" loading="lazy" width="1400" height="1400"{% if s.image_position != blank %} style="object-position:{{ s.image_position }}"{% endif %}>{%- endif -%}
       </div>
       <div class="mg__panel">
@@ -107,7 +116,13 @@
     { "type": "image_picker", "id": "image", "label": "Photo" },
     { "type": "text", "id": "image_fallback", "label": "Photo URL (if no photo picked)" },
     { "type": "text", "id": "image_alt", "label": "Photo description" },
-    { "type": "text", "id": "image_position", "label": "Photo focus (object-position)" },
+    { "type": "text", "id": "image_position", "label": "Photo focus (object-position)", "info": "Used when the photo fills the box (framing at 100%)." },
+    { "type": "range", "id": "image_fit", "label": "Framing: share of the photo's width shown", "min": 30, "max": 100, "step": 1, "unit": "%", "default": 100, "info": "Below 100 frames the photo on the point below, e.g. just wider than the products." },
+    { "type": "number", "id": "image_focus_x", "label": "Framing: products' centre across the photo (%)", "default": 50 },
+    { "type": "number", "id": "image_focus_y", "label": "Framing: products' centre down the photo (%)", "default": 50 },
+    { "type": "range", "id": "image_focus_at", "label": "Framing: where that centre sits in the box", "min": 30, "max": 90, "step": 1, "unit": "%", "default": 66 },
+    { "type": "text", "id": "image_ratio", "label": "Framing: photo width ÷ height", "default": "1.3333" },
+    { "type": "text", "id": "image_fill", "label": "Framing: colour above the photo (CSS)", "info": "Matches the photo's top edge if the box is taller than the photo." },
     { "type": "textarea", "id": "heading", "label": "Heading", "default": "Start your\n90 days" },
     { "type": "text", "id": "product_name", "label": "Product", "default": "NAD+ Cellular Complex (30 days)" },
     { "type": "text", "id": "product_price", "label": "Price", "default": "£60" },
