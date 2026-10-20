@@ -42,7 +42,7 @@
   #shopify-section-{{ sid }} .ms__img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   @media (max-width:989px){
     #shopify-section-{{ sid }} .ms__grid{grid-template-columns:1fr;gap:24px;margin-top:48px}
-    #shopify-section-{{ sid }} .ms__list{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x proximity;margin:0 calc(-1 * var(--mc-gutter));padding:0 var(--mc-gutter) 4px;scrollbar-width:none}
+    #shopify-section-{{ sid }} .ms__list{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x proximity;scroll-padding:0 var(--mc-gutter,20px);margin:0 calc(-1 * var(--mc-gutter,20px));padding:0 var(--mc-gutter,20px) 4px;scrollbar-width:none}
     #shopify-section-{{ sid }} .ms__list::-webkit-scrollbar{display:none}
     #shopify-section-{{ sid }} .ms__list li{flex:0 0 auto;scroll-snap-align:start}
     #shopify-section-{{ sid }} .ms__list li + li{border-top:0}
@@ -117,7 +117,8 @@
     if (!root) return;
     var tabs = [].slice.call(root.querySelectorAll('.ms__tab'));
     var panels = [].slice.call(root.querySelectorAll('[data-ms-panel]'));
-    function show(i, focus) {
+    var list = root.querySelector('.ms__list');
+    function show(i, focus, scroll) {
       tabs.forEach(function (t, n) {
         var on = n === i;
         t.setAttribute('aria-selected', on);
@@ -125,15 +126,20 @@
         panels[n].hidden = !on;
       });
       if (focus) tabs[i].focus();
-      tabs[i].scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
+      /* Only on a tap or key press, and only the chip row: never the page */
+      if (scroll && list.scrollWidth > list.clientWidth) {
+        var t = tabs[i], pad = 20;
+        var left = t.offsetLeft - list.offsetLeft - pad;
+        if (t.offsetLeft + t.offsetWidth > list.scrollLeft + list.clientWidth || t.offsetLeft < list.scrollLeft + pad) list.scrollTo({ left: Math.max(0, left), behavior: 'smooth' });
+      }
     }
     tabs.forEach(function (t, i) {
-      t.addEventListener('click', function () { show(i); });
+      t.addEventListener('click', function () { show(i, false, true); });
       t.addEventListener('keydown', function (e) {
         var k = e.key, n = null;
         if (k === 'ArrowDown' || k === 'ArrowRight') n = (i + 1) % tabs.length;
         if (k === 'ArrowUp' || k === 'ArrowLeft') n = (i - 1 + tabs.length) % tabs.length;
-        if (n !== null) { e.preventDefault(); show(n, true); }
+        if (n !== null) { e.preventDefault(); show(n, true, true); }
       });
     });
     show(0);

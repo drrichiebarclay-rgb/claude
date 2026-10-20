@@ -222,12 +222,12 @@
         "m6"
       ],
       "settings": {
-        "field": true,
+        "field": false,
         "heading": "Meet our\nscientific board.",
         "note": "Our Scientific Advisory Board",
         "rail_gap": 40,
         "fit": "nad",
-        "space_top": 104,
+        "space_top": 48,
         "space_bottom": 100,
         "compact": true
       }
@@ -297,6 +297,15 @@
         "i4"
       ]
     },
+    "board_css": {
+      "type": "custom-liquid",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_liquid": "<style>[id$=\"__board\"] .mh{background:var(--mc-ground,#f9f9f9)}</style>"
+      }
+    },
     "reviews": {
       "type": "custom-reviews",
       "name": "Custom Reviews",
@@ -321,6 +330,7 @@
     "standards",
     "board",
     "start",
+    "board_css",
     "reviews"
   ]
 }

@@ -95,7 +95,7 @@ add("standards", "muto-standards", {
 
 # The scientific board, as on the About and home pages (interview videos, tags)
 board = copy.deepcopy(ABOUT["board"])
-board["settings"].update(heading="Meet our\nscientific board.", note="Our Scientific Advisory Board", compact=True, rail_gap=40)  # the home page's slim cards
+board["settings"].update(heading="Meet our\nscientific board.", note="Our Scientific Advisory Board", compact=True, rail_gap=40, field=False, space_top=48)  # the home page's slim cards
 S["board"] = board; ORDER.append("board")
 
 add("start", "muto-get-started", {
@@ -114,6 +114,10 @@ add("start", "muto-get-started", {
     ("i3", {"type": "item", "settings": {"name": "12-week guide", "desc": "How to run your 90 days and check it yourself", "was": "£10", "now": "free"}}),
     ("i4", {"type": "item", "settings": {"name": "Socks", "desc": "Size UK 6–11", "was": "£12", "now": "free"}}),
 ])
+
+# The board band on the page's own ground colour, no mint wash
+add("board_css", "custom-liquid", {"color_scheme": "scheme-1", "padding_top": 0, "padding_bottom": 0,
+                                   "custom_liquid": "<style>[id$=\"__board\"] .mh{background:var(--mc-ground,#f9f9f9)}</style>"})
 
 # Customer reviews (REVIEWS.io widget), copied from the product page
 S["reviews"] = copy.deepcopy(PDPT["custom_reviews_KpXTpD"]); ORDER.append("reviews")
