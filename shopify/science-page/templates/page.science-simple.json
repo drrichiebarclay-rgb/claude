@@ -256,7 +256,7 @@
           "type": "table",
           "settings": {
             "heading": "The five jobs",
-            "rows": "Job | What’s in it | In plain words\n1. Energy | B vitamins (B6, B12, folate), in their active forms | Help you feel less tired\n2. Muscles and bones | Vitamin D3 2,000 IU + K2 100µg | Keep your muscles working and your bones strong\n3. Immunity | Zinc 15mg + copper 1mg, with D3 | Support your immune system\n4. NAD+ | NR 300mg, the most allowed in Great Britain | Your body turns it into NAD+: more couriers\n5. What ties it together | CoQ10, resveratrol, grape seed extract, PQQ, TMG | The supporting cast, every dose on the label",
+            "rows": "Job | What’s in it | In plain words\n1. Energy | Active B vitamins (B6, B12, folate), with CoQ10 and PQQ | Help you feel less tired, and help your body release energy from food\n2. Recovery | Vitamin D3 2,000 IU, riboflavin (B2), CoQ10 and PQQ | Keep your muscles working normally, so you bounce back after activity\n3. Stress | Active B vitamins, with zinc | Support normal psychological function and mental performance through a demanding week\n4. Longevity | NR 300mg (the most allowed in Great Britain), TMG, trans-resveratrol, grape seed extract, K2 100µg | Your body turns NR into NAD+, which runs lower as we get older. K2 helps keep your bones strong\n5. Immunity | Zinc 15mg + copper 1mg, with D3, folate, B6 and B12 | Support your immune system",
             "highlight": 0,
             "note": ""
           }

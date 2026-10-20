@@ -104,12 +104,12 @@ chapter("c3", "the-science", "03", "The science behind it",
         takeaway="Three shifts, one root: what your cells need changes, and the basics you took at 30 weren’t built for it.")
 
 # ---- 4 ----
-JOBS = [("Job", "What’s in it", "In plain words"),
-        ("1. Energy", "B vitamins (B6, B12, folate), in their active forms", "Help you feel less tired"),
-        ("2. Muscles and bones", "Vitamin D3 2,000 IU + K2 100µg", "Keep your muscles working and your bones strong"),
-        ("3. Immunity", "Zinc 15mg + copper 1mg, with D3", "Support your immune system"),
-        ("4. NAD+", "NR 300mg, the most allowed in Great Britain", "Your body turns it into NAD+: more couriers"),
-        ("5. What ties it together", "CoQ10, resveratrol, grape seed extract, PQQ, TMG", "The supporting cast, every dose on the label")]
+JOBS = [("Job", "What’s in it", "In plain words"),  # the same five as the ingredients page filters
+        ("1. Energy", "Active B vitamins (B6, B12, folate), with CoQ10 and PQQ", "Help you feel less tired, and help your body release energy from food"),
+        ("2. Recovery", "Vitamin D3 2,000 IU, riboflavin (B2), CoQ10 and PQQ", "Keep your muscles working normally, so you bounce back after activity"),
+        ("3. Stress", "Active B vitamins, with zinc", "Support normal psychological function and mental performance through a demanding week"),
+        ("4. Longevity", "NR 300mg (the most allowed in Great Britain), TMG, trans-resveratrol, grape seed extract, K2 100µg", "Your body turns NR into NAD+, which runs lower as we get older. K2 helps keep your bones strong"),
+        ("5. Immunity", "Zinc 15mg + copper 1mg, with D3, folate, B6 and B12", "Support your immune system")]
 TEAMS = [("Team", "Who’s on it", "What happens"),
          ("The energy team", "NR, CoQ10, copper", "NR becomes NAD+, the courier. CoQ10 is the relay runner that passes energy along inside the power station. Copper sits at the very last step, where the energy gets made."),
          ("The recycling team", "Folate, B12, B6, TMG", "Your cells constantly reuse one of their most important building blocks. Folate and B12 keep that recycling loop turning, TMG runs a second loop alongside it, and B6 handles the exit. We use the active forms, the ones the cell actually uses."),

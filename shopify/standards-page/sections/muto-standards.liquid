@@ -16,6 +16,8 @@
   assign items = section.blocks | where: 'type', 'standard'
 -%}
 <style>
+  /* Theme h1–h3 rules set their own font; headings here use the site's display face and weight */
+  #shopify-section-{{ sid }} h1,#shopify-section-{{ sid }} h2,#shopify-section-{{ sid }} h3{font-family:var(--mc-font);font-weight:500;-webkit-font-smoothing:antialiased}
   #shopify-section-{{ sid }} .ms{padding-top:{{ section.settings.space_top }}px;padding-bottom:{{ section.settings.space_bottom }}px}
   #shopify-section-{{ sid }} .ms__head{max-width:1080px}
   #shopify-section-{{ sid }} .ms__lede{margin-top:20px;max-width:760px;font-size:20px;line-height:1.4;color:var(--mc-ink)}
