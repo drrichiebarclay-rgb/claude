@@ -3,7 +3,7 @@
   A heading and a line on the left, a button on the right (by default it opens
   the "MUTO — Test results" panel at its Formula tab), then a row of tall photo
   cards, one per benefit. Each card's name and line sit on a frosted panel at
-  the foot of the photo. The row scrolls sideways with arrows on desktop and a
+  the foot of the photo, every panel as tall as the tallest so they line up. The row scrolls sideways with arrows on desktop and a
   swipe on phones.
 
   BLOCKS: one "Card" per benefit, each with a photo (or a photo URL), a name
@@ -103,8 +103,16 @@
     prev.addEventListener('click', function () { row.scrollBy({ left: -step(), behavior: 'smooth' }); });
     next.addEventListener('click', function () { row.scrollBy({ left: step(), behavior: 'smooth' }); });
     row.addEventListener('scroll', sync, { passive: true });
-    window.addEventListener('resize', sync);
-    sync();
+    /* Every panel as tall as the tallest, so their tops line up across the row */
+    var panels = [].slice.call(row.querySelectorAll('.mbc__panel'));
+    function even() {
+      panels.forEach(function (p) { p.style.minHeight = ''; });
+      var h = Math.ceil(Math.max.apply(null, panels.map(function (p) { return p.getBoundingClientRect().height; })));
+      if (h > 0) panels.forEach(function (p) { p.style.minHeight = h + 'px'; });
+    }
+    window.addEventListener('resize', function () { sync(); even(); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(even);
+    sync(); even();
   })();
 </script>
 
