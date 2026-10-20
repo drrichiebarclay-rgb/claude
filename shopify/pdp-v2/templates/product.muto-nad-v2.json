@@ -285,55 +285,61 @@
         "job1": {
           "type": "point",
           "settings": {
-            "title": "Energy",
-            "text": "Feel less tired, and release energy from your food.",
-            "icon": "energy",
+            "label": "01 · Energy",
+            "title": "Afternoons that don’t fade.",
+            "text": "NR · CoQ10 · PQQ · B vitamins",
+            "icon": "",
             "dark": false
           }
         },
         "job2": {
           "type": "point",
           "settings": {
-            "title": "Recovery",
-            "text": "Keep your muscles working normally and your bones strong.",
-            "icon": "recovery",
+            "label": "02 · Recovery",
+            "title": "Bounce back from a busy week.",
+            "text": "Vitamin D3 · K2 · B2",
+            "icon": "",
             "dark": false
           }
         },
         "job3": {
           "type": "point",
           "settings": {
-            "title": "Mind",
-            "text": "Stay on top of a demanding week.",
-            "icon": "mind",
+            "label": "03 · Mind",
+            "title": "A clearer head, all day.",
+            "text": "B6 · B12 · Folate · Zinc",
+            "icon": "",
             "dark": false
           }
         },
         "job4": {
           "type": "point",
           "settings": {
-            "title": "Ageing well",
-            "text": "NR tops up the NAD⁺ that runs lower with age. Zinc and copper help protect your cells.",
-            "icon": "ageing",
+            "label": "04 · Ageing well",
+            "title": "Age on your own terms.",
+            "text": "NR 300mg · Resveratrol · TMG",
+            "icon": "",
             "dark": false
           }
         },
         "job5": {
           "type": "point",
           "settings": {
-            "title": "Immunity",
-            "text": "Support your immune system, all year round.",
-            "icon": "immunity",
+            "label": "05 · Immunity",
+            "title": "Stay well through winter.",
+            "text": "D3 · Zinc · Copper",
+            "icon": "",
             "dark": false
           }
         },
         "job6": {
           "type": "point",
           "settings": {
-            "title": "One jar, not five pots",
-            "text": "Everything above in two capsules a day.",
-            "icon": "jar",
-            "dark": true
+            "label": "06 · Simplicity",
+            "title": "One jar replaces five.",
+            "text": "19 ingredients · 2 capsules",
+            "icon": "",
+            "dark": false
           }
         },
         "fold1": {

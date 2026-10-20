@@ -343,12 +343,22 @@
           {%- endif -%}
 
           {%- if points.size > 0 -%}
-            <ul class="mc__buy-points">
+            {%- liquid
+              # Titled points with no icon are a ruled list rather than cards
+              assign plain = true
+              for point in points
+                if point.settings.icon != blank
+                  assign plain = false
+                endif
+              endfor
+            -%}
+            <ul class="mc__buy-points{% if plain %} mpb-plain{% endif %}">
               {%- for point in points -%}
                 {%- if point.settings.title != blank -%}
                   {%- comment -%} New for this page: a titled point, "01 · Energy" over its line {%- endcomment -%}
                   <li class="mc__point mpb-pt{% if point.settings.dark %} mpb-pt--dark{% endif %}" {{ point.shopify_attributes }}>
                     {%- if point.settings.icon != blank -%}<i class="mpb-pt__i">{%- case point.settings.icon -%}{%- when 'energy' -%}<svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M15 3 7 15h6l-2 10 8-12h-6l2-10z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>{%- when 'recovery' -%}<svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M23 14a9 9 0 0 1-15.4 6.4M5 14a9 9 0 0 1 15.4-6.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M21 3v5h-5M7 25v-5h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>{%- when 'mind' -%}<svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle cx="14" cy="14" r="10" stroke="currentColor" stroke-width="1.6"/><path d="M9 14c1.5-3 3.5-3 5 0s3.5 3 5 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>{%- when 'ageing' -%}<svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M8 4h12M8 24h12M9 4c0 5 10 5 10 10S9 19 9 24M19 4c0 5-10 5-10 10s10 5 10 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>{%- when 'immunity' -%}<svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M14 3 5 6.5v6.3c0 5.6 3.8 9.9 9 11.7 5.2-1.8 9-6.1 9-11.7V6.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 10v8M10 14h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>{%- when 'jar' -%}<svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect x="7" y="9" width="14" height="16" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M9 4h10v5H9z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M11 15h6M11 19h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>{%- endcase -%}</i>{%- endif -%}
+                    {%- if point.settings.label != blank -%}<small>{{ point.settings.label }}</small>{%- endif -%}
                     <b>{{ point.settings.title }}</b><span>{{ point.settings.text }}</span>
                   </li>
                 {%- else -%}
@@ -364,7 +374,12 @@
               html body #shopify-section-{{ section.id }} .mpb-pt__i svg{width:24px;height:24px}
               html body #shopify-section-{{ section.id }} .mpb-pt b{align-self:end;font-weight:500;font-size:17px;line-height:1.2;color:var(--mc-ink,#162f31)}
               html body #shopify-section-{{ section.id }} .mpb-pt span{font-weight:400;font-size:15px;line-height:1.4;color:var(--mc-ink-alt,#242223)}
-              html body #shopify-section-{{ section.id }} .mpb-pt:not(:has(.mpb-pt__i)){grid-template-columns:1fr}
+              /* Without an icon: a spec sheet, not a card. Rules between, a mono label, the headline, the ingredients */
+              html body #shopify-section-{{ section.id }} .mc .mc__buy-points.mpb-plain:has(.mpb-pt),html body #shopify-section-{{ section.id }} .mc__buy-points.mpb-plain:has(.mpb-pt){column-gap:32px!important;row-gap:0!important}
+              html body #shopify-section-{{ section.id }} .mc .mc__point.mpb-pt:not(:has(.mpb-pt__i)),html body #shopify-section-{{ section.id }} .mc__point.mpb-pt:not(:has(.mpb-pt__i)){grid-template-columns:1fr;row-gap:8px;padding:20px 0 22px;border:0;border-top:1px solid var(--mc-ink,#162f31);border-radius:0;background:none}
+              html body #shopify-section-{{ section.id }} .mpb-pt small{font-family:var(--mc-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mc-muted,#7f9c9e)}
+              html body #shopify-section-{{ section.id }} .mpb-pt:not(:has(.mpb-pt__i)) b{font-family:var(--mc-font);font-size:22px;line-height:1.12;letter-spacing:-.01em}
+              html body #shopify-section-{{ section.id }} .mpb-pt:not(:has(.mpb-pt__i)) span{font-family:var(--mc-mono);font-size:12px;line-height:1.5;letter-spacing:.06em;text-transform:uppercase;color:var(--mc-ink-alt,#242223)}
               html body #shopify-section-{{ section.id }} .mc .mc__point.mpb-pt--dark,html body #shopify-section-{{ section.id }} .mc__point.mpb-pt--dark{background:var(--mc-ink,#162f31);border-color:var(--mc-ink,#162f31)}
               html body #shopify-section-{{ section.id }} .mpb-pt--dark b{color:#fff}
               html body #shopify-section-{{ section.id }} .mpb-pt--dark span{color:rgba(255,255,255,.8)}
@@ -377,6 +392,10 @@
                 html body #shopify-section-{{ section.id }} .mpb-pt__i svg{width:20px;height:20px}
                 html body #shopify-section-{{ section.id }} .mpb-pt b{font-size:16px}
                 html body #shopify-section-{{ section.id }} .mpb-pt span{font-size:14px}
+                html body #shopify-section-{{ section.id }} .mc .mc__buy-points.mpb-plain:has(.mpb-pt),html body #shopify-section-{{ section.id }} .mc__buy-points.mpb-plain:has(.mpb-pt){column-gap:16px!important;row-gap:0!important}
+                html body #shopify-section-{{ section.id }} .mc .mc__point.mpb-pt:not(:has(.mpb-pt__i)),html body #shopify-section-{{ section.id }} .mc__point.mpb-pt:not(:has(.mpb-pt__i)){padding:16px 0 18px}
+                html body #shopify-section-{{ section.id }} .mpb-pt:not(:has(.mpb-pt__i)) b{font-size:19px}
+                html body #shopify-section-{{ section.id }} .mpb-pt:not(:has(.mpb-pt__i)) span{font-size:11px}
               }
             </style>
             {%- if section.settings.points_foot != blank or section.settings.points_note != blank -%}
@@ -1530,7 +1549,8 @@
       "type": "point",
       "name": "Bullet",
       "settings": [
-        { "type": "text", "id": "title", "label": "Title (optional)", "info": "With a title, the bullet shows as a card: the title, with the text as its line underneath." },
+        { "type": "text", "id": "label", "label": "Label (optional)", "info": "Small, above the title, e.g. 01 · Energy" },
+        { "type": "text", "id": "title", "label": "Title (optional)", "info": "With a title, the text shows as its line underneath. No icon: a ruled list; with an icon: a card." },
         { "type": "select", "id": "icon", "label": "Card icon", "default": "", "options": [
           { "value": "", "label": "None" }, { "value": "energy", "label": "Energy (bolt)" }, { "value": "recovery", "label": "Recovery (arrows)" },
           { "value": "mind", "label": "Mind (wave)" }, { "value": "ageing", "label": "Ageing well (hourglass)" }, { "value": "immunity", "label": "Immunity (shield)" },

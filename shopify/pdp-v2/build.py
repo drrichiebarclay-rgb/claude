@@ -60,19 +60,19 @@ buy["settings"]["text"] = p("<strong>The daily multivitamin for ageing well. Bui
                             "Everything a good multivitamin gives you, plus what it leaves out: NR for NAD⁺, CoQ10, PQQ and resveratrol. 19 ingredients, two capsules, one jar.",
                             '<a href="#test-results-3">Ingredients + nutritional information</a>')
 # "How it helps": the five jobs, each a title over its line; * refers to the authorised claims in the small print
-POINTS = [("Energy", "Feel less tired, and release energy from your food.", "energy"),
-          ("Recovery", "Keep your muscles working normally and your bones strong.", "recovery"),
-          ("Mind", "Stay on top of a demanding week.", "mind"),
-          ("Ageing well", "NR tops up the NAD⁺ that runs lower with age. Zinc and copper help protect your cells.", "ageing"),
-          ("Immunity", "Support your immune system, all year round.", "immunity"),
-          ("One jar, not five pots", "Everything above in two capsules a day.", "jar")]
+POINTS = [("01 · Energy", "Afternoons that don’t fade.", "NR · CoQ10 · PQQ · B vitamins"),
+          ("02 · Recovery", "Bounce back from a busy week.", "Vitamin D3 · K2 · B2"),
+          ("03 · Mind", "A clearer head, all day.", "B6 · B12 · Folate · Zinc"),
+          ("04 · Ageing well", "Age on your own terms.", "NR 300mg · Resveratrol · TMG"),
+          ("05 · Immunity", "Stay well through winter.", "D3 · Zinc · Copper"),
+          ("06 · Simplicity", "One jar replaces five.", "19 ingredients · 2 capsules")]
 old = [k for k in buy["block_order"] if buy["blocks"][k]["type"] == "point"]
 at = buy["block_order"].index(old[0])
 for k in old:
     del buy["blocks"][k]
     buy["block_order"].remove(k)
-for i, (t, x, ic) in enumerate(POINTS, 1):
-    buy["blocks"][f"job{i}"] = {"type": "point", "settings": {"title": t, "text": x, "icon": ic, "dark": i == len(POINTS)}}
+for i, (lab, t, x) in enumerate(POINTS, 1):
+    buy["blocks"][f"job{i}"] = {"type": "point", "settings": {"label": lab, "title": t, "text": x, "icon": "", "dark": False}}
     buy["block_order"].insert(at + i - 1, f"job{i}")
 buy["settings"]["points_foot"] = ""  # the line and the small print under the cards were removed
 buy["settings"]["points_note"] = ""
