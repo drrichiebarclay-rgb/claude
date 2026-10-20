@@ -31,29 +31,29 @@
         "l3": {
           "type": "link",
           "settings": {
-            "label": "The science behind it",
-            "anchor": "the-science"
+            "label": "What’s in it",
+            "anchor": "whats-in-it"
           }
         },
         "l4": {
-          "type": "link",
-          "settings": {
-            "label": "How MUTO is built for it",
-            "anchor": "how-muto-is-built"
-          }
-        },
-        "l5": {
           "type": "link",
           "settings": {
             "label": "MUTO vs the usual",
             "anchor": "muto-vs-the-usual"
           }
         },
+        "l5": {
+          "type": "link",
+          "settings": {
+            "label": "The experts",
+            "anchor": "the-experts"
+          }
+        },
         "l6": {
           "type": "link",
           "settings": {
-            "label": "Meet the experts",
-            "anchor": "the-experts"
+            "label": "Your 90 days",
+            "anchor": "your-90-days"
           }
         }
       },
@@ -73,37 +73,38 @@
         "number": "01",
         "label": "What changes after 35",
         "heading": "Somewhere after 35, your body starts working a little differently.",
-        "intro": "<p>Nothing dramatic happens overnight. But three quiet shifts start inside your cells, and they build through your 40s and 50s.</p>",
+        "intro": "<p>Nothing dramatic happens overnight. But three quiet shifts start inside your 30 trillion cells, and they build through your 40s and 50s.</p>",
         "art": "decline",
-        "takeaway": "It’s not you doing anything wrong. It’s biology. And what your body needs changes with it.",
+        "takeaway": "It’s not you doing anything wrong. It’s biology, and the basics you took at 30 weren’t built for it.",
         "line": "",
         "small": "",
         "cta_label": "",
         "cta_link": "",
         "tint": false,
         "space_top": 96,
-        "space_bottom": 96
+        "space_bottom": 96,
+        "art_beside": true
       },
       "blocks": {
         "a": {
           "type": "point",
           "settings": {
             "title": "You make less NAD+",
-            "text": "<p>A molecule every cell needs to turn food into energy.</p>"
+            "text": "<p>Every cell makes its own energy, in tiny power stations called mitochondria. NAD+ is the courier that carries energy from your food to them, over and over, all day. From your mid-30s, your body makes less of it. Fewer couriers, the same amount of work.</p>"
           }
         },
         "b": {
           "type": "point",
           "settings": {
             "title": "You get less back",
-            "text": "<p>From the same food and the same training.</p>"
+            "text": "<p>Your body responds less to the same food and the same training. It’s called anabolic resistance, and it’s what I spent years studying in the lab. Same effort, smaller return.</p>"
           }
         },
         "c": {
           "type": "point",
           "settings": {
             "title": "Your cells’ maintenance slows",
-            "text": "<p>While the wear and tear of making energy carries on.</p>"
+            "text": "<p>Making energy creates a little “exhaust”. The crews that clean it up, a family of enzymes called sirtuins, also run on NAD+. Fewer couriers means more competition for the same supply.</p>"
           }
         }
       },
@@ -120,7 +121,7 @@
         "number": "02",
         "label": "How it shows up",
         "heading": "You don’t feel your cells. You feel your day.",
-        "intro": "<p>This is what people in their late 30s, 40s and 50s tell us, again and again:</p>",
+        "intro": "",
         "art": "none",
         "takeaway": "",
         "line": "<p>It’s like your body has switched to low power mode. Still working, still getting through the day, but running on less than it used to.</p>",
@@ -129,7 +130,8 @@
         "cta_link": "",
         "tint": false,
         "space_top": 96,
-        "space_bottom": 96
+        "space_bottom": 96,
+        "band": "dark"
       },
       "blocks": {
         "q1": {
@@ -141,28 +143,10 @@
         "q2": {
           "type": "quote",
           "settings": {
-            "text": "The same training just doesn’t land like it used to."
-          }
-        },
-        "q3": {
-          "type": "quote",
-          "settings": {
             "text": "Hard sessions hang around for days."
           }
         },
-        "q4": {
-          "type": "quote",
-          "settings": {
-            "text": "I spend Saturdays recovering from the week."
-          }
-        },
-        "q5": {
-          "type": "quote",
-          "settings": {
-            "text": "There’s nothing left for the people at home."
-          }
-        },
-        "q6": {
+        "q3": {
           "type": "quote",
           "settings": {
             "text": "I’m doing everything right, and I still feel it."
@@ -172,78 +156,20 @@
       "block_order": [
         "q1",
         "q2",
-        "q3",
-        "q4",
-        "q5",
-        "q6"
+        "q3"
       ]
     },
     "c3": {
       "type": "muto-chapter",
       "settings": {
-        "anchor": "the-science",
+        "anchor": "whats-in-it",
         "number": "03",
-        "label": "The science behind it",
-        "heading": "What’s actually happening inside you.",
-        "intro": "",
-        "art": "none",
-        "takeaway": "Three shifts, one root: what your cells need changes, and the basics you took at 30 weren’t built for it.",
-        "line": "",
-        "small": "",
-        "cta_label": "",
-        "cta_link": "",
-        "tint": false,
-        "space_top": 96,
-        "space_bottom": 96
-      },
-      "blocks": {
-        "a": {
-          "type": "point",
-          "settings": {
-            "title": "30 trillion tiny factories",
-            "text": "<p>Every cell makes its own energy, in tiny power stations called mitochondria.</p>"
-          }
-        },
-        "b": {
-          "type": "point",
-          "settings": {
-            "title": "Fewer couriers",
-            "text": "<p>To make that energy, cells use NAD+ as a courier: it picks up energy from your food and carries it to the power station, over and over, all day. From your mid-30s, your body makes less NAD+. Fewer couriers, the same amount of work.</p>"
-          }
-        },
-        "c": {
-          "type": "point",
-          "settings": {
-            "title": "Less back from the same input",
-            "text": "<p>As we age, our bodies respond less to the same food and the same training. It’s called anabolic resistance, and it’s what I spent years studying in the lab. Same effort, smaller return.</p>"
-          }
-        },
-        "d": {
-          "type": "point",
-          "settings": {
-            "title": "More wear, slower maintenance",
-            "text": "<p>Making energy creates a little “exhaust”. Your cells have crews that clean it up and keep everything maintained, and some of those crews, a family of enzymes called sirtuins, also use NAD+ every time they work. Fewer couriers means more competition for the same supply.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "a",
-        "b",
-        "c",
-        "d"
-      ]
-    },
-    "c4": {
-      "type": "muto-chapter",
-      "settings": {
-        "anchor": "how-muto-is-built",
-        "number": "04",
-        "label": "How MUTO is built for it",
-        "heading": "The foundation your body runs on. Five jobs, one jar.",
+        "label": "What’s in it",
+        "heading": "Five jobs, one jar.",
         "intro": "<p>MUTO is built for what you actually need after 35: one daily formula covering five jobs, so you’re not guessing across five separate pots.</p>",
         "art": "none",
         "takeaway": "",
-        "line": "<p><strong>Two capsules with breakfast. Every dose on the label.</strong> Alongside our creatine, it’s all you need to keep up.</p>",
+        "line": "",
         "small": "<p>Vitamins B6 and B12 contribute to the reduction of tiredness and fatigue. Vitamin D contributes to normal muscle function. Vitamins D and K contribute to the maintenance of normal bones. Zinc, copper and vitamin D contribute to the normal function of the immune system. In a study of adults aged 40 to 60, 300mg of NR a day raised NAD+ by 51% in two weeks. That study tested NR on its own, not MUTO.</p>",
         "cta_label": "See every ingredient",
         "cta_link": "/pages/ingredients",
@@ -252,13 +178,82 @@
         "space_bottom": 96
       },
       "blocks": {
-        "t1": {
-          "type": "table",
+        "n1": {
+          "type": "stat",
           "settings": {
-            "heading": "The five jobs",
-            "rows": "Job | What’s in it | In plain words\n1. Energy | Active B vitamins (B6, B12, folate), with CoQ10 and PQQ | Help you feel less tired, and help your body release energy from food\n2. Recovery | Vitamin D3 2,000 IU, riboflavin (B2), CoQ10 and PQQ | Keep your muscles working normally, so you bounce back after activity\n3. Stress | Active B vitamins, with zinc | Support normal psychological function and mental performance through a demanding week\n4. Longevity | NR 300mg (the most allowed in Great Britain), TMG, trans-resveratrol, grape seed extract, K2 100µg | Your body turns NR into NAD+, which runs lower as we get older. K2 helps keep your bones strong\n5. Immunity | Zinc 15mg + copper 1mg, with D3, folate, B6 and B12 | Support your immune system",
-            "highlight": 0,
-            "note": ""
+            "value": "19",
+            "label": "ingredients, every dose on the label"
+          }
+        },
+        "n2": {
+          "type": "stat",
+          "settings": {
+            "value": "300mg",
+            "label": "NR, the most allowed in Great Britain"
+          }
+        },
+        "n3": {
+          "type": "stat",
+          "settings": {
+            "value": "2",
+            "label": "capsules with breakfast"
+          }
+        },
+        "n4": {
+          "type": "stat",
+          "settings": {
+            "value": "0",
+            "label": "proprietary blends"
+          }
+        },
+        "j1": {
+          "type": "card",
+          "settings": {
+            "kicker": "01",
+            "title": "Energy",
+            "text": "Help you feel less tired, and help your body release energy from food.",
+            "detail_label": "What’s in it",
+            "detail": "Active B vitamins (B6, B12, folate), CoQ10, PQQ"
+          }
+        },
+        "j2": {
+          "type": "card",
+          "settings": {
+            "kicker": "02",
+            "title": "Recovery",
+            "text": "Keep your muscles working normally, so you bounce back after activity.",
+            "detail_label": "What’s in it",
+            "detail": "Vitamin D3 2,000 IU, riboflavin (B2), CoQ10, PQQ"
+          }
+        },
+        "j3": {
+          "type": "card",
+          "settings": {
+            "kicker": "03",
+            "title": "Stress",
+            "text": "Support normal psychological function through a demanding week.",
+            "detail_label": "What’s in it",
+            "detail": "Active B vitamins, zinc"
+          }
+        },
+        "j4": {
+          "type": "card",
+          "settings": {
+            "kicker": "04",
+            "title": "Longevity",
+            "text": "Your body turns NR into NAD+, which runs lower as we get older. K2 helps keep bones strong.",
+            "detail_label": "What’s in it",
+            "detail": "NR 300mg, TMG, trans-resveratrol, grape seed extract, K2 100µg"
+          }
+        },
+        "j5": {
+          "type": "card",
+          "settings": {
+            "kicker": "05",
+            "title": "Immunity",
+            "text": "Support your immune system, all year round.",
+            "detail_label": "What’s in it",
+            "detail": "Zinc 15mg + copper 1mg, D3, folate, B6, B12"
           }
         },
         "t2": {
@@ -267,20 +262,29 @@
             "heading": "How the 19 ingredients work together",
             "rows": "Team | Who’s on it | What happens\nThe energy team | NR, CoQ10, copper | NR becomes NAD+, the courier. CoQ10 is the relay runner that passes energy along inside the power station. Copper sits at the very last step, where the energy gets made.\nThe recycling team | Folate, B12, B6, TMG | Your cells constantly reuse one of their most important building blocks. Folate and B12 keep that recycling loop turning, TMG runs a second loop alongside it, and B6 handles the exit. We use the active forms, the ones the cell actually uses.\nThe clean-up crew | Zinc + copper | Zinc and copper build the enzyme that cleans up the exhaust from making energy. One enzyme, two metals, so we pair them.\nThe bone relay | D3 + K2 | D3 tells your cells to make a bone protein. K2 switches that protein on. D3 makes it, K2 activates it.",
             "highlight": 0,
-            "note": ""
+            "note": "",
+            "fold": true
           }
         }
       },
       "block_order": [
-        "t1",
+        "n1",
+        "n2",
+        "n3",
+        "n4",
+        "j1",
+        "j2",
+        "j3",
+        "j4",
+        "j5",
         "t2"
       ]
     },
-    "c5": {
+    "c4": {
       "type": "muto-chapter",
       "settings": {
         "anchor": "muto-vs-the-usual",
-        "number": "05",
+        "number": "04",
         "label": "MUTO vs the usual",
         "heading": "What you’ve been taking vs what you actually need.",
         "intro": "<p>Most people in their 40s and 50s are taking some mix of these. Here’s how they compare.</p>",
@@ -309,23 +313,23 @@
         "t1"
       ]
     },
-    "c6": {
+    "c5": {
       "type": "muto-chapter",
       "settings": {
         "anchor": "the-experts",
-        "number": "06",
-        "label": "Meet the experts",
+        "number": "05",
+        "label": "The experts",
         "heading": "The scientists behind the formula.",
         "intro": "<p>A supplement doesn’t need a scientist anywhere near it. Ours has seven. Our scientific advisory board meets every quarter to guide our research and every new formula.</p>",
         "art": "none",
         "takeaway": "",
-        "line": "<p><strong>Our research.</strong> Our first human study starts in December 2026 at the University of Westminster, with work at King’s College London, Coventry and Newcastle to follow. There are no results yet, and we’ll never say there are. We’ll publish them, whatever they show.</p>",
-        "small": "<p>Our advisory board guides our research and formulation. Its members don’t endorse products, and none of them is presented as recommending MUTO for any medical purpose.</p>",
+        "line": "",
+        "small": "",
         "cta_label": "",
         "cta_link": "",
         "tint": false,
         "space_top": 96,
-        "space_bottom": 48
+        "space_bottom": 40
       },
       "blocks": {},
       "block_order": []
@@ -444,7 +448,7 @@
         "rail_gap": 40,
         "fit": "nad",
         "space_top": 0,
-        "space_bottom": 96,
+        "space_bottom": 48,
         "compact": true
       }
     },
@@ -457,50 +461,75 @@
         "custom_liquid": "<style>[id$=\"__board\"] .mh{background:var(--mc-ground,#f9f9f9)}</style>"
       }
     },
-    "c7": {
+    "research": {
       "type": "muto-chapter",
       "settings": {
-        "anchor": "test-it",
-        "number": "07",
-        "label": "Test it yourself",
+        "anchor": "our-research",
+        "number": "",
+        "label": "Our research (follows the board)",
+        "heading": "",
+        "line": "<p><strong>Our research.</strong> Our first human study starts in December 2026 at the University of Westminster, with work at King’s College London, Coventry and Newcastle to follow. There are no results yet, and we’ll never say there are. We’ll publish them, whatever they show.</p>",
+        "small": "<p>Our advisory board guides our research and formulation. Its members don’t endorse products, and none of them is presented as recommending MUTO for any medical purpose.</p>",
+        "art": "none",
+        "takeaway": "",
+        "intro": "",
+        "cta_label": "",
+        "cta_link": "",
+        "tint": false,
+        "space_top": 0,
+        "space_bottom": 96
+      },
+      "blocks": {},
+      "block_order": []
+    },
+    "c6": {
+      "type": "muto-chapter",
+      "settings": {
+        "anchor": "your-90-days",
+        "number": "06",
+        "label": "Your 90 days",
         "heading": "Test it on yourself.",
         "intro": "<p>What people tell us they notice, and roughly when. Everyone’s different, so score yourself on day 1 and compare.</p>",
         "art": "none",
         "takeaway": "",
         "line": "<p>If you don’t feel the difference in 90 days, you get every subscription payment back. Skip, pause or cancel online anytime.</p>",
         "small": "",
-        "cta_label": "Start your 90 days",
-        "cta_link": "/products/muto-nad-cellular-complex",
+        "cta_label": "",
+        "cta_link": "",
         "tint": false,
         "space_top": 96,
-        "space_bottom": 96
+        "space_bottom": 24
       },
       "blocks": {
         "s1": {
           "type": "step",
           "settings": {
-            "title": "Day 1: your baseline",
+            "kicker": "Day 1",
+            "title": "Your baseline",
             "text": "<p>Score your afternoons, sleep and recovery out of 10, or note your wearable’s numbers. It takes 30 seconds.</p>"
           }
         },
         "s2": {
           "type": "step",
           "settings": {
-            "title": "Day 30: afternoons that hold",
+            "kicker": "Day 30",
+            "title": "Afternoons that hold",
             "text": "<p>Usually the first thing people notice. Less of a 3pm slump, easier mornings, and energy left for the evening.</p>"
           }
         },
         "s3": {
           "type": "step",
           "settings": {
-            "title": "Day 60: bouncing back sooner",
+            "kicker": "Day 60",
+            "title": "Bouncing back sooner",
             "text": "<p>A walk, a round of golf or a gym session stops hanging around for days. Busy weeks cost you less.</p>"
           }
         },
         "s4": {
           "type": "step",
           "settings": {
-            "title": "Day 90: feeling like yourself",
+            "kicker": "Day 90",
+            "title": "Feeling like yourself",
             "text": "<p>Compare your scores with day 1. Many people say they hadn’t realised how flat they’d been feeling.</p>"
           }
         }
@@ -510,93 +539,6 @@
         "s2",
         "s3",
         "s4"
-      ]
-    },
-    "glossary": {
-      "type": "muto-chapter",
-      "settings": {
-        "anchor": "the-words",
-        "number": "",
-        "label": "The words, explained",
-        "heading": "The words, explained.",
-        "intro": "",
-        "art": "none",
-        "takeaway": "",
-        "line": "",
-        "small": "",
-        "cta_label": "",
-        "cta_link": "",
-        "tint": false,
-        "space_top": 96,
-        "space_bottom": 96
-      },
-      "blocks": {
-        "w1": {
-          "type": "term",
-          "settings": {
-            "word": "Cell",
-            "meaning": "The tiny unit everything in your body is built from. You have about 30 trillion."
-          }
-        },
-        "w2": {
-          "type": "term",
-          "settings": {
-            "word": "Mitochondria",
-            "meaning": "The power stations inside your cells, where energy is made."
-          }
-        },
-        "w3": {
-          "type": "term",
-          "settings": {
-            "word": "NAD+",
-            "meaning": "A molecule every cell uses as a courier to carry energy from your food to the power station."
-          }
-        },
-        "w4": {
-          "type": "term",
-          "settings": {
-            "word": "NR (nicotinamide riboside)",
-            "meaning": "A form of vitamin B3 that your body turns into NAD+."
-          }
-        },
-        "w5": {
-          "type": "term",
-          "settings": {
-            "word": "Anabolic resistance",
-            "meaning": "When your body gets less back from the same food and training as you age."
-          }
-        },
-        "w6": {
-          "type": "term",
-          "settings": {
-            "word": "CoQ10",
-            "meaning": "A molecule your body makes, which passes energy along inside the power station."
-          }
-        },
-        "w7": {
-          "type": "term",
-          "settings": {
-            "word": "Methylated (active) forms",
-            "meaning": "Versions of B vitamins that are already in the form your cells use."
-          }
-        },
-        "w8": {
-          "type": "term",
-          "settings": {
-            "word": "Sirtuins",
-            "meaning": "A family of maintenance enzymes that use NAD+ every time they work."
-          }
-        }
-      },
-      "block_order": [
-        "w1",
-        "w2",
-        "w3",
-        "w4",
-        "w5",
-        "w6",
-        "w7",
-        "w8"
       ]
     },
     "start": {
@@ -691,11 +633,10 @@
     "c3",
     "c4",
     "c5",
-    "c6",
     "board",
     "board_css",
-    "c7",
-    "glossary",
+    "research",
+    "c6",
     "start",
     "reviews"
   ]

@@ -6,7 +6,12 @@
   takeaway line and small print.
 
   BLOCKS sit on a 12-column grid by type: points two to a row, quotes three to
-  a row, steps four to a row, glossary terms two to a row, tables full width.
+  a row, steps four to a row (a timeline), glossary terms two to a row, tables
+  full width (optionally folded behind a + row). Cards (white, one per idea)
+  and stats (big numbers) group into a row of their own; on phones cards swipe.
+
+  Band "Charcoal" sets the chapter on #242223 with the quotes as outlined cards.
+  "Diagram beside the blocks" puts the diagram left and the points right.
   Tables are typed one row per line, cells split with |, the first line being
   the header row.
 
@@ -92,6 +97,53 @@
   /* The site's button (.mc__btn as in the benefits band): 64px tall, 8px corners */
   #shopify-section-{{ sid }} .mch__btn{display:inline-flex;align-items:center;gap:10px;width:auto;height:64px;margin-top:32px;padding:0 32px;border-radius:8px;font-size:16px;text-decoration:none}
   #shopify-section-{{ sid }} a:not(.mch__btn){color:inherit;text-decoration:underline;text-underline-offset:3px}
+  /* Diagram beside the points rather than above them */
+  #shopify-section-{{ sid }} .mch__duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start;margin-top:48px}
+  #shopify-section-{{ sid }} .mch__duo .mch__art{margin-top:0;padding:28px 28px 20px;background:#fff;border-radius:8px}
+  #shopify-section-{{ sid }} .mch__duo .mch__art text{font-size:22px}
+  #shopify-section-{{ sid }} .mch__duo .mch__blocks{display:block;margin-top:0}
+  #shopify-section-{{ sid }} .mch__duo .mch__b--point{padding:22px 0}
+  #shopify-section-{{ sid }} .mch__duo .mch__b--point:last-child{border-bottom:1px solid var(--mc-hair)}
+  /* No heading: it carries on the section before it, so no rule above */
+  #shopify-section-{{ sid }} .mch--cont{border-top:0}
+  /* Dark band: the charcoal of the offer panel */
+  #shopify-section-{{ sid }} .mch--dark{--mch-bg:var(--mc-ink-alt,#242223);border-top:0;color:#fff}
+  #shopify-section-{{ sid }} .mch--dark .mch__h,#shopify-section-{{ sid }} .mch--dark .mch__q,#shopify-section-{{ sid }} .mch--dark .mch__take,#shopify-section-{{ sid }} .mch--dark .mch__bt{color:#fff}
+  #shopify-section-{{ sid }} .mch--dark .mch__intro,#shopify-section-{{ sid }} .mch--dark .mch__line,#shopify-section-{{ sid }} .mch--dark .mch__bx{color:rgba(255,255,255,.78)}
+  #shopify-section-{{ sid }} .mch--dark .mch__num{color:var(--mc-cyan)}
+  #shopify-section-{{ sid }} .mch--dark .mch__b--quote{grid-column:span 4;display:flex;flex-direction:column;justify-content:space-between;gap:40px;min-height:220px;padding:28px;border:1px solid rgba(255,255,255,.2);border-radius:8px}
+  #shopify-section-{{ sid }} .mch--dark .mch__b--quote::after{content:"What people tell us";font-family:var(--mc-mono);font-weight:400;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+  /* Stats: big numbers on one rule */
+  #shopify-section-{{ sid }} .mch__stats{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;padding-top:24px;border-top:1px solid var(--mc-ink-alt)}
+  #shopify-section-{{ sid }} .mch__sv{display:block;font-family:var(--mc-font);font-weight:500;font-size:clamp(40px,3.6vw,56px);line-height:.95;letter-spacing:-.02em;color:var(--mc-ink)}
+  #shopify-section-{{ sid }} .mch__sl{display:block;margin-top:10px;font-size:15px;line-height:1.35;color:var(--mc-ink-alt)}
+  /* Cards: one per job, as on the ingredients page */
+  #shopify-section-{{ sid }} .mch__cards{grid-column:1/-1;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+  #shopify-section-{{ sid }} .mch__b--card{grid-column:span 2;display:flex;flex-direction:column;gap:14px;min-height:300px;padding:28px;background:#fff;border-radius:8px}
+  #shopify-section-{{ sid }} .mch__cards:has(> :nth-child(5):last-child) > :nth-child(n+4){grid-column:span 3}
+  #shopify-section-{{ sid }} .mch__cards:has(> :nth-child(4):last-child) > *{grid-column:span 3}
+  #shopify-section-{{ sid }} .mch__cn{display:flex;align-items:center;gap:8px;font-family:var(--mc-mono);font-size:13px;color:var(--mc-muted)}
+  #shopify-section-{{ sid }} .mch__cn::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--mc-cyan);box-shadow:0 0 0 1px var(--mc-ink)}
+  #shopify-section-{{ sid }} .mch__ct{margin:0;font-weight:500;font-size:clamp(26px,2.4vw,34px);line-height:1;letter-spacing:-.01em;text-transform:uppercase;color:var(--mc-ink)}
+  #shopify-section-{{ sid }} .mch__cx{font-size:17px;line-height:1.45;color:var(--mc-ink-alt)}
+  #shopify-section-{{ sid }} .mch__ci{margin-top:auto;padding-top:14px;border-top:1px solid var(--mc-hair);font-size:14px;line-height:1.45;color:var(--mc-ink-alt)}
+  #shopify-section-{{ sid }} .mch__ci b{display:block;margin-bottom:4px;font-family:var(--mc-mono);font-weight:400;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mc-muted)}
+  /* Timeline: one line, a dot per milestone */
+  #shopify-section-{{ sid }} .mch__b--step{position:relative;padding:28px 24px 0 0;border-top:2px solid var(--mc-ink)}
+  #shopify-section-{{ sid }} .mch__blocks:has(> .mch__b--step){column-gap:0}
+  #shopify-section-{{ sid }} .mch__b--step::before{content:"";position:absolute;top:-9px;left:0;width:16px;height:16px;border-radius:50%;background:var(--mc-cyan);border:2px solid var(--mc-ink);box-sizing:border-box}
+  #shopify-section-{{ sid }} .mch__sk{font-family:var(--mc-mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--mc-muted)}
+  /* Table folded behind a + row */
+  #shopify-section-{{ sid }} .mch__fold{padding:22px 0;border-top:1px solid var(--mc-hair);border-bottom:1px solid var(--mc-hair)}
+  #shopify-section-{{ sid }} .mch__fold[open] > .mch__sum{margin-bottom:8px}
+  @media (max-width:989px){
+    #shopify-section-{{ sid }} .mch__duo{grid-template-columns:1fr;gap:28px}
+    #shopify-section-{{ sid }} .mch--dark .mch__b--quote{grid-column:1/-1;min-height:0;gap:20px}
+    #shopify-section-{{ sid }} .mch__stats{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:28px}
+    #shopify-section-{{ sid }} .mch__cards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin:0 calc(-1 * var(--mc-gutter,20px));padding:0 var(--mc-gutter,20px) 4px;scroll-padding:0 var(--mc-gutter,20px);scrollbar-width:none}
+    #shopify-section-{{ sid }} .mch__cards::-webkit-scrollbar{display:none}
+    #shopify-section-{{ sid }} .mch__b--card{flex:0 0 min(78%,340px);scroll-snap-align:start;min-height:280px;padding:24px}
+  }
   @media (max-width:989px){
     #shopify-section-{{ sid }} .mch__grid{grid-template-columns:1fr;gap:20px}
     #shopify-section-{{ sid }} .mch__side{position:static;grid-auto-flow:column;justify-content:start;gap:12px;align-items:baseline}
@@ -128,10 +180,19 @@
     #shopify-section-{{ sid }} .mch__stack td + td{margin-top:10px}
     #shopify-section-{{ sid }} .mch__stack td::before{content:attr(data-label);display:block;margin-bottom:2px;font-family:var(--mc-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mc-muted)}
     #shopify-section-{{ sid }} .mch__art text{font-size:22px}
+    #shopify-section-{{ sid }} .mch__duo .mch__art{padding:20px 18px 14px}
+    #shopify-section-{{ sid }} .mch__ct{font-size:24px}
+    #shopify-section-{{ sid }} .mch__cx{font-size:15px}
+    #shopify-section-{{ sid }} .mch__sl{font-size:14px}
+    /* Timeline runs down the page on phones */
+    #shopify-section-{{ sid }} .mch__b--step{padding:0 0 28px 28px;border-top:0;border-left:2px solid var(--mc-ink);margin-left:7px}
+    #shopify-section-{{ sid }} .mch__b--step:last-of-type{border-left-color:transparent;padding-bottom:0}
+    #shopify-section-{{ sid }} .mch__b--step::before{top:0;left:-9px}
+    #shopify-section-{{ sid }} .mch__blocks:has(> .mch__b--step){row-gap:0}
   }
 </style>
 
-<div class="mc mch" id="{{ s.anchor }}">
+<div class="mc mch{% if s.band == 'dark' %} mch--dark{% endif %}{% if s.heading == blank %} mch--cont{% endif %}" id="{{ s.anchor }}">
   <div class="mc__wrap mch__grid">
     <div class="mch__side">
       {%- if s.number != blank -%}<span class="mch__num">{{ s.number }}</span>{%- endif -%}
@@ -140,6 +201,7 @@
       {%- if s.heading != blank -%}<h2 class="mch__h">{{ s.heading | escape | newline_to_br }}</h2>{%- endif -%}
       {%- if s.intro != blank -%}<div class="mch__intro">{{ s.intro }}</div>{%- endif -%}
 
+      {%- if s.art != 'none' and s.art_beside -%}<div class="mch__duo">{%- endif -%}
       {%- if s.art != 'none' -%}
         <div class="mch__art" aria-hidden="true">
           {%- case s.art -%}
@@ -173,8 +235,25 @@
       {%- if section.blocks.size > 0 -%}
         <div class="mch__blocks">
           {%- assign step_n = 0 -%}
+          {%- assign grp = '' -%}
           {%- for block in section.blocks -%}
+            {%- comment -%} Runs of cards or stats share a row of their own {%- endcomment -%}
+            {%- if block.type == 'card' or block.type == 'stat' -%}{%- assign want = block.type -%}{%- else -%}{%- assign want = '' -%}{%- endif -%}
+            {%- if want != grp -%}
+              {%- if grp != '' -%}</div>{%- endif -%}
+              {%- if want == 'card' -%}<div class="mch__cards">{%- elsif want == 'stat' -%}<div class="mch__stats">{%- endif -%}
+              {%- assign grp = want -%}
+            {%- endif -%}
             {%- case block.type -%}
+              {%- when 'card' -%}
+                <article class="mch__b--card" {{ block.shopify_attributes }}>
+                  {%- if block.settings.kicker != blank -%}<span class="mch__cn">{{ block.settings.kicker }}</span>{%- endif -%}
+                  <h3 class="mch__ct">{{ block.settings.title }}</h3>
+                  {%- if block.settings.text != blank -%}<p class="mch__cx">{{ block.settings.text }}</p>{%- endif -%}
+                  {%- if block.settings.detail != blank -%}<p class="mch__ci"><b>{{ block.settings.detail_label | default: 'What’s in it' }}</b>{{ block.settings.detail }}</p>{%- endif -%}
+                </article>
+              {%- when 'stat' -%}
+                <p class="mch__b--stat" {{ block.shopify_attributes }}><span class="mch__sv">{{ block.settings.value }}</span><span class="mch__sl">{{ block.settings.label }}</span></p>
               {%- when 'point' -%}
                 <details class="mch__b--point" data-mch-more {{ block.shopify_attributes }}>
                   <summary class="mch__sum"><span class="mch__bt">{{ block.settings.title }}</span><span class="mch__plus" aria-hidden="true"></span></summary>
@@ -185,7 +264,7 @@
               {%- when 'step' -%}
                 {%- assign step_n = step_n | plus: 1 -%}
                 <div class="mch__b--step" {{ block.shopify_attributes }}>
-                  <span class="mch__sn">{{ step_n | prepend: '0' | slice: -2, 2 }}</span>
+                  {%- if block.settings.kicker != blank -%}<span class="mch__sk">{{ block.settings.kicker }}</span>{%- else -%}<span class="mch__sn">{{ step_n | prepend: '0' | slice: -2, 2 }}</span>{%- endif -%}
                   <p class="mch__bt" style="margin-top:10px">{{ block.settings.title }}</p>
                   {%- if block.settings.text != blank -%}<div class="mch__bx">{{ block.settings.text }}</div>{%- endif -%}
                 </div>
@@ -201,7 +280,9 @@
                 {%- for r in rows -%}{%- assign rs = r | strip -%}{%- if rs != blank -%}{%- assign head = rs | split: '|' -%}{%- break -%}{%- endif -%}{%- endfor -%}
                 {%- if head.size > 3 -%}{%- assign tkind = 'mch__wide' -%}{%- else -%}{%- assign tkind = 'mch__stack' -%}{%- endif -%}
                 <div class="mch__b--table {{ tkind }}" {{ block.shopify_attributes }}>
-                  {%- if block.settings.heading != blank -%}<h3 class="mch__table-h">{{ block.settings.heading }}</h3>{%- endif -%}
+                  {%- if block.settings.fold -%}
+                    <details class="mch__fold"><summary class="mch__sum"><span class="mch__bt">{{ block.settings.heading }}</span><span class="mch__plus" aria-hidden="true"></span></summary>
+                  {%- elsif block.settings.heading != blank -%}<h3 class="mch__table-h">{{ block.settings.heading }}</h3>{%- endif -%}
                   <div class="mch__scroll">
                     <table class="mch__t">
                       <colgroup>
@@ -250,11 +331,14 @@
                     </div>
                   {%- endif -%}
                   {%- if block.settings.note != blank -%}<p class="mch__small" style="margin-top:14px">{{ block.settings.note }}</p>{%- endif -%}
+                  {%- if block.settings.fold -%}</details>{%- endif -%}
                 </div>
             {%- endcase -%}
           {%- endfor -%}
+          {%- if grp != '' -%}</div>{%- endif -%}
         </div>
       {%- endif -%}
+      {%- if s.art != 'none' and s.art_beside -%}</div>{%- endif -%}
 
       {%- if s.takeaway != blank -%}<p class="mch__take">{{ s.takeaway }}</p>{%- endif -%}
       {%- if s.line != blank -%}<div class="mch__line">{{ s.line }}</div>{%- endif -%}
@@ -279,12 +363,17 @@
       { "value": "decline", "label": "Gentle decline, marked at 35" },
       { "value": "battery", "label": "Battery draining across the day" }
     ] },
+    { "type": "checkbox", "id": "art_beside", "label": "Diagram beside the blocks", "default": false },
     { "type": "text", "id": "takeaway", "label": "Takeaway line" },
     { "type": "richtext", "id": "line", "label": "Line after the blocks" },
     { "type": "text", "id": "cta_label", "label": "Button" },
     { "type": "url", "id": "cta_link", "label": "Button link" },
     { "type": "richtext", "id": "small", "label": "Small print" },
     { "type": "checkbox", "id": "tint", "label": "White background", "default": false },
+    { "type": "select", "id": "band", "label": "Band", "default": "ground", "options": [
+      { "value": "ground", "label": "Page background" },
+      { "value": "dark", "label": "Charcoal (#242223)" }
+    ] },
     { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 96 },
     { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 96 }
   ],
@@ -297,6 +386,7 @@
       { "type": "text", "id": "text", "label": "Quote (what people tell us)" }
     ] },
     { "type": "step", "name": "Step", "settings": [
+      { "type": "text", "id": "kicker", "label": "Label above", "info": "e.g. Day 30. Blank shows the step number." },
       { "type": "text", "id": "title", "label": "Title" },
       { "type": "richtext", "id": "text", "label": "Text" }
     ] },
@@ -308,7 +398,19 @@
       { "type": "text", "id": "heading", "label": "Heading" },
       { "type": "textarea", "id": "rows", "label": "Rows", "info": "One row per line, cells split with |. The first line is the header row." },
       { "type": "number", "id": "highlight", "label": "Highlight column (e.g. 2 for MUTO)", "info": "0 for none" },
-      { "type": "text", "id": "note", "label": "Footnote" }
+      { "type": "text", "id": "note", "label": "Footnote" },
+      { "type": "checkbox", "id": "fold", "label": "Fold behind its heading (+ to open)", "default": false }
+    ] },
+    { "type": "card", "name": "Card", "settings": [
+      { "type": "text", "id": "kicker", "label": "Label", "info": "e.g. 01" },
+      { "type": "text", "id": "title", "label": "Title" },
+      { "type": "textarea", "id": "text", "label": "Text" },
+      { "type": "text", "id": "detail_label", "label": "Detail label", "default": "What’s in it" },
+      { "type": "textarea", "id": "detail", "label": "Detail" }
+    ] },
+    { "type": "stat", "name": "Stat", "settings": [
+      { "type": "text", "id": "value", "label": "Number", "info": "e.g. 300mg" },
+      { "type": "text", "id": "label", "label": "What it is" }
     ] }
   ],
   "max_blocks": 20,

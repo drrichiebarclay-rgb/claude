@@ -3,7 +3,11 @@ MUTO_Science_Page_Copy_Oct26.docx, in the same styles as the standards page.
 
   muto-science-hero  eyebrow, headline, subhead, byline and pinned chapter links (new section)
   muto-chapter       one per chapter: pinned number on the left, content on the right (new section)
-  muto-home-board    the scientific board rail, as on the About page, under chapter 6
+  muto-home-board    the scientific board rail, the home page's slim cards, under chapter 5
+
+Six chapters: what changes (with the science), how it shows up (charcoal band),
+what's in it (stats, five job cards, the teams table folded), MUTO vs the usual,
+the experts, your 90 days (a timeline), then the offer and reviews.
 
 Preview on the existing Science page with ?view=science-simple, so the live
 /pages/science template is untouched. The doc's [Confirm …] notes are left off
@@ -54,10 +58,10 @@ def table(k, heading, rows, highlight=0, note=""):
 CHAPTERS = [  # anchor, chapter-link label
     ("what-changes", "What changes after 35"),
     ("how-it-shows-up", "How it shows up"),
-    ("the-science", "The science behind it"),
-    ("how-muto-is-built", "How MUTO is built for it"),
+    ("whats-in-it", "What’s in it"),
     ("muto-vs-the-usual", "MUTO vs the usual"),
-    ("the-experts", "Meet the experts"),
+    ("the-experts", "The experts"),
+    ("your-90-days", "Your 90 days"),
 ]
 
 # ---- Hero ----
@@ -72,56 +76,52 @@ add("hero", "muto-science-hero", {
     (f"l{i}", {"type": "link", "settings": {"label": lab, "anchor": a}}) for i, (a, lab) in enumerate(CHAPTERS, 1)
 ])
 
-# ---- 1 ----
+# ---- 1: what changes, and the science behind it (one chapter) ----
 chapter("c1", "what-changes", "01", "What changes after 35",
         "Somewhere after 35, your body starts working a little differently.",
-        intro=p("Nothing dramatic happens overnight. But three quiet shifts start inside your cells, and they build through your 40s and 50s."),
+        intro=p("Nothing dramatic happens overnight. But three quiet shifts start inside your 30 trillion cells, and they build through your 40s and 50s."),
         art="decline",
-        blocks=[point("a", "You make less NAD+", "A molecule every cell needs to turn food into energy."),
-                point("b", "You get less back", "From the same food and the same training."),
-                point("c", "Your cells’ maintenance slows", "While the wear and tear of making energy carries on.")],
-        takeaway="It’s not you doing anything wrong. It’s biology. And what your body needs changes with it.")
+        blocks=[point("a", "You make less NAD+", "Every cell makes its own energy, in tiny power stations called mitochondria. NAD+ is the courier that carries energy from your food to them, over and over, all day. From your mid-30s, your body makes less of it. Fewer couriers, the same amount of work."),
+                point("b", "You get less back", "Your body responds less to the same food and the same training. It’s called anabolic resistance, and it’s what I spent years studying in the lab. Same effort, smaller return."),
+                point("c", "Your cells’ maintenance slows", "Making energy creates a little “exhaust”. The crews that clean it up, a family of enzymes called sirtuins, also run on NAD+. Fewer couriers means more competition for the same supply.")],
+        takeaway="It’s not you doing anything wrong. It’s biology, and the basics you took at 30 weren’t built for it.")
+S["c1"]["settings"]["art_beside"] = True
 
-# ---- 2 ----
-QUOTES = ["Sharp at 8am. Gone by 3pm.", "The same training just doesn’t land like it used to.",
-          "Hard sessions hang around for days.", "I spend Saturdays recovering from the week.",
-          "There’s nothing left for the people at home.", "I’m doing everything right, and I still feel it."]
+# ---- 2: how it shows up (charcoal band) ----
+QUOTES = ["Sharp at 8am. Gone by 3pm.", "Hard sessions hang around for days.", "I’m doing everything right, and I still feel it."]
 chapter("c2", "how-it-shows-up", "02", "How it shows up",
         "You don’t feel your cells. You feel your day.",
-        intro=p("This is what people in their late 30s, 40s and 50s tell us, again and again:"),
         blocks=[(f"q{i}", {"type": "quote", "settings": {"text": q}}) for i, q in enumerate(QUOTES, 1)],
         line=p("It’s like your body has switched to low power mode. Still working, still getting through the day, but running on less than it used to."))
+S["c2"]["settings"]["band"] = "dark"
 
-# ---- 3 ----
-chapter("c3", "the-science", "03", "The science behind it",
-        "What’s actually happening inside you.",
-        blocks=[point("a", "30 trillion tiny factories", "Every cell makes its own energy, in tiny power stations called mitochondria."),
-                point("b", "Fewer couriers", "To make that energy, cells use NAD+ as a courier: it picks up energy from your food and carries it to the power station, over and over, all day. From your mid-30s, your body makes less NAD+. Fewer couriers, the same amount of work."),
-                point("c", "Less back from the same input", "As we age, our bodies respond less to the same food and the same training. It’s called anabolic resistance, and it’s what I spent years studying in the lab. Same effort, smaller return."),
-                point("d", "More wear, slower maintenance", "Making energy creates a little “exhaust”. Your cells have crews that clean it up and keep everything maintained, and some of those crews, a family of enzymes called sirtuins, also use NAD+ every time they work. Fewer couriers means more competition for the same supply.")],
-        takeaway="Three shifts, one root: what your cells need changes, and the basics you took at 30 weren’t built for it.")
-
-# ---- 4 ----
-JOBS = [("Job", "What’s in it", "In plain words"),  # the same five as the ingredients page filters
-        ("1. Energy", "Active B vitamins (B6, B12, folate), with CoQ10 and PQQ", "Help you feel less tired, and help your body release energy from food"),
-        ("2. Recovery", "Vitamin D3 2,000 IU, riboflavin (B2), CoQ10 and PQQ", "Keep your muscles working normally, so you bounce back after activity"),
-        ("3. Stress", "Active B vitamins, with zinc", "Support normal psychological function and mental performance through a demanding week"),
-        ("4. Longevity", "NR 300mg (the most allowed in Great Britain), TMG, trans-resveratrol, grape seed extract, K2 100µg", "Your body turns NR into NAD+, which runs lower as we get older. K2 helps keep your bones strong"),
-        ("5. Immunity", "Zinc 15mg + copper 1mg, with D3, folate, B6 and B12", "Support your immune system")]
+# ---- 3: what's in it ----
+STATS = [("19", "ingredients, every dose on the label"), ("300mg", "NR, the most allowed in Great Britain"),
+         ("2", "capsules with breakfast"), ("0", "proprietary blends")]
+JOBS = [  # the same five as the ingredients page filters
+    ("Energy", "Help you feel less tired, and help your body release energy from food.", "Active B vitamins (B6, B12, folate), CoQ10, PQQ"),
+    ("Recovery", "Keep your muscles working normally, so you bounce back after activity.", "Vitamin D3 2,000 IU, riboflavin (B2), CoQ10, PQQ"),
+    ("Stress", "Support normal psychological function through a demanding week.", "Active B vitamins, zinc"),
+    ("Longevity", "Your body turns NR into NAD+, which runs lower as we get older. K2 helps keep bones strong.", "NR 300mg, TMG, trans-resveratrol, grape seed extract, K2 100µg"),
+    ("Immunity", "Support your immune system, all year round.", "Zinc 15mg + copper 1mg, D3, folate, B6, B12")]
 TEAMS = [("Team", "Who’s on it", "What happens"),
          ("The energy team", "NR, CoQ10, copper", "NR becomes NAD+, the courier. CoQ10 is the relay runner that passes energy along inside the power station. Copper sits at the very last step, where the energy gets made."),
          ("The recycling team", "Folate, B12, B6, TMG", "Your cells constantly reuse one of their most important building blocks. Folate and B12 keep that recycling loop turning, TMG runs a second loop alongside it, and B6 handles the exit. We use the active forms, the ones the cell actually uses."),
          ("The clean-up crew", "Zinc + copper", "Zinc and copper build the enzyme that cleans up the exhaust from making energy. One enzyme, two metals, so we pair them."),
          ("The bone relay", "D3 + K2", "D3 tells your cells to make a bone protein. K2 switches that protein on. D3 makes it, K2 activates it.")]
-chapter("c4", "how-muto-is-built", "04", "How MUTO is built for it",
-        "The foundation your body runs on. Five jobs, one jar.",
+t2 = table("t2", "How the 19 ingredients work together", TEAMS)
+t2[1]["settings"]["fold"] = True
+chapter("c3", "whats-in-it", "03", "What’s in it",
+        "Five jobs, one jar.",
         intro=p("MUTO is built for what you actually need after 35: one daily formula covering five jobs, so you’re not guessing across five separate pots."),
-        blocks=[table("t1", "The five jobs", JOBS), table("t2", "How the 19 ingredients work together", TEAMS)],
-        line=p("<strong>Two capsules with breakfast. Every dose on the label.</strong> Alongside our creatine, it’s all you need to keep up."),
+        blocks=[(f"n{i}", {"type": "stat", "settings": {"value": v, "label": l}}) for i, (v, l) in enumerate(STATS, 1)]
+               + [(f"j{i}", {"type": "card", "settings": {"kicker": f"0{i}", "title": t, "text": x, "detail_label": "What’s in it", "detail": d}})
+                  for i, (t, x, d) in enumerate(JOBS, 1)]
+               + [t2],
         cta_label="See every ingredient", cta_link="/pages/ingredients",
         small=p("Vitamins B6 and B12 contribute to the reduction of tiredness and fatigue. Vitamin D contributes to normal muscle function. Vitamins D and K contribute to the maintenance of normal bones. Zinc, copper and vitamin D contribute to the normal function of the immune system. In a study of adults aged 40 to 60, 300mg of NR a day raised NAD+ by 51% in two weeks. That study tested NR on its own, not MUTO."))
 
-# ---- 5 ----
+# ---- 4 ----
 VS = [("", "MUTO", "Multivitamin", "Greens powder", "Collagen or joint capsules"),
       ("Built for", "What you need after 35: five jobs", "The basics", "The basics", "One area"),
       ("NR, for NAD+", "✓ 300mg", "Not usually included", "Not usually included", "Not usually included"),
@@ -133,49 +133,40 @@ VS = [("", "MUTO", "Multivitamin", "Greens powder", "Collagen or joint capsules"
       ("Scientists with names", "✓ PhD founder + six-member board", "Varies", "Varies", "Varies"),
       ("90-day money-back guarantee", "✓", "Varies", "Varies", "Varies"),
       ("How many pots", "One jar", "One of several", "One of several", "One of several")]
-chapter("c5", "muto-vs-the-usual", "05", "MUTO vs the usual",
+chapter("c4", "muto-vs-the-usual", "04", "MUTO vs the usual",
         "What you’ve been taking vs what you actually need.",
         intro=p("Most people in their 40s and 50s are taking some mix of these. Here’s how they compare."),
         blocks=[table("t1", "", VS, highlight=2,
                       note="Comparisons are by category, not brand, and products vary. Hold any label up against ours. Multivitamins, greens and collagen do the job they were built for; MUTO was built for a different one.")])
 
-# ---- 6 ----
-chapter("c6", "the-experts", "06", "Meet the experts",
+# ---- 5: the experts, one heading, then the board ----
+chapter("c5", "the-experts", "05", "The experts",
         "The scientists behind the formula.",
-        intro=p("A supplement doesn’t need a scientist anywhere near it. Ours has seven. Our scientific advisory board meets every quarter to guide our research and every new formula."),
-        line=p("<strong>Our research.</strong> Our first human study starts in December 2026 at the University of Westminster, with work at King’s College London, Coventry and Newcastle to follow. There are no results yet, and we’ll never say there are. We’ll publish them, whatever they show."),
-        small=p("Our advisory board guides our research and formulation. Its members don’t endorse products, and none of them is presented as recommending MUTO for any medical purpose."))
-S["c6"]["settings"]["space_bottom"] = 48  # the board follows straight on
+        intro=p("A supplement doesn’t need a scientist anywhere near it. Ours has seven. Our scientific advisory board meets every quarter to guide our research and every new formula."))
+S["c5"]["settings"]["space_bottom"] = 40  # the board follows straight on
 board = copy.deepcopy(ABOUT["board"])
-board["settings"].update(heading="", note="", field=False, compact=True, rail_gap=40, space_top=0, space_bottom=96)  # the home page's slim cards
+board["settings"].update(heading="", note="", field=False, compact=True, rail_gap=40, space_top=0, space_bottom=48)  # the home page's slim cards
 S["board"] = board; ORDER.append("board")
 # The board band on the page's own ground colour, no mint wash
 add("board_css", "custom-liquid", {"color_scheme": "scheme-1", "padding_top": 0, "padding_bottom": 0,
                                    "custom_liquid": "<style>[id$=\"__board\"] .mh{background:var(--mc-ground,#f9f9f9)}</style>"})
+add("research", "muto-chapter", {"anchor": "our-research", "number": "", "label": "Our research (follows the board)", "heading": "",
+                                 "line": p("<strong>Our research.</strong> Our first human study starts in December 2026 at the University of Westminster, with work at King’s College London, Coventry and Newcastle to follow. There are no results yet, and we’ll never say there are. We’ll publish them, whatever they show."),
+                                 "small": p("Our advisory board guides our research and formulation. Its members don’t endorse products, and none of them is presented as recommending MUTO for any medical purpose."),
+                                 "art": "none", "takeaway": "", "intro": "", "cta_label": "", "cta_link": "",
+                                 "tint": False, "space_top": 0, "space_bottom": 96}, [])
 
-# ---- 7 ----
-chapter("c7", "test-it", "07", "Test it yourself",
+# ---- 6: your 90 days, straight into the offer ----
+STEPS = [("Day 1", "Your baseline", "Score your afternoons, sleep and recovery out of 10, or note your wearable’s numbers. It takes 30 seconds."),
+         ("Day 30", "Afternoons that hold", "Usually the first thing people notice. Less of a 3pm slump, easier mornings, and energy left for the evening."),
+         ("Day 60", "Bouncing back sooner", "A walk, a round of golf or a gym session stops hanging around for days. Busy weeks cost you less."),
+         ("Day 90", "Feeling like yourself", "Compare your scores with day 1. Many people say they hadn’t realised how flat they’d been feeling.")]
+chapter("c6", "your-90-days", "06", "Your 90 days",
         "Test it on yourself.",
         intro=p("What people tell us they notice, and roughly when. Everyone’s different, so score yourself on day 1 and compare."),
-        blocks=[("s1", {"type": "step", "settings": {"title": "Day 1: your baseline", "text": p("Score your afternoons, sleep and recovery out of 10, or note your wearable’s numbers. It takes 30 seconds.")}}),
-                ("s2", {"type": "step", "settings": {"title": "Day 30: afternoons that hold", "text": p("Usually the first thing people notice. Less of a 3pm slump, easier mornings, and energy left for the evening.")}}),
-                ("s3", {"type": "step", "settings": {"title": "Day 60: bouncing back sooner", "text": p("A walk, a round of golf or a gym session stops hanging around for days. Busy weeks cost you less.")}}),
-                ("s4", {"type": "step", "settings": {"title": "Day 90: feeling like yourself", "text": p("Compare your scores with day 1. Many people say they hadn’t realised how flat they’d been feeling.")}})],
-        line=p("If you don’t feel the difference in 90 days, you get every subscription payment back. Skip, pause or cancel online anytime."),
-        cta_label="Start your 90 days", cta_link=PDP)
-
-# ---- Glossary ----
-TERMS = [("Cell", "The tiny unit everything in your body is built from. You have about 30 trillion."),
-         ("Mitochondria", "The power stations inside your cells, where energy is made."),
-         ("NAD+", "A molecule every cell uses as a courier to carry energy from your food to the power station."),
-         ("NR (nicotinamide riboside)", "A form of vitamin B3 that your body turns into NAD+."),
-         ("Anabolic resistance", "When your body gets less back from the same food and training as you age."),
-         ("CoQ10", "A molecule your body makes, which passes energy along inside the power station."),
-         ("Methylated (active) forms", "Versions of B vitamins that are already in the form your cells use."),
-         ("Sirtuins", "A family of maintenance enzymes that use NAD+ every time they work.")]
-chapter("glossary", "the-words", "", "The words, explained", "The words, explained.",
-        blocks=[(f"w{i}", {"type": "term", "settings": {"word": w, "meaning": m}}) for i, (w, m) in enumerate(TERMS, 1)],
-        )
+        blocks=[(f"s{i}", {"type": "step", "settings": {"kicker": k, "title": t, "text": p(x)}}) for i, (k, t, x) in enumerate(STEPS, 1)],
+        line=p("If you don’t feel the difference in 90 days, you get every subscription payment back. Skip, pause or cancel online anytime."))
+S["c6"]["settings"]["space_bottom"] = 24  # the offer follows
 
 # Offer and reviews, the same sections as the standards page
 STD = json.load(open(os.path.join(HERE, "..", "standards-page", "templates", "page.standards.json")))["sections"]
