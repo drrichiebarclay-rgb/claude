@@ -443,7 +443,7 @@
         "note": "",
         "rail_gap": 40,
         "fit": "nad",
-        "space_top": 48,
+        "space_top": 0,
         "space_bottom": 96,
         "compact": true
       }
@@ -454,7 +454,7 @@
         "color_scheme": "scheme-1",
         "padding_top": 0,
         "padding_bottom": 0,
-        "custom_liquid": "<style>[id$=\"__board\"] .mh{background:#fff}</style>"
+        "custom_liquid": "<style>[id$=\"__board\"] .mh{background:var(--mc-ground,#f9f9f9)}</style>"
       }
     },
     "c7": {

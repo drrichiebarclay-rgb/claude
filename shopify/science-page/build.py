@@ -147,11 +147,11 @@ chapter("c6", "the-experts", "06", "Meet the experts",
         small=p("Our advisory board guides our research and formulation. Its members don’t endorse products, and none of them is presented as recommending MUTO for any medical purpose."))
 S["c6"]["settings"]["space_bottom"] = 48  # the board follows straight on
 board = copy.deepcopy(ABOUT["board"])
-board["settings"].update(heading="", note="", field=False, compact=True, rail_gap=40, space_top=48, space_bottom=96)  # the home page's slim cards
+board["settings"].update(heading="", note="", field=False, compact=True, rail_gap=40, space_top=0, space_bottom=96)  # the home page's slim cards
 S["board"] = board; ORDER.append("board")
-# The board band on plain white, no mint wash
+# The board band on the page's own ground colour, no mint wash
 add("board_css", "custom-liquid", {"color_scheme": "scheme-1", "padding_top": 0, "padding_bottom": 0,
-                                   "custom_liquid": "<style>[id$=\"__board\"] .mh{background:#fff}</style>"})
+                                   "custom_liquid": "<style>[id$=\"__board\"] .mh{background:var(--mc-ground,#f9f9f9)}</style>"})
 
 # ---- 7 ----
 chapter("c7", "test-it", "07", "Test it yourself",
