@@ -355,9 +355,9 @@
             </ul>
             {%- if section.settings.points_foot != blank or section.settings.points_note != blank -%}
               <style>
-                #shopify-section-{{ section.id }} .mpb-pt{display:grid;gap:4px}
-                #shopify-section-{{ section.id }} .mpb-pt b{font-family:var(--mc-mono);font-weight:400;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--mc-ink)}
-                #shopify-section-{{ section.id }} .mpb-pt span{font-weight:400}
+                #shopify-section-{{ section.id }} .mpb-pt{display:grid;gap:4px;align-content:start}
+                #shopify-section-{{ section.id }} .mpb-pt b{font-weight:500}
+                #shopify-section-{{ section.id }} .mpb-pt span{font-weight:400;font-size:15px;line-height:1.4;color:var(--mc-ink-alt,#242223)}
                 #shopify-section-{{ section.id }} .mpb-pfoot{margin:16px 0 0;font-family:var(--mc-mono);font-size:12px;line-height:1.6;letter-spacing:.06em;text-transform:uppercase;color:var(--mc-ink)}
                 #shopify-section-{{ section.id }} .mpb-pnote{margin:8px 0 0;font-size:12px;line-height:1.5;color:var(--mc-muted,#7f9c9e)}
               </style>

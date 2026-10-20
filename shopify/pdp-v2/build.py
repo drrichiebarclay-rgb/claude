@@ -6,13 +6,13 @@ product.muto-nad-4060) and lays out, top to bottom:
   buy        muto-pdp-buy: the buy box, with a delivery line, a guarantee panel, the test
              results button and the doctors block under the button; accordions rewritten
   benefits   muto-benefit-cards: the five jobs as photo cards (AG1 style)
-  reviews    REVIEWS.io widget, as on the current product page
   board      the home page's slim scientific board
   library    muto-ingredient-library: the 19 ingredients, filterable (h2 here)
   compare    muto-chapter: MUTO vs the usual, the science page's table
   timeline   muto-timeline: what to expect at day 1, 30, 60 and 90
   howto      muto-chapter: three steps
   faq        muto-crea-faq: rewritten
+  reviews    REVIEWS.io widget, as on the current product page
   tests      muto-test-results: the panel the button opens (nothing shows until opened)
   sticky, easy_read  as on the current product page
 
@@ -64,7 +64,8 @@ POINTS = [("01 · Energy", "Help you feel less tired, and help your body release
           ("02 · Recovery", "Keep your muscles working normally and your bones strong.*"),
           ("03 · Mind", "Support normal psychological function through a demanding week.*"),
           ("04 · Ageing well", "Your body turns NR into NAD⁺, which runs lower as we get older. Zinc and copper help protect your cells from oxidative stress.*"),
-          ("05 · Immunity", "Support your immune system, all year round.*")]
+          ("05 · Immunity", "Support your immune system, all year round.*"),
+          ("One jar instead of five pots", "Everything above in two capsules a day.")]
 old = [k for k in buy["block_order"] if buy["blocks"][k]["type"] == "point"]
 at = buy["block_order"].index(old[0])
 for k in old:
@@ -164,14 +165,12 @@ put("benefits", {"type": "muto-benefit-cards", "settings": {
     "blocks": {f"b{i}": {"type": "card", "settings": {"image": img, "title": t, "text": x}} for i, (t, x, img) in enumerate(CARDS, 1)},
     "block_order": [f"b{i}" for i in range(1, len(CARDS) + 1)]})
 
-# ---- Reviews, below the fold ----
-put("reviews", copy.deepcopy(BASE["custom_reviews_KpXTpD"]))
 
 # ---- Slim scientific board, with the anchor the doctors block links to ----
 put("board_anchor", {"type": "custom-liquid", "settings": {"color_scheme": "scheme-1", "padding_top": 0, "padding_bottom": 0, "custom_liquid":
     "<style>[id$=\"__board_anchor\"]{height:0;overflow:hidden;margin:0!important;padding:0!important}[id$=\"__board\"] .mh{background:var(--mc-ground,#f9f9f9)}</style>"
     "<span id=\"scientific-board\" style=\"display:block;position:relative;top:-80px\"></span>"}})
-board["settings"].update(heading="Meet our\nscientific board.", note="Our Scientific Advisory Board", field=False, compact=True,
+board["settings"].update(heading="Meet the experts\nbehind MUTO.", note="Our Scientific Advisory Board", field=False, compact=True,
                          rail_gap=40, space_top=72, space_bottom=72)
 put("board", board)
 
@@ -234,12 +233,15 @@ faq["blocks"] = {f"q{i}": {"type": "q", "settings": {"title": t, "text": x}} for
 faq["block_order"] = [f"q{i}" for i in range(1, len(QS) + 1)]
 put("faq", faq)
 
+# ---- Reviews, at the bottom ----
+put("reviews", copy.deepcopy(BASE["custom_reviews_KpXTpD"]))
+
 # ---- The test results panel, opened from the buy box, the cards and the FAQ ----
 put("tests", copy.deepcopy(ING_T["tests"]))
 
 put("sticky", copy.deepcopy(BASE["sticky"]))
 er = copy.deepcopy(BASE["easy_read"])
-er["settings"]["custom_liquid"] = er["settings"]["custom_liquid"].replace("</style>", "\n/* New PDP: the pills moved under the button as badges; only the heading stays */\nhtml body .mc .mc__trust li{display:none}\nhtml body .mc .mc__trust::after{margin-top:8px}\n/* New PDP: the five jobs, one per row, no label above */\nhtml body .mc .mc__buy-points{grid-template-columns:1fr!important}\nhtml body .mc .mc__buy-points::before{content:none!important}\n</style>", 1)
+er["settings"]["custom_liquid"] = er["settings"]["custom_liquid"].replace("</style>", "\n/* New PDP: the pills moved under the button as badges; only the heading stays */\nhtml body .mc .mc__trust li{display:none}\nhtml body .mc .mc__trust::after{margin-top:8px}\n</style>", 1)
 put("easy_read", er)
 
 out = os.path.join(HERE, "templates", "product.muto-nad-v2.json")
