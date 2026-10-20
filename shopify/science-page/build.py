@@ -82,7 +82,7 @@ CHAPTERS = [  # anchor, chapter-link label
     ("what-changes", "What changes after 35"),
     ("how-it-shows-up", "How it shows up"),
     ("whats-in-it", "What’s in it"),
-    ("muto-vs-the-usual", "MUTO vs the usual"),
+    ("muto-vs-the-usual", "Comparison"),
     ("the-experts", "The experts"),
     ("your-90-days", "Your 90 days"),
 ]
