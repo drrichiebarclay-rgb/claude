@@ -156,10 +156,11 @@ add("board_css", "custom-liquid", {"color_scheme": "scheme-1", "padding_top": 0,
 # ---- 7 ----
 chapter("c7", "test-it", "07", "Test it yourself",
         "Test it on yourself.",
-        blocks=[("s1", {"type": "step", "settings": {"title": "Today", "text": p("Score your afternoons out of 10, or note your wearable’s numbers.")}}),
-                ("s2", {"type": "step", "settings": {"title": "Every day", "text": p("Two capsules with breakfast.")}}),
-                ("s3", {"type": "step", "settings": {"title": "Days 30, 60 and 90", "text": p("Check in. Look at the trend, not single days.")}}),
-                ("s4", {"type": "step", "settings": {"title": "Then", "text": p("Decide for yourself.")}})],
+        intro=p("What people tell us they notice, and roughly when. Everyone’s different, so score yourself on day 1 and compare."),
+        blocks=[("s1", {"type": "step", "settings": {"title": "Day 1: your baseline", "text": p("Score your afternoons, sleep and recovery out of 10, or note your wearable’s numbers. It takes 30 seconds.")}}),
+                ("s2", {"type": "step", "settings": {"title": "Day 30: afternoons that hold", "text": p("Usually the first thing people notice. Less of a 3pm slump, easier mornings, and energy left for the evening.")}}),
+                ("s3", {"type": "step", "settings": {"title": "Day 60: bouncing back sooner", "text": p("A walk, a round of golf or a gym session stops hanging around for days. Busy weeks cost you less.")}}),
+                ("s4", {"type": "step", "settings": {"title": "Day 90: feeling like yourself", "text": p("Compare your scores with day 1. Many people say they hadn’t realised how flat they’d been feeling.")}})],
         line=p("If you don’t feel the difference in 90 days, you get every subscription payment back. Skip, pause or cancel online anytime."),
         cta_label="Start your 90 days", cta_link=PDP)
 

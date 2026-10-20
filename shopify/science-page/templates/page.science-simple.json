@@ -464,7 +464,7 @@
         "number": "07",
         "label": "Test it yourself",
         "heading": "Test it on yourself.",
-        "intro": "",
+        "intro": "<p>What people tell us they notice, and roughly when. Everyone’s different, so score yourself on day 1 and compare.</p>",
         "art": "none",
         "takeaway": "",
         "line": "<p>If you don’t feel the difference in 90 days, you get every subscription payment back. Skip, pause or cancel online anytime.</p>",
@@ -479,29 +479,29 @@
         "s1": {
           "type": "step",
           "settings": {
-            "title": "Today",
-            "text": "<p>Score your afternoons out of 10, or note your wearable’s numbers.</p>"
+            "title": "Day 1: your baseline",
+            "text": "<p>Score your afternoons, sleep and recovery out of 10, or note your wearable’s numbers. It takes 30 seconds.</p>"
           }
         },
         "s2": {
           "type": "step",
           "settings": {
-            "title": "Every day",
-            "text": "<p>Two capsules with breakfast.</p>"
+            "title": "Day 30: afternoons that hold",
+            "text": "<p>Usually the first thing people notice. Less of a 3pm slump, easier mornings, and energy left for the evening.</p>"
           }
         },
         "s3": {
           "type": "step",
           "settings": {
-            "title": "Days 30, 60 and 90",
-            "text": "<p>Check in. Look at the trend, not single days.</p>"
+            "title": "Day 60: bouncing back sooner",
+            "text": "<p>A walk, a round of golf or a gym session stops hanging around for days. Busy weeks cost you less.</p>"
           }
         },
         "s4": {
           "type": "step",
           "settings": {
-            "title": "Then",
-            "text": "<p>Decide for yourself.</p>"
+            "title": "Day 90: feeling like yourself",
+            "text": "<p>Compare your scores with day 1. Many people say they hadn’t realised how flat they’d been feeling.</p>"
           }
         }
       },
