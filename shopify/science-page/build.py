@@ -89,7 +89,7 @@ CHAPTERS = [  # anchor, chapter-link label
 
 # ---- Hero ----
 add("hero", "muto-science-hero", {
-    "eyebrow": "The science, made simple",
+    "eyebrow": "",
     "heading": "What changes in your body after 35, and what to do about it.",
     "sub": "No jargon. No hype. What happens inside you, how it shows up in your day, and why we built MUTO the way we did. In five minutes.",
     "author_image_fallback": CDN + "about-founder.jpg?v=1790751995",
@@ -201,6 +201,8 @@ STD = json.load(open(os.path.join(HERE, "..", "standards-page", "templates", "pa
 S["start"] = copy.deepcopy(STD["start"]); ORDER.append("start")
 S["start"]["settings"]["space_top"] = 0  # straight on from the mint timeline
 S["reviews"] = copy.deepcopy(STD["reviews"]); ORDER.append("reviews")
+S["start"]["settings"]["space_bottom"] = 0  # the reviews follow straight on
+S["reviews"]["settings"]["padding_top"] = 64
 
 out = os.path.join(HERE, "templates", "page.science-simple.json")
 os.makedirs(os.path.dirname(out), exist_ok=True)
