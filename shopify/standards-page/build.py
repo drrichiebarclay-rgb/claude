@@ -70,7 +70,7 @@ STANDARDS = [
     ("Only UK-authorised ingredients", "Every ingredient in MUTO is authorised for use in UK food supplements. That’s why we use NR rather than NMN, which is still under assessment.",
      "Ask us about any ingredient’s status: " + MAIL, "jar", "factory"),
     ("Every batch third-party tested", "Not just the first batch. Every batch is tested by an independent lab before it’s released.",
-     "Certificates are available on request: " + MAIL, "tested", "factory"),
+     "See every test and result for the current batch, or ask us for your batch’s certificate: " + MAIL, "tested", "factory"),
     ("Made in the UK, to GMP", "Manufactured in the UK to GMP (Good Manufacturing Practice) standards, in an ISO-certified facility.",
      "Ask us for our manufacturing standards.", "factory", "tested"),
     ("Nothing you don’t need", "Vegan capsules made from plant cellulose (HPMC). Vitamin D3 from algae. No major allergens, no fillers, no caffeine and no stimulants.",
@@ -84,12 +84,15 @@ STANDARDS = [
     ("Built to be checked", "Note how you feel today. Give it 90 days. If you don’t feel the difference, you get every subscription payment back. Skip, pause or cancel online anytime, with a reminder five days before every payment.",
      "Guarantee terms are in our <a href=\"/pages/faqs#guarantee\">FAQs</a>.", "checkin", "founder"),
 ]
+EDITOR_PHOTOS = {1: "shopify://shop_images/MUTO0266.png"}  # photos picked in the theme editor (kept on rebuild)
 add("standards", "muto-standards", {
     "heading": "The standards\nbehind MUTO",
     "lede": "Supplements don’t have to prove much to go on sale in the UK. So we built MUTO to a higher bar, and we show you all of it: every dose on the label, every batch tested, made in the UK.",
-    "list_label": "Our standards", "space_top": 120, "space_bottom": 100}, [
+    "list_label": "Our standards", "sticky_top": 120, "space_top": 120, "space_bottom": 100}, [
     (f"s{i}", {"type": "standard", "settings": {"title": t, "text": p(x), "check": p(c),
-                                                "image_1_fallback": IMG[a]}})
+                                                "image_1_fallback": IMG[a],
+                                                **({"tests_button": "View third-party testing results"} if t.startswith("Every batch") else {}),
+                                                **({"image_1": EDITOR_PHOTOS[i]} if i in EDITOR_PHOTOS else {})}})
     for i, (t, x, c, a, b) in enumerate(STANDARDS, 1)
 ])
 
@@ -121,6 +124,9 @@ add("board_css", "custom-liquid", {"color_scheme": "scheme-1", "padding_top": 0,
 
 # Customer reviews (REVIEWS.io widget), copied from the product page
 S["reviews"] = copy.deepcopy(PDPT["custom_reviews_KpXTpD"]); ORDER.append("reviews")
+# The test results panel (opened from standard 4), the same section and data as the ingredients page
+S["tests"] = copy.deepcopy(json.load(open(os.path.join(HERE, "..", "ingredients-page", "templates", "page.ingredients.json")))["sections"]["tests"])
+ORDER.append("tests")
 
 out = os.path.join(HERE, "templates", "page.standards.json")
 os.makedirs(os.path.dirname(out), exist_ok=True)

@@ -37,6 +37,7 @@
   #shopify-section-{{ sid }} .ms__card-t{font-size:18px;line-height:1.45}
   #shopify-section-{{ sid }} .ms__check{margin-top:8px;padding-top:16px;border-top:1px solid var(--mc-hair);font-size:15px;line-height:1.4}
   #shopify-section-{{ sid }} .ms__check b{display:block;margin-bottom:6px;font-family:var(--mc-mono);font-weight:400;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mc-muted)}
+  #shopify-section-{{ sid }} .ms__tests{align-self:flex-start;margin-top:4px}
   #shopify-section-{{ sid }} .ms__check a{color:inherit;text-decoration:underline;text-underline-offset:3px}
   #shopify-section-{{ sid }} .ms__img{position:relative;aspect-ratio:4/5;border-radius:8px;overflow:hidden;background:var(--mc-mint)}
   #shopify-section-{{ sid }} .ms__img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -85,6 +86,8 @@
                 {%- if block.settings.check != blank -%}
                   <div class="ms__check"><b>How to check</b>{{ block.settings.check }}</div>
                 {%- endif -%}
+                {%- comment -%} Opens the "MUTO — Test results" panel on the same page {%- endcomment -%}
+                {%- if block.settings.tests_button != blank -%}<button type="button" class="mtr-btn ms__tests" data-mtr-open><span class="mtr-btn__tick"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6.2 5 8.6l4.5-5" stroke="#162f31" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>{{ block.settings.tests_button }}</button>{%- endif -%}
               </div>
               {%- for n in (1..1) -%}
                 {%- liquid
@@ -171,6 +174,7 @@
         { "type": "text", "id": "title", "label": "Title", "default": "Every dose on the label" },
         { "type": "richtext", "id": "text", "label": "What it means" },
         { "type": "richtext", "id": "check", "label": "How to check" },
+        { "type": "text", "id": "tests_button", "label": "Test results button", "info": "Opens the MUTO — Test results section on this page. Blank hides it." },
         { "type": "image_picker", "id": "image_1", "label": "Photo" },
         { "type": "text", "id": "image_1_fallback", "label": "Photo 1 URL (if no photo picked)" }
       ]
