@@ -1,18 +1,18 @@
 # Our standards page (draft, 20 Oct 2026)
 
-Built from `MUTO_Our_Standards_Page_Copy_Oct26.docx` with the main site's own sections, the ones the About, home and product pages use (`muto-about-*`, `muto-home-*`, `muto-crea-*`). Hero, board and banner settings are copied from the About template (`theme-ref/`), so imagery and behaviour match. No new section files.
+Built from `MUTO_Our_Standards_Page_Copy_Oct26.docx`, kept deliberately simple (seven sections) with the main site's own sections:
 
-| Doc section | Theme section |
+| Part | Theme section |
 |---|---|
-| 1 Hero, subhead, proof strip | About hero (poster, two actions, plan strip and sticky bar), About statement, About "made" cards |
-| 2 Why we built it | About founder (portrait and letter card) |
-| 3 Rules vs MUTO | Product-page comparison table (MUTO vs required by UK law) |
-| 4 Ten standards | Product-page FAQ rows, each with "How to check" |
-| 5 Five jobs | Product-page benefits rows beside the label photo |
-| 6 Scientists | The board rail with interview videos |
-| 7 Check us yourself | About "proof" steps |
-| 8 Questions | Product-page FAQ |
-| 9 Closing | "Above the standard. Beneath the surface." banner |
+| Opening statement | About statement band |
+| 19 · 100% · 90 | Home page numbers |
+| Our ten standards | About "Research in progress" list (name and one line each) |
+| Rules vs MUTO | Product-page comparison table |
+| Founder's note | About founder portrait and letter card (shortened) |
+| Questions | Product-page FAQ (five questions) |
+| Close | "Above the standard. Beneath the surface." banner |
+
+The doc's five jobs, scientists and check-it-yourself sections are left out; the ingredients and About pages cover them.
 
 - **Template:** `templates/page.standards.json` (run `python3 build.py` to rebuild after copy edits).
 - **Theme:** on the 3M refill plan draft theme (ID 202682564955) only.
@@ -33,6 +33,5 @@ Built from `MUTO_Our_Standards_Page_Copy_Oct26.docx` with the main site's own se
 ## Also before going live
 
 - **URL:** Shopify pages live at `/pages/standards`. For `muto.co/standards`, add a URL redirect `/standards` → `/pages/standards` (Online Store → Navigation → URL redirects).
-- **Photos:** the hero uses the About poster. The doc asks for the jar with the label turned to camera; swap it in the hero's Photo setting if you'd rather.
 - **Links:** "See the full label…" points to `/pages/ingredients`, which is also still hidden.
 - **Going live:** copy `templates/page.standards.json` to the live theme, then set the page to Visible.
