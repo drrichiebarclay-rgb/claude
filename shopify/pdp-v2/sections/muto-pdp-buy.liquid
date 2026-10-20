@@ -1,9 +1,10 @@
 {%- comment -%}
   MUTO PDP — the buy block. A copy of "MUTO Creatine — Buy" (muto-crea-buy) for
-  the new product page, so the live buy box is untouched. It adds four blocks
-  that sit under the add-to-cart button, in block order: Delivery line,
-  Guarantee panel, Test results button (opens the "MUTO — Test results" section
-  on the page) and Doctors (faces of the scientific board, a line and a link).
+  the new product page, so the live buy box is untouched. It adds blocks
+  that sit under the add-to-cart button, in block order: Badges (three marks in
+  circles), Delivery line, Guarantee panel, Test results button (opens the
+  "MUTO — Test results" section on the page) and Doctors (faces of the
+  scientific board, a line and a link); and Two lists, after the accordions.
   Everything else is as the original:
 
   MUTO Creatine — the buy block.
@@ -1152,7 +1153,7 @@
           {%- liquid
             assign extras = 0
             for b in section.blocks
-              if b.type == 'delivery' or b.type == 'promise' or b.type == 'tests' or b.type == 'doctors'
+              if b.type == 'delivery' or b.type == 'promise' or b.type == 'tests' or b.type == 'doctors' or b.type == 'badges'
                 assign extras = extras | plus: 1
               endif
             endfor
@@ -1176,10 +1177,30 @@
               #shopify-section-{{ section.id }} .mpb-doc small{display:block;margin-top:3px;font-size:14px;line-height:1.4;color:var(--mc-ink-alt)}
               #shopify-section-{{ section.id }} .mpb-doc i{margin-left:auto;font-style:normal;font-size:18px;color:var(--mc-ink)}
               #shopify-section-{{ section.id }} a.mpb-doc:hover{border-color:var(--mc-ink)}
+              #shopify-section-{{ section.id }} .mpb-bad{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:8px 0 4px;padding:20px 0;border-top:1px solid var(--mc-hair,rgba(22,47,49,.14));border-bottom:1px solid var(--mc-hair,rgba(22,47,49,.14));list-style:none}
+              #shopify-section-{{ section.id }} .mpb-bad li{display:grid;justify-items:center;gap:12px;text-align:center;font-size:15px;line-height:1.3;color:var(--mc-ink)}
+              #shopify-section-{{ section.id }} .mpb-bad i{display:grid;place-items:center;width:64px;height:64px;border:1.5px solid var(--mc-ink);border-radius:50%;font-style:normal;font-family:var(--mc-mono);font-size:15px;font-weight:500;letter-spacing:.06em;color:var(--mc-ink)}
+              #shopify-section-{{ section.id }} .mpb-bad svg{width:28px;height:28px}
             </style>
             <div class="mpb-x">
               {%- for b in section.blocks -%}
                 {%- case b.type -%}
+                  {%- when 'badges' -%}
+                    <ul class="mpb-bad" {{ b.shopify_attributes }}>
+                      {%- for n in (1..3) -%}
+                        {%- assign mk = 'mark_' | append: n -%}{%- assign lk = 'label_' | append: n -%}
+                        {%- if b.settings[lk] != blank -%}
+                          <li><i aria-hidden="true">
+                            {%- case b.settings[mk] -%}
+                              {%- when 'shield' -%}<svg viewBox="0 0 28 28" fill="none"><path d="M14 3 5 6.5v6.3c0 5.6 3.8 9.9 9 11.7 5.2-1.8 9-6.1 9-11.7V6.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m10 14 3 3 5.5-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                              {%- when 'leaf' -%}<svg viewBox="0 0 28 28" fill="none"><path d="M6 22C6 11 12 6 23 5c0 11-5 17-15 17" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M6 22 15 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                              {%- when 'flask' -%}<svg viewBox="0 0 28 28" fill="none"><path d="M11 4h6M12 4v7L6 21.5A2 2 0 0 0 7.8 24.5h12.4a2 2 0 0 0 1.8-3L16 11V4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 18h10" stroke="currentColor" stroke-width="1.6"/></svg>
+                              {%- else -%}{{ b.settings[mk] }}
+                            {%- endcase -%}
+                          </i>{{ b.settings[lk] }}</li>
+                        {%- endif -%}
+                      {%- endfor -%}
+                    </ul>
                   {%- when 'delivery' -%}
                     <p class="mpb-del" {{ b.shopify_attributes }}><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6.5h11v9h-11zM13.5 9.5h4l3 3v3h-7z"/><circle cx="6.5" cy="17" r="1.8" fill="#fff"/><circle cx="17" cy="17" r="1.8" fill="#fff"/></svg><span>{{ b.settings.text }}</span></p>
                   {%- when 'promise' -%}
@@ -1299,6 +1320,26 @@
               {%- endfor -%}
             </div>
           {%- endif -%}
+
+          {%- for b in section.blocks -%}
+            {%- if b.type == 'lists' -%}
+              <style>
+                #shopify-section-{{ section.id }} .mpb-lists{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px}
+                #shopify-section-{{ section.id }} .mpb-lists p{margin:0 0 14px;font-family:var(--mc-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mc-muted,#7f9c9e)}
+                #shopify-section-{{ section.id }} .mpb-lists ul{display:grid;gap:6px;margin:0;padding:0;list-style:none;font-family:var(--mc-font);font-size:20px;line-height:1.25;color:var(--mc-ink)}
+                @media (max-width:749px){#shopify-section-{{ section.id }} .mpb-lists ul{font-size:17px}}
+              </style>
+              <div class="mpb-lists" {{ b.shopify_attributes }}>
+                {%- for n in (1..2) -%}
+                  {%- assign tk = 'title_' | append: n -%}{%- assign ik = 'items_' | append: n -%}
+                  {%- if b.settings[ik] != blank -%}
+                    {%- assign lines = b.settings[ik] | newline_to_br | split: '<br />' -%}
+                    <div><p>{{ b.settings[tk] }}</p><ul>{%- for l in lines -%}{%- assign ls = l | strip -%}{%- if ls != blank -%}<li>{{ ls }}</li>{%- endif -%}{%- endfor -%}</ul></div>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
 
           {%- if stats.size > 0 -%}
             <section class="mc__card" aria-labelledby="{{ section.id }}-research">
@@ -1529,6 +1570,30 @@
       "settings": [
         { "type": "text", "id": "value", "label": "Figure", "default": "+15%" },
         { "type": "textarea", "id": "text", "label": "Caption", "default": "More work done across repeated sprints¹" }
+      ]
+    },
+    {
+      "type": "badges",
+      "name": "Badges",
+      "settings": [
+        { "type": "paragraph", "content": "Three marks in circles under the button. A mark is a word (e.g. UK, GMP) or one of: shield, leaf, flask." },
+        { "type": "text", "id": "mark_1", "label": "Mark 1", "default": "UK" },
+        { "type": "text", "id": "label_1", "label": "Label 1", "default": "Made in the UK" },
+        { "type": "text", "id": "mark_2", "label": "Mark 2", "default": "GMP" },
+        { "type": "text", "id": "label_2", "label": "Label 2", "default": "Made to GMP standards" },
+        { "type": "text", "id": "mark_3", "label": "Mark 3", "default": "shield" },
+        { "type": "text", "id": "label_3", "label": "Label 3", "default": "Every batch tested" }
+      ]
+    },
+    {
+      "type": "lists",
+      "name": "Two lists",
+      "settings": [
+        { "type": "paragraph", "content": "Shown after the accordions. One item per line." },
+        { "type": "text", "id": "title_1", "label": "List 1 title", "default": "Free from" },
+        { "type": "textarea", "id": "items_1", "label": "List 1" },
+        { "type": "text", "id": "title_2", "label": "List 2 title", "default": "Made with" },
+        { "type": "textarea", "id": "items_2", "label": "List 2" }
       ]
     },
     {

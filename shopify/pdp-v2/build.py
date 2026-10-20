@@ -102,8 +102,15 @@ for i, (t, x) in enumerate(FOLDS, 1):
 
 board = copy.deepcopy(BASE["board"])
 faces = [board["blocks"][m]["settings"].get("image") for m in board["block_order"]][:4]
+# The trust pills above the plans go (one is kept, hidden, because "Choose your plan" hangs off their
+# list); their points move under the button as badges, AgeMate style
+for k in ("tr2", "tr3"):
+    del buy["blocks"][k]
+    buy["block_order"].remove(k)
 EXTRAS = [
     ("x_delivery", {"type": "delivery", "settings": {"text": "Free <strong>next-day delivery</strong> in the UK"}}),
+    ("x_badges", {"type": "badges", "settings": {"mark_1": "UK", "label_1": "Made in the UK", "mark_2": "GMP",
+                                                  "label_2": "Made to GMP standards", "mark_3": "shield", "label_3": "Every batch tested"}}),
     ("x_promise", {"type": "promise", "settings": {"title": "No-risk 90-day guarantee",
                                                     "text": "Feel the difference in 90 days, or get every subscription payment back. Skip, pause or cancel online anytime."}}),
     ("x_tests", {"type": "tests", "settings": {"label": "View third-party testing results"}}),
@@ -112,6 +119,9 @@ EXTRAS = [
                                                    "text": "Meet our scientific advisory board",
                                                    "link": "#scientific-board"}}),
 ]
+EXTRAS.append(("x_lists", {"type": "lists", "settings": {
+    "title_1": "Free from", "items_1": "Proprietary blends\nFillers\nCaffeine and stimulants\nMajor allergens",
+    "title_2": "Made with", "items_2": "Vegan capsules\nVitamin D3 from algae\nActive B vitamins\nBisglycinate minerals"}}))
 for k, b in EXTRAS:
     buy["blocks"][k] = b
     buy["block_order"].append(k)
@@ -191,7 +201,9 @@ put("faq", faq)
 put("tests", copy.deepcopy(ING_T["tests"]))
 
 put("sticky", copy.deepcopy(BASE["sticky"]))
-put("easy_read", copy.deepcopy(BASE["easy_read"]))
+er = copy.deepcopy(BASE["easy_read"])
+er["settings"]["custom_liquid"] = er["settings"]["custom_liquid"].replace("</style>", "\n/* New PDP: the pills moved under the button as badges; only the heading stays */\nhtml body .mc .mc__trust li{display:none}\nhtml body .mc .mc__trust::after{margin-top:8px}\n</style>", 1)
+put("easy_read", er)
 
 out = os.path.join(HERE, "templates", "product.muto-nad-v2.json")
 json.dump({"sections": S, "order": ORDER}, open(out, "w"), ensure_ascii=False, indent=2)
