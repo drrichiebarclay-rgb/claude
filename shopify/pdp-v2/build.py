@@ -56,30 +56,26 @@ MAIL = '<a href="mailto:hello@mutolongevity.com">hello@mutolongevity.com</a>'
 # ---- Buy box ----
 buy = copy.deepcopy(BASE["buy"])
 buy["type"] = "muto-pdp-buy"
-buy["settings"]["text"] = p("<strong>The foundation your body runs on. Built for what you actually need after 35.</strong>",
-                            "Doing everything right and still running on empty? Your multivitamin covers the basics. MUTO does five jobs in one jar.",
+buy["settings"]["text"] = p("<strong>The daily multivitamin for ageing well. Built for life after 35.</strong>",
+                            "Everything a good multivitamin gives you, plus what it leaves out: NR for NAD⁺, CoQ10, PQQ and resveratrol. 19 ingredients, two capsules, one jar.",
                             '<a href="#test-results-3">Ingredients + nutritional information</a>')
 # "How it helps": the five jobs, each a title over its line; * refers to the authorised claims in the small print
-POINTS = [("01 · Energy", "Help you feel less tired, and help your body release energy from food.*"),
-          ("02 · Recovery", "Keep your muscles working normally and your bones strong.*"),
-          ("03 · Mind", "Support normal psychological function through a demanding week.*"),
-          ("04 · Ageing well", "Your body turns NR into NAD⁺, which runs lower as we get older. Zinc and copper help protect your cells from oxidative stress.*"),
-          ("05 · Immunity", "Support your immune system, all year round.*"),
-          ("One jar instead of five pots", "Everything above in two capsules a day.")]
+POINTS = [("Energy", "Feel less tired, and release energy from your food.", "energy"),
+          ("Recovery", "Keep your muscles working normally and your bones strong.", "recovery"),
+          ("Mind", "Stay on top of a demanding week.", "mind"),
+          ("Ageing well", "NR tops up the NAD⁺ that runs lower with age. Zinc and copper help protect your cells.", "ageing"),
+          ("Immunity", "Support your immune system, all year round.", "immunity"),
+          ("One jar, not five pots", "Everything above in two capsules a day.", "jar")]
 old = [k for k in buy["block_order"] if buy["blocks"][k]["type"] == "point"]
 at = buy["block_order"].index(old[0])
 for k in old:
     del buy["blocks"][k]
     buy["block_order"].remove(k)
-for i, (t, x) in enumerate(POINTS, 1):
-    buy["blocks"][f"job{i}"] = {"type": "point", "settings": {"title": t, "text": x}}
+for i, (t, x, ic) in enumerate(POINTS, 1):
+    buy["blocks"][f"job{i}"] = {"type": "point", "settings": {"title": t, "text": x, "icon": ic, "dark": i == len(POINTS)}}
     buy["block_order"].insert(at + i - 1, f"job{i}")
-buy["settings"]["points_foot"] = "19 ingredients · Every dose on the label · Every batch third-party tested · Made in the UK"
-buy["settings"]["points_note"] = ("*Vitamins B6 and B12 contribute to the reduction of tiredness and fatigue, and B vitamins to normal energy-yielding metabolism. "
-                                  "Vitamin D contributes to normal muscle function, and vitamins D and K to the maintenance of normal bones. "
-                                  "Vitamins B1, B3, B6, B12, biotin and folate contribute to normal psychological function. "
-                                  "Zinc and copper contribute to the protection of cells from oxidative stress. "
-                                  "Vitamin D, zinc, copper, folate, B6 and B12 contribute to the normal function of the immune system.")
+buy["settings"]["points_foot"] = ""  # the line and the small print under the cards were removed
+buy["settings"]["points_note"] = ""
 
 def form(n, f):
     """The form, when it says more than the name: 'methylcobalamin' yes, 'trimethylglycine' for TMG no."""

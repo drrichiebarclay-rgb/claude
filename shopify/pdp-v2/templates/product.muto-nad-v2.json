@@ -285,43 +285,55 @@
         "job1": {
           "type": "point",
           "settings": {
-            "title": "01 · Energy",
-            "text": "Help you feel less tired, and help your body release energy from food.*"
+            "title": "Energy",
+            "text": "Feel less tired, and release energy from your food.",
+            "icon": "energy",
+            "dark": false
           }
         },
         "job2": {
           "type": "point",
           "settings": {
-            "title": "02 · Recovery",
-            "text": "Keep your muscles working normally and your bones strong.*"
+            "title": "Recovery",
+            "text": "Keep your muscles working normally and your bones strong.",
+            "icon": "recovery",
+            "dark": false
           }
         },
         "job3": {
           "type": "point",
           "settings": {
-            "title": "03 · Mind",
-            "text": "Support normal psychological function through a demanding week.*"
+            "title": "Mind",
+            "text": "Stay on top of a demanding week.",
+            "icon": "mind",
+            "dark": false
           }
         },
         "job4": {
           "type": "point",
           "settings": {
-            "title": "04 · Ageing well",
-            "text": "Your body turns NR into NAD⁺, which runs lower as we get older. Zinc and copper help protect your cells from oxidative stress.*"
+            "title": "Ageing well",
+            "text": "NR tops up the NAD⁺ that runs lower with age. Zinc and copper help protect your cells.",
+            "icon": "ageing",
+            "dark": false
           }
         },
         "job5": {
           "type": "point",
           "settings": {
-            "title": "05 · Immunity",
-            "text": "Support your immune system, all year round.*"
+            "title": "Immunity",
+            "text": "Support your immune system, all year round.",
+            "icon": "immunity",
+            "dark": false
           }
         },
         "job6": {
           "type": "point",
           "settings": {
-            "title": "One jar instead of five pots",
-            "text": "Everything above in two capsules a day."
+            "title": "One jar, not five pots",
+            "text": "Everything above in two capsules a day.",
+            "icon": "jar",
+            "dark": true
           }
         },
         "fold1": {
@@ -483,7 +495,7 @@
         "eyebrow": "MUTO",
         "heading": "NAD+ Cellular Complex",
         "serving": "2 capsules with breakfast · 30-day supply (60 capsules)",
-        "text": "<p><strong>The foundation your body runs on. Built for what you actually need after 35.</strong></p><p>Doing everything right and still running on empty? Your multivitamin covers the basics. MUTO does five jobs in one jar.</p><p><a href=\"#test-results-3\">Ingredients + nutritional information</a></p>",
+        "text": "<p><strong>The daily multivitamin for ageing well. Built for life after 35.</strong></p><p>Everything a good multivitamin gives you, plus what it leaves out: NR for NAD⁺, CoQ10, PQQ and resveratrol. 19 ingredients, two capsules, one jar.</p><p><a href=\"#test-results-3\">Ingredients + nutritional information</a></p>",
         "image_fallback": "",
         "image_alt": "The MUTO creatine pouch photographed with the NAD+ Cellular Complex set",
         "gallery_from_product": true,
@@ -523,8 +535,8 @@
         "fit": "nad",
         "space_top": 0,
         "space_bottom": 100,
-        "points_foot": "19 ingredients · Every dose on the label · Every batch third-party tested · Made in the UK",
-        "points_note": "*Vitamins B6 and B12 contribute to the reduction of tiredness and fatigue, and B vitamins to normal energy-yielding metabolism. Vitamin D contributes to normal muscle function, and vitamins D and K to the maintenance of normal bones. Vitamins B1, B3, B6, B12, biotin and folate contribute to normal psychological function. Zinc and copper contribute to the protection of cells from oxidative stress. Vitamin D, zinc, copper, folate, B6 and B12 contribute to the normal function of the immune system."
+        "points_foot": "",
+        "points_note": ""
       }
     },
     "benefits": {
