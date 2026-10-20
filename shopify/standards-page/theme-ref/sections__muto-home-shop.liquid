@@ -1,0 +1,248 @@
+{%- comment -%}
+  MUTO Home — shop the protocol.
+
+  Artboard: a centred 64px heading at 899, a three-way tab pill at 981, then a
+  567-wide copy column at x142 beside a 510×590 product frame at x787. The
+  content box is 142–1297, so the band is centred with equal 142/143 margins
+  rather than sitting on the page gutter.
+
+  BLOCKS. A "Panel" block is a tab. Every other block names the panel it
+  belongs to by its key, so steps, actives and products can each be added,
+  edited, reordered and deleted on their own, and a whole tab can be removed by
+  deleting its panel. Two panel layouts:
+
+    protocol — copy column (title, lede, numbered steps, key actives, action)
+               beside the product frame. NAD+ and Creatine use this.
+    products — a row of product cards, each with its own image and action.
+               Essentials uses this.
+
+  With no JS every panel renders in document order rather than one being
+  silently unreachable; the script is what makes it one-at-a-time.
+
+  MOBILE: the product leads and the copy follows. The jar is the thing worth
+  scrolling for, and the numbered steps read better under it than beside it.
+{%- endcomment -%}
+
+{{ 'muto-home.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'muto-home.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign mh_spt = section.settings.space_top | default: 100 | times: 0.01
+  assign mh_spb = section.settings.space_bottom | default: 100 | times: 0.01
+  assign heading_id = 'mh-shop-' | append: section.id
+  assign panels = section.blocks | where: 'type', 'panel'
+-%}
+
+<div class="mh{% if section.settings.field %} mh--field-shop{% endif %}" data-mh style="--mh-spt:{{ mh_spt }};--mh-spb:{{ mh_spb }}">
+  <div class="mh__wrap">
+    <section class="mh__shop" aria-labelledby="{{ heading_id }}" data-mh-tabs>
+      {%- if section.settings.heading != blank -%}
+        <h2 class="mh__h2 mh__shop-head" id="{{ heading_id }}">
+          {{- section.settings.heading | escape | newline_to_br -}}
+        </h2>
+      {%- endif -%}
+
+      {%- if panels.size > 1 -%}
+        <div class="mh__shop-tabs">
+          <div class="mh__tabs" role="tablist" aria-label="{{ section.settings.tablist_label | default: 'Choose a product' | escape }}">
+            {%- for panel in panels -%}
+              <button
+                class="mh__tab"
+                type="button"
+                role="tab"
+                id="{{ section.id }}-tab-{{ panel.id }}"
+                aria-controls="{{ section.id }}-panel-{{ panel.id }}"
+                aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+                data-mh-tab
+                {{ panel.shopify_attributes }}
+              >{{ panel.settings.label }}</button>
+            {%- endfor -%}
+          </div>
+        </div>
+      {%- endif -%}
+
+      {%- for panel in panels -%}
+        {%- assign key = panel.settings.key | default: panel.id -%}
+        <div
+          class="mh__panel"
+          id="{{ section.id }}-panel-{{ panel.id }}"
+          role="tabpanel"
+          tabindex="0"
+          aria-labelledby="{{ section.id }}-tab-{{ panel.id }}"
+        >
+          {%- if panel.settings.layout == 'products' -%}
+            <div class="mh__products">
+              {%- for block in section.blocks -%}
+                {%- if block.type != 'product' or block.settings.panel != key -%}{%- continue -%}{%- endif -%}
+                {%- assign card_alt = block.settings.image_alt | default: block.settings.title -%}
+                <article class="mh__product" {{ block.shopify_attributes }}>
+                  <div class="mh__product-media">
+                    {% render 'muto-image',
+                      image: block.settings.image,
+                      fallback: block.settings.image_fallback,
+                      alt: card_alt,
+                      ratio: '567/345',
+                      sizes: '(min-width: 990px) 567px, 92vw',
+                      widths: '430,567,860,1134',
+                      placeholder: false %}
+                  </div>
+                  <h3 class="mh__h3 mh__product-title">{{ block.settings.title | escape | newline_to_br }}</h3>
+                  <p class="mh__body mh__product-text">{{ block.settings.text }}</p>
+                  {%- if block.settings.cta_label != blank -%}
+                    <a class="mh__btn mh__btn--cyan mh__btn--full" href="{{ block.settings.cta_link | default: routes.all_products_collection_url }}">
+                      {{- block.settings.cta_label -}}
+                    </a>
+                  {%- endif -%}
+                </article>
+              {%- endfor -%}
+            </div>
+
+          {%- else -%}
+            <div class="mh__shop-grid">
+              <div class="mh__shop-media">
+                {% render 'muto-image',
+                  image: panel.settings.image,
+                  fallback: panel.settings.image_fallback,
+                  alt: panel.settings.image_alt,
+                  ratio: '510/590',
+                  sizes: '(min-width: 990px) 510px, 92vw',
+                  widths: '430,510,760,1020' %}
+              </div>
+
+              <div class="mh__shop-copy">
+                {%- if panel.settings.title != blank -%}
+                  <h3 class="mh__h3 mh__shop-title">{{ panel.settings.title | escape | newline_to_br }}</h3>
+                {%- endif -%}
+                {%- if panel.settings.lede != blank -%}
+                  <p class="mh__lede mh__shop-lede">{{ panel.settings.lede }}</p>
+                {%- endif -%}
+
+                {%- assign n = 0 -%}
+                {%- capture steps -%}
+                  {%- for block in section.blocks -%}
+                    {%- if block.type != 'step' or block.settings.panel != key -%}{%- continue -%}{%- endif -%}
+                    {%- assign n = n | plus: 1 -%}
+                    <li class="mh__step" {{ block.shopify_attributes }}>
+                      <span class="mh__step-n" aria-hidden="true">{{ n }}</span>
+                      <span class="mh__body">{{ block.settings.text }}</span>
+                    </li>
+                  {%- endfor -%}
+                {%- endcapture -%}
+                {%- if n > 0 -%}<ol class="mh__steps">{{ steps }}</ol>{%- endif -%}
+
+                {%- assign a = 0 -%}
+                {%- capture actives -%}
+                  {%- for block in section.blocks -%}
+                    {%- if block.type != 'active' or block.settings.panel != key -%}{%- continue -%}{%- endif -%}
+                    {%- assign a = a | plus: 1 -%}
+                    <div {{ block.shopify_attributes }}>
+                      <div class="mh__active-v">{{ block.settings.value }}</div>
+                      <div class="mh__active-k">{{ block.settings.caption }}</div>
+                    </div>
+                  {%- endfor -%}
+                {%- endcapture -%}
+                {%- if a > 0 -%}
+                  <div class="mh__actives">
+                    {%- if panel.settings.actives_label != blank -%}
+                      <div class="mh__actives-label">{{ panel.settings.actives_label }}</div>
+                    {%- endif -%}
+                    <div class="mh__actives-grid">{{ actives }}</div>
+                  </div>
+                {%- endif -%}
+
+                {%- if panel.settings.cta_label != blank -%}
+                  <a class="mh__btn mh__btn--cyan mh__btn--full" href="{{ panel.settings.cta_link | default: routes.all_products_collection_url }}">
+                    {{- panel.settings.cta_label -}}
+                  </a>
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </section>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO Home — Shop",
+  "tag": "section",
+  "class": "mh-section",
+  "max_blocks": 40,
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Shop the protocol" },
+    { "type": "text", "id": "tablist_label", "label": "Tab group label", "default": "Choose a product", "info": "Read by screen readers, not shown." },
+    { "type": "checkbox", "id": "field", "label": "Mint gradient background", "default": true, "info": "The wash is fitted to this band specifically." },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 }
+  ],
+  "blocks": [
+    {
+      "type": "panel",
+      "name": "Panel (tab)",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Tab label", "default": "NAD+" },
+        { "type": "text", "id": "key", "label": "Key", "default": "nad", "info": "Steps, actives and products name this key to join this tab." },
+        {
+          "type": "select",
+          "id": "layout",
+          "label": "Layout",
+          "options": [
+            { "value": "protocol", "label": "Protocol — copy beside a product frame" },
+            { "value": "products", "label": "Products — a row of cards" }
+          ],
+          "default": "protocol"
+        },
+        { "type": "header", "content": "Protocol layout" },
+        { "type": "textarea", "id": "title", "label": "Title", "default": "NAD+ Cellular Complex" },
+        { "type": "textarea", "id": "lede", "label": "Lede", "default": "The daily longevity cellular protocol you can track." },
+        { "type": "image_picker", "id": "image", "label": "Product image" },
+        { "type": "text", "id": "image_fallback", "label": "Fallback image URL" },
+        { "type": "text", "id": "image_alt", "label": "Image alt text" },
+        { "type": "text", "id": "actives_label", "label": "Actives label", "default": "Key actives:" },
+        { "type": "text", "id": "cta_label", "label": "Button", "default": "Start your 90 days" },
+        { "type": "url", "id": "cta_link", "label": "Button link", "info": "Defaults to the all-products collection." }
+      ]
+    },
+    {
+      "type": "step",
+      "name": "Numbered step",
+      "settings": [
+        { "type": "text", "id": "panel", "label": "Panel key", "default": "nad" },
+        { "type": "textarea", "id": "text", "label": "Text" }
+      ]
+    },
+    {
+      "type": "active",
+      "name": "Key active",
+      "settings": [
+        { "type": "text", "id": "panel", "label": "Panel key", "default": "nad" },
+        { "type": "text", "id": "value", "label": "Value", "default": "300mg" },
+        { "type": "text", "id": "caption", "label": "Caption", "default": "Nicotinamide Riboside" }
+      ]
+    },
+    {
+      "type": "product",
+      "name": "Product card",
+      "settings": [
+        { "type": "text", "id": "panel", "label": "Panel key", "default": "essentials" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_fallback", "label": "Fallback image URL" },
+        { "type": "text", "id": "image_alt", "label": "Alt text", "info": "Describe the product. Defaults to the title." },
+        { "type": "textarea", "id": "title", "label": "Title", "default": "Performance socks" },
+        { "type": "textarea", "id": "text", "label": "Copy" },
+        { "type": "text", "id": "cta_label", "label": "Button", "default": "Buy Now" },
+        { "type": "url", "id": "cta_link", "label": "Button link", "info": "Defaults to the all-products collection." }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "MUTO Home — Shop" }
+  ],
+  "enabled_on": {
+    "templates": ["index", "page", "product"]
+  }
+}
+{% endschema %}

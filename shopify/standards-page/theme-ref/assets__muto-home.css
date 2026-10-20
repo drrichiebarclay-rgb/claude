@@ -1,0 +1,985 @@
+/* ============================================================================
+   MUTO — Home page
+   Transcribed from Home_-_V3.pdf (1440 × 10748.6 desktop export). Every desktop
+   number below was measured off the artboard rather than eyeballed: text
+   positions, sizes and shape rects come from the PDF's own geometry, band edges
+   and colours from sampling the 1440 render. The comments carry those source
+   coordinates so the next person can check the transcription without
+   re-deriving it.
+
+   Artboard band edges (y, at 1440):
+     hero      0 – 810      athletes 4776 – 5158    banner  6327 – 7106
+     ugc    9018 – 9792     stats   9792 – 10118
+
+   Two inks, and the artboard is deliberate about which goes where. The
+   product-led bands — Shop the protocol, Why MUTO, Benefits, The science — are
+   set in a deep teal #162e30. The people-led ones — Founder, Board, Athletes,
+   In motion, the stats — are charcoal #232123, the same ink as the rest of the
+   site. Sampled off the render, not guessed.
+
+   Self-contained on purpose: it repeats the fonts, tokens and buttons that
+   muto-about.css also carries, so either page can be deleted without breaking
+   the other. If the two pages ever need to move together, lift this header and
+   the token block into a shared muto-system.css and have both load it.
+
+   Mobile is NOT in the source and is designed here: see "MOBILE" at each
+   section. Mobile-first; the 990px query is the artboard.
+   ========================================================================== */
+
+@font-face{font-family:"Neue Haas Grotesk Display Pro";src:url("https://cdn.shopify.com/s/files/1/0976/2724/2843/files/NeueHaasDisplay-Roman.woff2?v=1788216240") format("woff2");font-weight:400 450;font-style:normal;font-display:swap}
+@font-face{font-family:"Neue Haas Grotesk Display Pro";src:url("https://cdn.shopify.com/s/files/1/0976/2724/2843/files/NeueHaasDisplay-Mediu.woff2?v=1788216243") format("woff2");font-weight:500 550;font-style:normal;font-display:swap}
+@font-face{font-family:"Neue Haas Grotesk Display Pro";src:url("https://cdn.shopify.com/s/files/1/0976/2724/2843/files/NeueHaasDisplay-Bold.woff2?v=1788216239") format("woff2");font-weight:600 700;font-style:normal;font-display:swap}
+@font-face{font-family:"Sometype Mono";src:url("https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gempages_SometypeMono-VariableFont_wght.ttf?v=1788157466") format("truetype-variations");font-weight:400 700;font-style:normal;font-display:swap}
+
+:root{
+  --mh-ground:#f9f9f9;
+  --mh-ink:#162e30;                /* teal, sampled off the product bands     */
+  --mh-ink-alt:#232123;            /* charcoal, sampled off the people bands  */
+  --mh-cyan:#5df9ff;
+  --mh-sage:rgba(200,210,207,.4);  /* glass cards: (229,233,232) over #f9f9f9 */
+  --mh-sage-solid:rgba(200,210,207,.88);
+  --mh-hair:rgba(22,46,48,.16);
+  --mh-font:"Neue Haas Grotesk Display Pro",-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+  --mh-mono:"Sometype Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --mh-ease:cubic-bezier(.2,0,.2,1);
+  --mh-dur:200ms;
+  --mh-gutter:20px;
+  --mh-max:1440px;
+
+  /* The mint wash. Chromium interpolates gradient stops in premultiplied
+     alpha, so rgba(c,A) -> rgba(c,0) holds the colour and ramps alpha with
+     distance — which makes a stack of radial gradients a model that can be
+     least-squares fitted to the artboard's own pixels. Each band is fitted
+     to its own slice of the same artboard rows, so a wash that runs across
+     three bands meets continuously at the seams while every section stays
+     self-contained. RMSE per channel: as rendered, shop 10.1,
+     why 1.6, founder 11.0, board 10.9, benefits 5.2. */
+  --mh-field-shop:               /* fitted to artboard rows 810–1756 */
+    radial-gradient(98.0% 42.3% at 136.8% 71.7%, rgba(100,213,228,1.00) 0%, rgba(100,213,228,0) 100%),
+    radial-gradient(24.9% 59.0% at 87.3% 37.4%, rgba(154,245,164,0.88) 0%, rgba(154,245,164,0) 100%),
+    radial-gradient(20.3% 90.8% at 116.9% 194.5%, rgba(223,215,190,0.51) 0%, rgba(223,215,190,0) 100%),
+    radial-gradient(175.4% 83.1% at 50.3% -81.0%, rgba(107,249,174,0.85) 0%, rgba(107,249,174,0) 100%),
+    radial-gradient(8.0% 102.9% at -6.1% -69.9%, rgba(209,234,253,0.44) 0%, rgba(209,234,253,0) 100%),
+    #f9f9f9;
+  --mh-field-why:               /* fitted to artboard rows 1756–2507 */
+    radial-gradient(101.3% 91.9% at 170.0% 138.0%, rgba(218,238,252,0.16) 0%, rgba(218,238,252,0) 100%),
+    radial-gradient(180.0% 94.8% at 117.7% -85.8%, rgba(132,250,173,0.38) 0%, rgba(132,250,173,0) 100%),
+    radial-gradient(13.4% 107.3% at 102.4% 93.3%, rgba(105,229,242,0.96) 0%, rgba(105,229,242,0) 100%),
+    radial-gradient(177.0% 27.0% at 89.9% -83.7%, rgba(109,214,164,0.50) 0%, rgba(109,214,164,0) 100%),
+    radial-gradient(73.9% 85.0% at 155.7% -24.6%, rgba(121,217,204,0.63) 0%, rgba(121,217,204,0) 100%),
+    #f9f9f9;
+  --mh-field-founder:               /* fitted to artboard rows 2507–3561 */
+    radial-gradient(32.7% 84.6% at 112.4% -27.1%, rgba(100,219,234,0.86) 0%, rgba(100,219,234,0) 100%),
+    radial-gradient(11.6% 62.4% at 164.6% -33.2%, rgba(250,242,145,0.46) 0%, rgba(250,242,145,0) 100%),
+    radial-gradient(70.9% 60.4% at 86.1% 143.6%, rgba(172,249,244,0.90) 0%, rgba(172,249,244,0) 100%),
+    radial-gradient(40.2% 20.5% at 136.6% 180.8%, rgba(153,242,220,0.92) 0%, rgba(153,242,220,0) 100%),
+    radial-gradient(29.4% 14.8% at 30.3% 18.4%, rgba(132,210,140,0.82) 0%, rgba(132,210,140,0) 100%),
+    #f9f9f9;
+  --mh-field-board:               /* fitted to artboard rows 3561–4509 */
+    radial-gradient(78.5% 13.8% at 44.1% 13.2%, rgba(180,231,243,0.19) 0%, rgba(180,231,243,0) 100%),
+    radial-gradient(157.3% 145.9% at 73.1% 96.6%, rgba(192,213,215,0.05) 0%, rgba(192,213,215,0) 100%),
+    radial-gradient(54.2% 43.2% at 66.8% 42.5%, rgba(108,254,149,0.86) 0%, rgba(108,254,149,0) 100%),
+    radial-gradient(125.8% 170.5% at 167.8% -79.0%, rgba(105,250,255,0.69) 0%, rgba(105,250,255,0) 100%),
+    radial-gradient(36.7% 148.8% at 55.8% -49.7%, rgba(165,255,247,0.69) 0%, rgba(165,255,247,0) 100%),
+    radial-gradient(35.9% 76.4% at 30.7% 79.3%, rgba(112,249,211,0.49) 0%, rgba(112,249,211,0) 100%),
+    #f9f9f9;
+
+  /* The NAD+ product page runs these three bands over its own artboard's
+     wash, fitted to NAD.pdf's rows rather than the home page's. */
+  --mh-field-why-nad:            /* RMSE 0.94 */
+    radial-gradient(30.9% 157.5% at 53.6% 179.9%, rgba(127,246,255,0.95) 0%, rgba(127,246,255,0) 100%),
+    radial-gradient(61.7% 82.8% at 95.7% -96.0%, rgba(103,230,104,0.86) 0%, rgba(103,230,104,0) 100%),
+    radial-gradient(52.1% 74.9% at 83.1% 124.0%, rgba(116,254,153,0.78) 0%, rgba(116,254,153,0) 100%),
+    #f9f9f9;
+  --mh-field-board-nad:          /* RMSE 4.18 */
+    radial-gradient(57.0% 95.9% at 42.4% -94.9%, rgba(100,250,151,1.00) 0%, rgba(100,250,151,0) 100%),
+    radial-gradient(38.9% 110.3% at 34.3% 72.1%, rgba(203,251,247,0.59) 0%, rgba(203,251,247,0) 100%),
+    radial-gradient(52.3% 118.3% at 60.4% -16.1%, rgba(111,251,221,0.69) 0%, rgba(111,251,221,0) 100%),
+    radial-gradient(112.6% 65.6% at 147.4% 11.3%, rgba(188,255,118,0.95) 0%, rgba(188,255,118,0) 100%),
+    #f9f9f9;
+  --mh-field-ugc-nad:            /* RMSE 2.07 */
+    radial-gradient(43.6% 64.3% at 114.2% 40.7%, rgba(102,250,211,0.78) 0%, rgba(102,250,211,0) 100%),
+    radial-gradient(23.4% 83.7% at -42.2% 35.9%, rgba(163,248,250,0.92) 0%, rgba(163,248,250,0) 100%),
+    radial-gradient(105.3% 24.5% at 66.8% 199.6%, rgba(221,217,206,0.32) 0%, rgba(221,217,206,0) 100%),
+    radial-gradient(78.0% 18.2% at 104.9% 96.8%, rgba(156,245,176,0.98) 0%, rgba(156,245,176,0) 100%),
+    #f9f9f9;
+  --mh-field-benefits:               /* fitted to artboard rows 5316–6328 */
+    radial-gradient(116.6% 36.1% at 109.9% -77.1%, rgba(221,222,124,0.35) 0%, rgba(221,222,124,0) 100%),
+    radial-gradient(53.2% 7.0% at 60.8% -99.0%, rgba(188,228,121,0.48) 0%, rgba(188,228,121,0) 100%),
+    radial-gradient(30.8% 48.9% at 6.4% 84.8%, rgba(159,255,184,0.97) 0%, rgba(159,255,184,0) 100%),
+    radial-gradient(34.5% 159.8% at 161.7% 22.0%, rgba(114,219,242,0.39) 0%, rgba(114,219,242,0) 100%),
+    radial-gradient(42.6% 19.3% at 36.7% -41.3%, rgba(235,243,140,0.18) 0%, rgba(235,243,140,0) 100%),
+    #f9f9f9;
+}
+
+/* --- Shell ---------------------------------------------------------------- */
+.mh{
+  font-family:var(--mh-font);
+  font-size:16px;
+  line-height:1.31;
+  color:var(--mh-ink);
+  background:var(--mh-ground);
+  -webkit-font-smoothing:antialiased;
+}
+.mh--alt{color:var(--mh-ink-alt)}
+.mh--dark{background:var(--mh-ink-alt);color:var(--mh-ground)}
+.mh *,.mh *::before,.mh *::after{box-sizing:border-box}
+/* Zero-specificity resets. `.mh p` would be (0,1,1) and out-rank every
+   single-class component rule, so a div→p swap would silently drop its margin;
+   :where() keeps these at the specificity of .mh alone. Dawn's base.css also
+   sets colour and font-family directly on h1–h5, which beats any inherited
+   value, so those are reclaimed here or headings vanish on the dark bands. */
+.mh :where(p,h1,h2,h3,h4,h5,figure,figcaption,blockquote,ul,ol,li){margin:0;padding:0}
+.mh :where(h1,h2,h3,h4,h5){color:inherit;font-family:var(--mh-font);word-break:normal}
+.mh :where(ul,ol){list-style:none}
+.mh img{max-width:100%;display:block}
+
+.mh__wrap{max-width:var(--mh-max);margin:0 auto;padding-left:var(--mh-gutter);padding-right:var(--mh-gutter)}
+.mh__rail{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch}
+.mh__rail::-webkit-scrollbar{display:none}
+.mh__vh{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+
+/* Band spacing. Every section's top and bottom space is multiplied by
+   --mh-spt / --mh-spb, which each section sets on its own .mh root from a
+   "Space above" / "Space below" percentage in the theme editor. At the default
+   100% the arithmetic is calc(89px*1), so the artboard calibration is
+   untouched; at 0% the band collapses. That is what makes a section safe to
+   hide, move or swap: its neighbours' spacing closes up without editing CSS. */
+
+/* --- Type ---------------------------------------------------------------- */
+/* 4.444vw resolves to exactly 64px at 1440. Weight is Medium (500) throughout;
+   nothing on this page reaches the Bold face.
+
+   Scoped under .mh on purpose. A bare `.mh__h2` is one class, so any theme rule
+   of the shape `.some-wrapper h2` outranks it and can put line-height back to
+   normal — which shows up as a heading whose lines no longer sit on an even
+   step. Two classes beats a class plus an element, so these hold. */
+.mh .mh__h1{font-weight:500;font-size:clamp(40px,5.555vw,80px);line-height:.9;letter-spacing:-.014em;text-transform:uppercase}
+.mh .mh__h2{font-weight:500;font-size:clamp(34px,4.444vw,64px);line-height:.906;letter-spacing:-.014em;text-transform:uppercase}
+.mh .mh__h3{font-weight:500;font-size:clamp(22px,1.944vw,28px);line-height:1.05;letter-spacing:-.012em;text-transform:uppercase}
+.mh .mh__lede{font-size:clamp(17px,1.39vw,20px);line-height:1.3}
+.mh .mh__body{font-size:16px;line-height:1.31}
+/* And if anything raises the + in NAD+ by wrapping it, that inline box must not
+   be allowed to grow the line it sits on: a superscript with its own line-height
+   makes one line of a heading taller than its neighbours. */
+.mh :where(sup,sub){line-height:0}
+.mh__mono{font-family:var(--mh-mono);font-weight:500;font-size:14px;letter-spacing:.07em;text-transform:uppercase}
+.mh__muted{color:rgba(22,46,48,.72)}
+.mh--alt .mh__muted{color:rgba(35,33,35,.72)}
+.mh--dark .mh__muted{color:rgba(249,249,249,.75)}
+
+/* The sparkle that prefixes every tag chip. */
+.mh__spark::before{
+  content:"";flex:0 0 auto;width:9px;height:9px;background:currentColor;
+  clip-path:polygon(50% 0%,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0% 50%,39% 39%);
+}
+.mh__tag{
+  flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;
+  padding:5px 12px;border-radius:999px;background:rgba(35,33,35,.1);
+  font-family:var(--mh-mono);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+}
+
+/* --- Buttons -------------------------------------------------------------- */
+.mh__btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  border:0;border-radius:10px;padding:15px 26px;
+  font-family:var(--mh-font);font-size:16px;font-weight:500;line-height:1;
+  letter-spacing:.01em;text-decoration:none;cursor:pointer;
+  transition:opacity var(--mh-dur) var(--mh-ease);
+}
+.mh__btn:hover{opacity:.85}
+.mh__btn--cyan{background:var(--mh-cyan);color:var(--mh-ink-alt)}
+.mh a.mh__btn--cyan,.mh a.mh__btn--cyan:hover{color:var(--mh-ink-alt)}
+.mh__btn--glass{background:rgba(249,249,249,.84);color:var(--mh-ink-alt);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.mh__btn--full{display:flex;width:100%}
+/* The selected price, on the button — used by the sticky bar's compact face on
+   a product template. An empty span takes its separator with it. */
+.mh__btn-price{display:inline;font-weight:500}
+.mh__btn-price::before{content:"\00b7";margin:0 .42em;opacity:.5}
+.mh__btn-price:empty{display:none}
+.mh__btn:focus-visible{outline:2px solid var(--mh-cyan);outline-offset:2px}
+
+/* --- Image slots ---------------------------------------------------------- */
+.mh__slot{position:absolute;inset:0;overflow:hidden}
+.mh__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--mh-pos,50% 50%)}
+.mh__ph{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  padding:12px;text-align:center;background:rgba(127,127,127,.08);
+  border:1.5px dashed currentColor;opacity:.55;
+  font-family:var(--mh-mono);font-size:10px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;
+}
+
+/* ============================================================================
+   Tabs — the pill control, used by Shop the protocol, Benefits and both
+   Science bands. Artboard: a hairline pill with the active panel name on a
+   sage chip inside it. Real buttons with role="tab", so it is operable from
+   the keyboard, and the panels are plain content until the script runs —
+   with JS off every panel is visible in document order rather than one being
+   silently unreachable.
+   ========================================================================== */
+/* The pill is wider than 390 once a group has four tabs, so on mobile it
+   scrolls in the gutter bleed with momentum and its scrollbar hidden — the
+   partly-shown next tab is the affordance. */
+.mh__tabs{display:flex;align-items:center;gap:0;padding:8px;border-radius:999px;border:1px solid var(--mh-hair);background:transparent}
+.mh__tabs{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.mh__tabs::-webkit-scrollbar{display:none}
+.mh__tab{
+  appearance:none;-webkit-appearance:none;border:0;cursor:pointer;background:transparent;
+  padding:0 16px;height:44px;border-radius:999px;color:inherit;
+  font-family:var(--mh-mono);font-size:14px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;
+  white-space:nowrap;transition:background var(--mh-dur) var(--mh-ease);
+}
+.mh__tab[aria-selected="true"]{background:var(--mh-sage-solid)}
+.mh__tab:focus-visible{outline:2px solid var(--mh-cyan);outline-offset:2px}
+/* No JS: every panel stays in flow. With JS, all but the selected one go —
+   and so does anything else that tab owns, such as the Benefits band's
+   product name and lede, which sit above the pill. */
+.mh--tabbed .mh__panel[hidden],
+.mh--tabbed [data-mh-for][hidden]{display:none}
+
+/* ============================================================================
+   Hero — artboard band 0–810, charcoal, one full-bleed photograph.
+   MOBILE: the headline drops to a fluid clamp and the photograph is pulled to
+   its right third, so the jar still reads at 390px instead of being cropped to
+   a dark wall.
+   ========================================================================== */
+.mh__hero{position:relative;min-height:620px;display:flex;align-items:flex-start;background:var(--mh-ink-alt);overflow:hidden}
+.mh__hero-media{position:absolute;inset:0}
+/* MOBILE: the frame goes portrait and cover crops to 28% of this 2.25:1
+   photograph, so where that window sits decides whether the headline
+   lands on the set or on the box. 31% puts the box in the right third
+   with the jar still showing; 72% put it under the copy. The 990 block
+   sets its own object-position, so the artboard is untouched. */
+/* The focus is a setting now; these are the values it used to be hard-coded
+   to, kept as the fallbacks so a hero that sets nothing is unchanged. */
+.mh__hero-media .mh__img{object-position:var(--mh-hero-pos-m,24% 50%)}
+/* Enough to hold the copy over the set, no more: the photograph is the point. */
+.mh__hero-scrim{
+  position:absolute;inset:0;pointer-events:none;
+  /* MOBILE: reaches further across and holds harder than the artboard's, because
+     at 390 the copy column is 72% of the frame rather than a third of it. The
+     990 block puts the artboard's own values back. */
+  background:linear-gradient(100deg, rgba(20,19,20,.88) 0%, rgba(20,19,20,.72) 44%, rgba(20,19,20,0) 80%);
+}
+.mh__hero-inner{position:relative;width:100%;padding-top:calc(96px*var(--mh-spt,1));padding-bottom:calc(40px*var(--mh-spb,1))}
+/* The rating line is a credential, not a headline — every dimension here is
+   three quarters of the artboard's, which is the whole widget 25% smaller
+   rather than just the stars. 13→9.75, 12→9, and both gaps with them, so the
+   proportions inside it are unchanged. */
+.mh__hero-rating{display:flex;align-items:center;gap:7.5px;color:var(--mh-ground)}
+.mh__hero-stars{display:inline-flex;gap:2.25px;color:var(--mh-ground)}
+.mh__hero-stars span{
+  width:9.75px;height:9.75px;background:currentColor;
+  clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);
+}
+.mh__hero-count{font-family:var(--mh-mono);font-size:9px;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+/* The title carries mh__h2, the same step as "Shop the protocol" below it.
+   Only the colour and the lead-in belong to the hero. */
+.mh__hero-title{margin-top:14px;color:var(--mh-cyan)}
+/* The headline's longest line is one word and cannot wrap, so it sets the
+   copy column at about 72%. The sub takes the same measure rather than
+   running the full width into the photograph. min() leaves 560 standing
+   wherever 72% is wider, which is every desktop width.
+   Light, always: this sits on a charcoal set under a photograph, and the
+   theme's own ink colour on it was invisible. */
+.mh__hero-sub{margin-top:24px;color:#FAFAFA;max-width:min(560px,72%)}
+/* Two steps under mh__lede. Beats `.mh .mh__lede` on source order at the
+   same specificity, so the .mh prefix has to stay. */
+.mh .mh__hero-sub{font-size:clamp(15px,1.39vw,18px)}
+.mh__hero-actions{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px}
+
+/* Centred. The photograph behind it is composed on its middle, so a copy
+   column pinned left reads as a caption stuck to one edge. Everything that
+   was measured from the left edge is re-measured from the centre: the
+   rating, the sub's measure, the buttons, and the scrim — which stops being
+   a side wash and becomes a top-and-bottom one, because centred copy crosses
+   the frame rather than sitting beside the subject. */
+.mh__hero--center .mh__hero-inner{text-align:center}
+.mh__hero--center .mh__hero-rating{justify-content:center}
+.mh__hero--center .mh__hero-sub{margin-left:auto;margin-right:auto;max-width:min(560px,86%)}
+.mh__hero--center .mh__hero-actions{justify-content:center}
+.mh__hero--center .mh__hero-scrim{
+  background:linear-gradient(180deg, rgba(20,19,20,.88) 0%, rgba(20,19,20,.72) 34%, rgba(20,19,20,.34) 62%, rgba(20,19,20,.62) 100%);
+}
+
+/* ============================================================================
+   Shop the protocol — artboard: centred 64px heading at 899, a three-way tab
+   pill at 981, then a 567-wide copy column at x142 beside a 510×590 product
+   frame at x787. Content box 142–1297, so the band is centred with equal
+   142/143 margins rather than sitting on the page gutter.
+   MOBILE: the product leads, then the copy — the jar is the thing worth
+   scrolling for, and the numbered steps read better under it than beside it.
+   ========================================================================== */
+.mh__shop{padding-top:calc(56px*var(--mh-spt,1));padding-bottom:calc(56px*var(--mh-spb,1))}
+.mh__shop-head{text-align:center}
+.mh__shop-tabs{margin-top:26px;display:flex;justify-content:center}
+.mh__shop-grid{margin-top:34px;display:flex;flex-direction:column;gap:28px}
+.mh__shop-media{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:510/590;background:var(--mh-sage);order:-1}
+.mh__shop-title{margin-bottom:10px}
+.mh__shop-lede{margin-bottom:22px}
+/* MOBILE: the band is a shop window at phone width, not a spec sheet — the
+   numbered steps and the back half of the actives grid are hidden, and the
+   essentials blurb is clamped. Hidden, not removed: every word is still in
+   the markup for the desktop artboard and still editable in the theme
+   editor. Each one is switched back on explicitly at 990. */
+.mh__steps{display:none;flex-direction:column;gap:22px}
+.mh__step{display:grid;grid-template-columns:37px minmax(0,1fr);column-gap:23px;align-items:start}
+.mh__step-n{
+  width:37px;height:28px;border-radius:8px;border:1px solid var(--mh-hair);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mh-mono);font-size:13px;font-weight:500;
+}
+.mh__actives{margin-top:24px}
+.mh__actives-label{font-family:var(--mh-mono);font-size:14px;font-weight:500;letter-spacing:.09em;text-transform:uppercase}
+.mh__actives-grid{margin-top:18px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 12px}
+.mh__actives-grid>*:nth-child(n+5){display:none}
+.mh__active-v{font-weight:500;font-size:24px;line-height:1;letter-spacing:-.01em}
+.mh__active-k{margin-top:8px;font-size:12px;line-height:1.2;color:rgba(22,46,48,.66)}
+.mh__shop .mh__btn{margin-top:24px}
+
+/* Product cards — the Essentials tab. Artboard: two 567-wide cards at x118 and
+   x756 (gap 72), each a 567×345 frame over a 28px caps title, the copy, and a
+   full-width action. */
+.mh__products{margin-top:28px;display:flex;flex-direction:column;gap:34px}
+.mh__product{display:flex;flex-direction:column}
+.mh__product-media{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:567/345;background:var(--mh-ink)}
+.mh__product-title{margin-top:22px}
+.mh__product-text{
+  margin-top:14px;color:rgba(22,46,48,.78);
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;
+}
+.mh__product .mh__btn{margin-top:24px}
+
+/* The mint wash, one class per band; see the token block at the top. */
+.mh--field-shop{background:var(--mh-field-shop,var(--mh-ground))}
+.mh--field-why{background:var(--mh-field-why,var(--mh-ground))}
+.mh--field-why.mh--fit-nad{background:var(--mh-field-why-nad)}
+.mh--field-founder{background:var(--mh-field-founder,var(--mh-ground))}
+.mh--field-board{background:var(--mh-field-board,var(--mh-ground))}
+.mh--field-board.mh--fit-nad{background:var(--mh-field-board-nad)}
+.mh--field-ugc{background:var(--mh-field-ugc,var(--mh-ground))}
+.mh--field-ugc.mh--fit-nad{background:var(--mh-field-ugc-nad)}
+.mh--field-benefits{background:var(--mh-field-benefits,var(--mh-ground))}
+
+/* ============================================================================
+   Why MUTO — artboard: centred 64px heading at 1846, then three 450.7-wide
+   glass cards at x24 / 495 / 965 (gap 19.3), each 451–455 tall with a
+   402.7×230 photograph inset 24 at the foot.
+   MOBILE: a snap rail, because three stacked 430px cards cost three screens.
+   ========================================================================== */
+.mh__why{padding-top:calc(56px*var(--mh-spt,1));padding-bottom:calc(56px*var(--mh-spb,1))}
+/* The heading is a column of lines rather than one wrapped block, because the
+   "One scoop. Every day." band puts its second line on the right margin. At
+   390px it holds: the group below goes right, the one above stays left. */
+.mh__why-head{display:flex;flex-direction:column;align-items:flex-start;text-align:left}
+/* The lines are flex items, so this changes nothing on screen — it is here so
+   the heading still reads as lines if the flex context is ever lost. */
+.mh__why-line{display:block}
+/* Only the first line of the right-hand group. Both artboards that split this
+   heading — "One scoop. / Every day." on the creatine page and "Two capsules.
+   One meal. / Ninety days." on the NAD one — open a 12 gap where the groups
+   meet and keep the 58 line pitch inside each. */
+.mh__why-line:not(.mh__why-line--right) + .mh__why-line--right{margin-top:12px}
+/* The right-hand group sits on the right margin at every width. It used to
+   fall back to left below 990; the split is the composition, and keeping it
+   is what tells "One scoop." and "Every day." apart on a phone. */
+.mh__why-head .mh__why-line--right{align-self:flex-end;text-align:right}
+.mh__why-head--center{align-items:center;text-align:center}
+.mh__why-list{
+  margin-top:30px;display:flex;gap:19px;overflow-x:auto;padding-bottom:4px;
+  margin-left:calc(var(--mh-gutter)*-1);margin-right:calc(var(--mh-gutter)*-1);
+  padding-left:var(--mh-gutter);padding-right:var(--mh-gutter);
+}
+.mh__why-card{
+  flex:0 0 82%;max-width:330px;display:flex;flex-direction:column;
+  padding:24px;border-radius:24px;background:var(--mh-sage);
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  box-shadow:inset 0 0 0 1px rgba(249,249,249,.45);
+}
+.mh__why-title{font-weight:500;font-size:24px;line-height:1.1;letter-spacing:-.01em}
+.mh__why-text{margin-top:14px;font-size:16px;line-height:1.31;color:rgba(22,46,48,.78)}
+.mh__why-media{position:relative;margin-top:auto;padding-top:20px}
+.mh__why-frame{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:403/230;background:rgba(200,210,207,.5)}
+
+/* ============================================================================
+   Founder — artboard: 635×868 portrait at x118 y2600, letter card 613×438 at
+   x706 overlapping it by 47. Same composition as the About page's.
+   MOBILE: portrait first, letter under it, so the face arrives before the ask.
+   ========================================================================== */
+.mh__founder{padding-top:calc(52px*var(--mh-spt,1));padding-bottom:calc(52px*var(--mh-spb,1))}
+.mh__founder-media{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:635/868;background:var(--mh-sage)}
+.mh__founder-body{margin-top:24px}
+.mh__founder-name{margin-top:12px;font-weight:500;font-size:clamp(18px,1.67vw,24px);letter-spacing:-.01em}
+.mh__founder-card{
+  margin-top:20px;padding:22px;border-radius:24px;
+  background:var(--mh-sage);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  box-shadow:inset 0 0 0 1px rgba(249,249,249,.45);
+  display:flex;flex-direction:column;gap:14px;
+}
+.mh__founder-card p{font-size:15px;line-height:1.31;color:rgba(35,33,35,.8)}
+.mh__founder-card .mh__btn{margin-top:6px}
+
+/* ============================================================================
+   Scientific board — artboard: 528² stills from x142 on a 12 gap, running past
+   the right gutter. Name left, tag right, role beneath. Same card as the About
+   page's, including the play mark and the click-to-play facade.
+   ========================================================================== */
+.mh__board{padding-top:calc(52px*var(--mh-spt,1));padding-bottom:calc(52px*var(--mh-spb,1))}
+.mh__board-top{display:flex;flex-direction:column;gap:10px}
+.mh__board-note{font-family:var(--mh-mono);font-size:14px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:rgba(35,33,35,.62)}
+.mh__board-rail{
+  margin-top:26px;display:flex;gap:12px;overflow-x:auto;padding-bottom:4px;
+  margin-left:calc(var(--mh-gutter)*-1);margin-right:calc(var(--mh-gutter)*-1);
+  padding-left:var(--mh-gutter);padding-right:var(--mh-gutter);
+}
+.mh__member{flex:0 0 76%;max-width:300px}
+.mh__member-media{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:1/1;background:var(--mh-ink-alt)}
+.mh__member-trigger{
+  position:absolute;inset:0;z-index:2;display:block;width:100%;height:100%;
+  padding:0;margin:0;border:0;background:none;color:inherit;cursor:pointer;
+  -webkit-appearance:none;appearance:none;
+}
+.mh__member-trigger:focus-visible{outline:2px solid var(--mh-cyan);outline-offset:-4px;border-radius:20px}
+.mh__play{
+  position:absolute;right:24px;bottom:24px;width:40px;height:40px;border-radius:50%;
+  display:block;overflow:hidden;
+  backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);
+  transition:transform var(--mh-dur) var(--mh-ease);
+}
+.mh__play svg{display:block;width:100%;height:100%}
+.mh__member-trigger:hover .mh__play,
+.mh__member-trigger:focus-visible .mh__play{transform:scale(1.06)}
+.mh__member-media video,
+.mh__member-media iframe{position:absolute;inset:0;z-index:3;width:100%;height:100%;border:0;object-fit:cover;background:var(--mh-ink-alt)}
+.mh__member-head{margin-top:12px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.mh__member-name{font-weight:500;font-size:20px;line-height:1.1;letter-spacing:-.01em}
+.mh__member-role{margin-top:6px;font-family:var(--mh-mono);font-size:14px;font-weight:500;line-height:1.15;letter-spacing:.07em;text-transform:uppercase;color:rgba(35,33,35,.62)}
+
+/* ============================================================================
+   Real results, from real people — six upright video cards.
+
+   The card borrows the board's media box for its player (same classes, so the
+   same <video>/<iframe> positioning and the same play mark), and overrides
+   only the two things that differ: the shape, which is the shape the footage
+   was filmed in, and the radius, which is smaller because the card is.
+   Those overrides are two classes deep on purpose — one class each would tie
+   them to source order against the board's rules, which is a trap for whoever
+   next reorders this file.
+   MOBILE: a snap rail. Six portrait cards stacked is six screens of scroll.
+   ========================================================================== */
+.mh__res{padding-top:calc(52px*var(--mh-spt,1));padding-bottom:calc(52px*var(--mh-spb,1))}
+.mh__res-top{display:flex;flex-direction:column;gap:10px}
+.mh__res-note{font-family:var(--mh-mono);font-size:14px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:rgba(35,33,35,.62)}
+.mh__res-rail{
+  margin-top:26px;display:flex;gap:12px;overflow-x:auto;padding-bottom:4px;
+  margin-left:calc(var(--mh-gutter)*-1);margin-right:calc(var(--mh-gutter)*-1);
+  padding-left:var(--mh-gutter);padding-right:var(--mh-gutter);
+  list-style:none;
+}
+/* 62% of 390 is 242 wide, so a 9:16 card is 430 tall and two sit on screen at
+   once — enough of the second to say the rail scrolls.
+   A flex column, because the quote is optional and never the same length
+   twice: with the head pushed to the bottom (below), the names line up across
+   the row whatever each card happens to carry. Both the rail and the desktop
+   grid stretch their children to the tallest, so this holds at every width. */
+.mh__res-card{flex:0 0 62%;max-width:252px;min-width:0;display:flex;flex-direction:column}
+.mh__res-card .mh__member-media{aspect-ratio:var(--mh-res-ratio,9/16);border-radius:16px}
+.mh__res-card .mh__member-trigger:focus-visible{border-radius:16px}
+/* Top-left, because the play mark owns the bottom-right and a 222px card has
+   no room for both on one line. */
+.mh__res-stat{
+  position:absolute;left:10px;top:10px;z-index:2;margin:0;max-width:calc(100% - 20px);
+  padding:5px 9px;border-radius:14px;
+  background:rgba(249,249,249,.82);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.7);
+  font-family:var(--mh-mono);font-size:10.5px;font-weight:500;line-height:1.25;
+  letter-spacing:.05em;text-transform:uppercase;color:var(--mh-ink);
+}
+.mh__res-quote{
+  margin:12px 0 0;font-size:14px;line-height:1.35;letter-spacing:-.004em;
+  color:rgba(35,33,35,.84);
+}
+.mh__res-quote::before{content:"\201C"}
+.mh__res-quote::after{content:"\201D"}
+.mh__res-head{margin-top:auto;padding-top:10px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.mh__res-name{font-weight:500;font-size:17px;line-height:1.1;letter-spacing:-.01em}
+.mh__res-detail{margin-top:4px;font-family:var(--mh-mono);font-size:11px;font-weight:500;line-height:1.2;letter-spacing:.06em;text-transform:uppercase;color:rgba(35,33,35,.62)}
+.mh__res-foot{margin-top:24px;font-size:12px;line-height:1.4;color:rgba(35,33,35,.6)}
+
+/* ============================================================================
+   In the routines of high-performers — artboard: right-aligned 64px heading at
+   4598, then 372.5×383 cards from x-55 on a 19.5 gap, bleeding off both edges.
+   Name and tag under each card, sub-line beneath.
+   ========================================================================== */
+.mh__athletes{padding-top:calc(52px*var(--mh-spt,1));padding-bottom:calc(52px*var(--mh-spb,1))}
+.mh__athletes-head{text-align:left}
+.mh__athletes-rail{
+  margin-top:28px;display:flex;gap:19px;overflow-x:auto;padding-bottom:4px;
+  margin-left:calc(var(--mh-gutter)*-1);margin-right:calc(var(--mh-gutter)*-1);
+  padding-left:var(--mh-gutter);padding-right:var(--mh-gutter);
+}
+.mh__athlete{flex:0 0 72%;max-width:300px}
+.mh__athlete-media{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:372/383;background:var(--mh-ink-alt)}
+.mh__athlete-head{margin-top:12px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.mh__athlete-name{font-weight:500;font-size:20px;line-height:1.1;letter-spacing:-.01em}
+.mh__athlete-sub{margin-top:5px;font-family:var(--mh-mono);font-size:13px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:rgba(35,33,35,.62)}
+
+/* ============================================================================
+   Benefits you'll feel & track — artboard: left 64px heading at 5412, a 28px
+   product name, a two-way tab pill at x727, then a 686×540 image frame at x24
+   beside four 682×97 glass rows at x730 on a 20 gap, and the CTA under them.
+   The artboard leaves the image as a flat grey box; it ships as an empty slot.
+   MOBILE: the image leads and the rows stack, full width.
+   ========================================================================== */
+.mh__benefits{padding-top:calc(56px*var(--mh-spt,1));padding-bottom:calc(56px*var(--mh-spb,1))}
+.mh__benefits-top{display:flex;flex-direction:column;gap:18px}
+.mh__benefits-name{margin-top:22px}
+.mh__benefits-lede{margin-top:10px}
+.mh__benefits-grid{margin-top:30px;display:flex;flex-direction:column;gap:24px}
+.mh__benefits-media{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:686/540;background:#d8d8d8}
+.mh__benefit{
+  padding:16px 20px;border-radius:14px;background:var(--mh-sage);
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  box-shadow:inset 0 0 0 1px rgba(249,249,249,.45);
+}
+.mh__benefits-rows{display:flex;flex-direction:column}
+.mh__benefit + .mh__benefit{margin-top:20px}
+.mh__benefit-title{font-weight:500;font-size:16px;line-height:1.2;letter-spacing:-.005em}
+.mh__benefit-text{margin-top:7px;font-size:16px;line-height:1.31;color:rgba(22,46,48,.8)}
+.mh__benefits .mh__btn{margin-top:24px}
+
+/* ============================================================================
+   Above the standard. Beneath the surface. — artboard band 6327–7106, charcoal.
+   Five 120px lines, centred; the first three off-white, the last two cyan, and
+   the posterised cutout passing between them.
+   ========================================================================== */
+.mh__banner{position:relative;overflow:hidden;background:var(--mh-ink-alt);text-align:center}
+.mh__banner-inner{position:relative;padding-top:calc(64px*var(--mh-spt,1));padding-bottom:calc(64px*var(--mh-spb,1))}
+/* MOBILE: the phrase stacks into four narrow lines here, so a figure centred
+   on the band lands on the words rather than passing through them — at 390
+   it buried THE in the white line entirely. Dropped to the lower third,
+   narrowed and taken off full strength, it still reads as a presence behind
+   the phrase while every line stays legible. The 990 block restores the
+   artboard's width, top and opacity. */
+.mh__banner-cutout{position:absolute;left:50%;top:68%;transform:translate(-50%,-50%);width:min(68%,500px);opacity:.75;pointer-events:none;z-index:1}
+.mh__banner-line{
+  position:relative;z-index:0;
+  font-weight:500;font-size:clamp(40px,8.33vw,120px);line-height:.9;
+  letter-spacing:-.014em;text-transform:uppercase;color:var(--mh-ground);
+}
+.mh__banner-line--accent{color:var(--mh-cyan);z-index:2}
+
+/* ============================================================================
+   The science — artboard: two mirrored bands. NAD+ has its 3-line heading and
+   566×454 dark panel on the left with the tab pill and copy on the right;
+   Creatine flips the whole thing. One section, a "Flip" setting.
+   MOBILE: always heading → panel → tabs → copy, because a mirrored layout at
+   390px is just two columns of one.
+   ========================================================================== */
+.mh__science{padding-top:calc(56px*var(--mh-spt,1));padding-bottom:calc(56px*var(--mh-spb,1))}
+.mh__science-lede{margin-top:22px;max-width:560px}
+.mh__science-grid{margin-top:34px;display:flex;flex-direction:column;gap:28px}
+.mh__science-panel{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:566/454;background:var(--mh-ink)}
+.mh__science-tabs{display:flex;overflow-x:auto}
+.mh__science-title{margin-top:24px}
+/* Rich text: two of these panels are a lead paragraph, a bulleted list and a
+   closing line. The artboard sets 21px lines and 14px between blocks, and the
+   bullet hangs 18 left of a 32px indent. */
+.mh__science-text{margin-top:16px;color:rgba(22,46,48,.82)}
+.mh__science-text > * + *{margin-top:14px}
+.mh__science-text ul,.mh__science-text ol{list-style:none;margin:0;padding:0}
+.mh__science-text li{position:relative;padding-left:32px}
+.mh__science-text li + li{margin-top:14px}
+.mh__science-text li::before{content:"\2022";position:absolute;left:14px;top:0}
+.mh__science-text a{color:inherit}
+.mh__science .mh__btn{margin-top:26px}
+
+/* ============================================================================
+   The protocol in motion — artboard: 64px heading at 9107, then 329×500 cards
+   from x-130 on a 13 gap, bleeding off both edges, each with a @username strip
+   across its foot.
+   ========================================================================== */
+.mh__ugc{padding-top:calc(52px*var(--mh-spt,1));padding-bottom:calc(52px*var(--mh-spb,1))}
+.mh__ugc-top{display:flex;flex-direction:column;gap:12px}
+.mh__ugc-note a{position:relative;color:inherit;text-decoration:none;border-bottom:1px solid currentColor}
+.mh__ugc-note a::after{content:"";position:absolute;left:0;right:0;top:50%;height:44px;transform:translateY(-50%)}
+.mh__ugc-note{display:flex;align-items:center;gap:14px;font-family:var(--mh-mono);font-size:14px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:rgba(35,33,35,.62)}
+.mh__ugc-rail{
+  margin-top:26px;display:flex;gap:13px;overflow-x:auto;padding-bottom:4px;
+  margin-left:calc(var(--mh-gutter)*-1);margin-right:calc(var(--mh-gutter)*-1);
+  padding-left:var(--mh-gutter);padding-right:var(--mh-gutter);
+}
+.mh__ugc-card{position:relative;flex:0 0 68%;max-width:290px;aspect-ratio:329/500;border-radius:20px;overflow:hidden;background:var(--mh-ink-alt)}
+.mh__ugc-name{
+  position:absolute;left:0;right:0;bottom:0;height:41px;z-index:2;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mh-mono);font-size:14px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--mh-ground);
+  background:linear-gradient(rgba(20,19,20,0),rgba(20,19,20,.55));
+}
+
+/* ============================================================================
+   Stats — artboard: three columns at x24 / 586 / 1112. A 120px figure, a 48px
+   two-line label, a 14px mono caption.
+   ========================================================================== */
+.mh__stats{padding-top:calc(52px*var(--mh-spt,1));padding-bottom:calc(52px*var(--mh-spb,1))}
+.mh__stats-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:40px}
+.mh__stat-n{font-weight:500;font-size:clamp(64px,8.33vw,120px);line-height:.86;letter-spacing:-.02em}
+.mh__stat-l{margin-top:12px;font-weight:500;font-size:clamp(28px,3.333vw,48px);line-height:.92;letter-spacing:-.014em;text-transform:uppercase}
+.mh__stat-c{margin-top:16px;font-family:var(--mh-mono);font-size:14px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:rgba(35,33,35,.62)}
+
+/* ============================================================================
+   Sticky add to cart — the About page's bar, in this page's namespace.
+
+   Prices come from the live product; the strip is the buy control. On mobile
+   the bar shows the compact face instead — three glass rows pinned to a 390px
+   window would take a third of the screen — and the strip appears at 990.
+   ========================================================================== */
+.mh__plans{
+  margin-top:26px;
+  display:flex;flex-direction:column;gap:8px;
+  padding:8px;border-radius:16px;
+  background:rgba(249,249,249,.14);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(249,249,249,.18);
+}
+.mh__plan{
+  position:relative;display:flex;align-items:center;gap:12px;
+  padding:13px 14px;border-radius:12px;cursor:pointer;
+  background:rgba(249,249,249,.10);color:var(--mh-ground);
+  transition:background var(--mh-dur) var(--mh-ease);
+}
+.mh__plan.is-selected{background:rgba(249,249,249,.92);color:var(--mh-ink-alt)}
+.mh__plan.is-unavailable{opacity:.45;cursor:not-allowed}
+.mh__plan-input{position:absolute;opacity:0;width:0;height:0;pointer-events:none}
+.mh__plan:focus-within{outline:2px solid var(--mh-cyan);outline-offset:2px}
+/* Clicking a card focuses its radio, so :focus-within alone rings the card on
+   every mouse click. Where :has() exists, narrow it to keyboard focus. */
+@supports selector(:has(*)){
+  .mh__plan:focus-within{outline:none}
+  .mh__plan:has(.mh__plan-input:focus-visible){outline:2px solid var(--mh-cyan);outline-offset:2px}
+}
+.mh__plan-dot{
+  flex:0 0 16px;height:16px;border-radius:50%;
+  border:1.5px solid rgba(249,249,249,.5);
+  display:inline-block;position:relative;
+}
+.mh__plan.is-selected .mh__plan-dot{border-color:var(--mh-ink-alt);background:var(--mh-cyan)}
+.mh__plan-name{flex:1;font-size:14px;font-weight:500;letter-spacing:.01em}
+.mh__plan-price{font-size:14px;font-weight:500;white-space:nowrap}
+.mh__plan-note{
+  font-family:var(--mh-mono);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  padding:4px 8px;border-radius:999px;background:rgba(35,33,35,.22);white-space:nowrap;
+}
+.mh__plan.is-selected .mh__plan-note{background:rgba(35,33,35,.10)}
+.mh__plans .mh__btn{margin-top:2px}
+
+.mh__sticky{
+  position:fixed;left:0;right:0;bottom:0;z-index:30;
+  background:var(--mh-ink-alt);
+  padding:10px 0;
+  padding-bottom:calc(10px + env(safe-area-inset-bottom));
+  transform:translateY(110%);
+  /* Hidden to the keyboard as well as the eye while it is off screen, or it
+     collects tab stops for a bar nobody can see. The visibility change waits
+     for the slide out and leads the slide in, so the transition still plays. */
+  visibility:hidden;
+  transition:transform 260ms var(--mh-ease),visibility 0s linear 260ms;
+}
+.mh__sticky.is-visible{transform:none;visibility:visible;transition-delay:0s,0s}
+.mh__sticky-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.mh__sticky-compact{min-width:0}
+/* One line each. At 390px a product name long enough to wrap turns a 60px bar
+   into a 90px one and pushes the button into the thumb zone; the name is in
+   the h1 a scroll above, so an ellipsis costs nothing here. */
+.mh__sticky--compact .mh__sticky-label,
+.mh__sticky--compact .mh__sticky-sub{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mh__sticky .mh__plans{display:none}
+.mh__sticky-label{font-weight:500;font-size:14px;color:var(--mh-ground);line-height:1.2}
+.mh__sticky-sub{margin-top:2px;font-family:var(--mh-mono);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(249,249,249,.6)}
+.mh__sticky-btn{min-height:44px;padding:12px 20px;font-size:15px;white-space:nowrap}
+
+/* ============================================================================
+   DESKTOP — the 1440 artboard, transcribed.
+   Coordinates in the comments are artboard y values at 1440.
+   ========================================================================== */
+@media screen and (min-width:990px){
+  :root{--mh-gutter:24px}
+
+  /* --- Hero: band 0–810 -------------------------------------------------- */
+  .mh__tab{height:41px}                    /* pill 57 tall on the artboard  */
+
+  .mh__hero{min-height:810px}
+  /* The artboard draws the 1880×836 photograph at x−34..1918 over the 1440
+     frame — 135.56% of it, offset 2.36% left — and crops the bottom 58. Cover
+     on a frame-sized box reduces the image instead of magnifying it, which put
+     the product 169px left of where it belongs, behind SUPPLEMENTS. Widening
+     the media box to the artboard's own 135.56% makes cover scale from the
+     width, which is the artboard's placement exactly, and holds at any width. */
+  .mh__hero-media{left:-2.36%;right:-33.2%}
+  .mh__hero-media .mh__img{object-position:var(--mh-hero-pos-d,50% 0)}
+  /* The frame overhangs the right edge by a third for the design's own
+     photograph. A wide shot carries its subject off-screen that way, so it
+     can opt into the frame being the screen instead. */
+  .mh__hero-media--full{left:0;right:0}
+  .mh__hero-scrim{background:linear-gradient(100deg, rgba(20,19,20,.82) 0%, rgba(20,19,20,.55) 34%, rgba(20,19,20,0) 62%)}
+  .mh__hero-inner{padding-top:calc(135px*var(--mh-spt,1));padding-bottom:calc(48px*var(--mh-spb,1))}
+  .mh__hero-title{margin-top:29px}          /* cap top 184                   */
+  /* The band's height is fixed at 810 while its width is the screen, so below
+     1440 cover crops the photograph from the sides and walks the product
+     leftwards — about a pixel for every pixel the screen loses. The headline
+     clears it, the sub-line is what it reaches first, so the sub gives way:
+     640 is where the product's left edge lands plus the gutter and a gap, and
+     min() makes the whole thing a no-op from 1200 up, where it already fits. */
+  .mh__hero-sub{margin-top:21px;max-width:min(560px, calc(100vw - 640px))}  /* 638 */
+  /* That clamp is a left column dodging a right-hand product. Centred there
+     is nothing to dodge, so the measure goes back to being a measure. */
+  .mh__hero--center .mh__hero-sub{max-width:min(640px,72%)}
+  /* The artboard's photograph puts its product bottom-right, which is exactly
+     where a centred copy column's sub and button land. Left-aligned copy slid
+     past it; centred copy has to sit on it, so the wash holds through the
+     whole copy zone — to about 600 of the 810 — and only then lets go. The
+     product is still the brightest thing in the frame below that line. */
+  .mh__hero--center .mh__hero-inner{padding-top:calc(112px*var(--mh-spt,1))}
+  .mh__hero--center .mh__hero-scrim{
+    background:linear-gradient(180deg, rgba(20,19,20,.9) 0%, rgba(20,19,20,.82) 28%, rgba(20,19,20,.7) 52%, rgba(20,19,20,.34) 74%, rgba(20,19,20,.5) 100%);
+  }
+  .mh__hero-actions{margin-top:29px}        /* 714, 139×48                   */
+  .mh__hero .mh__btn{padding:16px 32px}
+
+  /* --- Shop the protocol: heading 899, content box 142–1297 -------------- */
+  .mh__shop{padding-top:calc(88px*var(--mh-spt,1));padding-bottom:calc(88px*var(--mh-spb,1))}
+  .mh__shop-tabs{margin-top:25px}           /* pill 981, 330×57              */
+  .mh__shop-tabs .mh__tabs{padding:8px 16px}
+  .mh__shop-grid{
+    margin-top:30px;                        /* copy column starts 1070       */
+    display:grid;grid-template-columns:40.73276% 36.63793%;column-gap:5.60345%;
+    justify-content:center;align-items:start;
+  }
+  /* Both cells name their row. Without it, sparse auto-placement puts the copy
+     on row 2 — the grid cursor has already passed column 1 — and the column
+     silently stacks under the jar instead of beside it. */
+  .mh__shop-media{order:0;grid-column:2;grid-row:1;width:100%;aspect-ratio:510/590;margin-top:5px}
+  .mh__shop-copy{grid-column:1;grid-row:1}
+  .mh__shop-title{margin-bottom:3px}        /* 1073 → sub 1105               */
+  .mh__shop-lede{margin-bottom:25px}        /* 1105 → step 1 at 1155         */
+  .mh__steps{display:flex;gap:24px}
+  .mh__actives{margin-top:40px}             /* label 1433                    */
+  .mh__actives-grid>*:nth-child(n+5){display:block}
+  /* Columns on the artboard's own 151.5 pitch — x142/294/445/597 — not four
+     equal shares of 567. The captions are drawn wider than their column and
+     run into the pitch, which is why the last column takes the remainder. */
+  .mh__actives-grid{margin-top:18px;grid-template-columns:151.5px 151.5px 151.5px minmax(0,1fr);gap:20px 0}
+  .mh__active-k{margin-top:4px}
+  .mh__shop .mh__btn{margin-top:33px;width:567px;height:64px;padding:0}
+
+  /* The products layout is a sibling of the copy/frame grid, not a child of
+     it, so it needs its own top margin — without one the cards sat flush under
+     the tab pill instead of on 1077. Artboard: two 567 cards at x117 and x756,
+     frames 567×345, then a 28px title, three lines of copy and the action. */
+  .mh__products{
+    margin-top:37px;display:grid;grid-template-columns:repeat(2,minmax(0,567px));
+    gap:72px;justify-content:center;
+  }
+  .mh__product-title{margin-top:32px}      /* 1458                           */
+  .mh__product-text{margin-top:26px;display:block;-webkit-line-clamp:none;overflow:visible}  /* 1514 */
+  .mh__product .mh__btn{margin-top:31px;height:64px;padding:0}  /* 1603      */
+
+  /* --- Why MUTO: heading 1846, cards 1966 -------------------------------- */
+  .mh__why{padding-top:calc(90px*var(--mh-spt,1));padding-bottom:calc(85px*var(--mh-spb,1))}
+  .mh__why-list{
+    margin:var(--mh-why-gap,63px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);
+    gap:19px;overflow:visible;
+  }
+  /* Bottom padding is 27, not 24: it is what drops the 403×230 frame onto 2164
+     with the card still finishing on 2421. */
+  .mh__why-card{flex:auto;max-width:none;min-height:var(--mh-why-min,455px);padding:20px 24px 27px}
+  .mh__why-title{font-size:24px}
+  .mh__why-text{margin-top:15px}
+
+  /* --- Founder: portrait x118 y2600 635×868, card x706 y2912 613×438 -----
+     Percentages, not the artboard's pixels, for the same reason the creatine
+     guarantee band uses them: these numbers only add up at 1440. In pixels the
+     band needs 94 + 635 + 48 − 95 + 613 = 1295 plus the wrap's own gutters, so
+     from 990 to about 1343 it ran wider than the screen and gave the whole page
+     a sideways scroll — which is what cut the hero headline off at the left.
+     The shares below are of the 1392 content box, so the overlap holds at every
+     width instead of only the one it was drawn at. */
+  .mh__founder{
+    padding-top:calc(94px*var(--mh-spt,1));padding-bottom:calc(92px*var(--mh-spb,1));
+    display:grid;grid-template-columns:48.92142% minmax(0,1fr);
+    column-gap:0;align-items:start;padding-left:6.75287%;   /* portrait lands x118 */
+  }
+  .mh__founder-media{grid-column:1;grid-row:1;width:100%;aspect-ratio:635/868}
+  .mh__founder-body{grid-column:2;grid-row:1;margin-top:0;margin-left:7.23982%;padding-top:118px}
+  .mh__founder-name{margin-top:8px}
+  .mh__founder-card{
+    position:relative;z-index:2;margin-top:39px;margin-left:-15.44715%;
+    width:99.6748%;min-height:438px;padding:47px 60px 48px;border-radius:28px;gap:14px;
+  }
+  .mh__founder-card p{font-size:16px}
+  .mh__founder-card .mh__btn{margin-top:13px;height:64px;padding:0}
+  /* The artboard's 493 is exactly the card's inner width, so it follows the
+     card rather than holding a pixel figure the card has shrunk past. */
+  .mh__founder-card .mh__btn--full{width:100%}
+
+  /* --- Board: 528² stills from x142, bleeding right ---------------------- */
+  .mh__board{padding-top:calc(88px*var(--mh-spt,1));padding-bottom:calc(80px*var(--mh-spb,1))}
+  .mh__board-top{flex-direction:row;align-items:flex-start;justify-content:space-between;gap:48px}
+  .mh__board-note{padding-top:8px}
+  .mh__board-rail{
+    margin:var(--mh-board-gap,62px) 0 0;padding:0 0 4px;display:flex;gap:12px;overflow-x:auto;
+    padding-left:118px;margin-right:calc(var(--mh-gutter)*-1);
+  }
+  .mh__member{flex:0 0 528px;max-width:none}
+  .mh__member-head{margin-top:9px}          /* name 4366, tag right          */
+  .mh__member-name{font-size:24px}
+  .mh__member-role{margin-top:2px}          /* 4394                          */
+
+  /* --- Real results: all six across, no rail ----------------------------- */
+  .mh__res{padding-top:calc(88px*var(--mh-spt,1));padding-bottom:calc(80px*var(--mh-spb,1))}
+  .mh__res-top{flex-direction:row;align-items:flex-start;justify-content:space-between;gap:48px}
+  .mh__res-note{padding-top:8px}
+  /* A grid, not the mobile rail: six 222px cards and five 12px gaps come to
+     the 1392 content box exactly, so the whole set is on screen and nothing
+     has to be swiped for. A seventh block wraps to a second row rather than
+     shrinking the first. */
+  .mh__res-rail{
+    margin:var(--mh-res-gap,48px) 0 0;padding:0;
+    display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;
+    overflow:visible;
+  }
+  .mh__res-card{max-width:none}
+  .mh__res-card .mh__member-media{border-radius:18px}
+  .mh__res-card .mh__member-trigger:focus-visible{border-radius:18px}
+  /* The play mark is inset 24 on a 528 board still; on a 222 card that is a
+     quarter of its width, so it comes in to 12 and the disc comes down to 32. */
+  .mh__res-card .mh__play{right:12px;bottom:12px;width:32px;height:32px}
+  .mh__res-stat{left:12px;top:12px;font-size:11px}
+  .mh__res-head{padding-top:9px}
+  .mh__res-name{font-size:18px}
+  .mh__res-detail{margin-top:2px}
+  .mh__res-foot{margin-top:32px}
+
+  /* --- Athletes: 372.5×383 cards from x-55, heading right ---------------- */
+  .mh__athletes{padding-top:calc(88px*var(--mh-spt,1));padding-bottom:calc(100px*var(--mh-spb,1))}
+  .mh__athletes-head{text-align:right}
+  /* The rail starts at x−55, so it needs 79 back from the 24 gutter. */
+  .mh__athletes-rail{
+    margin:62px 0 0;padding:0 0 4px;display:flex;gap:19.5px;overflow-x:auto;
+    margin-right:calc(var(--mh-gutter)*-1);
+  }
+  .mh__athlete{flex:0 0 372.5px;max-width:none}
+  .mh__athlete-head{margin-top:9px}         /* name 5170                     */
+  .mh__athlete-name{font-size:24px}
+  .mh__athlete-sub{margin-top:1px}          /* 5198                          */
+
+  /* --- Benefits: image x24 686×540, rows x730 682×97 --------------------- */
+  .mh__benefits{padding-top:calc(96px*var(--mh-spt,1));padding-bottom:calc(90px*var(--mh-spb,1))}
+  .mh__benefits-top{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:0 48px}
+  .mh__benefits-head{grid-column:1;grid-row:1}
+  .mh__benefits-copy{grid-column:1;grid-row:2}
+  .mh__benefits-tabs{grid-column:2;grid-row:2;align-self:center;justify-self:start}
+  .mh__benefits-name{margin-top:35px}       /* 5565                          */
+  /* Two lines whether the copy fills them or not: the NAD+ lede runs to two
+     and the Creatine one to one, and without this the tab pill and the grid
+     under it jump 26px every time the product is switched. */
+  .mh__benefits-lede{margin-top:16px;max-width:620px;min-height:52px}
+  .mh__benefits-grid{
+    margin-top:38px;display:grid;grid-template-columns:49.28161% minmax(0,48.99425%);
+    column-gap:1.43678%;align-items:start;
+  }
+  .mh__benefits-media{aspect-ratio:686/540}
+  .mh__benefit{min-height:97px;padding:14px 21px}
+  .mh__benefit + .mh__benefit{margin-top:20px}
+  .mh__benefits .mh__btn{margin-top:24px;width:min(304px,100%);height:64px;padding:0}
+
+  /* --- Banner: band 6327–7106 -------------------------------------------- */
+  .mh__banner-inner{padding-top:calc(135px*var(--mh-spt,1));padding-bottom:calc(104px*var(--mh-spb,1))}
+  .mh__banner-cutout{width:500px;top:392px;opacity:1;transform:translate(-50%,-50%)}
+
+  /* --- Science: NAD+ 7106–8062, Creatine mirrored ------------------------ */
+  .mh__science{padding-top:calc(88px*var(--mh-spt,1));padding-bottom:calc(90px*var(--mh-spb,1))}
+  /* Two lines whether the copy fills them or not. The artboard leaves the same
+     412 between heading and panel in both bands, so the lede holds its height
+     rather than the Creatine band riding 26px up on a one-line summary. */
+  .mh__science-lede{margin-top:38px;max-width:580px;min-height:52px}
+  .mh__science-grid{
+    margin-top:60px;display:grid;grid-template-columns:566px minmax(0,1fr);
+    column-gap:112px;align-items:start;
+  }
+  .mh__science-panel{width:566px;aspect-ratio:566/454}
+  .mh__science-tabs{margin-top:-1px}
+  .mh__science-title{margin-top:42px}       /* 7621 / 8577                   */
+  .mh__science-text{margin-top:22px;max-width:710px}
+  .mh__science .mh__btn{margin-top:40px;height:64px;padding:0 42px}
+  /* Flipped: heading right, panel right, tabs and copy left. */
+  .mh__science--flip .mh__science-head{text-align:right;margin-left:auto}
+  .mh__science--flip .mh__science-lede{margin-left:auto;text-align:left}
+  .mh__science--flip .mh__science-grid{grid-template-columns:minmax(0,1fr) 568px}
+  .mh__science--flip .mh__science-panel{grid-column:2;grid-row:1;width:568px;aspect-ratio:568/454}
+  .mh__science--flip .mh__science-copy{grid-column:1;grid-row:1}
+
+  /* --- In motion: 329×500 cards from x-130 ------------------------------- */
+  .mh__ugc{padding-top:calc(88px*var(--mh-spt,1));padding-bottom:calc(45px*var(--mh-spb,1))}
+  .mh__ugc-top{flex-direction:row;align-items:baseline;justify-content:space-between;gap:48px}
+  /* First card at x−130, so 154 back from the 24 gutter. */
+  .mh__ugc-rail{
+    margin:var(--mh-ugc-gap,38px) 0 0;padding:0 0 4px;display:flex;gap:13px;overflow-x:auto;
+    margin-left:-154px;margin-right:calc(var(--mh-gutter)*-1);
+  }
+  .mh__ugc-card{flex:0 0 329px;max-width:none;aspect-ratio:329/500}
+
+  /* --- Stats: columns x24 / 586 / 1112 ----------------------------------- */
+  .mh__stats{padding-top:calc(38px*var(--mh-spt,1));padding-bottom:calc(87px*var(--mh-spb,1))}
+  /* The three columns are not equal thirds — the artboard sets them at x24,
+     586 and 1112, so the first is 562 wide and the second 526. */
+  .mh__stats-grid{grid-template-columns:40.37356% 37.78736% minmax(0,1fr);gap:0}
+  .mh__stat-l{margin-top:14px}              /* 9906                          */
+  .mh__stat-c{margin-top:20px}              /* 10018                         */
+
+  /* --- Sticky add to cart ------------------------------------------------ */
+  .mh__plans{
+    margin-top:32px;flex-direction:row;align-items:center;gap:8px;
+    padding:0;background:none;border:0;backdrop-filter:none;border-radius:0;
+  }
+  /* Every card carries the same glass — only the dot marks the selection, so
+     the strip reads as one object rather than one-of-three. */
+  .mh__plan{flex:1;min-width:0;height:48px;padding:0 14px 0 12px;border-radius:10px;background:rgba(249,249,249,.34);color:var(--mh-ground);gap:10px}
+  .mh__plan.is-selected{background:rgba(249,249,249,.46);color:var(--mh-ground)}
+  .mh__plan-dot{flex:0 0 14px;height:14px;border:0;background:rgba(249,249,249,.92);box-shadow:0 0 0 4px rgba(249,249,249,.16)}
+  .mh__plan.is-selected .mh__plan-dot{background:var(--mh-cyan);box-shadow:0 0 0 4px rgba(93,249,255,.22)}
+  .mh__plan-price{color:rgba(249,249,249,.74)}
+  .mh__plan-note,.mh__plan.is-selected .mh__plan-note{font-size:10px;background:rgba(249,249,249,.26);color:rgba(249,249,249,.9)}
+  /* --full is a mobile affordance; in the desktop row it must size to content
+     or it takes 100% of the strip and pushes past the page. */
+  .mh__plans .mh__btn{margin-top:0;flex:0 0 160px;height:48px;padding:0}
+  .mh__plans .mh__btn--full{display:inline-flex;width:160px}
+
+  .mh__sticky{
+    display:block;padding:16px 0;
+    background:rgba(35,33,35,.92);
+    backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+    border-top:1px solid rgba(249,249,249,.1);
+  }
+  /* Desktop shows the plan strip and nothing else — one price on screen at a
+     time. But a template can place this bar with no plan blocks of its own:
+     the creatine product page keeps its plan selector in the buy block, and
+     the bar only mirrors the selection. Without this the desktop bar would
+     reveal on scroll with both faces hidden and nothing in it. */
+  .mh__sticky-compact,.mh__sticky-btn{display:none}
+  .mh__sticky .mh__plans{display:flex;flex:1;min-width:0;margin-top:0}
+  .mh__sticky--compact .mh__sticky-compact{display:block}
+  .mh__sticky--compact .mh__sticky-label{font-size:16px}
+  .mh__sticky--compact .mh__sticky-sub{font-size:10px;margin-top:3px}
+  .mh__sticky--compact .mh__sticky-btn{display:inline-flex;min-height:48px;padding:0 32px;font-size:16px}
+
+}
+@media screen and (max-width:700px) {
+  .mh__hero{align-items:center;}
+}
+@media (prefers-reduced-motion:reduce){
+  .mh *,.mh *::before,.mh *::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+  .mh__sticky{transition:none}
+}
