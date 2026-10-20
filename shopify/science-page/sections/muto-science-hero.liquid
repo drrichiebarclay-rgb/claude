@@ -34,9 +34,9 @@
   #shopify-section-{{ sid }} .msh__bar{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--mc-cyan);transform-origin:0 50%;transform:scaleX(0)}
   #shopify-section-{{ sid }} .msh__nav ol{display:flex;gap:8px;height:100%;align-items:center;margin:0 auto;max-width:var(--mc-max);padding:0 var(--mc-gutter);list-style:none;overflow-x:auto;scrollbar-width:none}
   #shopify-section-{{ sid }} .msh__nav ol::-webkit-scrollbar{display:none}
-  #shopify-section-{{ sid }} .msh__nav a{display:flex;align-items:center;gap:8px;height:44px;padding:0 16px;border-radius:22px;white-space:nowrap;text-decoration:none;font-size:15px;color:var(--mc-ink-alt);transition:background var(--mc-dur) var(--mc-ease),color var(--mc-dur) var(--mc-ease)}
+  #shopify-section-{{ sid }} .msh__nav a{display:flex;align-items:center;gap:8px;height:44px;padding:0 16px;border:1px solid var(--mc-hair);border-radius:22px;white-space:nowrap;text-decoration:none;font-size:15px;color:var(--mc-ink-alt);transition:background var(--mc-dur) var(--mc-ease),color var(--mc-dur) var(--mc-ease)}
   #shopify-section-{{ sid }} .msh__nav a:hover{background:var(--mc-sage)}
-  #shopify-section-{{ sid }} .msh__nav a.is-on{background:var(--mc-ink-alt);color:#fff}
+  #shopify-section-{{ sid }} .msh__nav a.is-on{background:var(--mc-ink);border-color:var(--mc-ink);color:#fff}
   #shopify-section-{{ sid }} .msh__nav b{font-family:var(--mc-mono);font-weight:400;font-size:12px;opacity:.6}
   #shopify-section-{{ sid }} .msh__nav a:focus-visible{outline:2px solid var(--mc-ink);outline-offset:2px}
   @media (max-width:749px){
@@ -95,10 +95,12 @@
     pin(); progress();
     /* Highlight the chapter in view, and keep its link visible in the row */
     var links = [].slice.call(nav.querySelectorAll('[data-msh-link]'));
+    var clickLock = 0;
     function current() {
+      if (Date.now() - clickLock < 900) return; /* let the tapped chip stay filled while the page scrolls to it */
       /* Looked up each time: the chapters come after this script in the page */
       var targets = links.map(function (a) { return document.getElementById(a.dataset.mshLink); });
-      var line = top + nav.offsetHeight + 40, on = -1;
+      var line = top + nav.offsetHeight + 40, on = 0; /* the first chapter is filled until you reach a later one */
       targets.forEach(function (t, i) { if (t && t.getBoundingClientRect().top <= line) on = i; });
       links.forEach(function (a, i) {
         var was = a.classList.contains('is-on');
@@ -115,6 +117,8 @@
         if (!t) return;
         t = t.querySelector('.mch__grid') || t; /* land on the chapter's content, not its top padding */
         e.preventDefault();
+        links.forEach(function (x) { x.classList.toggle('is-on', x === a); });
+        clickLock = Date.now();
         var y = t.getBoundingClientRect().top + window.scrollY - top - nav.offsetHeight - 16;
         window.scrollTo({ top: y, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
         history.replaceState(null, '', '#' + a.dataset.mshLink);
