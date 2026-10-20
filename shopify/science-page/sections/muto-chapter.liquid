@@ -230,22 +230,6 @@
   </div>
 </div>
 
-<script>
-  (function () {
-    var root = document.getElementById({{ s.anchor | json }}) || document.currentScript.previousElementSibling;
-    if (!root) return;
-    var mq = window.matchMedia('(min-width: 750px)');
-    function set() {
-      [].forEach.call(root.querySelectorAll('[data-mch-more]'), function (d) {
-        var short = (d.querySelector('.mch__bx') || {}).textContent.trim().length < 120;
-        d.open = mq.matches || short;
-      });
-    }
-    set();
-    if (mq.addEventListener) mq.addEventListener('change', set);
-  })();
-</script>
-
 {% schema %}
 {
   "name": "MUTO — Chapter",
