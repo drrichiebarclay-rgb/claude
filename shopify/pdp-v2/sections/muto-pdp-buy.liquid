@@ -345,9 +345,25 @@
           {%- if points.size > 0 -%}
             <ul class="mc__buy-points">
               {%- for point in points -%}
-                <li class="mc__point" {{ point.shopify_attributes }}>{{ point.settings.text }}</li>
+                {%- if point.settings.title != blank -%}
+                  {%- comment -%} New for this page: a titled point, "01 · Energy" over its line {%- endcomment -%}
+                  <li class="mc__point mpb-pt" {{ point.shopify_attributes }}><b>{{ point.settings.title }}</b><span>{{ point.settings.text }}</span></li>
+                {%- else -%}
+                  <li class="mc__point" {{ point.shopify_attributes }}>{{ point.settings.text }}</li>
+                {%- endif -%}
               {%- endfor -%}
             </ul>
+            {%- if section.settings.points_foot != blank or section.settings.points_note != blank -%}
+              <style>
+                #shopify-section-{{ section.id }} .mpb-pt{display:grid;gap:4px}
+                #shopify-section-{{ section.id }} .mpb-pt b{font-family:var(--mc-mono);font-weight:400;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--mc-ink)}
+                #shopify-section-{{ section.id }} .mpb-pt span{font-weight:400}
+                #shopify-section-{{ section.id }} .mpb-pfoot{margin:16px 0 0;font-family:var(--mc-mono);font-size:12px;line-height:1.6;letter-spacing:.06em;text-transform:uppercase;color:var(--mc-ink)}
+                #shopify-section-{{ section.id }} .mpb-pnote{margin:8px 0 0;font-size:12px;line-height:1.5;color:var(--mc-muted,#7f9c9e)}
+              </style>
+              {%- if section.settings.points_foot != blank -%}<p class="mpb-pfoot">{{ section.settings.points_foot }}</p>{%- endif -%}
+              {%- if section.settings.points_note != blank -%}<p class="mpb-pnote">{{ section.settings.points_note }}</p>{%- endif -%}
+            {%- endif -%}
           {%- endif -%}
 
           {%- if pills.size > 0 -%}
@@ -1425,6 +1441,8 @@
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "MUTO" },
     { "type": "textarea", "id": "heading", "label": "Heading", "default": "Ultrapure\nmicronised\ncreatine\nmonohydrate" },
     { "type": "text", "id": "serving", "label": "Serving line", "default": "250g | 5–10g per serving" },
+    { "type": "text", "id": "points_foot", "label": "Line under the bullets", "info": "e.g. 19 ingredients · Every dose on the label" },
+    { "type": "textarea", "id": "points_note", "label": "Small print under the bullets", "info": "e.g. what the * after a bullet refers to" },
     { "type": "richtext", "id": "text", "label": "Copy", "default": "<p>The fast reserve your muscles draw on when effort spikes. Pure creatine monohydrate, micronised to mix cleanly, independently tested, and taken alongside your NAD+ Cellular Complex as one daily routine.</p><p>Selected by Richie Barclay, PhD in cellular biology and nutrition, and reviewed by a Scientific Advisory Board of seven scientists and clinicians.</p>" },
     { "type": "header", "content": "Lead photograph", "info": "Used when there are no Gallery image blocks." },
     { "type": "image_picker", "id": "image", "label": "Image" },
@@ -1489,6 +1507,7 @@
       "type": "point",
       "name": "Bullet",
       "settings": [
+        { "type": "text", "id": "title", "label": "Title (optional)", "info": "e.g. 01 · Energy. With a title, the text shows as its line underneath." },
         { "type": "text", "id": "text", "label": "Text", "default": "Repeat hard efforts with less drop-off" }
       ]
     },

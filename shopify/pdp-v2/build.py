@@ -56,7 +56,29 @@ MAIL = '<a href="mailto:hello@mutolongevity.com">hello@mutolongevity.com</a>'
 # ---- Buy box ----
 buy = copy.deepcopy(BASE["buy"])
 buy["type"] = "muto-pdp-buy"
-buy["settings"]["text"] = buy["settings"]["text"].replace('href="#whats-inside"', 'href="#test-results-3"')
+buy["settings"]["text"] = p("<strong>The foundation your body runs on. Built for what you actually need after 35.</strong>",
+                            "Doing everything right and still running on empty? Your multivitamin covers the basics. MUTO does five jobs in one jar.",
+                            '<a href="#test-results-3">Ingredients + nutritional information</a>')
+# "How it helps": the five jobs, each a title over its line; * refers to the authorised claims in the small print
+POINTS = [("01 · Energy", "Help you feel less tired, and help your body release energy from food.*"),
+          ("02 · Recovery", "Keep your muscles working normally and your bones strong.*"),
+          ("03 · Mind", "Support normal psychological function through a demanding week.*"),
+          ("04 · Ageing well", "Your body turns NR into NAD⁺, which runs lower as we get older. Zinc and copper help protect your cells from oxidative stress.*"),
+          ("05 · Immunity", "Support your immune system, all year round.*")]
+old = [k for k in buy["block_order"] if buy["blocks"][k]["type"] == "point"]
+at = buy["block_order"].index(old[0])
+for k in old:
+    del buy["blocks"][k]
+    buy["block_order"].remove(k)
+for i, (t, x) in enumerate(POINTS, 1):
+    buy["blocks"][f"job{i}"] = {"type": "point", "settings": {"title": t, "text": x}}
+    buy["block_order"].insert(at + i - 1, f"job{i}")
+buy["settings"]["points_foot"] = "19 ingredients · Every dose on the label · Every batch third-party tested · Made in the UK"
+buy["settings"]["points_note"] = ("*Vitamins B6 and B12 contribute to the reduction of tiredness and fatigue, and B vitamins to normal energy-yielding metabolism. "
+                                  "Vitamin D contributes to normal muscle function, and vitamins D and K to the maintenance of normal bones. "
+                                  "Vitamins B1, B3, B6, B12, biotin and folate contribute to normal psychological function. "
+                                  "Zinc and copper contribute to the protection of cells from oxidative stress. "
+                                  "Vitamin D, zinc, copper, folate, B6 and B12 contribute to the normal function of the immune system.")
 
 def form(n, f):
     """The form, when it says more than the name: 'methylcobalamin' yes, 'trimethylglycine' for TMG no."""
@@ -217,7 +239,7 @@ put("tests", copy.deepcopy(ING_T["tests"]))
 
 put("sticky", copy.deepcopy(BASE["sticky"]))
 er = copy.deepcopy(BASE["easy_read"])
-er["settings"]["custom_liquid"] = er["settings"]["custom_liquid"].replace("</style>", "\n/* New PDP: the pills moved under the button as badges; only the heading stays */\nhtml body .mc .mc__trust li{display:none}\nhtml body .mc .mc__trust::after{margin-top:8px}\n</style>", 1)
+er["settings"]["custom_liquid"] = er["settings"]["custom_liquid"].replace("</style>", "\n/* New PDP: the pills moved under the button as badges; only the heading stays */\nhtml body .mc .mc__trust li{display:none}\nhtml body .mc .mc__trust::after{margin-top:8px}\n/* New PDP: the five jobs, one per row, no label above */\nhtml body .mc .mc__buy-points{grid-template-columns:1fr!important}\nhtml body .mc .mc__buy-points::before{content:none!important}\n</style>", 1)
 put("easy_read", er)
 
 out = os.path.join(HERE, "templates", "product.muto-nad-v2.json")
