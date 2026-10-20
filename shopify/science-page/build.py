@@ -111,12 +111,16 @@ chapter("c1", "what-changes", "01", "What changes after 35",
 S["c1"]["settings"]["art_beside"] = True  # bands alternate: page background, then mint
 
 # ---- 2: how it shows up (charcoal band) ----
-QUOTES = ["Sharp at 8am. Gone by 3pm.", "Hard sessions hang around for days.", "I’m doing everything right, and I still feel it."]
-chapter("c2", "how-it-shows-up", "02", "How it shows up",
-        "You don’t feel your cells. You feel your day.",
-        blocks=[(f"q{i}", {"type": "quote", "settings": {"text": q}}) for i, q in enumerate(QUOTES, 1)],
-        line=p("It’s like your body has switched to low power mode. Still working, still getting through the day, but running on less than it used to."))
-S["c2"]["settings"]["band"] = "mint"
+# Three photo cards, as the product page's benefit cards (muto-benefit-cards): what people tell us, and what's behind it
+FEEL = [("“Sharp at 8am. Gone by 3pm.”", "The afternoon slump. Fewer couriers carrying energy from your food to your cells.", "shopify://shop_images/MUTO0296.png"),
+        ("“Hard sessions hang around for days.”", "Less back from the same effort, and recovery that takes longer than it used to.", "shopify://shop_images/nad-guarantee-runner.jpg"),
+        ("“I’m doing everything right, and I still feel it.”", "It’s not you. It’s biology, and the basics you took at 30 weren’t built for it.", "shopify://shop_images/MUTO0266.png")]
+add("c2", "muto-benefit-cards", {
+    "eyebrow": "02", "anchor": "how-it-shows-up", "band": "mint",
+    "heading": "You don’t feel your cells. You feel your day.",
+    "lede": "It’s like your body has switched to low power mode. Still working, still getting through the day, but running on less than it used to.",
+    "button_label": "", "button_link": "", "button_tab": "3", "foot": "", "space_top": 96, "space_bottom": 96}, [
+    (f"f{i}", {"type": "card", "settings": {"image": img, "title": t, "text": x}}) for i, (t, x, img) in enumerate(FEEL, 1)])
 
 # ---- 3: what's in it ----
 STATS = [("19", "ingredients, every dose on the label"), ("300mg", "NR, the most allowed in Great Britain"),

@@ -16,11 +16,15 @@
 -%}
 <style>
   #shopify-section-{{ sid }} h2,#shopify-section-{{ sid }} h3{font-family:var(--mc-font);font-weight:500;-webkit-font-smoothing:antialiased;margin:0}
-  #shopify-section-{{ sid }} .mbc{padding-top:{{ s.space_top }}px;padding-bottom:{{ s.space_bottom }}px;background:var(--mc-ground)}
+  #shopify-section-{{ sid }} .mbc{padding-top:{{ s.space_top }}px;padding-bottom:{{ s.space_bottom }}px;background:{% if s.band == 'mint' %}var(--mc-mint,#c8d2cf){% else %}var(--mc-ground){% endif %}}
+  #shopify-section-{{ sid }} .mbc__eyebrow{grid-column:1 / -1;margin:0 0 4px;font-family:var(--mc-mono);font-size:14px;letter-spacing:.08em;color:var(--mc-muted)}
+  #shopify-section-{{ sid }} .mbc--mint .mbc__eyebrow,#shopify-section-{{ sid }} .mbc--mint .mbc__foot{color:rgba(22,47,49,.72)}
+  /* Nothing to scroll: no arrows */
+  #shopify-section-{{ sid }} .mbc.is-static .mbc__arrow{display:none}
   #shopify-section-{{ sid }} .mbc__head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px 48px;align-items:end}
   #shopify-section-{{ sid }} .mbc__h{color:var(--mc-ink)}
   #shopify-section-{{ sid }} .mbc__lede{grid-column:1;margin:16px 0 0;max-width:760px;font-size:20px;line-height:1.45;color:var(--mc-ink-alt)}
-  #shopify-section-{{ sid }} .mbc__side{grid-column:2;grid-row:1 / span 2;display:flex;gap:10px;align-items:center}
+  #shopify-section-{{ sid }} .mbc__side{grid-column:2;grid-row:-3 / -1;display:flex;gap:10px;align-items:center}
   #shopify-section-{{ sid }} .mbc__btn{display:inline-flex;align-items:center;gap:10px;height:56px;padding:0 26px;border:1px solid var(--mc-ink);border-radius:28px;background:none;font:inherit;font-family:var(--mc-font);font-size:16px;font-weight:500;color:var(--mc-ink);text-decoration:none;cursor:pointer;white-space:nowrap}
   #shopify-section-{{ sid }} .mbc__btn:hover{background:var(--mc-ink);color:#fff}
   #shopify-section-{{ sid }} .mbc__arrow{display:grid;place-items:center;width:56px;height:56px;border:1px solid var(--mc-hair);border-radius:50%;background:#fff;color:var(--mc-ink);cursor:pointer}
@@ -52,9 +56,10 @@
   }
 </style>
 
-<div class="mc mbc" data-mbc>
+<div class="mc mbc{% if s.band == 'mint' %} mbc--mint{% endif %}" data-mbc{% if s.anchor != blank %} id="{{ s.anchor }}"{% endif %}>
   <div class="mc__wrap">
     <div class="mbc__head">
+      {%- if s.eyebrow != blank -%}<p class="mbc__eyebrow">{{ s.eyebrow }}</p>{%- endif -%}
       <h2 class="mc__h2 mbc__h">{{ s.heading | escape | newline_to_br }}</h2>
       {%- if s.lede != blank -%}<p class="mbc__lede">{{ s.lede }}</p>{%- endif -%}
       <div class="mbc__side">
@@ -99,6 +104,7 @@
     function sync() {
       prev.disabled = row.scrollLeft < 4;
       next.disabled = row.scrollLeft + row.clientWidth > row.scrollWidth - 4;
+      root.classList.toggle('is-static', row.scrollWidth <= row.clientWidth + 4);
     }
     prev.addEventListener('click', function () { row.scrollBy({ left: -step(), behavior: 'smooth' }); });
     next.addEventListener('click', function () { row.scrollBy({ left: step(), behavior: 'smooth' }); });
@@ -121,6 +127,7 @@
   "name": "MUTO — Benefit cards",
   "tag": "section",
   "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Small line above the heading", "info": "e.g. a chapter number" },
     { "type": "textarea", "id": "heading", "label": "Heading" },
     { "type": "textarea", "id": "lede", "label": "Line under the heading" },
     { "type": "text", "id": "button_label", "label": "Button", "default": "View ingredients" },
@@ -129,6 +136,10 @@
       { "value": "1", "label": "Overview" }, { "value": "2", "label": "Full results" }, { "value": "3", "label": "Formula" }, { "value": "4", "label": "Why it matters" }
     ] },
     { "type": "textarea", "id": "foot", "label": "Small print under the cards" },
+    { "type": "text", "id": "anchor", "label": "Anchor", "info": "For links to this section, e.g. the science page's chapter links" },
+    { "type": "select", "id": "band", "label": "Background", "default": "ground", "options": [
+      { "value": "ground", "label": "Page background (#fafafa)" }, { "value": "mint", "label": "Mint (#c8d2cf)" }
+    ] },
     { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 96 },
     { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 96 }
   ],

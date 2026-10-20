@@ -115,48 +115,50 @@
       ]
     },
     "c2": {
-      "type": "muto-chapter",
+      "type": "muto-benefit-cards",
       "settings": {
+        "eyebrow": "02",
         "anchor": "how-it-shows-up",
-        "number": "02",
-        "label": "How it shows up",
+        "band": "mint",
         "heading": "You don’t feel your cells. You feel your day.",
-        "intro": "",
-        "art": "none",
-        "takeaway": "",
-        "line": "<p>It’s like your body has switched to low power mode. Still working, still getting through the day, but running on less than it used to.</p>",
-        "small": "",
-        "cta_label": "",
-        "cta_link": "",
-        "tint": false,
+        "lede": "It’s like your body has switched to low power mode. Still working, still getting through the day, but running on less than it used to.",
+        "button_label": "",
+        "button_link": "",
+        "button_tab": "3",
+        "foot": "",
         "space_top": 96,
-        "space_bottom": 96,
-        "band": "mint"
+        "space_bottom": 96
       },
       "blocks": {
-        "q1": {
-          "type": "quote",
+        "f1": {
+          "type": "card",
           "settings": {
-            "text": "Sharp at 8am. Gone by 3pm."
+            "image": "shopify://shop_images/MUTO0296.png",
+            "title": "“Sharp at 8am. Gone by 3pm.”",
+            "text": "The afternoon slump. Fewer couriers carrying energy from your food to your cells."
           }
         },
-        "q2": {
-          "type": "quote",
+        "f2": {
+          "type": "card",
           "settings": {
-            "text": "Hard sessions hang around for days."
+            "image": "shopify://shop_images/nad-guarantee-runner.jpg",
+            "title": "“Hard sessions hang around for days.”",
+            "text": "Less back from the same effort, and recovery that takes longer than it used to."
           }
         },
-        "q3": {
-          "type": "quote",
+        "f3": {
+          "type": "card",
           "settings": {
-            "text": "I’m doing everything right, and I still feel it."
+            "image": "shopify://shop_images/MUTO0266.png",
+            "title": "“I’m doing everything right, and I still feel it.”",
+            "text": "It’s not you. It’s biology, and the basics you took at 30 weren’t built for it."
           }
         }
       },
       "block_order": [
-        "q1",
-        "q2",
-        "q3"
+        "f1",
+        "f2",
+        "f3"
       ]
     },
     "c3": {

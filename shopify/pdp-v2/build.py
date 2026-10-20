@@ -237,7 +237,7 @@ put("tests", copy.deepcopy(ING_T["tests"]))
 
 put("sticky", copy.deepcopy(BASE["sticky"]))
 er = copy.deepcopy(BASE["easy_read"])
-er["settings"]["custom_liquid"] = er["settings"]["custom_liquid"].replace("</style>", "\n/* New PDP: the pills moved under the button as badges; only the heading stays */\nhtml body .mc .mc__trust li{display:none}\nhtml body .mc .mc__trust::after{margin-top:8px}\n</style>", 1)
+er["settings"]["custom_liquid"] = er["settings"]["custom_liquid"].replace("</style>", "\n/* New PDP: plain #fafafa behind the buy box, no gradient */\nhtml body .mc.mc--buy,html body .mc.mc--buy.mc--fit-nad{background:#fafafa!important}\n/* New PDP: the pills moved under the button as badges; only the heading stays */\nhtml body .mc .mc__trust li{display:none}\nhtml body .mc .mc__trust::after{margin-top:8px}\n</style>", 1)
 put("easy_read", er)
 
 out = os.path.join(HERE, "templates", "product.muto-nad-v2.json")
