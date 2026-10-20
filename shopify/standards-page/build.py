@@ -7,8 +7,9 @@ behaviour match it exactly.
 
 Laid out after the AG1 quality-standards page, in MUTO's own styles (muto-crea.css):
   muto-standards     headline, intro, the ten standards as a list with photos (new section)
-  muto-home-results  the customer video rail, copied from the product page
-  muto-get-started   photo + teal panel itemising the first order (new section)
+  muto-home-board    the scientific board, as on the About page
+  muto-get-started   photo + charcoal panel itemising the first order (new section)
+  custom-reviews     REVIEWS.io widget, copied from the product page
 The doc's [Confirm …] notes are left off the page; they're listed in README.md.
 
 Usage: python3 build.py   (writes templates/page.standards.json)
@@ -92,10 +93,10 @@ add("standards", "muto-standards", {
     for i, (t, x, c, a, b) in enumerate(STANDARDS, 1)
 ])
 
-# Real customers, from the product page
-results = copy.deepcopy(PDPT["results"])
-results["settings"]["heading"] = "Built on standards,\nlived by real people."
-S["results"] = results; ORDER.append("results")
+# The scientific board, as on the About and home pages (interview videos, tags)
+board = copy.deepcopy(ABOUT["board"])
+board["settings"].update(heading="Meet our\nscientific board.", note="Our scientific advisory board")
+S["board"] = board; ORDER.append("board")
 
 add("start", "muto-get-started", {
     "image_fallback": IMG["kit"], "image_position": "55% 62%",
@@ -113,6 +114,9 @@ add("start", "muto-get-started", {
     ("i3", {"type": "item", "settings": {"name": "12-week guide", "desc": "How to run your 90 days and check it yourself", "was": "£10", "now": "free"}}),
     ("i4", {"type": "item", "settings": {"name": "Socks", "desc": "Size UK 6–11", "was": "£12", "now": "free"}}),
 ])
+
+# Customer reviews (REVIEWS.io widget), copied from the product page
+S["reviews"] = copy.deepcopy(PDPT["custom_reviews_KpXTpD"]); ORDER.append("reviews")
 
 out = os.path.join(HERE, "templates", "page.standards.json")
 os.makedirs(os.path.dirname(out), exist_ok=True)

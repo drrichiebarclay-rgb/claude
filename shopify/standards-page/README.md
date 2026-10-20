@@ -5,8 +5,9 @@ Built from `MUTO_Our_Standards_Page_Copy_Oct26.docx`, laid out after the AG1 qua
 | Part | Section |
 |---|---|
 | Headline, intro, ten standards (list left, selected fills teal; promise, "how to check" and two photos right) | `sections/muto-standards.liquid` (new) |
-| Customer videos | `muto-home-results`, copied from the product page |
-| Start your 90 days: photo left, teal panel itemising the first order | `sections/muto-get-started.liquid` (new) |
+| Meet our scientific board | `muto-home-board`, as on the About page (interview videos) |
+| Start your 90 days: photo left, charcoal panel itemising the first order | `sections/muto-get-started.liquid` (new) |
+| Customer reviews | `custom-reviews` (REVIEWS.io), copied from the product page |
 
 Photos on the standards reuse existing site images as stand-ins; swap them in each standard’s Photo. Prices in the panel are typed (monthly plan, £60 and the £62 kit), so keep them in step with Skio.
 
