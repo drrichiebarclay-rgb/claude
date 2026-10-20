@@ -320,65 +320,11 @@
         "i3",
         "i4"
       ]
-    },
-    "faq": {
-      "type": "muto-crea-faq",
-      "settings": {
-        "heading": "Questions",
-        "schema_on": true,
-        "space_top": 60,
-        "space_bottom": 100
-      },
-      "blocks": {
-        "q1": {
-          "type": "q",
-          "settings": {
-            "title": "Can I see your test results?",
-            "text": "<p>Yes. Batch certificates are available on request: <a href=\"mailto:hello@mutolongevity.com\">hello@mutolongevity.com</a>.</p>"
-          }
-        },
-        "q2": {
-          "type": "q",
-          "settings": {
-            "title": "Why NR and not NMN?",
-            "text": "<p>NR is authorised for food supplements in Great Britain, at up to 300mg a day for adults. NMN is still under novel food assessment.</p>"
-          }
-        },
-        "q3": {
-          "type": "q",
-          "settings": {
-            "title": "Has MUTO been clinically proven?",
-            "text": "<p>No, and we won’t say it has. Our first human study starts in December 2026 at the University of Westminster. We’ll publish the results, whatever they show.</p>"
-          }
-        },
-        "q4": {
-          "type": "q",
-          "settings": {
-            "title": "Is it tested for banned substances?",
-            "text": "<p>Every batch is third-party tested. We don’t currently make a banned-substance certification claim, and we’ll update this page if that changes.</p>"
-          }
-        },
-        "q5": {
-          "type": "q",
-          "settings": {
-            "title": "Is it safe with medication?",
-            "text": "<p>Check with your GP or pharmacist first. MUTO contains vitamin K2, which can affect blood thinners such as warfarin.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "q1",
-        "q2",
-        "q3",
-        "q4",
-        "q5"
-      ]
     }
   },
   "order": [
     "standards",
     "results",
-    "start",
-    "faq"
+    "start"
   ]
 }

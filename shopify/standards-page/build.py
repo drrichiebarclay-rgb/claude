@@ -9,7 +9,6 @@ Laid out after the AG1 quality-standards page, in MUTO's own styles (muto-crea.c
   muto-standards     headline, intro, the ten standards as a list with photos (new section)
   muto-home-results  the customer video rail, copied from the product page
   muto-get-started   photo + teal panel itemising the first order (new section)
-  muto-crea-faq      five questions
 The doc's [Confirm …] notes are left off the page; they're listed in README.md.
 
 Usage: python3 build.py   (writes templates/page.standards.json)
@@ -113,17 +112,6 @@ add("start", "muto-get-started", {
     ("i2", {"type": "item", "settings": {"name": "Forever Jar", "desc": "A glass jar to keep", "was": "£10", "now": "free"}}),
     ("i3", {"type": "item", "settings": {"name": "12-week guide", "desc": "How to run your 90 days and check it yourself", "was": "£10", "now": "free"}}),
     ("i4", {"type": "item", "settings": {"name": "Socks", "desc": "Size UK 6–11", "was": "£12", "now": "free"}}),
-])
-
-FAQ = [
-    ("Can I see your test results?", "Yes. Batch certificates are available on request: " + MAIL + "."),
-    ("Why NR and not NMN?", "NR is authorised for food supplements in Great Britain, at up to 300mg a day for adults. NMN is still under novel food assessment."),
-    ("Has MUTO been clinically proven?", "No, and we won’t say it has. Our first human study starts in December 2026 at the University of Westminster. We’ll publish the results, whatever they show."),
-    ("Is it tested for banned substances?", "Every batch is third-party tested. We don’t currently make a banned-substance certification claim, and we’ll update this page if that changes."),
-    ("Is it safe with medication?", "Check with your GP or pharmacist first. MUTO contains vitamin K2, which can affect blood thinners such as warfarin."),
-]
-add("faq", "muto-crea-faq", {"heading": "Questions", "schema_on": True, "space_top": 60, "space_bottom": 100}, [
-    (f"q{i}", {"type": "q", "settings": {"title": q, "text": p(a)}}) for i, (q, a) in enumerate(FAQ, 1)
 ])
 
 out = os.path.join(HERE, "templates", "page.standards.json")

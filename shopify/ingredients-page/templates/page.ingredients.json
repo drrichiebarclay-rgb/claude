@@ -3,6 +3,54 @@
     "library": {
       "type": "muto-ingredient-library",
       "blocks": {
+        "cat1": {
+          "type": "category",
+          "settings": {
+            "name": "All",
+            "text": "MUTO puts 19 ingredients in two capsules: NR to raise NAD+, CoQ10 and PQQ for your mitochondria, a full B complex in active forms, vitamins D3 and K2, zinc and copper, and plant polyphenols. Every dose is on the label.",
+            "supports": "Daily energy\nCellular health\nImmune function\nHealthy ageing"
+          }
+        },
+        "cat2": {
+          "type": "category",
+          "settings": {
+            "name": "Energy",
+            "text": "MUTO’s energy ingredients work where energy is made: inside your cells. Your body turns NR into NAD+, CoQ10 and PQQ support the mitochondria, and the active B vitamins help release energy from food.",
+            "supports": "Steady energy through the day\nLess tiredness and fatigue\nCellular energy production"
+          }
+        },
+        "cat3": {
+          "type": "category",
+          "settings": {
+            "name": "Recovery",
+            "text": "Recovery starts at the cellular level. Vitamin D3 supports normal muscle function, CoQ10 and PQQ support the mitochondria that refill your energy stores, and riboflavin helps reduce tiredness.",
+            "supports": "Bouncing back after activity\nNormal muscle function\nLess tiredness and fatigue"
+          }
+        },
+        "cat4": {
+          "type": "category",
+          "settings": {
+            "name": "Stress",
+            "text": "A demanding week uses up the nutrients your nervous system relies on. MUTO’s B vitamins in their active forms, with zinc, support normal psychological function and mental performance.",
+            "supports": "Normal psychological function\nMental performance\nFocus through the day"
+          }
+        },
+        "cat5": {
+          "type": "category",
+          "settings": {
+            "name": "Longevity",
+            "text": "NAD+ falls as we get older. MUTO pairs 300mg NR with TMG, then adds trans-resveratrol and grape seed polyphenols, vitamin K2 for your bones and zinc to help protect cells from oxidative stress.",
+            "supports": "Healthy ageing\nNAD+ levels\nNormal bones\nProtecting your cells"
+          }
+        },
+        "cat6": {
+          "type": "category",
+          "settings": {
+            "name": "Immunity",
+            "text": "Vitamin D3, zinc, copper, folate and vitamins B6 and B12 all contribute to the normal function of the immune system, so one jar covers what most people take separately through the winter.",
+            "supports": "Immune function\nWinter wellbeing\nDaily nutrient intake"
+          }
+        },
         "ing01": {
           "type": "ingredient",
           "settings": {
@@ -271,6 +319,12 @@
         }
       },
       "block_order": [
+        "cat1",
+        "cat2",
+        "cat3",
+        "cat4",
+        "cat5",
+        "cat6",
         "ing01",
         "ing02",
         "ing03",
@@ -291,7 +345,10 @@
         "ing18",
         "ing19"
       ],
-      "settings": {}
+      "settings": {
+        "cta_label": "Start your 90 days",
+        "cta_link": "/products/muto-nad-cellular-complex"
+      }
     }
   },
   "order": [

@@ -17,6 +17,8 @@
 {%- liquid
   assign sid = section.id
   assign filters = section.settings.filters | split: ','
+  assign ings = section.blocks | where: 'type', 'ingredient'
+  assign cats = section.blocks | where: 'type', 'category'
 -%}
 
 <style>
@@ -33,6 +35,15 @@
   .mil__filter[aria-pressed="true"]{background:var(--mil-ink);color:#fff;border-color:var(--mil-ink)}
   .mil__filter .n{font-family:var(--mil-mono);font-size:12px;opacity:.6}
   .mil button:focus-visible,.mil-d button:focus-visible{outline:2px solid var(--mil-accent);outline-offset:3px}
+  .mil__cats{margin:0 0 56px}
+  .mil__cat{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,340px);gap:48px;align-items:start}
+  .mil__cat[hidden]{display:none}
+  .mil__cat-text{margin:0;font-weight:500;font-size:clamp(24px,2.6vw,40px);line-height:1.15;letter-spacing:-.015em;color:var(--mil-ink)}
+  .mil__cat-btn{display:inline-flex;align-items:center;margin-top:32px;min-height:56px;padding:0 28px;border-radius:28px;background:var(--mil-ink);color:#fff;font-size:17px;font-weight:500;text-decoration:none}
+  .mil__cat-btn:hover{opacity:.9}
+  .mil__cat-label{margin:6px 0 16px;font-family:var(--mil-mono);font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--mil-ink)}
+  .mil__cat-sup ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+  .mil__cat-sup li{font-size:clamp(20px,1.8vw,26px);line-height:1.2;letter-spacing:-.01em;color:var(--mil-ink)}
   .mil__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:40px 28px;margin:0;padding:0;list-style:none}
   .mil__card{min-width:0;margin:0}
   .mil__card[hidden]{display:none}
@@ -86,7 +97,7 @@
   html.mil-locked,html.mil-locked body{overflow:hidden}
 
   @media (max-width:1080px){.mil__grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-  @media (max-width:820px){.mil__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 16px}.mil__name{font-size:18px}}
+  @media (max-width:820px){.mil__cat{grid-template-columns:1fr;gap:24px}.mil__cats{margin-bottom:40px}.mil__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 16px}.mil__name{font-size:18px}}
   @media (max-width:700px){
     .mil-d{top:auto;left:0;width:100%;height:calc(100% - 64px);border-radius:22px 22px 0 0;transform:translateY(100%);box-shadow:0 -20px 50px rgba(0,0,0,.2)}
     .mil-d__grab{display:block;position:absolute;top:10px;left:50%;width:44px;height:5px;margin-left:-22px;border-radius:3px;background:rgba(36,34,35,.25);z-index:2}
@@ -123,11 +134,11 @@
     </header>
 
     <div class="mil__filters" role="group" aria-label="Filter ingredients">
-      <button type="button" class="mil__filter" data-f="All" aria-pressed="true">All<span class="n">{{ section.blocks.size }}</span></button>
+      <button type="button" class="mil__filter" data-f="All" aria-pressed="true">All<span class="n">{{ ings.size }}</span></button>
       {%- for f in filters -%}
         {%- assign fs = f | strip -%}
         {%- assign count = 0 -%}
-        {%- for block in section.blocks -%}
+        {%- for block in ings -%}
           {%- assign tl = block.settings.tags | split: ',' -%}
           {%- for t in tl -%}{%- assign ts = t | strip -%}{%- if ts == fs -%}{%- assign count = count | plus: 1 -%}{%- endif -%}{%- endfor -%}
         {%- endfor -%}
@@ -135,8 +146,28 @@
       {%- endfor -%}
     </div>
 
+    {%- if cats.size > 0 -%}
+      <div class="mil__cats">
+        {%- for block in cats -%}
+          {%- assign sup = block.settings.supports | newline_to_br | split: '<br />' -%}
+          <div class="mil__cat" data-cat="{{ block.settings.name | strip | escape }}"{% unless block.settings.name == 'All' %} hidden{% endunless %} {{ block.shopify_attributes }}>
+            <div class="mil__cat-main">
+              <p class="mil__cat-text">{{ block.settings.text }}</p>
+              {%- if section.settings.cta_label != blank -%}<a class="mil__cat-btn" href="{{ section.settings.cta_link | default: routes.all_products_collection_url }}">{{ section.settings.cta_label }}</a>{%- endif -%}
+            </div>
+            {%- if block.settings.supports != blank -%}
+              <div class="mil__cat-sup">
+                <p class="mil__cat-label">{{ section.settings.supports_label }}</p>
+                <ul>{%- for x in sup -%}{%- assign xs = x | strip -%}{%- if xs != blank -%}<li>— {{ xs }}</li>{%- endif -%}{%- endfor -%}</ul>
+              </div>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
     <ul class="mil__grid">
-      {%- for block in section.blocks -%}
+      {%- for block in ings -%}
         {%- assign tl = block.settings.tags | split: ',' -%}
         <li class="mil__card" data-tags="{% for t in tl %}|{{ t | strip | escape }}{% endfor %}|" data-i="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
           <button class="mil__open" type="button" aria-haspopup="dialog" aria-label="{{ block.settings.name | escape }}, {{ block.settings.dose | escape }}. More about this ingredient">
@@ -163,7 +194,7 @@
 
   <script type="application/json" data-mil-data>
     [
-      {%- for block in section.blocks -%}
+      {%- for block in ings -%}
         {
           "n": {{ block.settings.name | json }},
           "d": {{ block.settings.dose | json }},
@@ -270,6 +301,9 @@
         current = b.dataset.f;
         buttons.forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
         cards.forEach(function (li) { li.hidden = !(current === 'All' || li.dataset.tags.indexOf('|' + current + '|') > -1); });
+        var cs = [].slice.call(root.querySelectorAll('.mil__cat'));
+        var hit = cs.some(function (c) { return c.dataset.cat === current; });
+        cs.forEach(function (c) { c.hidden = c.dataset.cat !== (hit ? current : 'All'); });
       });
     });
 
@@ -358,12 +392,24 @@
     { "type": "text", "id": "heading", "label": "Heading", "default": "Every ingredient has a job." },
     { "type": "textarea", "id": "lede", "label": "Intro", "default": "Each one supports at least one of five things that change as we get older. Filter below to see which, and why it’s there." },
     { "type": "text", "id": "filters", "label": "Filters", "info": "Comma-separated. Each must match a tag used on the ingredients.", "default": "Energy, Recovery, Stress, Longevity, Immunity" },
+    { "type": "text", "id": "supports_label", "label": "Supports label", "default": "Supports:" },
+    { "type": "text", "id": "cta_label", "label": "Button under the statement", "default": "Start your 90 days" },
+    { "type": "url", "id": "cta_link", "label": "Button link" },
     { "type": "text", "id": "foot", "label": "Note under the grid", "default": "Every dose is on the label. No blends, no fillers, vegan." },
     { "type": "color", "id": "bg", "label": "Background", "default": "#f9f9f9" },
     { "type": "range", "id": "pad_top", "label": "Space above", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 72 },
     { "type": "range", "id": "pad_bottom", "label": "Space below", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 96 }
   ],
   "blocks": [
+    {
+      "type": "category",
+      "name": "Filter statement",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Filter", "info": "\"All\" or one of the section's filters, spelt the same.", "default": "All" },
+        { "type": "textarea", "id": "text", "label": "Statement" },
+        { "type": "textarea", "id": "supports", "label": "Supports", "info": "One per line." }
+      ]
+    },
     {
       "type": "ingredient",
       "name": "Ingredient",
