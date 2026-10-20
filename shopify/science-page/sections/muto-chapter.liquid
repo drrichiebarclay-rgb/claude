@@ -190,10 +190,10 @@
                   {%- if block.settings.text != blank -%}<div class="mch__bx">{{ block.settings.text }}</div>{%- endif -%}
                 </div>
               {%- when 'term' -%}
-                <div class="mch__b--term" {{ block.shopify_attributes }}>
-                  <p class="mch__bt">{{ block.settings.word }}</p>
+                <details class="mch__b--term" {{ block.shopify_attributes }}>
+                  <summary class="mch__sum"><span class="mch__bt">{{ block.settings.word }}</span><span class="mch__plus" aria-hidden="true"></span></summary>
                   <p class="mch__bx">{{ block.settings.meaning }}</p>
-                </div>
+                </details>
               {%- when 'table' -%}
                 {%- assign rows = block.settings.rows | newline_to_br | split: '<br />' -%}
                 {%- assign us = block.settings.highlight | default: 0 -%}
