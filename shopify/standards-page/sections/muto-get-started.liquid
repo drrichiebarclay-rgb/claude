@@ -24,7 +24,7 @@
   /* Theme h1–h3 rules set their own font; headings here use the site's display face and weight */
   #shopify-section-{{ sid }} h1,#shopify-section-{{ sid }} h2,#shopify-section-{{ sid }} h3{font-family:var(--mc-font);font-weight:500;-webkit-font-smoothing:antialiased}
   #shopify-section-{{ sid }} .mg{padding-top:{{ s.space_top }}px;padding-bottom:{{ s.space_bottom }}px}
-  #shopify-section-{{ sid }} .mg__in{display:grid;grid-template-columns:1fr 1fr;min-height:720px}
+  #shopify-section-{{ sid }} .mg__in{display:grid;grid-template-columns:1fr 1fr}
   #shopify-section-{{ sid }} .mg__img{position:relative;background:var(--mc-ground-buy)}
   #shopify-section-{{ sid }} .mg__img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   /* Framed on the products: a set share of the photo's width fills the box, centred across on the
@@ -36,28 +36,30 @@
     inset:auto;left:50%;width:var(--w);height:var(--h);max-width:none;object-fit:fill;transform:translateX(-{{ s.image_focus_x }}%);
     top:max(calc({{ s.image_focus_at }} * 1cqh - var(--h) * {{ s.image_focus_y }} / 100), calc(100cqh - var(--h)));
     -webkit-mask-image:linear-gradient(transparent,#000 12%);mask-image:linear-gradient(transparent,#000 12%)}
-  #shopify-section-{{ sid }} .mg__panel{background:var(--mc-ink-alt,#242223);color:#fff;padding:80px clamp(24px,6vw,120px);display:flex;flex-direction:column}
-  #shopify-section-{{ sid }} .mg__h{color:#fff}
+  #shopify-section-{{ sid }} .mg__panel{background:var(--mc-ink-alt,#242223);color:#fff;padding:48px clamp(24px,5vw,96px) 40px;display:flex;flex-direction:column}
+  #shopify-section-{{ sid }} .mc .mg__h{color:#fff;font-size:clamp(34px,3.4vw,52px)}
   #shopify-section-{{ sid }} .mg__row{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
-  #shopify-section-{{ sid }} .mg__prod{margin-top:40px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.4)}
-  #shopify-section-{{ sid }} .mg__name{font-weight:500;font-size:22px;line-height:1.2}
-  #shopify-section-{{ sid }} .mg__price{font-weight:500;font-size:22px;white-space:nowrap}
-  #shopify-section-{{ sid }} .mg__sub{margin-top:6px;font-size:16px;color:rgba(255,255,255,.75)}
-  #shopify-section-{{ sid }} .mg__label{margin-top:24px;font-family:var(--mc-mono);font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.8)}
-  #shopify-section-{{ sid }} .mg__items{list-style:none;margin:8px 0 0;padding:0 0 20px;border-bottom:1px solid rgba(255,255,255,.4)}
-  #shopify-section-{{ sid }} .mg__items li{padding:14px 0}
-  #shopify-section-{{ sid }} .mg__item-name{font-weight:500;font-size:19px}
-  #shopify-section-{{ sid }} .mg__item-desc{margin-top:4px;font-size:15px;color:rgba(255,255,255,.75)}
+  #shopify-section-{{ sid }} .mg__prod{margin-top:24px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.4)}
+  #shopify-section-{{ sid }} .mg__name{font-weight:500;font-size:20px;line-height:1.2}
+  #shopify-section-{{ sid }} .mg__price{font-weight:500;font-size:20px;white-space:nowrap}
+  #shopify-section-{{ sid }} .mg__sub{margin-top:4px;font-size:15px;color:rgba(255,255,255,.75)}
+  #shopify-section-{{ sid }} .mg__label{margin-top:16px;font-family:var(--mc-mono);font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+  #shopify-section-{{ sid }} .mg__items{list-style:none;margin:4px 0 0;padding:0 0 12px;border-bottom:1px solid rgba(255,255,255,.4)}
+  #shopify-section-{{ sid }} .mg__items li{padding:8px 0}
+  #shopify-section-{{ sid }} .mg__item-name{font-weight:500;font-size:17px}
+  #shopify-section-{{ sid }} .mg__item-desc{margin-top:2px;font-size:14px;color:rgba(255,255,255,.75)}
   #shopify-section-{{ sid }} .mg__was{margin-right:6px;font-weight:400;text-decoration:line-through;color:rgba(255,255,255,.6)}
-  #shopify-section-{{ sid }} .mg__free{font-weight:500;font-size:19px;white-space:nowrap}
+  #shopify-section-{{ sid }} .mg__free{font-weight:500;font-size:17px;white-space:nowrap}
   #shopify-section-{{ sid }} .mg__free em{font-style:normal;color:var(--mc-cyan)}
-  #shopify-section-{{ sid }} .mg__total{margin-top:20px;font-weight:500;font-size:22px}
-  #shopify-section-{{ sid }} .mg__btn{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:40px;width:100%;height:64px;border-radius:8px;font-size:16px;text-decoration:none}
-  #shopify-section-{{ sid }} .mg__ticks{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 24px;list-style:none;margin:20px 0 0;padding:0;font-size:14px;color:rgba(255,255,255,.85)}
+  #shopify-section-{{ sid }} .mg__total{margin-top:14px;font-weight:500;font-size:20px}
+  #shopify-section-{{ sid }} .mg__btn{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:24px;width:100%;height:60px;border-radius:8px;font-size:16px;text-decoration:none}
+  #shopify-section-{{ sid }} .mg__ticks{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 24px;list-style:none;margin:14px 0 0;padding:0;font-size:14px;color:rgba(255,255,255,.85)}
   #shopify-section-{{ sid }} .mg__ticks li::before{content:"✓";margin-right:6px;color:var(--mc-cyan)}
   @media (max-width:989px){
     #shopify-section-{{ sid }} .mg__in{grid-template-columns:1fr;min-height:0}
     #shopify-section-{{ sid }} .mg__img{aspect-ratio:4/3}
+    /* Stacked, the photo box is wide and short: the products sit a little higher so the floor stays in */
+    #shopify-section-{{ sid }} .mg__img--fit img{top:max(calc({{ s.image_focus_at | minus: 10 }} * 1cqh - var(--h) * {{ s.image_focus_y }} / 100), calc(100cqh - var(--h)))}
     #shopify-section-{{ sid }} .mg__panel{padding:40px var(--mc-gutter,20px)}
     #shopify-section-{{ sid }} .mg__name,#shopify-section-{{ sid }} .mg__price,#shopify-section-{{ sid }} .mg__total{font-size:19px}
     #shopify-section-{{ sid }} .mg__item-name,#shopify-section-{{ sid }} .mg__free{font-size:17px}
