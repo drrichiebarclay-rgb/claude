@@ -74,6 +74,10 @@
   .mil-d__val{font-weight:600;font-size:19px;line-height:1.35;margin:0}
   .mil-d__why{display:grid;gap:10px}
   .mil-d__why p:last-child{margin:0;font-size:16.5px;line-height:1.65}
+  .mil-d__refs{display:grid;gap:14px;padding-top:24px;border-top:1px solid rgba(36,34,35,.14)}
+  .mil-d__refs[hidden]{display:none}
+  .mil-d__refs ul{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+  .mil-d__refs li{margin:0;padding-left:16px;border-left:3px solid #e3e6e5;font-size:15px;line-height:1.5;color:#5c5a5b}
   .mil-d__nav{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;margin-top:8px;padding-top:24px;border-top:1px solid rgba(36,34,35,.14)}
   .mil-d__nav button{font:inherit;font-size:16px;font-weight:600;line-height:1;padding:17px 28px;border-radius:6px;border:1px solid rgba(36,34,35,.14);background:#fff;color:#242223;cursor:pointer}
   .mil-d__nav button:hover:not(:disabled){border-color:#242223}
@@ -162,7 +166,8 @@
           "img": {% if block.settings.image != blank %}{{ block.settings.image | image_url: width: 1280 | json }}{% else %}null{% endif %},
           "w": {{ block.settings.description | json }},
           "s": {{ block.settings.supports | json }},
-          "y": {{ block.settings.why | json }}
+          "y": {{ block.settings.why | json }},
+          "r": {{ block.settings.refs | newline_to_br | split: '<br />' | json }}
         }{% unless forloop.last %},{% endunless %}
       {%- endfor -%}
     ]
@@ -183,6 +188,7 @@
         <div class="mil-d__fact"><p class="mil-d__label">Supports</p><p class="mil-d__val" data-mil-sup></p></div>
       </div>
       <div class="mil-d__why"><p class="mil-d__label">Why this form &amp; dose</p><p data-mil-why></p></div>
+      <div class="mil-d__refs" data-mil-refs-wrap><p class="mil-d__label">Key references</p><ul data-mil-refs></ul></div>
       <nav class="mil-d__nav" aria-label="Ingredients">
         <button type="button" data-mil-prev>Previous</button>
         <span class="mil-d__count" data-mil-count aria-live="polite"></span>
@@ -272,6 +278,9 @@
       g.t.forEach(function (t) { var s = document.createElement('span'); s.className = 'mil-d__pill'; s.textContent = t; q('[data-mil-pills]').appendChild(s); });
       q('[data-mil-name]').textContent = g.n; q('[data-mil-desc]').textContent = g.w; q('[data-mil-dose]').textContent = g.d;
       q('[data-mil-sup]').textContent = g.s; q('[data-mil-why]').textContent = g.y;
+      var refs = (g.r || []).map(function (t) { return t.trim(); }).filter(Boolean), ul = q('[data-mil-refs]');
+      ul.innerHTML = ''; q('[data-mil-refs-wrap]').hidden = !refs.length;
+      refs.forEach(function (t) { var li = document.createElement('li'); li.textContent = t; ul.appendChild(li); });
       q('[data-mil-count]').textContent = (pos + 1) + ' of ' + list.length;
       q('[data-mil-prev]').disabled = pos === 0; q('[data-mil-next]').disabled = pos === list.length - 1;
       var old = media.querySelector('canvas,img'); if (old) old.remove();
@@ -362,7 +371,8 @@
           { "value": "pile", "label": "Pile" }, { "value": "mound", "label": "Heap" } ] },
         { "type": "textarea", "id": "description", "label": "What it does" },
         { "type": "text", "id": "supports", "label": "Supports" },
-        { "type": "textarea", "id": "why", "label": "Why this form & dose" }
+        { "type": "textarea", "id": "why", "label": "Why this form & dose" },
+        { "type": "textarea", "id": "refs", "label": "Key references", "info": "One per line." }
       ]
     }
   ],

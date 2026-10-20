@@ -13,7 +13,8 @@
             "pattern": "ring",
             "description": "The main ingredient. A form of vitamin B3 your body turns into NAD+, the molecule your cells use to make energy. NAD+ levels fall as we age.",
             "supports": "Energy, NAD+ levels",
-            "why": "Nicotinamide riboside reaches NAD+ in fewer steps than other forms of vitamin B3. 300mg a day is the most the UK allows in a food supplement for adults, so MUTO uses the full amount."
+            "why": "Nicotinamide riboside reaches NAD+ in fewer steps than other forms of vitamin B3. 300mg a day is the most the UK allows in a food supplement for adults, so MUTO uses the full amount.",
+            "refs": "Trammell SAJ, et al. Nicotinamide riboside is uniquely and orally bioavailable in mice and humans. Nat Commun. 2016.\nMartens CR, et al. Chronic nicotinamide riboside supplementation is well-tolerated and elevates NAD+ in healthy middle-aged and older adults. Nat Commun. 2018.\nConze D, et al. Safety and metabolism of long-term administration of NIAGEN (nicotinamide riboside chloride) in a randomized, double-blind, placebo-controlled clinical trial of healthy overweight adults. Sci Rep. 2019.\nEFSA NDA Panel. Safety of nicotinamide riboside chloride as a novel food. EFSA J. 2019."
           }
         },
         "ing02": {
@@ -26,7 +27,8 @@
             "pattern": "streak",
             "description": "Contributes to normal energy-yielding metabolism, normal immune function, normal psychological function and the reduction of tiredness and fatigue.",
             "supports": "Energy, immune function, psychological function",
-            "why": "Methylcobalamin is a form of B12 your body can use as it is. Absorbing B12 from food tends to get harder with age, so 100mcg is well above the 2.5mcg daily reference intake."
+            "why": "Methylcobalamin is a form of B12 your body can use as it is. Absorbing B12 from food tends to get harder with age, so 100mcg is well above the 2.5mcg daily reference intake.",
+            "refs": "Baik HW, Russell RM. Vitamin B12 deficiency in the elderly. Annu Rev Nutr. 1999.\nStabler SP. Vitamin B12 deficiency. N Engl J Med. 2013.\nEFSA NDA Panel. Scientific opinion on dietary reference values for cobalamin (vitamin B12). EFSA J. 2015.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
           }
         },
         "ing03": {
@@ -39,7 +41,8 @@
             "pattern": "pile",
             "description": "Found in every cell, where it’s part of how your mitochondria make energy. Your body makes less CoQ10 as you get older.",
             "supports": "Cellular energy",
-            "why": "150mg sits in the middle of the range most supplements use. CoQ10 is fat-soluble, which is why we say take MUTO with breakfast: food helps your body absorb it."
+            "why": "150mg sits in the middle of the range most supplements use. CoQ10 is fat-soluble, which is why we say take MUTO with breakfast: food helps your body absorb it.",
+            "refs": "Kalén A, Appelkvist EL, Dallner G. Age-related changes in the lipid compositions of rat and human tissues. Lipids. 1989.\nBhagavan HN, Chopra RK. Coenzyme Q10: absorption, tissue uptake, metabolism and pharmacokinetics. Free Radic Res. 2006.\nHidaka T, et al. Safety assessment of coenzyme Q10 (CoQ10). Biofactors. 2008."
           }
         },
         "ing04": {
@@ -52,7 +55,8 @@
             "pattern": "pile",
             "description": "Contributes to normal immune function, normal muscle function and the maintenance of normal bones. Most of us in the UK get too little sun from October to March.",
             "supports": "Immune function, muscles, bones",
-            "why": "D3 is the form your skin makes from sunlight. 50mcg (2,000 IU) is half the UK safe upper limit of 100mcg a day. The NHS advises everyone to consider vitamin D in autumn and winter."
+            "why": "D3 (cholecalciferol) is the form your skin makes from sunlight, and it raises blood vitamin D levels more effectively than D2 (ergocalciferol). 50mcg (2,000 IU) is half the UK safe upper limit of 100mcg a day. The NHS advises everyone to consider vitamin D in autumn and winter.",
+            "refs": "Tripkovic L, et al. Comparison of vitamin D2 and vitamin D3 supplementation in raising serum 25-hydroxyvitamin D status: a systematic review and meta-analysis. Am J Clin Nutr. 2012.\nMartineau AR, et al. Vitamin D supplementation to prevent acute respiratory tract infections: systematic review and meta-analysis of individual participant data. BMJ. 2017.\nHolick MF. Vitamin D deficiency. N Engl J Med. 2007.\nScientific Advisory Committee on Nutrition (SACN). Vitamin D and Health. 2016.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
           }
         },
         "ing05": {
@@ -65,7 +69,8 @@
             "pattern": "burst",
             "description": "Also called betaine, and found naturally in beetroot. Works alongside NR, supporting the body’s natural methylation processes.",
             "supports": "Methylation",
-            "why": "Making and clearing NAD+ uses up methyl groups, and TMG donates them. That’s why it’s often paired with NAD+ precursors like NR."
+            "why": "Making and clearing NAD+ uses up methyl groups, and TMG donates them. That’s why it’s often paired with NAD+ precursors like NR.",
+            "refs": "Craig SA. Betaine in human nutrition. Am J Clin Nutr. 2004.\nOlthof MR, et al. Low dose betaine supplementation leads to immediate and long term lowering of plasma homocysteine in healthy men and women. J Nutr. 2003."
           }
         },
         "ing06": {
@@ -78,7 +83,8 @@
             "pattern": "streak",
             "description": "Contributes to the reduction of tiredness and fatigue and to the protection of cells from oxidative stress.",
             "supports": "Energy, protecting cells",
-            "why": "Riboflavin is part of the enzymes that release energy from food. 5mg is well above the 1.4mg daily reference intake. It’s also why your urine may look brighter yellow: that’s normal."
+            "why": "Riboflavin is part of the enzymes that release energy from food. 5mg is well above the 1.4mg daily reference intake. It’s also why your urine may look brighter yellow: that’s normal.",
+            "refs": "Powers HJ. Riboflavin (vitamin B-2) and health. Am J Clin Nutr. 2003.\nEFSA NDA Panel. Dietary reference values for riboflavin. EFSA J. 2017.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
           }
         },
         "ing07": {
@@ -91,7 +97,8 @@
             "pattern": "mound",
             "description": "Contributes to the maintenance of normal bones. Paired with vitamin D3.",
             "supports": "Bones",
-            "why": "MK-7 is the longest-lasting form of vitamin K2 in the body, so once a day is enough. Vitamin D helps your body absorb calcium, and K2 works alongside it."
+            "why": "MK-7 is the longest-lasting form of vitamin K2 in the body, so once a day is enough. Vitamin D helps your body absorb calcium, and K2 works alongside it.",
+            "refs": "Schurgers LJ, et al. Vitamin K-containing dietary supplements: comparison of synthetic vitamin K1 and natto-derived menaquinone-7. Blood. 2007.\nKnapen MHJ, et al. Three-year low-dose menaquinone-7 supplementation helps decrease bone loss in healthy postmenopausal women. Osteoporos Int. 2013.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
           }
         },
         "ing08": {
@@ -104,7 +111,8 @@
             "pattern": "burst",
             "description": "Contributes to normal immune function, normal cognitive function and the protection of cells from oxidative stress.",
             "supports": "Immune function, cognitive function, cells",
-            "why": "Zinc bisglycinate is zinc bound to glycine, an amino acid, a form that is well absorbed and gentle on the stomach. 15mg is 150% of the daily reference intake and within the UK safe level of 25mg a day. It’s paired with copper, because taking zinc long-term can lower copper levels."
+            "why": "Zinc bisglycinate is zinc bound to glycine, an amino acid, a form that is well absorbed and gentle on the stomach. 15mg is 150% of the daily reference intake and within the UK safe level of 25mg a day. It’s paired with copper, because taking zinc long-term can lower copper levels.",
+            "refs": "Gandia P, et al. A bioavailability study comparing two oral formulations containing zinc (Zn bis-glycinate vs. Zn gluconate) after a single administration to twelve healthy female volunteers. Int J Vitam Nutr Res. 2007.\nPrasad AS. Zinc in human health: effect of zinc on immune cells. Mol Med. 2008.\nFosmire GJ. Zinc toxicity. Am J Clin Nutr. 1990.\nExpert Group on Vitamins and Minerals. Safe Upper Levels for Vitamins and Minerals. Food Standards Agency. 2003.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
           }
         },
         "ing09": {
@@ -117,7 +125,8 @@
             "pattern": "mound",
             "description": "Contributes to normal immune function, normal psychological function and the reduction of tiredness and fatigue.",
             "supports": "Immune function, energy, psychological function",
-            "why": "5-MTHF is the active form of folate. Many people carry a common gene variant (MTHFR) that makes converting ordinary folic acid less efficient, so we skip that step. 400mcg is 200% of the daily reference intake."
+            "why": "5-MTHF is the active form of folate. Many people carry a common gene variant (MTHFR) that makes converting ordinary folic acid less efficient, so we skip that step. 400mcg is 200% of the daily reference intake.",
+            "refs": "Pietrzik K, Bailey L, Shane B. Folic acid and L-5-methyltetrahydrofolate: comparison of clinical pharmacokinetics and pharmacodynamics. Clin Pharmacokinet. 2010.\nFrosst P, et al. A candidate genetic risk factor for vascular disease: a common mutation in methylenetetrahydrofolate reductase. Nat Genet. 1995.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
           }
         },
         "ing10": {
@@ -130,7 +139,8 @@
             "pattern": "ring",
             "description": "Pyrroloquinoline quinone. Found in small amounts in foods like kiwi, parsley and green tea, and studied for its role in the mitochondria, where cells make energy.",
             "supports": "Cellular energy",
-            "why": "20mg a day is the amount most often used in human studies of PQQ."
+            "why": "20mg a day is the amount most often used in human studies of PQQ.",
+            "refs": "Harris CB, et al. Dietary pyrroloquinoline quinone (PQQ) alters indicators of inflammation and mitochondrial-related metabolism in human subjects. J Nutr Biochem. 2013.\nEFSA NDA Panel. Safety of pyrroloquinoline quinone disodium salt as a novel food. EFSA J. 2017."
           }
         },
         "ing11": {
@@ -143,7 +153,8 @@
             "pattern": "streak",
             "description": "A plant compound found in grape skins, widely studied in healthy-ageing research.",
             "supports": "Plant polyphenols",
-            "why": "Trans-resveratrol is the stable, active form of resveratrol. It’s fat-soluble, so it’s best taken with food, like the rest of MUTO."
+            "why": "Trans-resveratrol is the stable, active form of resveratrol. It’s fat-soluble, so it’s best taken with food, like the rest of MUTO.",
+            "refs": "Baur JA, Sinclair DA. Therapeutic potential of resveratrol: the in vivo evidence. Nat Rev Drug Discov. 2006.\nWalle T. Bioavailability of resveratrol. Ann N Y Acad Sci. 2011."
           }
         },
         "ing12": {
@@ -156,7 +167,8 @@
             "pattern": "mound",
             "description": "Plant polyphenols from grape seeds. Paired with trans-resveratrol.",
             "supports": "Plant polyphenols",
-            "why": "Standardised to 95% polyphenols, so every batch has the same amount: about 142mg of polyphenols per serve."
+            "why": "Standardised to 95% polyphenols, so every batch has the same amount: about 142mg of polyphenols per serve.",
+            "refs": "Bagchi D, et al. Free radicals and grape seed proanthocyanidin extract: importance in human health and disease prevention. Toxicology. 2000.\nFeringa HH, et al. The effect of grape seed extract on cardiovascular risk markers: a meta-analysis of randomized controlled trials. J Am Diet Assoc. 2011."
           }
         },
         "ing13": {
@@ -169,7 +181,8 @@
             "pattern": "pile",
             "description": "Contributes to normal psychological function, normal immune function, the regulation of hormonal activity and the reduction of tiredness and fatigue.",
             "supports": "Immune function, psychological function, hormones",
-            "why": "P5P (pyridoxal-5-phosphate) is the active form of B6, ready to use. 5mg is half the UK safe upper level of 10mg a day."
+            "why": "P5P (pyridoxal-5-phosphate) is the active form of B6, ready to use. 5mg is half the UK safe upper level of 10mg a day.",
+            "refs": "EFSA NDA Panel. Dietary reference values for vitamin B6. EFSA J. 2016.\nExpert Group on Vitamins and Minerals. Safe Upper Levels for Vitamins and Minerals. Food Standards Agency. 2003.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
           }
         },
         "ing14": {
@@ -182,7 +195,8 @@
             "pattern": "mound",
             "description": "Contributes to normal energy-yielding metabolism and normal psychological function.",
             "supports": "Energy, psychological function",
-            "why": "5mg is well above the 1.1mg daily reference intake. Thiamine dissolves in water and your body stores very little, so a daily dose keeps levels steady."
+            "why": "5mg is well above the 1.1mg daily reference intake. Thiamine dissolves in water and your body stores very little, so a daily dose keeps levels steady.",
+            "refs": "Lonsdale D. A review of the biochemistry, metabolism and clinical benefits of thiamin(e) and its derivatives. Evid Based Complement Alternat Med. 2006.\nEFSA NDA Panel. Dietary reference values for thiamin. EFSA J. 2016.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
           }
         },
         "ing15": {
@@ -195,7 +209,8 @@
             "pattern": "burst",
             "description": "Contributes to normal psychological function and the reduction of tiredness and fatigue.",
             "supports": "Energy, psychological function",
-            "why": "16mg niacin equivalents is 100% of the daily reference intake. It’s on top of the NR, which is also a form of vitamin B3."
+            "why": "16mg niacin equivalents is 100% of the daily reference intake. It’s on top of the NR, which is also a form of vitamin B3.",
+            "refs": "Bogan KL, Brenner C. Nicotinic acid, nicotinamide, and nicotinamide riboside: a molecular evaluation of NAD+ precursor vitamins in human nutrition. Annu Rev Nutr. 2008.\nEFSA NDA Panel. Scientific opinion on dietary reference values for niacin. EFSA J. 2014.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
           }
         },
         "ing16": {
@@ -208,7 +223,8 @@
             "pattern": "ring",
             "description": "Contributes to normal mental performance and the reduction of tiredness and fatigue.",
             "supports": "Mental performance, energy",
-            "why": "10mg is about 167% of the 6mg daily reference intake."
+            "why": "10mg is about 167% of the 6mg daily reference intake.",
+            "refs": "EFSA NDA Panel. Scientific opinion on dietary reference values for pantothenic acid. EFSA J. 2014.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
           }
         },
         "ing17": {
@@ -221,7 +237,8 @@
             "pattern": "streak",
             "description": "Contributes to normal energy-yielding metabolism and normal psychological function.",
             "supports": "Energy, psychological function",
-            "why": "300mcg is six times the 50mcg daily reference intake and well within safe levels. Biotin can affect some blood test results, so tell your doctor you take it before a blood test."
+            "why": "300mcg is six times the 50mcg daily reference intake and well within safe levels. Biotin can affect some blood test results, so tell your doctor you take it before a blood test.",
+            "refs": "Li D, et al. Association of biotin ingestion with performance of hormone and nonhormone assays in healthy adults. JAMA. 2017.\nUS Food and Drug Administration. The FDA warns that biotin may interfere with lab tests. Safety communication. 2017, updated 2019.\nEFSA NDA Panel. Scientific opinion on dietary reference values for biotin. EFSA J. 2014.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
           }
         },
         "ing18": {
@@ -234,7 +251,8 @@
             "pattern": "burst",
             "description": "Contributes to normal immune function and normal energy-yielding metabolism.",
             "supports": "Immune function, energy",
-            "why": "Copper bisglycinate is bound to glycine, like the zinc, so it’s well absorbed. 1mg is 100% of the daily reference intake. It’s there to keep the 15mg of zinc in balance, since zinc taken long-term can lower copper levels."
+            "why": "Copper bisglycinate is bound to glycine, like the zinc, so it’s well absorbed. 1mg is 100% of the daily reference intake. It’s there to keep the 15mg of zinc in balance, since zinc taken long-term can lower copper levels.",
+            "refs": "Fosmire GJ. Zinc toxicity. Am J Clin Nutr. 1990.\nEFSA NDA Panel. Scientific opinion on dietary reference values for copper. EFSA J. 2015.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
           }
         },
         "ing19": {
@@ -247,7 +265,8 @@
             "pattern": "pile",
             "description": "Black pepper extract. Added to help your body take in the other ingredients.",
             "supports": "Absorption",
-            "why": "BioPerine is a branded black pepper extract standardised for piperine. Only a small amount is needed, and it adds no taste or heat to the capsules."
+            "why": "BioPerine is a branded black pepper extract standardised for piperine. Only a small amount is needed, and it adds no taste or heat to the capsules.",
+            "refs": "Shoba G, et al. Influence of piperine on the pharmacokinetics of curcumin in animals and human volunteers. Planta Med. 1998.\nBadmaev V, Majeed M, Prakash L. Piperine derived from black pepper increases the plasma levels of coenzyme Q10 following oral supplementation. J Nutr Biochem. 2000."
           }
         }
       },

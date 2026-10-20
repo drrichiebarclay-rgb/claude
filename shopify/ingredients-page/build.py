@@ -1,7 +1,7 @@
 """Ingredient library page: builds templates/page.ingredients.json from ingredients.json.
 
 ingredients.json is the copy for each ingredient (n name, d dose, t tags, c powder colour as RGB,
-p powder pattern, w what it does, s supports, y why this form & dose). Edit it, then run
+p powder pattern, w what it does, s supports, y why this form & dose, r key references). Edit it, then run
 python3 build.py from this folder.
 """
 import json, os
@@ -15,7 +15,8 @@ for i, g in enumerate(ING, 1):
     blocks[k] = {"type": "ingredient", "settings": {
         "name": g["n"], "dose": g["d"], "tags": ", ".join(g["t"]),
         "colour": "#%02x%02x%02x" % tuple(g["c"]), "pattern": g["p"],
-        "description": g["w"], "supports": g["s"], "why": g["y"]}}
+        "description": g["w"], "supports": g["s"], "why": g["y"],
+        "refs": "\n".join(g.get("r", []))}}
     order.append(k)
 
 tpl = {"sections": {"library": {"type": "muto-ingredient-library", "blocks": blocks, "block_order": order,
