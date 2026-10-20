@@ -145,6 +145,12 @@
   /* Timeline: one line, a dot per milestone */
   #shopify-section-{{ sid }} .mch__b--step{position:relative;padding:28px 24px 0 0;border-top:2px solid var(--mc-ink)}
   #shopify-section-{{ sid }} .mch__blocks:has(> .mch__b--step){column-gap:0}
+  /* Steps with photos: a photo card each instead of the timeline */
+  #shopify-section-{{ sid }} .mch__blocks:has(> .mch__b--step-img){column-gap:20px}
+  #shopify-section-{{ sid }} .mch__b--step.mch__b--step-img{padding:0;border:0;margin:0}
+  #shopify-section-{{ sid }} .mch__b--step.mch__b--step-img::before{display:none}
+  #shopify-section-{{ sid }} .mch__simg{position:relative;aspect-ratio:4/3;margin-bottom:20px;border-radius:12px;overflow:hidden;background:var(--mc-mint)}
+  #shopify-section-{{ sid }} .mch__simg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   #shopify-section-{{ sid }} .mch__blocks:has(> .mch__b--step:nth-child(3):last-child) .mch__b--step{grid-column:span 4}
   #shopify-section-{{ sid }} .mch__b--step::before{content:"";position:absolute;top:-9px;left:0;width:16px;height:16px;border-radius:50%;background:var(--mc-cyan);border:2px solid var(--mc-ink);box-sizing:border-box}
   #shopify-section-{{ sid }} .mch__sk{font-family:var(--mc-mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--mc-muted)}
@@ -205,6 +211,8 @@
     #shopify-section-{{ sid }} .mch__b--step:last-of-type{border-left-color:transparent;padding-bottom:0}
     #shopify-section-{{ sid }} .mch__b--step::before{top:0;left:-9px}
     #shopify-section-{{ sid }} .mch__blocks:has(> .mch__b--step){row-gap:0}
+    #shopify-section-{{ sid }} .mch__blocks:has(> .mch__b--step-img){row-gap:32px}
+    #shopify-section-{{ sid }} .mch__b--step.mch__b--step-img{padding:0;border:0;margin:0}
     #shopify-section-{{ sid }} .mch__blocks:has(> .mch__b--step:nth-child(3):last-child) .mch__b--step{grid-column:1/-1}
   }
 </style>
@@ -280,7 +288,12 @@
                 <p class="mch__b--quote mch__q" {{ block.shopify_attributes }}>“{{ block.settings.text }}”</p>
               {%- when 'step' -%}
                 {%- assign step_n = step_n | plus: 1 -%}
-                <div class="mch__b--step" {{ block.shopify_attributes }}>
+                <div class="mch__b--step{% if block.settings.image != blank or block.settings.image_fallback != blank %} mch__b--step-img{% endif %}" {{ block.shopify_attributes }}>
+                  {%- if block.settings.image != blank -%}
+                    <div class="mch__simg">{{ block.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '440,660,900', sizes: '(min-width: 990px) 30vw, 100vw', alt: '' }}</div>
+                  {%- elsif block.settings.image_fallback != blank -%}
+                    <div class="mch__simg"><img src="{{ block.settings.image_fallback }}" alt="" loading="lazy" width="900" height="675"></div>
+                  {%- endif -%}
                   {%- if block.settings.kicker != blank -%}<span class="mch__sk">{{ block.settings.kicker }}</span>{%- else -%}<span class="mch__sn">{{ step_n | prepend: '0' | slice: -2, 2 }}</span>{%- endif -%}
                   <p class="mch__bt" style="margin-top:10px">{{ block.settings.title }}</p>
                   {%- if block.settings.text != blank -%}<div class="mch__bx">{{ block.settings.text }}</div>{%- endif -%}
@@ -404,6 +417,8 @@
       { "type": "text", "id": "text", "label": "Quote (what people tell us)" }
     ] },
     { "type": "step", "name": "Step", "settings": [
+      { "type": "image_picker", "id": "image", "label": "Photo", "info": "Optional. With photos, the steps show as photo cards instead of a timeline." },
+      { "type": "text", "id": "image_fallback", "label": "Photo URL (if no photo picked)" },
       { "type": "text", "id": "kicker", "label": "Label above", "info": "e.g. Day 30. Blank shows the step number." },
       { "type": "text", "id": "title", "label": "Title" },
       { "type": "richtext", "id": "text", "label": "Text" }

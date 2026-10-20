@@ -246,7 +246,7 @@
       "settings": {
         "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-lp-kit-hero.jpg?v=1791969959",
         "image_position": "55% 62%",
-        "image": "shopify://shop_images/Frame2147230123.png",
+        "image": "shopify://shop_images/Minimalist_MUTO_Fitness_Product_Lineup.png",
         "image_alt": "The MUTO first order: NAD+ Cellular Complex jar and refill pouches, Ultrapure Creatine, the bottle and the presentation box",
         "image_fit": 58,
         "image_focus_x": 50.6,
@@ -319,7 +319,7 @@
         "color_scheme": "scheme-1",
         "padding_top": 0,
         "padding_bottom": 0,
-        "custom_liquid": "<style>[id$=\"__board\"] .mh{background:var(--mc-ground,#f9f9f9)}[id$=\"__board_css\"]{display:none}</style>"
+        "custom_liquid": "<style>[id$=\"__board\"] .mh{background:var(--mc-ground,#f9f9f9)}[id$=\"__board_css\"]{display:none}#MainContent,[id$=\"__board\"]{background:var(--mc-ground,#f9f9f9)}</style>"
       }
     },
     "reviews": {

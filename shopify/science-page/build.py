@@ -121,12 +121,10 @@ S["c2"]["settings"]["band"] = "mint"
 # ---- 3: what's in it ----
 STATS = [("19", "ingredients, every dose on the label"), ("300mg", "NR, the most allowed in Great Britain"),
          ("2", "capsules with breakfast"), ("0", "proprietary blends")]
-JOBS = [  # the same five as the ingredients page filters; every ingredient tagged with the job is listed
-    ("Energy", "Help you feel less tired, and help your body release energy from food.", having("Energy")),
-    ("Recovery", "Keep your muscles working normally, so you bounce back after activity.", having("Recovery")),
-    ("Stress", "Support normal psychological function and mental performance through a demanding week.", having("Stress")),
-    ("Longevity", "Your body turns NR into NAD+, which runs lower as we get older. K2 and D3 help keep bones strong.", having("Longevity")),
-    ("Immunity", "Support your immune system, all year round.", having("Immunity"))]
+# The same five as the ingredients page filters: each card's line is the short form of that filter's
+# statement (../ingredients-page/jobs.json) and lists every ingredient tagged with the job
+JOBLINES = json.load(open(os.path.join(HERE, "..", "ingredients-page", "jobs.json")))
+JOBS = [(j, JOBLINES[j], having(j)) for j in ("Energy", "Recovery", "Stress", "Longevity", "Immunity")]
 TEAMS = [("Team", "Who’s on it", "What happens"),  # all 19, each once
          ("The energy team", named("Nicotinamide", "CoQ10", "PQQ", "Vitamin B2"), "NR becomes NAD+, the courier. CoQ10 is the relay runner that passes energy along inside the power station, and PQQ is studied for its role in the power stations themselves. B2 is part of the enzymes that release energy from food."),
          ("The B team", named("Vitamin B1", "Vitamin B3", "Vitamin B5", "Biotin"), "Each one is a working part in the steps that turn food into energy, and B1, B3 and B5 also support normal psychological function and mental performance."),
@@ -179,7 +177,7 @@ board["settings"].update(heading="", note="", field=False, compact=True, rail_ga
 S["board"] = board; ORDER.append("board")
 # The board band on the page's own ground colour, no mint wash
 add("board_css", "custom-liquid", {"color_scheme": "scheme-1", "padding_top": 0, "padding_bottom": 0,
-                                   "custom_liquid": "<style>[id$=\"__board\"] .mh{background:var(--mc-ground,#f9f9f9)}[id$=\"__board_css\"]{display:none}</style>"})
+                                   "custom_liquid": "<style>[id$=\"__board\"] .mh{background:var(--mc-ground,#f9f9f9)}[id$=\"__board_css\"]{display:none}#MainContent,[id$=\"__board\"]{background:var(--mc-ground,#f9f9f9)}</style>"})  # no white between sections
 add("research", "muto-chapter", {"anchor": "our-research", "number": "", "label": "Our research (follows the board)", "heading": "",
                                  "line": p("<strong>Our research.</strong> Our first human study starts in December 2026 at the University of Westminster, with work at King’s College London, Coventry and Newcastle to follow. There are no results yet, and we’ll never say there are. We’ll publish them, whatever they show."),
                                  "small": p("Our advisory board guides our research and formulation. Its members don’t endorse products, and none of them is presented as recommending MUTO for any medical purpose."),

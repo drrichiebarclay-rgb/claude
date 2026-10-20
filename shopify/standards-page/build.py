@@ -109,7 +109,7 @@ S["board"] = board; ORDER.append("board")
 
 add("start", "muto-get-started", {
     "image_fallback": IMG["kit"], "image_position": "55% 62%",
-    "image": "shopify://shop_images/Frame2147230123.png",  # picked in the theme editor
+    "image": "shopify://shop_images/Minimalist_MUTO_Fitness_Product_Lineup.png",  # the 1448×1086 lineup the framing below is set for
     "image_alt": "The MUTO first order: NAD+ Cellular Complex jar and refill pouches, Ultrapure Creatine, the bottle and the presentation box",
     # framed just wider than the products (they span 25–76% across, centred at 50.6% / 63%)
     "image_fit": 58, "image_focus_x": 50.6, "image_focus_y": 63, "image_focus_at": 72, "image_ratio": "1.3333",
@@ -130,7 +130,7 @@ add("start", "muto-get-started", {
 
 # The board band on the page's own ground colour, no mint wash
 add("board_css", "custom-liquid", {"color_scheme": "scheme-1", "padding_top": 0, "padding_bottom": 0,
-                                   "custom_liquid": "<style>[id$=\"__board\"] .mh{background:var(--mc-ground,#f9f9f9)}[id$=\"__board_css\"]{display:none}</style>"})
+                                   "custom_liquid": "<style>[id$=\"__board\"] .mh{background:var(--mc-ground,#f9f9f9)}[id$=\"__board_css\"]{display:none}#MainContent,[id$=\"__board\"]{background:var(--mc-ground,#f9f9f9)}</style>"})
 
 # Customer reviews (REVIEWS.io widget), copied from the product page
 S["reviews"] = copy.deepcopy(PDPT["custom_reviews_KpXTpD"]); ORDER.append("reviews")

@@ -119,13 +119,10 @@ assert len(buy["block_order"]) <= 50, len(buy["block_order"])
 put("buy", buy)
 
 # ---- Benefit cards ----
-CARDS = [
-    ("Energy", "Vitamins B6 and B12 help reduce tiredness and fatigue, and help your body release energy from food.", "shopify://shop_images/nad-step-baseline.jpg"),
-    ("Recovery", "Vitamin D supports normal muscle function, and riboflavin helps reduce tiredness after a long day.", "shopify://shop_images/nad-guarantee-runner.jpg"),
-    ("Stress", "B vitamins support normal psychological function, and B5 supports mental performance through a demanding week.", "shopify://shop_images/MUTO0296.png"),
-    ("Longevity", "300mg NR, which your body turns into NAD+. Zinc helps protect your cells from oxidative stress.", "shopify://shop_images/MUTO0266.png"),
-    ("Immunity", "Vitamin D3, zinc, copper, folate, B6 and B12 all support the normal function of your immune system.", "shopify://shop_images/nad-jar.jpg"),
-]
+JOBLINES = load("ingredients-page/jobs.json")  # the same lines as the science page, from the ingredients page statements
+PHOTOS = {"Energy": "shopify://shop_images/nad-step-baseline.jpg", "Recovery": "shopify://shop_images/nad-guarantee-runner.jpg",
+          "Stress": "shopify://shop_images/MUTO0296.png", "Longevity": "shopify://shop_images/MUTO0266.png", "Immunity": "shopify://shop_images/nad-jar.jpg"}
+CARDS = [(j, JOBLINES[j], PHOTOS[j]) for j in ("Energy", "Recovery", "Stress", "Longevity", "Immunity")]
 put("benefits", {"type": "muto-benefit-cards", "settings": {
     "heading": "Five jobs.\nOne daily jar.",
     "lede": "19 nutrients in two capsules, built for what your body needs after 35. So you can keep up with work, family and everything else.",
@@ -161,14 +158,15 @@ cmp_["settings"].update(anchor="compare", number="", band="mint", space_top=96, 
 put("compare", cmp_)
 
 # ---- How to take it: three steps ----
-STEPS = [("Step 1", "Two capsules with breakfast", "CoQ10, vitamin D3 and K2 dissolve in fat, so your body takes them in best with food."),
-         ("Step 2", "Every morning", "It works best as a daily habit. Keep the jar by the kettle so you don’t forget."),
-         ("Step 3", "Check in at day 30 and 90", "Score your energy and sleep out of 10 on day 1, then compare. Not for you after 90 days? Get every subscription payment back.")]
+STEPS = [("Step 1", "Two capsules with breakfast", "CoQ10, vitamin D3 and K2 dissolve in fat, so your body takes them in best with food.", "shopify://shop_images/nad-jar.jpg"),
+         ("Step 2", "Every morning", "It works best as a daily habit. Keep the jar by the kettle so you don’t forget.", "shopify://shop_images/MUTO0266.png"),
+         ("Step 3", "Check in at day 30 and 90", "Score your energy and sleep out of 10 on day 1, then compare. Not for you after 90 days? Get every subscription payment back.",
+          "shopify://shop_images/1BBE18C7-9CBA-4EA3-BB3F-60C13D1F4F19.png")]
 put("howto", {"type": "muto-chapter", "settings": {
     "anchor": "how-to-take-it", "number": "", "label": "How to take it", "heading": "How to take it.",
     "intro": p("Three steps. Two capsules. About ten seconds a day."), "art": "none", "takeaway": "", "line": "", "small": "",
     "cta_label": "", "cta_link": "", "tint": False, "band": "ground", "space_top": 96, "space_bottom": 96},
-    "blocks": {f"s{i}": {"type": "step", "settings": {"kicker": k, "title": t, "text": p(x)}} for i, (k, t, x) in enumerate(STEPS, 1)},
+    "blocks": {f"s{i}": {"type": "step", "settings": {"image": img, "kicker": k, "title": t, "text": p(x)}} for i, (k, t, x, img) in enumerate(STEPS, 1)},
     "block_order": [f"s{i}" for i in range(1, len(STEPS) + 1)]})
 
 # ---- FAQs ----

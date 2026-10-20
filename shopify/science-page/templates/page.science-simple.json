@@ -211,7 +211,7 @@
           "settings": {
             "kicker": "01",
             "title": "Energy",
-            "text": "Help you feel less tired, and help your body release energy from food.",
+            "text": "Your body turns NR into NAD+, CoQ10 and PQQ support your mitochondria, and active B vitamins help release energy from food.",
             "detail_label": "What’s in it",
             "detail": "NR 300mg, B12 (methylcobalamin) 100mcg, CoQ10 150mg, B2 (riboflavin) 5mg, Folate (5-MTHF) 400mcg, PQQ 20mg, B6 (P5P) 5mg, B1 (thiamine) 5mg, B3 (niacin) 16mg NE, B5 (pantothenic acid) 10mg, Biotin 300mcg, Copper bisglycinate 1mg"
           }
@@ -221,7 +221,7 @@
           "settings": {
             "kicker": "02",
             "title": "Recovery",
-            "text": "Keep your muscles working normally, so you bounce back after activity.",
+            "text": "Vitamin D3 supports normal muscle function, CoQ10 and PQQ support the mitochondria that refill your energy, and riboflavin helps reduce tiredness.",
             "detail_label": "What’s in it",
             "detail": "CoQ10 150mg, D3 50mcg (2,000 IU), B2 (riboflavin) 5mg, PQQ 20mg"
           }
@@ -231,7 +231,7 @@
           "settings": {
             "kicker": "03",
             "title": "Stress",
-            "text": "Support normal psychological function and mental performance through a demanding week.",
+            "text": "Active B vitamins, with zinc, support normal psychological function and mental performance through a demanding week.",
             "detail_label": "What’s in it",
             "detail": "B12 (methylcobalamin) 100mcg, Zinc bisglycinate 15mg, Folate (5-MTHF) 400mcg, B6 (P5P) 5mg, B1 (thiamine) 5mg, B3 (niacin) 16mg NE, B5 (pantothenic acid) 10mg, Biotin 300mcg"
           }
@@ -241,7 +241,7 @@
           "settings": {
             "kicker": "04",
             "title": "Longevity",
-            "text": "Your body turns NR into NAD+, which runs lower as we get older. K2 and D3 help keep bones strong.",
+            "text": "300mg NR paired with TMG, plus trans-resveratrol and grape seed polyphenols, vitamin K2 for your bones and zinc to help protect your cells.",
             "detail_label": "What’s in it",
             "detail": "NR 300mg, D3 50mcg (2,000 IU), TMG 450mg, B2 (riboflavin) 5mg, K2 (MK-7) 100mcg, Zinc bisglycinate 15mg, Trans-resveratrol 50mg, Grape seed extract 150mg"
           }
@@ -251,7 +251,7 @@
           "settings": {
             "kicker": "05",
             "title": "Immunity",
-            "text": "Support your immune system, all year round.",
+            "text": "Vitamin D3, zinc, copper, folate and vitamins B6 and B12 all support the normal function of your immune system.",
             "detail_label": "What’s in it",
             "detail": "B12 (methylcobalamin) 100mcg, D3 50mcg (2,000 IU), Zinc bisglycinate 15mg, Folate (5-MTHF) 400mcg, B6 (P5P) 5mg, Copper bisglycinate 1mg"
           }
@@ -459,7 +459,7 @@
         "color_scheme": "scheme-1",
         "padding_top": 0,
         "padding_bottom": 0,
-        "custom_liquid": "<style>[id$=\"__board\"] .mh{background:var(--mc-ground,#f9f9f9)}[id$=\"__board_css\"]{display:none}</style>"
+        "custom_liquid": "<style>[id$=\"__board\"] .mh{background:var(--mc-ground,#f9f9f9)}[id$=\"__board_css\"]{display:none}#MainContent,[id$=\"__board\"]{background:var(--mc-ground,#f9f9f9)}</style>"
       }
     },
     "research": {
@@ -548,7 +548,7 @@
       "settings": {
         "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-lp-kit-hero.jpg?v=1791969959",
         "image_position": "55% 62%",
-        "image": "shopify://shop_images/Frame2147230123.png",
+        "image": "shopify://shop_images/Minimalist_MUTO_Fitness_Product_Lineup.png",
         "image_alt": "The MUTO first order: NAD+ Cellular Complex jar and refill pouches, Ultrapure Creatine, the bottle and the presentation box",
         "image_fit": 58,
         "image_focus_x": 50.6,
