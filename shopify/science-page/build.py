@@ -189,16 +189,12 @@ add("research", "muto-chapter", {"anchor": "our-research", "number": "", "label"
                                  "tint": False, "space_top": 0, "space_bottom": 96}, [])
 
 # ---- 6: your 90 days, straight into the offer ----
-STEPS = [("Day 1", "Your baseline", "Score your afternoons, sleep and recovery out of 10, or note your wearable’s numbers. It takes 30 seconds."),
-         ("Day 30", "Afternoons that hold", "Usually the first thing people notice. Less of a 3pm slump, easier mornings, and energy left for the evening."),
-         ("Day 60", "Bouncing back sooner", "A walk, a round of golf or a gym session stops hanging around for days. Busy weeks cost you less."),
-         ("Day 90", "Feeling like yourself", "Compare your scores with day 1. Many people say they hadn’t realised how flat they’d been feeling.")]
-chapter("c6", "your-90-days", "06", "Your 90 days",
-        "Test it on yourself.",
-        intro=p("What people tell us they notice, and roughly when. Everyone’s different, so score yourself on day 1 and compare."),
-        blocks=[(f"s{i}", {"type": "step", "settings": {"kicker": k, "title": t, "text": p(x)}}) for i, (k, t, x) in enumerate(STEPS, 1)],
-        line=p("If you don’t feel the difference in 90 days, you get every subscription payment back. Skip, pause or cancel online anytime."))
-S["c6"]["settings"].update(band="mint", space_bottom=96)
+# The same timeline as the product page (../pdp-v2/timeline.json, section muto-timeline)
+TL = json.load(open(os.path.join(HERE, "..", "pdp-v2", "timeline.json")))
+add("c6", "muto-timeline", {"eyebrow": "06", "anchor": "your-90-days", "heading": TL["heading"], "lede": TL["lede"], "foot": TL["foot"],
+                            "image": "shopify://shop_images/MUTO0296.png", "image_alt": "", "band": "mint",
+                            "sticky_top": 120, "space_top": 96, "space_bottom": 96},
+    [(f"m{i}", {"type": "milestone", "settings": {"pill": x["pill"], "title": x["title"], "text": p(x["text"])}}) for i, x in enumerate(TL["milestones"], 1)])
 
 # Offer and reviews, the same sections as the standards page
 STD = json.load(open(os.path.join(HERE, "..", "standards-page", "templates", "page.standards.json")))["sections"]

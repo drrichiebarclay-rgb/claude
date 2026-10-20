@@ -1,0 +1,28 @@
+{
+  "_note": "What you can expect over time: the product page and the science page both use this.",
+  "heading": "What you can expect over time.",
+  "lede": "What people tell us they notice, and roughly when. Everyone’s different, so score yourself on day 1 and compare.",
+  "foot": "Based on what customers tell us, not a clinical study. Everyone’s different.",
+  "milestones": [
+    {
+      "pill": "Day 1",
+      "title": "Your baseline",
+      "text": "Score your afternoons, sleep and recovery out of 10, or note your wearable’s numbers. Then two capsules with breakfast."
+    },
+    {
+      "pill": "Day 30",
+      "title": "Afternoons that hold",
+      "text": "Usually the first thing people notice. B vitamins help reduce tiredness and fatigue, and NR tops up the NAD+ your cells use to make energy. Less of a 3pm slump, and energy left for the evening."
+    },
+    {
+      "pill": "Day 60",
+      "title": "Bouncing back sooner",
+      "text": "Vitamin D supports normal muscle function, and CoQ10 and PQQ support your mitochondria. A walk, a round of golf or a gym session stops hanging around for days."
+    },
+    {
+      "pill": "Day 90",
+      "title": "Feeling like yourself",
+      "text": "Compare your scores with day 1. Many people say they hadn’t realised how flat they’d been feeling. Not for you? Get every subscription payment back."
+    }
+  ]
+}

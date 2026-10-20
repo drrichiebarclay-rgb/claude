@@ -60,19 +60,15 @@ buy["settings"]["text"] = p("<strong>The daily multivitamin for ageing well. Bui
                             "Everything a good multivitamin gives you, plus what it leaves out: NR for NAD⁺, CoQ10, PQQ and resveratrol. 19 ingredients, two capsules, one jar.",
                             '<a href="#test-results-3">Ingredients + nutritional information</a>')
 # "How it helps": the five jobs, each a title over its line; * refers to the authorised claims in the small print
-POINTS = [("01 · Energy", "Afternoons that don’t fade.", "NR · CoQ10 · PQQ · B vitamins"),
-          ("02 · Recovery", "Bounce back from a busy week.", "Vitamin D3 · K2 · B2"),
-          ("03 · Mind", "A clearer head, all day.", "B6 · B12 · Folate · Zinc"),
-          ("04 · Ageing well", "Age on your own terms.", "NR 300mg · Resveratrol · TMG"),
-          ("05 · Immunity", "Stay well through winter.", "D3 · Zinc · Copper"),
-          ("06 · Simplicity", "One jar replaces five.", "19 ingredients · 2 capsules")]
+POINTS = ["Afternoons that don’t fade", "Bounce back from a busy week", "A clearer head, all day",
+          "Age on your own terms", "Stay well through winter", "One jar replaces five"]  # the original "How it helps" bullets
 old = [k for k in buy["block_order"] if buy["blocks"][k]["type"] == "point"]
 at = buy["block_order"].index(old[0])
 for k in old:
     del buy["blocks"][k]
     buy["block_order"].remove(k)
-for i, (lab, t, x) in enumerate(POINTS, 1):
-    buy["blocks"][f"job{i}"] = {"type": "point", "settings": {"label": lab, "title": t, "text": x, "icon": "", "dark": False}}
+for i, x in enumerate(POINTS, 1):
+    buy["blocks"][f"job{i}"] = {"type": "point", "settings": {"text": x, "title": "", "label": "", "icon": "", "dark": False}}
     buy["block_order"].insert(at + i - 1, f"job{i}")
 buy["settings"]["points_foot"] = ""  # the line and the small print under the cards were removed
 buy["settings"]["points_note"] = ""
@@ -186,15 +182,12 @@ cmp_["settings"].update(anchor="compare", number="", band="mint", space_top=96, 
 put("compare", cmp_)
 
 # ---- What to expect over time (the science page's timeline, AgeMate's layout) ----
-MILES = [("Day 1", "Your baseline", "Score your afternoons, sleep and recovery out of 10, or note your wearable’s numbers. Then two capsules with breakfast."),
-         ("Day 30", "Afternoons that hold", "Usually the first thing people notice. B vitamins help reduce tiredness and fatigue, and NR tops up the NAD+ your cells use to make energy. Less of a 3pm slump, and energy left for the evening."),
-         ("Day 60", "Bouncing back sooner", "Vitamin D supports normal muscle function, and CoQ10 and PQQ support your mitochondria. A walk, a round of golf or a gym session stops hanging around for days."),
-         ("Day 90", "Feeling like yourself", "Compare your scores with day 1. Many people say they hadn’t realised how flat they’d been feeling. Not for you? Get every subscription payment back.")]
+TL = load("pdp-v2/timeline.json")  # shared with the science page
+MILES = [(x["pill"], x["title"], x["text"]) for x in TL["milestones"]]
 put("timeline", {"type": "muto-timeline", "settings": {
-    "heading": "What you can expect over time.",
-    "lede": "What people tell us they notice, and roughly when. Everyone’s different, so score yourself on day 1 and compare.",
+    "heading": TL["heading"], "lede": TL["lede"],
     "image": "shopify://shop_images/MUTO0296.png", "image_alt": "",
-    "foot": "Based on what customers tell us, not a clinical study. Everyone’s different.",
+    "foot": TL["foot"],
     "band": "ground", "sticky_top": 120, "space_top": 96, "space_bottom": 96},
     "blocks": {f"m{i}": {"type": "milestone", "settings": {"pill": d, "title": t, "text": p(x)}} for i, (d, t, x) in enumerate(MILES, 1)},
     "block_order": [f"m{i}" for i in range(1, len(MILES) + 1)]})

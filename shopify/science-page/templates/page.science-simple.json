@@ -486,63 +486,59 @@
       "block_order": []
     },
     "c6": {
-      "type": "muto-chapter",
+      "type": "muto-timeline",
       "settings": {
+        "eyebrow": "06",
         "anchor": "your-90-days",
-        "number": "06",
-        "label": "Your 90 days",
-        "heading": "Test it on yourself.",
-        "intro": "<p>What people tell us they notice, and roughly when. Everyone’s different, so score yourself on day 1 and compare.</p>",
-        "art": "none",
-        "takeaway": "",
-        "line": "<p>If you don’t feel the difference in 90 days, you get every subscription payment back. Skip, pause or cancel online anytime.</p>",
-        "small": "",
-        "cta_label": "",
-        "cta_link": "",
-        "tint": false,
+        "heading": "What you can expect over time.",
+        "lede": "What people tell us they notice, and roughly when. Everyone’s different, so score yourself on day 1 and compare.",
+        "foot": "Based on what customers tell us, not a clinical study. Everyone’s different.",
+        "image": "shopify://shop_images/MUTO0296.png",
+        "image_alt": "",
+        "band": "mint",
+        "sticky_top": 120,
         "space_top": 96,
-        "space_bottom": 96,
-        "band": "mint"
+        "space_bottom": 96
       },
       "blocks": {
-        "s1": {
-          "type": "step",
+        "m1": {
+          "type": "milestone",
           "settings": {
-            "kicker": "Day 1",
+            "pill": "Day 1",
             "title": "Your baseline",
-            "text": "<p>Score your afternoons, sleep and recovery out of 10, or note your wearable’s numbers. It takes 30 seconds.</p>"
+            "text": "<p>Score your afternoons, sleep and recovery out of 10, or note your wearable’s numbers. Then two capsules with breakfast.</p>"
           }
         },
-        "s2": {
-          "type": "step",
+        "m2": {
+          "type": "milestone",
           "settings": {
-            "kicker": "Day 30",
+            "pill": "Day 30",
             "title": "Afternoons that hold",
-            "text": "<p>Usually the first thing people notice. Less of a 3pm slump, easier mornings, and energy left for the evening.</p>"
+            "text": "<p>Usually the first thing people notice. B vitamins help reduce tiredness and fatigue, and NR tops up the NAD+ your cells use to make energy. Less of a 3pm slump, and energy left for the evening.</p>"
           }
         },
-        "s3": {
-          "type": "step",
+        "m3": {
+          "type": "milestone",
           "settings": {
-            "kicker": "Day 60",
+            "pill": "Day 60",
             "title": "Bouncing back sooner",
-            "text": "<p>A walk, a round of golf or a gym session stops hanging around for days. Busy weeks cost you less.</p>"
+            "text": "<p>Vitamin D supports normal muscle function, and CoQ10 and PQQ support your mitochondria. A walk, a round of golf or a gym session stops hanging around for days.</p>"
           }
         },
-        "s4": {
-          "type": "step",
+        "m4": {
+          "type": "milestone",
           "settings": {
-            "kicker": "Day 90",
+            "pill": "Day 90",
             "title": "Feeling like yourself",
-            "text": "<p>Compare your scores with day 1. Many people say they hadn’t realised how flat they’d been feeling.</p>"
+            "text": "<p>Compare your scores with day 1. Many people say they hadn’t realised how flat they’d been feeling. Not for you? Get every subscription payment back.</p>"
           }
         }
       },
       "block_order": [
-        "s1",
-        "s2",
-        "s3",
-        "s4"
+        "m1",
+        "m2",
+        "m3",
+        "m4"
       ]
     },
     "start": {

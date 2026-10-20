@@ -17,6 +17,8 @@
   #shopify-section-{{ sid }} .mtl{padding-top:{{ s.space_top }}px;padding-bottom:{{ s.space_bottom }}px;background:{% if s.band == 'mint' %}var(--mc-mint,#c8d2cf){% else %}var(--mc-ground){% endif %}}
   #shopify-section-{{ sid }} .mtl__head{text-align:center;max-width:900px;margin:0 auto}
   #shopify-section-{{ sid }} .mtl__h{color:var(--mc-ink)}
+  #shopify-section-{{ sid }} .mtl__eyebrow{margin:0 0 16px;font-family:var(--mc-mono);font-size:14px;letter-spacing:.08em;color:var(--mc-muted)}
+  #shopify-section-{{ sid }} .mtl__item:last-child::after{background:{% if s.band == 'mint' %}var(--mc-mint,#c8d2cf){% else %}var(--mc-ground){% endif %}}
   #shopify-section-{{ sid }} .mtl__lede{margin:18px auto 0;max-width:640px;font-size:20px;line-height:1.45;color:var(--mc-ink-alt)}
   #shopify-section-{{ sid }} .mtl__grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:72px;align-items:start;margin-top:64px}
   #shopify-section-{{ sid }} .mtl__img{position:sticky;top:{{ s.sticky_top }}px;aspect-ratio:4/5;border-radius:12px;overflow:hidden;background:var(--mc-mint)}
@@ -50,9 +52,10 @@
   }
 </style>
 
-<div class="mc mtl">
+<div class="mc mtl"{% if s.anchor != blank %} id="{{ s.anchor }}"{% endif %}>
   <div class="mc__wrap">
     <div class="mtl__head">
+      {%- if s.eyebrow != blank -%}<p class="mtl__eyebrow">{{ s.eyebrow }}</p>{%- endif -%}
       <h2 class="mc__h2 mtl__h">{{ s.heading | escape | newline_to_br }}</h2>
       {%- if s.lede != blank -%}<p class="mtl__lede">{{ s.lede }}</p>{%- endif -%}
     </div>
@@ -87,6 +90,8 @@
   "name": "MUTO — Timeline",
   "tag": "section",
   "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Small line above the heading", "info": "e.g. a chapter number" },
+    { "type": "text", "id": "anchor", "label": "Anchor", "info": "For links to this section" },
     { "type": "textarea", "id": "heading", "label": "Heading", "default": "What you can expect over time." },
     { "type": "textarea", "id": "lede", "label": "Line under the heading" },
     { "type": "image_picker", "id": "image", "label": "Photo" },
