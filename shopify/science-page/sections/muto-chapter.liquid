@@ -79,6 +79,13 @@
   #shopify-section-{{ sid }} .mch__t thead .is-us{color:var(--mc-ink);border-radius:12px 12px 0 0;border-bottom-color:var(--mc-ink-alt)}
   #shopify-section-{{ sid }} .mch__t tbody tr:last-child .is-us{border-radius:0 0 12px 12px;border-bottom-color:transparent}
   #shopify-section-{{ sid }} .mch__wide-hint{display:none}
+  #shopify-section-{{ sid }} .mch__rows{display:none}
+  #shopify-section-{{ sid }} .mch__row{padding:18px 0;border-top:1px solid var(--mc-hair)}
+  #shopify-section-{{ sid }} .mch__row:last-child{border-bottom:1px solid var(--mc-hair)}
+  #shopify-section-{{ sid }} .mch__row-body{margin:14px 0 0;display:grid;gap:4px}
+  #shopify-section-{{ sid }} .mch__row-body dt{margin-top:8px;font-family:var(--mc-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mc-muted)}
+  #shopify-section-{{ sid }} .mch__row-body dt:first-child{margin-top:0}
+  #shopify-section-{{ sid }} .mch__row-body dd{margin:0;font-size:16px;line-height:1.5;color:var(--mc-ink-alt)}
   #shopify-section-{{ sid }} .mch__take{margin-top:48px;max-width:760px;font-weight:500;font-size:clamp(22px,2vw,28px);line-height:1.2;letter-spacing:-.012em;color:var(--mc-ink)}
   #shopify-section-{{ sid }} .mch__line{margin-top:32px;max-width:700px;font-size:20px;line-height:1.5;color:var(--mc-ink-alt)}
   #shopify-section-{{ sid }} .mch__small{margin-top:28px;max-width:820px;font-size:13px;line-height:1.5;color:var(--mc-muted)}
@@ -97,6 +104,8 @@
     #shopify-section-{{ sid }} .mch__b--point,#shopify-section-{{ sid }} .mch__b--quote,#shopify-section-{{ sid }} .mch__b--term,#shopify-section-{{ sid }} .mch__b--step{grid-column:1/-1}
     #shopify-section-{{ sid }} .mch__blocks:has(> .mch__b--point:nth-child(3):last-child) .mch__b--point{grid-column:1/-1}
     #shopify-section-{{ sid }} .mch__q,#shopify-section-{{ sid }} .mch__take{font-size:19px}
+    #shopify-section-{{ sid }} .mch__stack .mch__scroll{display:none}
+    #shopify-section-{{ sid }} .mch__stack .mch__rows{display:block}
     #shopify-section-{{ sid }} .mch__stack .mch__t,#shopify-section-{{ sid }} .mch__stack tbody{display:block;width:100%;table-layout:auto}
     #shopify-section-{{ sid }} .mch__stack colgroup{display:none}
     #shopify-section-{{ sid }} .mch__stack .mch__t{font-size:16px}
@@ -215,6 +224,26 @@
                     </table>
                   </div>
                   {%- if tkind == 'mch__wide' -%}<span class="mch__wide-hint">Swipe to compare →</span>{%- endif -%}
+                  {%- if tkind == 'mch__stack' -%}
+                    {%- comment -%} Phones: the same rows as the points, name first, + to open {%- endcomment -%}
+                    <div class="mch__rows">
+                      {%- assign first = true -%}
+                      {%- for r in rows -%}
+                        {%- assign rs = r | strip -%}
+                        {%- if rs == blank -%}{%- continue -%}{%- endif -%}
+                        {%- if first -%}{%- assign first = false -%}{%- continue -%}{%- endif -%}
+                        {%- assign cells = rs | split: '|' -%}
+                        <details class="mch__row">
+                          <summary class="mch__sum"><span class="mch__bt">{{ cells[0] | strip }}</span><span class="mch__plus" aria-hidden="true"></span></summary>
+                          <dl class="mch__row-body">
+                            {%- for c in cells offset: 1 -%}
+                              <dt>{{ head[forloop.index] | strip }}</dt><dd>{{ c | strip }}</dd>
+                            {%- endfor -%}
+                          </dl>
+                        </details>
+                      {%- endfor -%}
+                    </div>
+                  {%- endif -%}
                   {%- if block.settings.note != blank -%}<p class="mch__small" style="margin-top:14px">{{ block.settings.note }}</p>{%- endif -%}
                 </div>
             {%- endcase -%}
