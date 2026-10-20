@@ -58,8 +58,6 @@
   @media (max-width:989px){
     #shopify-section-{{ sid }} .mg__in{grid-template-columns:1fr;min-height:0}
     #shopify-section-{{ sid }} .mg__img{aspect-ratio:4/3}
-    /* Stacked, the photo box is wide and short: the products sit a little higher so the floor stays in */
-    #shopify-section-{{ sid }} .mg__img--fit img{top:max(calc({{ s.image_focus_at | minus: 10 }} * 1cqh - var(--h) * {{ s.image_focus_y }} / 100), calc(100cqh - var(--h)))}
     #shopify-section-{{ sid }} .mg__panel{padding:40px var(--mc-gutter,20px)}
     #shopify-section-{{ sid }} .mg__name,#shopify-section-{{ sid }} .mg__price,#shopify-section-{{ sid }} .mg__total{font-size:19px}
     #shopify-section-{{ sid }} .mg__item-name,#shopify-section-{{ sid }} .mg__free{font-size:17px}

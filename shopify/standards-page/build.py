@@ -111,8 +111,8 @@ add("start", "muto-get-started", {
     "image_fallback": IMG["kit"], "image_position": "55% 62%",
     "image": "shopify://shop_images/Minimalist_MUTO_Fitness_Product_Lineup.png",  # the 1448×1086 lineup the framing below is set for
     "image_alt": "The MUTO first order: NAD+ Cellular Complex jar and refill pouches, Ultrapure Creatine, the bottle and the presentation box",
-    # framed just wider than the products (they span 25–76% across, centred at 50.6% / 63%)
-    "image_fit": 58, "image_focus_x": 50.6, "image_focus_y": 63, "image_focus_at": 79, "image_ratio": "1.3333",
+    # framed just wider than the products, their centre in the middle of the box (they span 25–76% across, centred at 50.6% / 63%)
+    "image_fit": 54, "image_focus_x": 50.6, "image_focus_y": 63, "image_focus_at": 50, "image_ratio": "1.3333",
     "image_fill": "linear-gradient(90deg,#16171b,#292b32 50%,#141419)",
     "heading": "Start your\n90 days",
     "product_name": "NAD+ Cellular Complex (30 days)", "product_price": "£60",
