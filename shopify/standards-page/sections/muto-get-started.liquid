@@ -1,0 +1,139 @@
+{%- comment -%}
+  MUTO — Get started.
+  Two halves: the first order photographed on the ground colour, and a teal
+  panel that itemises it: the product and its price, what the first order
+  includes (each with its usual price struck through), the total, the button
+  and three reassurance ticks.
+
+  Prices are typed, not read from Skio, so keep them in step with the plans.
+  MOBILE: the photo leads, the panel follows.
+{%- endcomment -%}
+{{ 'muto-crea.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign sid = section.id
+  assign s = section.settings
+  assign items = section.blocks | where: 'type', 'item'
+  if s.image != blank
+    assign img_src = s.image | image_url: width: 1400
+  else
+    assign img_src = s.image_fallback
+  endif
+  assign ticks = s.ticks | newline_to_br | split: '<br />'
+-%}
+<style>
+  #shopify-section-{{ sid }} .mg{padding-top:{{ s.space_top }}px;padding-bottom:{{ s.space_bottom }}px}
+  #shopify-section-{{ sid }} .mg__in{display:grid;grid-template-columns:1fr 1fr;border-radius:8px;overflow:hidden;min-height:640px}
+  #shopify-section-{{ sid }} .mg__img{position:relative;background:var(--mc-ground-buy)}
+  #shopify-section-{{ sid }} .mg__img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  #shopify-section-{{ sid }} .mg__panel{background:var(--mc-ink);color:#fff;padding:64px clamp(24px,5vw,80px);display:flex;flex-direction:column}
+  #shopify-section-{{ sid }} .mg__h{color:#fff}
+  #shopify-section-{{ sid }} .mg__row{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+  #shopify-section-{{ sid }} .mg__prod{margin-top:40px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.4)}
+  #shopify-section-{{ sid }} .mg__name{font-weight:500;font-size:22px;line-height:1.2}
+  #shopify-section-{{ sid }} .mg__price{font-weight:500;font-size:22px;white-space:nowrap}
+  #shopify-section-{{ sid }} .mg__sub{margin-top:6px;font-size:16px;color:rgba(255,255,255,.75)}
+  #shopify-section-{{ sid }} .mg__label{margin-top:24px;font-family:var(--mc-mono);font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+  #shopify-section-{{ sid }} .mg__items{list-style:none;margin:8px 0 0;padding:0 0 20px;border-bottom:1px solid rgba(255,255,255,.4)}
+  #shopify-section-{{ sid }} .mg__items li{padding:14px 0}
+  #shopify-section-{{ sid }} .mg__item-name{font-weight:500;font-size:19px}
+  #shopify-section-{{ sid }} .mg__item-desc{margin-top:4px;font-size:15px;color:rgba(255,255,255,.75)}
+  #shopify-section-{{ sid }} .mg__was{margin-right:6px;font-weight:400;text-decoration:line-through;color:rgba(255,255,255,.6)}
+  #shopify-section-{{ sid }} .mg__free{font-weight:500;font-size:19px;white-space:nowrap}
+  #shopify-section-{{ sid }} .mg__free em{font-style:normal;color:var(--mc-cyan)}
+  #shopify-section-{{ sid }} .mg__total{margin-top:20px;font-weight:500;font-size:22px}
+  #shopify-section-{{ sid }} .mg__btn{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:40px;width:100%;border-radius:32px;font-family:var(--mc-font);font-weight:500;font-size:18px;text-decoration:none}
+  #shopify-section-{{ sid }} .mg__ticks{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 24px;list-style:none;margin:20px 0 0;padding:0;font-size:14px;color:rgba(255,255,255,.85)}
+  #shopify-section-{{ sid }} .mg__ticks li::before{content:"✓";margin-right:6px;color:var(--mc-cyan)}
+  @media (max-width:989px){
+    #shopify-section-{{ sid }} .mg__in{grid-template-columns:1fr;min-height:0}
+    #shopify-section-{{ sid }} .mg__img{aspect-ratio:4/3}
+    #shopify-section-{{ sid }} .mg__panel{padding:40px 24px}
+    #shopify-section-{{ sid }} .mg__name,#shopify-section-{{ sid }} .mg__price,#shopify-section-{{ sid }} .mg__total{font-size:19px}
+    #shopify-section-{{ sid }} .mg__item-name,#shopify-section-{{ sid }} .mg__free{font-size:17px}
+  }
+</style>
+
+<div class="mc mg">
+  <div class="mc__wrap">
+    <div class="mg__in">
+      <div class="mg__img">
+        {%- if img_src != blank -%}<img src="{{ img_src }}" alt="{{ s.image_alt | escape }}" loading="lazy" width="1400" height="1400"{% if s.image_position != blank %} style="object-position:{{ s.image_position }}"{% endif %}>{%- endif -%}
+      </div>
+      <div class="mg__panel">
+        <h2 class="mc__h2 mg__h">{{ s.heading | escape | newline_to_br }}</h2>
+
+        <div class="mg__prod">
+          <div class="mg__row"><span class="mg__name">{{ s.product_name }}</span><span class="mg__price">{{ s.product_price }}</span></div>
+          {%- if s.product_sub != blank -%}<p class="mg__sub">{{ s.product_sub }}</p>{%- endif -%}
+        </div>
+
+        {%- if items.size > 0 -%}
+          <p class="mg__label">{{ s.includes_label }}</p>
+          <ul class="mg__items">
+            {%- for block in items -%}
+              <li {{ block.shopify_attributes }}>
+                <div class="mg__row">
+                  <span class="mg__item-name">{{ block.settings.name }}</span>
+                  <span class="mg__free">{%- if block.settings.was != blank -%}<span class="mg__was">{{ block.settings.was }}</span>{%- endif -%}<em>{{ block.settings.now }}</em></span>
+                </div>
+                {%- if block.settings.desc != blank -%}<p class="mg__item-desc">{{ block.settings.desc }}</p>{%- endif -%}
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+
+        {%- if s.total_now != blank -%}
+          <div class="mg__row mg__total"><span>{{ s.total_label }}</span><span>{%- if s.total_was != blank -%}<span class="mg__was">{{ s.total_was }}</span>{%- endif -%}{{ s.total_now }}</span></div>
+        {%- endif -%}
+
+        <a class="mc__btn mc__btn--cyan mg__btn" href="{{ s.cta_link | default: routes.all_products_collection_url }}">{{ s.cta_label }} <span aria-hidden="true">→</span></a>
+        {%- if s.ticks != blank -%}
+          <ul class="mg__ticks">
+            {%- for t in ticks -%}{%- assign tt = t | strip -%}{%- if tt != blank -%}<li>{{ tt }}</li>{%- endif -%}{%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO — Get started",
+  "tag": "section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Photo" },
+    { "type": "text", "id": "image_fallback", "label": "Photo URL (if no photo picked)" },
+    { "type": "text", "id": "image_alt", "label": "Photo description" },
+    { "type": "text", "id": "image_position", "label": "Photo focus (object-position)" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Start your\n90 days" },
+    { "type": "text", "id": "product_name", "label": "Product", "default": "NAD+ Cellular Complex (30 days)" },
+    { "type": "text", "id": "product_price", "label": "Price", "default": "£60" },
+    { "type": "text", "id": "product_sub", "label": "Line under the product", "default": "£2 a day on subscription" },
+    { "type": "text", "id": "includes_label", "label": "Includes label", "default": "First order includes:" },
+    { "type": "text", "id": "total_label", "label": "Total label", "default": "Total" },
+    { "type": "text", "id": "total_was", "label": "Total, struck through" },
+    { "type": "text", "id": "total_now", "label": "Total" },
+    { "type": "text", "id": "cta_label", "label": "Button", "default": "Start your 90 days" },
+    { "type": "url", "id": "cta_link", "label": "Button link" },
+    { "type": "textarea", "id": "ticks", "label": "Ticks under the button", "info": "One per line." },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 80 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 100 }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Included item",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Name" },
+        { "type": "text", "id": "desc", "label": "Description" },
+        { "type": "text", "id": "was", "label": "Usual price (struck through)" },
+        { "type": "text", "id": "now", "label": "Price now", "default": "free" }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [{ "name": "MUTO — Get started" }],
+  "enabled_on": { "templates": ["page", "index"] }
+}
+{% endschema %}

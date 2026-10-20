@@ -1,23 +1,20 @@
 # Our standards page (draft, 20 Oct 2026)
 
-Built from `MUTO_Our_Standards_Page_Copy_Oct26.docx`, kept deliberately simple (seven sections) with the main site's own sections:
+Built from `MUTO_Our_Standards_Page_Copy_Oct26.docx`, laid out after the AG1 quality-standards page in MUTO's own styles (`muto-crea.css`: teal ink, sage, cyan buttons, Neue Haas Grotesk, Sometype Mono).
 
-| Part | Theme section |
+| Part | Section |
 |---|---|
-| Opening statement | About statement band |
-| 19 · 100% · 90 | Home page numbers |
-| Our ten standards | About "Research in progress" list (name and one line each) |
-| Rules vs MUTO | Product-page comparison table |
-| Founder's note | About founder portrait and letter card (shortened) |
-| Questions | Product-page FAQ (five questions) |
-| Close | "Above the standard. Beneath the surface." banner |
+| Headline, intro, ten standards (list left, selected fills teal; promise, "how to check" and two photos right) | `sections/muto-standards.liquid` (new) |
+| Customer videos | `muto-home-results`, copied from the product page |
+| Start your 90 days: photo left, teal panel itemising the first order | `sections/muto-get-started.liquid` (new) |
+| Five questions | `muto-crea-faq` |
 
-The doc's five jobs, scientists and check-it-yourself sections are left out; the ingredients and About pages cover them.
+Photos on the standards reuse existing site images as stand-ins; swap them in each standard's Photo 1 / Photo 2. Prices in the panel are typed (monthly plan, £60 and the £62 kit), so keep them in step with Skio.
 
 - **Template:** `templates/page.standards.json` (run `python3 build.py` to rebuild after copy edits).
 - **Theme:** on the 3M refill plan draft theme (ID 202682564955) only.
 - **Page:** "Our standards", handle `standards`, hidden, with the doc's SEO title and meta description.
-- **New CSS:** a Custom Liquid block hides the comparison table's third and fourth columns, which this page doesn't use.
+- **New sections:** copy `sections/muto-standards.liquid` and `sections/muto-get-started.liquid` before the template.
 
 ## Not on the page yet: the doc's [Confirm …] notes
 
@@ -34,4 +31,4 @@ The doc's five jobs, scientists and check-it-yourself sections are left out; the
 
 - **URL:** Shopify pages live at `/pages/standards`. For `muto.co/standards`, add a URL redirect `/standards` → `/pages/standards` (Online Store → Navigation → URL redirects).
 - **Links:** "See the full label…" points to `/pages/ingredients`, which is also still hidden.
-- **Going live:** copy `templates/page.standards.json` to the live theme, then set the page to Visible.
+- **Going live:** copy the two sections, then `templates/page.standards.json`, to the live theme, then set the page to Visible.

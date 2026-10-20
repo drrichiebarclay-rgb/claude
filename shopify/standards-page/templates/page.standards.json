@@ -1,134 +1,113 @@
 {
   "sections": {
-    "intro": {
-      "type": "muto-about-statement",
-      "settings": {
-        "layout": "split",
-        "field": "tail",
-        "eyebrow": "Our standards",
-        "head": "You shouldn’t have to\ntake a supplement\non trust.",
-        "tail": "",
-        "body": "Supplements don’t have to prove much to go on sale in the UK. So we built MUTO to a higher bar, and we show you all of it.",
-        "space_top": 140,
-        "space_bottom": 60
-      }
-    },
-    "numbers": {
-      "type": "muto-home-stats",
-      "settings": {
-        "heading": "",
-        "space_top": 40,
-        "space_bottom": 80
-      },
-      "blocks": {
-        "n1": {
-          "type": "stat",
-          "settings": {
-            "figure": "19",
-            "label": "Doses on\nthe label",
-            "caption": "No proprietary blends"
-          }
-        },
-        "n2": {
-          "type": "stat",
-          "settings": {
-            "figure": "100%",
-            "label": "Of batches\ntested",
-            "caption": "By an independent lab"
-          }
-        },
-        "n3": {
-          "type": "stat",
-          "settings": {
-            "figure": "90",
-            "label": "Days to\njudge it",
-            "caption": "Or your money back"
-          }
-        }
-      },
-      "block_order": [
-        "n1",
-        "n2",
-        "n3"
-      ]
-    },
     "standards": {
-      "type": "muto-about-research",
+      "type": "muto-standards",
       "settings": {
-        "field": false,
-        "heading": "Our ten\nstandards",
-        "space_top": 80,
+        "heading": "The standards\nbehind MUTO",
+        "lede": "Supplements don’t have to prove much to go on sale in the UK. So we built MUTO to a higher bar, and we show you all of it: every dose on the label, every batch tested, made in the UK.",
+        "list_label": "Our standards",
+        "space_top": 120,
         "space_bottom": 100
       },
       "blocks": {
         "s1": {
-          "type": "item",
+          "type": "standard",
           "settings": {
-            "name": "Every dose\non the label",
-            "note": "No proprietary blends. All 19 ingredients listed with their exact dose and form."
+            "title": "Every dose on the label",
+            "text": "<p>No proprietary blends. Every one of the 19 ingredients is listed with its exact dose and form, so you know exactly what you’re taking.</p>",
+            "check": "<p>Read the full label on our <a href=\"/pages/ingredients\">ingredients page</a>, or turn the jar round.</p>",
+            "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-made-declared.jpg?v=1790752124",
+            "image_2_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-gallery-1.jpg?v=1790879783"
           }
         },
         "s2": {
-          "type": "item",
+          "type": "standard",
           "settings": {
-            "name": "Doses chosen\nfor a reason",
-            "note": "NR at 300mg, the most allowed in Great Britain. D3 at 2,000 IU. B vitamins in active forms. Zinc and copper as a pair."
+            "title": "Doses chosen for a reason",
+            "text": "<p>NR at 300mg, the most allowed in Great Britain. Vitamin D3 at 2,000 IU. B vitamins in their active, methylated forms. Zinc and copper dosed as a pair, because they compete for absorption. Nothing added just to make the list longer.</p>",
+            "check": "<p>Every dose and form is in the ingredient table.</p>",
+            "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-gift-guide-v2.jpg?v=1791392560",
+            "image_2_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-lp-kit-hero.jpg?v=1791969959"
           }
         },
         "s3": {
-          "type": "item",
+          "type": "standard",
           "settings": {
-            "name": "Only UK-authorised\ningredients",
-            "note": "Every ingredient is authorised for UK food supplements. That’s why we use NR, not NMN."
+            "title": "Only UK-authorised ingredients",
+            "text": "<p>Every ingredient in MUTO is authorised for use in UK food supplements. That’s why we use NR rather than NMN, which is still under assessment.</p>",
+            "check": "<p>Ask us about any ingredient’s status: <a href=\"mailto:hello@mutolongevity.com\">hello@mutolongevity.com</a></p>",
+            "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-gallery-1.jpg?v=1790879783",
+            "image_2_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-why-manufacturing.jpg?v=1790767821"
           }
         },
         "s4": {
-          "type": "item",
+          "type": "standard",
           "settings": {
-            "name": "Every batch\ntested",
-            "note": "Every batch is tested by an independent lab before it’s released. Certificates on request."
+            "title": "Every batch third-party tested",
+            "text": "<p>Not just the first batch. Every batch is tested by an independent lab before it’s released.</p>",
+            "check": "<p>Certificates are available on request: <a href=\"mailto:hello@mutolongevity.com\">hello@mutolongevity.com</a></p>",
+            "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-made-tested.jpg?v=1790752123",
+            "image_2_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-why-manufacturing.jpg?v=1790767821"
           }
         },
         "s5": {
-          "type": "item",
+          "type": "standard",
           "settings": {
-            "name": "Made in the UK,\nto GMP",
-            "note": "Manufactured to Good Manufacturing Practice standards, in an ISO-certified facility."
+            "title": "Made in the UK, to GMP",
+            "text": "<p>Manufactured in the UK to GMP (Good Manufacturing Practice) standards, in an ISO-certified facility.</p>",
+            "check": "<p>Ask us for our manufacturing standards.</p>",
+            "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-why-manufacturing.jpg?v=1790767821",
+            "image_2_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-made-tested.jpg?v=1790752123"
           }
         },
         "s6": {
-          "type": "item",
+          "type": "standard",
           "settings": {
-            "name": "Nothing you\ndon’t need",
-            "note": "Vegan capsules. No major allergens, no fillers, no caffeine, no stimulants."
+            "title": "Nothing you don’t need",
+            "text": "<p>Vegan capsules made from plant cellulose (HPMC). Vitamin D3 from algae. No major allergens, no fillers, no caffeine and no stimulants.</p>",
+            "check": "<p>It’s all on the label.</p>",
+            "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-made-tested.jpg?v=1790752123",
+            "image_2_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-lp-kit-hero.jpg?v=1791969959"
           }
         },
         "s7": {
-          "type": "item",
+          "type": "standard",
           "settings": {
-            "name": "Scientists\nwith names",
-            "note": "Formulated by Dr Richie Barclay, PhD, and reviewed by a six-member scientific advisory board."
+            "title": "Scientists with names",
+            "text": "<p>Formulated by Dr Richie Barclay, PhD in cell biology and nutrition, with a six-member scientific advisory board. The board meets every quarter to guide our research and every new formula. It doesn’t endorse products.</p>",
+            "check": "<p>Meet the board on our <a href=\"/pages/about\">About page</a>.</p>",
+            "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-made-scientists.jpg?v=1790752123",
+            "image_2_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-board-1.jpg?v=1790751995"
           }
         },
         "s8": {
-          "type": "item",
+          "type": "standard",
           "settings": {
-            "name": "Research we’ll\npublish",
-            "note": "A University of Westminster study starts in December 2026. We’ll share the results, whatever they show."
+            "title": "Research we’ll publish",
+            "text": "<p>A University of Westminster study starts in December 2026, with work at King’s College London, Coventry and Newcastle to follow. There are no results yet, and we’ll never say there are.</p>",
+            "check": "<p>We’ll share every update on this page.</p>",
+            "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-board-3.jpg?v=1790751994",
+            "image_2_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-made-scientists.jpg?v=1790752123"
           }
         },
         "s9": {
-          "type": "item",
+          "type": "standard",
           "settings": {
-            "name": "Honest claims\nonly",
-            "note": "Only the health claims UK law authorises, worded exactly. Every review is genuine."
+            "title": "Honest claims only",
+            "text": "<p>We only make the health claims UK law authorises, worded exactly. We’ll tell you what MUTO won’t do as clearly as what it will. Every review is genuine, and every creator we work with is disclosed.</p>",
+            "check": "<p>Every claim on our site carries its authorised wording.</p>",
+            "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-made-declared.jpg?v=1790752124",
+            "image_2_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-founder.jpg?v=1790751995"
           }
         },
         "s10": {
-          "type": "item",
+          "type": "standard",
           "settings": {
-            "name": "Built to be\nchecked",
-            "note": "Give it 90 days. If you don’t feel the difference, you get every subscription payment back."
+            "title": "Built to be checked",
+            "text": "<p>Note how you feel today. Give it 90 days. If you don’t feel the difference, you get every subscription payment back. Skip, pause or cancel online anytime, with a reminder five days before every payment.</p>",
+            "check": "<p>Guarantee terms are in our <a href=\"/pages/faqs#guarantee\">FAQs</a>.</p>",
+            "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-checkin-close.jpg?v=1791021630",
+            "image_2_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-founder.jpg?v=1790751995"
           }
         }
       },
@@ -145,95 +124,115 @@
         "s10"
       ]
     },
-    "rules": {
-      "type": "muto-crea-compare",
-      "settings": {
-        "heading": "Nobody made us do any\nof this. That’s the point.",
-        "table_caption": "What UK law requires, and what MUTO does",
-        "claim_label": "",
-        "density": "compact",
-        "head_gap": 40,
-        "claim_width": 562,
-        "col_pitch": 160,
-        "panel_width": 120,
-        "col_1": "MUTO",
-        "col_1_logo": true,
-        "col_2": "Required by UK law",
-        "col_3": "",
-        "col_4": "",
-        "fit": "nad",
-        "space_top": 100,
-        "space_bottom": 100
-      },
+    "results": {
+      "type": "muto-home-results",
       "blocks": {
         "r1": {
-          "type": "row",
+          "type": "result",
           "settings": {
-            "claim": "Approval before it goes on sale",
-            "m1": "yes",
-            "m2": "no",
-            "m3": "dash",
-            "m4": "dash"
+            "image": "shopify://shop_images/about-pillar-stress-harry.jpg",
+            "image_fallback": "",
+            "image_alt": "A MUTO customer talking to camera about their 90 days",
+            "image_position": "",
+            "video": "shopify://files/videos/Nothing Gets in on Trust_V01.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "result": "",
+            "quote": "",
+            "name": "Harry Insley",
+            "tag": "",
+            "detail": ""
           }
         },
         "r2": {
-          "type": "row",
+          "type": "result",
           "settings": {
-            "claim": "Every dose on the label",
-            "m1": "yes",
-            "m2": "no",
-            "m3": "dash",
-            "m4": "dash"
+            "image": "shopify://shop_images/home-athlete-yolanda.jpg",
+            "image_fallback": "",
+            "image_alt": "A MUTO customer talking to camera about their 90 days",
+            "image_position": "",
+            "video": "shopify://files/videos/The Baseline.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "result": "",
+            "quote": "",
+            "name": "Yolanda King",
+            "tag": "",
+            "detail": ""
           }
         },
         "r3": {
-          "type": "row",
+          "type": "result",
           "settings": {
-            "claim": "Independent testing of every batch",
-            "m1": "yes",
-            "m2": "no",
-            "m3": "dash",
-            "m4": "dash"
+            "image": "shopify://shop_images/IMG_3566_JPG.jpg",
+            "image_fallback": "",
+            "image_alt": "A MUTO customer talking to camera about their 90 days",
+            "image_position": "",
+            "video": "shopify://files/videos/clip 3.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "result": "",
+            "quote": "",
+            "name": "Adam Facey",
+            "tag": "",
+            "detail": ""
           }
         },
         "r4": {
-          "type": "row",
+          "type": "result",
           "settings": {
-            "claim": "Made in a GMP-certified facility",
-            "m1": "yes",
-            "m2": "no",
-            "m3": "dash",
-            "m4": "dash"
+            "image": "shopify://shop_images/Ellen_Gray.jpg",
+            "image_fallback": "",
+            "image_alt": "A MUTO customer talking to camera about their 90 days",
+            "image_position": "",
+            "video": "shopify://files/videos/MU12_MUTO_VIDEO AD_TOFU_PROBLEM AWARE_HIGH PERFORMER_METRICS_HRV_TESTIMONIAL_ELLEN_CREATOR AD.MP4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "result": "",
+            "quote": "",
+            "name": "Ellen Gray",
+            "tag": "",
+            "detail": ""
           }
         },
         "r5": {
-          "type": "row",
+          "type": "result",
           "settings": {
-            "claim": "A scientist involved",
-            "m1": "yes",
-            "m2": "no",
-            "m3": "dash",
-            "m4": "dash"
+            "image": "shopify://shop_images/max-richards.jpg",
+            "image_fallback": "",
+            "image_alt": "A MUTO customer talking to camera about their 90 days",
+            "image_position": "",
+            "video": "shopify://files/videos/MUTO_Creator-Ad_Max-Richards_Script-B.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "result": "",
+            "quote": "",
+            "name": "Max Richards",
+            "tag": "",
+            "detail": ""
           }
         },
-        "r6": {
-          "type": "row",
+        "result_NmUnkJ": {
+          "type": "result",
           "settings": {
-            "claim": "Human research",
-            "m1": "yes",
-            "m2": "no",
-            "m3": "dash",
-            "m4": "dash"
-          }
-        },
-        "r7": {
-          "type": "row",
-          "settings": {
-            "claim": "A money-back guarantee",
-            "m1": "yes",
-            "m2": "no",
-            "m3": "dash",
-            "m4": "dash"
+            "image": "shopify://shop_images/IMG_1115_JPG.jpg",
+            "image_fallback": "",
+            "image_alt": "",
+            "image_position": "",
+            "video": "shopify://files/videos/MU06_26_MUTO_VIDEO-1.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "result": "",
+            "quote": "",
+            "name": "Adam Hamilton",
+            "tag": "",
+            "detail": ""
           }
         }
       },
@@ -243,39 +242,83 @@
         "r3",
         "r4",
         "r5",
-        "r6",
-        "r7"
-      ]
-    },
-    "founder": {
-      "type": "muto-about-founder",
+        "result_NmUnkJ"
+      ],
       "settings": {
-        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-founder.jpg?v=1790751995",
-        "image_alt": "Dr Richie Barclay sitting on a sofa at home, holding a jar of MUTO NAD+ Cellular Complex over a glass coffee table",
-        "heading": "Nothing hidden.\nEverything checkable.",
-        "name": "Dr Richie Barclay, Founder · PhD, cell biology and nutrition",
+        "heading": "Built on standards,\nlived by real people.",
+        "note": "In their own words",
+        "ratio": "9/16",
+        "field": false,
+        "fit": "nad",
+        "rail_gap": 48,
+        "foot": "Everyone is different. We can’t promise results.",
+        "space_top": 100,
+        "space_bottom": 100
+      }
+    },
+    "start": {
+      "type": "muto-get-started",
+      "settings": {
+        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-lp-kit-hero.jpg?v=1791969959",
+        "image_position": "55% 62%",
+        "image_alt": "The MUTO first order: NAD+ Cellular Complex jar and refill pouches, Ultrapure Creatine, the bottle and the presentation box",
+        "heading": "Start your\n90 days",
+        "product_name": "NAD+ Cellular Complex (30 days)",
+        "product_price": "£60",
+        "product_sub": "£2 a day on the monthly plan",
+        "includes_label": "First order includes:",
+        "total_label": "Total",
+        "total_was": "£122",
+        "total_now": "£60",
         "cta_label": "Start your 90 days",
         "cta_link": "/products/muto-nad-cellular-complex",
-        "space_top": 100,
+        "ticks": "Free next-day delivery\nSkip, pause or cancel online\n90-day money-back guarantee",
+        "space_top": 40,
         "space_bottom": 100
       },
       "blocks": {
-        "p1": {
-          "type": "para",
+        "i1": {
+          "type": "item",
           "settings": {
-            "text": "Most of the people I’ve worked with in their 40s and 50s were doing everything right, and still buying on a leap of faith. Labels that didn’t show the doses. Nobody checking every batch."
+            "name": "Ultrapure Creatine",
+            "desc": "A 250g pouch of micronised creatine",
+            "was": "£30",
+            "now": "free"
           }
         },
-        "p2": {
-          "type": "para",
+        "i2": {
+          "type": "item",
           "settings": {
-            "text": "So when I built MUTO, I built it the way I’d want it built for my own family: nothing hidden, everything checkable."
+            "name": "Forever Jar",
+            "desc": "A glass jar to keep",
+            "was": "£10",
+            "now": "free"
+          }
+        },
+        "i3": {
+          "type": "item",
+          "settings": {
+            "name": "12-week guide",
+            "desc": "How to run your 90 days and check it yourself",
+            "was": "£10",
+            "now": "free"
+          }
+        },
+        "i4": {
+          "type": "item",
+          "settings": {
+            "name": "Socks",
+            "desc": "Size UK 6–11",
+            "was": "£12",
+            "now": "free"
           }
         }
       },
       "block_order": [
-        "p1",
-        "p2"
+        "i1",
+        "i2",
+        "i3",
+        "i4"
       ]
     },
     "faq": {
@@ -283,7 +326,7 @@
       "settings": {
         "heading": "Questions",
         "schema_on": true,
-        "space_top": 100,
+        "space_top": 60,
         "space_bottom": 100
       },
       "blocks": {
@@ -330,37 +373,12 @@
         "q4",
         "q5"
       ]
-    },
-    "banner": {
-      "type": "muto-about-banner",
-      "settings": {
-        "line_a": "Above\nthe\nstandard.",
-        "line_b": "Beneath\nthe surface.",
-        "cutout_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-cutout.png?v=1790751995",
-        "cta_label": "Start your 90 days",
-        "cta_link": "/products/muto-nad-cellular-complex",
-        "space_top": 100,
-        "space_bottom": 100
-      }
-    },
-    "page_css": {
-      "type": "custom-liquid",
-      "settings": {
-        "color_scheme": "scheme-1",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "custom_liquid": "<style>\n[id$=\"__rules\"] .mc__cmp th:nth-child(n+4),[id$=\"__rules\"] .mc__cmp td:nth-child(n+4){display:none}\n</style>"
-      }
     }
   },
   "order": [
-    "intro",
-    "numbers",
     "standards",
-    "rules",
-    "founder",
-    "faq",
-    "banner",
-    "page_css"
+    "results",
+    "start",
+    "faq"
   ]
 }
