@@ -6,7 +6,8 @@
 
   It opens from any element with data-mtr-open (the ingredient library's
   "View third-party testing results" button) or a link to #test-results, so
-  other pages can open it too. The section itself shows a button only if
+  other pages can open it too. data-mtr-open="3" or a link to #test-results-3
+  opens it at the third tab (Formula). The section itself shows a button only if
   "Show a button here" is ticked.
 
   BLOCKS: one "Test" per line of the certificate's results, and one "Formula
@@ -277,8 +278,8 @@
         if (n !== null) { e.preventDefault(); show(n, true); }
       });
     });
-    function open() {
-      show(0);
+    function open(tab) {
+      show(Math.max(0, Math.min(tabs.length - 1, (parseInt(tab, 10) || 1) - 1)));
       if (d.showModal) d.showModal(); else d.setAttribute('open', '');
       document.documentElement.classList.add('mtr-lock');
     }
@@ -288,12 +289,15 @@
     /* A click on the dimmed backdrop closes it */
     d.addEventListener('click', function (e) { if (e.target === d) close(); });
     document.addEventListener('click', function (e) {
-      var t = e.target.closest && e.target.closest('[data-mtr-open], a[href$="#test-results"]');
+      var t = e.target.closest && e.target.closest('[data-mtr-open], a[href*="#test-results"]');
       if (!t) return;
       e.preventDefault();
-      open();
+      /* data-mtr-open="3", or a link to #test-results-3, opens at the third tab */
+      var m = (t.getAttribute('href') || '').match(/#test-results-(\d)/);
+      open(t.getAttribute('data-mtr-open') || (m && m[1]));
     });
-    if (location.hash === '#test-results') open();
+    var h = location.hash.match(/^#test-results(?:-(\d))?$/);
+    if (h) open(h[1]);
   })();
 </script>
 

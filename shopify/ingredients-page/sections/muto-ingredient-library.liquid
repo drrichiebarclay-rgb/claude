@@ -136,7 +136,7 @@
   <div class="mil__wrap">
     <header class="mil__head">
       {%- if section.settings.eyebrow != blank -%}<p class="mil__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
-      <h1 class="mc__h2 mil__h">{{ section.settings.heading }}</h1>
+      {%- assign htag = section.settings.heading_tag | default: 'h1' -%}<{{ htag }} class="mc__h2 mil__h">{{ section.settings.heading }}</{{ htag }}>
       {%- if section.settings.lede != blank -%}<p class="mil__lede">{{ section.settings.lede }}</p>{%- endif -%}
       {%- comment -%} Opens the "MUTO — Test results" panel on the same page {%- endcomment -%}
       {%- if section.settings.tests_label != blank -%}<button type="button" class="mtr-btn" data-mtr-open><span class="mtr-btn__tick"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6.2 5 8.6l4.5-5" stroke="#162f31" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>{{ section.settings.tests_label }}</button>{%- endif -%}
@@ -399,6 +399,7 @@
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "NAD+ Cellular Complex · 19 ingredients · 2 capsules" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Every ingredient has a job." },
+    { "type": "select", "id": "heading_tag", "label": "Heading level", "default": "h1", "info": "h2 on a product page, where the product name is the h1.", "options": [{ "value": "h1", "label": "h1" }, { "value": "h2", "label": "h2" }] },
     { "type": "textarea", "id": "lede", "label": "Intro", "default": "Each one supports at least one of five things that change as we get older. Filter below to see which, and why it’s there." },
     { "type": "text", "id": "filters", "label": "Filters", "info": "Comma-separated. Each must match a tag used on the ingredients.", "default": "Energy, Recovery, Stress, Longevity, Immunity" },
     { "type": "text", "id": "supports_label", "label": "Supports label", "default": "Supports:" },

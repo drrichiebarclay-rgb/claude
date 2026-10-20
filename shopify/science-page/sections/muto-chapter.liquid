@@ -145,6 +145,7 @@
   /* Timeline: one line, a dot per milestone */
   #shopify-section-{{ sid }} .mch__b--step{position:relative;padding:28px 24px 0 0;border-top:2px solid var(--mc-ink)}
   #shopify-section-{{ sid }} .mch__blocks:has(> .mch__b--step){column-gap:0}
+  #shopify-section-{{ sid }} .mch__blocks:has(> .mch__b--step:nth-child(3):last-child) .mch__b--step{grid-column:span 4}
   #shopify-section-{{ sid }} .mch__b--step::before{content:"";position:absolute;top:-9px;left:0;width:16px;height:16px;border-radius:50%;background:var(--mc-cyan);border:2px solid var(--mc-ink);box-sizing:border-box}
   #shopify-section-{{ sid }} .mch__sk{font-family:var(--mc-mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--mc-muted)}
   /* Table folded behind a + row */
@@ -204,6 +205,7 @@
     #shopify-section-{{ sid }} .mch__b--step:last-of-type{border-left-color:transparent;padding-bottom:0}
     #shopify-section-{{ sid }} .mch__b--step::before{top:0;left:-9px}
     #shopify-section-{{ sid }} .mch__blocks:has(> .mch__b--step){row-gap:0}
+    #shopify-section-{{ sid }} .mch__blocks:has(> .mch__b--step:nth-child(3):last-child) .mch__b--step{grid-column:1/-1}
   }
 </style>
 
@@ -431,6 +433,6 @@
   ],
   "max_blocks": 20,
   "presets": [{ "name": "MUTO — Chapter" }],
-  "enabled_on": { "templates": ["page"] }
+  "enabled_on": { "templates": ["page", "product"] }
 }
 {% endschema %}
