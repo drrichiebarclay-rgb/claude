@@ -1,7 +1,7 @@
 {%- comment -%}
   MUTO — Get started.
-  Two halves: the first order photographed on the ground colour, and a teal
-  panel that itemises it: the product and its price, what the first order
+  Two full-width halves: the first order photographed on the ground colour, and
+  a charcoal (#242223) panel that itemises it: the product and its price, what the first order
   includes (each with its usual price struck through), the total, the button
   and three reassurance ticks.
 
@@ -22,10 +22,10 @@
 -%}
 <style>
   #shopify-section-{{ sid }} .mg{padding-top:{{ s.space_top }}px;padding-bottom:{{ s.space_bottom }}px}
-  #shopify-section-{{ sid }} .mg__in{display:grid;grid-template-columns:1fr 1fr;border-radius:8px;overflow:hidden;min-height:640px}
+  #shopify-section-{{ sid }} .mg__in{display:grid;grid-template-columns:1fr 1fr;min-height:720px}
   #shopify-section-{{ sid }} .mg__img{position:relative;background:var(--mc-ground-buy)}
   #shopify-section-{{ sid }} .mg__img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  #shopify-section-{{ sid }} .mg__panel{background:var(--mc-ink);color:#fff;padding:64px clamp(24px,5vw,80px);display:flex;flex-direction:column}
+  #shopify-section-{{ sid }} .mg__panel{background:var(--mc-ink-alt,#242223);color:#fff;padding:80px clamp(24px,6vw,120px);display:flex;flex-direction:column}
   #shopify-section-{{ sid }} .mg__h{color:#fff}
   #shopify-section-{{ sid }} .mg__row{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
   #shopify-section-{{ sid }} .mg__prod{margin-top:40px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.4)}
@@ -47,14 +47,14 @@
   @media (max-width:989px){
     #shopify-section-{{ sid }} .mg__in{grid-template-columns:1fr;min-height:0}
     #shopify-section-{{ sid }} .mg__img{aspect-ratio:4/3}
-    #shopify-section-{{ sid }} .mg__panel{padding:40px 24px}
+    #shopify-section-{{ sid }} .mg__panel{padding:40px var(--mc-gutter,20px)}
     #shopify-section-{{ sid }} .mg__name,#shopify-section-{{ sid }} .mg__price,#shopify-section-{{ sid }} .mg__total{font-size:19px}
     #shopify-section-{{ sid }} .mg__item-name,#shopify-section-{{ sid }} .mg__free{font-size:17px}
   }
 </style>
 
 <div class="mc mg">
-  <div class="mc__wrap">
+  <div>
     <div class="mg__in">
       <div class="mg__img">
         {%- if img_src != blank -%}<img src="{{ img_src }}" alt="{{ s.image_alt | escape }}" loading="lazy" width="1400" height="1400"{% if s.image_position != blank %} style="object-position:{{ s.image_position }}"{% endif %}>{%- endif -%}
