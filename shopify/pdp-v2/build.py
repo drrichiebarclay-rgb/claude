@@ -10,6 +10,7 @@ product.muto-nad-4060) and lays out, top to bottom:
   board      the home page's slim scientific board
   library    muto-ingredient-library: the 19 ingredients, filterable (h2 here)
   compare    muto-chapter: MUTO vs the usual, the science page's table
+  timeline   muto-timeline: what to expect at day 1, 30, 60 and 90
   howto      muto-chapter: three steps
   faq        muto-crea-faq: rewritten
   tests      muto-test-results: the panel the button opens (nothing shows until opened)
@@ -167,6 +168,20 @@ cmp_ = copy.deepcopy(SCI_T["c4"])
 cmp_["settings"].update(anchor="compare", number="", band="mint", space_top=96, space_bottom=96)
 put("compare", cmp_)
 
+# ---- What to expect over time (the science page's timeline, AgeMate's layout) ----
+MILES = [("Day 1", "Your baseline", "Score your afternoons, sleep and recovery out of 10, or note your wearable’s numbers. Then two capsules with breakfast."),
+         ("Day 30", "Afternoons that hold", "Usually the first thing people notice. B vitamins help reduce tiredness and fatigue, and NR tops up the NAD+ your cells use to make energy. Less of a 3pm slump, and energy left for the evening."),
+         ("Day 60", "Bouncing back sooner", "Vitamin D supports normal muscle function, and CoQ10 and PQQ support your mitochondria. A walk, a round of golf or a gym session stops hanging around for days."),
+         ("Day 90", "Feeling like yourself", "Compare your scores with day 1. Many people say they hadn’t realised how flat they’d been feeling. Not for you? Get every subscription payment back.")]
+put("timeline", {"type": "muto-timeline", "settings": {
+    "heading": "What you can expect over time.",
+    "lede": "What people tell us they notice, and roughly when. Everyone’s different, so score yourself on day 1 and compare.",
+    "image": "shopify://shop_images/MUTO0296.png", "image_alt": "",
+    "foot": "Based on what customers tell us, not a clinical study. Everyone’s different.",
+    "band": "ground", "sticky_top": 120, "space_top": 96, "space_bottom": 96},
+    "blocks": {f"m{i}": {"type": "milestone", "settings": {"pill": d, "title": t, "text": p(x)}} for i, (d, t, x) in enumerate(MILES, 1)},
+    "block_order": [f"m{i}" for i in range(1, len(MILES) + 1)]})
+
 # ---- How to take it: three steps ----
 STEPS = [("Step 1", "Two capsules with breakfast", "CoQ10, vitamin D3 and K2 dissolve in fat, so your body takes them in best with food.", "shopify://shop_images/nad-jar.jpg"),
          ("Step 2", "Every morning", "It works best as a daily habit. Keep the jar by the kettle so you don’t forget.", "shopify://shop_images/MUTO0266.png"),
@@ -175,7 +190,7 @@ STEPS = [("Step 1", "Two capsules with breakfast", "CoQ10, vitamin D3 and K2 dis
 put("howto", {"type": "muto-chapter", "settings": {
     "anchor": "how-to-take-it", "number": "", "label": "How to take it", "heading": "How to take it.",
     "intro": p("Three steps. Two capsules. About ten seconds a day."), "art": "none", "takeaway": "", "line": "", "small": "",
-    "cta_label": "", "cta_link": "", "tint": False, "band": "ground", "space_top": 96, "space_bottom": 96},
+    "cta_label": "", "cta_link": "", "tint": False, "band": "mint", "space_top": 96, "space_bottom": 96},
     "blocks": {f"s{i}": {"type": "step", "settings": {"image": img, "kicker": k, "title": t, "text": p(x)}} for i, (k, t, x, img) in enumerate(STEPS, 1)},
     "block_order": [f"s{i}" for i in range(1, len(STEPS) + 1)]})
 

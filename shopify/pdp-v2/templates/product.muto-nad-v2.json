@@ -1062,6 +1062,60 @@
         "t1"
       ]
     },
+    "timeline": {
+      "type": "muto-timeline",
+      "settings": {
+        "heading": "What you can expect over time.",
+        "lede": "What people tell us they notice, and roughly when. Everyone’s different, so score yourself on day 1 and compare.",
+        "image": "shopify://shop_images/MUTO0296.png",
+        "image_alt": "",
+        "foot": "Based on what customers tell us, not a clinical study. Everyone’s different.",
+        "band": "ground",
+        "sticky_top": 120,
+        "space_top": 96,
+        "space_bottom": 96
+      },
+      "blocks": {
+        "m1": {
+          "type": "milestone",
+          "settings": {
+            "pill": "Day 1",
+            "title": "Your baseline",
+            "text": "<p>Score your afternoons, sleep and recovery out of 10, or note your wearable’s numbers. Then two capsules with breakfast.</p>"
+          }
+        },
+        "m2": {
+          "type": "milestone",
+          "settings": {
+            "pill": "Day 30",
+            "title": "Afternoons that hold",
+            "text": "<p>Usually the first thing people notice. B vitamins help reduce tiredness and fatigue, and NR tops up the NAD+ your cells use to make energy. Less of a 3pm slump, and energy left for the evening.</p>"
+          }
+        },
+        "m3": {
+          "type": "milestone",
+          "settings": {
+            "pill": "Day 60",
+            "title": "Bouncing back sooner",
+            "text": "<p>Vitamin D supports normal muscle function, and CoQ10 and PQQ support your mitochondria. A walk, a round of golf or a gym session stops hanging around for days.</p>"
+          }
+        },
+        "m4": {
+          "type": "milestone",
+          "settings": {
+            "pill": "Day 90",
+            "title": "Feeling like yourself",
+            "text": "<p>Compare your scores with day 1. Many people say they hadn’t realised how flat they’d been feeling. Not for you? Get every subscription payment back.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "m1",
+        "m2",
+        "m3",
+        "m4"
+      ]
+    },
     "howto": {
       "type": "muto-chapter",
       "settings": {
@@ -1077,7 +1131,7 @@
         "cta_label": "",
         "cta_link": "",
         "tint": false,
-        "band": "ground",
+        "band": "mint",
         "space_top": 96,
         "space_bottom": 96
       },
@@ -1592,6 +1646,7 @@
     "board",
     "library",
     "compare",
+    "timeline",
     "howto",
     "faq",
     "tests",
