@@ -128,16 +128,20 @@
   #shopify-section-{{ sid }} .mch__sv{display:block;font-family:var(--mc-font);font-weight:500;font-size:clamp(40px,3.6vw,56px);line-height:.95;letter-spacing:-.02em;color:var(--mc-ink)}
   #shopify-section-{{ sid }} .mch__sl{display:block;margin-top:10px;font-size:15px;line-height:1.35;color:var(--mc-ink-alt)}
   /* Cards: one per job, as on the ingredients page */
-  #shopify-section-{{ sid }} .mch__cards{grid-column:1/-1;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
-  #shopify-section-{{ sid }} .mch__b--card{grid-column:span 2;display:flex;flex-direction:column;gap:14px;min-height:300px;padding:28px;background:#fff;border-radius:8px}
+  /* Cards keep their own height, so opening one doesn't stretch its row */
+  #shopify-section-{{ sid }} .mch__cards{grid-column:1/-1;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;align-items:start}
+  #shopify-section-{{ sid }} .mch__b--card{grid-column:span 2;display:flex;flex-direction:column;gap:14px;padding:28px;background:#fff;border-radius:8px}
   #shopify-section-{{ sid }} .mch__cards:has(> :nth-child(5):last-child) > :nth-child(n+4){grid-column:span 3}
   #shopify-section-{{ sid }} .mch__cards:has(> :nth-child(4):last-child) > *{grid-column:span 3}
   #shopify-section-{{ sid }} .mch__cn{display:flex;align-items:center;gap:8px;font-family:var(--mc-mono);font-size:13px;color:var(--mc-muted)}
   #shopify-section-{{ sid }} .mch__cn::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--mc-cyan);box-shadow:0 0 0 1px var(--mc-ink)}
   #shopify-section-{{ sid }} .mch__ct{margin:0;font-weight:500;font-size:clamp(26px,2.4vw,34px);line-height:1;letter-spacing:-.01em;text-transform:uppercase;color:var(--mc-ink)}
-  #shopify-section-{{ sid }} .mch__cx{font-size:17px;line-height:1.45;color:var(--mc-ink-alt)}
-  #shopify-section-{{ sid }} .mch__ci{margin-top:auto;padding-top:14px;border-top:1px solid var(--mc-hair);font-size:15px;line-height:1.5;color:var(--mc-ink-alt)}
-  #shopify-section-{{ sid }} .mch__ci b{display:block;margin-bottom:4px;font-family:var(--mc-mono);font-weight:400;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mc-muted)}
+  #shopify-section-{{ sid }} .mch__cx{min-height:4.35em;font-size:17px;line-height:1.45;color:var(--mc-ink-alt)}
+  /* What's in it: folded, + opens the list inside the card */
+  #shopify-section-{{ sid }} .mch__ci{padding-top:14px;border-top:1px solid var(--mc-hair)}
+  #shopify-section-{{ sid }} .mch__ci .mch__sum{align-items:center}
+  #shopify-section-{{ sid }} .mch__ci b{font-family:var(--mc-mono);font-weight:400;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mc-ink)}
+  #shopify-section-{{ sid }} .mch__ci p{margin:12px 0 0;font-size:15px;line-height:1.5;color:var(--mc-ink-alt)}
   /* Timeline: one line, a dot per milestone */
   #shopify-section-{{ sid }} .mch__b--step{position:relative;padding:28px 24px 0 0;border-top:2px solid var(--mc-ink)}
   #shopify-section-{{ sid }} .mch__blocks:has(> .mch__b--step){column-gap:0}
@@ -153,7 +157,8 @@
     #shopify-section-{{ sid }} .mch__stats{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:28px}
     #shopify-section-{{ sid }} .mch__cards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin:0 calc(-1 * var(--mc-gutter,20px));padding:0 var(--mc-gutter,20px) 4px;scroll-padding:0 var(--mc-gutter,20px);scrollbar-width:none}
     #shopify-section-{{ sid }} .mch__cards::-webkit-scrollbar{display:none}
-    #shopify-section-{{ sid }} .mch__b--card{flex:0 0 min(78%,340px);scroll-snap-align:start;min-height:280px;padding:24px}
+    #shopify-section-{{ sid }} .mch__cards{align-items:flex-start}
+    #shopify-section-{{ sid }} .mch__b--card{flex:0 0 min(78%,340px);scroll-snap-align:start;padding:24px}
   }
   @media (max-width:989px){
     #shopify-section-{{ sid }} .mch__grid{grid-template-columns:1fr;gap:20px}
@@ -260,7 +265,7 @@
                   {%- if block.settings.kicker != blank -%}<span class="mch__cn">{{ block.settings.kicker }}</span>{%- endif -%}
                   <h3 class="mch__ct">{{ block.settings.title }}</h3>
                   {%- if block.settings.text != blank -%}<p class="mch__cx">{{ block.settings.text }}</p>{%- endif -%}
-                  {%- if block.settings.detail != blank -%}<p class="mch__ci"><b>{{ block.settings.detail_label | default: 'What’s in it' }}</b>{{ block.settings.detail }}</p>{%- endif -%}
+                  {%- if block.settings.detail != blank -%}<details class="mch__ci"><summary class="mch__sum"><b>{{ block.settings.detail_label | default: 'What’s in it' }}</b><span class="mch__plus" aria-hidden="true"></span></summary><p>{{ block.settings.detail }}</p></details>{%- endif -%}
                 </article>
               {%- when 'stat' -%}
                 <p class="mch__b--stat" {{ block.shopify_attributes }}><span class="mch__sv">{{ block.settings.value }}</span><span class="mch__sl">{{ block.settings.label }}</span></p>

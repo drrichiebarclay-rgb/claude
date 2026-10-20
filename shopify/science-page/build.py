@@ -179,7 +179,7 @@ board["settings"].update(heading="", note="", field=False, compact=True, rail_ga
 S["board"] = board; ORDER.append("board")
 # The board band on the page's own ground colour, no mint wash
 add("board_css", "custom-liquid", {"color_scheme": "scheme-1", "padding_top": 0, "padding_bottom": 0,
-                                   "custom_liquid": "<style>[id$=\"__board\"] .mh{background:var(--mc-ground,#f9f9f9)}</style>"})
+                                   "custom_liquid": "<style>[id$=\"__board\"] .mh{background:var(--mc-ground,#f9f9f9)}[id$=\"__board_css\"]{display:none}</style>"})
 add("research", "muto-chapter", {"anchor": "our-research", "number": "", "label": "Our research (follows the board)", "heading": "",
                                  "line": p("<strong>Our research.</strong> Our first human study starts in December 2026 at the University of Westminster, with work at King’s College London, Coventry and Newcastle to follow. There are no results yet, and we’ll never say there are. We’ll publish them, whatever they show."),
                                  "small": p("Our advisory board guides our research and formulation. Its members don’t endorse products, and none of them is presented as recommending MUTO for any medical purpose."),

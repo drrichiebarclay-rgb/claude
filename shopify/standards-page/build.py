@@ -117,7 +117,7 @@ add("start", "muto-get-started", {
 
 # The board band on the page's own ground colour, no mint wash
 add("board_css", "custom-liquid", {"color_scheme": "scheme-1", "padding_top": 0, "padding_bottom": 0,
-                                   "custom_liquid": "<style>[id$=\"__board\"] .mh{background:var(--mc-ground,#f9f9f9)}</style>"})
+                                   "custom_liquid": "<style>[id$=\"__board\"] .mh{background:var(--mc-ground,#f9f9f9)}[id$=\"__board_css\"]{display:none}</style>"})
 
 # Customer reviews (REVIEWS.io widget), copied from the product page
 S["reviews"] = copy.deepcopy(PDPT["custom_reviews_KpXTpD"]); ORDER.append("reviews")
