@@ -131,7 +131,7 @@
         "tint": false,
         "space_top": 96,
         "space_bottom": 96,
-        "band": "dark"
+        "band": "mint"
       },
       "blocks": {
         "q1": {
@@ -169,7 +169,7 @@
         "intro": "<p>MUTO is built for what you actually need after 35: one daily formula covering five jobs, so you’re not guessing across five separate pots.</p>",
         "art": "none",
         "takeaway": "",
-        "line": "",
+        "line": "<p>Plus BioPerine® (black pepper) 5mg in every serve, to help your body take in the rest. That’s all 19.</p>",
         "small": "<p>Vitamins B6 and B12 contribute to the reduction of tiredness and fatigue. Vitamin D contributes to normal muscle function. Vitamins D and K contribute to the maintenance of normal bones. Zinc, copper and vitamin D contribute to the normal function of the immune system. In a study of adults aged 40 to 60, 300mg of NR a day raised NAD+ by 51% in two weeks. That study tested NR on its own, not MUTO.</p>",
         "cta_label": "See every ingredient",
         "cta_link": "/pages/ingredients",
@@ -213,7 +213,7 @@
             "title": "Energy",
             "text": "Help you feel less tired, and help your body release energy from food.",
             "detail_label": "What’s in it",
-            "detail": "Active B vitamins (B6, B12, folate), CoQ10, PQQ"
+            "detail": "NR 300mg, B12 (methylcobalamin) 100mcg, CoQ10 150mg, B2 (riboflavin) 5mg, Folate (5-MTHF) 400mcg, PQQ 20mg, B6 (P5P) 5mg, B1 (thiamine) 5mg, B3 (niacin) 16mg NE, B5 (pantothenic acid) 10mg, Biotin 300mcg, Copper bisglycinate 1mg"
           }
         },
         "j2": {
@@ -223,7 +223,7 @@
             "title": "Recovery",
             "text": "Keep your muscles working normally, so you bounce back after activity.",
             "detail_label": "What’s in it",
-            "detail": "Vitamin D3 2,000 IU, riboflavin (B2), CoQ10, PQQ"
+            "detail": "CoQ10 150mg, D3 50mcg (2,000 IU), B2 (riboflavin) 5mg, PQQ 20mg"
           }
         },
         "j3": {
@@ -231,9 +231,9 @@
           "settings": {
             "kicker": "03",
             "title": "Stress",
-            "text": "Support normal psychological function through a demanding week.",
+            "text": "Support normal psychological function and mental performance through a demanding week.",
             "detail_label": "What’s in it",
-            "detail": "Active B vitamins, zinc"
+            "detail": "B12 (methylcobalamin) 100mcg, Zinc bisglycinate 15mg, Folate (5-MTHF) 400mcg, B6 (P5P) 5mg, B1 (thiamine) 5mg, B3 (niacin) 16mg NE, B5 (pantothenic acid) 10mg, Biotin 300mcg"
           }
         },
         "j4": {
@@ -241,9 +241,9 @@
           "settings": {
             "kicker": "04",
             "title": "Longevity",
-            "text": "Your body turns NR into NAD+, which runs lower as we get older. K2 helps keep bones strong.",
+            "text": "Your body turns NR into NAD+, which runs lower as we get older. K2 and D3 help keep bones strong.",
             "detail_label": "What’s in it",
-            "detail": "NR 300mg, TMG, trans-resveratrol, grape seed extract, K2 100µg"
+            "detail": "NR 300mg, D3 50mcg (2,000 IU), TMG 450mg, B2 (riboflavin) 5mg, K2 (MK-7) 100mcg, Zinc bisglycinate 15mg, Trans-resveratrol 50mg, Grape seed extract 150mg"
           }
         },
         "j5": {
@@ -253,14 +253,14 @@
             "title": "Immunity",
             "text": "Support your immune system, all year round.",
             "detail_label": "What’s in it",
-            "detail": "Zinc 15mg + copper 1mg, D3, folate, B6, B12"
+            "detail": "B12 (methylcobalamin) 100mcg, D3 50mcg (2,000 IU), Zinc bisglycinate 15mg, Folate (5-MTHF) 400mcg, B6 (P5P) 5mg, Copper bisglycinate 1mg"
           }
         },
         "t2": {
           "type": "table",
           "settings": {
             "heading": "How the 19 ingredients work together",
-            "rows": "Team | Who’s on it | What happens\nThe energy team | NR, CoQ10, copper | NR becomes NAD+, the courier. CoQ10 is the relay runner that passes energy along inside the power station. Copper sits at the very last step, where the energy gets made.\nThe recycling team | Folate, B12, B6, TMG | Your cells constantly reuse one of their most important building blocks. Folate and B12 keep that recycling loop turning, TMG runs a second loop alongside it, and B6 handles the exit. We use the active forms, the ones the cell actually uses.\nThe clean-up crew | Zinc + copper | Zinc and copper build the enzyme that cleans up the exhaust from making energy. One enzyme, two metals, so we pair them.\nThe bone relay | D3 + K2 | D3 tells your cells to make a bone protein. K2 switches that protein on. D3 makes it, K2 activates it.",
+            "rows": "Team | Who’s on it | What happens\nThe energy team | NR 300mg, CoQ10 150mg, PQQ 20mg, B2 (riboflavin) 5mg | NR becomes NAD+, the courier. CoQ10 is the relay runner that passes energy along inside the power station, and PQQ is studied for its role in the power stations themselves. B2 is part of the enzymes that release energy from food.\nThe B team | B1 (thiamine) 5mg, B3 (niacin) 16mg NE, B5 (pantothenic acid) 10mg, Biotin 300mcg | Each one is a working part in the steps that turn food into energy, and B1, B3 and B5 also support normal psychological function and mental performance.\nThe recycling team | Folate (5-MTHF) 400mcg, B12 (methylcobalamin) 100mcg, B6 (P5P) 5mg, TMG 450mg | Your cells constantly reuse one of their most important building blocks. Folate and B12 keep that recycling loop turning, TMG runs a second loop alongside it, and B6 handles the exit. We use the active forms, the ones the cell actually uses.\nThe clean-up crew | Zinc bisglycinate 15mg, Copper bisglycinate 1mg | Zinc and copper build the enzyme that cleans up the exhaust from making energy. One enzyme, two metals, so we pair them, both as bisglycinate.\nThe grape pair | Trans-resveratrol 50mg, Grape seed extract 150mg | Plant polyphenols from grapes. Trans-resveratrol is widely studied in healthy-ageing research, and grape seed extract is standardised to 95% polyphenols.\nThe bone relay | D3 50mcg (2,000 IU), K2 (MK-7) 100mcg | D3 tells your cells to make a bone protein. K2 switches that protein on. D3 makes it, K2 activates it.\nThe helper | BioPerine® (black pepper) 5mg | Black pepper extract, added to help your body take in the other ingredients. No taste, no heat.",
             "highlight": 0,
             "note": "",
             "fold": true
@@ -296,7 +296,8 @@
         "cta_link": "",
         "tint": false,
         "space_top": 96,
-        "space_bottom": 96
+        "space_bottom": 96,
+        "band": "mint"
       },
       "blocks": {
         "t1": {
@@ -498,7 +499,8 @@
         "cta_link": "",
         "tint": false,
         "space_top": 96,
-        "space_bottom": 24
+        "space_bottom": 96,
+        "band": "mint"
       },
       "blocks": {
         "s1": {
@@ -558,7 +560,7 @@
         "cta_label": "Start your 90 days",
         "cta_link": "/products/muto-nad-cellular-complex",
         "ticks": "Free next-day delivery\nSkip, pause or cancel online\n90-day money-back guarantee",
-        "space_top": 40,
+        "space_top": 0,
         "space_bottom": 100
       },
       "blocks": {

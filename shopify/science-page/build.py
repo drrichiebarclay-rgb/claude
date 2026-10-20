@@ -7,7 +7,9 @@ MUTO_Science_Page_Copy_Oct26.docx, in the same styles as the standards page.
 
 Six chapters: what changes (with the science), how it shows up (charcoal band),
 what's in it (stats, five job cards, the teams table folded), MUTO vs the usual,
-the experts, your 90 days (a timeline), then the offer and reviews.
+the experts, your 90 days (a timeline), then the offer and reviews. Bands
+alternate #fafafa and mint #c8d2cf. Ingredient lists are built from
+../ingredients-page/ingredients.json, so all 19 appear with their doses.
 
 Preview on the existing Science page with ?view=science-simple, so the live
 /pages/science template is untouched. The doc's [Confirm …] notes are left off
@@ -23,6 +25,27 @@ PDP = "/products/muto-nad-cellular-complex"
 CDN = "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/"
 
 S, ORDER = {}, []
+ING = json.load(open(os.path.join(HERE, "..", "ingredients-page", "ingredients.json")))
+SHORT = {"Nicotinamide Riboside (NR)": "NR", "Vitamin B12 (Methylcobalamin)": "B12 (methylcobalamin)", "Vitamin D3 (Vegan)": "D3",
+         "TMG (Trimethylglycine)": "TMG", "Vitamin B2 (Riboflavin)": "B2 (riboflavin)", "Vitamin K2 (MK-7)": "K2 (MK-7)",
+         "Zinc (Bisglycinate)": "Zinc bisglycinate", "Folate (5-MTHF)": "Folate (5-MTHF)", "Trans-Resveratrol": "Trans-resveratrol",
+         "Grape Seed Extract": "Grape seed extract", "Vitamin B6 (P5P)": "B6 (P5P)", "Vitamin B1 (Thiamine)": "B1 (thiamine)",
+         "Vitamin B3 (Niacin)": "B3 (niacin)", "Vitamin B5 (Pantothenic Acid)": "B5 (pantothenic acid)",
+         "Copper (Bisglycinate)": "Copper bisglycinate", "BioPerine® (Black Pepper)": "BioPerine® (black pepper)"}
+DOSE = {i["n"]: f"{SHORT.get(i['n'], i['n'])} {i['d'].replace(' mg', 'mg').replace(' mcg', 'mcg').replace('50mcg', '50mcg (2,000 IU)') if i['n'].startswith('Vitamin D3') else i['d'].replace(' mg', 'mg').replace(' mcg', 'mcg')}" for i in ING}
+
+
+def having(tag):
+    """Every ingredient on the ingredients page tagged with this job, with its dose."""
+    return ", ".join(DOSE[i["n"]] for i in ING if tag in i["t"])
+
+
+def named(*keys):
+    """Ingredients by the start of their name, with doses."""
+    out = []
+    for k in keys:
+        out += [DOSE[i["n"]] for i in ING if i["n"] == k or i["n"].startswith(k + " ")]
+    return ", ".join(out)
 
 
 def add(key, type_, settings, blocks=None):
@@ -85,7 +108,7 @@ chapter("c1", "what-changes", "01", "What changes after 35",
                 point("b", "You get less back", "Your body responds less to the same food and the same training. It’s called anabolic resistance, and it’s what I spent years studying in the lab. Same effort, smaller return."),
                 point("c", "Your cells’ maintenance slows", "Making energy creates a little “exhaust”. The crews that clean it up, a family of enzymes called sirtuins, also run on NAD+. Fewer couriers means more competition for the same supply.")],
         takeaway="It’s not you doing anything wrong. It’s biology, and the basics you took at 30 weren’t built for it.")
-S["c1"]["settings"]["art_beside"] = True
+S["c1"]["settings"]["art_beside"] = True  # bands alternate: page background, then mint
 
 # ---- 2: how it shows up (charcoal band) ----
 QUOTES = ["Sharp at 8am. Gone by 3pm.", "Hard sessions hang around for days.", "I’m doing everything right, and I still feel it."]
@@ -93,22 +116,26 @@ chapter("c2", "how-it-shows-up", "02", "How it shows up",
         "You don’t feel your cells. You feel your day.",
         blocks=[(f"q{i}", {"type": "quote", "settings": {"text": q}}) for i, q in enumerate(QUOTES, 1)],
         line=p("It’s like your body has switched to low power mode. Still working, still getting through the day, but running on less than it used to."))
-S["c2"]["settings"]["band"] = "dark"
+S["c2"]["settings"]["band"] = "mint"
 
 # ---- 3: what's in it ----
 STATS = [("19", "ingredients, every dose on the label"), ("300mg", "NR, the most allowed in Great Britain"),
          ("2", "capsules with breakfast"), ("0", "proprietary blends")]
-JOBS = [  # the same five as the ingredients page filters
-    ("Energy", "Help you feel less tired, and help your body release energy from food.", "Active B vitamins (B6, B12, folate), CoQ10, PQQ"),
-    ("Recovery", "Keep your muscles working normally, so you bounce back after activity.", "Vitamin D3 2,000 IU, riboflavin (B2), CoQ10, PQQ"),
-    ("Stress", "Support normal psychological function through a demanding week.", "Active B vitamins, zinc"),
-    ("Longevity", "Your body turns NR into NAD+, which runs lower as we get older. K2 helps keep bones strong.", "NR 300mg, TMG, trans-resveratrol, grape seed extract, K2 100µg"),
-    ("Immunity", "Support your immune system, all year round.", "Zinc 15mg + copper 1mg, D3, folate, B6, B12")]
-TEAMS = [("Team", "Who’s on it", "What happens"),
-         ("The energy team", "NR, CoQ10, copper", "NR becomes NAD+, the courier. CoQ10 is the relay runner that passes energy along inside the power station. Copper sits at the very last step, where the energy gets made."),
-         ("The recycling team", "Folate, B12, B6, TMG", "Your cells constantly reuse one of their most important building blocks. Folate and B12 keep that recycling loop turning, TMG runs a second loop alongside it, and B6 handles the exit. We use the active forms, the ones the cell actually uses."),
-         ("The clean-up crew", "Zinc + copper", "Zinc and copper build the enzyme that cleans up the exhaust from making energy. One enzyme, two metals, so we pair them."),
-         ("The bone relay", "D3 + K2", "D3 tells your cells to make a bone protein. K2 switches that protein on. D3 makes it, K2 activates it.")]
+JOBS = [  # the same five as the ingredients page filters; every ingredient tagged with the job is listed
+    ("Energy", "Help you feel less tired, and help your body release energy from food.", having("Energy")),
+    ("Recovery", "Keep your muscles working normally, so you bounce back after activity.", having("Recovery")),
+    ("Stress", "Support normal psychological function and mental performance through a demanding week.", having("Stress")),
+    ("Longevity", "Your body turns NR into NAD+, which runs lower as we get older. K2 and D3 help keep bones strong.", having("Longevity")),
+    ("Immunity", "Support your immune system, all year round.", having("Immunity"))]
+TEAMS = [("Team", "Who’s on it", "What happens"),  # all 19, each once
+         ("The energy team", named("Nicotinamide", "CoQ10", "PQQ", "Vitamin B2"), "NR becomes NAD+, the courier. CoQ10 is the relay runner that passes energy along inside the power station, and PQQ is studied for its role in the power stations themselves. B2 is part of the enzymes that release energy from food."),
+         ("The B team", named("Vitamin B1", "Vitamin B3", "Vitamin B5", "Biotin"), "Each one is a working part in the steps that turn food into energy, and B1, B3 and B5 also support normal psychological function and mental performance."),
+         ("The recycling team", named("Folate", "Vitamin B12", "Vitamin B6", "TMG"), "Your cells constantly reuse one of their most important building blocks. Folate and B12 keep that recycling loop turning, TMG runs a second loop alongside it, and B6 handles the exit. We use the active forms, the ones the cell actually uses."),
+         ("The clean-up crew", named("Zinc", "Copper"), "Zinc and copper build the enzyme that cleans up the exhaust from making energy. One enzyme, two metals, so we pair them, both as bisglycinate."),
+         ("The grape pair", named("Trans-Resveratrol", "Grape Seed Extract"), "Plant polyphenols from grapes. Trans-resveratrol is widely studied in healthy-ageing research, and grape seed extract is standardised to 95% polyphenols."),
+         ("The bone relay", named("Vitamin D3", "Vitamin K2"), "D3 tells your cells to make a bone protein. K2 switches that protein on. D3 makes it, K2 activates it."),
+         ("The helper", named("BioPerine®"), "Black pepper extract, added to help your body take in the other ingredients. No taste, no heat.")]
+assert sorted(x for r in TEAMS[1:] for x in r[1].split(", ") if not x[0].isdigit()) == sorted(DOSE.values()), "every ingredient once"
 t2 = table("t2", "How the 19 ingredients work together", TEAMS)
 t2[1]["settings"]["fold"] = True
 chapter("c3", "whats-in-it", "03", "What’s in it",
@@ -118,6 +145,7 @@ chapter("c3", "whats-in-it", "03", "What’s in it",
                + [(f"j{i}", {"type": "card", "settings": {"kicker": f"0{i}", "title": t, "text": x, "detail_label": "What’s in it", "detail": d}})
                   for i, (t, x, d) in enumerate(JOBS, 1)]
                + [t2],
+        line=p("Plus BioPerine® (black pepper) 5mg in every serve, to help your body take in the rest. That’s all 19."),
         cta_label="See every ingredient", cta_link="/pages/ingredients",
         small=p("Vitamins B6 and B12 contribute to the reduction of tiredness and fatigue. Vitamin D contributes to normal muscle function. Vitamins D and K contribute to the maintenance of normal bones. Zinc, copper and vitamin D contribute to the normal function of the immune system. In a study of adults aged 40 to 60, 300mg of NR a day raised NAD+ by 51% in two weeks. That study tested NR on its own, not MUTO."))
 
@@ -138,6 +166,8 @@ chapter("c4", "muto-vs-the-usual", "04", "MUTO vs the usual",
         intro=p("Most people in their 40s and 50s are taking some mix of these. Here’s how they compare."),
         blocks=[table("t1", "", VS, highlight=2,
                       note="Comparisons are by category, not brand, and products vary. Hold any label up against ours. Multivitamins, greens and collagen do the job they were built for; MUTO was built for a different one.")])
+
+S["c4"]["settings"]["band"] = "mint"
 
 # ---- 5: the experts, one heading, then the board ----
 chapter("c5", "the-experts", "05", "The experts",
@@ -166,11 +196,12 @@ chapter("c6", "your-90-days", "06", "Your 90 days",
         intro=p("What people tell us they notice, and roughly when. Everyone’s different, so score yourself on day 1 and compare."),
         blocks=[(f"s{i}", {"type": "step", "settings": {"kicker": k, "title": t, "text": p(x)}}) for i, (k, t, x) in enumerate(STEPS, 1)],
         line=p("If you don’t feel the difference in 90 days, you get every subscription payment back. Skip, pause or cancel online anytime."))
-S["c6"]["settings"]["space_bottom"] = 24  # the offer follows
+S["c6"]["settings"].update(band="mint", space_bottom=96)
 
 # Offer and reviews, the same sections as the standards page
 STD = json.load(open(os.path.join(HERE, "..", "standards-page", "templates", "page.standards.json")))["sections"]
 S["start"] = copy.deepcopy(STD["start"]); ORDER.append("start")
+S["start"]["settings"]["space_top"] = 0  # straight on from the mint timeline
 S["reviews"] = copy.deepcopy(STD["reviews"]); ORDER.append("reviews")
 
 out = os.path.join(HERE, "templates", "page.science-simple.json")
