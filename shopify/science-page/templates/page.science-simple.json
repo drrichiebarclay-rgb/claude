@@ -255,7 +255,7 @@
         "t1": {
           "type": "table",
           "settings": {
-            "heading": "",
+            "heading": "The five jobs",
             "rows": "Job | What’s in it | In plain words\n1. Energy | B vitamins (B6, B12, folate), in their active forms | Help you feel less tired\n2. Muscles and bones | Vitamin D3 2,000 IU + K2 100µg | Keep your muscles working and your bones strong\n3. Immunity | Zinc 15mg + copper 1mg, with D3 | Support your immune system\n4. NAD+ | NR 300mg, the most allowed in Great Britain | Your body turns it into NAD+: more couriers\n5. What ties it together | CoQ10, resveratrol, grape seed extract, PQQ, TMG | The supporting cast, every dose on the label",
             "highlight": 0,
             "note": ""
@@ -323,9 +323,9 @@
         "small": "<p>Our advisory board guides our research and formulation. Its members don’t endorse products, and none of them is presented as recommending MUTO for any medical purpose.</p>",
         "cta_label": "",
         "cta_link": "",
-        "tint": true,
+        "tint": false,
         "space_top": 96,
-        "space_bottom": 96
+        "space_bottom": 40
       },
       "blocks": {},
       "block_order": []
@@ -441,10 +441,11 @@
         "field": true,
         "heading": "",
         "note": "",
-        "rail_gap": 64,
+        "rail_gap": 40,
         "fit": "nad",
         "space_top": 0,
-        "space_bottom": 96
+        "space_bottom": 96,
+        "compact": true
       }
     },
     "c7": {
@@ -461,7 +462,7 @@
         "small": "",
         "cta_label": "Start your 90 days",
         "cta_link": "/products/muto-nad-cellular-complex",
-        "tint": false,
+        "tint": true,
         "space_top": 96,
         "space_bottom": 96
       },
@@ -516,7 +517,7 @@
         "small": "",
         "cta_label": "",
         "cta_link": "",
-        "tint": true,
+        "tint": false,
         "space_top": 96,
         "space_bottom": 96
       },

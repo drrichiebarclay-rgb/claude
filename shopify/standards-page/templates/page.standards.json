@@ -224,11 +224,12 @@
       "settings": {
         "field": true,
         "heading": "Meet our\nscientific board.",
-        "note": "Our scientific advisory board",
-        "rail_gap": 64,
+        "note": "Our Scientific Advisory Board",
+        "rail_gap": 40,
         "fit": "nad",
         "space_top": 104,
-        "space_bottom": 100
+        "space_bottom": 100,
+        "compact": true
       }
     },
     "start": {

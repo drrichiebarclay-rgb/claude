@@ -118,7 +118,7 @@ TEAMS = [("Team", "Who’s on it", "What happens"),
 chapter("c4", "how-muto-is-built", "04", "How MUTO is built for it",
         "The foundation your body runs on. Five jobs, one jar.",
         intro=p("MUTO is built for what you actually need after 35: one daily formula covering five jobs, so you’re not guessing across five separate pots."),
-        blocks=[table("t1", "", JOBS), table("t2", "How the 19 ingredients work together", TEAMS)],
+        blocks=[table("t1", "The five jobs", JOBS), table("t2", "How the 19 ingredients work together", TEAMS)],
         line=p("<strong>Two capsules with breakfast. Every dose on the label.</strong> Alongside our creatine, it’s all you need to keep up."),
         cta_label="See every ingredient", cta_link="/pages/ingredients",
         small=p("Vitamins B6 and B12 contribute to the reduction of tiredness and fatigue. Vitamin D contributes to normal muscle function. Vitamins D and K contribute to the maintenance of normal bones. Zinc, copper and vitamin D contribute to the normal function of the immune system. In a study of adults aged 40 to 60, 300mg of NR a day raised NAD+ by 51% in two weeks. That study tested NR on its own, not MUTO."),
@@ -147,10 +147,10 @@ chapter("c6", "the-experts", "06", "Meet the experts",
         "The scientists behind the formula.",
         intro=p("A supplement doesn’t need a scientist anywhere near it. Ours has seven. Our scientific advisory board meets every quarter to guide our research and every new formula."),
         line=p("<strong>Our research.</strong> Our first human study starts in December 2026 at the University of Westminster, with work at King’s College London, Coventry and Newcastle to follow. There are no results yet, and we’ll never say there are. We’ll publish them, whatever they show."),
-        small=p("Our advisory board guides our research and formulation. Its members don’t endorse products, and none of them is presented as recommending MUTO for any medical purpose."),
-        tint=True)
+        small=p("Our advisory board guides our research and formulation. Its members don’t endorse products, and none of them is presented as recommending MUTO for any medical purpose."))
+S["c6"]["settings"]["space_bottom"] = 40  # the board follows straight on
 board = copy.deepcopy(ABOUT["board"])
-board["settings"].update(heading="", note="", space_top=0, space_bottom=96)
+board["settings"].update(heading="", note="", compact=True, rail_gap=40, space_top=0, space_bottom=96)  # the home page's slim cards
 S["board"] = board; ORDER.append("board")
 
 # ---- 7 ----
@@ -161,7 +161,7 @@ chapter("c7", "test-it", "07", "Test it yourself",
                 ("s3", {"type": "step", "settings": {"title": "Days 30, 60 and 90", "text": p("Check in. Look at the trend, not single days.")}}),
                 ("s4", {"type": "step", "settings": {"title": "Then", "text": p("Decide for yourself.")}})],
         line=p("If you don’t feel the difference in 90 days, you get every subscription payment back. Skip, pause or cancel online anytime."),
-        cta_label="Start your 90 days", cta_link=PDP)
+        cta_label="Start your 90 days", cta_link=PDP, tint=True)
 
 # ---- Glossary ----
 TERMS = [("Cell", "The tiny unit everything in your body is built from. You have about 30 trillion."),
@@ -174,7 +174,7 @@ TERMS = [("Cell", "The tiny unit everything in your body is built from. You have
          ("Sirtuins", "A family of maintenance enzymes that use NAD+ every time they work.")]
 chapter("glossary", "the-words", "", "The words, explained", "The words, explained.",
         blocks=[(f"w{i}", {"type": "term", "settings": {"word": w, "meaning": m}}) for i, (w, m) in enumerate(TERMS, 1)],
-        tint=True)
+        )
 
 out = os.path.join(HERE, "templates", "page.science-simple.json")
 os.makedirs(os.path.dirname(out), exist_ok=True)

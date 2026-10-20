@@ -95,7 +95,7 @@ add("standards", "muto-standards", {
 
 # The scientific board, as on the About and home pages (interview videos, tags)
 board = copy.deepcopy(ABOUT["board"])
-board["settings"].update(heading="Meet our\nscientific board.", note="Our scientific advisory board")
+board["settings"].update(heading="Meet our\nscientific board.", note="Our Scientific Advisory Board", compact=True, rail_gap=40)  # the home page's slim cards
 S["board"] = board; ORDER.append("board")
 
 add("start", "muto-get-started", {

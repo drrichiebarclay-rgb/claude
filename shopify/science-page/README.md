@@ -5,6 +5,9 @@ Built from `MUTO_Science_Page_Copy_Oct26.docx` in the same styles as the standar
 - **Preview:** on the existing Science page with `?view=science-simple`, on the 3M refill plan draft theme (ID 202682564955). The current `page.science.json` is untouched.
 - **Files:** `sections/muto-science-hero.liquid`, `sections/muto-chapter.liquid` (both new), `templates/page.science-simple.json` (run `python3 build.py`).
 - **Navigation:** the six chapter links pin to the top once the hero scrolls away and highlight the chapter you're reading. If they slide under the theme's header, raise "Pinned chapter links: distance from top" in the hero.
+- **Progress:** a thin cyan line under the chapter links shows how far through the page you are.
+- **Board:** the home page's slim six-across cards (compact, 40px gap), straight after chapter 6.
+- **Tables on phones:** three-column tables stack into labelled cards; the five-column comparison scrolls sideways with its first column pinned.
 - **Chapters:** one "MUTO — Chapter" section each, with point, quote, step, table and glossary-term blocks. Chapter 1 has a simple NAD+-decline diagram and chapter 2 a draining-battery diagram, drawn in code.
 
 ## Not on the page yet: the doc's checks
