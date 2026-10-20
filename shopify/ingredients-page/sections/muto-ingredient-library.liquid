@@ -21,13 +21,15 @@
   assign cats = section.blocks | where: 'type', 'category'
 -%}
 
+{{ 'muto-crea.css' | asset_url | stylesheet_tag }}
 <style>
   #shopify-section-{{ sid }}{--mil-ink:#242223;--mil-muted:#5c5a5b;--mil-rule:rgba(36,34,35,.14);--mil-tile:#f1f1ef;--mil-accent:#2f8fa0;--mil-panel:#f4f5f4;--mil-pill:#e3f4f6;--mil-pill-fg:#1f6f7c;--mil-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
   .mil{background:{{ section.settings.bg }};color:var(--mil-ink)}
   .mil__wrap{max-width:1320px;margin:0 auto;padding:{{ section.settings.pad_top }}px 20px {{ section.settings.pad_bottom }}px}
   .mil__head{display:grid;justify-items:center;text-align:center;gap:20px}
   .mil__eyebrow{font-family:var(--mil-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mil-muted);margin:0}
-  .mil__h{font-weight:500;font-size:clamp(34px,4.444vw,64px);line-height:.906;letter-spacing:-.014em;text-transform:uppercase;margin:0;text-wrap:balance;color:var(--mil-ink)}
+  /* The site's own section heading (.mc__h2 in muto-crea.css), in its font and ink */
+  .mil__h{margin:0;text-wrap:balance;font-family:var(--mc-font);color:var(--mc-ink);-webkit-font-smoothing:antialiased}
   .mil__lede{margin:0;max-width:44ch;font-size:clamp(17px,1.4vw,20px);line-height:1.4;text-wrap:balance}
   .mil__filters{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:40px 0 44px}
   .mil__filter{font:inherit;font-size:16px;font-weight:500;line-height:1;padding:15px 24px;border-radius:6px;border:1px solid var(--mil-rule);background:#fff;color:var(--mil-ink);cursor:pointer;display:inline-flex;gap:10px;align-items:center;transition:background .2s,color .2s,border-color .2s}
@@ -129,7 +131,7 @@
   <div class="mil__wrap">
     <header class="mil__head">
       {%- if section.settings.eyebrow != blank -%}<p class="mil__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
-      <h1 class="mil__h">{{ section.settings.heading }}</h1>
+      <h1 class="mc__h2 mil__h">{{ section.settings.heading }}</h1>
       {%- if section.settings.lede != blank -%}<p class="mil__lede">{{ section.settings.lede }}</p>{%- endif -%}
     </header>
 
