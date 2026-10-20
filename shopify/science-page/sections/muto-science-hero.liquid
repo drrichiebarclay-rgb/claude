@@ -1,0 +1,140 @@
+{%- comment -%}
+  MUTO — Science page hero.
+  Eyebrow, headline, one-line subhead, the author byline and the chapter links.
+  The chapter links pin to the top of the window once the hero scrolls away,
+  and the chapter you are reading is highlighted, so the page can be explored
+  in any order.
+
+  BLOCKS: one "Chapter link" per chapter. Its anchor matches the Anchor of a
+  "MUTO — Chapter" section on the same page.
+{%- endcomment -%}
+{{ 'muto-crea.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign sid = section.id
+  assign s = section.settings
+  if s.author_image != blank
+    assign au = s.author_image | image_url: width: 120
+  else
+    assign au = s.author_image_fallback
+  endif
+-%}
+<style>
+  #shopify-section-{{ sid }} .msh{padding-top:{{ s.space_top }}px;padding-bottom:40px}
+  #shopify-section-{{ sid }} .msh__eyebrow{font-family:var(--mc-mono);font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--mc-muted)}
+  #shopify-section-{{ sid }} .msh__h{margin-top:20px;max-width:1100px}
+  #shopify-section-{{ sid }} .msh__sub{margin-top:24px;max-width:640px;font-size:20px;line-height:1.4;color:var(--mc-ink-alt)}
+  #shopify-section-{{ sid }} .msh__by{display:flex;align-items:center;gap:14px;margin-top:32px;font-size:15px;line-height:1.35;color:var(--mc-ink-alt)}
+  #shopify-section-{{ sid }} .msh__by img{width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:50% 20%}
+  #shopify-section-{{ sid }} .msh__by small{display:block;font-family:var(--mc-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mc-muted)}
+  #shopify-section-{{ sid }} .msh__navspace{height:72px;margin-top:56px}
+  #shopify-section-{{ sid }} .msh__nav{height:100%;background:var(--mc-ground);border-top:1px solid var(--mc-hair);border-bottom:1px solid var(--mc-hair);z-index:4}
+  #shopify-section-{{ sid }} .msh__nav.is-fixed{position:fixed;top:{{ s.nav_top }}px;left:0;right:0;height:72px}
+  #shopify-section-{{ sid }} .msh__nav ol{display:flex;gap:8px;height:100%;align-items:center;margin:0 auto;max-width:var(--mc-max);padding:0 var(--mc-gutter);list-style:none;overflow-x:auto;scrollbar-width:none}
+  #shopify-section-{{ sid }} .msh__nav ol::-webkit-scrollbar{display:none}
+  #shopify-section-{{ sid }} .msh__nav a{display:flex;align-items:center;gap:8px;height:44px;padding:0 16px;border-radius:22px;white-space:nowrap;text-decoration:none;font-size:15px;color:var(--mc-ink-alt);transition:background var(--mc-dur) var(--mc-ease),color var(--mc-dur) var(--mc-ease)}
+  #shopify-section-{{ sid }} .msh__nav a:hover{background:var(--mc-sage)}
+  #shopify-section-{{ sid }} .msh__nav a.is-on{background:var(--mc-ink-alt);color:#fff}
+  #shopify-section-{{ sid }} .msh__nav b{font-family:var(--mc-mono);font-weight:400;font-size:12px;opacity:.6}
+  #shopify-section-{{ sid }} .msh__nav a:focus-visible{outline:2px solid var(--mc-ink);outline-offset:2px}
+  @media (max-width:749px){
+    #shopify-section-{{ sid }} .msh__sub{font-size:17px}
+    #shopify-section-{{ sid }} .msh__navspace{height:60px;margin-top:40px}
+    #shopify-section-{{ sid }} .msh__nav.is-fixed{height:60px}
+    #shopify-section-{{ sid }} .msh__nav a{height:40px;padding:0 14px;font-size:14px}
+  }
+</style>
+
+<div class="mc msh" data-msh>
+  <div class="mc__wrap">
+    {%- if s.eyebrow != blank -%}<p class="msh__eyebrow">{{ s.eyebrow }}</p>{%- endif -%}
+    <h1 class="mc__h2 msh__h">{{ s.heading | escape | newline_to_br }}</h1>
+    {%- if s.sub != blank -%}<p class="msh__sub">{{ s.sub }}</p>{%- endif -%}
+    {%- if s.author_name != blank -%}
+      <p class="msh__by">
+        {%- if au != blank -%}<img src="{{ au }}" alt="" width="52" height="52" loading="eager">{%- endif -%}
+        <span><small>{{ s.author_label }}</small>{{ s.author_name }}</span>
+      </p>
+    {%- endif -%}
+  </div>
+  {%- if section.blocks.size > 0 -%}
+    <div class="msh__navspace">
+    <nav class="msh__nav" aria-label="{{ s.nav_label | escape }}" data-msh-nav>
+      <ol>
+        {%- for block in section.blocks -%}
+          <li {{ block.shopify_attributes }}><a href="#{{ block.settings.anchor }}" data-msh-link="{{ block.settings.anchor }}"><b>{{ forloop.index | prepend: '0' | slice: -2, 2 }}</b>{{ block.settings.label }}</a></li>
+        {%- endfor -%}
+      </ol>
+    </nav>
+    </div>
+  {%- endif -%}
+</div>
+
+<script>
+  (function () {
+    var root = document.querySelector('#shopify-section-{{ sid }} [data-msh]');
+    var nav = root && root.querySelector('[data-msh-nav]');
+    if (!nav) return;
+    var space = root.querySelector('.msh__navspace');
+    var top = {{ s.nav_top | default: 0 }};
+    function pin() {
+      var r = space.getBoundingClientRect();
+      nav.classList.toggle('is-fixed', r.top <= top);
+    }
+    window.addEventListener('scroll', pin, { passive: true });
+    pin();
+    /* Highlight the chapter in view, and keep its link visible in the row */
+    var links = [].slice.call(nav.querySelectorAll('[data-msh-link]'));
+    function current() {
+      /* Looked up each time: the chapters come after this script in the page */
+      var targets = links.map(function (a) { return document.getElementById(a.dataset.mshLink); });
+      var line = top + nav.offsetHeight + 40, on = -1;
+      targets.forEach(function (t, i) { if (t && t.getBoundingClientRect().top <= line) on = i; });
+      links.forEach(function (a, i) {
+        var was = a.classList.contains('is-on');
+        a.classList.toggle('is-on', i === on);
+        if (i === on && !was) a.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+      });
+    }
+    window.addEventListener('scroll', current, { passive: true });
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', current); else current();
+    /* Jump below the pinned row rather than under it */
+    links.forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var t = document.getElementById(a.dataset.mshLink);
+        if (!t) return;
+        e.preventDefault();
+        var y = t.getBoundingClientRect().top + window.scrollY - top - nav.offsetHeight - 16;
+        window.scrollTo({ top: y, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+        history.replaceState(null, '', '#' + a.dataset.mshLink);
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "MUTO — Science hero",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "textarea", "id": "heading", "label": "Headline" },
+    { "type": "textarea", "id": "sub", "label": "Subhead" },
+    { "type": "image_picker", "id": "author_image", "label": "Author photo" },
+    { "type": "text", "id": "author_image_fallback", "label": "Author photo URL" },
+    { "type": "text", "id": "author_label", "label": "Author label", "default": "Explained by" },
+    { "type": "text", "id": "author_name", "label": "Author" },
+    { "type": "text", "id": "nav_label", "label": "Chapter links label (screen readers)", "default": "Chapters" },
+    { "type": "range", "id": "nav_top", "label": "Pinned chapter links: distance from top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 0 },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 120 }
+  ],
+  "blocks": [
+    { "type": "link", "name": "Chapter link", "settings": [
+      { "type": "text", "id": "label", "label": "Label" },
+      { "type": "text", "id": "anchor", "label": "Anchor", "info": "The Anchor of the chapter section, e.g. what-changes" }
+    ] }
+  ],
+  "max_blocks": 12,
+  "presets": [{ "name": "MUTO — Science hero" }],
+  "enabled_on": { "templates": ["page"] }
+}
+{% endschema %}
