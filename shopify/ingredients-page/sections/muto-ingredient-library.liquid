@@ -23,8 +23,11 @@
 
 {{ 'muto-crea.css' | asset_url | stylesheet_tag }}
 <style>
-  #shopify-section-{{ sid }}{--mil-ink:#242223;--mil-muted:#5c5a5b;--mil-rule:rgba(36,34,35,.14);--mil-tile:#f1f1ef;--mil-accent:#2f8fa0;--mil-panel:#f4f5f4;--mil-pill:#e3f4f6;--mil-pill-fg:#1f6f7c;--mil-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  #shopify-section-{{ sid }}{--mil-ink:#242223;--mil-muted:#5c5a5b;--mil-rule:rgba(36,34,35,.14);--mil-tile:#f1f1ef;--mil-accent:#2f8fa0;--mil-panel:#f4f5f4;--mil-pill:#e3f4f6;--mil-pill-fg:#1f6f7c;--mil-mono:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace}
   .mil{background:{{ section.settings.bg }};color:var(--mil-ink)}
+  /* Brand faces throughout: Neue Haas Grotesk Display for text, Sometype Mono for labels; the theme's own fonts and bold weights don't apply */
+  .mil,.mil-d,.mil button,.mil-d button,.mil h1,.mil h2,.mil h3,.mil-d h2,.mil-d h3{font-family:var(--mc-font,"Neue Haas Grotesk Display Pro"),sans-serif;-webkit-font-smoothing:antialiased}
+  .mil b,.mil strong,.mil-d b,.mil-d strong{font-weight:500}
   .mil__wrap{max-width:1320px;margin:0 auto;padding:{{ section.settings.pad_top }}px 20px {{ section.settings.pad_bottom }}px}
   .mil__head{display:grid;justify-items:center;text-align:center;gap:20px}
   .mil__eyebrow{font-family:var(--mil-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mil-muted);margin:0}
@@ -61,7 +64,7 @@
   .mil__plus{position:absolute;right:14px;top:14px;z-index:3;width:40px;height:40px;border-radius:50%;background:#fff;color:var(--mil-ink);display:grid;place-items:center;box-shadow:0 1px 3px rgba(0,0,0,.12);transition:transform .25s}
   .mil__open:hover .mil__plus{transform:rotate(90deg)}
   .mil__plus svg{width:14px;height:14px}
-  .mil__name{font-weight:600;font-size:21px;line-height:1.2;letter-spacing:-.01em}
+  .mil__name{font-weight:500;font-size:21px;line-height:1.2;letter-spacing:-.01em}
   .mil__dose{font-family:var(--mil-mono);font-size:15px;line-height:1;font-weight:500;color:var(--mil-accent);margin-top:-6px}
   .mil__foot{margin:56px auto 0;max-width:62ch;text-align:center;color:var(--mil-muted);font-size:14px}
 
@@ -80,13 +83,13 @@
   .mil-d__grab{display:none}
   .mil-d__body{padding:32px clamp(20px,5vw,44px) 28px;display:grid;gap:24px;flex:1 0 auto}
   .mil-d__pills{display:flex;flex-wrap:wrap;gap:8px}
-  .mil-d__pill{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;line-height:1;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:10px 14px;border-radius:6px;background:#e3f4f6;color:#1f6f7c}
+  .mil-d__pill{font-family:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace;font-size:13px;line-height:1;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:10px 14px;border-radius:6px;background:#e3f4f6;color:#1f6f7c}
   .mil-d__name{font-family:var(--mc-font);font-weight:500;-webkit-font-smoothing:antialiased;font-size:clamp(28px,3vw,38px);line-height:1.1;letter-spacing:-.02em;margin:0;padding-bottom:18px;border-bottom:1px solid rgba(36,34,35,.14);text-wrap:balance;color:#242223}
   .mil-d__desc{margin:0;font-size:18px;line-height:1.6}
   .mil-d__facts{display:grid;grid-template-columns:1fr 1fr;gap:16px}
   .mil-d__fact{background:#f4f5f4;border-radius:8px;padding:20px 22px;display:grid;gap:10px;align-content:start;min-width:0}
-  .mil-d__label{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px;line-height:1.2;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#5c5a5b;margin:0}
-  .mil-d__val{font-weight:600;font-size:19px;line-height:1.35;margin:0}
+  .mil-d__label{font-family:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace;font-size:12.5px;line-height:1.2;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#5c5a5b;margin:0}
+  .mil-d__val{font-weight:500;font-size:19px;line-height:1.35;margin:0}
   .mil-d__why{display:grid;gap:10px}
   .mil-d__why p:last-child{margin:0;font-size:16.5px;line-height:1.65}
   .mil-d__refs{display:grid;gap:14px;padding-top:24px;border-top:1px solid rgba(36,34,35,.14)}
@@ -94,10 +97,10 @@
   .mil-d__refs ul{margin:0;padding:0;list-style:none;display:grid;gap:12px}
   .mil-d__refs li{margin:0;padding-left:16px;border-left:3px solid #e3e6e5;font-size:15px;line-height:1.5;color:#5c5a5b}
   .mil-d__nav{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;margin-top:8px;padding-top:24px;border-top:1px solid rgba(36,34,35,.14)}
-  .mil-d__nav button{font:inherit;font-size:16px;font-weight:600;line-height:1;padding:17px 28px;border-radius:6px;border:1px solid rgba(36,34,35,.14);background:#fff;color:#242223;cursor:pointer}
+  .mil-d__nav button{font:inherit;font-size:16px;font-weight:500;line-height:1;padding:17px 28px;border-radius:6px;border:1px solid rgba(36,34,35,.14);background:#fff;color:#242223;cursor:pointer}
   .mil-d__nav button:hover:not(:disabled){border-color:#242223}
   .mil-d__nav button:disabled{opacity:.35;cursor:default}
-  .mil-d__count{text-align:center;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;color:#5c5a5b}
+  .mil-d__count{text-align:center;font-family:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace;font-size:14px;color:#5c5a5b}
   html.mil-locked,html.mil-locked body{overflow:hidden}
 
   @media (max-width:1080px){.mil__grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
