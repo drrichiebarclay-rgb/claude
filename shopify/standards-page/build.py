@@ -88,7 +88,7 @@ add("standards", "muto-standards", {
     "lede": "Supplements don’t have to prove much to go on sale in the UK. So we built MUTO to a higher bar, and we show you all of it: every dose on the label, every batch tested, made in the UK.",
     "list_label": "Our standards", "space_top": 120, "space_bottom": 100}, [
     (f"s{i}", {"type": "standard", "settings": {"title": t, "text": p(x), "check": p(c),
-                                                "image_1_fallback": IMG[a], "image_2_fallback": IMG[b]}})
+                                                "image_1_fallback": IMG[a]}})
     for i, (t, x, c, a, b) in enumerate(STANDARDS, 1)
 ])
 

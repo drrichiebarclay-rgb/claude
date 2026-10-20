@@ -1,8 +1,8 @@
 {%- comment -%}
   MUTO — Our standards.
   A headline and one paragraph, then the standards as a list on the left. The
-  selected one fills in teal; its promise, "how to check" and two photographs
-  sit on the right. Clicking another item swaps them in place.
+  selected one fills in teal; its promise and "how to check" sit beside one
+  photograph on the right, pinned while the list scrolls past. Clicking another item swaps them in place.
 
   BLOCKS, one per standard, so a standard can be added, reworded or dropped
   without a code change.
@@ -22,20 +22,21 @@
   #shopify-section-{{ sid }} .ms__grid{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:48px;margin-top:88px;align-items:start}
   #shopify-section-{{ sid }} .ms__list{list-style:none;margin:0;padding:0}
   #shopify-section-{{ sid }} .ms__list li + li{border-top:1px solid var(--mc-hair)}
-  #shopify-section-{{ sid }} .ms__tab{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:14px;width:100%;min-height:72px;padding:18px 22px;border-radius:8px;cursor:pointer;font-family:var(--mc-font);font-size:20px;line-height:1.2;color:var(--mc-ink);transition:background var(--mc-dur) var(--mc-ease),color var(--mc-dur) var(--mc-ease)}
+  #shopify-section-{{ sid }} .ms__tab{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:14px;width:100%;min-height:96px;padding:24px 22px;border-radius:8px;cursor:pointer;font-family:var(--mc-font);font-size:20px;line-height:1.2;color:var(--mc-ink);transition:background var(--mc-dur) var(--mc-ease),color var(--mc-dur) var(--mc-ease)}
   #shopify-section-{{ sid }} .ms__tab:hover{background:var(--mc-sage)}
   #shopify-section-{{ sid }} .ms__tab:focus-visible{outline:2px solid var(--mc-ink);outline-offset:2px}
   #shopify-section-{{ sid }} .ms__tab[aria-selected="true"]{background:var(--mc-ink);color:#fff}
   #shopify-section-{{ sid }} .ms__num{font-family:var(--mc-mono);font-size:13px;letter-spacing:.04em;opacity:.6;min-width:22px}
-  #shopify-section-{{ sid }} .ms__panel{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+  #shopify-section-{{ sid }} .ms__stage{position:sticky;top:{{ section.settings.sticky_top }}px}
+  #shopify-section-{{ sid }} .ms__panel{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start}
   #shopify-section-{{ sid }} .ms__panel[hidden]{display:none}
-  #shopify-section-{{ sid }} .ms__card{display:flex;flex-direction:column;gap:18px;padding:32px 28px;border-radius:8px;background:var(--mc-sage);aspect-ratio:5/8;min-height:0}
-  #shopify-section-{{ sid }} .ms__card-h{font-weight:500;font-size:28px;line-height:1.05;letter-spacing:-.01em;text-transform:uppercase}
-  #shopify-section-{{ sid }} .ms__card-t{font-size:16px;line-height:1.45}
-  #shopify-section-{{ sid }} .ms__check{margin-top:auto;padding-top:16px;border-top:1px solid var(--mc-hair);font-size:15px;line-height:1.4}
+  #shopify-section-{{ sid }} .ms__card{display:flex;flex-direction:column;gap:20px;padding-top:8px}
+  #shopify-section-{{ sid }} .ms__card-h{font-weight:500;font-size:clamp(28px,2.6vw,40px);line-height:1.05;letter-spacing:-.01em;text-transform:uppercase}
+  #shopify-section-{{ sid }} .ms__card-t{font-size:18px;line-height:1.45}
+  #shopify-section-{{ sid }} .ms__check{margin-top:8px;padding-top:16px;border-top:1px solid var(--mc-hair);font-size:15px;line-height:1.4}
   #shopify-section-{{ sid }} .ms__check b{display:block;margin-bottom:6px;font-family:var(--mc-mono);font-weight:400;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mc-muted)}
   #shopify-section-{{ sid }} .ms__check a{color:inherit;text-decoration:underline;text-underline-offset:3px}
-  #shopify-section-{{ sid }} .ms__img{position:relative;aspect-ratio:5/8;border-radius:8px;overflow:hidden;background:var(--mc-mint)}
+  #shopify-section-{{ sid }} .ms__img{position:relative;aspect-ratio:4/5;border-radius:8px;overflow:hidden;background:var(--mc-mint)}
   #shopify-section-{{ sid }} .ms__img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   @media (max-width:989px){
     #shopify-section-{{ sid }} .ms__grid{grid-template-columns:1fr;gap:24px;margin-top:48px}
@@ -45,10 +46,11 @@
     #shopify-section-{{ sid }} .ms__list li + li{border-top:0}
     #shopify-section-{{ sid }} .ms__tab{min-height:48px;padding:12px 16px;font-size:16px;white-space:nowrap;border:1px solid var(--mc-hair);border-radius:24px}
     #shopify-section-{{ sid }} .ms__tab[aria-selected="true"]{border-color:var(--mc-ink)}
-    #shopify-section-{{ sid }} .ms__panel{grid-template-columns:1fr 1fr;gap:12px}
-    #shopify-section-{{ sid }} .ms__card{grid-column:1/-1;aspect-ratio:auto;padding:24px 20px}
+    #shopify-section-{{ sid }} .ms__stage{position:static}
+    #shopify-section-{{ sid }} .ms__panel{grid-template-columns:1fr;gap:24px}
+    #shopify-section-{{ sid }} .ms__card{padding-top:0}
     #shopify-section-{{ sid }} .ms__card-h{font-size:24px}
-    #shopify-section-{{ sid }} .ms__img{aspect-ratio:3/4}
+    #shopify-section-{{ sid }} .ms__img{aspect-ratio:4/3}
     #shopify-section-{{ sid }} .ms__lede{font-size:17px}
   }
   @media (prefers-reduced-motion:reduce){#shopify-section-{{ sid }} .ms__tab{transition:none}}
@@ -72,7 +74,7 @@
             </li>
           {%- endfor -%}
         </ul>
-        <div>
+        <div class="ms__stage">
           {%- for block in items -%}
             <div class="ms__panel" role="tabpanel" id="ms-panel-{{ block.id }}" aria-labelledby="ms-tab-{{ block.id }}" data-ms-panel {{ block.shopify_attributes }}>
               <div class="ms__card">
@@ -82,7 +84,7 @@
                   <div class="ms__check"><b>How to check</b>{{ block.settings.check }}</div>
                 {%- endif -%}
               </div>
-              {%- for n in (1..2) -%}
+              {%- for n in (1..1) -%}
                 {%- liquid
                   assign img_key = 'image_' | append: n
                   assign fb_key = 'image_' | append: n | append: '_fallback'
@@ -92,7 +94,7 @@
                 {%- if img != blank or fb != blank -%}
                   <div class="ms__img">
                     {%- if img != blank -%}
-                      {{ img | image_url: width: 900 | image_tag: loading: 'lazy', widths: '400,600,900', sizes: '(min-width: 990px) 22vw, 50vw', alt: '' }}
+                      {{ img | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '600,900,1200', sizes: '(min-width: 990px) 33vw, 100vw', alt: '' }}
                     {%- else -%}
                       <img src="{{ fb }}" alt="" loading="lazy" width="900" height="1200">
                     {%- endif -%}
@@ -149,6 +151,7 @@
     { "type": "textarea", "id": "heading", "label": "Heading", "default": "Our standards" },
     { "type": "textarea", "id": "lede", "label": "Intro" },
     { "type": "text", "id": "list_label", "label": "List label (screen readers)", "default": "Our standards" },
+    { "type": "range", "id": "sticky_top", "label": "Pinned photo: distance from top", "min": 0, "max": 240, "step": 4, "unit": "px", "default": 120 },
     { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 120 },
     { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 100 }
   ],
@@ -160,10 +163,8 @@
         { "type": "text", "id": "title", "label": "Title", "default": "Every dose on the label" },
         { "type": "richtext", "id": "text", "label": "What it means" },
         { "type": "richtext", "id": "check", "label": "How to check" },
-        { "type": "image_picker", "id": "image_1", "label": "Photo 1" },
-        { "type": "text", "id": "image_1_fallback", "label": "Photo 1 URL (if no photo picked)" },
-        { "type": "image_picker", "id": "image_2", "label": "Photo 2" },
-        { "type": "text", "id": "image_2_fallback", "label": "Photo 2 URL (if no photo picked)" }
+        { "type": "image_picker", "id": "image_1", "label": "Photo" },
+        { "type": "text", "id": "image_1_fallback", "label": "Photo 1 URL (if no photo picked)" }
       ]
     }
   ],
