@@ -38,9 +38,37 @@ for i, g in enumerate(ING, 1):
         "refs": "\n".join(g.get("r", []))}}
     order.append(k)
 
+# Test results panel, from the batch certificate of analysis (test-results.json)
+TR = json.load(open(os.path.join(HERE, "test-results.json")))
+assert len(TR["formula"]) == len(ING) == 19
+tb, to = {}, []
+for i, (g, n, lim, res, note) in enumerate(TR["tests"], 1):
+    tb[f"t{i:02d}"] = {"type": "test", "settings": {"group": g, "name": n, "spec": lim, "result": res, "note": note, "pass": True}}
+    to.append(f"t{i:02d}")
+for i, (g, n, form, amt) in enumerate(TR["formula"], 1):
+    tb[f"f{i:02d}"] = {"type": "item", "settings": {"group": g, "name": n, "form": form, "amount": amt}}
+    to.append(f"f{i:02d}")
+tests = {"type": "muto-test-results", "blocks": tb, "block_order": to, "settings": {
+    "show_button": False, "product": TR["product"], "batch": TR["batch"], "doc_label": "Certificate of analysis",
+    "made": TR["made"], "bbe": TR["bbe"], "issued": TR["issued"],
+    "heading": "Every result came in within its limit.", "stat_value": "300×", "stat_label": "Under the lead limit",
+    "chip": "No salmonella detected",
+    "note": f"Results from the certificate of analysis for batch {TR['batch']}, issued {TR['issued']}. Ask us for the certificate for your batch: hello@mutolongevity.com",
+    "formula_sub": "What went into each capsule of this batch, per two-capsule serving, heaviest first. Vitamins are made with a small overage so the label dose holds right up to the best-before date.",
+    "capsule": "Capsule: hypromellose (HPMC), made from plant cellulose. Allergen and intolerance free.",
+    "why_1_h": "Heavy metals",
+    "why_1": "<p>Lead, cadmium and mercury can build up in the body over time, and they can come in through plant extracts and minerals. Every batch is checked against strict limits, and this one came in well under each: lead at 0.010 ppm against a limit of 3.</p>",
+    "why_2_h": "Microbes",
+    "why_2": "<p>Bacteria, yeasts and moulds can grow in ingredients that are stored or handled badly. This batch was screened for six, including salmonella and E. coli, and every result was far inside its limit: no salmonella detected, and every other count under 100 per gram.</p>",
+    "why_3_h": "Capsule quality",
+    "why_3": "<p>Weight uniformity checks every capsule holds the same fill, so every serving gets the dose on the label. Disintegration checks the capsule breaks down within 30 minutes, so the ingredients are released in time to be absorbed.</p>",
+    "why_4_h": "Every batch, not just the first",
+    "why_4": "<p>A new batch gets a new certificate. We’ll update these results each time, and your batch number is on the jar.</p>"}}
 tpl = {"sections": {"library": {"type": "muto-ingredient-library", "blocks": blocks, "block_order": order,
-                                "settings": {"cta_label": "Start your 90 days", "cta_link": "/products/muto-nad-cellular-complex"}}},
-       "order": ["library"]}
+                                "settings": {"cta_label": "Start your 90 days", "cta_link": "/products/muto-nad-cellular-complex",
+                                             "tests_label": "View third-party testing results"}},
+                    "tests": tests},
+       "order": ["library", "tests"]}
 os.makedirs(os.path.join(HERE, "templates"), exist_ok=True)
 out = os.path.join(HERE, "templates", "page.ingredients.json")
 json.dump(tpl, open(out, "w"), ensure_ascii=False, indent=2)

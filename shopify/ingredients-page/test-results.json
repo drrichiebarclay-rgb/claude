@@ -1,0 +1,42 @@
+{
+  "_source": "Certificate of analysis for NAD+ Cellular Complex Capsules, FP batch 2333 (jar batch 2336), issue 1, dated 15/10/2026. Amounts are the declared input per capsule doubled for a two-capsule serving; tests are specification vs result as printed.",
+  "product": "NAD+ Cellular Complex",
+  "batch": "2333",
+  "made": "12 Oct 2026",
+  "bbe": "Oct 2028",
+  "issued": "15 Oct 2026",
+  "tests": [
+    ["Heavy metals", "Lead (Pb)", "Under 3 ppm", "0.010 ppm", "300× under the limit"],
+    ["Heavy metals", "Cadmium (Cd)", "Under 1 ppm", "0.013 ppm", "77× under the limit"],
+    ["Heavy metals", "Mercury (Hg)", "Under 0.1 ppm", "0.010 ppm", "10× under the limit"],
+    ["Microbes", "Salmonella", "Not detected in 25g", "Not detected", ""],
+    ["Microbes", "E. coli", "Under 10 cfu/g", "Under 10 cfu/g", ""],
+    ["Microbes", "Enterobacteria", "Under 10,000 cfu/g", "Under 10 cfu/g", ""],
+    ["Microbes", "Total plate count", "Under 500,000 cfu/g", "Under 100 cfu/g", ""],
+    ["Microbes", "Yeasts", "Under 10,000 cfu/g", "Under 100 cfu/g", ""],
+    ["Microbes", "Mould", "Under 10,000 cfu/g", "Under 100 cfu/g", ""],
+    ["Capsule quality", "Weight uniformity", "Within ±7.5%", "Complies", "Every capsule holds the same dose"],
+    ["Capsule quality", "Disintegration", "Under 30 minutes", "Complies", "Breaks down in time to be absorbed"]
+  ],
+  "formula": [
+    ["Other actives", "TMG (trimethylglycine)", "Trimethylglycine", "450mg"],
+    ["NR, for NAD+", "NR (nicotinamide riboside)", "Nicotinamide riboside", "300mg"],
+    ["Other actives", "Grape seed extract", "120:1 extract, 95% polyphenols (142.5mg)", "150mg"],
+    ["Other actives", "CoQ10", "Ubiquinone", "150mg"],
+    ["Minerals", "Zinc", "Zinc bisglycinate", "15mg"],
+    ["Other actives", "Trans-resveratrol", "From Japanese knotweed root, 95%", "50mg"],
+    ["Vitamins", "Vitamin D3", "Cholecalciferol, from algae", "50mcg (2,000 IU)"],
+    ["Other actives", "PQQ", "Pyrroloquinoline quinone", "20mg"],
+    ["Vitamins", "Vitamin B3", "Nicotinamide (no flush)", "16mg"],
+    ["Vitamins", "Vitamin B12", "Methylcobalamin", "100mcg"],
+    ["Vitamins", "Vitamin B5", "Calcium D-pantothenate", "10mg"],
+    ["Minerals", "Copper", "Copper bisglycinate", "1mg"],
+    ["Vitamins", "Vitamin K2", "Menaquinone-7 (MK-7)", "100mcg"],
+    ["Vitamins", "Vitamin B6", "Pyridoxal-5′-phosphate (P5P)", "5mg"],
+    ["Vitamins", "Vitamin B2", "Riboflavin-5′-phosphate", "5mg"],
+    ["Vitamins", "Vitamin B1", "Thiamine hydrochloride", "5mg"],
+    ["Other actives", "BioPerine® black pepper extract", "95% piperine (4.75mg)", "5mg"],
+    ["Vitamins", "Folate", "L-5-methyltetrahydrofolate (5-MTHF)", "400mcg"],
+    ["Vitamins", "Biotin", "D-biotin", "300mcg"]
+  ]
+}

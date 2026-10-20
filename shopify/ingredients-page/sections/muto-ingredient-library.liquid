@@ -135,6 +135,8 @@
       {%- if section.settings.eyebrow != blank -%}<p class="mil__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
       <h1 class="mc__h2 mil__h">{{ section.settings.heading }}</h1>
       {%- if section.settings.lede != blank -%}<p class="mil__lede">{{ section.settings.lede }}</p>{%- endif -%}
+      {%- comment -%} Opens the "MUTO — Test results" panel on the same page {%- endcomment -%}
+      {%- if section.settings.tests_label != blank -%}<button type="button" class="mtr-btn" data-mtr-open><span class="mtr-btn__tick"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6.2 5 8.6l4.5-5" stroke="#162f31" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>{{ section.settings.tests_label }}</button>{%- endif -%}
     </header>
 
     <div class="mil__filters" role="group" aria-label="Filter ingredients">
@@ -397,6 +399,7 @@
     { "type": "textarea", "id": "lede", "label": "Intro", "default": "Each one supports at least one of five things that change as we get older. Filter below to see which, and why it’s there." },
     { "type": "text", "id": "filters", "label": "Filters", "info": "Comma-separated. Each must match a tag used on the ingredients.", "default": "Energy, Recovery, Stress, Longevity, Immunity" },
     { "type": "text", "id": "supports_label", "label": "Supports label", "default": "Supports:" },
+    { "type": "text", "id": "tests_label", "label": "Test results button", "info": "Opens the MUTO — Test results section on this page. Blank hides it.", "default": "View third-party testing results" },
     { "type": "text", "id": "cta_label", "label": "Button under the statement", "default": "Start your 90 days" },
     { "type": "url", "id": "cta_link", "label": "Button link" },
     { "type": "text", "id": "foot", "label": "Note under the grid", "default": "Every dose is on the label. No blends, no fillers, vegan." },

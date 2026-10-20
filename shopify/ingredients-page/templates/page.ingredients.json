@@ -347,11 +347,366 @@
       ],
       "settings": {
         "cta_label": "Start your 90 days",
-        "cta_link": "/products/muto-nad-cellular-complex"
+        "cta_link": "/products/muto-nad-cellular-complex",
+        "tests_label": "View third-party testing results"
+      }
+    },
+    "tests": {
+      "type": "muto-test-results",
+      "blocks": {
+        "t01": {
+          "type": "test",
+          "settings": {
+            "group": "Heavy metals",
+            "name": "Lead (Pb)",
+            "spec": "Under 3 ppm",
+            "result": "0.010 ppm",
+            "note": "300× under the limit",
+            "pass": true
+          }
+        },
+        "t02": {
+          "type": "test",
+          "settings": {
+            "group": "Heavy metals",
+            "name": "Cadmium (Cd)",
+            "spec": "Under 1 ppm",
+            "result": "0.013 ppm",
+            "note": "77× under the limit",
+            "pass": true
+          }
+        },
+        "t03": {
+          "type": "test",
+          "settings": {
+            "group": "Heavy metals",
+            "name": "Mercury (Hg)",
+            "spec": "Under 0.1 ppm",
+            "result": "0.010 ppm",
+            "note": "10× under the limit",
+            "pass": true
+          }
+        },
+        "t04": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "Salmonella",
+            "spec": "Not detected in 25g",
+            "result": "Not detected",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t05": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "E. coli",
+            "spec": "Under 10 cfu/g",
+            "result": "Under 10 cfu/g",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t06": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "Enterobacteria",
+            "spec": "Under 10,000 cfu/g",
+            "result": "Under 10 cfu/g",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t07": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "Total plate count",
+            "spec": "Under 500,000 cfu/g",
+            "result": "Under 100 cfu/g",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t08": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "Yeasts",
+            "spec": "Under 10,000 cfu/g",
+            "result": "Under 100 cfu/g",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t09": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "Mould",
+            "spec": "Under 10,000 cfu/g",
+            "result": "Under 100 cfu/g",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t10": {
+          "type": "test",
+          "settings": {
+            "group": "Capsule quality",
+            "name": "Weight uniformity",
+            "spec": "Within ±7.5%",
+            "result": "Complies",
+            "note": "Every capsule holds the same dose",
+            "pass": true
+          }
+        },
+        "t11": {
+          "type": "test",
+          "settings": {
+            "group": "Capsule quality",
+            "name": "Disintegration",
+            "spec": "Under 30 minutes",
+            "result": "Complies",
+            "note": "Breaks down in time to be absorbed",
+            "pass": true
+          }
+        },
+        "f01": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "TMG (trimethylglycine)",
+            "form": "Trimethylglycine",
+            "amount": "450mg"
+          }
+        },
+        "f02": {
+          "type": "item",
+          "settings": {
+            "group": "NR, for NAD+",
+            "name": "NR (nicotinamide riboside)",
+            "form": "Nicotinamide riboside",
+            "amount": "300mg"
+          }
+        },
+        "f03": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "Grape seed extract",
+            "form": "120:1 extract, 95% polyphenols (142.5mg)",
+            "amount": "150mg"
+          }
+        },
+        "f04": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "CoQ10",
+            "form": "Ubiquinone",
+            "amount": "150mg"
+          }
+        },
+        "f05": {
+          "type": "item",
+          "settings": {
+            "group": "Minerals",
+            "name": "Zinc",
+            "form": "Zinc bisglycinate",
+            "amount": "15mg"
+          }
+        },
+        "f06": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "Trans-resveratrol",
+            "form": "From Japanese knotweed root, 95%",
+            "amount": "50mg"
+          }
+        },
+        "f07": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin D3",
+            "form": "Cholecalciferol, from algae",
+            "amount": "50mcg (2,000 IU)"
+          }
+        },
+        "f08": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "PQQ",
+            "form": "Pyrroloquinoline quinone",
+            "amount": "20mg"
+          }
+        },
+        "f09": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B3",
+            "form": "Nicotinamide (no flush)",
+            "amount": "16mg"
+          }
+        },
+        "f10": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B12",
+            "form": "Methylcobalamin",
+            "amount": "100mcg"
+          }
+        },
+        "f11": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B5",
+            "form": "Calcium D-pantothenate",
+            "amount": "10mg"
+          }
+        },
+        "f12": {
+          "type": "item",
+          "settings": {
+            "group": "Minerals",
+            "name": "Copper",
+            "form": "Copper bisglycinate",
+            "amount": "1mg"
+          }
+        },
+        "f13": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin K2",
+            "form": "Menaquinone-7 (MK-7)",
+            "amount": "100mcg"
+          }
+        },
+        "f14": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B6",
+            "form": "Pyridoxal-5′-phosphate (P5P)",
+            "amount": "5mg"
+          }
+        },
+        "f15": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B2",
+            "form": "Riboflavin-5′-phosphate",
+            "amount": "5mg"
+          }
+        },
+        "f16": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B1",
+            "form": "Thiamine hydrochloride",
+            "amount": "5mg"
+          }
+        },
+        "f17": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "BioPerine® black pepper extract",
+            "form": "95% piperine (4.75mg)",
+            "amount": "5mg"
+          }
+        },
+        "f18": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Folate",
+            "form": "L-5-methyltetrahydrofolate (5-MTHF)",
+            "amount": "400mcg"
+          }
+        },
+        "f19": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Biotin",
+            "form": "D-biotin",
+            "amount": "300mcg"
+          }
+        }
+      },
+      "block_order": [
+        "t01",
+        "t02",
+        "t03",
+        "t04",
+        "t05",
+        "t06",
+        "t07",
+        "t08",
+        "t09",
+        "t10",
+        "t11",
+        "f01",
+        "f02",
+        "f03",
+        "f04",
+        "f05",
+        "f06",
+        "f07",
+        "f08",
+        "f09",
+        "f10",
+        "f11",
+        "f12",
+        "f13",
+        "f14",
+        "f15",
+        "f16",
+        "f17",
+        "f18",
+        "f19"
+      ],
+      "settings": {
+        "show_button": false,
+        "product": "NAD+ Cellular Complex",
+        "batch": "2333",
+        "doc_label": "Certificate of analysis",
+        "made": "12 Oct 2026",
+        "bbe": "Oct 2028",
+        "issued": "15 Oct 2026",
+        "heading": "Every result came in within its limit.",
+        "stat_value": "300×",
+        "stat_label": "Under the lead limit",
+        "chip": "No salmonella detected",
+        "note": "Results from the certificate of analysis for batch 2333, issued 15 Oct 2026. Ask us for the certificate for your batch: hello@mutolongevity.com",
+        "formula_sub": "What went into each capsule of this batch, per two-capsule serving, heaviest first. Vitamins are made with a small overage so the label dose holds right up to the best-before date.",
+        "capsule": "Capsule: hypromellose (HPMC), made from plant cellulose. Allergen and intolerance free.",
+        "why_1_h": "Heavy metals",
+        "why_1": "<p>Lead, cadmium and mercury can build up in the body over time, and they can come in through plant extracts and minerals. Every batch is checked against strict limits, and this one came in well under each: lead at 0.010 ppm against a limit of 3.</p>",
+        "why_2_h": "Microbes",
+        "why_2": "<p>Bacteria, yeasts and moulds can grow in ingredients that are stored or handled badly. This batch was screened for six, including salmonella and E. coli, and every result was far inside its limit: no salmonella detected, and every other count under 100 per gram.</p>",
+        "why_3_h": "Capsule quality",
+        "why_3": "<p>Weight uniformity checks every capsule holds the same fill, so every serving gets the dose on the label. Disintegration checks the capsule breaks down within 30 minutes, so the ingredients are released in time to be absorbed.</p>",
+        "why_4_h": "Every batch, not just the first",
+        "why_4": "<p>A new batch gets a new certificate. We’ll update these results each time, and your batch number is on the jar.</p>"
       }
     }
   },
   "order": [
-    "library"
+    "library",
+    "tests"
   ]
 }
