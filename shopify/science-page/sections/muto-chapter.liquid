@@ -41,6 +41,14 @@
   #shopify-section-{{ sid }} .mch__b--step{grid-column:span 3;padding-top:18px;border-top:1px solid var(--mc-ink-alt)}
   #shopify-section-{{ sid }} .mch__b--term{grid-column:span 6;padding:16px 0;border-top:1px solid var(--mc-hair)}
   #shopify-section-{{ sid }} .mch__b--table{grid-column:1/-1;margin-top:20px}
+  #shopify-section-{{ sid }} .mch__sum{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;cursor:pointer;list-style:none}
+  #shopify-section-{{ sid }} .mch__sum::-webkit-details-marker{display:none}
+  #shopify-section-{{ sid }} .mch__sum:focus-visible{outline:2px solid var(--mc-ink);outline-offset:4px;border-radius:4px}
+  #shopify-section-{{ sid }} .mch__plus{flex:0 0 32px;width:32px;height:32px;margin-top:-2px;border-radius:50%;border:1px solid var(--mc-hair);position:relative;transition:transform var(--mc-dur) var(--mc-ease),background var(--mc-dur) var(--mc-ease)}
+  #shopify-section-{{ sid }} .mch__plus::before,#shopify-section-{{ sid }} .mch__plus::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.5px;margin:-.75px 0 0 -6px;background:var(--mc-ink)}
+  #shopify-section-{{ sid }} .mch__plus::after{transform:rotate(90deg)}
+  #shopify-section-{{ sid }} details[open] > .mch__sum .mch__plus{transform:rotate(45deg)}
+  #shopify-section-{{ sid }} .mch__sum:hover .mch__plus{background:var(--mc-sage)}
   #shopify-section-{{ sid }} .mch__bt{font-weight:500;font-size:21px;line-height:1.25;color:var(--mc-ink)}
   #shopify-section-{{ sid }} .mch__bx{margin-top:10px;max-width:60ch;font-size:17px;line-height:1.55;color:var(--mc-ink-alt)}
   #shopify-section-{{ sid }} .mch__q{font-family:var(--mc-font);font-style:normal;font-weight:500;font-size:clamp(22px,2vw,28px);line-height:1.2;letter-spacing:-.012em;color:var(--mc-ink)}
@@ -57,6 +65,11 @@
   /* Comparison: everything but the row names centred, under centred heads */
   #shopify-section-{{ sid }} .mch__wide .mch__t th:not(:first-child),#shopify-section-{{ sid }} .mch__wide .mch__t td{text-align:center}
   #shopify-section-{{ sid }} .mch__wide .mch__t td{vertical-align:middle}
+  #shopify-section-{{ sid }} .mch__wide .mch__t{font-size:15px;line-height:1.3}
+  #shopify-section-{{ sid }} .mch__wide .mch__t th,#shopify-section-{{ sid }} .mch__wide .mch__t td{padding:13px 14px}
+  #shopify-section-{{ sid }} .mch__wide .mch__t th:first-child{padding-left:0}
+  #shopify-section-{{ sid }} .mch__wide .mch__t tbody th{font-size:15px;line-height:1.3}
+  #shopify-section-{{ sid }} .mch__wide .mch__t thead th{font-size:13px}
   #shopify-section-{{ sid }} .mch__wide .mch__t tbody th{vertical-align:middle}
   #shopify-section-{{ sid }} .mch__wide .mch__logo{margin:0 auto}
   #shopify-section-{{ sid }} .mch__logo{display:block;width:72px;height:auto;color:var(--mc-ink)}
@@ -84,9 +97,15 @@
     #shopify-section-{{ sid }} .mch__b--point,#shopify-section-{{ sid }} .mch__b--quote,#shopify-section-{{ sid }} .mch__b--term,#shopify-section-{{ sid }} .mch__b--step{grid-column:1/-1}
     #shopify-section-{{ sid }} .mch__blocks:has(> .mch__b--point:nth-child(3):last-child) .mch__b--point{grid-column:1/-1}
     #shopify-section-{{ sid }} .mch__q,#shopify-section-{{ sid }} .mch__take{font-size:19px}
-    #shopify-section-{{ sid }} .mch__t{font-size:16px}
-    #shopify-section-{{ sid }} .mch__wide .mch__t{min-width:640px}
-    #shopify-section-{{ sid }} .mch__wide tbody th,#shopify-section-{{ sid }} .mch__wide thead th:first-child{position:sticky;left:0;z-index:1;min-width:140px;background:var(--mch-bg);box-shadow:1px 0 0 var(--mc-hair)}
+    #shopify-section-{{ sid }} .mch__stack .mch__t,#shopify-section-{{ sid }} .mch__stack tbody{display:block;width:100%;table-layout:auto}
+    #shopify-section-{{ sid }} .mch__stack colgroup{display:none}
+    #shopify-section-{{ sid }} .mch__stack .mch__t{font-size:16px}
+    #shopify-section-{{ sid }} .mch__wide .mch__t{min-width:600px;font-size:13.5px;line-height:1.28}
+    #shopify-section-{{ sid }} .mch__wide .mch__t th,#shopify-section-{{ sid }} .mch__wide .mch__t td{padding:11px 10px}
+    #shopify-section-{{ sid }} .mch__wide .mch__t tbody th{font-size:13.5px}
+    #shopify-section-{{ sid }} .mch__wide .mch__t thead th{font-size:11.5px}
+    #shopify-section-{{ sid }} .mch__wide .mch__logo{width:56px}
+    #shopify-section-{{ sid }} .mch__wide tbody th,#shopify-section-{{ sid }} .mch__wide thead th:first-child{position:sticky;left:0;z-index:1;min-width:120px;padding-right:10px;background:var(--mch-bg);box-shadow:1px 0 0 var(--mc-hair)}
     #shopify-section-{{ sid }} .mch__wide-hint{display:block;margin-top:10px;font-family:var(--mc-mono);font-size:12px;letter-spacing:.06em;color:var(--mc-muted)}
     #shopify-section-{{ sid }} .mch__stack thead{display:none}
     #shopify-section-{{ sid }} .mch__stack tr{display:block;padding:18px 0;border-bottom:1px solid var(--mc-hair)}
@@ -102,7 +121,6 @@
   <div class="mc__wrap mch__grid">
     <div class="mch__side">
       {%- if s.number != blank -%}<span class="mch__num">{{ s.number }}</span>{%- endif -%}
-      {%- if s.label != blank -%}<span class="mch__label">{{ s.label }}</span>{%- endif -%}
     </div>
     <div class="mch__main">
       {%- if s.heading != blank -%}<h2 class="mch__h">{{ s.heading | escape | newline_to_br }}</h2>{%- endif -%}
@@ -144,10 +162,10 @@
           {%- for block in section.blocks -%}
             {%- case block.type -%}
               {%- when 'point' -%}
-                <div class="mch__b--point" {{ block.shopify_attributes }}>
-                  <p class="mch__bt">{{ block.settings.title }}</p>
+                <details class="mch__b--point" data-mch-more {{ block.shopify_attributes }}>
+                  <summary class="mch__sum"><span class="mch__bt">{{ block.settings.title }}</span><span class="mch__plus" aria-hidden="true"></span></summary>
                   <div class="mch__bx">{{ block.settings.text }}</div>
-                </div>
+                </details>
               {%- when 'quote' -%}
                 <p class="mch__b--quote mch__q" {{ block.shopify_attributes }}>“{{ block.settings.text }}”</p>
               {%- when 'step' -%}
@@ -212,6 +230,22 @@
   </div>
 </div>
 
+<script>
+  (function () {
+    var root = document.getElementById({{ s.anchor | json }}) || document.currentScript.previousElementSibling;
+    if (!root) return;
+    var mq = window.matchMedia('(min-width: 750px)');
+    function set() {
+      [].forEach.call(root.querySelectorAll('[data-mch-more]'), function (d) {
+        var short = (d.querySelector('.mch__bx') || {}).textContent.trim().length < 120;
+        d.open = mq.matches || short;
+      });
+    }
+    set();
+    if (mq.addEventListener) mq.addEventListener('change', set);
+  })();
+</script>
+
 {% schema %}
 {
   "name": "MUTO — Chapter",
@@ -219,7 +253,7 @@
   "settings": [
     { "type": "text", "id": "anchor", "label": "Anchor", "info": "Used by the chapter links, e.g. what-changes" },
     { "type": "text", "id": "number", "label": "Chapter number", "info": "e.g. 01" },
-    { "type": "text", "id": "label", "label": "Chapter name" },
+    { "type": "text", "id": "label", "label": "Chapter name", "info": "For your reference; the page shows only the number and the heading." },
     { "type": "textarea", "id": "heading", "label": "Heading" },
     { "type": "richtext", "id": "intro", "label": "Intro" },
     { "type": "select", "id": "art", "label": "Diagram", "default": "none", "options": [
