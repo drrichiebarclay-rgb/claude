@@ -5,6 +5,7 @@ product.muto-nad-4060) and lays out, top to bottom:
 
   buy        muto-pdp-buy: the buy box, with a delivery line, a guarantee panel, the test
              results button and the doctors block under the button; accordions rewritten
+  nav        muto-section-nav: chips for the sections below, pinned once scrolled to
   benefits   muto-benefit-cards: the five jobs as photo cards (AG1 style)
   board      the home page's slim scientific board
   library    muto-ingredient-library: the 19 ingredients, filterable (h2 here)
@@ -143,6 +144,13 @@ for k, b in EXTRAS:
     buy["block_order"].append(k)
 assert len(buy["block_order"]) <= 50, len(buy["block_order"])
 put("buy", buy)
+
+# ---- Section links: pinned chips for the sections below, as on the science page ----
+NAV = [("Benefits", "benefits"), ("The experts", "board"), ("Ingredients", "library"), ("Vs the usual", "compare"),
+       ("What to expect", "timeline"), ("How to take it", "howto"), ("FAQs", "faq"), ("Reviews", "reviews")]
+put("nav", {"type": "muto-section-nav", "settings": {"label": "On this page", "nav_top": 0},
+            "blocks": {f"n{i}": {"type": "link", "settings": {"label": l, "target": t}} for i, (l, t) in enumerate(NAV, 1)},
+            "block_order": [f"n{i}" for i in range(1, len(NAV) + 1)]})
 
 # ---- Benefit cards ----
 JOBLINES = load("ingredients-page/jobs.json")  # the same lines as the science page, from the ingredients page statements

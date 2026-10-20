@@ -1,0 +1,107 @@
+{%- comment -%}
+  MUTO — Section links.
+  The science page's chapter links, on their own: a row of numbered chips that
+  pins to the top of the window once it scrolls up to it, fills the chip for
+  the section on screen, and jumps to a section when tapped. A cyan bar along
+  its foot shows how far down the page you are.
+
+  BLOCKS: one "Link" per section. Its target is either an element id on the
+  page (e.g. scientific-board) or a section's key in the template (e.g.
+  library), which matches the section's own wrapper.
+{%- endcomment -%}
+{{ 'muto-crea.css' | asset_url | stylesheet_tag }}
+{%- assign sid = section.id -%}
+<style>
+  #shopify-section-{{ sid }} .msn{height:72px}
+  #shopify-section-{{ sid }} .msn__nav{position:relative;height:100%;background:var(--mc-ground);border-top:1px solid var(--mc-hair);border-bottom:1px solid var(--mc-hair);z-index:4}
+  #shopify-section-{{ sid }} .msn__nav.is-fixed{position:fixed;top:{{ section.settings.nav_top }}px;left:0;right:0;height:72px}
+  #shopify-section-{{ sid }} .msn__bar{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--mc-cyan);transform-origin:0 50%;transform:scaleX(0)}
+  #shopify-section-{{ sid }} .msn__nav ol{display:flex;gap:8px;height:100%;align-items:center;margin:0 auto;max-width:var(--mc-max);padding:0 var(--mc-gutter);list-style:none;overflow-x:auto;scrollbar-width:none}
+  #shopify-section-{{ sid }} .msn__nav ol::-webkit-scrollbar{display:none}
+  #shopify-section-{{ sid }} .msn__nav a{display:flex;align-items:center;gap:8px;height:44px;padding:0 16px;border:1px solid var(--mc-hair);border-radius:22px;white-space:nowrap;text-decoration:none;font-family:var(--mc-font);font-weight:500;font-size:15px;letter-spacing:.02em;text-transform:uppercase;color:var(--mc-ink-alt);transition:background var(--mc-dur) var(--mc-ease),color var(--mc-dur) var(--mc-ease)}
+  #shopify-section-{{ sid }} .msn__nav a:hover{background:var(--mc-sage)}
+  #shopify-section-{{ sid }} .msn__nav a.is-on{background:var(--mc-ink);border-color:var(--mc-ink);color:#fff}
+  #shopify-section-{{ sid }} .msn__nav b{font-family:var(--mc-mono);font-weight:400;font-size:12px;opacity:.6}
+  #shopify-section-{{ sid }} .msn__nav a:focus-visible{outline:2px solid var(--mc-ink);outline-offset:2px}
+  @media (max-width:749px){
+    #shopify-section-{{ sid }} .msn,#shopify-section-{{ sid }} .msn__nav.is-fixed{height:60px}
+    #shopify-section-{{ sid }} .msn__nav a{height:40px;padding:0 14px;font-size:14px}
+  }
+</style>
+
+{%- if section.blocks.size > 0 -%}
+<div class="mc msn" data-msn>
+  <nav class="msn__nav" aria-label="{{ section.settings.label | escape }}" data-msn-nav>
+    <ol>
+      {%- for block in section.blocks -%}
+        <li {{ block.shopify_attributes }}><a href="#{{ block.settings.target }}" data-msn-link="{{ block.settings.target }}"><b>{{ forloop.index | prepend: '0' | slice: -2, 2 }}</b>{{ block.settings.label }}</a></li>
+      {%- endfor -%}
+    </ol>
+    <span class="msn__bar" aria-hidden="true"></span>
+  </nav>
+</div>
+{%- endif -%}
+
+<script>
+  (function () {
+    var root = document.querySelector('#shopify-section-{{ sid }} [data-msn]');
+    var nav = root && root.querySelector('[data-msn-nav]');
+    if (!nav) return;
+    var top = {{ section.settings.nav_top | default: 0 }};
+    var bar = nav.querySelector('.msn__bar');
+    var links = [].slice.call(nav.querySelectorAll('[data-msn-link]'));
+    var row = nav.querySelector('ol');
+    /* An element id, or a template section key matched against the section wrapper's id */
+    function find(k) { return document.getElementById(k) || document.querySelector('[id^="shopify-section-"][id$="__' + k + '"]'); }
+    function pin() { nav.classList.toggle('is-fixed', root.getBoundingClientRect().top <= top); }
+    function progress() {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, window.scrollY / max) : 0) + ')';
+    }
+    var clickLock = 0;
+    function current() {
+      if (Date.now() - clickLock < 900) return;
+      var line = top + nav.offsetHeight + 40, on = -1;
+      links.forEach(function (a, i) { var t = find(a.dataset.msnLink); if (t && t.getBoundingClientRect().top <= line) on = i; });
+      links.forEach(function (a, i) {
+        var was = a.classList.contains('is-on');
+        a.classList.toggle('is-on', i === on);
+        /* Keep the filled chip in view, scrolling only the row */
+        if (i === on && !was && row.scrollWidth > row.clientWidth) row.scrollTo({ left: Math.max(0, a.offsetLeft - 20), behavior: 'smooth' });
+      });
+    }
+    window.addEventListener('scroll', function () { pin(); progress(); current(); }, { passive: true });
+    pin(); progress(); current();
+    links.forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var t = find(a.dataset.msnLink);
+        if (!t) return;
+        e.preventDefault();
+        links.forEach(function (x) { x.classList.toggle('is-on', x === a); });
+        clickLock = Date.now();
+        var y = t.getBoundingClientRect().top + window.scrollY - top - nav.offsetHeight + 1;
+        window.scrollTo({ top: y, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "MUTO — Section links",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Label (screen readers)", "default": "On this page" },
+    { "type": "range", "id": "nav_top", "label": "Pinned: distance from top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 0 }
+  ],
+  "blocks": [
+    { "type": "link", "name": "Link", "settings": [
+      { "type": "text", "id": "label", "label": "Label" },
+      { "type": "text", "id": "target", "label": "Target", "info": "An element id on the page, or a section's key in the template, e.g. library" }
+    ] }
+  ],
+  "max_blocks": 12,
+  "presets": [{ "name": "MUTO — Section links" }],
+  "enabled_on": { "templates": ["product", "page", "index"] }
+}
+{% endschema %}

@@ -545,6 +545,81 @@
         "points_note": ""
       }
     },
+    "nav": {
+      "type": "muto-section-nav",
+      "settings": {
+        "label": "On this page",
+        "nav_top": 0
+      },
+      "blocks": {
+        "n1": {
+          "type": "link",
+          "settings": {
+            "label": "Benefits",
+            "target": "benefits"
+          }
+        },
+        "n2": {
+          "type": "link",
+          "settings": {
+            "label": "The experts",
+            "target": "board"
+          }
+        },
+        "n3": {
+          "type": "link",
+          "settings": {
+            "label": "Ingredients",
+            "target": "library"
+          }
+        },
+        "n4": {
+          "type": "link",
+          "settings": {
+            "label": "Vs the usual",
+            "target": "compare"
+          }
+        },
+        "n5": {
+          "type": "link",
+          "settings": {
+            "label": "What to expect",
+            "target": "timeline"
+          }
+        },
+        "n6": {
+          "type": "link",
+          "settings": {
+            "label": "How to take it",
+            "target": "howto"
+          }
+        },
+        "n7": {
+          "type": "link",
+          "settings": {
+            "label": "FAQs",
+            "target": "faq"
+          }
+        },
+        "n8": {
+          "type": "link",
+          "settings": {
+            "label": "Reviews",
+            "target": "reviews"
+          }
+        }
+      },
+      "block_order": [
+        "n1",
+        "n2",
+        "n3",
+        "n4",
+        "n5",
+        "n6",
+        "n7",
+        "n8"
+      ]
+    },
     "benefits": {
       "type": "muto-benefit-cards",
       "settings": {
@@ -1666,6 +1741,7 @@
   },
   "order": [
     "buy",
+    "nav",
     "benefits",
     "board_anchor",
     "board",
