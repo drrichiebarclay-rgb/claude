@@ -1,0 +1,88 @@
+{%- comment -%}
+  MUTO Home — above the standard. Beneath the surface.
+
+  Artboard band 6327–7106, charcoal. Five 120px lines on a 108 step, centred: the
+  first three off-white, the last two cyan, with the posterised cutout passing
+  between them — over the off-white lines and under the cyan ones, so the figure
+  reads as moving through the middle of the phrase.
+{%- endcomment -%}
+
+{{ 'muto-home.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign mh_spt = section.settings.space_top | default: 100 | times: 0.01
+  assign mh_spb = section.settings.space_bottom | default: 100 | times: 0.01
+  assign heading_id = 'mh-banner-' | append: section.id
+-%}
+
+<div class="mh mh--dark" style="--mh-spt:{{ mh_spt }};--mh-spb:{{ mh_spb }}">
+  <section class="mh__banner" aria-labelledby="{{ heading_id }}">
+    <div class="mh__banner-inner mh__wrap">
+      {%- if section.settings.cutout != blank or section.settings.cutout_fallback != blank -%}
+        {%- comment -%}
+          Decorative, so alt is empty and it is hidden from the accessibility
+          tree — but it still has a srcset: it is drawn at 500 on desktop and
+          88vw on a phone, and a 1400-wide PNG served to both is the one image
+          on this page that was costing bytes for nothing.
+        {%- endcomment -%}
+        {%- liquid
+          if section.settings.cutout != blank
+            assign cut_src = section.settings.cutout | image_url: width: 1400
+            assign cut_set = section.settings.cutout | image_url: width: 500 | append: ' 500w, '
+            assign cut_set = cut_set | append: section.settings.cutout | image_url: width: 1000 | append: ' 1000w, '
+            assign cut_set = cut_set | append: section.settings.cutout | image_url: width: 1400 | append: ' 1400w'
+          else
+            assign cut_src = section.settings.cutout_fallback
+            assign cut_sep = '?'
+            if cut_src contains '?'
+              assign cut_sep = '&'
+            endif
+            assign cut_set = cut_src | append: cut_sep | append: 'width=500 500w, '
+            assign cut_set = cut_set | append: cut_src | append: cut_sep | append: 'width=1000 1000w, '
+            assign cut_set = cut_set | append: cut_src | append: cut_sep | append: 'width=1400 1400w'
+          endif
+        -%}
+        <img
+          class="mh__banner-cutout"
+          src="{{ cut_src }}"
+          srcset="{{ cut_set }}"
+          sizes="(min-width: 990px) 500px, 88vw"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+          width="500"
+          height="237"
+        >
+      {%- endif -%}
+      {%- if section.settings.line_a != blank -%}
+        <h2 class="mh__banner-line" id="{{ heading_id }}">{{ section.settings.line_a | escape | newline_to_br }}</h2>
+      {%- endif -%}
+      {%- if section.settings.line_b != blank -%}
+        <p class="mh__banner-line mh__banner-line--accent">{{ section.settings.line_b | escape | newline_to_br }}</p>
+      {%- endif -%}
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO Home — Banner",
+  "tag": "section",
+  "class": "mh-section",
+  "settings": [
+    { "type": "textarea", "id": "line_a", "label": "First lines", "default": "Above\nthe\nstandard." },
+    { "type": "textarea", "id": "line_b", "label": "Cyan lines", "default": "Beneath\nthe surface." },
+    { "type": "image_picker", "id": "cutout", "label": "Cutout" },
+    { "type": "text", "id": "cutout_fallback", "label": "Fallback cutout URL", "default": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-cutout.png?v=1790751995" },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 }
+  ],
+  "presets": [
+    { "name": "MUTO Home — Banner" }
+  ],
+  "enabled_on": {
+    "templates": ["index", "page"]
+  }
+}
+{% endschema %}

@@ -1,0 +1,116 @@
+{%- comment -%}
+  MUTO Creatine — what to expect.
+
+  Artboard band 6709–7430 of CREATINE.pdf. A two-line 64px heading at x24, then
+  four 333-wide columns at x24 / 377 / 730 / 1083 on a 20 gap: a 333×208 still,
+  a mono chip with a hairline running off its right edge to the column's end, a
+  22px title and the copy.
+
+  BLOCKS, one per step, so a stage can be added, edited, reordered or dropped.
+
+  MOBILE: a snap rail. Four stacked columns are four screens of scroll for what
+  is one timeline, and a timeline read sideways still reads as a timeline.
+{%- endcomment -%}
+
+{{ 'muto-crea.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign spt = section.settings.space_top | default: 100 | times: 0.01
+  assign spb = section.settings.space_bottom | default: 100 | times: 0.01
+  assign heading_id = 'mc-steps-' | append: section.id
+-%}
+
+<div class="mc mc--steps mc--fit-{{ section.settings.fit | default: 'crea' }}" style="--mc-spt:{{ spt }};--mc-spb:{{ spb }}">
+  <div class="mc__wrap">
+    <section class="mc__steps" aria-labelledby="{{ heading_id }}">
+      {%- if section.settings.heading != blank or section.settings.heading_right != blank -%}
+        {%- comment -%}
+          Two groups: the NAD artboard splits this heading across the margins
+          ("Not a day one spike." left, "A 90-day test." right) where the
+          creatine one keeps it all on the left. Which words go right is typed
+          rather than inferred from a line count.
+        {%- endcomment -%}
+        {%- assign mc_lines = section.settings.heading | escape | newline_to_br | split: '<br />' -%}
+        {%- assign mc_right = section.settings.heading_right | escape | newline_to_br | split: '<br />' -%}
+        <h2 class="mc__h2 mc__steps-head" id="{{ heading_id }}">
+          {%- for mc_line in mc_lines %}
+            <span class="mc__head-line">{{ mc_line }}</span>
+          {% endfor -%}
+          {%- for mc_line in mc_right %}
+            <span class="mc__head-line mc__head-line--right">{{ mc_line }}</span>
+          {% endfor -%}
+        </h2>
+      {%- endif -%}
+
+      <ol class="mc__steps-list mc__rail">
+        {%- for block in section.blocks -%}
+          {%- assign step_alt = block.settings.image_alt | default: block.settings.title -%}
+          <li class="mc__step" {{ block.shopify_attributes }}>
+            <div class="mc__step-frame">
+              {% render 'muto-image',
+                image: block.settings.image,
+                fallback: block.settings.image_fallback,
+                alt: step_alt,
+                placeholder: false,
+                ratio: '333/208',
+                sizes: '(min-width: 990px) 333px, 82vw',
+                widths: '340,500,666,1000',
+                position: block.settings.image_position %}
+            </div>
+            {%- if block.settings.chip != blank -%}
+              <p class="mc__step-rule"><span class="mc__step-chip">{{ block.settings.chip }}</span></p>
+            {%- endif -%}
+            <h3 class="mc__step-title">{{ block.settings.title }}</h3>
+            <p class="mc__step-text">{{ block.settings.text }}</p>
+          </li>
+        {%- endfor -%}
+      </ol>
+    </section>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO Creatine — Steps",
+  "tag": "section",
+  "class": "mc-section",
+  "max_blocks": 8,
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "What to\nexpect" },
+    { "type": "textarea", "id": "heading_right", "label": "Heading, right margin", "info": "Lines typed here sit on the right margin under the ones above, at every width." },
+    { "type": "select", "id": "fit", "label": "Which wash", "default": "crea", "options": [{ "value": "crea", "label": "Creatine page" }, { "value": "nad", "label": "NAD+ page" }], "info": "The mint wash is least-squares fitted to one artboard's own pixels, and the two product pages wash this band differently." },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 2, "unit": "%", "default": 100 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 2, "unit": "%", "default": 100 }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        { "type": "text", "id": "chip", "label": "Chip", "default": "Week 1" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Stores begin building." },
+        { "type": "textarea", "id": "text", "label": "Copy" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_fallback", "label": "Fallback image URL" },
+        { "type": "text", "id": "image_alt", "label": "Alt text", "info": "Describe the photograph. Defaults to the title." },
+        { "type": "text", "id": "image_position", "label": "Image focus", "info": "CSS object-position, e.g. \"50% 40%\". Blank centres it." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MUTO Creatine — Steps",
+      "blocks": [
+        { "type": "step", "settings": { "chip": "Week 1", "title": "Stores begin building.", "text": "One scoop a day begins topping up the creatine your muscles and brain hold in reserve. Nothing to feel yet; this is the foundation." } },
+        { "type": "step", "settings": { "chip": "Weeks 2–4", "title": "Repeat efforts hold up.", "text": "As stores fill, the fast reserve is there when effort spikes: the sprint, the heavy set, the last station. Later intervals start to look more like your first." } },
+        { "type": "step", "settings": { "chip": "Weeks 4–8", "title": "Strength builds.", "text": "With stores full and training consistent, the reserve supports the strength you're working for. Long days and short nights are where you may notice your head staying clearer too." } },
+        { "type": "step", "settings": { "chip": "Weeks 8–12", "title": "Stronger for longer.", "text": "Twelve weeks of training on a full reserve. Strength is part of ageing well, and this is what keeps building it, for years, not just this season." } }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": ["product", "page", "index"]
+  }
+}
+{% endschema %}

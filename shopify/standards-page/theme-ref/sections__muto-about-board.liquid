@@ -1,0 +1,241 @@
+{%- comment -%}
+  MUTO About — scientific advisory board.
+
+  Each card is a video with an image cover. Three ways to fill one, in order of
+  precedence:
+
+    1. Video          — a file uploaded to Shopify (Content → Files).
+    2. Video URL      — a YouTube or Vimeo link.
+    3. Interview link — anything else; the card becomes a link out.
+
+  Nothing but the cover image loads until the card is clicked: the player lives
+  in a <template>, so six cards cost six images, not six video streams.
+
+  A card with none of the three set still shows the artboard's play mark, but
+  decoratively — no button, not focusable, nothing to click — because these
+  cards are all going to be interviews and the mark is how the design reads.
+  Turn it off per card with "Play mark without a video".
+
+  The artboard draws three stills running off the right edge. With six the row
+  has to be navigable, so it is the same carousel the events section uses:
+  native scroll and swipe, plus arrows and a progress track for pointer users,
+  degrading to a plain scrolling list with no JS.
+{%- endcomment -%}
+
+{{ 'muto-about.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'muto-about.js' | asset_url }}" defer="defer"></script>
+
+{%- assign heading_id = 'ma-board-' | append: section.id -%}
+
+{%- liquid
+  assign ma_spt = section.settings.space_top | default: 100 | times: 0.01
+  assign ma_spb = section.settings.space_bottom | default: 100 | times: 0.01
+-%}
+
+<div class="ma{% if section.settings.field %} ma--field-board{% endif %}" data-ma style="--ma-spt:{{ ma_spt }};--ma-spb:{{ ma_spb }}">
+  <div class="ma__wrap">
+    <section class="ma__board" aria-labelledby="{{ heading_id }}">
+      <div class="ma__board-top">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="ma__h2" id="{{ heading_id }}">{{ section.settings.heading | escape | newline_to_br }}</h2>
+        {%- endif -%}
+        {%- if section.settings.note != blank -%}
+          <p class="ma__board-note">{{ section.settings.note }}</p>
+        {%- endif -%}
+      </div>
+
+      <div class="ma__carousel" data-ma-carousel>
+        <ul class="ma__board-rail ma__rail" id="{{ heading_id }}-track" data-ma-carousel-track>
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign still_alt = block.settings.image_alt | default: block.settings.name
+              assign has_video = false
+              if block.settings.video != blank or block.settings.video_url != blank
+                assign has_video = true
+              endif
+              assign watch_label = block.settings.name | default: 'this interview'
+              assign play_label = 'Play the interview with ' | append: watch_label
+            -%}
+            <li class="ma__member" {{ block.shopify_attributes }}>
+              <div class="ma__member-media" data-ma-video>
+                {% render 'muto-about-image',
+                  image: block.settings.image,
+                  fallback: block.settings.image_fallback,
+                  alt: still_alt,
+                  ratio: '1/1',
+                  sizes: '(min-width: 990px) 528px, 76vw',
+                  widths: '300,528,760,1056',
+                  position: block.settings.image_position %}
+
+                {%- if has_video -%}
+                  <button class="ma__member-trigger" type="button" data-ma-video-play aria-label="{{ play_label | escape }}">
+                    {% render 'muto-about-play', uid: block.id %}
+                  </button>
+                  <template data-ma-video-src>
+                    {%- if block.settings.video != blank -%}
+                      {{
+                        block.settings.video
+                        | video_tag:
+                          image_size: '1100x',
+                          controls: true,
+                          autoplay: true,
+                          playsinline: true
+                      }}
+                    {%- else -%}
+                      {%- liquid
+                        assign vid = block.settings.video_url
+                        if vid.type == 'youtube'
+                          assign embed = 'https://www.youtube.com/embed/' | append: vid.id | append: '?autoplay=1&rel=0&playsinline=1'
+                        else
+                          assign embed = 'https://player.vimeo.com/video/' | append: vid.id | append: '?autoplay=1'
+                        endif
+                      -%}
+                      <iframe
+                        src="{{ embed }}"
+                        title="{{ play_label | escape }}"
+                        allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                        allowfullscreen
+                      ></iframe>
+                    {%- endif -%}
+                  </template>
+
+                {%- elsif block.settings.video_link != blank -%}
+                  <a class="ma__member-trigger" href="{{ block.settings.video_link }}" aria-label="{{ 'Watch ' | append: watch_label | escape }}">
+                    {% render 'muto-about-play', uid: block.id %}
+                  </a>
+
+                {%- elsif block.settings.show_play -%}
+                  {%- comment -%}
+                    No video yet, but the artboard draws the mark on every still
+                    and these cards are all going to be interviews. It renders
+                    decorative — not a button, not focusable, nothing to click —
+                    so nobody is offered an action that does not exist. Turn it
+                    off per card for a still that will never be a video.
+                  {%- endcomment -%}
+                  {% render 'muto-about-play', uid: block.id %}
+                {%- endif -%}
+              </div>
+
+              <div class="ma__member-head">
+                <h3 class="ma__member-name">{{ block.settings.name }}</h3>
+                {%- if block.settings.tag != blank -%}
+                  <span class="ma__member-tag ma__spark">{{ block.settings.tag }}</span>
+                {%- endif -%}
+              </div>
+              {%- if block.settings.role != blank -%}
+                <p class="ma__member-role">{{ block.settings.role | escape | newline_to_br }}</p>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+
+        {%- if section.blocks.size > 1 -%}
+          <div class="ma__carousel-bar">
+            <div class="ma__carousel-progress" aria-hidden="true">
+              <span class="ma__carousel-fill" data-ma-carousel-fill></span>
+            </div>
+            <div class="ma__carousel-nav">
+              <button
+                class="ma__carousel-btn"
+                type="button"
+                data-ma-carousel-prev
+                aria-label="{{ 'Show the previous board members' | escape }}"
+                aria-controls="{{ heading_id }}-track"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M15 4 7 12l8 8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <button
+                class="ma__carousel-btn"
+                type="button"
+                data-ma-carousel-next
+                aria-label="{{ 'Show the next board members' | escape }}"
+                aria-controls="{{ heading_id }}-track"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 4l8 8-8 8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+    </section>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO About — Board",
+  "tag": "section",
+  "class": "ma-section",
+  "max_blocks": 12,
+  "settings": [
+    { "type": "checkbox", "id": "field", "label": "Mint gradient background", "default": true, "info": "The wash is fitted to this band specifically — it is not the same one the statement sections use." },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Meet our\nscientific board" },
+    { "type": "text", "id": "note", "label": "Note", "default": "Trusted by world-leading clinicians" },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 }
+  ],
+  "blocks": [
+    {
+      "type": "member",
+      "name": "Member",
+      "settings": [
+        { "type": "header", "content": "Cover" },
+        { "type": "image_picker", "id": "image", "label": "Cover image" },
+        { "type": "text", "id": "image_fallback", "label": "Fallback image URL" },
+        { "type": "text", "id": "image_alt", "label": "Alt text", "info": "Describe the still. Defaults to the member's name." },
+        { "type": "text", "id": "image_position", "label": "Image focus", "info": "CSS object-position, e.g. \"50% 34%\". Blank centres it." },
+        { "type": "header", "content": "Video" },
+        { "type": "video", "id": "video", "label": "Video", "info": "Uploaded to Content → Files. Plays inline over the cover." },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "Video URL",
+          "accept": ["youtube", "vimeo"],
+          "info": "Used only when no video is uploaded above."
+        },
+        { "type": "url", "id": "video_link", "label": "Interview link", "info": "A last resort: with no video set, the card links out instead." },
+        { "type": "checkbox", "id": "show_play", "label": "Play mark without a video", "default": true, "info": "Keeps the artboard's mark on a still that is waiting for its interview. Decorative only — there is nothing to click until a video is set." },
+        { "type": "header", "content": "Details" },
+        { "type": "text", "id": "name", "label": "Name", "default": "Dr Alka Patel" },
+        { "type": "textarea", "id": "role", "label": "Role", "default": "Performance nutritionist,\nInternational sport" },
+        { "type": "text", "id": "tag", "label": "Tag", "default": "Performance" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MUTO About — Board",
+      "blocks": [
+        {
+          "type": "member",
+          "settings": { "name": "Dr Alka Patel", "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-board-3.jpg?v=1790751994" }
+        },
+        {
+          "type": "member",
+          "settings": { "name": "Advisory board member", "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-board-1.jpg?v=1790751995" }
+        },
+        {
+          "type": "member",
+          "settings": { "name": "Advisory board member", "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-board-2.jpg?v=1790751994" }
+        },
+        {
+          "type": "member",
+          "settings": { "name": "Advisory board member", "image_alt": "Add a cover still" }
+        },
+        {
+          "type": "member",
+          "settings": { "name": "Advisory board member", "image_alt": "Add a cover still" }
+        },
+        {
+          "type": "member",
+          "settings": { "name": "Advisory board member", "image_alt": "Add a cover still" }
+        }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": ["page"]
+  }
+}
+{% endschema %}

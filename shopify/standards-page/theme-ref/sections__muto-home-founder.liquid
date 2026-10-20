@@ -1,0 +1,111 @@
+{%- comment -%}
+  MUTO Home — meet our founder.
+
+  Artboard: a 635×868 portrait at x118 y2600 with the 613×438 glass letter card
+  at x706 overlapping its right edge by 47. The same composition as the About
+  page's, at this page's own measurements.
+
+  MOBILE: the portrait leads and the letter follows, so the face arrives before
+  the ask.
+{%- endcomment -%}
+
+{{ 'muto-home.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign mh_spt = section.settings.space_top | default: 100 | times: 0.01
+  assign mh_spb = section.settings.space_bottom | default: 100 | times: 0.01
+  assign heading_id = 'mh-founder-' | append: section.id
+  assign portrait_alt = section.settings.image_alt | default: section.settings.name
+-%}
+
+<div class="mh mh--alt{% if section.settings.field %} mh--field-founder{% endif %}" style="--mh-spt:{{ mh_spt }};--mh-spb:{{ mh_spb }}">
+  <div class="mh__wrap">
+    <section class="mh__founder" aria-labelledby="{{ heading_id }}">
+      <div class="mh__founder-media">
+        {% render 'muto-image',
+          image: section.settings.image,
+          fallback: section.settings.image_fallback,
+          alt: portrait_alt,
+          ratio: '635/868',
+          sizes: '(min-width: 990px) 635px, 92vw',
+          widths: '430,635,860,1270' %}
+      </div>
+
+      <div class="mh__founder-body">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="mh__h2" id="{{ heading_id }}">{{ section.settings.heading | escape | newline_to_br }}</h2>
+        {%- endif -%}
+        {%- if section.settings.name != blank -%}
+          <p class="mh__founder-name">{{ section.settings.name }}</p>
+        {%- endif -%}
+
+        <div class="mh__founder-card">
+          {%- for block in section.blocks -%}
+            <p {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
+          {%- endfor -%}
+          {%- if section.settings.cta_label != blank -%}
+            <a class="mh__btn mh__btn--cyan mh__btn--full" href="{{ section.settings.cta_link | default: routes.all_products_collection_url }}">
+              {{- section.settings.cta_label -}}
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO Home — Founder",
+  "tag": "section",
+  "class": "mh-section",
+  "max_blocks": 8,
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Portrait" },
+    { "type": "text", "id": "image_fallback", "label": "Fallback image URL", "default": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-founder.jpg?v=1790751995" },
+    { "type": "text", "id": "image_alt", "label": "Alt text", "default": "Dr Richie Barclay sitting at home holding a jar of MUTO NAD+ Cellular Complex" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Meet our\nfounder." },
+    { "type": "text", "id": "name", "label": "Name and credential", "default": "Dr Richie Barclay, Ph.D." },
+    { "type": "text", "id": "cta_label", "label": "Button", "default": "Start Today" },
+    { "type": "url", "id": "cta_link", "label": "Button link", "info": "Defaults to the all-products collection." },
+    { "type": "checkbox", "id": "field", "label": "Mint gradient background", "default": true, "info": "The wash is fitted to this band specifically." },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 }
+  ],
+  "blocks": [
+    {
+      "type": "para",
+      "name": "Paragraph",
+      "settings": [
+        { "type": "textarea", "id": "text", "label": "Text" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MUTO Home — Founder",
+      "blocks": [
+        {
+          "type": "para",
+          "settings": { "text": "I built MUTO because I was tired of a category that asks you to take it on trust: single ingredients, proprietary blends, and very little accountability." }
+        },
+        {
+          "type": "para",
+          "settings": { "text": "I'm a scientist, so I built the opposite. A 19-ingredient cellular complex with every ingredient and every dose on the label, and the reason each one is there." }
+        },
+        {
+          "type": "para",
+          "settings": { "text": "Then I wanted it tested properly. We're running research programmes with the University of Westminster, King's College London, Coventry and Newcastle, and we'll publish what we find, whatever it shows." }
+        },
+        {
+          "type": "para",
+          "settings": { "text": "And you don't have to take my word for any of it. Take your baseline, track the difference, and make your own call." }
+        }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": ["index", "page"]
+  }
+}
+{% endschema %}

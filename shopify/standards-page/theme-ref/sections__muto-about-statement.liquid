@@ -1,0 +1,97 @@
+{%- comment -%}
+  MUTO About — statement band (THE VISION / THE MISSION).
+
+  Two layouts from the artboard:
+    "poem"  — a caps sentence that starts left and finishes right-aligned.
+    "split" — caps headline left, body paragraph right.
+
+  MOBILE: both collapse to one column. The tail keeps its right alignment —
+  the sentence is written to start left and finish right, and a phone that
+  flattens it to one edge loses the shape the words were cut to.
+{%- endcomment -%}
+
+{{ 'muto-about.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  case section.settings.field
+    when 'full'
+      assign ma_field = ' ma--field'
+    when 'tail'
+      assign ma_field = ' ma--field-tail'
+    else
+      assign ma_field = ''
+  endcase
+-%}
+
+{%- assign heading_id = 'ma-statement-' | append: section.id -%}
+
+{%- liquid
+  assign ma_spt = section.settings.space_top | default: 100 | times: 0.01
+  assign ma_spb = section.settings.space_bottom | default: 100 | times: 0.01
+-%}
+
+<div class="ma{{ ma_field }}" style="--ma-spt:{{ ma_spt }};--ma-spb:{{ ma_spb }}">
+  <div class="ma__wrap">
+    <section aria-labelledby="{{ heading_id }}" class="ma__statement ma__statement--{% if section.settings.layout == 'split' %}mission ma__statement--split{% else %}vision{% endif %}">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}
+          <div class="ma__eyebrow">{{ section.settings.eyebrow }}</div>
+        {%- endif -%}
+        {%- if section.settings.head != blank -%}
+          <h2 class="ma__statement-head" id="{{ heading_id }}">{{ section.settings.head | escape | newline_to_br }}</h2>
+        {%- endif -%}
+        {%- if section.settings.tail != blank -%}
+          <p class="ma__statement-tail">{{ section.settings.tail | escape | newline_to_br }}</p>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.body != blank -%}
+        <p class="ma__statement-body">{{ section.settings.body }}</p>
+      {%- endif -%}
+    </section>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO About — Statement",
+  "tag": "section",
+  "class": "ma-section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        { "value": "poem", "label": "Sentence — starts left, finishes right" },
+        { "value": "split", "label": "Split — headline left, body right" }
+      ],
+      "default": "poem"
+    },
+    {
+      "type": "select",
+      "id": "field",
+      "label": "Mint gradient background",
+      "info": "The artboard's wash runs across both statements. Use Full on the first and Continuation on the second so they read as one.",
+      "options": [
+        { "value": "full", "label": "Full" },
+        { "value": "tail", "label": "Continuation" },
+        { "value": "none", "label": "None" }
+      ],
+      "default": "full"
+    },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The vision" },
+    { "type": "textarea", "id": "head", "label": "Headline", "default": "A world where biological age is a choice," },
+    { "type": "textarea", "id": "tail", "label": "Right-aligned tail", "default": "and peak performance has no expiry date." },
+    { "type": "textarea", "id": "body", "label": "Body (split layout)" },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 }
+  ],
+  "presets": [
+    { "name": "MUTO About — Statement" }
+  ],
+  "enabled_on": {
+    "templates": ["page"]
+  }
+}
+{% endschema %}

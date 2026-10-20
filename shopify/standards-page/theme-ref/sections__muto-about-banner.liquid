@@ -1,0 +1,66 @@
+{%- comment -%}
+  MUTO About — "Above the standard. Beneath the surface."
+  The brand line at full volume over the posterised cyan-to-lime cutout, with
+  the one action on the page that is pure conversion.
+{%- endcomment -%}
+
+{{ 'muto-about.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign ma_spt = section.settings.space_top | default: 100 | times: 0.01
+  assign ma_spb = section.settings.space_bottom | default: 100 | times: 0.01
+-%}
+
+<div class="ma ma--dark" style="--ma-spt:{{ ma_spt }};--ma-spb:{{ ma_spb }}">
+  {%- assign heading_id = 'ma-banner-' | append: section.id -%}
+  <section class="ma__banner" aria-labelledby="{{ heading_id }}">
+    <div class="ma__banner-inner ma__wrap">
+      {%- if section.settings.cutout != blank or section.settings.cutout_fallback != blank -%}
+        <img
+          class="ma__banner-cutout"
+          src="{% if section.settings.cutout != blank %}{{ section.settings.cutout | image_url: width: 1400 }}{% else %}{{ section.settings.cutout_fallback }}{% endif %}"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+          width="500"
+          height="237"
+        >
+      {%- endif -%}
+      {%- if section.settings.line_a != blank -%}
+        <h2 class="ma__banner-line" id="{{ heading_id }}">{{ section.settings.line_a | escape | newline_to_br }}</h2>
+      {%- endif -%}
+      {%- if section.settings.line_b != blank -%}
+        <p class="ma__banner-line ma__banner-line--accent">{{ section.settings.line_b | escape | newline_to_br }}</p>
+      {%- endif -%}
+      {%- if section.settings.cta_label != blank -%}
+        <a class="ma__btn ma__btn--cyan" href="{{ section.settings.cta_link | default: '#' }}">{{ section.settings.cta_label }}</a>
+      {%- endif -%}
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO About — Banner",
+  "tag": "section",
+  "class": "ma-section",
+  "settings": [
+    { "type": "textarea", "id": "line_a", "label": "First line", "default": "Above\nthe\nstandard." },
+    { "type": "textarea", "id": "line_b", "label": "Second line (cyan)", "default": "Beneath\nthe surface." },
+    { "type": "image_picker", "id": "cutout", "label": "Cutout" },
+    { "type": "text", "id": "cutout_fallback", "label": "Fallback cutout URL", "default": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-cutout.png?v=1790751995" },
+    { "type": "text", "id": "cta_label", "label": "Button", "default": "Start Today" },
+    { "type": "url", "id": "cta_link", "label": "Button link" },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 }
+  ],
+  "presets": [
+    { "name": "MUTO About — Banner" }
+  ],
+  "enabled_on": {
+    "templates": ["page"]
+  }
+}
+{% endschema %}

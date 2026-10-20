@@ -1,0 +1,94 @@
+{%- comment -%}
+  MUTO Creatine — FAQs.
+
+  Artboard band 9400–9994 of CREATINE.pdf. A 64px heading at x24 and five rows
+  on a 0.5px rule at a 60 pitch, across the full content width.
+
+  <details>, so the answers open with no script, are findable by the browser's
+  own in-page search, and are printed open. The structured data is built from
+  these same blocks, so an answer edited in the theme editor is the answer an
+  answer engine quotes.
+
+  BLOCKS, one per question, so a question can be added, edited, reordered or
+  dropped.
+
+  MOBILE: identical. The rows are already full width.
+{%- endcomment -%}
+
+{{ 'muto-crea.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign spt = section.settings.space_top | default: 100 | times: 0.01
+  assign spb = section.settings.space_bottom | default: 100 | times: 0.01
+  assign heading_id = 'mc-faq-' | append: section.id
+  assign qs = section.blocks | where: 'type', 'q'
+  assign page_url = shop.url | append: request.path
+-%}
+
+<div class="mc" style="--mc-spt:{{ spt }};--mc-spb:{{ spb }}">
+  <div class="mc__wrap">
+    <section class="mc__faq" aria-labelledby="{{ heading_id }}">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="mc__h2 mc__faq-head" id="{{ heading_id }}">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+
+      <div class="mc__faq-list">
+        {%- for block in qs -%}
+          <details class="mc__faq-item" name="{{ section.id }}-faq" {{ block.shopify_attributes }}>
+            <summary class="mc__faq-sum">
+              <span>{{ block.settings.title }}</span>
+              <span class="mc__acc-mark" aria-hidden="true"></span>
+            </summary>
+            <div class="mc__faq-body mc__rt">{{ block.settings.text }}</div>
+          </details>
+        {%- endfor -%}
+      </div>
+    </section>
+  </div>
+</div>
+
+{%- if section.settings.schema_on -%}
+  {% render 'muto-crea-faq-schema', blocks: section.blocks, page_url: page_url %}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "MUTO Creatine — FAQs",
+  "tag": "section",
+  "class": "mc-section",
+  "max_blocks": 20,
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "FAQs" },
+    { "type": "header", "content": "Search engines and answer engines" },
+    { "type": "checkbox", "id": "schema_on", "label": "Emit FAQ structured data", "default": true, "info": "Built from the questions below. Turn off if another section or app already publishes FAQ markup for this page." },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 2, "unit": "%", "default": 100 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 2, "unit": "%", "default": 100 }
+  ],
+  "blocks": [
+    {
+      "type": "q",
+      "name": "Question",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Question", "default": "Is MUTO creatine different from cheaper creatine?" },
+        { "type": "richtext", "id": "text", "label": "Answer", "default": "<p>Add the answer to this question.</p>" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MUTO Creatine — FAQs",
+      "blocks": [
+        { "type": "q", "settings": { "title": "Is MUTO creatine different from cheaper creatine?", "text": "<p>The molecule is the same — creatine monohydrate — and we won't pretend otherwise. The standard is what differs: ≥99.9% pure, micronised to 200 mesh so it dissolves without a gritty layer, nothing added, every batch screened for creatinine, DCD and heavy metals before release, and made in the UK by a GMP-certified manufacturer.</p>" } },
+        { "type": "q", "settings": { "title": "How much should I take, and when?", "text": "<p>One 5 g scoop a day, stirred into water, coffee or a shake, alongside your NAD+ capsules. There is no loading phase, no cycling and no rest days — stores build steadily over the first few weeks, so consistency matters more than timing. On demanding days, or for cognitive effects, you can take up to 10 g; add the second scoop later in the day rather than both at once.</p>" } },
+        { "type": "q", "settings": { "title": "Will it make me bloated or put on weight?", "text": "<p>Creatine draws a little water into the muscle, which can read as a small increase on the scales in the first weeks. That is intracellular water, not fat, and it is not the same as bloating. Taking 5 g rather than a 20 g loading dose, and splitting a 10 g day into two scoops, is what keeps it comfortable.</p>" } },
+        { "type": "q", "settings": { "title": "Is it safe to take with MUTO NAD+ and my other supplements?", "text": "<p>Yes — they are designed as one daily routine: NAD+ looks after the steady supply, creatine after the fast reserve. Creatine monohydrate is one of the most studied supplements there is. If you are pregnant, breastfeeding, taking prescription medication or managing a kidney condition, speak to your doctor before starting anything new.</p>" } },
+        { "type": "q", "settings": { "title": "Can I stop the creatine without cancelling my NAD+ subscription?", "text": "<p>Yes. Each product is its own subscription, so you can skip, pause or cancel the creatine from your account without touching your NAD+ protocol, and restart it whenever you want.</p>" } }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": ["product", "page", "index"]
+  }
+}
+{% endschema %}

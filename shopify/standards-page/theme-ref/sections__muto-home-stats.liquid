@@ -1,0 +1,80 @@
+{%- comment -%}
+  MUTO Home — the numbers.
+
+  Artboard: three columns at x24 / 586 / 1112, each a 120px figure, a 48px
+  two-line label on a 43px step, and a 14px mono caption at 10014.
+{%- endcomment -%}
+
+{{ 'muto-home.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign mh_spt = section.settings.space_top | default: 100 | times: 0.01
+  assign mh_spb = section.settings.space_bottom | default: 100 | times: 0.01
+  assign heading_id = 'mh-stats-' | append: section.id
+-%}
+
+<div class="mh mh--alt" style="--mh-spt:{{ mh_spt }};--mh-spb:{{ mh_spb }}">
+  <div class="mh__wrap">
+    <section class="mh__stats" aria-labelledby="{{ heading_id }}">
+      <h2 class="mh__vh" id="{{ heading_id }}">{{ section.settings.heading | default: 'The numbers behind MUTO' }}</h2>
+      <ul class="mh__stats-grid">
+        {%- for block in section.blocks -%}
+          <li {{ block.shopify_attributes }}>
+            <div class="mh__stat-n">{{ block.settings.figure }}</div>
+            <div class="mh__stat-l">{{ block.settings.label | escape | newline_to_br }}</div>
+            {%- if block.settings.caption != blank -%}
+              <div class="mh__stat-c">{{ block.settings.caption }}</div>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </section>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO Home — Numbers",
+  "tag": "section",
+  "class": "mh-section",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Section label", "default": "The numbers behind MUTO", "info": "Read by screen readers and search engines; not shown, because the artboard has no visible heading here." },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Number",
+      "settings": [
+        { "type": "text", "id": "figure", "label": "Figure", "default": "5" },
+        { "type": "textarea", "id": "label", "label": "Label", "default": "University\npartners" },
+        { "type": "text", "id": "caption", "label": "Caption", "default": "Leading independent clinical trials" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MUTO Home — Numbers",
+      "blocks": [
+        {
+          "type": "stat",
+          "settings": { "figure": "5", "label": "University\npartners", "caption": "Leading independent clinical trials" }
+        },
+        {
+          "type": "stat",
+          "settings": { "figure": "300+", "label": "Supporting\nstudies", "caption": "Across all 15 ingredients" }
+        },
+        {
+          "type": "stat",
+          "settings": { "figure": "7", "label": "Scientific\nadvisors", "caption": "PhD, MD and clinical specialists" }
+        }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": ["index", "page"]
+  }
+}
+{% endschema %}

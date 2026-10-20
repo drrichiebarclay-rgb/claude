@@ -1,0 +1,106 @@
+{%- comment -%}
+  MUTO About — meet our founder.
+  Portrait beside a glass letter card with the founder's CTA. On mobile the
+  portrait leads and the letter follows, so the face arrives before the ask.
+{%- endcomment -%}
+
+{{ 'muto-about.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign ma_spt = section.settings.space_top | default: 100 | times: 0.01
+  assign ma_spb = section.settings.space_bottom | default: 100 | times: 0.01
+-%}
+
+<div class="ma" style="--ma-spt:{{ ma_spt }};--ma-spb:{{ ma_spb }}">
+  <div class="ma__wrap">
+    {%- assign heading_id = 'ma-founder-' | append: section.id -%}
+    <section class="ma__founder" aria-labelledby="{{ heading_id }}">
+      {%- assign portrait_alt = section.settings.image_alt | default: section.settings.name -%}
+      <div class="ma__founder-media">
+        {% render 'muto-about-image',
+          image: section.settings.image,
+          fallback: section.settings.image_fallback,
+          alt: portrait_alt,
+          ratio: '630/880',
+          sizes: '(min-width: 990px) 630px, 92vw',
+          widths: '430,630,860,1260' %}
+      </div>
+
+      <div class="ma__founder-body">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="ma__h2" id="{{ heading_id }}">{{ section.settings.heading | escape | newline_to_br }}</h2>
+        {%- endif -%}
+        {%- if section.settings.name != blank -%}
+          <p class="ma__founder-name">{{ section.settings.name }}</p>
+        {%- endif -%}
+
+        <div class="ma__founder-card">
+          {%- for block in section.blocks -%}
+            <p {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
+          {%- endfor -%}
+          {%- if section.settings.cta_label != blank -%}
+            <a class="ma__btn ma__btn--cyan ma__btn--full" href="{{ section.settings.cta_link | default: '#' }}">
+              {{- section.settings.cta_label -}}
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO About — Founder",
+  "tag": "section",
+  "class": "ma-section",
+  "max_blocks": 8,
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Portrait" },
+    { "type": "text", "id": "image_alt", "label": "Alt text", "default": "Dr Richie Barclay sitting at home holding a jar of MUTO NAD+ Cellular Complex" },
+    { "type": "text", "id": "image_fallback", "label": "Fallback image URL", "default": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-founder.jpg?v=1790751995" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Meet our\nfounder." },
+    { "type": "text", "id": "name", "label": "Name and credential", "default": "Dr Richie Barclay, Ph.D." },
+    { "type": "text", "id": "cta_label", "label": "Button", "default": "Start Today" },
+    { "type": "url", "id": "cta_link", "label": "Button link" },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 }
+  ],
+  "blocks": [
+    {
+      "type": "para",
+      "name": "Paragraph",
+      "settings": [
+        { "type": "textarea", "id": "text", "label": "Text" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MUTO About — Founder",
+      "blocks": [
+        {
+          "type": "para",
+          "settings": { "text": "I built MUTO because I was tired of a category that asks you to take it on trust: single ingredients, proprietary blends, and very little accountability." }
+        },
+        {
+          "type": "para",
+          "settings": { "text": "I'm a scientist, so I built the opposite. A 19-ingredient cellular complex with every ingredient and every dose on the label, and the reason each one is there." }
+        },
+        {
+          "type": "para",
+          "settings": { "text": "Then I wanted it tested properly. We're running research programmes with the University of Westminster, King's College London, Coventry and Newcastle, and we'll publish what we find, whatever it shows." }
+        },
+        {
+          "type": "para",
+          "settings": { "text": "And you don't have to take my word for any of it. Take your baseline, track the difference, and make your own call." }
+        }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": ["page"]
+  }
+}
+{% endschema %}

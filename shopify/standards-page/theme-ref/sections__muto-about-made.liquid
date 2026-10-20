@@ -1,0 +1,92 @@
+{%- comment -%}
+  MUTO About — how it's made.
+  Three claims, each with the evidence photograph behind it.
+{%- endcomment -%}
+
+{{ 'muto-about.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign ma_spt = section.settings.space_top | default: 100 | times: 0.01
+  assign ma_spb = section.settings.space_bottom | default: 100 | times: 0.01
+-%}
+
+<div class="ma" style="--ma-spt:{{ ma_spt }};--ma-spb:{{ ma_spb }}">
+  <div class="ma__wrap">
+    {%- assign heading_id = 'ma-made-' | append: section.id -%}
+    <section class="ma__made" aria-labelledby="{{ heading_id }}">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="ma__h2" id="{{ heading_id }}">{{ section.settings.heading | escape | newline_to_br }}</h2>
+      {%- endif -%}
+      <div class="ma__made-list">
+        {%- for block in section.blocks -%}
+          <article class="ma__made-card" {{ block.shopify_attributes }}>
+            {%- assign card_alt = block.settings.image_alt | default: block.settings.title -%}
+            <div class="ma__made-media">
+              {% render 'muto-about-image',
+                image: block.settings.image,
+                fallback: block.settings.image_fallback,
+                alt: card_alt,
+                ratio: '402/205',
+                sizes: '(min-width: 990px) 403px, 84vw',
+                widths: '400,600,806,1200',
+                position: block.settings.image_position %}
+            </div>
+            <h3 class="ma__made-title">{{ block.settings.title }}</h3>
+            <p class="ma__made-text">{{ block.settings.text }}</p>
+          </article>
+        {%- endfor -%}
+      </div>
+    </section>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO About — Made",
+  "tag": "section",
+  "class": "ma-section",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "How it's made" },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_fallback", "label": "Fallback image URL" },
+        { "type": "text", "id": "image_alt", "label": "Alt text", "info": "Describe the photograph. Defaults to the card title." },
+        { "type": "text", "id": "image_position", "label": "Image focus", "info": "CSS object-position, e.g. \"50% 34%\". Blank centres it." },
+        { "type": "text", "id": "title", "label": "Title", "default": "Formulated by scientists" },
+        { "type": "textarea", "id": "text", "label": "Copy", "default": "Designed by a PhD scientist and reviewed by a six-person scientific advisory board." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MUTO About — Made",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": { "title": "Formulated by scientists", "text": "Designed by a PhD scientist and reviewed by a six-person scientific advisory board.", "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-made-scientists.jpg?v=1790752123" }
+        },
+        {
+          "type": "card",
+          "settings": { "title": "Declared", "text": "No proprietary blends. Every ingredient, form and dose on the label — and why it's there.", "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-made-declared.jpg?v=1790752124" }
+        },
+        {
+          "type": "card",
+          "settings": { "title": "Made in the UK & third-party tested", "text": "Manufactured in the UK to GMP standards and third-party tested for heavy metals, microbes and purity.", "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-made-tested.jpg?v=1790752123" }
+        }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": ["page"]
+  }
+}
+{% endschema %}

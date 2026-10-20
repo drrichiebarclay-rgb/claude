@@ -1,0 +1,405 @@
+{%- comment -%}
+  MUTO About — hero + plan strip + sticky CTA.
+
+  Desktop is the artboard: full-bleed poster, cyan ABOUT MUTO, two actions, and
+  a glass plan strip across the bottom.
+
+  The strip is also the sticky bar. Once the hero scrolls away it reappears
+  pinned to the foot of the window, the same three plans and the same action,
+  so the choice the reader made at the top follows them down the page. Both
+  copies come from one snippet and share a radio group, so they cannot drift.
+
+  MOBILE (designed here, not in the source): the three-across strip linearises
+  into three rows under one full-width primary action, so the first tap target
+  is never ambiguous. The sticky bar there is the compact one — plan name,
+  price and a button — because three glass rows pinned to a 390px window would
+  take a third of the screen.
+
+  Prices are read from the live product, never typed, and each plan links to
+  the PDP with that variant (and its selling plan) preselected.
+
+  TWO PHOTOGRAPHS, optionally — the same arrangement the home hero uses, and
+  for the same reason. The band is a wide strip at desktop and close to square
+  at phone width, and a product shot that fills one has no crop that fills the
+  other. So a mobile image can be set separately and is served by a <picture>
+  with a media query rather than by hiding a second <img>: a hidden image is
+  still downloaded, and this one is the page's largest paint. With no mobile
+  image set this emits exactly what it always did, one <img> from the snippet.
+
+  The focus of each is a setting too, defaulting to the artboard's own 0% 100%.
+{%- endcomment -%}
+
+{{ 'muto-about.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'muto-about.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign plans = section.blocks | where: 'type', 'plan'
+  assign product = section.settings.product
+  assign first_href = ''
+  assign first_name = ''
+  assign first_price = ''
+  assign first_key = ''
+
+  # The opening selection is the first block whose variant exists and is in
+  # stock. Settled here rather than inside the strip because both copies of the
+  # strip, and the sticky bar's own link, have to agree on it.
+  for block in plans
+    assign v = product.variants | where: 'title', block.settings.variant_title | first
+    if v == blank or v.available == false
+      continue
+    endif
+    assign unit = v.price
+    assign plan_id = ''
+    if block.settings.use_selling_plan and v.selling_plan_allocations.size > 0
+      assign alloc = v.selling_plan_allocations | first
+      assign plan_id = alloc.selling_plan.id
+      assign unit = alloc.price
+    endif
+    assign first_href = product.url | append: '?variant=' | append: v.id
+    if plan_id != blank
+      assign first_href = first_href | append: '&selling_plan=' | append: plan_id
+    endif
+    assign first_key = block.settings.variant_title
+    assign first_name = block.settings.name
+    assign first_price = unit | money | strip_html
+    break
+  endfor
+
+  # A radio name each. One shared name would look tidier and keep the two in
+  # step for free, but the browser allows only one checked radio per name, so
+  # whichever copy was written second would report an empty radiogroup to a
+  # screen reader. Two groups, synced by the script, which is what the script
+  # is for.
+  assign plan_group = 'ma-plan-' | append: section.id
+  assign plan_group_sticky = plan_group | append: '-sticky'
+  assign plan_cta = section.settings.plan_cta_label | default: section.settings.cta_label
+
+  # Whether the hero carries a buy control at all. The artboard's 721 band was
+  # measured around the plan strip; without one the same band is most of a
+  # screen of poster under four lines of copy, so the hero takes its own
+  # shorter proportions instead. Emptying the Product setting, or deleting the
+  # Plan blocks, is all it takes to get there.
+  assign has_plans = false
+  if plans.size > 0 and product != blank
+    assign has_plans = true
+  endif
+
+  assign ma_pos_d = section.settings.image_position | default: '0% 100%'
+  assign ma_pos_m = section.settings.image_position_mobile | default: '0% 100%'
+
+  # Centred is a layout, not a text-align — the same arrangement the home hero
+  # takes. The copy stops being pinned to the foot of the frame and sits in the
+  # upper half of it, the sub's measure is cut to the headline's, and the scrim
+  # stops being a left wash. Only meaningful on the bare hero: with a plan
+  # strip the band is a buy control and the strip sets the composition.
+  assign align_mod = ''
+  if section.settings.align == 'center'
+    assign align_mod = ' ma__hero--center'
+  endif
+
+  assign ma_overlay = section.settings.overlay | default: 20 | times: 0.01
+
+  # A picked image wins over a URL, on each breakpoint independently, so one
+  # can be picked and the other typed.
+  assign has_mobile = false
+  if section.settings.image_mobile != blank or section.settings.image_mobile_fallback != blank
+    assign has_mobile = true
+  endif
+-%}
+
+{%- assign heading_id = 'ma-hero-' | append: section.id -%}
+
+{%- liquid
+  assign ma_spt = section.settings.space_top | default: 100 | times: 0.01
+  assign ma_spb = section.settings.space_bottom | default: 100 | times: 0.01
+-%}
+
+<div class="ma" data-ma style="--ma-spt:{{ ma_spt }};--ma-spb:{{ ma_spb }};--ma-hero-pos-d:{{ ma_pos_d }};--ma-hero-pos-m:{{ ma_pos_m }};--ma-hero-overlay:{{ ma_overlay }}" {% if section.settings.allow_transparent_header %} allow-transparent-header {% endif %}>
+  <section class="ma__hero{% unless has_plans %} ma__hero--bare{{ align_mod }}{% endunless %}" data-ma-hero aria-labelledby="{{ heading_id }}">
+    <div class="ma__hero-media">
+      {%- if has_mobile -%}
+        {%- comment -%}
+          Two sources, one download. The widths are the set the snippet uses,
+          and the desktop source is listed first because the browser takes the
+          first <source> whose media matches.
+        {%- endcomment -%}
+        {%- liquid
+          assign wide_list = '760,1100,1440,1780,2200' | split: ','
+          assign narrow_list = '430,600,780,1100' | split: ','
+        -%}
+        {%- capture wide_srcset -%}
+          {%- if section.settings.image != blank -%}
+            {%- for w in wide_list -%}
+              {%- assign wn = w | strip -%}
+              {{ section.settings.image | image_url: width: wn }} {{ wn }}w{% unless forloop.last %}, {% endunless %}
+            {%- endfor -%}
+          {%- else -%}
+            {%- assign sep = '?' -%}
+            {%- if section.settings.image_fallback contains '?' -%}{%- assign sep = '&' -%}{%- endif -%}
+            {%- for w in wide_list -%}
+              {%- assign wn = w | strip -%}
+              {{ section.settings.image_fallback }}{{ sep }}width={{ wn }} {{ wn }}w{% unless forloop.last %}, {% endunless %}
+            {%- endfor -%}
+          {%- endif -%}
+        {%- endcapture -%}
+        {%- capture narrow_srcset -%}
+          {%- if section.settings.image_mobile != blank -%}
+            {%- for w in narrow_list -%}
+              {%- assign wn = w | strip -%}
+              {{ section.settings.image_mobile | image_url: width: wn }} {{ wn }}w{% unless forloop.last %}, {% endunless %}
+            {%- endfor -%}
+          {%- else -%}
+            {%- assign msep = '?' -%}
+            {%- if section.settings.image_mobile_fallback contains '?' -%}{%- assign msep = '&' -%}{%- endif -%}
+            {%- for w in narrow_list -%}
+              {%- assign wn = w | strip -%}
+              {{ section.settings.image_mobile_fallback }}{{ msep }}width={{ wn }} {{ wn }}w{% unless forloop.last %}, {% endunless %}
+            {%- endfor -%}
+          {%- endif -%}
+        {%- endcapture -%}
+        {%- liquid
+          if section.settings.image_mobile != blank
+            assign narrow_src = section.settings.image_mobile | image_url: width: 780
+          else
+            assign msep2 = '?'
+            if section.settings.image_mobile_fallback contains '?'
+              assign msep2 = '&'
+            endif
+            assign narrow_src = section.settings.image_mobile_fallback | append: msep2 | append: 'width=780'
+          endif
+        -%}
+        <picture class="ma__slot">
+          <source media="(min-width: 990px)" srcset="{{ wide_srcset | strip }}" sizes="100vw">
+          <img
+            class="ma__img"
+            src="{{ narrow_src }}"
+            srcset="{{ narrow_srcset | strip }}"
+            sizes="100vw"
+            width="390"
+            height="420"
+            alt="{{ section.settings.image_alt | escape }}"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          >
+        </picture>
+      {%- else -%}
+        {% render 'muto-about-image',
+          image: section.settings.image,
+          fallback: section.settings.image_fallback,
+          alt: section.settings.image_alt,
+          loading: 'eager',
+          fetchpriority: 'high',
+          ratio: '1440/721',
+          sizes: '100vw',
+          widths: '760,1100,1440,1780,2200' %}
+      {%- endif -%}
+    </div>
+    <div class="ma__hero-scrim"></div>
+
+    <div class="ma__hero-inner ma__wrap">
+      {%- if section.settings.heading != blank -%}
+        <h1 class="ma__hero-title" id="{{ heading_id }}">{{ section.settings.heading | escape | newline_to_br }}</h1>
+      {%- endif -%}
+      {%- if section.settings.subheading != blank -%}
+        <p class="ma__hero-sub">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+
+      <div class="ma__hero-actions">
+        {%- if section.settings.cta_label != blank -%}
+          <a class="ma__btn ma__btn--glass" href="{{ section.settings.cta_link | default: '#' }}" data-ma-plan-cta>
+            {{- section.settings.cta_label -}}
+          </a>
+        {%- endif -%}
+        {%- if section.settings.ghost_label != blank -%}
+          <a class="ma__btn ma__btn--ghost" href="{{ section.settings.ghost_link | default: '#' }}">
+            {{- section.settings.ghost_label -}}
+          </a>
+        {%- endif -%}
+      </div>
+
+      {%- if has_plans -%}
+        {% render 'muto-about-plans',
+          plans: plans,
+          product: product,
+          selected_key: first_key,
+          cta_label: plan_cta,
+          cta_href: first_href,
+          group: plan_group,
+          editor: true %}
+      {%- endif -%}
+    </div>
+  </section>
+</div>
+
+{%- comment -%}
+  The sticky bar. It reveals once the hero is 40% past the top of the window
+  and carries whichever plan is selected, in both directions — choose in the
+  bar and the hero's strip follows, and the other way round.
+
+  Desktop shows the plan strip itself, because the artboard's strip is already
+  the buy control and a second, smaller one beneath it would be two prices on
+  screen at once. Mobile shows the compact form instead: name, price, button.
+  Both are in the markup; CSS picks one.
+
+  Server-rendered from the same opening selection as the hero, so it is never
+  blank before the script runs, and it is inert until revealed so it is not in
+  the tab order while it is off screen.
+{%- endcomment -%}
+{%- if section.settings.show_sticky -%}
+  {%- assign sticky_href = first_href | default: section.settings.cta_link | default: '#' -%}
+  <div class="ma ma__sticky" data-ma data-ma-sticky>
+    <div class="ma__sticky-inner ma__wrap">
+      {%- comment -%}
+        Only when there is a plan to name. With no strip the label and its
+        sub-line are an empty row and a line about pausing a subscription,
+        above a button — so the bar is the button alone instead.
+      {%- endcomment -%}
+      {%- if has_plans -%}
+        <div class="ma__sticky-compact">
+          <div class="ma__sticky-label" data-ma-sticky-label>
+            {{- first_name }}{% if first_name != blank and first_price != blank %} · {% endif %}{{ first_price -}}
+          </div>
+          <div class="ma__sticky-sub">{{ section.settings.sticky_sub }}</div>
+        </div>
+      {%- endif -%}
+
+      {%- if has_plans -%}
+        {% render 'muto-about-plans',
+          plans: plans,
+          product: product,
+          selected_key: first_key,
+          cta_label: plan_cta,
+          cta_href: first_href,
+          group: plan_group_sticky,
+          label: 'Choose a plan',
+          editor: false %}
+      {%- endif -%}
+
+      <a class="ma__btn ma__btn--cyan ma__sticky-btn" href="{{ sticky_href }}" data-ma-sticky-cta data-ma-plan-cta>
+        {{- section.settings.sticky_cta_label -}}
+      </a>
+    </div>
+  </div>
+{%- endif -%}
+
+{%- comment -%}
+  Structured data lives here because the hero renders exactly once per page.
+  It is emitted inline from Liquid — there is no .json for it in assets/.
+{%- endcomment -%}
+{%- if section.settings.schema_on -%}
+  {% render 'muto-about-schema',
+    page_title: section.settings.schema_title,
+    summary: section.settings.schema_summary,
+    org_name: section.settings.schema_org,
+    slogan: section.settings.subheading,
+    logo: section.settings.schema_logo,
+    hero_image: section.settings.image_fallback,
+    founder_name: section.settings.schema_founder,
+    founder_title: section.settings.schema_founder_role,
+    country: section.settings.schema_country,
+    topics: section.settings.schema_topics,
+    profiles: section.settings.schema_profiles %}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "MUTO About — Hero",
+  "tag": "section",
+  "class": "ma-section",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "allow_transparent_header",
+      "label": "Allow Transparent Header",
+      "info": "Only works when this section added as first section",
+      "default": false
+    },
+    { "type": "header", "content": "Background" },
+    { "type": "image_picker", "id": "image", "label": "Hero image" },
+    { "type": "text", "id": "image_fallback", "label": "Fallback image URL", "default": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-hero-poster.jpg?v=1790751994", "info": "Used when no image is picked. This is the photograph from the design." },
+    { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "MUTO poster: above the standard, beneath the surface" },
+    { "type": "text", "id": "image_position", "label": "Focus, desktop", "info": "CSS object-position, e.g. \"50% 40%\". Blank keeps the design's own \"0% 100%\"." },
+    { "type": "header", "content": "Background — mobile" },
+    { "type": "image_picker", "id": "image_mobile", "label": "Mobile image", "info": "Optional. The band is a wide strip at desktop and close to square at phone width, so one photograph rarely crops into both. Leave empty to use the one above at both widths." },
+    { "type": "text", "id": "image_mobile_fallback", "label": "Mobile fallback image URL" },
+    { "type": "text", "id": "image_position_mobile", "label": "Focus, mobile", "info": "CSS object-position. Blank keeps the design's own \"0% 100%\"." },
+    { "type": "range", "id": "overlay", "label": "Dark overlay", "min": 0, "max": 80, "step": 5, "unit": "%", "default": 20, "info": "A flat #242223 over the photograph, on the centred layout only. Raise it if the copy is hard to read on a light image — white on a bright silver needs about 55% to clear the accessibility threshold." },
+    { "type": "header", "content": "Copy" },
+    {
+      "type": "select",
+      "id": "align",
+      "label": "Alignment",
+      "info": "Only applies without a plan strip. Centred lifts the copy out of the foot of the frame into its upper half, cuts the sub to the headline's measure and squares up the scrim — the same arrangement the home hero takes.",
+      "options": [
+        { "value": "left", "label": "Left — the artboard" },
+        { "value": "center", "label": "Centred" }
+      ],
+      "default": "left"
+    },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "About MUTO", "info": "Rendered in caps, in cyan." },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "The longevity supplement you don't have to take on trust." },
+    { "type": "text", "id": "cta_label", "label": "Primary action", "default": "Shop the protocol" },
+    { "type": "url", "id": "cta_link", "label": "Primary link" },
+    { "type": "text", "id": "ghost_label", "label": "Secondary action", "default": "See the science" },
+    { "type": "url", "id": "ghost_link", "label": "Secondary link" },
+    { "type": "header", "content": "Plan strip" },
+    { "type": "product", "id": "product", "label": "Product", "info": "Prices and links come from this product's live variants." },
+    { "type": "text", "id": "plan_cta_label", "label": "Plan strip button", "default": "Shop now" },
+    { "type": "header", "content": "Sticky bar" },
+    { "type": "checkbox", "id": "show_sticky", "label": "Show sticky bar", "default": true, "info": "Reveals once the hero scrolls away. Desktop shows the plan strip; mobile shows a compact name, price and button." },
+    { "type": "text", "id": "sticky_cta_label", "label": "Sticky button (mobile)", "default": "Shop now" },
+    { "type": "text", "id": "sticky_sub", "label": "Sticky sub-line (mobile)", "default": "Cancel, pause or skip anytime" },
+    { "type": "header", "content": "Search and answer engines" },
+    { "type": "checkbox", "id": "schema_on", "label": "Emit structured data", "default": true, "info": "AboutPage + Organization + breadcrumb, as inline JSON-LD. Turn off if an SEO app already publishes organization markup." },
+    { "type": "text", "id": "schema_title", "label": "Page name", "default": "About MUTO" },
+    { "type": "textarea", "id": "schema_summary", "label": "Summary", "default": "MUTO is a UK precision cellular supplement company. Its NAD+ Cellular Complex declares every ingredient, form and dose on the label, is made in the UK to GMP standards and third-party tested, and is under study with UK universities." },
+    { "type": "text", "id": "schema_org", "label": "Organisation name", "default": "MUTO" },
+    { "type": "text", "id": "schema_logo", "label": "Logo URL" },
+    { "type": "text", "id": "schema_founder", "label": "Founder", "default": "Dr Richie Barclay" },
+    { "type": "text", "id": "schema_founder_role", "label": "Founder's role", "default": "Founder" },
+    { "type": "text", "id": "schema_country", "label": "Country", "default": "GB" },
+    { "type": "textarea", "id": "schema_topics", "label": "Topics", "default": "NAD+, cellular health, longevity supplements, heart rate variability, recovery, healthy ageing", "info": "Comma separated." },
+    { "type": "textarea", "id": "schema_profiles", "label": "Social profiles", "info": "Comma separated URLs." },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 }
+  ],
+  "blocks": [
+    {
+      "type": "plan",
+      "name": "Plan",
+      "settings": [
+        { "type": "text", "id": "variant_title", "label": "Variant title", "default": "30-Day Plan", "info": "Must match a variant on the chosen product." },
+        { "type": "text", "id": "name", "label": "Display name", "default": "1-month subscription" },
+        { "type": "text", "id": "price_suffix", "label": "Price suffix", "default": " /mo" },
+        { "type": "text", "id": "note", "label": "Note chip", "default": "Billed monthly" },
+        { "type": "checkbox", "id": "use_selling_plan", "label": "Use subscription selling plan", "default": true }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MUTO About — Hero",
+      "blocks": [
+        {
+          "type": "plan",
+          "settings": { "variant_title": "30-Day Plan", "name": "1-month subscription", "note": "Billed monthly" }
+        },
+        {
+          "type": "plan",
+          "settings": { "variant_title": "90-Day Plan", "name": "3-month subscription", "note": "Billed quarterly" }
+        },
+        {
+          "type": "plan",
+          "settings": { "variant_title": "One time purchase", "name": "One-time purchase", "price_suffix": "", "note": "One payment", "use_selling_plan": false }
+        }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": ["page"]
+  }
+}
+{% endschema %}

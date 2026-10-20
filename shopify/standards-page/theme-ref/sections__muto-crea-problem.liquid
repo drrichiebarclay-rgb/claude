@@ -1,0 +1,148 @@
+{%- comment -%}
+  MUTO — The problem.
+
+  Artboard band 2770–3560 of NAD.pdf: a 28px eyebrow at x24, a three-line 64px
+  heading under it, a 20px lede sitting on the right margin with its last line
+  level with the heading's, then four 333×385 photographs at x24 / 377 / 730 /
+  1083 on a 20 gap. Each photograph carries a 285×113 dark glass panel inset 24
+  from its own edges, holding a 24px quotation and a 16px line of plain copy.
+
+  The panel is a <figcaption>: it says something about the photograph above it,
+  and the pair is a figure. The quotation marks are typed into the copy rather
+  than drawn by CSS, because what they wrap is a thing a customer said, not a
+  decoration — and because a store owner may want to write a line that isn't a
+  quotation at all.
+
+  BLOCKS, one per card, so a complaint can be added, edited, reordered or cut.
+
+  MOBILE: a snap rail. Four 385-tall photographs stacked is four screens of
+  scroll to read eight short lines, and the four are a set to be skimmed.
+{%- endcomment -%}
+
+{{ 'muto-crea.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign spt = section.settings.space_top | default: 100 | times: 0.01
+  assign spb = section.settings.space_bottom | default: 100 | times: 0.01
+  assign heading_id = 'mc-prob-' | append: section.id
+-%}
+
+<div class="mc mc--prob" style="--mc-spt:{{ spt }};--mc-spb:{{ spb }}">
+  <div class="mc__wrap">
+    <section class="mc__prob" aria-labelledby="{{ heading_id }}">
+      <div class="mc__prob-top">
+        <div class="mc__prob-heads">
+          {%- if section.settings.eyebrow != blank -%}
+            <p class="mc__prob-eyebrow">{{ section.settings.eyebrow }}</p>
+          {%- endif -%}
+          {%- assign mc_lines = section.settings.heading | escape | newline_to_br | split: '<br />' -%}
+          <h2 class="mc__h2 mc__prob-head" id="{{ heading_id }}">
+            {%- for mc_line in mc_lines %}
+              <span class="mc__head-line">{{ mc_line }}</span>
+            {% endfor -%}
+          </h2>
+        </div>
+        {%- if section.settings.lede != blank -%}
+          <p class="mc__prob-lede">{{ section.settings.lede }}</p>
+        {%- endif -%}
+      </div>
+
+      <ul class="mc__prob-list mc__rail">
+        {%- for block in section.blocks -%}
+          {%- assign card_alt = block.settings.image_alt | default: block.settings.quote -%}
+          <li class="mc__prob-card" {{ block.shopify_attributes }}>
+            <figure class="mc__prob-fig">
+              <div class="mc__prob-frame">
+                {% render 'muto-image',
+                  image: block.settings.image,
+                  fallback: block.settings.image_fallback,
+                  alt: card_alt,
+                  placeholder: false,
+                  ratio: '333/385',
+                  sizes: '(min-width: 990px) 333px, 82vw',
+                  widths: '340,500,666,1000',
+                  position: block.settings.image_position %}
+              </div>
+              {%- comment -%}
+                The panel is an expander, so the card is mostly photograph until
+                someone asks for the line underneath. Collapsed it is the quote
+                and a mark; open it adds the sentence.
+
+                A checkbox and a <label for>, not a button and a script: the
+                browser does the toggling, which is the one version of this that
+                has never been reported broken. The .mc__cb* classes are the
+                shared ones muto-crea-toggle's <noscript> rule reaches, so a
+                visitor with scripting off sees every card already open.
+
+                A card with no second line has nothing to expand, so it renders
+                as a plain caption with no control.
+              {%- endcomment -%}
+              {%- assign panel_id = 'mc-prob-' | append: section.id | append: '-' | append: block.id -%}
+              <figcaption class="mc__prob-panel{% if block.settings.text != blank %} mc__prob-panel--more{% endif %}">
+                {%- if block.settings.text != blank -%}
+                  <input class="mc__prob-cb mc__cb" type="checkbox" id="{{ panel_id }}"
+                    aria-controls="{{ panel_id }}-body">
+                  <label class="mc__prob-sum mc__cb-sum" for="{{ panel_id }}" data-mc-toggle>
+                    <span class="mc__prob-quote">{{ block.settings.quote }}</span>
+                    <span class="mc__prob-mark" aria-hidden="true"></span>
+                  </label>
+                  <p class="mc__prob-text mc__cb-body" id="{{ panel_id }}-body">{{ block.settings.text }}</p>
+                {%- elsif block.settings.quote != blank -%}
+                  <p class="mc__prob-quote">{{ block.settings.quote }}</p>
+                {%- endif -%}
+              </figcaption>
+            </figure>
+          </li>
+        {%- endfor -%}
+      </ul>
+
+      {% render 'muto-crea-toggle' %}
+    </section>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO — The problem",
+  "tag": "section",
+  "class": "mc-section",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The problem" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "You're doing the\nwork. You just can't\ntell what's working." },
+    { "type": "textarea", "id": "lede", "label": "Lede", "info": "Sits on the right margin on desktop, under the heading at 390px." },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 2, "unit": "%", "default": 100 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 2, "unit": "%", "default": 100 }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        { "type": "text", "id": "quote", "label": "Quotation", "default": "“Tired of feeling tired.”" },
+        { "type": "textarea", "id": "text", "label": "Copy" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_fallback", "label": "Fallback image URL" },
+        { "type": "text", "id": "image_alt", "label": "Alt text", "info": "Describe the photograph. Defaults to the quotation." },
+        { "type": "text", "id": "image_position", "label": "Image focus", "info": "CSS object-position, e.g. \"50% 40%\". Blank centres it." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MUTO — The problem",
+      "settings": { "lede": "The training, the sleep, a cabinet of supplements. Most of the category asks you to take it on trust, so you end up buying a feeling." },
+      "blocks": [
+        { "type": "card", "settings": { "quote": "“Tired of feeling tired.”", "text": "The afternoon wall arrives on schedule, however well you slept.", "image_alt": "A commuter asleep against a train window in low winter light" } },
+        { "type": "card", "settings": { "quote": "“Sessions cost more than they used to.”", "text": "Recovery is often where ageing shows up first.", "image_alt": "A runner resting with hands on knees at the end of a session" } },
+        { "type": "card", "settings": { "quote": "“A cabinet full of pills.”", "text": "Five products, no idea which ones are pulling their weight.", "image_alt": "A bathroom shelf crowded with supplement bottles" } },
+        { "type": "card", "settings": { "quote": "“Just trust us.”", "text": "Proprietary blends, big promises, and nothing you can check.", "image_alt": "The back of a supplement label listing a proprietary blend" } }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": ["product", "page", "index"]
+  }
+}
+{% endschema %}

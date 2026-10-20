@@ -1,0 +1,128 @@
+{%- comment -%}
+  MUTO — Guarantee.
+
+  Artboard band 10860–11860 of NAD.pdf: a two-line 64px heading at x24 with a
+  24px aside on the right margin, then an 828×619 photograph at x141 with a
+  468×360 frosted panel laid over its right edge at x830.5 — an 80px "90", a
+  24px unit, four lines of copy and three chips.
+
+  The panel overlaps the photograph rather than sitting beside it, so the two
+  are placed in one relative box at desktop and stacked at 390px, where an
+  overlap would put the copy on top of the subject's face.
+
+  BLOCKS are the chips, which is the part a store owner changes — the shipping
+  promise and the cancellation terms move, the ninety days don't.
+
+  MOBILE: photograph first at full width, panel under it pulled up 40 so the
+  two still read as one object.
+{%- endcomment -%}
+
+{{ 'muto-crea.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign spt = section.settings.space_top | default: 100 | times: 0.01
+  assign spb = section.settings.space_bottom | default: 100 | times: 0.01
+  assign heading_id = 'mc-gua-' | append: section.id
+-%}
+
+<div class="mc mc--gua" style="--mc-spt:{{ spt }};--mc-spb:{{ spb }}">
+  <div class="mc__wrap">
+    <section class="mc__gua" aria-labelledby="{{ heading_id }}">
+      <div class="mc__gua-top">
+        {%- assign mc_lines = section.settings.heading | escape | newline_to_br | split: '<br />' -%}
+        <h2 class="mc__h2 mc__gua-head" id="{{ heading_id }}">
+          {%- for mc_line in mc_lines %}
+            <span class="mc__head-line">{{ mc_line }}</span>
+          {% endfor -%}
+        </h2>
+        {%- if section.settings.aside != blank -%}
+          <p class="mc__gua-aside">{{ section.settings.aside }}</p>
+        {%- endif -%}
+      </div>
+
+      <div class="mc__gua-media">
+        <div class="mc__gua-frame">
+          {% render 'muto-image',
+            image: section.settings.image,
+            fallback: section.settings.image_fallback,
+            alt: section.settings.image_alt,
+            placeholder: false,
+            ratio: '828/619',
+            sizes: '(min-width: 990px) 828px, 92vw',
+            widths: '600,828,1200,1656',
+            position: section.settings.image_position %}
+        </div>
+
+        <div class="mc__gua-panel">
+          <h3 class="mc__gua-stat">
+            {%- comment -%}
+              The newline between the spans is deliberate. They are block-level,
+              so it changes nothing on screen — but without it the heading's
+              text content reads "90day guarantee" to anything that walks the
+              DOM rather than renders it.
+            {%- endcomment -%}
+            <span class="mc__gua-num">{{ section.settings.number }}</span>
+            <span class="mc__gua-unit">{{ section.settings.unit }}</span>
+          </h3>
+          {%- if section.settings.text != blank -%}
+            <div class="mc__gua-text mc__rt">{{ section.settings.text }}</div>
+          {%- endif -%}
+          {%- if section.blocks.size > 0 -%}
+            <ul class="mc__gua-chips">
+              {%- for block in section.blocks -%}
+                <li class="mc__gua-chip" {{ block.shopify_attributes }}>{{ block.settings.text }}</li>
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO — Guarantee",
+  "tag": "section",
+  "class": "mc-section",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Don't take it on trust.\nTrack the difference." },
+    { "type": "textarea", "id": "aside", "label": "Aside", "default": "Feel it or track a difference, or get your money back.", "info": "Sits on the right margin on desktop, under the heading at 390px." },
+    { "type": "header", "content": "Panel" },
+    { "type": "text", "id": "number", "label": "Number", "default": "90" },
+    { "type": "text", "id": "unit", "label": "Unit", "default": "day guarantee" },
+    { "type": "richtext", "id": "text", "label": "Copy", "default": "<p>Take your baseline, give it 90 days, and check the difference yourself: in your wearable, your training or how your days feel. If you don't see a difference, you're covered with a full refund. And you're always free to leave: skip, pause or cancel online.</p>" },
+    { "type": "header", "content": "Photograph" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "image_fallback", "label": "Fallback image URL" },
+    { "type": "text", "id": "image_alt", "label": "Alt text", "default": "A cyclist resting on a wall by Tower Bridge, drinking from a bottle" },
+    { "type": "text", "id": "image_position", "label": "Image focus", "info": "CSS object-position, e.g. \"50% 40%\". Blank centres it." },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 2, "unit": "%", "default": 100 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 2, "unit": "%", "default": 100 }
+  ],
+  "blocks": [
+    {
+      "type": "chip",
+      "name": "Chip",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "90-day guarantee" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MUTO — Guarantee",
+      "blocks": [
+        { "type": "chip", "settings": { "text": "90-day guarantee" } },
+        { "type": "chip", "settings": { "text": "Free shipping" } },
+        { "type": "chip", "settings": { "text": "Cancel anytime" } }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": ["product", "page", "index"]
+  }
+}
+{% endschema %}

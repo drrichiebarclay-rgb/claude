@@ -1,0 +1,124 @@
+{%- comment -%}
+  MUTO About — the four pillars (energy, stress, recovery, healthy ageing).
+
+  Desktop is the artboard's four-up row with one card open.
+
+  MOBILE: a snap rail rather than four stacked 430px cards, which would cost
+  four screens of scroll on their own. The copy stays behind the + so the rail
+  reads as four images first and detail second.
+{%- endcomment -%}
+
+{{ 'muto-about.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'muto-about.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign ma_spt = section.settings.space_top | default: 100 | times: 0.01
+  assign ma_spb = section.settings.space_bottom | default: 100 | times: 0.01
+-%}
+
+<div class="ma" data-ma style="--ma-spt:{{ ma_spt }};--ma-spb:{{ ma_spb }}">
+  <div class="ma__wrap">
+    <div class="ma__pillars ma__rail" role="list">
+      {%- for block in section.blocks -%}
+        <div
+          class="ma__pillar{% if forloop.first and section.settings.open_first %} is-open{% endif %}"
+          data-ma-pillar
+          role="listitem"
+          {{ block.shopify_attributes }}
+        >
+          <div class="ma__pillar-media">
+            {% render 'muto-about-image',
+              image: block.settings.image,
+              fallback: block.settings.image_fallback,
+              alt: block.settings.image_alt,
+              placeholder: false,
+              ratio: '339/528',
+              sizes: '(min-width: 990px) 339px, 76vw',
+              widths: '300,420,560,760' %}
+          </div>
+
+          {%- comment -%}
+            One body element for both states, so the name is a real heading that
+            never leaves the accessibility tree. Closed it is a name and a +;
+            open it gains the glass, the copy, and loses the +.
+          {%- endcomment -%}
+          <div class="ma__pillar-body" id="ma-pillar-{{ section.id }}-{{ forloop.index }}">
+            <h3 class="ma__pillar-name">{{ block.settings.name }}</h3>
+            {%- if block.settings.text != blank -%}
+              <p class="ma__pillar-text">{{ block.settings.text }}</p>
+              <span class="ma__pillar-mark" aria-hidden="true">+</span>
+            {%- endif -%}
+          </div>
+
+          {%- comment -%}
+            The artboard gives the open card no control at all, so the card
+            itself is the button — which also gives it a keyboard target.
+          {%- endcomment -%}
+          {%- if block.settings.text != blank -%}
+            <button
+              class="ma__pillar-hit"
+              type="button"
+              data-ma-pillar-toggle
+              aria-expanded="{% if forloop.first and section.settings.open_first %}true{% else %}false{% endif %}"
+              aria-controls="ma-pillar-{{ section.id }}-{{ forloop.index }}"
+            ><span class="ma__vh">{{ 'More about ' | append: block.settings.name | escape }}</span></button>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO About — Pillars",
+  "tag": "section",
+  "class": "ma-section",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "checkbox", "id": "open_first", "label": "Open the first card by default", "default": true },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 }
+  ],
+  "blocks": [
+    {
+      "type": "pillar",
+      "name": "Pillar",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Name", "default": "Energy" },
+        { "type": "textarea", "id": "text", "label": "Copy", "default": "Energy you make, not energy you borrow." },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_fallback", "label": "Fallback image URL" },
+        { "type": "text", "id": "image_alt", "label": "Alt text", "info": "Describe the photograph, not the pillar name." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MUTO About — Pillars",
+      "blocks": [
+        {
+          "type": "pillar",
+          "settings": { "name": "Energy", "text": "Energy you make, not energy you borrow.", "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-pillar-energy.jpg?v=1790751995", "image_alt": "A runner in motion blur, shot from below against a blue sky" }
+        },
+        {
+          "type": "pillar",
+          "settings": { "name": "Stress", "text": "Support for the system that absorbs the load.", "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-pillar-stress.jpg?v=1790751994", "image_alt": "A cyclist riding hard on an open road at dusk" }
+        },
+        {
+          "type": "pillar",
+          "settings": { "name": "Recovery", "text": "Recovery is cellular work, not just rest.", "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-pillar-recovery.jpg?v=1790751994", "image_alt": "A woman asleep, lit by low warm light" }
+        },
+        {
+          "type": "pillar",
+          "settings": { "name": "Healthy ageing", "text": "The long game, measured in decades rather than weeks." }
+        }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": ["page"]
+  }
+}
+{% endschema %}

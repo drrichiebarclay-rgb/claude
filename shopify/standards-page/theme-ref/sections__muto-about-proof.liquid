@@ -1,0 +1,135 @@
+{%- comment -%}
+  MUTO About — "Most supplements ask for your trust. We'd rather you check."
+
+  The five cards are the method: nothing hidden, baseline, track the trend,
+  check-in date, your call. The artboard already scrolls them horizontally at
+  1440, so the mobile rail is the same component, narrower.
+{%- endcomment -%}
+
+{{ 'muto-about.css' | asset_url | stylesheet_tag }}
+
+{%- assign heading_id = 'ma-proof-' | append: section.id -%}
+
+{%- liquid
+  assign ma_spt = section.settings.space_top | default: 100 | times: 0.01
+  assign ma_spb = section.settings.space_bottom | default: 100 | times: 0.01
+-%}
+
+<div class="ma ma--dark" style="--ma-spt:{{ ma_spt }};--ma-spb:{{ ma_spb }}">
+  <section class="ma__proof" aria-labelledby="{{ heading_id }}">
+    <div class="ma__proof-media">
+      {% render 'muto-about-image',
+        image: section.settings.image,
+        fallback: section.settings.image_fallback,
+        alt: section.settings.image_alt,
+        ratio: '1440/640',
+        sizes: '100vw',
+        widths: '760,1100,1440,1780' %}
+    </div>
+
+    <div class="ma__proof-inner ma__wrap">
+      {%- if section.settings.line_a != blank -%}
+        <h2 class="ma__proof-a" id="{{ heading_id }}">{{ section.settings.line_a | escape | newline_to_br }}</h2>
+      {%- endif -%}
+      {%- if section.settings.line_b != blank -%}
+        <p class="ma__proof-b">{{ section.settings.line_b | escape | newline_to_br }}</p>
+      {%- endif -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <ul class="ma__proof-cards ma__rail">
+          {%- for block in section.blocks -%}
+            <li class="ma__proof-card" {{ block.shopify_attributes }}>
+              {%- case block.settings.icon -%}
+                {%- when 'target' -%}
+                  <svg class="ma__proof-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><circle cx="12" cy="12" r="9.2" stroke-dasharray="3.2 2.4"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"/></svg>
+                {%- when 'infinity' -%}
+                  <svg class="ma__proof-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M8.4 8.4a5.1 5.1 0 1 0 0 7.2L15.6 8.4a5.1 5.1 0 1 1 0 7.2Z"/></svg>
+                {%- when 'orbit' -%}
+                  <svg class="ma__proof-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><circle cx="12" cy="12" r="3.4"/><ellipse cx="12" cy="12" rx="10" ry="4.6" transform="rotate(-28 12 12)"/><circle cx="20.2" cy="8.4" r="1.5" fill="currentColor" stroke="none"/></svg>
+                {%- when 'heart' -%}
+                  <svg class="ma__proof-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M12 20.2 4.6 13a4.6 4.6 0 0 1 6.5-6.5l.9.9.9-.9A4.6 4.6 0 0 1 19.4 13Z"/></svg>
+                {%- when 'gauge' -%}
+                  <svg class="ma__proof-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M3.2 17.4a9.6 9.6 0 1 1 17.6 0"/><path d="M12 17 16.6 9.9" stroke-linecap="round"/><circle cx="12" cy="17.6" r="1.3" fill="currentColor" stroke="none"/></svg>
+              {%- endcase -%}
+              <h3 class="ma__proof-title">{{ block.settings.title }}</h3>
+              <p class="ma__proof-text">{{ block.settings.text }}</p>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO About — Proof",
+  "tag": "section",
+  "class": "ma-section",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Background image" },
+    { "type": "text", "id": "image_fallback", "label": "Fallback image URL", "default": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-trust-runners.jpg?v=1790751994" },
+    { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Two runners, motion blurred" },
+    { "type": "textarea", "id": "line_a", "label": "First line", "default": "Most supplements\nask for your trust." },
+    { "type": "textarea", "id": "line_b", "label": "Second line (right)", "default": "We'd rather\nyou check." },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "target", "label": "Aperture" },
+            { "value": "infinity", "label": "Infinity" },
+            { "value": "orbit", "label": "Orbit" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "gauge", "label": "Gauge" },
+            { "value": "none", "label": "None" }
+          ],
+          "default": "target"
+        },
+        { "type": "text", "id": "title", "label": "Title", "default": "Nothing Hidden" },
+        { "type": "textarea", "id": "text", "label": "Copy", "default": "Every dose and form on the label, and why it's there. Check it before you buy." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MUTO About — Proof",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": { "icon": "target", "title": "Nothing Hidden", "text": "Every dose and form on the label, and why it's there. Check it before you buy." }
+        },
+        {
+          "type": "step",
+          "settings": { "icon": "infinity", "title": "Baseline", "text": "Before your first dose, note your seven-day wearable averages, or a 30-second check-in on how you feel." }
+        },
+        {
+          "type": "step",
+          "settings": { "icon": "orbit", "title": "Track the Trend", "text": "HRV, resting heart rate, recovery, sleep and how you feel. 30-day averages, not single nights." }
+        },
+        {
+          "type": "step",
+          "settings": { "icon": "heart", "title": "Check in Date", "text": "You choose it. Look at the trend at weeks 4 and 8, and judge it over 60 to 90 days." }
+        },
+        {
+          "type": "step",
+          "settings": { "icon": "gauge", "title": "Your Call", "text": "If your numbers haven't moved and you don't feel the difference, the 90-day guarantee covers you." }
+        }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": ["page"]
+  }
+}
+{% endschema %}

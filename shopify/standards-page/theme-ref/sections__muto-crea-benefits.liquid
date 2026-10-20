@@ -1,0 +1,203 @@
+{%- comment -%}
+  MUTO Creatine — benefits.
+
+  Artboard band 5010–5935 of CREATINE.pdf, with BENEFITS.pdf supplying the
+  second state. A 28px eyebrow at 5116, a two-line 64px heading at 5160 and a
+  two-line lede at 5312, all at x24, with the two-way pill at x727 level with
+  the lede. Below: a 686×452 image at x24 beside four 682×76 rows at x730 on a
+  20 gap, and the action under them.
+
+  The toggle owns more than the rows. "Benefits you'll feel" and "Benefits you
+  can track" each bring their own heading and their own lede — the artboards
+  change both — so those sit in the markup carrying data-mc-for and are hidden
+  with the panel they belong to. With no JS every panel renders in document
+  order rather than half the band being silently unreachable.
+
+  The rows are accordions, not the static pairs the home page shows: each one
+  opens on the mechanism, so the "why" is one click away rather than one page.
+
+  BLOCKS. A "Panel" block is a tab; every benefit row names the panel it
+  belongs to by its key, so rows can be added, edited, reordered and deleted on
+  their own, and a whole tab goes by deleting its panel.
+
+  The artboard leaves the image a flat grey box with nothing in it, so it ships
+  as an empty slot rather than an invented photograph.
+
+  MOBILE: the pill moves under the lede, the image leads, rows stack full width.
+{%- endcomment -%}
+
+{{ 'muto-crea.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'muto-crea.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign spt = section.settings.space_top | default: 100 | times: 0.01
+  assign spb = section.settings.space_bottom | default: 100 | times: 0.01
+  assign panels = section.blocks | where: 'type', 'panel'
+-%}
+
+<div class="mc mc--benefits" data-mc style="--mc-spt:{{ spt }};--mc-spb:{{ spb }}">
+  <div class="mc__wrap">
+    <section
+      class="mc__ben"
+      aria-label="{{ section.settings.eyebrow | default: 'Benefits' | escape }}"
+      data-mc-tabs
+    >
+      <div class="mc__ben-top">
+        <div class="mc__ben-heads">
+          {%- if section.settings.eyebrow != blank -%}
+            <p class="mc__ben-eyebrow">{{ section.settings.eyebrow }}</p>
+          {%- endif -%}
+
+          {%- for panel in panels -%}
+            <div data-mc-for="{{ section.id }}-panel-{{ panel.id }}">
+              {%- if panel.settings.heading != blank -%}
+                <h2 class="mc__h2 mc__ben-head">{{ panel.settings.heading | escape | newline_to_br }}</h2>
+              {%- endif -%}
+              {%- if panel.settings.lede != blank -%}
+                <p class="mc__ben-lede">{{ panel.settings.lede }}</p>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+
+        {%- if panels.size > 1 -%}
+          <div class="mc__ben-tabs">
+            <div class="mc__tabs mc__rail" role="tablist" aria-label="{{ section.settings.tablist_label | default: 'Choose a view' | escape }}">
+              {%- for panel in panels -%}
+                <button
+                  class="mc__tab"
+                  type="button"
+                  role="tab"
+                  id="{{ section.id }}-tab-{{ panel.id }}"
+                  aria-controls="{{ section.id }}-panel-{{ panel.id }}"
+                  aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+                  data-mc-tab
+                  {{ panel.shopify_attributes }}
+                >{{ panel.settings.label }}</button>
+              {%- endfor -%}
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- for panel in panels -%}
+        {%- assign key = panel.settings.key | default: panel.id -%}
+        <div
+          class="mc__panel"
+          id="{{ section.id }}-panel-{{ panel.id }}"
+          role="tabpanel"
+          tabindex="0"
+          aria-labelledby="{{ section.id }}-tab-{{ panel.id }}"
+        >
+          <div class="mc__ben-grid">
+            <div class="mc__ben-media">
+              {% render 'muto-image',
+                image: panel.settings.image,
+                fallback: panel.settings.image_fallback,
+                alt: panel.settings.image_alt,
+                placeholder: false,
+                ratio: '686/452',
+                sizes: '(min-width: 990px) 686px, 92vw',
+                widths: '430,686,900,1372',
+                position: panel.settings.image_position %}
+            </div>
+
+            <div class="mc__ben-rows">
+              {%- for block in section.blocks -%}
+                {%- if block.type != 'benefit' or block.settings.panel != key -%}{%- continue -%}{%- endif -%}
+                <details class="mc__ben-row" name="{{ section.id }}-{{ key }}" {{ block.shopify_attributes }}>
+                  <summary class="mc__ben-sum">
+                    <span>
+                      <span class="mc__ben-name">{{ block.settings.title }}</span>
+                      {%- if block.settings.sub != blank -%}
+                        <span class="mc__ben-sub">{{ block.settings.sub }}</span>
+                      {%- endif -%}
+                    </span>
+                    <span class="mc__ben-plus" aria-hidden="true"></span>
+                  </summary>
+                  <div class="mc__ben-body mc__rt">{{ block.settings.text }}</div>
+                </details>
+              {%- endfor -%}
+
+              {%- if panel.settings.cta_label != blank -%}
+                <a class="mc__btn mc__btn--cyan" href="{{ panel.settings.cta_link | default: routes.all_products_collection_url }}">
+                  {{- panel.settings.cta_label -}}
+                </a>
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </section>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO Creatine — Benefits",
+  "tag": "section",
+  "class": "mc-section",
+  "max_blocks": 30,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Benefits" },
+    { "type": "text", "id": "tablist_label", "label": "Tab group label", "default": "Choose a view", "info": "Read by screen readers, not shown." },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 2, "unit": "%", "default": 100 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 2, "unit": "%", "default": 100 }
+  ],
+  "blocks": [
+    {
+      "type": "panel",
+      "name": "Panel (tab)",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Tab label", "default": "Benefits you'll feel" },
+        { "type": "text", "id": "key", "label": "Key", "default": "feel", "info": "Benefit rows name this key to join this tab." },
+        { "type": "textarea", "id": "heading", "label": "Heading", "default": "Feel it before\nyou see it" },
+        { "type": "textarea", "id": "lede", "label": "Lede", "default": "What customers notice as creatine stores build over several weeks. Open any of them for the mechanism." },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_fallback", "label": "Fallback image URL" },
+        { "type": "text", "id": "image_alt", "label": "Alt text", "info": "Required once an image is set. The artboard leaves this frame empty." },
+        { "type": "text", "id": "image_position", "label": "Image focus", "info": "CSS object-position, e.g. \"50% 8%\". The frame is wide, so a portrait photograph needs this or the subject is cropped out. Blank centres it." },
+        { "type": "text", "id": "cta_label", "label": "Button", "default": "Start your 90 days" },
+        { "type": "url", "id": "cta_link", "label": "Button link", "info": "Defaults to the all-products collection." }
+      ]
+    },
+    {
+      "type": "benefit",
+      "name": "Benefit row",
+      "settings": [
+        { "type": "text", "id": "panel", "label": "Panel key", "default": "feel" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Performance" },
+        { "type": "text", "id": "sub", "label": "Sub-line", "default": "The last station, not just the first" },
+        { "type": "richtext", "id": "text", "label": "Copy", "default": "<p>Add the mechanism behind this benefit.</p>" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MUTO Creatine — Benefits",
+      "blocks": [
+        {
+          "type": "panel",
+          "settings": { "label": "Benefits you'll feel", "key": "feel", "heading": "Feel it before\nyou see it", "lede": "What customers notice as creatine stores build over several weeks. Open any of them for the mechanism.", "cta_label": "Start your 90 days" }
+        },
+        { "type": "benefit", "settings": { "panel": "feel", "title": "Performance", "sub": "The last station, not just the first", "text": "<p>Creatine refills the phosphocreatine your muscles spend in the first seconds of a hard effort, so the fast reserve is there again for the next one. Across repeated sprints and stations that shows up as less drop-off from the first to the last.</p>" } },
+        { "type": "benefit", "settings": { "panel": "feel", "title": "Strength", "sub": "Built session after session", "text": "<p>More work completed per session is more stimulus to adapt to. Taken daily alongside resistance training, creatine supports the strength you are already working for rather than replacing the work.</p>" } },
+        { "type": "benefit", "settings": { "panel": "feel", "title": "Cognition", "sub": "Fast energy for a busy brain", "text": "<p>Your brain stores creatine for the same reason your muscles do: fast energy when demand spikes. Research is exploring its role in mental performance, with the clearest signals on short sleep and long days.</p>" } },
+        { "type": "benefit", "settings": { "panel": "feel", "title": "Healthy Ageing", "sub": "Strength for years, not seasons", "text": "<p>Strength is part of ageing well. With regular training, a daily scoop helps you keep building it — the trial evidence in adults over 50 is about lean mass kept, not just gained.</p>" } },
+        {
+          "type": "panel",
+          "settings": { "label": "Benefits you can track", "key": "track", "heading": "Then check it in\nyour own log", "lede": "Same programme, same routine, noted before your first scoop. Check in at weeks 4 and 8, alongside your NAD+ check-in.", "cta_label": "Start your 90 days" }
+        },
+        { "type": "benefit", "settings": { "panel": "track", "title": "Interval Splits", "sub": "Repeat efforts, timed", "text": "<p>Pick one repeatable session and time every effort in it. The number to watch is not the first split but the spread between the first and the last.</p>" } },
+        { "type": "benefit", "settings": { "panel": "track", "title": "Repetitions", "sub": "Your cleanest strength signal", "text": "<p>Same lift, same load, same rest. Reps completed at a fixed weight is the least noisy strength measure you can take without a lab.</p>" } },
+        { "type": "benefit", "settings": { "panel": "track", "title": "Sharpness on Long Days", "sub": "Rated 1–10, on short sleep", "text": "<p>Rate how sharp you felt out of ten, and note the hours you slept beside it. The effect to look for is on the short nights, not the good ones.</p>" } },
+        { "type": "benefit", "settings": { "panel": "track", "title": "Session Consistency", "sub": "Training you can keep up", "text": "<p>Count the sessions you actually completed each week. Consistency is what turns any of the above into a trend rather than a good day.</p>" } }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": ["product", "page", "index"]
+  }
+}
+{% endschema %}

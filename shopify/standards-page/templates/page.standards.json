@@ -1,231 +1,348 @@
 {
   "sections": {
     "hero": {
-      "type": "muto-lp-article-hero",
+      "type": "muto-about-hero",
+      "blocks": {
+        "p1": {
+          "type": "plan",
+          "settings": {
+            "variant_title": "30-Day Plan",
+            "name": "1-month subscription",
+            "price_suffix": "/mo",
+            "note": "Billed monthly",
+            "use_selling_plan": true
+          }
+        },
+        "p2": {
+          "type": "plan",
+          "settings": {
+            "variant_title": "90-Day Plan",
+            "name": "3-month subscription",
+            "price_suffix": "/mo",
+            "note": "Billed quarterly",
+            "use_selling_plan": true
+          }
+        },
+        "p3": {
+          "type": "plan",
+          "settings": {
+            "variant_title": "One time purchase",
+            "name": "One-time purchase",
+            "price_suffix": "",
+            "note": "One payment",
+            "use_selling_plan": false
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3"
+      ],
       "settings": {
-        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-lp-kit-hero.jpg?v=1791969959",
-        "image_alt": "The MUTO welcome kit: NAD+ Cellular Complex jar and refill pouches, Ultrapure Creatine, the bottle and the presentation box",
-        "image_position": "55% 62%",
-        "kicker": "Our standards",
-        "heading": "You shouldn’t have to take a supplement on trust.",
-        "sub": "Supplements don’t have to prove much to go on sale in the UK. So we built MUTO to a higher bar, and we show you all of it.",
+        "allow_transparent_header": true,
+        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-hero-poster.jpg?v=1790751994",
+        "image_alt": "A MUTO poster reading ABOVE THE STANDARD in black and BENEATH THE SURFACE in cyan, photographed on a dark slate surface",
+        "heading": "Our standards",
+        "subheading": "You shouldn’t have to take a supplement on trust.",
         "cta_label": "Start your 90 days",
         "cta_link": "/products/muto-nad-cellular-complex",
-        "jump_label": "See every ingredient and dose",
-        "jump_target": "#ingredients"
-      },
-      "blocks": {},
-      "block_order": []
-    },
-    "proof": {
-      "type": "muto-lp-trust",
-      "settings": {
-        "heading": ""
-      },
-      "blocks": {
-        "t1": {
-          "type": "item",
-          "settings": {
-            "icon": "label",
-            "text": "Every dose on the label"
-          }
-        },
-        "t2": {
-          "type": "item",
-          "settings": {
-            "icon": "flask",
-            "text": "Every batch third-party tested"
-          }
-        },
-        "t3": {
-          "type": "item",
-          "settings": {
-            "icon": "shield",
-            "text": "Made in the UK to GMP"
-          }
-        },
-        "t4": {
-          "type": "item",
-          "settings": {
-            "icon": "award",
-            "text": "Six scientists on our advisory board"
-          }
-        },
-        "t5": {
-          "type": "item",
-          "settings": {
-            "icon": "shield",
-            "text": "90-day money-back guarantee"
-          }
-        }
-      },
-      "block_order": [
-        "t1",
-        "t2",
-        "t3",
-        "t4",
-        "t5"
-      ]
-    },
-    "why": {
-      "type": "muto-lp-article",
-      "settings": {
-        "heading": "Doing everything right, and still buying on a leap of faith.",
-        "body": "<p>Most of the people I’ve worked with in their 40s and 50s were doing everything right. Training, eating well, taking their supplements. And they still felt it: gone by 3pm, nothing left for the people at home, sitting out the things they love.</p><p>Most of what they took, they took on trust. Greens, a supermarket multivitamin, collagen, joint capsules. Labels that didn’t show the doses. Nobody checking every batch. No way to know if any of it was doing anything.</p>"
+        "ghost_label": "See every ingredient and dose",
+        "ghost_link": "/pages/ingredients",
+        "product": "muto-nad-cellular-complex",
+        "plan_cta_label": "Start your 90 days",
+        "show_sticky": true,
+        "sticky_cta_label": "Start your 90 days",
+        "sticky_sub": "Cancel, pause or skip anytime",
+        "schema_on": false,
+        "schema_title": "About MUTO",
+        "schema_summary": "MUTO is a UK precision cellular supplement company. Its NAD+ Cellular Complex declares every ingredient, form and dose on the label, is manufactured in the UK to GMP standards and third-party tested for heavy metals, microbes and purity, and is under study with the University of Westminster, King's College London, Coventry and Newcastle.",
+        "schema_org": "MUTO",
+        "schema_logo": "",
+        "schema_founder": "Dr Richie Barclay",
+        "schema_founder_role": "Founder",
+        "schema_country": "GB",
+        "schema_topics": "NAD+, cellular health, longevity supplements, heart rate variability, recovery, healthy ageing",
+        "schema_profiles": "",
+        "space_top": 100,
+        "space_bottom": 100
       }
     },
-    "why_founder": {
-      "type": "muto-lp-reasons",
+    "intro": {
+      "type": "muto-about-statement",
       "settings": {
-        "anchor": "founder"
-      },
+        "layout": "split",
+        "field": "tail",
+        "eyebrow": "Our standards",
+        "head": "Supplements don’t\nhave to prove much\nto go on sale.",
+        "tail": "",
+        "body": "Food supplements in the UK are regulated as food. That keeps them safe to eat, but it asks for far less than most people assume. So we built MUTO to a higher bar, and we show you all of it.",
+        "space_top": 100,
+        "space_bottom": 60
+      }
+    },
+    "proof": {
+      "type": "muto-about-made",
       "blocks": {
-        "f1": {
-          "type": "person",
+        "c1": {
+          "type": "card",
           "settings": {
-            "label": "Why I built MUTO",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-founder.jpg?v=1790751995",
-            "position": "50% 20%",
-            "quote": "I spent years in the lab studying why our bodies get less back from the same food and training as we age. Then years consulting people just like you. So when I built MUTO, I built it the way I’d want it built for my own family: nothing hidden, everything checkable.",
-            "name": "Dr Richie Barclay, Founder",
-            "role": "PhD, cell biology and nutrition"
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-made-scientists.jpg?v=1790752123",
+            "image_alt": "Four members of the MUTO scientific advisory board in conversation",
+            "image_position": "50% 34%",
+            "title": "Six scientists, named",
+            "text": "Formulated by a PhD cell biologist and reviewed by a six-member scientific advisory board."
+          }
+        },
+        "c2": {
+          "type": "card",
+          "settings": {
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-made-declared.jpg?v=1790752124",
+            "image_alt": "A close-up of the MUTO NAD+ Cellular Complex label showing every ingredient and dose",
+            "image_position": "",
+            "title": "Every dose on the label",
+            "text": "No proprietary blends. Every ingredient, form and dose on the label, and on this page."
+          }
+        },
+        "c3": {
+          "type": "card",
+          "settings": {
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-made-tested.jpg?v=1790752123",
+            "image_alt": "A jar of MUTO NAD+ Cellular Complex on its side with capsules spilling out",
+            "image_position": "50% 64%",
+            "title": "Every batch tested, made in the UK",
+            "text": "Made in the UK to GMP standards, in an ISO-certified facility. Every batch third-party tested, with a 90-day money-back guarantee."
           }
         }
       },
       "block_order": [
-        "f1"
+        "c1",
+        "c2",
+        "c3"
+      ],
+      "settings": {
+        "heading": "Built to a higher bar",
+        "space_top": 100,
+        "space_bottom": 100
+      }
+    },
+    "founder": {
+      "type": "muto-about-founder",
+      "settings": {
+        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-founder.jpg?v=1790751995",
+        "image_alt": "Dr Richie Barclay sitting on a sofa at home, holding a jar of MUTO NAD+ Cellular Complex over a glass coffee table",
+        "heading": "Doing everything right,\nand still buying on\na leap of faith.",
+        "name": "Dr Richie Barclay, Founder · PhD, cell biology and nutrition",
+        "cta_label": "Start your 90 days",
+        "cta_link": "/products/muto-nad-cellular-complex",
+        "space_top": 100,
+        "space_bottom": 100
+      },
+      "blocks": {
+        "p1": {
+          "type": "para",
+          "settings": {
+            "text": "Most of the people I’ve worked with in their 40s and 50s were doing everything right. Training, eating well, taking their supplements. And they still felt it: gone by 3pm, nothing left for the people at home, sitting out the things they love."
+          }
+        },
+        "p2": {
+          "type": "para",
+          "settings": {
+            "text": "Most of what they took, they took on trust. Greens, a supermarket multivitamin, collagen, joint capsules. Labels that didn’t show the doses. Nobody checking every batch. No way to know if any of it was doing anything."
+          }
+        },
+        "p3": {
+          "type": "para",
+          "settings": {
+            "text": "I spent years in the lab studying why our bodies get less back from the same food and training as we age. Then years consulting people just like you. So when I built MUTO, I built it the way I’d want it built for my own family: nothing hidden, everything checkable."
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3"
       ]
     },
     "rules": {
-      "type": "muto-lp-article",
+      "type": "muto-crea-compare",
       "settings": {
-        "heading": "Nobody made us do any of this. That’s the point.",
-        "body": "<p>Food supplements in the UK are regulated as food. That keeps them safe to eat, but it asks for far less than most people assume. Here’s the gap.</p>"
-      }
-    },
-    "rules_table": {
-      "type": "muto-lp-reasons",
-      "settings": {
-        "anchor": "the-rules"
+        "heading": "Nobody made us do any\nof this. That’s the point.",
+        "table_caption": "What UK law requires, and what MUTO does",
+        "claim_label": "",
+        "density": "compact",
+        "head_gap": 40,
+        "claim_width": 562,
+        "col_pitch": 160,
+        "panel_width": 120,
+        "col_1": "MUTO",
+        "col_1_logo": true,
+        "col_2": "Required by UK law",
+        "col_3": "",
+        "col_4": "",
+        "fit": "nad",
+        "space_top": 70,
+        "space_bottom": 70
       },
       "blocks": {
-        "c1": {
-          "type": "compare",
+        "r1": {
+          "type": "row",
           "settings": {
-            "heading": "",
-            "col1": "",
-            "col2": "Required by UK law?",
-            "col3": "What MUTO does",
-            "rows": "Approval before it goes on sale | ✕ No | ✓ Formulated by a PhD cell biologist and reviewed by a six-member scientific advisory board\nEvery dose on the label | ✕ No: “proprietary blends” are allowed | ✓ Every ingredient, every dose, on the label and on this page\nIndependent testing of every batch | ✕ No | ✓ Every batch third-party tested. Certificates available on request\nMade in a GMP-certified facility | ✕ No | ✓ Made in the UK to GMP standards, in an ISO-certified facility\nA scientist involved | ✕ No | ✓ A PhD founder and six named scientists\nHuman research | ✕ No | ✓ Our first human study starts in December 2026, with more university research to follow\nA guarantee | ✕ No | ✓ 90 days, or your money back",
-            "note": ""
+            "claim": "Approval before it goes on sale",
+            "m1": "yes",
+            "m2": "no",
+            "m3": "dash",
+            "m4": "dash"
+          }
+        },
+        "r2": {
+          "type": "row",
+          "settings": {
+            "claim": "Every dose on the label",
+            "m1": "yes",
+            "m2": "no",
+            "m3": "dash",
+            "m4": "dash"
+          }
+        },
+        "r3": {
+          "type": "row",
+          "settings": {
+            "claim": "Independent testing of every batch",
+            "m1": "yes",
+            "m2": "no",
+            "m3": "dash",
+            "m4": "dash"
+          }
+        },
+        "r4": {
+          "type": "row",
+          "settings": {
+            "claim": "Made in a GMP-certified facility",
+            "m1": "yes",
+            "m2": "no",
+            "m3": "dash",
+            "m4": "dash"
+          }
+        },
+        "r5": {
+          "type": "row",
+          "settings": {
+            "claim": "A scientist involved",
+            "m1": "yes",
+            "m2": "no",
+            "m3": "dash",
+            "m4": "dash"
+          }
+        },
+        "r6": {
+          "type": "row",
+          "settings": {
+            "claim": "Human research",
+            "m1": "yes",
+            "m2": "no",
+            "m3": "dash",
+            "m4": "dash"
+          }
+        },
+        "r7": {
+          "type": "row",
+          "settings": {
+            "claim": "A money-back guarantee",
+            "m1": "yes",
+            "m2": "no",
+            "m3": "dash",
+            "m4": "dash"
           }
         }
       },
       "block_order": [
-        "c1"
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5",
+        "r6",
+        "r7"
       ]
     },
-    "standards_head": {
-      "type": "muto-lp-article",
-      "settings": {
-        "heading": "Ten standards. All of them checkable.",
-        "body": "<p>Each one is a plain promise, why it matters, and how you can check it yourself.</p>"
-      }
-    },
     "standards": {
-      "type": "muto-lp-reasons",
+      "type": "muto-crea-faq",
       "settings": {
-        "anchor": "standards"
+        "heading": "Ten standards.\nAll of them checkable.",
+        "schema_on": false,
+        "space_top": 100,
+        "space_bottom": 100
       },
       "blocks": {
         "s1": {
-          "type": "reason",
+          "type": "q",
           "settings": {
-            "title": "Every dose on the label",
-            "body": "<p>No proprietary blends. Every one of the 19 ingredients is listed with its exact dose and form, so you know exactly what you’re taking.</p>",
-            "answer_label": "How to check",
-            "answer": "<p>Read the full label below, or turn the jar round.</p>"
+            "title": "1. Every dose on the label",
+            "text": "<p>No proprietary blends. Every one of the 19 ingredients is listed with its exact dose and form, so you know exactly what you’re taking.</p><p><strong>How to check:</strong> Read the full label, or turn the jar round.</p>"
           }
         },
         "s2": {
-          "type": "reason",
+          "type": "q",
           "settings": {
-            "title": "Doses chosen for a reason",
-            "body": "<p>NR at 300mg, the most allowed in Great Britain. Vitamin D3 at 2,000 IU. B vitamins in their active, methylated forms. Zinc and copper dosed as a pair, because they compete for absorption. Nothing added just to make the list longer.</p>",
-            "answer_label": "How to check",
-            "answer": "<p>Every dose and form is in the ingredient table.</p>"
+            "title": "2. Doses chosen for a reason",
+            "text": "<p>NR at 300mg, the most allowed in Great Britain. Vitamin D3 at 2,000 IU. B vitamins in their active, methylated forms. Zinc and copper dosed as a pair, because they compete for absorption. Nothing added just to make the list longer.</p><p><strong>How to check:</strong> Every dose and form is in the ingredient table.</p>"
           }
         },
         "s3": {
-          "type": "reason",
+          "type": "q",
           "settings": {
-            "title": "Only ingredients authorised in the UK",
-            "body": "<p>Every ingredient in MUTO is authorised for use in UK food supplements. That’s why we use NR rather than NMN, which is still under assessment.</p>",
-            "answer_label": "How to check",
-            "answer": "<p>Ask us about any ingredient’s status.</p>"
+            "title": "3. Only ingredients authorised in the UK",
+            "text": "<p>Every ingredient in MUTO is authorised for use in UK food supplements. That’s why we use NR rather than NMN, which is still under assessment.</p><p><strong>How to check:</strong> Ask us about any ingredient’s status.</p>"
           }
         },
         "s4": {
-          "type": "reason",
+          "type": "q",
           "settings": {
-            "title": "Every batch third-party tested",
-            "body": "<p>Not just the first batch. Every batch is tested by an independent lab before it’s released.</p>",
-            "answer_label": "How to check",
-            "answer": "<p>Certificates are available on request: <a href=\"mailto:hello@mutolongevity.com\">hello@mutolongevity.com</a></p>"
+            "title": "4. Every batch third-party tested",
+            "text": "<p>Not just the first batch. Every batch is tested by an independent lab before it’s released.</p><p><strong>How to check:</strong> Certificates are available on request: <a href=\"mailto:hello@mutolongevity.com\">hello@mutolongevity.com</a></p>"
           }
         },
         "s5": {
-          "type": "reason",
+          "type": "q",
           "settings": {
-            "title": "Made in the UK, to GMP",
-            "body": "<p>Manufactured in the UK to GMP (Good Manufacturing Practice) standards, in an ISO-certified facility.</p>",
-            "answer_label": "How to check",
-            "answer": "<p>Ask us for our manufacturing standards.</p>"
+            "title": "5. Made in the UK, to GMP",
+            "text": "<p>Manufactured in the UK to GMP (Good Manufacturing Practice) standards, in an ISO-certified facility.</p><p><strong>How to check:</strong> Ask us for our manufacturing standards.</p>"
           }
         },
         "s6": {
-          "type": "reason",
+          "type": "q",
           "settings": {
-            "title": "Nothing you don’t need",
-            "body": "<p>Vegan capsules made from plant cellulose (HPMC). Vitamin D3 from algae. No major allergens, no fillers, no caffeine and no stimulants.</p>",
-            "answer_label": "How to check",
-            "answer": "<p>It’s all on the label.</p>"
+            "title": "6. Nothing you don’t need",
+            "text": "<p>Vegan capsules made from plant cellulose (HPMC). Vitamin D3 from algae. No major allergens, no fillers, no caffeine and no stimulants.</p><p><strong>How to check:</strong> It’s all on the label.</p>"
           }
         },
         "s7": {
-          "type": "reason",
+          "type": "q",
           "settings": {
-            "title": "Scientists with names",
-            "body": "<p>Formulated by Dr Richie Barclay, PhD in cell biology and nutrition, with a six-member scientific advisory board across sports nutrition, exercise physiology, public health and lifestyle medicine. The board meets every quarter to guide our research and every new formula.</p>",
-            "answer_label": "How to check",
-            "answer": "<p>Meet the board below.</p>"
+            "title": "7. Scientists with names",
+            "text": "<p>Formulated by Dr Richie Barclay, PhD in cell biology and nutrition, with a six-member scientific advisory board across sports nutrition, exercise physiology, public health and lifestyle medicine. The board meets every quarter to guide our research and every new formula. It doesn’t endorse products, and none of its members are presented as recommending MUTO for any medical purpose.</p><p><strong>How to check:</strong> Meet the board below.</p>"
           }
         },
         "s8": {
-          "type": "reason",
+          "type": "q",
           "settings": {
-            "title": "Research we’ll publish, whatever it shows",
-            "body": "<p>MUTO is part of independent university research: a University of Westminster study starts in December 2026, with work at King’s College London, Coventry and Newcastle to follow. There are no results yet, and we’ll never say there are.</p>",
-            "answer_label": "How to check",
-            "answer": "<p>We’ll share every update on this page.</p>"
+            "title": "8. Research we’ll publish, whatever it shows",
+            "text": "<p>MUTO is part of independent university research: a University of Westminster study starts in December 2026, with work at King’s College London, Coventry and Newcastle to follow. There are no results yet, and we’ll never say there are.</p><p><strong>How to check:</strong> We’ll share every update on this page.</p>"
           }
         },
         "s9": {
-          "type": "reason",
+          "type": "q",
           "settings": {
-            "title": "Honest claims only",
-            "body": "<p>We only make the health claims UK law authorises, worded exactly. We’ll tell you what MUTO won’t do as clearly as what it will. Every review is genuine and invited from every customer, and every creator we work with is disclosed.</p>",
-            "answer_label": "How to check",
-            "answer": "<p>Every claim on our site carries its authorised wording.</p>"
+            "title": "9. Honest claims only",
+            "text": "<p>We only make the health claims UK law authorises, worded exactly. We’ll tell you what MUTO won’t do as clearly as what it will. Every review is genuine and invited from every customer, and every creator we work with is disclosed.</p><p><strong>How to check:</strong> Every claim on our site carries its authorised wording.</p>"
           }
         },
         "s10": {
-          "type": "reason",
+          "type": "q",
           "settings": {
-            "title": "Built to be checked",
-            "body": "<p>Note how you feel today: score your afternoons, or check your wearable. Give it 90 days. If you don’t feel the difference, you get every subscription payment back. Skip, pause or cancel online anytime, with a reminder five days before every payment.</p>",
-            "answer_label": "How to check",
-            "answer": "<p>Guarantee terms below.</p>"
+            "title": "10. Built to be checked",
+            "text": "<p>Note how you feel today: score your afternoons, or check your wearable. Give it 90 days. If you don’t feel the difference, you get every subscription payment back. Skip, pause or cancel online anytime, with a reminder five days before every payment.</p><p><strong>How to check:</strong> Guarantee terms are in our <a href=\"/pages/faqs#guarantee\">FAQs</a>.</p>"
           }
         }
       },
@@ -242,293 +359,323 @@
         "s10"
       ]
     },
-    "jobs_head": {
-      "type": "muto-lp-article",
-      "settings": {
-        "heading": "The foundation your body runs on.",
-        "body": "<p>Built for what you actually need in your 40s and 50s. Five jobs, one jar.</p>"
-      }
-    },
     "jobs": {
-      "type": "muto-lp-reasons",
+      "type": "muto-crea-benefits",
       "settings": {
-        "anchor": "ingredients"
+        "eyebrow": "Five jobs, one jar",
+        "tablist_label": "Choose a view",
+        "space_top": 96,
+        "space_bottom": 100
       },
       "blocks": {
-        "j1": {
-          "type": "compare",
+        "panel": {
+          "type": "panel",
           "settings": {
-            "heading": "",
-            "col1": "Job",
-            "col2": "What’s in it",
-            "col3": "What it does",
-            "rows": "1. Energy | Methylated B vitamins | Help you feel less tired\n2. Muscles and bones | Vitamin D3 2,000 IU + K2 100µg | Normal muscle function and the maintenance of normal bones\n3. Immunity | Zinc 15mg + copper 1mg, with D3 | The normal function of your immune system\n4. NAD+ | NR 300mg | Your body turns it into NAD+, which runs lower as we get older\n5. What ties it together | CoQ10 150mg, trans-resveratrol 50mg, grape seed extract 150mg, PQQ 20mg, TMG 450mg, BioPerine® 5mg | Every dose on the label",
-            "note": "Vitamins B6 and B12 contribute to the reduction of tiredness and fatigue. Vitamin D contributes to normal muscle function. Vitamins D and K contribute to the maintenance of normal bones. Zinc, copper and vitamin D contribute to the normal function of the immune system."
+            "label": "Five jobs",
+            "key": "jobs",
+            "heading": "The foundation your\nbody runs on.",
+            "lede": "Built for what you actually need in your 40s and 50s. Two capsules with breakfast. Alongside our creatine, free with your first order, it’s all you need to keep up.",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-made-declared.jpg?v=1790752124",
+            "image_alt": "A close-up of the MUTO NAD+ Cellular Complex label showing every ingredient and dose",
+            "cta_label": "See the full label",
+            "cta_link": "/pages/ingredients"
+          }
+        },
+        "j1": {
+          "type": "benefit",
+          "settings": {
+            "panel": "jobs",
+            "title": "Energy",
+            "sub": "Methylated B vitamins",
+            "text": "<p>Help you feel less tired. Vitamins B6 and B12 contribute to the reduction of tiredness and fatigue.</p>"
           }
         },
         "j2": {
-          "type": "callout",
+          "type": "benefit",
           "settings": {
-            "text": "<p><strong>Two capsules with breakfast.</strong> Alongside our creatine, which comes free with your first order, it’s all you need to keep up.</p>",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-lp-kit-hero.jpg?v=1791969959",
-            "image_alt": "The MUTO welcome kit: NAD+ Cellular Complex jar and refill pouches, Ultrapure Creatine, the bottle and the presentation box",
-            "image_position": "55% 62%"
+            "panel": "jobs",
+            "title": "Muscles and bones",
+            "sub": "Vitamin D3 2,000 IU + K2 100µg",
+            "text": "<p>Vitamin D contributes to normal muscle function. Vitamins D and K contribute to the maintenance of normal bones.</p>"
           }
         },
         "j3": {
-          "type": "cta",
+          "type": "benefit",
           "settings": {
-            "text": "",
-            "label": "See the full label and the science behind each ingredient",
-            "link": "/pages/ingredients"
+            "panel": "jobs",
+            "title": "Immunity",
+            "sub": "Zinc 15mg + copper 1mg, with D3",
+            "text": "<p>Zinc, copper and vitamin D contribute to the normal function of the immune system.</p>"
+          }
+        },
+        "j4": {
+          "type": "benefit",
+          "settings": {
+            "panel": "jobs",
+            "title": "NAD+",
+            "sub": "NR 300mg",
+            "text": "<p>Your body turns it into NAD+, which runs lower as we get older.</p>"
+          }
+        },
+        "j5": {
+          "type": "benefit",
+          "settings": {
+            "panel": "jobs",
+            "title": "What ties it together",
+            "sub": "CoQ10, resveratrol, grape seed, PQQ, TMG, BioPerine®",
+            "text": "<p>CoQ10 150mg, trans-resveratrol 50mg, grape seed extract 150mg, PQQ 20mg, TMG 450mg and BioPerine® 5mg. Every dose on the label.</p>"
           }
         }
       },
       "block_order": [
+        "panel",
         "j1",
         "j2",
-        "j3"
+        "j3",
+        "j4",
+        "j5"
       ]
     },
-    "people_head": {
-      "type": "muto-lp-article",
-      "settings": {
-        "heading": "The people behind the formula.",
-        "body": "<p>A supplement doesn’t need a scientist anywhere near it. Ours has seven.</p><p><em>Our advisory board guides our research and formulation. It doesn’t endorse products, and none of its members are presented as recommending MUTO for any medical purpose.</em></p>"
-      }
-    },
-    "people": {
-      "type": "muto-lp-experts",
-      "settings": {
-        "heading": "Our founder and Scientific Advisory Board."
-      },
+    "board": {
+      "type": "muto-home-board",
       "blocks": {
-        "e0": {
-          "type": "person",
-          "settings": {
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-founder.jpg?v=1790751995",
-            "alt": "Dr Richie Barclay holding a jar of MUTO",
-            "position": "50% 20%",
-            "name": "Dr Richie Barclay, PhD",
-            "role": "Founder · PhD, cell biology and nutrition",
-            "quote": "“I built MUTO because I was tired of supplements that ask you to take them on trust. So every ingredient and every dose is on the label.”"
-          }
-        },
-        "e1": {
-          "type": "person",
+        "m1": {
+          "type": "member",
           "settings": {
             "image": "shopify://shop_images/Dr_James_Cover_Final.png",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-board-3.jpg?v=1790751994",
-            "alt": "Dr James Morehen",
+            "image_alt": "Dr Alka Patel being interviewed on the MUTO scientific board panel",
+            "image_position": "",
+            "video": "shopify://files/videos/Dr-James-Final4x5.mov",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
             "name": "Dr James Morehen",
-            "role": "Performance nutritionist, international rugby · Scientific Advisory Board",
-            "quote": "Advises MUTO on performance nutrition for people who still train hard."
+            "role": "PERFORMANCE NUTRITIONIST, INTERNATIONAL RUGBY",
+            "tag": "Performance"
           }
         },
-        "e2": {
-          "type": "person",
+        "m2": {
+          "type": "member",
           "settings": {
             "image": "shopify://shop_images/Dr_Alka_Cover_Final.png",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-board-1.jpg?v=1790751995",
-            "alt": "Dr Alka Patel",
+            "image_alt": "A MUTO scientific advisory board member being interviewed",
+            "image_position": "",
+            "video": "shopify://files/videos/Dr-Alka-Final4x5.mov",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
             "name": "Dr Alka Patel",
-            "role": "Longevity doctor & global speaker · Scientific Advisory Board",
-            "quote": "Advises MUTO on longevity: helping people keep doing what they love for longer."
+            "role": "LONGEVITY DOCTOR & GLOBAL SPEAKER",
+            "tag": "Longevity"
           }
         },
-        "e3": {
-          "type": "person",
+        "m3": {
+          "type": "member",
           "settings": {
             "image": "shopify://shop_images/Dr_Richard_Cover_Final.png",
             "image_fallback": "",
-            "alt": "Dr Richard Mackenzie",
+            "image_alt": "A MUTO scientific advisory board member being interviewed",
+            "image_position": "",
+            "video": "shopify://files/videos/Dr-Richard4x5.mov",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
             "name": "Dr Richard Mackenzie",
-            "role": "Leading metabolism researcher · Scientific Advisory Board",
-            "quote": "Advises MUTO on metabolism: how your cells turn food into energy."
+            "role": "LEADING METABOLISM RESEARCHER",
+            "tag": "Energy"
           }
         },
-        "e4": {
-          "type": "person",
+        "m4": {
+          "type": "member",
           "settings": {
             "image": "shopify://shop_images/Dr_Matt.png",
             "image_fallback": "",
-            "alt": "Dr Maciej Zatonski",
+            "image_alt": "A MUTO scientific advisory board member being interviewed",
+            "image_position": "",
+            "video": "shopify://files/videos/Dr-Macie-4x5.mov",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
             "name": "Dr Maciej Zatonski",
-            "role": "Performance & sleep doctor · Scientific Advisory Board",
-            "quote": "Advises MUTO on sleep and recovery, and on reading them over weeks, not nights."
+            "role": "PERFORMANCE & SLEEP DOCTOR",
+            "tag": "Recovery"
           }
         },
-        "e5": {
-          "type": "person",
+        "m5": {
+          "type": "member",
           "settings": {
             "image": "shopify://shop_images/Dr-ash-cover-hq.webp",
             "image_fallback": "",
-            "alt": "Dr Ash Kapoor",
+            "image_alt": "A MUTO scientific advisory board member being interviewed",
+            "image_position": "",
+            "video": "shopify://files/videos/Dr. ASH Intro.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
             "name": "Dr Ash Kapoor",
-            "role": "Longevity & Human Optimisation Doctor & Founder of Levitas One · Scientific Advisory Board",
-            "quote": "Advises MUTO on longevity and human optimisation."
+            "role": "Longevity & Human Optimisation Doctor & Founder of Levitas One",
+            "tag": "Longevity"
           }
         },
-        "e6": {
-          "type": "person",
+        "m6": {
+          "type": "member",
           "settings": {
             "image": "shopify://shop_images/Jamie-Paweleck.jpg",
             "image_fallback": "",
-            "alt": "Dr Jamie Paweleck",
+            "image_alt": "A MUTO scientific advisory board member being interviewed",
+            "image_position": "",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
             "name": "Dr Jamie Paweleck",
-            "role": "Longevity doctor and medical educator · Scientific Advisory Board",
-            "quote": "Advises MUTO on longevity medicine and medical education."
+            "role": "Longevity doctor and medical educator",
+            "tag": "Longevity"
           }
         }
       },
       "block_order": [
-        "e0",
-        "e1",
-        "e2",
-        "e3",
-        "e4",
-        "e5",
-        "e6"
-      ]
-    },
-    "check_head": {
-      "type": "muto-lp-article",
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5",
+        "m6"
+      ],
       "settings": {
-        "heading": "Don’t take our word for it.",
-        "body": ""
+        "field": true,
+        "heading": "The people behind\nthe formula.",
+        "note": "A supplement doesn’t need a scientist anywhere near it. Ours has seven.",
+        "rail_gap": 64,
+        "fit": "nad",
+        "space_top": 104,
+        "space_bottom": 100
       }
     },
     "check": {
-      "type": "muto-lp-reasons",
+      "type": "muto-about-proof",
       "settings": {
-        "anchor": "check"
+        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-trust-runners.jpg?v=1790751994",
+        "image_alt": "Two runners at dusk, motion blurred, on a path above a city skyline",
+        "line_a": "Don’t take our\nword for it.",
+        "line_b": "Check us\nyourself.",
+        "space_top": 100,
+        "space_bottom": 100
       },
       "blocks": {
-        "k1": {
-          "type": "reason",
+        "c1": {
+          "type": "step",
           "settings": {
-            "title": "Read the full label.",
-            "body": "<p>Every ingredient, every dose.</p>",
-            "answer_label": "",
-            "answer": ""
+            "icon": "target",
+            "title": "Read the Label",
+            "text": "Every ingredient, every dose, on the jar and on our ingredients page."
           }
         },
-        "k2": {
-          "type": "reason",
+        "c2": {
+          "type": "step",
           "settings": {
-            "title": "Paste it into ChatGPT, or show it to your GP, pharmacist or nutritionist.",
-            "body": "",
-            "answer_label": "",
-            "answer": ""
+            "icon": "infinity",
+            "title": "Ask Someone Else",
+            "text": "Paste it into ChatGPT, or show it to your GP, pharmacist or nutritionist."
           }
         },
-        "k3": {
-          "type": "reason",
+        "c3": {
+          "type": "step",
           "settings": {
-            "title": "Ask us for a batch certificate.",
-            "body": "",
-            "answer_label": "",
-            "answer": ""
+            "icon": "orbit",
+            "title": "Ask for a Certificate",
+            "text": "Batch certificates on request: hello@mutolongevity.com"
           }
         },
-        "k4": {
-          "type": "reason",
+        "c4": {
+          "type": "step",
           "settings": {
-            "title": "Ask Richie anything about the formula.",
-            "body": "<p>He answers formula questions himself.</p>",
-            "answer_label": "",
-            "answer": ""
+            "icon": "heart",
+            "title": "Ask Richie",
+            "text": "Anything about the formula. He answers formula questions himself."
           }
         },
-        "k5": {
-          "type": "reason",
+        "c5": {
+          "type": "step",
           "settings": {
-            "title": "Then give it 90 days, and judge it for yourself.",
-            "body": "",
-            "answer_label": "",
-            "answer": ""
-          }
-        },
-        "k_cta": {
-          "type": "cta",
-          "settings": {
-            "text": "Email us",
-            "label": "hello@mutolongevity.com",
-            "link": "mailto:hello@mutolongevity.com"
+            "icon": "gauge",
+            "title": "Give it 90 Days",
+            "text": "Then judge it for yourself. Not for you? Get every subscription payment back."
           }
         }
       },
       "block_order": [
-        "k1",
-        "k2",
-        "k3",
-        "k4",
-        "k5",
-        "k_cta"
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5"
       ]
     },
     "faq": {
-      "type": "muto-lp-faq-2",
+      "type": "muto-crea-faq",
       "settings": {
-        "heading": "Questions about our standards.",
-        "open_first": true,
-        "schema_on": true
+        "heading": "Questions about\nour standards.",
+        "schema_on": true,
+        "space_top": 100,
+        "space_bottom": 100
       },
       "blocks": {
         "q1": {
           "type": "q",
           "settings": {
-            "q": "Is MUTO tested for banned substances?",
-            "a": "<p>Every batch of MUTO is third-party tested. We don’t currently make a banned-substance certification claim, and we’ll update this page if that changes.</p>"
+            "title": "Is MUTO tested for banned substances?",
+            "text": "<p>Every batch of MUTO is third-party tested. We don’t currently make a banned-substance certification claim, and we’ll update this page if that changes.</p>"
           }
         },
         "q2": {
           "type": "q",
           "settings": {
-            "q": "Can I see your test results?",
-            "a": "<p>Yes. Batch certificates are available on request: <a href=\"mailto:hello@mutolongevity.com\">hello@mutolongevity.com</a>.</p>"
+            "title": "Can I see your test results?",
+            "text": "<p>Yes. Batch certificates are available on request: <a href=\"mailto:hello@mutolongevity.com\">hello@mutolongevity.com</a>.</p>"
           }
         },
         "q3": {
           "type": "q",
           "settings": {
-            "q": "Why NR and not NMN?",
-            "a": "<p>NR is authorised for food supplements in Great Britain, at up to 300mg a day for adults. NMN is still under novel food assessment. We only use ingredients that are authorised in the UK.</p>"
+            "title": "Why NR and not NMN?",
+            "text": "<p>NR is authorised for food supplements in Great Britain, at up to 300mg a day for adults. NMN is still under novel food assessment. We only use ingredients that are authorised in the UK.</p>"
           }
         },
         "q4": {
           "type": "q",
           "settings": {
-            "q": "Why 19 ingredients?",
-            "a": "<p>Because the five jobs need them, and each one has its dose on the label. Nothing is there to make the list longer.</p>"
+            "title": "Why 19 ingredients?",
+            "text": "<p>Because the five jobs need them, and each one has its dose on the label. Nothing is there to make the list longer.</p>"
           }
         },
         "q5": {
           "type": "q",
           "settings": {
-            "q": "Has MUTO been clinically proven?",
-            "a": "<p>No, and we won’t say it has. Our first human study starts in December 2026 at the University of Westminster. We’ll publish the results, whatever they show.</p>"
+            "title": "Has MUTO been clinically proven?",
+            "text": "<p>No, and we won’t say it has. Our first human study starts in December 2026 at the University of Westminster. We’ll publish the results, whatever they show.</p>"
           }
         },
         "q6": {
           "type": "q",
           "settings": {
-            "q": "What won’t MUTO do?",
-            "a": "<p>It won’t make you 25 again, replace sleep, training or a decent diet, or work overnight. It isn’t a stimulant. It’s a daily foundation, and most people give it 60 to 90 days.</p>"
+            "title": "What won’t MUTO do?",
+            "text": "<p>It won’t make you 25 again, replace sleep, training or a decent diet, or work overnight. It isn’t a stimulant. It’s a daily foundation, and most people give it 60 to 90 days.</p>"
           }
         },
         "q7": {
           "type": "q",
           "settings": {
-            "q": "Is it safe with medication?",
-            "a": "<p>Check with your GP or pharmacist first if you take any prescription medicine. MUTO contains vitamin K2, which can affect blood thinners such as warfarin. We’re happy to send the full label to share with your doctor.</p>"
+            "title": "Is it safe with medication?",
+            "text": "<p>Check with your GP or pharmacist first if you take any prescription medicine. MUTO contains vitamin K2, which can affect blood thinners such as warfarin. We’re happy to send the full label to share with your doctor.</p>"
           }
         },
         "q8": {
           "type": "q",
           "settings": {
-            "q": "Something else?",
-            "a": "<p>Everything else, from delivery to your subscription, is in our <a href=\"/pages/faqs\">full FAQ</a>.</p>"
+            "title": "Anything else?",
+            "text": "<p>Everything else, from delivery to your subscription, is in our <a href=\"/pages/faqs\">full FAQs</a>.</p>"
           }
         }
       },
@@ -543,39 +690,16 @@
         "q8"
       ]
     },
-    "close_head": {
-      "type": "muto-lp-article",
+    "banner": {
+      "type": "muto-about-banner",
       "settings": {
-        "heading": "Above the standard. Beneath the surface.",
-        "body": "<p>Five jobs, one jar. Every dose on the label, every batch tested, and 90 days to judge it for yourself.</p>"
-      }
-    },
-    "close": {
-      "type": "muto-lp-reasons",
-      "settings": {
-        "anchor": "start"
-      },
-      "blocks": {
-        "z1": {
-          "type": "cta",
-          "settings": {
-            "text": "90-day money-back guarantee for subscribers · Skip, pause or cancel online · T&Cs apply",
-            "label": "Start your 90 days",
-            "link": "/products/muto-nad-cellular-complex"
-          }
-        }
-      },
-      "block_order": [
-        "z1"
-      ]
-    },
-    "bar": {
-      "type": "muto-lp-bar",
-      "settings": {
-        "text": "Every dose on the label. Every batch tested. 90 days to judge it.",
+        "line_a": "Above\nthe\nstandard.",
+        "line_b": "Beneath\nthe surface.",
+        "cutout_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-cutout.png?v=1790751995",
         "cta_label": "Start your 90 days",
-        "cta_sub": "",
-        "cta_link": "/products/muto-nad-cellular-complex"
+        "cta_link": "/products/muto-nad-cellular-complex",
+        "space_top": 100,
+        "space_bottom": 100
       }
     },
     "page_css": {
@@ -584,29 +708,22 @@
         "color_scheme": "scheme-1",
         "padding_top": 0,
         "padding_bottom": 0,
-        "custom_liquid": "<style>\n.mlp-trust__row{grid-template-columns:repeat(5,minmax(0,1fr))!important;max-width:1320px}\n.mlp-trust__item+.mlp-trust__item{border-top:0;border-left:1px solid var(--hair)}\n@media (max-width:749px){\n  .mlp-trust__row{display:flex!important;flex-wrap:wrap;justify-content:center}\n  .mlp-trust__item{flex:0 0 33.333%;border-left:0!important}\n  .mlp-trust__item:nth-child(n+4){border-top:1px solid var(--hair)}\n}\n.mlp-rs__cta p{font-size:14px}\n</style>"
+        "custom_liquid": "<style>\n[id$=\"__rules\"] .mc__cmp th:nth-child(n+4),[id$=\"__rules\"] .mc__cmp td:nth-child(n+4){display:none}\n</style>"
       }
     }
   },
   "order": [
     "hero",
+    "intro",
     "proof",
-    "why",
-    "why_founder",
+    "founder",
     "rules",
-    "rules_table",
-    "standards_head",
     "standards",
-    "jobs_head",
     "jobs",
-    "people_head",
-    "people",
-    "check_head",
+    "board",
     "check",
     "faq",
-    "close_head",
-    "close",
-    "bar",
+    "banner",
     "page_css"
   ]
 }

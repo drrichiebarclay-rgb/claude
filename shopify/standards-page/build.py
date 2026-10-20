@@ -1,106 +1,122 @@
 """Our standards page: builds templates/page.standards.json from the copy doc
-(MUTO_Our_Standards_Page_Copy_Oct26.docx), using only the existing MUTO landing-page
-sections (muto-lp-*), so it carries the same design system as the landing pages.
+(MUTO_Our_Standards_Page_Copy_Oct26.docx) using the main site's own sections, the
+ones the About page, home page and product page are built from (muto-about-*,
+muto-home-*, muto-crea-*). Hero, board and banner settings are copied from the
+About template (theme-ref/templates__page.about-muto.json) so imagery and
+behaviour match it exactly.
 
-Section map (doc section → theme section):
-  1 Hero            → muto-lp-article-hero, then muto-lp-trust as the 5-item proof strip
-  2 Why we built it → muto-lp-article + muto-lp-reasons (founder "person" block)
-  3 Rules vs MUTO   → muto-lp-article + muto-lp-reasons ("compare" block)
-  4 Ten standards   → muto-lp-article + muto-lp-reasons (10 numbered reasons, "How to check" panels)
-  5 Five jobs       → muto-lp-article + muto-lp-reasons (compare + callout + button), anchor #ingredients
-  6 Scientists      → muto-lp-article + muto-lp-experts
-  7 Check us        → muto-lp-article + muto-lp-reasons (5 numbered steps + email button)
-  8 Questions       → muto-lp-faq-2
-  9 Closing CTA     → muto-lp-article + muto-lp-reasons (button), plus muto-lp-bar
-The doc's [Confirm …] notes are left out of the page; they're listed in README.md.
+Doc section → theme section:
+  1 Hero            → muto-about-hero (poster, two actions, plan strip + sticky bar)
+                      + muto-about-statement (subhead and the "regulated as food" intro)
+                      + muto-about-made (the proof strip as the three evidence cards)
+  2 Why we built it → muto-about-founder (portrait + letter card)
+  3 Rules vs MUTO   → muto-crea-compare (MUTO vs UK law; the two unused columns hidden)
+  4 Ten standards   → muto-crea-faq (ten open-able rows, no FAQ schema)
+  5 Five jobs       → muto-crea-benefits (one panel: label photo + five rows)
+  6 Scientists      → muto-home-board (the About page's board, with videos)
+  7 Check us        → muto-about-proof (five steps)
+  8 Questions       → muto-crea-faq
+  9 Closing         → muto-about-banner ("Above the standard. Beneath the surface.")
+The doc's [Confirm …] notes are left off the page; they're listed in README.md.
 
 Usage: python3 build.py   (writes templates/page.standards.json)
 """
-import json, os
+import copy, json, os, re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+ABOUT = json.loads(re.sub(r"^/\*.*?\*/", "", open(os.path.join(HERE, "theme-ref", "templates__page.about-muto.json")).read(), flags=re.S))["sections"]
 PDP = "/products/muto-nad-cellular-complex"
 CTA = "Start your 90 days"
 CDN = "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/"
-KIT = CDN + "muto-lp-kit-hero.jpg?v=1791969959"
-KIT_ALT = "The MUTO welcome kit: NAD+ Cellular Complex jar and refill pouches, Ultrapure Creatine, the bottle and the presentation box"
-FOUNDER = CDN + "about-founder.jpg?v=1790751995"
 
 S, ORDER = {}, []
 
 
-def add(key, type_, settings=None, blocks=None):
-    sec = {"type": type_, "settings": settings or {}}
+def add(key, type_, settings, blocks=None):
+    sec = {"type": type_, "settings": settings}
     if blocks is not None:
-        sec["blocks"] = {k: b for k, b in blocks}
+        sec["blocks"] = dict(blocks)
         sec["block_order"] = [k for k, _ in blocks]
     S[key] = sec
     ORDER.append(key)
+
+
+def from_about(key, **changes):
+    sec = copy.deepcopy(ABOUT[key])
+    sec["settings"].update(changes)
+    return sec
 
 
 def p(*paras):
     return "".join(f"<p>{x}</p>" for x in paras)
 
 
-# ---- 1. Hero ----
-add("hero", "muto-lp-article-hero", {
-    "image_fallback": KIT, "image_alt": KIT_ALT, "image_position": "55% 62%",
-    "kicker": "Our standards",
-    "heading": "You shouldn’t have to take a supplement on trust.",
-    "sub": "Supplements don’t have to prove much to go on sale in the UK. So we built MUTO to a higher bar, and we show you all of it.",
-    "cta_label": CTA, "cta_link": PDP,
-    "jump_label": "See every ingredient and dose", "jump_target": "#ingredients",
-}, [])
-add("proof", "muto-lp-trust", {"heading": ""}, [
-    ("t1", {"type": "item", "settings": {"icon": "label", "text": "Every dose on the label"}}),
-    ("t2", {"type": "item", "settings": {"icon": "flask", "text": "Every batch third-party tested"}}),
-    ("t3", {"type": "item", "settings": {"icon": "shield", "text": "Made in the UK to GMP"}}),
-    ("t4", {"type": "item", "settings": {"icon": "award", "text": "Six scientists on our advisory board"}}),
-    ("t5", {"type": "item", "settings": {"icon": "shield", "text": "90-day money-back guarantee"}}),
-])
+# ---- 1. Hero, subhead, proof ----
+hero = from_about("hero", heading="Our standards",
+                  subheading="You shouldn’t have to take a supplement on trust.",
+                  cta_label=CTA, cta_link=PDP,
+                  ghost_label="See every ingredient and dose", ghost_link="/pages/ingredients",
+                  plan_cta_label=CTA, sticky_cta_label=CTA,
+                  schema_on=False)  # the About page already carries the organisation schema
+S["hero"] = hero; ORDER.append("hero")
+
+add("intro", "muto-about-statement", {
+    "layout": "split", "field": "tail", "eyebrow": "Our standards",
+    "head": "Supplements don’t\nhave to prove much\nto go on sale.",
+    "tail": "",
+    "body": "Food supplements in the UK are regulated as food. That keeps them safe to eat, but it asks for far less than most people assume. So we built MUTO to a higher bar, and we show you all of it.",
+    "space_top": 100, "space_bottom": 60})
+
+made = copy.deepcopy(ABOUT["made"])
+made["settings"]["heading"] = "Built to a higher bar"
+mb = made["blocks"]
+order = made["block_order"]
+mb[order[0]]["settings"].update(title="Six scientists, named",
+                                text="Formulated by a PhD cell biologist and reviewed by a six-member scientific advisory board.")
+mb[order[1]]["settings"].update(title="Every dose on the label",
+                                text="No proprietary blends. Every ingredient, form and dose on the label, and on this page.")
+mb[order[2]]["settings"].update(title="Every batch tested, made in the UK",
+                                text="Made in the UK to GMP standards, in an ISO-certified facility. Every batch third-party tested, with a 90-day money-back guarantee.")
+S["proof"] = made; ORDER.append("proof")
 
 # ---- 2. Why we built it this way ----
-add("why", "muto-lp-article", {
-    "heading": "Doing everything right, and still buying on a leap of faith.",
-    "body": p("Most of the people I’ve worked with in their 40s and 50s were doing everything right. Training, eating well, taking their supplements. And they still felt it: gone by 3pm, nothing left for the people at home, sitting out the things they love.",
-              "Most of what they took, they took on trust. Greens, a supermarket multivitamin, collagen, joint capsules. Labels that didn’t show the doses. Nobody checking every batch. No way to know if any of it was doing anything."),
-})
-add("why_founder", "muto-lp-reasons", {"anchor": "founder"}, [
-    ("f1", {"type": "person", "settings": {
-        "label": "Why I built MUTO", "image_fallback": FOUNDER, "position": "50% 20%",
-        "quote": "I spent years in the lab studying why our bodies get less back from the same food and training as we age. Then years consulting people just like you. So when I built MUTO, I built it the way I’d want it built for my own family: nothing hidden, everything checkable.",
-        "name": "Dr Richie Barclay, Founder", "role": "PhD, cell biology and nutrition"}}),
+add("founder", "muto-about-founder", {
+    "image_fallback": CDN + "about-founder.jpg?v=1790751995",
+    "image_alt": ABOUT["founder"]["settings"]["image_alt"],
+    "heading": "Doing everything right,\nand still buying on\na leap of faith.",
+    "name": "Dr Richie Barclay, Founder · PhD, cell biology and nutrition",
+    "cta_label": CTA, "cta_link": PDP, "space_top": 100, "space_bottom": 100}, [
+    ("p1", {"type": "para", "settings": {"text": "Most of the people I’ve worked with in their 40s and 50s were doing everything right. Training, eating well, taking their supplements. And they still felt it: gone by 3pm, nothing left for the people at home, sitting out the things they love."}}),
+    ("p2", {"type": "para", "settings": {"text": "Most of what they took, they took on trust. Greens, a supermarket multivitamin, collagen, joint capsules. Labels that didn’t show the doses. Nobody checking every batch. No way to know if any of it was doing anything."}}),
+    ("p3", {"type": "para", "settings": {"text": "I spent years in the lab studying why our bodies get less back from the same food and training as we age. Then years consulting people just like you. So when I built MUTO, I built it the way I’d want it built for my own family: nothing hidden, everything checkable."}}),
 ])
 
 # ---- 3. What the rules ask for vs what we chose to do ----
-add("rules", "muto-lp-article", {
-    "heading": "Nobody made us do any of this. That’s the point.",
-    "body": p("Food supplements in the UK are regulated as food. That keeps them safe to eat, but it asks for far less than most people assume. Here’s the gap."),
-})
 RULES = [
-    ("Approval before it goes on sale", "✕ No", "✓ Formulated by a PhD cell biologist and reviewed by a six-member scientific advisory board"),
-    ("Every dose on the label", "✕ No: “proprietary blends” are allowed", "✓ Every ingredient, every dose, on the label and on this page"),
-    ("Independent testing of every batch", "✕ No", "✓ Every batch third-party tested. Certificates available on request"),
-    ("Made in a GMP-certified facility", "✕ No", "✓ Made in the UK to GMP standards, in an ISO-certified facility"),
-    ("A scientist involved", "✕ No", "✓ A PhD founder and six named scientists"),
-    ("Human research", "✕ No", "✓ Our first human study starts in December 2026, with more university research to follow"),
-    ("A guarantee", "✕ No", "✓ 90 days, or your money back"),
+    "Approval before it goes on sale",
+    "Every dose on the label",
+    "Independent testing of every batch",
+    "Made in a GMP-certified facility",
+    "A scientist involved",
+    "Human research",
+    "A money-back guarantee",
 ]
-add("rules_table", "muto-lp-reasons", {"anchor": "the-rules"}, [
-    ("c1", {"type": "compare", "settings": {
-        "heading": "", "col1": "", "col2": "Required by UK law?", "col3": "What MUTO does",
-        "rows": "\n".join(" | ".join(r) for r in RULES), "note": ""}}),
+add("rules", "muto-crea-compare", {
+    "heading": "Nobody made us do any\nof this. That’s the point.",
+    "table_caption": "What UK law requires, and what MUTO does",
+    "claim_label": "",
+    "density": "compact", "head_gap": 40, "claim_width": 562, "col_pitch": 160, "panel_width": 120,
+    "col_1": "MUTO", "col_1_logo": True, "col_2": "Required by UK law", "col_3": "", "col_4": "",
+    "fit": "nad", "space_top": 70, "space_bottom": 70}, [
+    (f"r{i}", {"type": "row", "settings": {"claim": c, "m1": "yes", "m2": "no", "m3": "dash", "m4": "dash"}})
+    for i, c in enumerate(RULES, 1)
 ])
 
 # ---- 4. Our ten standards ----
-add("standards_head", "muto-lp-article", {
-    "heading": "Ten standards. All of them checkable.",
-    "body": p("Each one is a plain promise, why it matters, and how you can check it yourself."),
-})
 STANDARDS = [
     ("Every dose on the label",
      "No proprietary blends. Every one of the 19 ingredients is listed with its exact dose and form, so you know exactly what you’re taking.",
-     "Read the full label below, or turn the jar round."),
+     "Read the full label, or turn the jar round."),
     ("Doses chosen for a reason",
      "NR at 300mg, the most allowed in Great Britain. Vitamin D3 at 2,000 IU. B vitamins in their active, methylated forms. Zinc and copper dosed as a pair, because they compete for absorption. Nothing added just to make the list longer.",
      "Every dose and form is in the ingredient table."),
@@ -117,7 +133,7 @@ STANDARDS = [
      "Vegan capsules made from plant cellulose (HPMC). Vitamin D3 from algae. No major allergens, no fillers, no caffeine and no stimulants.",
      "It’s all on the label."),
     ("Scientists with names",
-     "Formulated by Dr Richie Barclay, PhD in cell biology and nutrition, with a six-member scientific advisory board across sports nutrition, exercise physiology, public health and lifestyle medicine. The board meets every quarter to guide our research and every new formula.",
+     "Formulated by Dr Richie Barclay, PhD in cell biology and nutrition, with a six-member scientific advisory board across sports nutrition, exercise physiology, public health and lifestyle medicine. The board meets every quarter to guide our research and every new formula. It doesn’t endorse products, and none of its members are presented as recommending MUTO for any medical purpose.",
      "Meet the board below."),
     ("Research we’ll publish, whatever it shows",
      "MUTO is part of independent university research: a University of Westminster study starts in December 2026, with work at King’s College London, Coventry and Newcastle to follow. There are no results yet, and we’ll never say there are.",
@@ -127,73 +143,49 @@ STANDARDS = [
      "Every claim on our site carries its authorised wording."),
     ("Built to be checked",
      "Note how you feel today: score your afternoons, or check your wearable. Give it 90 days. If you don’t feel the difference, you get every subscription payment back. Skip, pause or cancel online anytime, with a reminder five days before every payment.",
-     "Guarantee terms below."),
+     "Guarantee terms are in our <a href=\"/pages/faqs#guarantee\">FAQs</a>."),
 ]
-add("standards", "muto-lp-reasons", {"anchor": "standards"}, [
-    (f"s{i}", {"type": "reason", "settings": {"title": t, "body": p(b), "answer_label": "How to check", "answer": p(c)}})
+add("standards", "muto-crea-faq", {"heading": "Ten standards.\nAll of them checkable.", "schema_on": False, "space_top": 100, "space_bottom": 100}, [
+    (f"s{i}", {"type": "q", "settings": {"title": f"{i}. {t}", "text": p(b, f"<strong>How to check:</strong> {c}")}})
     for i, (t, b, c) in enumerate(STANDARDS, 1)
 ])
 
 # ---- 5. Five jobs, one jar ----
-add("jobs_head", "muto-lp-article", {
-    "heading": "The foundation your body runs on.",
-    "body": p("Built for what you actually need in your 40s and 50s. Five jobs, one jar."),
-})
 JOBS = [
-    ("1. Energy", "Methylated B vitamins", "Help you feel less tired"),
-    ("2. Muscles and bones", "Vitamin D3 2,000 IU + K2 100µg", "Normal muscle function and the maintenance of normal bones"),
-    ("3. Immunity", "Zinc 15mg + copper 1mg, with D3", "The normal function of your immune system"),
-    ("4. NAD+", "NR 300mg", "Your body turns it into NAD+, which runs lower as we get older"),
-    ("5. What ties it together", "CoQ10 150mg, trans-resveratrol 50mg, grape seed extract 150mg, PQQ 20mg, TMG 450mg, BioPerine® 5mg", "Every dose on the label"),
+    ("Energy", "Methylated B vitamins", "Help you feel less tired. Vitamins B6 and B12 contribute to the reduction of tiredness and fatigue."),
+    ("Muscles and bones", "Vitamin D3 2,000 IU + K2 100µg", "Vitamin D contributes to normal muscle function. Vitamins D and K contribute to the maintenance of normal bones."),
+    ("Immunity", "Zinc 15mg + copper 1mg, with D3", "Zinc, copper and vitamin D contribute to the normal function of the immune system."),
+    ("NAD+", "NR 300mg", "Your body turns it into NAD+, which runs lower as we get older."),
+    ("What ties it together", "CoQ10, resveratrol, grape seed, PQQ, TMG, BioPerine®", "CoQ10 150mg, trans-resveratrol 50mg, grape seed extract 150mg, PQQ 20mg, TMG 450mg and BioPerine® 5mg. Every dose on the label."),
 ]
-add("jobs", "muto-lp-reasons", {"anchor": "ingredients"}, [
-    ("j1", {"type": "compare", "settings": {
-        "heading": "", "col1": "Job", "col2": "What’s in it", "col3": "What it does",
-        "rows": "\n".join(" | ".join(r) for r in JOBS),
-        "note": "Vitamins B6 and B12 contribute to the reduction of tiredness and fatigue. Vitamin D contributes to normal muscle function. Vitamins D and K contribute to the maintenance of normal bones. Zinc, copper and vitamin D contribute to the normal function of the immune system."}}),
-    ("j2", {"type": "callout", "settings": {
-        "text": p("<strong>Two capsules with breakfast.</strong> Alongside our creatine, which comes free with your first order, it’s all you need to keep up."),
-        "image_fallback": KIT, "image_alt": KIT_ALT, "image_position": "55% 62%"}}),
-    ("j3", {"type": "cta", "settings": {"text": "", "label": "See the full label and the science behind each ingredient", "link": "/pages/ingredients"}}),
+add("jobs", "muto-crea-benefits", {"eyebrow": "Five jobs, one jar", "tablist_label": "Choose a view", "space_top": 96, "space_bottom": 100}, [
+    ("panel", {"type": "panel", "settings": {
+        "label": "Five jobs", "key": "jobs",
+        "heading": "The foundation your\nbody runs on.",
+        "lede": "Built for what you actually need in your 40s and 50s. Two capsules with breakfast. Alongside our creatine, free with your first order, it’s all you need to keep up.",
+        "image_fallback": CDN + "about-made-declared.jpg?v=1790752124",
+        "image_alt": "A close-up of the MUTO NAD+ Cellular Complex label showing every ingredient and dose",
+        "cta_label": "See the full label", "cta_link": "/pages/ingredients"}}),
+] + [
+    (f"j{i}", {"type": "benefit", "settings": {"panel": "jobs", "title": t, "sub": s, "text": p(x)}})
+    for i, (t, s, x) in enumerate(JOBS, 1)
 ])
 
 # ---- 6. Meet the scientists ----
-add("people_head", "muto-lp-article", {
-    "heading": "The people behind the formula.",
-    "body": p("A supplement doesn’t need a scientist anywhere near it. Ours has seven.",
-              "<em>Our advisory board guides our research and formulation. It doesn’t endorse products, and none of its members are presented as recommending MUTO for any medical purpose.</em>"),
-})
-BOARD = [  # as on the live landing pages
-    ("shopify://shop_images/Dr_James_Cover_Final.png", CDN + "about-board-3.jpg?v=1790751994", "Dr James Morehen", "Performance nutritionist, international rugby · Scientific Advisory Board", "Advises MUTO on performance nutrition for people who still train hard."),
-    ("shopify://shop_images/Dr_Alka_Cover_Final.png", CDN + "about-board-1.jpg?v=1790751995", "Dr Alka Patel", "Longevity doctor & global speaker · Scientific Advisory Board", "Advises MUTO on longevity: helping people keep doing what they love for longer."),
-    ("shopify://shop_images/Dr_Richard_Cover_Final.png", "", "Dr Richard Mackenzie", "Leading metabolism researcher · Scientific Advisory Board", "Advises MUTO on metabolism: how your cells turn food into energy."),
-    ("shopify://shop_images/Dr_Matt.png", "", "Dr Maciej Zatonski", "Performance & sleep doctor · Scientific Advisory Board", "Advises MUTO on sleep and recovery, and on reading them over weeks, not nights."),
-    ("shopify://shop_images/Dr-ash-cover-hq.webp", "", "Dr Ash Kapoor", "Longevity & Human Optimisation Doctor & Founder of Levitas One · Scientific Advisory Board", "Advises MUTO on longevity and human optimisation."),
-    ("shopify://shop_images/Jamie-Paweleck.jpg", "", "Dr Jamie Paweleck", "Longevity doctor and medical educator · Scientific Advisory Board", "Advises MUTO on longevity medicine and medical education."),
-]
-add("people", "muto-lp-experts", {"heading": "Our founder and Scientific Advisory Board."}, [
-    ("e0", {"type": "person", "settings": {"image_fallback": FOUNDER, "alt": "Dr Richie Barclay holding a jar of MUTO", "position": "50% 20%",
-                                           "name": "Dr Richie Barclay, PhD", "role": "Founder · PhD, cell biology and nutrition",
-                                           "quote": "“I built MUTO because I was tired of supplements that ask you to take them on trust. So every ingredient and every dose is on the label.”"}}),
-] + [
-    (f"e{i}", {"type": "person", "settings": {"image": img, "image_fallback": fb, "alt": n, "name": n, "role": r, "quote": q}})
-    for i, (img, fb, n, r, q) in enumerate(BOARD, 1)
-])
+board = copy.deepcopy(ABOUT["board"])
+board["settings"].update(heading="The people behind\nthe formula.",
+                         note="A supplement doesn’t need a scientist anywhere near it. Ours has seven.")
+S["board"] = board; ORDER.append("board")
 
 # ---- 7. Check us yourself ----
-add("check_head", "muto-lp-article", {"heading": "Don’t take our word for it.", "body": ""})
-CHECK = [
-    ("Read the full label.", "Every ingredient, every dose."),
-    ("Paste it into ChatGPT, or show it to your GP, pharmacist or nutritionist.", ""),
-    ("Ask us for a batch certificate.", ""),
-    ("Ask Richie anything about the formula.", "He answers formula questions himself."),
-    ("Then give it 90 days, and judge it for yourself.", ""),
-]
-add("check", "muto-lp-reasons", {"anchor": "check"}, [
-    (f"k{i}", {"type": "reason", "settings": {"title": t, "body": p(b) if b else "", "answer_label": "", "answer": ""}})
-    for i, (t, b) in enumerate(CHECK, 1)
-] + [
-    ("k_cta", {"type": "cta", "settings": {"text": "Email us", "label": "hello@mutolongevity.com", "link": "mailto:hello@mutolongevity.com"}}),
+add("check", "muto-about-proof", {
+    "image_fallback": ABOUT["proof"]["settings"]["image_fallback"], "image_alt": ABOUT["proof"]["settings"]["image_alt"],
+    "line_a": "Don’t take our\nword for it.", "line_b": "Check us\nyourself.", "space_top": 100, "space_bottom": 100}, [
+    ("c1", {"type": "step", "settings": {"icon": "target", "title": "Read the Label", "text": "Every ingredient, every dose, on the jar and on our ingredients page."}}),
+    ("c2", {"type": "step", "settings": {"icon": "infinity", "title": "Ask Someone Else", "text": "Paste it into ChatGPT, or show it to your GP, pharmacist or nutritionist."}}),
+    ("c3", {"type": "step", "settings": {"icon": "orbit", "title": "Ask for a Certificate", "text": "Batch certificates on request: hello@mutolongevity.com"}}),
+    ("c4", {"type": "step", "settings": {"icon": "heart", "title": "Ask Richie", "text": "Anything about the formula. He answers formula questions himself."}}),
+    ("c5", {"type": "step", "settings": {"icon": "gauge", "title": "Give it 90 Days", "text": "Then judge it for yourself. Not for you? Get every subscription payment back."}}),
 ])
 
 # ---- 8. Questions about our standards ----
@@ -205,32 +197,18 @@ FAQ = [
     ("Has MUTO been clinically proven?", "No, and we won’t say it has. Our first human study starts in December 2026 at the University of Westminster. We’ll publish the results, whatever they show."),
     ("What won’t MUTO do?", "It won’t make you 25 again, replace sleep, training or a decent diet, or work overnight. It isn’t a stimulant. It’s a daily foundation, and most people give it 60 to 90 days."),
     ("Is it safe with medication?", "Check with your GP or pharmacist first if you take any prescription medicine. MUTO contains vitamin K2, which can affect blood thinners such as warfarin. We’re happy to send the full label to share with your doctor."),
-    ("Something else?", "Everything else, from delivery to your subscription, is in our <a href=\"/pages/faqs\">full FAQ</a>."),
+    ("Anything else?", "Everything else, from delivery to your subscription, is in our <a href=\"/pages/faqs\">full FAQs</a>."),
 ]
-add("faq", "muto-lp-faq-2", {"heading": "Questions about our standards.", "open_first": True, "schema_on": True}, [
-    (f"q{i}", {"type": "q", "settings": {"q": q, "a": p(a)}}) for i, (q, a) in enumerate(FAQ, 1)
+add("faq", "muto-crea-faq", {"heading": "Questions about\nour standards.", "schema_on": True, "space_top": 100, "space_bottom": 100}, [
+    (f"q{i}", {"type": "q", "settings": {"title": q, "text": p(a)}}) for i, (q, a) in enumerate(FAQ, 1)
 ])
 
-# ---- 9. Closing CTA ----
-add("close_head", "muto-lp-article", {
-    "heading": "Above the standard. Beneath the surface.",
-    "body": p("Five jobs, one jar. Every dose on the label, every batch tested, and 90 days to judge it for yourself."),
-})
-add("close", "muto-lp-reasons", {"anchor": "start"}, [
-    ("z1", {"type": "cta", "settings": {"text": "90-day money-back guarantee for subscribers · Skip, pause or cancel online · T&Cs apply", "label": CTA, "link": PDP}}),
-])
-add("bar", "muto-lp-bar", {"text": "Every dose on the label. Every batch tested. 90 days to judge it.", "cta_label": CTA, "cta_sub": "", "cta_link": PDP})
+# ---- 9. Closing ----
+S["banner"] = from_about("banner", cta_label=CTA, cta_link=PDP); ORDER.append("banner")
 
-# Page-only CSS: the trust strip takes five items (the section is built for three)
+# The comparison table has four columns; this page uses two
 add("page_css", "custom-liquid", {"color_scheme": "scheme-1", "padding_top": 0, "padding_bottom": 0, "custom_liquid": """<style>
-.mlp-trust__row{grid-template-columns:repeat(5,minmax(0,1fr))!important;max-width:1320px}
-.mlp-trust__item+.mlp-trust__item{border-top:0;border-left:1px solid var(--hair)}
-@media (max-width:749px){
-  .mlp-trust__row{display:flex!important;flex-wrap:wrap;justify-content:center}
-  .mlp-trust__item{flex:0 0 33.333%;border-left:0!important}
-  .mlp-trust__item:nth-child(n+4){border-top:1px solid var(--hair)}
-}
-.mlp-rs__cta p{font-size:14px}
+[id$="__rules"] .mc__cmp th:nth-child(n+4),[id$="__rules"] .mc__cmp td:nth-child(n+4){display:none}
 </style>"""})
 
 out = os.path.join(HERE, "templates", "page.standards.json")

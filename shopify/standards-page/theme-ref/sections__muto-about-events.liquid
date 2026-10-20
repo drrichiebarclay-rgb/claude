@@ -1,0 +1,156 @@
+{%- comment -%}
+  MUTO About — expert led events.
+  Closing section: community as the last proof point before the footer.
+
+  The artboard draws a static row of four stills that runs off the right edge.
+  With eight it has to be navigable, so the row is a carousel: native scroll
+  and swipe (which is what the artboard's overflow already implied), plus
+  arrows and a progress track for pointer users. It degrades to a plain
+  scrolling list with no JS.
+{%- endcomment -%}
+
+{{ 'muto-about.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'muto-about.js' | asset_url }}" defer="defer"></script>
+
+{%- assign heading_id = 'ma-events-' | append: section.id -%}
+
+{%- liquid
+  assign ma_spt = section.settings.space_top | default: 100 | times: 0.01
+  assign ma_spb = section.settings.space_bottom | default: 100 | times: 0.01
+-%}
+
+<div class="ma" data-ma style="--ma-spt:{{ ma_spt }};--ma-spb:{{ ma_spb }}">
+  <div class="ma__wrap">
+    <section class="ma__events" aria-labelledby="{{ heading_id }}">
+      <div class="ma__events-top">
+        <div class="ma__events-copy">
+          {%- if section.settings.body != blank -%}
+            <p class="ma__body">{{ section.settings.body }}</p>
+          {%- endif -%}
+          {%- if section.settings.note != blank -%}
+            <p class="ma__events-note">{{ section.settings.note }}</p>
+          {%- endif -%}
+        </div>
+        {%- if section.settings.heading != blank -%}
+          <h2 class="ma__h2 ma__events-head" id="{{ heading_id }}">
+            {{- section.settings.heading | escape | newline_to_br -}}
+          </h2>
+        {%- endif -%}
+      </div>
+
+      <div class="ma__carousel" data-ma-carousel>
+        <ul class="ma__events-rail ma__rail" id="{{ heading_id }}-track" data-ma-carousel-track>
+          {%- for block in section.blocks -%}
+            <li class="ma__event" {{ block.shopify_attributes }}>
+              {% render 'muto-about-image',
+                image: block.settings.image,
+                fallback: block.settings.image_fallback,
+                alt: block.settings.alt,
+                ratio: '379/387',
+                sizes: '(min-width: 990px) 379px, 72vw',
+                widths: '300,420,560,760,1100' %}
+            </li>
+          {%- endfor -%}
+        </ul>
+
+        {%- if section.blocks.size > 1 -%}
+          <div class="ma__carousel-bar">
+            <div class="ma__carousel-progress" aria-hidden="true">
+              <span class="ma__carousel-fill" data-ma-carousel-fill></span>
+            </div>
+            <div class="ma__carousel-nav">
+              <button
+                class="ma__carousel-btn"
+                type="button"
+                data-ma-carousel-prev
+                aria-label="{{ 'Show the previous events' | escape }}"
+                aria-controls="{{ heading_id }}-track"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M15 4 7 12l8 8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <button
+                class="ma__carousel-btn"
+                type="button"
+                data-ma-carousel-next
+                aria-label="{{ 'Show the next events' | escape }}"
+                aria-controls="{{ heading_id }}-track"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 4l8 8-8 8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+    </section>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO About — Events",
+  "tag": "section",
+  "class": "ma-section",
+  "max_blocks": 16,
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Expert\nled events" },
+    { "type": "textarea", "id": "body", "label": "Body", "default": "Run clubs, recovery sessions and talks, led by the people behind MUTO: our scientists, coaches and training partners. Come to train, ask the questions you'd normally have to Google, and meet others doing the work." },
+    { "type": "text", "id": "note", "label": "Note", "default": "MUTO subscribers get priority access to every event." },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 }
+  ],
+  "blocks": [
+    {
+      "type": "photo",
+      "name": "Photo",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_fallback", "label": "Fallback image URL" },
+        { "type": "text", "id": "alt", "label": "Alt text", "default": "A MUTO event", "info": "Describe what is happening in the photograph. This is what search engines and screen readers read." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MUTO About — Events",
+      "blocks": [
+        {
+          "type": "photo",
+          "settings": { "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-event-4.jpg?v=1790752124", "alt": "Runners setting off from a MUTO run club, one grinning at the camera" }
+        },
+        {
+          "type": "photo",
+          "settings": { "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-event-2.jpg?v=1790752124", "alt": "An athlete with arms raised at the end of a MUTO training session" }
+        },
+        {
+          "type": "photo",
+          "settings": { "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-event-3.jpg?v=1790752124", "alt": "A MUTO run club crossing a London junction in a pack" }
+        },
+        {
+          "type": "photo",
+          "settings": { "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-event-1.jpg?v=1790752124", "alt": "A MUTO run club gathering outside a cafe on a London street" }
+        },
+        {
+          "type": "photo",
+          "settings": { "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-event-5-run-club-street.jpg?v=1790757912", "alt": "A MUTO run club setting off through east London, one runner turning to the camera" }
+        },
+        {
+          "type": "photo",
+          "settings": { "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-event-6-post-run-social.jpg?v=1790757912", "alt": "Runners eating and talking together in a cafe after a MUTO run club session" }
+        },
+        {
+          "type": "photo",
+          "settings": { "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-event-7-strength-session.jpg?v=1790757912", "alt": "A coach watching a line of athletes barbell back squatting at a MUTO strength session" }
+        },
+        {
+          "type": "photo",
+          "settings": { "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-event-8-recovery-class.jpg?v=1790757912", "alt": "A led recovery and mobility class at a MUTO event, participants lying on mats" }
+        }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": ["page"]
+  }
+}
+{% endschema %}

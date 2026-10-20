@@ -1,0 +1,183 @@
+{%- comment -%}
+  MUTO Home — sticky add to cart.
+
+  The same bar the About page carries, as its own section here rather than a
+  tail on the hero: the home page's hero has no plan strip of its own, and a
+  band that can be hidden, moved or deleted on its own shouldn't be welded to
+  another one.
+
+  It reveals once the first band has scrolled 40% past the top of the window.
+  It watches whichever element carries `data-mh-hero` if one is on the page,
+  and falls back to a plain scroll threshold if the hero has been deleted — so
+  the bar keeps working whatever else the merchant removes.
+
+  Desktop shows the plan strip itself, because that strip is already the buy
+  control and a second, smaller one would put two prices on screen at once.
+  Mobile shows the compact form instead: name, price, button. Both are in the
+  markup; CSS picks one.
+
+  Server-rendered from the same opening selection the strip shows, so it is
+  never blank before the script runs, and it is inert until revealed so it is
+  not in the tab order while off screen.
+
+  Prices are read from the live product, never typed, and each plan links to
+  the PDP with that variant (and its selling plan) preselected.
+{%- endcomment -%}
+
+{{ 'muto-home.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'muto-home.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign plans = section.blocks | where: 'type', 'plan'
+  # The page's own product wins. On a product template the picker is the
+  # wrong answer to a question the URL has already settled — and a picked
+  # product would put a different variant on the bar from the one the buy
+  # block is about to add. The picker stays for the home and page templates,
+  # where there is no product in scope.
+  assign bar_product = section.settings.product
+  if product != blank
+    assign bar_product = product
+  endif
+  assign product = bar_product
+  assign first_href = ''
+  assign first_name = ''
+  assign first_price = ''
+  assign first_key = ''
+
+  # The opening selection is the first block whose variant exists and is in
+  # stock. Settled here rather than inside the strip so the strip, the compact
+  # face and the bar's own link all agree on it.
+  for block in plans
+    assign v = product.variants | where: 'title', block.settings.variant_title | first
+    if v == blank or v.available == false
+      assign v = product.variants | where: 'option1', block.settings.variant_title | first
+    endif
+    if v == blank or v.available == false
+      continue
+    endif
+    assign unit = v.price
+    assign plan_id = ''
+    if block.settings.use_selling_plan and v.selling_plan_allocations.size > 0
+      assign alloc = v.selling_plan_allocations | first
+      assign plan_id = alloc.selling_plan.id
+      assign unit = alloc.price
+    endif
+    assign first_href = product.url | append: '?variant=' | append: v.id
+    if plan_id != blank
+      assign first_href = first_href | append: '&selling_plan=' | append: plan_id
+    endif
+    assign first_key = block.settings.variant_title
+    assign first_name = block.settings.name
+    assign first_price = unit | money | strip_html
+    break
+  endfor
+
+  assign plan_group = 'mh-plan-' | append: section.id
+  assign plan_cta = section.settings.plan_cta_label | default: section.settings.sticky_cta_label
+  assign sticky_href = first_href | default: section.settings.cta_link | default: routes.all_products_collection_url
+-%}
+
+{%- comment -%}
+  No plan strip resolved — a product template whose plan selector lives in its
+  buy block, say — so the bar shows its compact face at every width rather than
+  revealing on scroll with nothing in it.
+{%- endcomment -%}
+{%- liquid
+  assign strip = false
+  if plans.size > 0 and product != blank and first_href != blank
+    assign strip = true
+  endif
+-%}
+<div class="mh mh__sticky{% unless strip %} mh__sticky--compact{% endunless %}" data-mh data-mh-sticky>
+  <div class="mh__sticky-inner mh__wrap">
+    <div class="mh__sticky-compact">
+      {%- comment -%}
+        On a product page the plan strip lives in the buy block, not here, so
+        this section carries no plan blocks and nothing resolves server-side.
+        The fallback label is what the bar shows until the first
+        `muto:home:plan` event arrives — rather than a blank bar for one frame.
+      {%- endcomment -%}
+      <div class="mh__sticky-label" data-mh-sticky-label{% if section.settings.sticky_label != blank %} data-mh-sticky-name="{{ section.settings.sticky_label | escape }}"{% endif %}>
+        {%- if first_name == blank and first_price == blank -%}
+          {{- section.settings.sticky_label -}}
+        {%- else -%}
+          {{- first_name }}{% if first_name != blank and first_price != blank %} · {% endif %}{{ first_price -}}
+        {%- endif -%}
+      </div>
+      {%- if section.settings.sticky_sub != blank -%}
+        <div class="mh__sticky-sub">{{ section.settings.sticky_sub }}</div>
+      {%- endif -%}
+    </div>
+
+    {%- if strip -%}
+      {% render 'muto-home-plans',
+        plans: plans,
+        product: product,
+        selected_key: first_key,
+        cta_label: plan_cta,
+        cta_href: first_href,
+        group: plan_group,
+        label: 'Choose a plan',
+        editor: true %}
+    {%- else -%}
+      {%- comment -%}
+        In compact mode the bar has no strip to show a price in, so the price
+        goes on the button and the label keeps the product's name to itself. The
+        span starts empty when nothing resolved server-side and the plan script
+        fills it; an empty one is hidden in CSS.
+      {%- endcomment -%}
+      <a class="mh__btn mh__btn--cyan mh__sticky-btn" href="{{ sticky_href }}" data-mh-sticky-cta data-mh-plan-cta>
+        <span>{{ section.settings.sticky_cta_label }}</span>
+        {%- unless strip -%}
+          <span class="mh__btn-price" data-mh-cta-price>{{ first_price }}</span>
+        {%- endunless -%}
+      </a>
+    {%- endif -%}
+  </div>
+</div>
+
+{%- comment -%}
+  The product's own structured data is emitted here because this is the section
+  that knows which product the page is selling.
+{%- endcomment -%}
+{%- if section.settings.schema_on and product != blank -%}
+  {% render 'muto-home-product-schema', product: product %}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "MUTO Home — Sticky cart",
+  "tag": "section",
+  "class": "mh-section mh-section--sticky",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "product", "id": "product", "label": "Product", "info": "Prices and links are read from this product's variants. Ignored on a product page, which uses its own product." },
+    { "type": "text", "id": "sticky_cta_label", "label": "Button", "default": "Add to cart" },
+    { "type": "text", "id": "sticky_label", "label": "Name on the bar", "info": "Shown in place of the plan\u2019s own name — on a product page, where the plan strip lives in the buy block, \u201c30 Day Protocol\u201d alone would not say which product." },
+    { "type": "text", "id": "plan_cta_label", "label": "Button inside the strip", "info": "Defaults to the button label above." },
+    { "type": "url", "id": "cta_link", "label": "Fallback link", "info": "Used only when no plan below resolves to a live variant." },
+    { "type": "text", "id": "sticky_sub", "label": "Sub-line (mobile)", "default": "Free UK delivery · Cancel anytime" },
+    { "type": "header", "content": "Search engines and answer engines" },
+    { "type": "checkbox", "id": "schema_on", "label": "Emit product structured data", "default": true, "info": "Product, brand and one offer per variant, read from the live product. Turn off if an SEO app already publishes it." }
+  ],
+  "blocks": [
+    {
+      "type": "plan",
+      "name": "Plan",
+      "settings": [
+        { "type": "text", "id": "variant_title", "label": "Variant title", "info": "Must match the variant's title on the product exactly." },
+        { "type": "text", "id": "name", "label": "Name", "default": "One time" },
+        { "type": "text", "id": "price_suffix", "label": "Price suffix", "info": "E.g. \" / month\"." },
+        { "type": "text", "id": "note", "label": "Note" },
+        { "type": "checkbox", "id": "use_selling_plan", "label": "Use this variant's subscription price", "default": false }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "MUTO Home — Sticky cart" }
+  ],
+  "enabled_on": {
+    "templates": ["index", "page", "product"]
+  }
+}
+{% endschema %}

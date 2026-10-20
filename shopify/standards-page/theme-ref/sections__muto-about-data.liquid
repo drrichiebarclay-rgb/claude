@@ -1,0 +1,163 @@
+{%- comment -%}
+  MUTO About — check it in your data.
+  The score card and the customer note overlap the photograph on desktop; on
+  mobile they stack under it, because overlapping cards at 390px just hide
+  the picture they are supposed to annotate.
+{%- endcomment -%}
+
+{{ 'muto-about.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign chips = section.blocks | where: 'type', 'chip'
+-%}
+
+{%- liquid
+  assign ma_spt = section.settings.space_top | default: 100 | times: 0.01
+  assign ma_spb = section.settings.space_bottom | default: 100 | times: 0.01
+-%}
+
+<div class="ma" style="--ma-spt:{{ ma_spt }};--ma-spb:{{ ma_spb }}">
+  <div class="ma__wrap">
+    {%- assign heading_id = 'ma-data-' | append: section.id -%}
+    <section class="ma__data-grid ma__data" aria-labelledby="{{ heading_id }}">
+      <div class="ma__data-copy">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="ma__h2" id="{{ heading_id }}">{{ section.settings.heading | escape | newline_to_br }}</h2>
+        {%- endif -%}
+        {%- if chips.size > 0 -%}
+          <div class="ma__chips">
+            {%- for block in chips -%}
+              <span class="ma__chip ma__spark" {{ block.shopify_attributes }}>{{ block.settings.label }}</span>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+        {%- if section.settings.body != blank -%}
+          <p class="ma__body" style="margin-top:20px">{{ section.settings.body }}</p>
+        {%- endif -%}
+      </div>
+
+      <div class="ma__data-stage">
+        <div class="ma__data-media">
+          {% render 'muto-about-image',
+            image: section.settings.image,
+            fallback: section.settings.image_fallback,
+            alt: section.settings.image_alt,
+            ratio: '628/616',
+            sizes: '(min-width: 990px) 628px, 92vw',
+            widths: '430,628,860,1256' %}
+        </div>
+
+        <div class="ma__score">
+          <div class="ma__score-gauge">
+            <svg class="ma__score-arc" viewBox="0 0 120 64" aria-hidden="true">
+              <defs>
+                <linearGradient id="ma-score-{{ section.id }}" x1="0" y1="1" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#5efaff"/>
+                  <stop offset="52%" stop-color="#c9ffb7"/>
+                  <stop offset="100%" stop-color="#f0ff84"/>
+                </linearGradient>
+              </defs>
+              <path d="M8 60 A52 52 0 0 1 112 60" fill="none" stroke="rgba(250,250,250,.18)" stroke-width="5" stroke-linecap="round"/>
+              <path d="M8 60 A52 52 0 0 1 104 34" fill="none" stroke="url(#ma-score-{{ section.id }})" stroke-width="5" stroke-linecap="round"/>
+            </svg>
+            <span class="ma__score-cap ma__score-cap--min">{{ section.settings.score_min }}</span>
+            <span class="ma__score-cap ma__score-cap--max">{{ section.settings.score_max }}</span>
+          </div>
+          <div class="ma__score-value">{{ section.settings.score }}</div>
+          <span class="ma__score-delta">{{ section.settings.score_delta }}</span>
+          <div class="ma__score-foot">{{ section.settings.score_foot }}</div>
+        </div>
+
+        {%- if section.settings.quote != blank -%}
+          {%- assign avatar_alt = section.settings.avatar_alt | default: section.settings.quote_name -%}
+          <figure class="ma__quote-card">
+            <div class="ma__quote-avatar">
+              {% render 'muto-about-image',
+                image: section.settings.avatar,
+                fallback: section.settings.avatar_fallback,
+                alt: avatar_alt,
+                ratio: '1/1',
+                sizes: '108px',
+                widths: '108,216,324' %}
+            </div>
+            <div>
+              <figcaption class="ma__quote-who">
+                <span class="ma__quote-label">{{ section.settings.quote_label }}</span>
+                <span class="ma__quote-name">{{ section.settings.quote_name }}</span>
+              </figcaption>
+              <blockquote class="ma__quote-text">{{ section.settings.quote }}</blockquote>
+            </div>
+          </figure>
+        {%- endif -%}
+      </div>
+    </section>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO About — Your data",
+  "tag": "section",
+  "class": "ma-section",
+  "max_blocks": 8,
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Check it in\nyour data" },
+    { "type": "textarea", "id": "body", "label": "Body" },
+    { "type": "header", "content": "Image" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "image_fallback", "label": "Fallback image URL", "default": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-data-ring.jpg?v=1790752123" },
+    { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Hand wearing a smart ring" },
+    { "type": "header", "content": "Score card" },
+    { "type": "text", "id": "score", "label": "Score", "default": "74" },
+    { "type": "text", "id": "score_min", "label": "Scale start", "default": "0" },
+    { "type": "text", "id": "score_max", "label": "Scale end", "default": "100" },
+    { "type": "text", "id": "score_delta", "label": "Delta", "default": "+22 pts" },
+    { "type": "text", "id": "score_foot", "label": "Footnote", "default": "After 90 days" },
+    { "type": "header", "content": "Customer note" },
+    { "type": "image_picker", "id": "avatar", "label": "Avatar" },
+    { "type": "text", "id": "avatar_fallback", "label": "Fallback avatar URL", "default": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-data-avatar.jpg?v=1790752123" },
+    { "type": "text", "id": "avatar_alt", "label": "Avatar alt text", "info": "Defaults to the name." },
+    { "type": "text", "id": "quote_label", "label": "Label", "default": "Oura ring user" },
+    { "type": "text", "id": "quote_name", "label": "Name", "default": "Username" },
+    { "type": "textarea", "id": "quote", "label": "Copy", "default": "Support the biology behind better days. NAD+ Cellular Complex combines NR, methylated B vitamins, D3 and K2, antioxidants, polyphenols and essential minerals to support energy, recovery and performance — and the metrics your wearable tracks." },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 }
+  ],
+  "blocks": [
+    {
+      "type": "chip",
+      "name": "Metric chip",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Recovery" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MUTO About — Your data",
+      "blocks": [
+        {
+          "type": "chip",
+          "settings": { "label": "Recovery" }
+        },
+        {
+          "type": "chip",
+          "settings": { "label": "HRV" }
+        },
+        {
+          "type": "chip",
+          "settings": { "label": "Readiness" }
+        },
+        {
+          "type": "chip",
+          "settings": { "label": "How you feel" }
+        }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": ["page"]
+  }
+}
+{% endschema %}

@@ -1,0 +1,181 @@
+{%- comment -%}
+  MUTO Home — three cards.
+
+  Artboard (Home_-_V3.pdf): a centred 64px heading at 1846, then three
+  450.7-wide glass cards at x24 / 495 / 965 on a 19.3 gap, each 451–455 tall
+  with a 402.7×230 photograph inset 24 at the foot. The photo sits at the
+  bottom of the card whatever the copy runs to, so the three feet line up.
+
+  CREATINE.pdf draws the same band twice more — "Why this is the superior
+  creatine choice" at 4220 and "One scoop. Every day." at 8620 — on identical
+  card geometry, differing only in where the heading sits. So this is one
+  section with three presets rather than three near-identical files: a change
+  to the card lands on every band that uses it.
+
+  The heading alignment is therefore a setting. "Split" is the One scoop band:
+  the first line on the left margin and the second on the right, at every
+  width — at 390px it is what tells the two halves apart.
+
+  MOBILE: a snap rail rather than three stacked 430px cards, which would cost
+  three screens of scroll on their own.
+{%- endcomment -%}
+
+{{ 'muto-home.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign mh_spt = section.settings.space_top | default: 100 | times: 0.01
+  assign mh_spb = section.settings.space_bottom | default: 100 | times: 0.01
+  assign heading_id = 'mh-why-' | append: section.id
+  assign mh_align = section.settings.align | default: 'center'
+  assign mh_min = section.settings.card_min | default: 455
+  assign mh_gap = section.settings.head_gap | default: 63
+  assign mh_ink = ''
+  if section.settings.ink == 'alt'
+    assign mh_ink = ' mh--alt'
+  endif
+-%}
+
+<div class="mh{{ mh_ink }}{% if section.settings.field %} mh--field-why mh--fit-{{ section.settings.fit | default: 'home' }}{% endif %}" style="--mh-spt:{{ mh_spt }};--mh-spb:{{ mh_spb }};--mh-why-min:{{ mh_min }}px;--mh-why-gap:{{ mh_gap }}px">
+  <div class="mh__wrap">
+    <section class="mh__why" aria-labelledby="{{ heading_id }}">
+      {%- if section.settings.heading != blank -%}
+        {%- comment -%}
+          Two groups, not one with a rule about which line goes right. The
+          artboards split a heading in every shape there is — 1+1 on "One
+          scoop. / Every day.", 2+1 on "Two capsules. One meal. / Ninety days."
+          — so which words sit on the right margin is typed, not inferred.
+
+          The newline between the spans is deliberate. They are block-level
+          flex items, so it changes nothing on screen — but without it the
+          heading's text content reads "One scoop.Every day." to anything that
+          walks the DOM rather than renders it.
+        {%- endcomment -%}
+        {%- assign mh_lines = section.settings.heading | escape | newline_to_br | split: '<br />' -%}
+        {%- assign mh_right = section.settings.heading_right | escape | newline_to_br | split: '<br />' -%}
+        <h2 class="mh__h2 mh__why-head mh__why-head--{{ mh_align }}" id="{{ heading_id }}">
+          {%- for mh_line in mh_lines %}
+            <span class="mh__why-line">{{ mh_line }}</span>
+          {% endfor -%}
+          {%- for mh_line in mh_right %}
+            <span class="mh__why-line mh__why-line--right">{{ mh_line }}</span>
+          {% endfor -%}
+        </h2>
+      {%- endif -%}
+
+      <ul class="mh__why-list mh__rail">
+        {%- for block in section.blocks -%}
+          {%- assign card_alt = block.settings.image_alt | default: block.settings.title -%}
+          <li class="mh__why-card" {{ block.shopify_attributes }}>
+            <h3 class="mh__why-title">{{ block.settings.title | escape | newline_to_br }}</h3>
+            <p class="mh__why-text">{{ block.settings.text }}</p>
+            <div class="mh__why-media">
+              <div class="mh__why-frame">
+                {% render 'muto-image',
+                  image: block.settings.image,
+                  fallback: block.settings.image_fallback,
+                  alt: card_alt,
+                  ratio: '403/230',
+                  sizes: '(min-width: 990px) 403px, 74vw',
+                  widths: '400,600,806,1200',
+                  position: block.settings.image_position %}
+              </div>
+            </div>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </section>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO — Three cards",
+  "tag": "section",
+  "class": "mh-section",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Why MUTO" },
+    { "type": "textarea", "id": "heading_right", "label": "Heading, right margin", "info": "Lines typed here sit on the right margin under the ones above, at every width." },
+    { "type": "select", "id": "align", "label": "Heading", "default": "center", "options": [{ "value": "center", "label": "Centred" }, { "value": "left", "label": "Left" }] },
+    { "type": "select", "id": "ink", "label": "Ink", "default": "teal", "options": [{ "value": "teal", "label": "Teal" }, { "value": "alt", "label": "Charcoal" }] },
+    { "type": "range", "id": "card_min", "label": "Minimum card height", "min": 380, "max": 480, "step": 1, "unit": "px", "default": 455 },
+    { "type": "range", "id": "head_gap", "label": "Space under the heading", "min": 20, "max": 120, "step": 1, "unit": "px", "default": 63, "info": "Desktop only. The three artboards set this differently: 63 on the home page, 80, 64 and 76 on the creatine page." },
+    { "type": "checkbox", "id": "field", "label": "Mint gradient background", "default": true, "info": "The wash is fitted to this band specifically." },
+    { "type": "select", "id": "fit", "label": "Which wash", "default": "home", "options": [{ "value": "home", "label": "Home page" }, { "value": "nad", "label": "NAD+ page" }], "info": "The mint wash is least-squares fitted to one artboard's own pixels, and the pages that use this band wash it differently." },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 2, "unit": "%", "default": 100 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 2, "unit": "%", "default": 100 }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        { "type": "textarea", "id": "title", "label": "Title", "default": "Built by a scientist.\nApproved by a board." },
+        { "type": "textarea", "id": "text", "label": "Copy" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_fallback", "label": "Fallback image URL" },
+        { "type": "text", "id": "image_alt", "label": "Alt text", "info": "Describe the photograph. Defaults to the title." },
+        { "type": "text", "id": "image_position", "label": "Image focus", "info": "CSS object-position, e.g. \"50% 40%\". Blank centres it." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MUTO Home — Why MUTO",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": { "title": "Built by a scientist.\nApproved by a board.", "text": "Formulated by Richie Barclay, PhD in cellular biology and nutrition, and reviewed by a Scientific Advisory Board of seven scientists and clinicians in performance, metabolic health and cellular science.", "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-why-scientists.jpg?v=1790767821", "image_alt": "Four members of the MUTO scientific advisory board in conversation" }
+        },
+        {
+          "type": "card",
+          "settings": { "title": "Nothing hidden.", "text": "Nineteen ingredients, each on the label with its dose and the reason it's there. No proprietary blends. Made in the UK by a GMP-certified manufacturer.", "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-why-manufacturing.jpg?v=1790767821", "image_alt": "Capsules moving along a filling line at the UK manufacturer" }
+        },
+        {
+          "type": "card",
+          "settings": { "title": "Built to be checked.", "text": "You already check the number on your wrist every morning. MUTO works one layer beneath it, on the cellular system your device reports on. Take a baseline, track the trend over 60 to 90 days, and make your own call.", "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-why-wearable.jpg?v=1790767821", "image_alt": "A wrist wearing a sports watch, seen underwater" }
+        }
+      ]
+    },
+    {
+      "name": "MUTO — Superior creatine",
+      "settings": { "heading": "Why this is the superior\ncreatine choice", "align": "left", "card_min": 429, "head_gap": 64, "field": false },
+      "blocks": [
+        {
+          "type": "card",
+          "settings": { "title": "Ultrapure", "text": "≥99.9% pure creatine monohydrate, and nothing else: no fillers, flavourings or flow agents. Every batch is screened for the impurities and by-products cheaper creatine can carry — creatinine, DCD and heavy metals.", "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-why-scientists.jpg?v=1790767821", "image_alt": "Four members of the MUTO scientific advisory board in conversation around a low table", "image_position": "50% 40%" }
+        },
+        {
+          "type": "card",
+          "settings": { "title": "Micronised to mix, not clump.", "text": "Milled to a fine powder (200 mesh) so it dissolves cleanly in water, coffee or a shake, with no gritty layer at the bottom of the glass. One scoop, stirred in, gone.", "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-why-manufacturing.jpg?v=1790767821", "image_alt": "Capsules moving along a filling line at the UK manufacturer" }
+        },
+        {
+          "type": "card",
+          "settings": { "title": "Independently tested. Made in the UK.", "text": "Every batch is tested before it's released, and produced in the UK.", "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-why-wearable.jpg?v=1790767821", "image_alt": "A wrist wearing a sports watch, seen underwater" }
+        }
+      ]
+    },
+    {
+      "name": "MUTO — One scoop",
+      "settings": { "heading": "One scoop.", "heading_right": "Every day.", "align": "left", "ink": "alt", "card_min": 429, "head_gap": 76, "field": false },
+      "blocks": [
+        {
+          "type": "card",
+          "settings": { "title": "One scoop, with your first meal", "text": "5 g a day, stirred into water, coffee or a shake, alongside your NAD+ capsules. No loading phase, no cycling, no rest days. Stores build steadily over the first few weeks, so consistency matters more than timing.", "image_alt": "A scoop of creatine being stirred into a glass of water" }
+        },
+        {
+          "type": "card",
+          "settings": { "title": "Up to 10 g for your head", "text": "For optimal cognitive effects, you can take up to 10 g a day. Add a second scoop later in the day rather than taking both at once; it sits easier on the stomach. Most useful on short sleep and long days.", "image_alt": "Someone working late at a desk with a drink beside them" }
+        },
+        {
+          "type": "card",
+          "settings": { "title": "Check it where it shows", "text": "Note your reps, splits and how sharp long days feel before your first scoop. Check in at weeks 4, 8 and 12, alongside your NAD+ check-in.", "image_alt": "A training log open beside a sports watch" }
+        }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": ["index", "page", "product"]
+  }
+}
+{% endschema %}

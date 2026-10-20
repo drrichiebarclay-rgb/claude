@@ -1,0 +1,73 @@
+{%- comment -%}
+  MUTO About — London Marathon 2027.
+  Cause-led social proof. The donate action is deliberately not styled as the
+  shop CTA: it is a different ask and should not compete with it.
+{%- endcomment -%}
+
+{{ 'muto-about.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign ma_spt = section.settings.space_top | default: 100 | times: 0.01
+  assign ma_spb = section.settings.space_bottom | default: 100 | times: 0.01
+-%}
+
+<div class="ma" style="--ma-spt:{{ ma_spt }};--ma-spb:{{ ma_spb }}">
+  <div class="ma__wrap">
+    {%- assign heading_id = 'ma-marathon-' | append: section.id -%}
+    <section class="ma__marathon" aria-labelledby="{{ heading_id }}">
+      <div class="ma__marathon-top">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="ma__h2" id="{{ heading_id }}">{{ section.settings.heading | escape | newline_to_br }}</h2>
+        {%- endif -%}
+        {%- if section.settings.stats != blank -%}
+          <p class="ma__marathon-stats">{{ section.settings.stats | escape | newline_to_br }}</p>
+        {%- endif -%}
+      </div>
+
+      <div class="ma__marathon-stage">
+        <div class="ma__marathon-media">
+          {% render 'muto-about-image',
+            image: section.settings.image,
+            fallback: section.settings.image_fallback,
+            alt: section.settings.image_alt,
+            ratio: '629/611',
+            sizes: '(min-width: 990px) 629px, 92vw',
+            widths: '430,629,860,1258' %}
+        </div>
+        <div class="ma__marathon-card">
+          {%- if section.settings.body != blank -%}<p>{{ section.settings.body }}</p>{%- endif -%}
+          {%- if section.settings.cta_label != blank -%}
+            <a class="ma__btn ma__btn--cyan ma__btn--full" href="{{ section.settings.cta_link | default: '#' }}">{{ section.settings.cta_label }}</a>
+          {%- endif -%}
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO About — Marathon",
+  "tag": "section",
+  "class": "ma-section",
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "London\nMarathon 2027" },
+    { "type": "textarea", "id": "stats", "label": "Stats", "default": "20 runners. One protocol.\n£100,000 raised for the NSPCC." },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "image_fallback", "label": "Fallback image URL", "default": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-marathon.jpg?v=1790752124" },
+    { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Runners passing Big Ben in London" },
+    { "type": "textarea", "id": "body", "label": "Body", "default": "In April 2027, 20 MUTO runners take on the London Marathon for the NSPCC. They're everyday athletes, training around jobs and families, and we're backing them to the start line with the protocol, our Scientific Advisory Board, training plans with The Movement Blueprint and mindset support from Jay Morton. Follow the honest version on our social media, hard weeks included." },
+    { "type": "text", "id": "cta_label", "label": "Button", "default": "Donate Here" },
+    { "type": "url", "id": "cta_link", "label": "Button link" },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 }
+  ],
+  "presets": [
+    { "name": "MUTO About — Marathon" }
+  ],
+  "enabled_on": {
+    "templates": ["page"]
+  }
+}
+{% endschema %}
