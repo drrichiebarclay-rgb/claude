@@ -89,10 +89,8 @@ QUOTES = ["Sharp at 8am. Gone by 3pm.", "The same training just doesn’t land l
 chapter("c2", "how-it-shows-up", "02", "How it shows up",
         "You don’t feel your cells. You feel your day.",
         intro=p("This is what people in their late 30s, 40s and 50s tell us, again and again:"),
-        art="battery",
         blocks=[(f"q{i}", {"type": "quote", "settings": {"text": q}}) for i, q in enumerate(QUOTES, 1)],
-        line=p("It’s like your body has switched to low power mode. Still working, still getting through the day, but running on less than it used to."),
-        tint=True)
+        line=p("It’s like your body has switched to low power mode. Still working, still getting through the day, but running on less than it used to."))
 
 # ---- 3 ----
 chapter("c3", "the-science", "03", "The science behind it",
@@ -121,8 +119,7 @@ chapter("c4", "how-muto-is-built", "04", "How MUTO is built for it",
         blocks=[table("t1", "The five jobs", JOBS), table("t2", "How the 19 ingredients work together", TEAMS)],
         line=p("<strong>Two capsules with breakfast. Every dose on the label.</strong> Alongside our creatine, it’s all you need to keep up."),
         cta_label="See every ingredient", cta_link="/pages/ingredients",
-        small=p("Vitamins B6 and B12 contribute to the reduction of tiredness and fatigue. Vitamin D contributes to normal muscle function. Vitamins D and K contribute to the maintenance of normal bones. Zinc, copper and vitamin D contribute to the normal function of the immune system. In a study of adults aged 40 to 60, 300mg of NR a day raised NAD+ by 51% in two weeks. That study tested NR on its own, not MUTO."),
-        tint=True)
+        small=p("Vitamins B6 and B12 contribute to the reduction of tiredness and fatigue. Vitamin D contributes to normal muscle function. Vitamins D and K contribute to the maintenance of normal bones. Zinc, copper and vitamin D contribute to the normal function of the immune system. In a study of adults aged 40 to 60, 300mg of NR a day raised NAD+ by 51% in two weeks. That study tested NR on its own, not MUTO."))
 
 # ---- 5 ----
 VS = [("", "MUTO", "Multivitamin", "Greens powder", "Collagen or joint capsules"),
@@ -161,7 +158,7 @@ chapter("c7", "test-it", "07", "Test it yourself",
                 ("s3", {"type": "step", "settings": {"title": "Days 30, 60 and 90", "text": p("Check in. Look at the trend, not single days.")}}),
                 ("s4", {"type": "step", "settings": {"title": "Then", "text": p("Decide for yourself.")}})],
         line=p("If you don’t feel the difference in 90 days, you get every subscription payment back. Skip, pause or cancel online anytime."),
-        cta_label="Start your 90 days", cta_link=PDP, tint=True)
+        cta_label="Start your 90 days", cta_link=PDP)
 
 # ---- Glossary ----
 TERMS = [("Cell", "The tiny unit everything in your body is built from. You have about 30 trillion."),

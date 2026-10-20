@@ -121,13 +121,13 @@
         "label": "How it shows up",
         "heading": "You don’t feel your cells. You feel your day.",
         "intro": "<p>This is what people in their late 30s, 40s and 50s tell us, again and again:</p>",
-        "art": "battery",
+        "art": "none",
         "takeaway": "",
         "line": "<p>It’s like your body has switched to low power mode. Still working, still getting through the day, but running on less than it used to.</p>",
         "small": "",
         "cta_label": "",
         "cta_link": "",
-        "tint": true,
+        "tint": false,
         "space_top": 96,
         "space_bottom": 96
       },
@@ -247,7 +247,7 @@
         "small": "<p>Vitamins B6 and B12 contribute to the reduction of tiredness and fatigue. Vitamin D contributes to normal muscle function. Vitamins D and K contribute to the maintenance of normal bones. Zinc, copper and vitamin D contribute to the normal function of the immune system. In a study of adults aged 40 to 60, 300mg of NR a day raised NAD+ by 51% in two weeks. That study tested NR on its own, not MUTO.</p>",
         "cta_label": "See every ingredient",
         "cta_link": "/pages/ingredients",
-        "tint": true,
+        "tint": false,
         "space_top": 96,
         "space_bottom": 96
       },
@@ -462,7 +462,7 @@
         "small": "",
         "cta_label": "Start your 90 days",
         "cta_link": "/products/muto-nad-cellular-complex",
-        "tint": true,
+        "tint": false,
         "space_top": 96,
         "space_bottom": 96
       },
