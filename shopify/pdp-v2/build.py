@@ -57,8 +57,8 @@ MAIL = '<a href="mailto:hello@mutolongevity.com">hello@mutolongevity.com</a>'
 # ---- Buy box ----
 buy = copy.deepcopy(BASE["buy"])
 buy["type"] = "muto-pdp-buy"
-buy["settings"]["text"] = p("<strong>The daily multivitamin for ageing well. Built for life after 35.</strong>",
-                            "Everything a good multivitamin gives you, plus what it leaves out: NR for NAD⁺, CoQ10, PQQ and resveratrol. 19 ingredients, two capsules, one jar.",
+buy["settings"]["text"] = p("<strong>Not another multivitamin. The next generation of one.</strong>",
+                            "The active vitamins and minerals you’d want from a good multivitamin, plus the cellular science most leave out: NR for NAD⁺, CoQ10, PQQ and resveratrol. 19 ingredients, every dose on the label, two capsules, one jar.",
                             '<a href="#test-results-3">Ingredients + nutritional information</a>')
 # "How it helps": the five jobs, each a title over its line; * refers to the authorised claims in the small print
 POINTS = ["Afternoons that don’t fade", "Bounce back from a busy week", "A clearer head, all day",
