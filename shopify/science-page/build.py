@@ -177,6 +177,11 @@ chapter("glossary", "the-words", "", "The words, explained", "The words, explain
         blocks=[(f"w{i}", {"type": "term", "settings": {"word": w, "meaning": m}}) for i, (w, m) in enumerate(TERMS, 1)],
         )
 
+# Offer and reviews, the same sections as the standards page
+STD = json.load(open(os.path.join(HERE, "..", "standards-page", "templates", "page.standards.json")))["sections"]
+S["start"] = copy.deepcopy(STD["start"]); ORDER.append("start")
+S["reviews"] = copy.deepcopy(STD["reviews"]); ORDER.append("reviews")
+
 out = os.path.join(HERE, "templates", "page.science-simple.json")
 os.makedirs(os.path.dirname(out), exist_ok=True)
 json.dump({"sections": S, "order": ORDER}, open(out, "w"), ensure_ascii=False, indent=2)

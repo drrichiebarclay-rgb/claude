@@ -10,6 +10,8 @@ Built from `MUTO_Science_Page_Copy_Oct26.docx` in the same styles as the standar
 - **Tables on phones:** three-column tables stack into labelled cards; the five-column comparison scrolls sideways with its first column pinned.
 - **Chapters:** one "MUTO — Chapter" section each, with point, quote, step, table and glossary-term blocks. Chapter 1 has a simple NAD+-decline diagram and chapter 2 a draining-battery diagram, drawn in code.
 
+- **Bottom of the page:** the "Start your 90 days" offer panel (`muto-get-started`, from the standards page) and the REVIEWS.io reviews, after the glossary. The offer section must be in the theme too.
+
 ## Not on the page yet: the doc's checks
 
 - [ ] Every form and dose against the live label (including which B vitamins are in the formula).
