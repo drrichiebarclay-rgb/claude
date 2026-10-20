@@ -202,7 +202,7 @@ S["start"] = copy.deepcopy(STD["start"]); ORDER.append("start")
 S["start"]["settings"]["space_top"] = 0  # straight on from the mint timeline
 S["reviews"] = copy.deepcopy(STD["reviews"]); ORDER.append("reviews")
 S["start"]["settings"]["space_bottom"] = 0  # the reviews follow straight on
-S["reviews"]["settings"]["padding_top"] = 64
+S["reviews"]["settings"]["padding_top"] = 60
 
 out = os.path.join(HERE, "templates", "page.science-simple.json")
 os.makedirs(os.path.dirname(out), exist_ok=True)
