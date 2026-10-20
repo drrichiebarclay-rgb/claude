@@ -1,0 +1,326 @@
+[
+ {
+  "n": "Nicotinamide Riboside (NR)",
+  "d": "300 mg",
+  "t": [
+   "Energy",
+   "Longevity"
+  ],
+  "c": [
+   248,
+   248,
+   246
+  ],
+  "p": "ring",
+  "s": "Energy, NAD+ levels",
+  "w": "The main ingredient. A form of vitamin B3 your body turns into NAD+, the molecule your cells use to make energy. NAD+ levels fall as we age.",
+  "y": "Nicotinamide riboside reaches NAD+ in fewer steps than other forms of vitamin B3. 300mg a day is the most the UK allows in a food supplement for adults, so MUTO uses the full amount."
+ },
+ {
+  "n": "Vitamin B12 (Methylcobalamin)",
+  "d": "100 mcg",
+  "t": [
+   "Energy",
+   "Immunity",
+   "Stress"
+  ],
+  "c": [
+   176,
+   24,
+   48
+  ],
+  "p": "streak",
+  "s": "Energy, immune function, psychological function",
+  "w": "Contributes to normal energy-yielding metabolism, normal immune function, normal psychological function and the reduction of tiredness and fatigue.",
+  "y": "Methylcobalamin is a form of B12 your body can use as it is. Absorbing B12 from food tends to get harder with age, so 100mcg is well above the 2.5mcg daily reference intake."
+ },
+ {
+  "n": "CoQ10",
+  "d": "150 mg",
+  "t": [
+   "Energy",
+   "Recovery"
+  ],
+  "c": [
+   236,
+   140,
+   30
+  ],
+  "p": "pile",
+  "s": "Cellular energy",
+  "w": "Found in every cell, where it’s part of how your mitochondria make energy. Your body makes less CoQ10 as you get older.",
+  "y": "150mg sits in the middle of the range most supplements use. CoQ10 is fat-soluble, which is why we say take MUTO with breakfast: food helps your body absorb it."
+ },
+ {
+  "n": "Vitamin D3 (Vegan)",
+  "d": "50 mcg",
+  "t": [
+   "Immunity",
+   "Recovery",
+   "Longevity"
+  ],
+  "c": [
+   222,
+   196,
+   150
+  ],
+  "p": "pile",
+  "s": "Immune function, muscles, bones",
+  "w": "Contributes to normal immune function, normal muscle function and the maintenance of normal bones. Most of us in the UK get too little sun from October to March.",
+  "y": "D3 is the form your skin makes from sunlight. 50mcg (2,000 IU) is half the UK safe upper limit of 100mcg a day. The NHS advises everyone to consider vitamin D in autumn and winter."
+ },
+ {
+  "n": "TMG (Trimethylglycine)",
+  "d": "450 mg",
+  "t": [
+   "Longevity"
+  ],
+  "c": [
+   244,
+   244,
+   240
+  ],
+  "p": "burst",
+  "s": "Methylation",
+  "w": "Also called betaine, and found naturally in beetroot. Works alongside NR, supporting the body’s natural methylation processes.",
+  "y": "Making and clearing NAD+ uses up methyl groups, and TMG donates them. That’s why it’s often paired with NAD+ precursors like NR."
+ },
+ {
+  "n": "Vitamin B2 (Riboflavin)",
+  "d": "5 mg",
+  "t": [
+   "Energy",
+   "Recovery",
+   "Longevity"
+  ],
+  "c": [
+   240,
+   170,
+   20
+  ],
+  "p": "streak",
+  "s": "Energy, protecting cells",
+  "w": "Contributes to the reduction of tiredness and fatigue and to the protection of cells from oxidative stress.",
+  "y": "Riboflavin is part of the enzymes that release energy from food. 5mg is well above the 1.4mg daily reference intake. It’s also why your urine may look brighter yellow: that’s normal."
+ },
+ {
+  "n": "Vitamin K2 (MK-7)",
+  "d": "100 mcg",
+  "t": [
+   "Longevity"
+  ],
+  "c": [
+   238,
+   222,
+   160
+  ],
+  "p": "mound",
+  "s": "Bones",
+  "w": "Contributes to the maintenance of normal bones. Paired with vitamin D3.",
+  "y": "MK-7 is the longest-lasting form of vitamin K2 in the body, so once a day is enough. Vitamin D helps your body absorb calcium, and K2 works alongside it."
+ },
+ {
+  "n": "Zinc (Bisglycinate)",
+  "d": "15 mg",
+  "t": [
+   "Immunity",
+   "Longevity",
+   "Stress"
+  ],
+  "c": [
+   236,
+   236,
+   234
+  ],
+  "p": "burst",
+  "s": "Immune function, cognitive function, cells",
+  "w": "Contributes to normal immune function, normal cognitive function and the protection of cells from oxidative stress.",
+  "y": "Zinc bisglycinate is zinc bound to glycine, an amino acid, a form that is well absorbed and gentle on the stomach. 15mg is 150% of the daily reference intake and within the UK safe level of 25mg a day. It’s paired with copper, because taking zinc long-term can lower copper levels."
+ },
+ {
+  "n": "Folate (5-MTHF)",
+  "d": "400 mcg",
+  "t": [
+   "Immunity",
+   "Energy",
+   "Stress"
+  ],
+  "c": [
+   232,
+   160,
+   40
+  ],
+  "p": "mound",
+  "s": "Immune function, energy, psychological function",
+  "w": "Contributes to normal immune function, normal psychological function and the reduction of tiredness and fatigue.",
+  "y": "5-MTHF is the active form of folate. Many people carry a common gene variant (MTHFR) that makes converting ordinary folic acid less efficient, so we skip that step. 400mcg is 200% of the daily reference intake."
+ },
+ {
+  "n": "PQQ",
+  "d": "20 mg",
+  "t": [
+   "Energy",
+   "Recovery"
+  ],
+  "c": [
+   150,
+   52,
+   40
+  ],
+  "p": "ring",
+  "s": "Cellular energy",
+  "w": "Pyrroloquinoline quinone. Found in small amounts in foods like kiwi, parsley and green tea, and studied for its role in the mitochondria, where cells make energy.",
+  "y": "20mg a day is the amount most often used in human studies of PQQ."
+ },
+ {
+  "n": "Trans-Resveratrol",
+  "d": "50 mg",
+  "t": [
+   "Longevity"
+  ],
+  "c": [
+   226,
+   218,
+   204
+  ],
+  "p": "streak",
+  "s": "Plant polyphenols",
+  "w": "A plant compound found in grape skins, widely studied in healthy-ageing research.",
+  "y": "Trans-resveratrol is the stable, active form of resveratrol. It’s fat-soluble, so it’s best taken with food, like the rest of MUTO."
+ },
+ {
+  "n": "Grape Seed Extract",
+  "d": "150 mg",
+  "t": [
+   "Longevity"
+  ],
+  "c": [
+   96,
+   34,
+   46
+  ],
+  "p": "mound",
+  "s": "Plant polyphenols",
+  "w": "Plant polyphenols from grape seeds. Paired with trans-resveratrol.",
+  "y": "Standardised to 95% polyphenols, so every batch has the same amount: about 142mg of polyphenols per serve."
+ },
+ {
+  "n": "Vitamin B6 (P5P)",
+  "d": "5 mg",
+  "t": [
+   "Energy",
+   "Immunity",
+   "Stress"
+  ],
+  "c": [
+   244,
+   232,
+   190
+  ],
+  "p": "pile",
+  "s": "Immune function, psychological function, hormones",
+  "w": "Contributes to normal psychological function, normal immune function, the regulation of hormonal activity and the reduction of tiredness and fatigue.",
+  "y": "P5P (pyridoxal-5-phosphate) is the active form of B6, ready to use. 5mg is half the UK safe upper level of 10mg a day."
+ },
+ {
+  "n": "Vitamin B1 (Thiamine)",
+  "d": "5 mg",
+  "t": [
+   "Energy",
+   "Stress"
+  ],
+  "c": [
+   246,
+   246,
+   242
+  ],
+  "p": "mound",
+  "s": "Energy, psychological function",
+  "w": "Contributes to normal energy-yielding metabolism and normal psychological function.",
+  "y": "5mg is well above the 1.1mg daily reference intake. Thiamine dissolves in water and your body stores very little, so a daily dose keeps levels steady."
+ },
+ {
+  "n": "Vitamin B3 (Niacin)",
+  "d": "16 mg NE",
+  "t": [
+   "Energy",
+   "Stress"
+  ],
+  "c": [
+   248,
+   248,
+   244
+  ],
+  "p": "burst",
+  "s": "Energy, psychological function",
+  "w": "Contributes to normal psychological function and the reduction of tiredness and fatigue.",
+  "y": "16mg niacin equivalents is 100% of the daily reference intake. It’s on top of the NR, which is also a form of vitamin B3."
+ },
+ {
+  "n": "Vitamin B5 (Pantothenic Acid)",
+  "d": "10 mg",
+  "t": [
+   "Energy",
+   "Stress"
+  ],
+  "c": [
+   244,
+   240,
+   226
+  ],
+  "p": "ring",
+  "s": "Mental performance, energy",
+  "w": "Contributes to normal mental performance and the reduction of tiredness and fatigue.",
+  "y": "10mg is about 167% of the 6mg daily reference intake."
+ },
+ {
+  "n": "Biotin",
+  "d": "300 mcg",
+  "t": [
+   "Energy",
+   "Stress"
+  ],
+  "c": [
+   248,
+   248,
+   248
+  ],
+  "p": "streak",
+  "s": "Energy, psychological function",
+  "w": "Contributes to normal energy-yielding metabolism and normal psychological function.",
+  "y": "300mcg is six times the 50mcg daily reference intake and well within safe levels. Biotin can affect some blood test results, so tell your doctor you take it before a blood test."
+ },
+ {
+  "n": "Copper (Bisglycinate)",
+  "d": "1 mg",
+  "t": [
+   "Immunity",
+   "Energy"
+  ],
+  "c": [
+   40,
+   130,
+   170
+  ],
+  "p": "burst",
+  "s": "Immune function, energy",
+  "w": "Contributes to normal immune function and normal energy-yielding metabolism.",
+  "y": "Copper bisglycinate is bound to glycine, like the zinc, so it’s well absorbed. 1mg is 100% of the daily reference intake. It’s there to keep the 15mg of zinc in balance, since zinc taken long-term can lower copper levels."
+ },
+ {
+  "n": "BioPerine® (Black Pepper)",
+  "d": "5 mg",
+  "t": [
+   "Absorption"
+  ],
+  "c": [
+   196,
+   160,
+   96
+  ],
+  "p": "pile",
+  "s": "Absorption",
+  "w": "Black pepper extract. Added to help your body take in the other ingredients.",
+  "y": "BioPerine is a branded black pepper extract standardised for piperine. Only a small amount is needed, and it adds no taste or heat to the capsules."
+ }
+]
