@@ -241,6 +241,15 @@ er = copy.deepcopy(BASE["easy_read"])
 er["settings"]["custom_liquid"] = er["settings"]["custom_liquid"].replace("</style>", "\n/* New PDP: plain #fafafa behind the buy box, no gradient */\nhtml body .mc.mc--buy,html body .mc.mc--buy.mc--fit-nad{background:#fafafa!important}\n/* New PDP: the pills moved under the button as badges; only the heading stays */\nhtml body .mc .mc__trust li{display:none}\nhtml body .mc .mc__trust::after{margin-top:8px}\n</style>", 1)
 put("easy_read", er)
 
+# Photos picked in the theme editor (21 Oct), kept on rebuild
+EDITOR_IMAGES = {("benefits", "b1"): "Golden_Hour_Family_Beach_Walk.png", ("benefits", "b2"): "038A80BF-8A59-420A-8CC3-3C5DDFB275B6.png",
+                 ("benefits", "b3"): "3E3756BE-4955-4D85-81D7-30B61D5035B0.png", ("benefits", "b4"): "Golden_Hour_Ocean_Portrait.png",
+                 ("benefits", "b5"): "D9D67CEB-ADD5-421D-97BD-39141E88C5E9.png",
+                 ("howto", "s1"): "nad-take-two.jpg", ("howto", "s2"): "Coffee_MUTO.jpg", ("howto", "s3"): "D2AA08A2-83BB-4249-AC48-A8261A413D04.png"}
+for (sec, blk), f in EDITOR_IMAGES.items():
+    S[sec]["blocks"][blk]["settings"]["image"] = "shopify://shop_images/" + f
+S["timeline"]["settings"]["image"] = "shopify://shop_images/B41838FF-C1C0-41C3-AF29-AE2348CE86A8.png"
+
 out = os.path.join(HERE, "templates", "product.muto-nad-v2.json")
 json.dump({"sections": S, "order": ORDER}, open(out, "w"), ensure_ascii=False, indent=2)
 print("wrote", out, len(ORDER), "sections;", len(buy["block_order"]), "buy blocks")
