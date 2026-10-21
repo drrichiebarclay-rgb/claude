@@ -285,9 +285,9 @@
         "job1": {
           "type": "point",
           "settings": {
-            "text": "Afternoons that don’t fade",
-            "title": "",
-            "label": "",
+            "label": "Energy",
+            "title": "Afternoons that don’t fade",
+            "text": "",
             "icon": "",
             "dark": false
           }
@@ -295,9 +295,9 @@
         "job2": {
           "type": "point",
           "settings": {
-            "text": "Bounce back from a busy week",
-            "title": "",
-            "label": "",
+            "label": "Recovery",
+            "title": "Bounce back from a busy week",
+            "text": "",
             "icon": "",
             "dark": false
           }
@@ -305,9 +305,9 @@
         "job3": {
           "type": "point",
           "settings": {
-            "text": "A clearer head, all day",
-            "title": "",
-            "label": "",
+            "label": "Mind",
+            "title": "A clearer head, all day",
+            "text": "",
             "icon": "",
             "dark": false
           }
@@ -315,9 +315,9 @@
         "job4": {
           "type": "point",
           "settings": {
-            "text": "Age on your own terms",
-            "title": "",
-            "label": "",
+            "label": "Ageing well",
+            "title": "Age on your own terms",
+            "text": "",
             "icon": "",
             "dark": false
           }
@@ -325,9 +325,9 @@
         "job5": {
           "type": "point",
           "settings": {
-            "text": "Stay well through winter",
-            "title": "",
-            "label": "",
+            "label": "Immunity",
+            "title": "Stay well through winter",
+            "text": "",
             "icon": "",
             "dark": false
           }
@@ -335,9 +335,9 @@
         "job6": {
           "type": "point",
           "settings": {
-            "text": "One jar replaces five",
-            "title": "",
-            "label": "",
+            "label": "Simplicity",
+            "title": "One jar replaces five",
+            "text": "",
             "icon": "",
             "dark": false
           }

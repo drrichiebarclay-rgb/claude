@@ -61,15 +61,15 @@ buy["settings"]["text"] = p("<strong>Not another multivitamin. The next generati
                             "The active vitamins and minerals you’d want from a good multivitamin, plus the cellular science most leave out: NR for NAD⁺, CoQ10, PQQ and resveratrol. 19 ingredients, every dose on the label, two capsules, one jar.",
                             '<a href="#test-results-3">Ingredients + nutritional information</a>')
 # "How it helps": the five jobs, each a title over its line; * refers to the authorised claims in the small print
-POINTS = ["Afternoons that don’t fade", "Bounce back from a busy week", "A clearer head, all day",
-          "Age on your own terms", "Stay well through winter", "One jar replaces five"]  # the original "How it helps" bullets
+POINTS = [("Energy", "Afternoons that don’t fade"), ("Recovery", "Bounce back from a busy week"), ("Mind", "A clearer head, all day"),
+          ("Ageing well", "Age on your own terms"), ("Immunity", "Stay well through winter"), ("Simplicity", "One jar replaces five")]  # job, then what you feel
 old = [k for k in buy["block_order"] if buy["blocks"][k]["type"] == "point"]
 at = buy["block_order"].index(old[0])
 for k in old:
     del buy["blocks"][k]
     buy["block_order"].remove(k)
-for i, x in enumerate(POINTS, 1):
-    buy["blocks"][f"job{i}"] = {"type": "point", "settings": {"text": x, "title": "", "label": "", "icon": "", "dark": False}}
+for i, (lab, x) in enumerate(POINTS, 1):
+    buy["blocks"][f"job{i}"] = {"type": "point", "settings": {"label": lab, "title": x, "text": "", "icon": "", "dark": False}}
     buy["block_order"].insert(at + i - 1, f"job{i}")
 buy["settings"]["points_foot"] = ""  # the line and the small print under the cards were removed
 buy["settings"]["points_note"] = ""
