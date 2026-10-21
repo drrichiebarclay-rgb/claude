@@ -1,0 +1,965 @@
+{
+  "sections": {
+    "hero": {
+      "type": "muto-home-hero",
+      "settings": {
+        "allow_transparent_header": true,
+        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-home-hero-spill-16x9.jpg?v=1791292252",
+        "image_alt": "A jar of MUTO NAD+ Cellular Complex on its side with its lid off, capsules spilled in front, lit against a dark set",
+        "image_position": "100% 50%",
+        "full_bleed": true,
+        "image_mobile_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-hero-mobile-nad-v4.jpg?v=1791449687",
+        "image_position_mobile": "50% 50%",
+        "align": "center",
+        "rating": "4.83",
+        "stars": 5,
+        "heading": "Built for people who aren’t\nready to slow down.",
+        "subheading": "Not another multivitamin. The next generation of one: 19 ingredients for energy, recovery, a clearer head, ageing well and immunity, in two capsules a day. 90 days to feel the difference.",
+        "cta_label": "Start the protocol",
+        "cta_link": "/products/muto-nad-cellular-complex",
+        "schema_on": true,
+        "schema_title": "MUTO — precision cellular longevity supplements",
+        "schema_summary": "MUTO is a UK precision cellular supplement company. Its NAD+ Cellular Complex declares every ingredient, form and dose on the label, is made in the UK to GMP standards and third-party tested, and is under study with UK universities.",
+        "schema_org": "MUTO",
+        "schema_slogan": "Above the standard. Beneath the surface.",
+        "schema_logo": "",
+        "schema_founder": "Dr Richie Barclay",
+        "schema_founder_role": "Founder",
+        "schema_country": "GB",
+        "schema_topics": "NAD+, cellular health, longevity supplements, creatine monohydrate, heart rate variability, recovery, healthy ageing",
+        "schema_profiles": "",
+        "space_top": 100,
+        "space_bottom": 100
+      }
+    },
+    "shop": {
+      "type": "muto-home-shop",
+      "blocks": {
+        "pn": {
+          "type": "panel",
+          "settings": {
+            "label": "NAD+",
+            "key": "nad",
+            "layout": "protocol",
+            "title": "NAD+ Cellular Complex",
+            "lede": "Not another multivitamin. The next generation of one.",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-shop-nad-v2.jpg?v=1791288517",
+            "image_alt": "A jar of MUTO NAD+ Cellular Complex lit on a dark set",
+            "actives_label": "What’s inside",
+            "cta_label": "Start the protocol",
+            "cta_link": "/products/muto-nad-cellular-complex"
+          }
+        },
+        "s1": {
+          "type": "step",
+          "settings": {
+            "panel": "nad",
+            "text": "<strong>Built for life after 35.</strong> Afternoons that fade sooner. Busy weeks that take longer to bounce back from. Your cells use NAD+ to make energy, and you make less of it as you get older. MUTO gives them 19 ingredients to work with. Read <a href=\"/pages/science\">the science, made simple</a>."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "panel": "nad",
+            "text": "<strong>One jar, nothing hidden.</strong> Two capsules with breakfast, in place of up to five pots. Every dose on the label, every batch tested, made in the UK. See <a href=\"/pages/ingredients\">all 19 ingredients</a>."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "panel": "nad",
+            "text": "<strong>90 days to decide.</strong> Score how you feel on day 1, then check in at day 30 and day 90. If you don’t feel the difference, you get every subscription payment back."
+          }
+        },
+        "a1": {
+          "type": "active",
+          "settings": {
+            "panel": "nad",
+            "value": "300mg",
+            "caption": "Nicotinamide Riboside"
+          }
+        },
+        "a2": {
+          "type": "active",
+          "settings": {
+            "panel": "nad",
+            "value": "450mg",
+            "caption": "TMG"
+          }
+        },
+        "a3": {
+          "type": "active",
+          "settings": {
+            "panel": "nad",
+            "value": "150mg",
+            "caption": "CoQ10"
+          }
+        },
+        "a4": {
+          "type": "active",
+          "settings": {
+            "panel": "nad",
+            "value": "2000IU",
+            "caption": "Vitamin D3"
+          }
+        },
+        "a5": {
+          "type": "active",
+          "settings": {
+            "panel": "nad",
+            "value": "50mg",
+            "caption": "Trans-Resveratrol"
+          }
+        },
+        "a6": {
+          "type": "active",
+          "settings": {
+            "panel": "nad",
+            "value": "20mg",
+            "caption": "PQQ"
+          }
+        },
+        "a7": {
+          "type": "active",
+          "settings": {
+            "panel": "nad",
+            "value": "15mg",
+            "caption": "Zinc"
+          }
+        },
+        "a8": {
+          "type": "active",
+          "settings": {
+            "panel": "nad",
+            "value": "19",
+            "caption": "Ingredients"
+          }
+        },
+        "pc": {
+          "type": "panel",
+          "settings": {
+            "label": "Creatine",
+            "key": "creatine",
+            "layout": "protocol",
+            "title": "Ultrapure micronised\ncreatine monohydrate",
+            "lede": "The fast reserve beside the steady supply.",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-shop-creatine-v2.jpg?v=1791288517",
+            "image_alt": "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate lit on a dark set",
+            "actives_label": "Features:",
+            "cta_label": "Start the protocol",
+            "cta_link": "shopify://products/muto-creatine"
+          }
+        },
+        "cs1": {
+          "type": "step",
+          "settings": {
+            "panel": "creatine",
+            "text": "Ultrapure micronised creatine monohydrate. One ingredient, nothing else in the pouch (≥99.9% purity, every batch tested)."
+          }
+        },
+        "cs2": {
+          "type": "step",
+          "settings": {
+            "panel": "creatine",
+            "text": "Creatine increases physical performance in successive bursts of short-term, high-intensity exercise. The beneficial effect comes from 3g a day."
+          }
+        },
+        "cs3": {
+          "type": "step",
+          "settings": {
+            "panel": "creatine",
+            "text": "Built to sit alongside MUTO NAD+ Cellular Complex: one scoop with your first meal, in water or a smoothie. Track it where it shows, in your training log."
+          }
+        },
+        "ca1": {
+          "type": "active",
+          "settings": {
+            "panel": "creatine",
+            "value": "5g",
+            "caption": "Per daily dose"
+          }
+        },
+        "ca2": {
+          "type": "active",
+          "settings": {
+            "panel": "creatine",
+            "value": "Micronised",
+            "caption": "200 mesh"
+          }
+        },
+        "ca3": {
+          "type": "active",
+          "settings": {
+            "panel": "creatine",
+            "value": ">99.9%",
+            "caption": "Purity"
+          }
+        },
+        "ca4": {
+          "type": "active",
+          "settings": {
+            "panel": "creatine",
+            "value": "Tested",
+            "caption": "By third-party labs"
+          }
+        },
+        "pe": {
+          "type": "panel",
+          "settings": {
+            "label": "Essentials",
+            "key": "essentials",
+            "layout": "products",
+            "title": "NAD+ Cellular Complex",
+            "lede": "The daily longevity cellular protocol you can track.",
+            "image_fallback": "",
+            "image_alt": "",
+            "actives_label": "Key actives:",
+            "cta_label": "Start the protocol",
+            "cta_link": "shopify://products/muto-nad-cellular-complex"
+          }
+        },
+        "e1": {
+          "type": "product",
+          "settings": {
+            "panel": "essentials",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-essentials-socks.jpg?v=1791037580",
+            "image_alt": "A pouch of MUTO Performance Socks, the white sock visible through the front",
+            "title": "Performance socks",
+            "text": "Premium nylon socks designed for activity, with shaping that holds its fit through every session. Light, breathable and built to move with you, from the first mile to the last rep. Made to the same standard as everything else in the protocol.",
+            "cta_label": "Start the protocol",
+            "cta_link": "shopify://products/socks"
+          }
+        },
+        "e2": {
+          "type": "product",
+          "settings": {
+            "panel": "essentials",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-shop-bottle-v2.jpg?v=1791288517",
+            "image_alt": "A MUTO Performance Bottle in translucent blue, lit on a dark set",
+            "title": "Performance Bottle",
+            "text": "A BPA-free bottle built for training days and everything in between. Light enough to carry everywhere and easy to clean, with room for your morning scoop of MUTO Creatine. One bottle, from first meal to final session.",
+            "cta_label": "Start the protocol",
+            "cta_link": "shopify://products/muto-water-bottle"
+          }
+        }
+      },
+      "block_order": [
+        "pn",
+        "s1",
+        "s2",
+        "s3",
+        "a1",
+        "a2",
+        "a3",
+        "a4",
+        "a5",
+        "a6",
+        "a7",
+        "a8",
+        "pc",
+        "cs1",
+        "cs2",
+        "cs3",
+        "ca1",
+        "ca2",
+        "ca3",
+        "ca4",
+        "pe",
+        "e1",
+        "e2"
+      ],
+      "settings": {
+        "heading": "Shop the protocol",
+        "tablist_label": "Choose a product",
+        "field": true,
+        "space_top": 100,
+        "space_bottom": 100
+      }
+    },
+    "why": {
+      "type": "muto-home-why",
+      "blocks": {
+        "w1": {
+          "type": "card",
+          "settings": {
+            "title": "Built by a scientist\nyou can talk to.",
+            "text": "Formulated by Richie Barclay, PhD in cellular biology and nutrition, and reviewed by our Scientific Advisory Board. Got a question? Ask him.",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-founder.jpg?v=1790751995",
+            "image_alt": "Dr Richie Barclay sitting on a sofa at home, holding a jar of MUTO NAD+ Cellular Complex over a glass coffee table",
+            "image_position": "50% 25%",
+            "image": "shopify://shop_images/about-founder.jpg"
+          }
+        },
+        "w2": {
+          "type": "card",
+          "settings": {
+            "title": "Nothing hidden.",
+            "text": "Nineteen ingredients, each on the label with its dose and the reason it's there. No proprietary blends. Made in the UK by a GMP-certified manufacturer. Ask your AI to check the label.",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-why-manufacturing.jpg?v=1790767821",
+            "image_alt": "Capsules moving along a filling line at the UK manufacturer",
+            "image_position": ""
+          }
+        },
+        "w3": {
+          "type": "card",
+          "settings": {
+            "title": "Built to be checked.",
+            "text": "Note how you feel on day 0. Check in at day 30 and day 90, in how your days feel, your training, or your wearable if you have one. Your verdict, with a 90-day guarantee behind it.",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-why-wearable.jpg?v=1790767821",
+            "image_alt": "A wrist wearing a sports watch, seen underwater",
+            "image_position": ""
+          }
+        }
+      },
+      "block_order": [
+        "w1",
+        "w2",
+        "w3"
+      ],
+      "settings": {
+        "heading": "Why MUTO",
+        "heading_right": "",
+        "align": "center",
+        "ink": "teal",
+        "card_min": 455,
+        "head_gap": 63,
+        "field": true,
+        "fit": "home",
+        "space_top": 100,
+        "space_bottom": 100
+      }
+    },
+    "founder": {
+      "type": "muto-home-founder",
+      "blocks": {
+        "p1": {
+          "type": "para",
+          "settings": {
+            "text": "I built MUTO because I was tired of a category that asks you to take it on trust: single ingredients, proprietary blends, and very little accountability."
+          }
+        },
+        "p2": {
+          "type": "para",
+          "settings": {
+            "text": "I'm a scientist, so I built the opposite. A 19-ingredient cellular complex with every ingredient and every dose on the label, and the reason each one is there."
+          }
+        },
+        "p3": {
+          "type": "para",
+          "settings": {
+            "text": "Then I wanted it tested properly. We're running research programmes with the University of Westminster, King's College London, Coventry and Newcastle, and we'll publish what we find, whatever it shows."
+          }
+        },
+        "p4": {
+          "type": "para",
+          "settings": {
+            "text": "And you don't have to take my word for any of it. Take your baseline, track the difference, and make your own call."
+          }
+        },
+        "p1b": {
+          "type": "para",
+          "settings": {
+            "text": "I’m not done yet either. Most of the people who take MUTO are in their 40s and 50s: still working, keeping up with family, and not ready to slow down."
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p1b",
+        "p2",
+        "p3",
+        "p4"
+      ],
+      "settings": {
+        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-founder.jpg?v=1790751995",
+        "image_alt": "Dr Richie Barclay sitting on a sofa at home, holding a jar of MUTO NAD+ Cellular Complex over a glass coffee table",
+        "heading": "Meet our\nfounder.",
+        "name": "Dr Richie Barclay, Ph.D.",
+        "cta_label": "Start the protocol",
+        "cta_link": "/products/muto-nad-cellular-complex",
+        "field": true,
+        "space_top": 100,
+        "space_bottom": 100
+      }
+    },
+    "board": {
+      "type": "muto-home-board",
+      "blocks": {
+        "m1": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Dr_James_Cover_Final.png",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-board-3.jpg?v=1790751994",
+            "image_alt": "Dr Alka Patel being interviewed on the MUTO scientific board panel",
+            "image_position": "",
+            "video": "shopify://files/videos/Dr-James-Final4x5.mov",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "name": "Dr James Morehen",
+            "role": "PERFORMANCE NUTRITIONIST, INTERNATIONAL RUGBY",
+            "tag": "Performance"
+          }
+        },
+        "m2": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Dr_Alka_Cover_Final.png",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-board-1.jpg?v=1790751995",
+            "image_alt": "A MUTO scientific advisory board member being interviewed",
+            "image_position": "",
+            "video": "shopify://files/videos/Dr-Alka-Final4x5.mov",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "name": "Dr Alka Patel",
+            "role": "LONGEVITY DOCTOR & GLOBAL SPEAKER",
+            "tag": "Longevity"
+          }
+        },
+        "m3": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Dr_Richard_Cover_Final.png",
+            "image_fallback": "",
+            "image_alt": "A MUTO scientific advisory board member being interviewed",
+            "image_position": "",
+            "video": "shopify://files/videos/Dr-Richard4x5.mov",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "name": "Dr Richard Mackenzie",
+            "role": "LEADING METABOLISM RESEARCHER",
+            "tag": "Energy"
+          }
+        },
+        "m4": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Dr_Matt.png",
+            "image_fallback": "",
+            "image_alt": "A MUTO scientific advisory board member being interviewed",
+            "image_position": "",
+            "video": "shopify://files/videos/Dr-Macie-4x5.mov",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "name": "Dr Maciej Zatonski",
+            "role": "PERFORMANCE & SLEEP DOCTOR",
+            "tag": "Recovery"
+          }
+        },
+        "m5": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Dr-ash-cover-hq.webp",
+            "image_fallback": "",
+            "image_alt": "A MUTO scientific advisory board member being interviewed",
+            "image_position": "",
+            "video": "shopify://files/videos/Dr. ASH Intro.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "name": "Dr Ash Kapoor",
+            "role": "Longevity & Human Optimisation Doctor & Founder of Levitas One",
+            "tag": "Longevity"
+          }
+        },
+        "m6": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Jamie-Paweleck.jpg",
+            "image_fallback": "",
+            "image_alt": "A MUTO scientific advisory board member being interviewed",
+            "image_position": "",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "name": "Dr Jamie Paweleck",
+            "role": "Longevity doctor and medical educator",
+            "tag": "Longevity"
+          }
+        }
+      },
+      "block_order": [
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5",
+        "m6"
+      ],
+      "settings": {
+        "field": true,
+        "heading": "Meet the experts\nbehind MUTO.",
+        "note": "Our Scientific Advisory Board",
+        "rail_gap": 40,
+        "fit": "nad",
+        "space_top": 104,
+        "space_bottom": 100,
+        "compact": true
+      }
+    },
+    "athletes": {
+      "type": "muto-home-athletes",
+      "blocks": {
+        "t1": {
+          "type": "athlete",
+          "settings": {
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-athlete-harry.jpg?v=1791021221",
+            "image_alt": "Harry Insley running across open parkland in a black vest",
+            "image_position": "50% 6%",
+            "name": "Harry Insley",
+            "tag": "Ironman",
+            "sub": "GB AGE GROUP"
+          }
+        },
+        "t2": {
+          "type": "athlete",
+          "settings": {
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-athlete-yolanda.jpg?v=1791021221",
+            "image_alt": "Yolanda King standing with her arms folded in front of a row of treadmills",
+            "image_position": "50% 28%",
+            "name": "Yolanda King",
+            "tag": "HYROX",
+            "sub": "World championships"
+          }
+        },
+        "t3": {
+          "type": "athlete",
+          "settings": {
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-athlete-hyrox.jpg?v=1790767821",
+            "image_alt": "Kaisa Larkas driving a loaded sled at a HYROX world championship",
+            "image_position": "50% 37%",
+            "name": "Kaisa Larkas",
+            "tag": "HYROX",
+            "sub": "World championships"
+          }
+        },
+        "athlete_ypCT8b": {
+          "type": "athlete",
+          "disabled": true,
+          "settings": {
+            "image_fallback": "",
+            "image_alt": "",
+            "image_position": "",
+            "name": "Yolanda King",
+            "tag": "HYROX",
+            "sub": "World championships"
+          }
+        },
+        "t4": {
+          "type": "athlete",
+          "settings": {
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-athlete-cyclist.jpg?v=1790767821",
+            "image_alt": "Sam Ekstrom on the drops during a Team GB time trial",
+            "image_position": "50% 35%",
+            "name": "Sam Ekstrom",
+            "tag": "TRIATHLON",
+            "sub": "Team GB"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "athlete_ypCT8b",
+        "t4"
+      ],
+      "settings": {
+        "heading": "Still training.\nStill working.\nNot done yet.",
+        "space_top": 100,
+        "space_bottom": 100
+      }
+    },
+    "benefits": {
+      "type": "muto-home-benefits",
+      "blocks": {
+        "bpn": {
+          "type": "panel",
+          "settings": {
+            "label": "NAD+",
+            "key": "nad",
+            "title": "NAD+ Cellular Complex",
+            "lede": "Not another multivitamin. The next generation of one. Five jobs and one jar, built for what your body needs after 35. <a href=\"/pages/ingredients\">See which ingredient does what</a>.",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-benefits-nad-v2.jpg?v=1791288517",
+            "image_alt": "The MUTO NAD+ Cellular Complex jar beside its carton, lit on a dark set",
+            "cta_label": "Start the protocol",
+            "cta_link": "shopify://products/muto-nad-cellular-complex"
+          }
+        },
+        "bpc": {
+          "type": "panel",
+          "settings": {
+            "label": "Creatine",
+            "key": "creatine",
+            "title": "Ultrapure micronised creatine monohydrate",
+            "lede": "The fast end of your energy system, for the seconds that matter most.",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-benefits-creatine.jpg?v=1791038724",
+            "image_alt": "A close-up of the creatine pouch, the serving panel and the performance claim in focus",
+            "cta_label": "Start the protocol",
+            "cta_link": "/products/muto-creatine"
+          }
+        },
+        "bc1": {
+          "type": "benefit",
+          "settings": {
+            "panel": "creatine",
+            "title": "Performance",
+            "text": "Fuels the sprint, the heavy set and the last station, so you can repeat hard efforts with less drop-off."
+          }
+        },
+        "bc2": {
+          "type": "benefit",
+          "settings": {
+            "panel": "creatine",
+            "title": "Strength",
+            "text": "Taken daily alongside your training, it supports the strength you're working for, session after session."
+          }
+        },
+        "bc3": {
+          "type": "benefit",
+          "settings": {
+            "panel": "creatine",
+            "title": "Cognition",
+            "text": "Your brain stores creatine for the same reason your muscles do: fast energy when demand spikes. Research is exploring its role in mental performance, especially on short sleep and long days."
+          }
+        },
+        "bc4": {
+          "type": "benefit",
+          "settings": {
+            "panel": "creatine",
+            "title": "Healthy Ageing",
+            "text": "Strength is part of ageing well. With regular training, a daily scoop helps you keep building it, for years, not just this season."
+          }
+        },
+        "bn1": {
+          "type": "benefit",
+          "settings": {
+            "panel": "nad",
+            "title": "Energy",
+            "text": "Afternoons that don’t fade."
+          }
+        },
+        "bn2": {
+          "type": "benefit",
+          "settings": {
+            "panel": "nad",
+            "title": "Recovery",
+            "text": "Bounce back from a busy week."
+          }
+        },
+        "bn3": {
+          "type": "benefit",
+          "settings": {
+            "panel": "nad",
+            "title": "Mind",
+            "text": "A clearer head, all day."
+          }
+        },
+        "bn4": {
+          "type": "benefit",
+          "settings": {
+            "panel": "nad",
+            "title": "Ageing well",
+            "text": "Age on your own terms."
+          }
+        },
+        "bn5": {
+          "type": "benefit",
+          "settings": {
+            "panel": "nad",
+            "title": "Immunity",
+            "text": "Stay well through winter."
+          }
+        },
+        "bn6": {
+          "type": "benefit",
+          "settings": {
+            "panel": "nad",
+            "title": "Simplicity",
+            "text": "One jar replaces five."
+          }
+        }
+      },
+      "block_order": [
+        "bpn",
+        "bn1",
+        "bn2",
+        "bn3",
+        "bn4",
+        "bn5",
+        "bn6",
+        "bpc",
+        "bc1",
+        "bc2",
+        "bc3",
+        "bc4"
+      ],
+      "settings": {
+        "heading": "Where you’ll\nfeel it",
+        "tablist_label": "Choose a product",
+        "field": true,
+        "space_top": 100,
+        "space_bottom": 100
+      }
+    },
+    "banner": {
+      "type": "muto-home-banner",
+      "settings": {
+        "line_a": "Above\nthe\nstandard.",
+        "line_b": "Beneath\nthe surface.",
+        "cutout_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-cutout.png?v=1790751995",
+        "space_top": 100,
+        "space_bottom": 100
+      }
+    },
+    "science_nad": {
+      "type": "muto-home-science",
+      "blocks": {
+        "sp1": {
+          "type": "panel",
+          "settings": {
+            "label": "What it does",
+            "title": "What it does",
+            "text": "<p>Not another multivitamin. The next generation of one. MUTO gives you the active vitamins and minerals you’d want from a good multivitamin, plus the cellular science most leave out: NR for NAD⁺, CoQ10, PQQ and resveratrol.</p><p>Five jobs in one daily jar: <strong>energy</strong> that holds through the afternoon, <strong>recovery</strong> from a busy week, a clearer <strong>mind</strong>, <strong>ageing well</strong> and <strong>immunity</strong>. Two capsules, 19 ingredients, one jar instead of five pots.</p>",
+            "cta_label": "Start the protocol",
+            "cta_link": "/products/muto-nad-cellular-complex"
+          }
+        },
+        "sp2": {
+          "type": "panel",
+          "settings": {
+            "label": "How it works",
+            "title": "How it works",
+            "text": "<p>Every cell makes its own energy, in tiny power stations called mitochondria. NAD⁺ is the courier that carries energy from your food to them, all day. From your mid-30s your body makes less of it: fewer couriers, the same work.</p><p>You notice it in your day before you’d call it ageing: afternoons that fade, busy weeks that take longer to bounce back from. It’s like your body has switched to low power mode.</p><p>MUTO gives your cells NR, which they turn into NAD⁺, plus what helps them use it: active B vitamins, CoQ10 and PQQ for your mitochondria, and zinc and copper to help protect your cells. Not a stimulant. A better baseline, built every day.</p><p>Go deeper: <a href=\"/pages/science\">the science, made simple</a>.</p>",
+            "cta_label": "Start the protocol",
+            "cta_link": "/products/muto-nad-cellular-complex"
+          }
+        },
+        "sp3": {
+          "type": "panel",
+          "settings": {
+            "label": "Formula",
+            "title": "Formula",
+            "text": "<p>19 ingredients, every dose on the label. No proprietary blends, no fillers.</p><ul><li><strong>Energy:</strong> NR 300mg, CoQ10 150mg, PQQ 20mg and the active B vitamins.</li><li><strong>Recovery:</strong> vitamin D3 2,000 IU, B2, CoQ10 and PQQ.</li><li><strong>Mind:</strong> B6, B12, folate (5-MTHF) and zinc.</li><li><strong>Ageing well:</strong> NR with TMG 450mg, trans-resveratrol 50mg, grape seed extract 150mg and vitamin K2 100µg.</li><li><strong>Immunity:</strong> vitamin D3, zinc 15mg and copper 1mg (both bisglycinate), folate, B6 and B12.</li></ul><p>Vegan capsules, made in the UK to GMP standards, every batch tested. See <a href=\"/pages/ingredients\">all 19 ingredients</a> and <a href=\"/pages/standards\">our standards</a>.</p>",
+            "cta_label": "Start the protocol",
+            "cta_link": "/products/muto-nad-cellular-complex"
+          }
+        },
+        "sp4": {
+          "type": "panel",
+          "settings": {
+            "label": "Who it's for",
+            "title": "Who it's for",
+            "text": "<p>Adults in their 40s, 50s and 60s. Most of our customers are in their 40s and 50s: still working, keeping up with family and the things they love, and not ready to slow down.</p><p>It’s for you if your afternoons fade sooner than they used to, busy weeks take longer to bounce back from, or you’re taking five supplements and don’t know which one’s working.</p><p>You don’t need to be sporty or own a smartwatch. And it’s not for anyone chasing a buzz: no caffeine, no stimulants.</p>",
+            "cta_label": "Start the protocol",
+            "cta_link": "/products/muto-nad-cellular-complex"
+          }
+        },
+        "sp5": {
+          "type": "panel",
+          "settings": {
+            "label": "Protocol",
+            "title": "Protocol",
+            "text": "<p>Two capsules with breakfast, every day.</p><ul><li><strong>Day 1:</strong> score your afternoons, sleep and recovery out of 10.</li><li><strong>Day 30:</strong> afternoons that hold. Usually the first thing people notice.</li><li><strong>Day 60:</strong> bouncing back sooner from busy weeks.</li><li><strong>Day 90:</strong> compare with day 1. Not for you? You get every subscription payment back.</li></ul>",
+            "cta_label": "Start the protocol",
+            "cta_link": "/products/muto-nad-cellular-complex"
+          }
+        }
+      },
+      "block_order": [
+        "sp1",
+        "sp2",
+        "sp3",
+        "sp4",
+        "sp5"
+      ],
+      "settings": {
+        "flip": false,
+        "heading": "The science:\nNAD+ Cellular\nComplex",
+        "lede": "What changes in your body after 35, and why you feel it in your afternoons, your recovery and how you age.",
+        "tablist_label": "Choose a topic",
+        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-science-nad-v2.jpg?v=1791288517",
+        "image_alt": "Two jars of MUTO NAD+ Cellular Complex, one tipped against the other, lit on a dark set",
+        "space_top": 100,
+        "space_bottom": 100
+      }
+    },
+    "science_creatine": {
+      "type": "muto-home-science",
+      "blocks": {
+        "sp1": {
+          "type": "panel",
+          "settings": {
+            "label": "What it does",
+            "title": "What it does",
+            "text": "<p>Creatine is the fast reserve your muscles draw on when effort spikes: the hard rep, the sprint, the last station. It helps you repeat hard efforts with less drop-off, so you get more out of every session. It's one of the most researched supplements there is, and now it's in the same routine as your NAD+ Cellular Complex.</p>",
+            "cta_label": "Start the protocol",
+            "cta_link": "/products/muto-creatine"
+          }
+        },
+        "sp2": {
+          "type": "panel",
+          "settings": {
+            "label": "How it works",
+            "title": "How it works",
+            "text": "<p>At the start of a sprint, a heavy lift or a steep climb, your muscles burn through their ready supply of ATP in seconds, faster than your mitochondria can remake it. Creatine is stored in muscle as phosphocreatine, a reserve that rebuilds ATP almost instantly, so the next rep, stride or effort has something to draw on. MUTO NAD+ Cellular Complex looks after the steady supply. Creatine looks after the fast reserve. Two energy systems, one routine.</p>",
+            "cta_label": "Start the protocol",
+            "cta_link": "/products/muto-creatine"
+          }
+        },
+        "sp3": {
+          "type": "panel",
+          "settings": {
+            "label": "Formula",
+            "title": "Formula",
+            "text": "<p>Ultrapure creatine monohydrate, the most studied form, and nothing else in the tub. It's micronised into a finer powder, so it mixes cleanly into water, coffee or a smoothie with no grit. ≥99.9% pure, every batch tested. The same standard as everything we make: nothing hidden.</p>",
+            "cta_label": "Start the protocol",
+            "cta_link": "/products/muto-creatine"
+          }
+        },
+        "sp4": {
+          "type": "panel",
+          "settings": {
+            "label": "Who it's for",
+            "title": "Who it's for",
+            "text": "<p>For people who train to stay strong for longer: the Hyrox athlete chasing faster stations, the fifty-something lifting to keep up with his kids, the woman who knows strength training isn't just for bodybuilders. MUTO NAD+ Cellular Complex supports the steady energy you run on all day. MUTO Ultrapure Creatine Monohydrate supports the fast reserve your muscles draw on when effort spikes.</p>",
+            "cta_label": "Start the protocol",
+            "cta_link": "/products/muto-creatine"
+          }
+        },
+        "sp5": {
+          "type": "panel",
+          "settings": {
+            "label": "Protocol",
+            "title": "Protocol",
+            "text": "<p>One 5g scoop a day, every day, with your first meal alongside your NAD+ Cellular Complex capsules. Any drink works. Consistency beats timing, so there's no loading and no cycling. Stores build over a few weeks, and the scales may nudge up slightly as your muscles hold more water. That's expected, and it isn't fat. Track it where it shows: note your reps at a set weight, interval splits or station times before your first scoop, and compare after a few weeks.</p>",
+            "cta_label": "Start the protocol",
+            "cta_link": "/products/muto-creatine"
+          }
+        }
+      },
+      "block_order": [
+        "sp1",
+        "sp2",
+        "sp3",
+        "sp4",
+        "sp5"
+      ],
+      "settings": {
+        "flip": true,
+        "heading": "The science:\nMicronised\nCreatine",
+        "lede": "The fast end of your energy system, for the seconds that matter most.",
+        "tablist_label": "Choose a topic",
+        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-science-creatine-v2.jpg?v=1791288516",
+        "image_alt": "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate lit on a dark set",
+        "space_top": 100,
+        "space_bottom": 100
+      }
+    },
+    "stats": {
+      "type": "muto-home-stats",
+      "blocks": {
+        "n1": {
+          "type": "stat",
+          "settings": {
+            "figure": "4",
+            "label": "University\nresearch partners",
+            "caption": ""
+          }
+        },
+        "n2": {
+          "type": "stat",
+          "settings": {
+            "figure": "300+",
+            "label": "Supporting\nstudies",
+            "caption": "Across all 19 ingredients"
+          }
+        },
+        "n3": {
+          "type": "stat",
+          "settings": {
+            "figure": "6",
+            "label": "Scientific\nadvisors",
+            "caption": "PhD, MD and clinical specialists"
+          }
+        }
+      },
+      "block_order": [
+        "n1",
+        "n2",
+        "n3"
+      ],
+      "settings": {
+        "heading": "The numbers behind MUTO",
+        "space_top": 100,
+        "space_bottom": 100
+      }
+    },
+    "sticky": {
+      "type": "muto-home-sticky",
+      "blocks": {
+        "p1": {
+          "type": "plan",
+          "settings": {
+            "variant_title": "30-Day Plan",
+            "name": "1-month subscription",
+            "price_suffix": "/mo",
+            "note": "Billed monthly",
+            "use_selling_plan": true
+          }
+        },
+        "p2": {
+          "type": "plan",
+          "settings": {
+            "variant_title": "90-Day Plan",
+            "name": "3-month subscription",
+            "price_suffix": "/mo",
+            "note": "Billed quarterly",
+            "use_selling_plan": true
+          }
+        },
+        "p3": {
+          "type": "plan",
+          "settings": {
+            "variant_title": "One time purchase",
+            "name": "One-time purchase",
+            "price_suffix": "",
+            "note": "One payment",
+            "use_selling_plan": false
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3"
+      ],
+      "settings": {
+        "product": "muto-nad-cellular-complex",
+        "sticky_cta_label": "Start the protocol",
+        "sticky_label": "",
+        "plan_cta_label": "Start the protocol",
+        "cta_link": "/products/muto-nad-cellular-complex",
+        "sticky_sub": "Cancel, pause or skip anytime",
+        "schema_on": true
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "shop",
+    "why",
+    "founder",
+    "board",
+    "athletes",
+    "benefits",
+    "banner",
+    "science_nad",
+    "science_creatine",
+    "stats",
+    "sticky"
+  ]
+}
