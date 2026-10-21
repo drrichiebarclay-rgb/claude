@@ -110,6 +110,13 @@ PANELS = {
 for k, html in PANELS.items():
     sc["blocks"][k]["settings"]["text"] = html
 
+# The benefits photo stays pinned while its rows scroll past (desktop); a style-only section, hidden itself
+S["benefits_css"] = {"type": "custom-liquid", "settings": {"color_scheme": "scheme-1", "padding_top": 0, "padding_bottom": 0, "custom_liquid":
+    "<style>[id$=\"__benefits_css\"]{display:none}"
+    "@media (min-width:990px){[id$=\"__benefits\"] .mh__benefits-grid{align-items:start}"
+    "[id$=\"__benefits\"] .mh__benefits-media{position:sticky;top:110px;align-self:start}}</style>"}}
+T["order"].insert(T["order"].index("benefits") + 1, "benefits_css")
+
 out = os.path.join(HERE, "templates", "index.json")
 json.dump(T, open(out, "w"), ensure_ascii=False, indent=2)
 print("wrote", out)

@@ -946,6 +946,15 @@
         "sticky_sub": "Cancel, pause or skip anytime",
         "schema_on": true
       }
+    },
+    "benefits_css": {
+      "type": "custom-liquid",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_liquid": "<style>[id$=\"__benefits_css\"]{display:none}@media (min-width:990px){[id$=\"__benefits\"] .mh__benefits-grid{align-items:start}[id$=\"__benefits\"] .mh__benefits-media{position:sticky;top:110px;align-self:start}}</style>"
+      }
     }
   },
   "order": [
@@ -956,6 +965,7 @@
     "board",
     "athletes",
     "benefits",
+    "benefits_css",
     "banner",
     "science_nad",
     "science_creatine",
