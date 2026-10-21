@@ -1,0 +1,358 @@
+{%- comment -%}
+  MUTO product page — buy band.
+
+  The landing-page buy box, driven by real product data. Each supply option is
+  a block that names one of the product's option values; the section resolves
+  it to the live variant for id, price and availability, so nothing here can
+  drift from what actually gets charged.
+
+  Subscriptions on this product are selling plans, not separate variants. When
+  a matched variant carries a selling-plan allocation, the option posts that
+  plan and shows the plan's price. One-time purchase carries no allocation and
+  posts the bare variant.
+
+  Adds to cart through Dawn's <product-form>, so the theme's cart drawer,
+  cart-update events and analytics all fire as normal. The radio group sits
+  OUTSIDE the <form> on purpose — inside it, the group's name would be posted
+  to /cart/add as a stray parameter.
+{%- endcomment -%}
+
+{% render 'muto-lp-assets' %}
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'muto-pdp.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign option_blocks = section.blocks | where: 'type', 'option'
+  assign chips = section.blocks | where: 'type', 'chip'
+  assign form_id = 'muto-pdp-form-' | append: section.id
+  assign group_name = 'muto-supply-' | append: section.id
+
+  assign initial_variant = blank
+  assign initial_plan = ''
+  assign initial_price = 0
+-%}
+
+<div class="muto-lp-band">
+  <div class="muto-lp">
+    <div class="muto-lp__buy" id="{{ section.settings.anchor_id | default: 'buy' }}" data-muto-pdp>
+      {%- if section.settings.heading != blank -%}
+        <h2 class="muto-lp__buy-title">{{ section.settings.heading | escape | newline_to_br }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.subhead != blank -%}
+        <div class="muto-lp__buy-subhead">{{ section.settings.subhead }}</div>
+      {%- endif -%}
+
+      {%- if option_blocks.size > 0 -%}
+        <div class="muto-lp__options" role="radiogroup" aria-label="{{ 'Choose your supply' | escape }}">
+          {%- for block in option_blocks -%}
+            {%- liquid
+              assign match = product.variants | where: 'title', block.settings.option_value | first
+
+              assign plan_id = ''
+              assign plan_name = ''
+              assign unit_price = 0
+
+              if match != blank
+                assign unit_price = match.price
+                if section.settings.use_selling_plans and match.selling_plan_allocations.size > 0
+                  assign allocation = match.selling_plan_allocations | first
+                  assign plan_id = allocation.selling_plan.id
+                  assign plan_name = allocation.selling_plan.name
+                  assign unit_price = allocation.price
+                endif
+              endif
+
+              # The first available option wins the initial selection, which
+              # makes the design's default (90-day, charcoal) the first block.
+              assign is_selected = false
+              if initial_variant == blank and match != blank and match.available
+                assign is_selected = true
+                assign initial_variant = match
+                assign initial_plan = plan_id
+                assign initial_price = unit_price
+              endif
+            -%}
+
+            {%- if match == blank -%}
+              {%- comment -%}
+                No variant matches this block's option value — skip it rather
+                than render a card that cannot be bought. Check the block's
+                "Variant title" against the product's variants.
+              {%- endcomment -%}
+              {%- continue -%}
+            {%- endif -%}
+
+            <label
+              class="muto-lp__option muto-lp__option--selectable{% if block.settings.badge != blank %} muto-lp__option--badged{% endif %}{% if is_selected %} is-selected{% endif %}{% unless match.available %} is-unavailable{% endunless %}"
+              data-muto-option
+              data-variant-id="{{ match.id }}"
+              data-variant-title="{{ match.title | escape }}"
+              data-selling-plan="{{ plan_id }}"
+              data-price="{{ unit_price | money }}"
+              {{ block.shopify_attributes }}
+            >
+              <input
+                class="muto-lp__option-input"
+                type="radio"
+                name="{{ group_name }}"
+                value="{{ match.id }}"
+                {% if is_selected %}checked{% endif %}
+                {% unless match.available %}disabled{% endunless %}
+              >
+              {%- if block.settings.badge != blank -%}
+                <span class="muto-lp__option-badge">{{ block.settings.badge }}</span>
+              {%- endif -%}
+              <span class="muto-lp__option-body">
+                <span class="muto-lp__option-row">
+                  <span class="muto-lp__option-name">{{ block.settings.name | default: match.title }}</span>
+                  <span class="muto-lp__option-price">
+                    {%- if match.available -%}
+                      {{ unit_price | money }}
+                    {%- else -%}
+                      {{ 'products.product.sold_out' | t }}
+                    {%- endif -%}
+                  </span>
+                </span>
+                {%- if block.settings.note != blank -%}
+                  <span class="muto-lp__option-note">{{ block.settings.note }}</span>
+                {%- endif -%}
+                {%- if plan_name != blank and section.settings.show_plan_name -%}
+                  <span class="muto-lp__option-term">{{ plan_name }}</span>
+                {%- endif -%}
+              </span>
+            </label>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- liquid
+        if initial_variant == blank
+          assign initial_variant = product.selected_or_first_available_variant
+          assign initial_price = initial_variant.price
+        endif
+      -%}
+
+      <product-form class="muto-lp__product-form" data-hide-errors="false">
+        <div class="product-form__error-message-wrapper muto-lp__form-error" role="alert" hidden>
+          <span class="product-form__error-message"></span>
+        </div>
+
+        {%- form 'product', product, id: form_id, class: 'muto-lp__form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+          <input type="hidden" name="id" data-muto-variant-input value="{{ initial_variant.id }}" disabled>
+          <input
+            type="hidden"
+            name="selling_plan"
+            data-muto-plan-input
+            value="{{ initial_plan }}"
+            {% if initial_plan == blank %}disabled{% endif %}
+          >
+          <input type="hidden" name="quantity" value="1">
+
+          <button
+            class="muto-lp__cta"
+            type="submit"
+            name="add"
+            data-muto-cta
+            {% unless initial_variant.available %}aria-disabled="true" disabled{% endunless %}
+          >
+            <span data-muto-cta-text>
+              {%- if initial_variant.available -%}
+                {{ section.settings.cta_label }}
+                {%- if section.settings.show_price_in_cta %} — <span data-muto-cta-price>{{ initial_price | money }}</span>{% endif -%}
+              {%- else -%}
+                {{ 'products.product.sold_out' | t }}
+              {%- endif -%}
+            </span>
+            <span class="loading__spinner hidden" aria-hidden="true"></span>
+            {%- if section.settings.cta_note != blank -%}
+              <small>{{ section.settings.cta_note }}</small>
+            {%- endif -%}
+          </button>
+        {%- endform -%}
+      </product-form>
+
+      {%- comment -%}
+        Secondary line. The one-time price is read from the variant rather than
+        typed, so "One-time purchase, £70" cannot go stale. It becomes a button
+        only when a card for that variant is actually on the page; otherwise it
+        stays the informational line the design has.
+      {%- endcomment -%}
+      {%- if section.settings.alt_label != blank -%}
+        {%- liquid
+          assign alt_variant = blank
+          if section.settings.alt_variant_title != blank
+            assign alt_variant = product.variants | where: 'title', section.settings.alt_variant_title | first
+          endif
+
+          assign alt_has_card = false
+          for block in option_blocks
+            if block.settings.option_value == section.settings.alt_variant_title
+              assign alt_has_card = true
+              break
+            endif
+          endfor
+
+          capture alt_text
+            echo section.settings.alt_label
+            if alt_variant != blank
+              echo ', '
+              echo alt_variant.price | money
+            endif
+          endcapture
+        -%}
+
+        {%- if alt_has_card -%}
+          <button
+            class="muto-lp__buy-alt"
+            type="button"
+            data-muto-select-option="{{ section.settings.alt_variant_title | escape }}"
+          >
+            {{- alt_text -}}
+          </button>
+        {%- elsif section.settings.alt_link != blank -%}
+          <a class="muto-lp__buy-alt" href="{{ section.settings.alt_link }}">{{ alt_text }}</a>
+        {%- else -%}
+          <span class="muto-lp__buy-alt">{{ alt_text }}</span>
+        {%- endif -%}
+      {%- endif -%}
+
+      {%- if section.settings.show_chips and chips.size > 0 -%}
+        <div class="muto-lp__chips">
+          {%- for block in chips -%}
+            <span class="muto-lp__chip" {{ block.shopify_attributes }}>{{ block.settings.label }}</span>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.guarantee_heading != blank or section.settings.guarantee_body != blank -%}
+        <div class="muto-lp__guarantee">
+          {%- if section.settings.guarantee_heading != blank -%}
+            <h3 class="muto-lp__guarantee-title">{{ section.settings.guarantee_heading }}</h3>
+          {%- endif -%}
+          {%- if section.settings.guarantee_body != blank -%}
+            <p class="muto-lp__guarantee-body">{{ section.settings.guarantee_body }}</p>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO PDP — Buy",
+  "tag": "section",
+  "class": "muto-lp-section",
+  "max_blocks": 10,
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Start your\n90 days",
+      "info": "One line per row. Rendered in caps."
+    },
+    {
+      "type": "text",
+      "id": "subhead",
+      "label": "Mono subhead",
+      "default": "Choose your supply — cancel, pause or skip anytime"
+    },
+    { "type": "text", "id": "anchor_id", "label": "Anchor id", "default": "buy" },
+    { "type": "header", "content": "Variants" },
+    {
+      "type": "checkbox",
+      "id": "use_selling_plans",
+      "label": "Use subscription selling plan when available",
+      "default": true,
+      "info": "Posts the variant's first selling plan and shows its price. Turn off to sell every option as a one-time purchase."
+    },
+    { "type": "checkbox", "id": "show_plan_name", "label": "Show selling plan name on the card", "default": false },
+    { "type": "header", "content": "Call to action" },
+    { "type": "text", "id": "cta_label", "label": "Button label", "default": "Start your 90 days" },
+    { "type": "checkbox", "id": "show_price_in_cta", "label": "Append the selected price", "default": true },
+    { "type": "text", "id": "cta_note", "label": "Button note", "default": "90-day money-back guarantee" },
+    {
+      "type": "text",
+      "id": "alt_label",
+      "label": "Secondary line text",
+      "default": "Prefer to try once? One-time purchase"
+    },
+    {
+      "type": "text",
+      "id": "alt_variant_title",
+      "label": "Secondary line variant",
+      "default": "One time purchase",
+      "info": "That variant's live price is appended to the label. If a supply option block also exists for it, the line becomes a button that selects it."
+    },
+    { "type": "url", "id": "alt_link", "label": "Secondary link (if no matching option block)" },
+    { "type": "header", "content": "Trust chips" },
+    { "type": "checkbox", "id": "show_chips", "label": "Show trust chips", "default": true },
+    { "type": "header", "content": "Guarantee" },
+    {
+      "type": "text",
+      "id": "guarantee_heading",
+      "label": "Guarantee heading",
+      "default": "Try it for 90 days. Send it back if nothing changes."
+    },
+    {
+      "type": "textarea",
+      "id": "guarantee_body",
+      "label": "Guarantee body",
+      "default": "Cellular change takes a full quarter to show up in your data, so we give you the whole quarter. If your numbers haven't moved and you don't feel the difference, tell us and we'll refund you in full."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "option",
+      "name": "Supply option",
+      "settings": [
+        {
+          "type": "text",
+          "id": "option_value",
+          "label": "Variant title",
+          "default": "90-Day Plan",
+          "info": "Must match a variant on this product, e.g. \"90-Day Plan\". Price, id and availability come from that variant; a block that matches nothing is skipped."
+        },
+        { "type": "text", "id": "name", "label": "Display name", "info": "Defaults to the variant title." },
+        { "type": "textarea", "id": "note", "label": "Note" },
+        { "type": "text", "id": "badge", "label": "Badge", "info": "Leave empty for no badge." }
+      ]
+    },
+    {
+      "type": "chip",
+      "name": "Trust chip",
+      "settings": [{ "type": "text", "id": "label", "label": "Label", "default": "Free next-day UK" }]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MUTO PDP — Buy",
+      "blocks": [
+        {
+          "type": "option",
+          "settings": {
+            "option_value": "90-Day Plan",
+            "name": "90 day supply",
+            "note": "Billed quarterly. Same price on every renewal.",
+            "badge": "Best value"
+          }
+        },
+        {
+          "type": "option",
+          "settings": {
+            "option_value": "30-Day Plan",
+            "name": "Try one month",
+            "note": "Billed monthly. Cancel before the second order if it isn't for you."
+          }
+        },
+        { "type": "chip", "settings": { "label": "Free next-day UK" } },
+        { "type": "chip", "settings": { "label": "Third-party tested" } },
+        { "type": "chip", "settings": { "label": "Cancel anytime" } }
+      ]
+    }
+  ],
+  "enabled_on": { "templates": ["product"] }
+}
+{% endschema %}

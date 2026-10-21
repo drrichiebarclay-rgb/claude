@@ -3,7 +3,7 @@
 Starts from the 40-60 buy box (../pdp-45/age-4060/product.muto-nad-45.json, the draft's
 product.muto-nad-4060) and lays out, top to bottom:
 
-  buy        muto-pdp-buy: the buy box, with a delivery line, a guarantee panel, the test
+  buy        muto-pdp-v2-buy: the buy box, with a delivery line, a guarantee panel, the test
              results button and the doctors block under the button; accordions rewritten
   nav        muto-section-nav: chips for the sections below, pinned once scrolled to
   benefits   muto-benefit-cards: the five jobs as photo cards (AG1 style)
@@ -56,7 +56,7 @@ MAIL = '<a href="mailto:hello@mutolongevity.com">hello@mutolongevity.com</a>'
 
 # ---- Buy box ----
 buy = copy.deepcopy(BASE["buy"])
-buy["type"] = "muto-pdp-buy"
+buy["type"] = "muto-pdp-v2-buy"  # not muto-pdp-buy: the live theme already has a different section by that name
 buy["settings"]["text"] = p("<strong>Not another multivitamin. The next generation of one.</strong>",
                             "The active vitamins and minerals you’d want from a good multivitamin, plus the cellular science most leave out: NR for NAD⁺, CoQ10, PQQ and resveratrol. 19 ingredients, every dose on the label, two capsules, one jar.",
                             '<a href="#test-results-3">Ingredients + nutritional information</a>')

@@ -1,7 +1,7 @@
 {
   "sections": {
     "buy": {
-      "type": "muto-pdp-buy",
+      "type": "muto-pdp-v2-buy",
       "blocks": {
         "g1": {
           "type": "slide",
