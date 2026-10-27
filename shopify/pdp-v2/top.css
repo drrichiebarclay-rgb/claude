@@ -16,21 +16,30 @@ html body .mc .mc__rating-text{font-family:var(--mc-font);font-size:17px;line-he
 html body .mh__sticky .mc-sticky-was{margin-right:.25em;font-weight:500;opacity:.55;text-decoration:line-through}
 /* Room under "Choose your plan" before the Black Friday box */
 html body .mc .mc__buy-copy > .mc-bf{margin-top:24px}
-/* Phones: the copy column dissolves into the page's column (as the left one already does), so its
-   parts can be ordered around the photograph: stars, MUTO, title, subhead · images + testing button ·
-   the offer (Black Friday box, "Choose your plan", plans, one-time, button, badges) · then the
-   serving line, description, benefits, reviews and folds */
+/* Order of the copy column, same at every width: stars, title, subhead · the offer (Black Friday box,
+   "Choose your plan", plans, one-time, button, badges) · then the serving line, description, reviews and
+   folds. Phones also put the images and testing button between the subhead and the offer (below). */
+html body .mc .mc__buy-copy > *{order:3}
+html body .mc .mc__buy-copy > .mc-bf,html body .mc .mc__buy-copy > .mc__trust,html body .mc .mc__buy-copy > .mc__plans,
+html body .mc .mc__buy-copy > .mc__pf,html body .mc .mc__buy-copy > .mc__onetime,html body .mc .mc__buy-copy > .mc__buy-cta,
+html body .mc .mc__buy-copy > .mc__buy-actions,html body .mc .mc__buy-copy > .mpb-x,
+html body .mc .mc__buy-copy > .mc__pf > *{order:2} /* .mc__pf is display:contents: its button is the item */
+html body .mc .mc__buy-copy > .mc__rating,html body .mc .mc__buy-copy > .mc__eyebrow,
+html body .mc .mc__buy-copy > .mc__buy-title,html body .mc .mc__buy-copy > .mc-subhead{order:0}
+html body .mc .mc__buy-copy > .mc__buy-serving{margin-top:32px}
+/* Desktop: the copy column is a flex column so the order above applies; "How it helps" is dropped */
+@media (min-width:990px){
+  html body .mc .mc__buy-copy{display:flex;flex-direction:column}
+  html body .mc .mc__buy-copy > .mc__buy-points{display:none}
+  html body .mc .mc__buy-copy > .mc__trust{margin-top:28px}
+}
+/* Phones: the copy column dissolves into the page's column (as the left one already does), so the
+   images and testing button can sit between the subhead and the offer; headline centred */
 @media (max-width:989px){
   html body .mc .mc__buy-grid{gap:0}
   html body .mc .mc__buy-copy{display:contents}
-  html body .mc .mc__buy-copy > *{order:3}
-  html body .mc .mc__buy-copy > .mc-bf,html body .mc .mc__buy-copy > .mc__trust,html body .mc .mc__buy-copy > .mc__plans,
-  html body .mc .mc__buy-copy > .mc__pf,html body .mc .mc__buy-copy > .mc__onetime,html body .mc .mc__buy-copy > .mc__buy-cta,
-  html body .mc .mc__buy-copy > .mc__buy-actions,html body .mc .mc__buy-copy > .mpb-x,
-  html body .mc .mc__buy-copy > .mc__pf > *{order:2} /* .mc__pf is display:contents: its button is the item */
-  html body .mc .mc__buy-copy > .mc__buy-serving{margin-top:32px}
   html body .mc .mc__buy-copy > .mc__rating,html body .mc .mc__buy-copy > .mc__eyebrow,
-  html body .mc .mc__buy-copy > .mc__buy-title,html body .mc .mc__buy-copy > .mc-subhead{order:0;text-align:center}
+  html body .mc .mc__buy-copy > .mc__buy-title,html body .mc .mc__buy-copy > .mc-subhead{text-align:center}
   html body .mc .mc__buy-copy > .mc__rating{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:20px}
   html body .mc .mc__buy-copy > .mc__buy-title{margin-top:16px}
   html body .mc .mc__buy-copy > .mc-subhead{margin-top:12px}

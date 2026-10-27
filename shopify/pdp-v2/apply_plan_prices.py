@@ -4,7 +4,8 @@ Quarterly £50/mo with £70 struck through, monthly £60/mo with £70 struck thr
 as a tag in each box's top-left corner, "Best value" leading the bar over the quarterly box, and
 a plain "Add to cart" button with no price on it.
 Top of the page (top.css, top.js): on phones the stars, title and a subhead sit above the images,
-AgeMate-style, with no "MUTO" over the title; a "View third-party testing results" button sits under
+AgeMate-style, with no "MUTO" over the title; at every width the offer comes straight after the
+headline and the description follows the button; on desktop "How it helps" is dropped; a "View third-party testing results" button sits under
 the images (all widths) instead of under the buy box; the
 "Ingredients + nutritional information" link is gone from the description.
 Template-only: the save copy goes on the plan blocks, the styling (plan-prices.css) into the
