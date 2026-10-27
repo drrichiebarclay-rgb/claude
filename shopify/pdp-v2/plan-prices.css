@@ -1,0 +1,20 @@
+/* ---- Plan cards, AG1-style: per-month price, % off tag in the top-left corner, Best value bar ---- */
+/* Skio still bills £150 every 3 months and £60 every 4 weeks. The section prints Skio's price and
+   compare-at, so the per-month figures are drawn here and Skio's are hidden (still in the DOM, so the
+   button keeps reading the billed price). Card 1 = monthly, card 2 = quarterly (Skio's order). */
+html body .mc .mc__plans > label.mc__plan{padding-top:44px}
+html body .mc .mc__plan-save{position:absolute;top:0;left:0;height:28px;margin:0;padding:0 12px;border-radius:14px 0 10px 0;
+  display:flex;align-items:center;background:#7ee0f0;color:#242223;font-family:var(--mc-mono,monospace);
+  font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+html body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-save{border-radius:0 0 10px 0}
+html body .mc .mc__plan-prices > *{display:none}
+html body .mc .mc__plan-prices::before,html body .mc .mc__plan-prices::after{display:block}
+html body .mc .mc__plan-prices::before{font-weight:500;font-size:22px;line-height:1.1;letter-spacing:-.01em;color:#242223}
+html body .mc .mc__plan-prices::after{margin-top:4px;font-size:16px;line-height:1.2;text-decoration:line-through;color:rgba(36,34,35,.5)}
+html body .mc .mc__plans > label.mc__plan:nth-of-type(1) .mc__plan-prices::before{content:"£60/mo"}
+html body .mc .mc__plans > label.mc__plan:nth-of-type(1) .mc__plan-prices::after{content:"£70"}
+html body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-prices::before{content:"£50/mo"}
+html body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-prices::after{content:"£70"}
+/* Best value: the dark bar over the quarterly box leads with it; the welcome-kit line follows */
+html body .mc .mc__plans-banner{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:4px 16px}
+html body .mc .mc__plans-banner::before{content:"\2726\00a0\00a0 Best value";color:#7ee0f0;font-family:var(--mc-mono,monospace);letter-spacing:.1em}
