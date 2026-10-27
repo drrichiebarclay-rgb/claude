@@ -7,6 +7,11 @@ html body .mc .mc-tests-btn:hover{background:#242223;color:#fff}
 html body .mc .mc-tests-btn:focus-visible{outline:2px solid #242223;outline-offset:2px}
 html body .mc .mc-tests-btn__tick{flex:0 0 20px;display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#7ee0f0;box-shadow:0 0 0 1px #242223;color:#242223}
 html body .mc .mc-tests-btn__tick svg{width:11px;height:11px}
+/* Rating row, AgeMate-style: bigger stars, the score in Neue Haas, as typed, no underline */
+html body .mc .mc__rating{align-items:center;gap:10px}
+html body .mc .mc__stars{gap:4px;margin-top:0}
+html body .mc .mc__stars > span{width:19px;height:18px}
+html body .mc .mc__rating-text{font-family:var(--mc-font);font-size:17px;line-height:1.2;font-weight:500;letter-spacing:0;text-transform:none;text-decoration:none;color:#242223}
 /* Room under "Choose your plan" before the Black Friday box */
 html body .mc .mc__buy-copy > .mc-bf{margin-top:24px}
 /* Phones: the copy column dissolves into the page's column (as the left one already does), so its
