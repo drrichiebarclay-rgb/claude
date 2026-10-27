@@ -1,7 +1,7 @@
 /* Subhead under the title, and the testing-results button under the images. The button opens the
    page's test-results panel (the tests section listens for [data-mtr-open]). */
 (function () {
-  var SUBHEAD = 'Everything your body needs after 35 for energy, recovery, stress, immunity and longevity';
+  var SUBHEAD = 'Everything your body needs after 35 for energy, recovery, stress, immunity and longevity.';
   var title = document.querySelector('.mc .mc__buy-title');
   if (title && !document.querySelector('.mc-subhead')) {
     var p = document.createElement('p');
