@@ -7,6 +7,8 @@ html body .mc .mc-tests-btn:hover{background:#242223;color:#fff}
 html body .mc .mc-tests-btn:focus-visible{outline:2px solid #242223;outline-offset:2px}
 html body .mc .mc-tests-btn__tick{flex:0 0 20px;display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#7ee0f0;box-shadow:0 0 0 1px #242223;color:#242223}
 html body .mc .mc-tests-btn__tick svg{width:11px;height:11px}
+/* Room under "Choose your plan" before the Black Friday box */
+html body .mc .mc__buy-copy > .mc-bf{margin-top:24px}
 /* Phones: the copy column dissolves into the page's column (as the left one already does), so its
    parts can be ordered around the photograph: stars, MUTO, title, subhead · images + testing button ·
    the offer (Black Friday box, "Choose your plan", plans, one-time, button, badges) · then the
@@ -19,7 +21,6 @@ html body .mc .mc-tests-btn__tick svg{width:11px;height:11px}
   html body .mc .mc__buy-copy > .mc__pf,html body .mc .mc__buy-copy > .mc__onetime,html body .mc .mc__buy-copy > .mc__buy-cta,
   html body .mc .mc__buy-copy > .mc__buy-actions,html body .mc .mc__buy-copy > .mpb-x,
   html body .mc .mc__buy-copy > .mc__pf > *{order:2} /* .mc__pf is display:contents: its button is the item */
-  html body .mc .mc__buy-copy > .mc-bf{margin-top:0}
   html body .mc .mc__buy-copy > .mc__buy-serving{margin-top:32px}
   html body .mc .mc__buy-copy > .mc__rating,html body .mc .mc__buy-copy > .mc__eyebrow,
   html body .mc .mc__buy-copy > .mc__buy-title,html body .mc .mc__buy-copy > .mc-subhead{order:0;text-align:center}

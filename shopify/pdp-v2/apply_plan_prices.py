@@ -4,7 +4,8 @@ Quarterly £50/mo with £70 struck through, monthly £60/mo with £70 struck thr
 as a tag in each box's top-left corner, "Best value" leading the bar over the quarterly box, and
 a plain "Add to cart" button with no price on it.
 Top of the page (top.css, top.js): on phones the stars, title and a subhead sit above the images,
-AgeMate-style; a "View third-party testing results" button sits under the images (all widths); the
+AgeMate-style, with no "MUTO" over the title; a "View third-party testing results" button sits under
+the images (all widths) instead of under the buy box; the
 "Ingredients + nutritional information" link is gone from the description.
 Template-only: the save copy goes on the plan blocks, the styling (plan-prices.css) into the
 page's own custom-liquid block (easy_read). Skio's prices and the section are not changed.
@@ -29,6 +30,10 @@ def main(src, dst):
     d = json.loads(raw[header.end():] if header else raw)
     buy = d["sections"]["buy"]
     buy["settings"].update(CTA)
+    buy["settings"]["eyebrow"] = ""  # no "MUTO" over the title
+    # The testing-results button now sits under the images; drop the one under the buy box
+    for k in [k for k in buy["block_order"] if buy["blocks"][k]["type"] == "tests"]:
+        buy["block_order"].remove(k); del buy["blocks"][k]
     text, n = INGREDIENTS_LINK.subn("", buy["settings"]["text"])
     assert n == 1, "ingredients link not found"
     buy["settings"]["text"] = text
