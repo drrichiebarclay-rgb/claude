@@ -31,7 +31,9 @@ html body .mc .mc__buy-copy > .mc__buy-serving{margin-top:32px}
 @media (min-width:990px){
   html body .mc .mc__buy-copy{display:flex;flex-direction:column}
   html body .mc .mc__buy-copy > .mc__buy-points{display:none}
-  html body .mc .mc__buy-copy > .mc__trust{margin-top:28px}
+  html body .mc .mc__buy-copy > .mc__trust{margin-top:36px}
+  html body .mc .mc__buy-copy > .mc__buy-title{margin-top:20px}
+  html body .mc .mc__buy-copy > .mc-subhead{margin-top:18px}
 }
 /* Phones: the copy column dissolves into the page's column (as the left one already does), so the
    images and testing button can sit between the subhead and the offer; headline centred */
