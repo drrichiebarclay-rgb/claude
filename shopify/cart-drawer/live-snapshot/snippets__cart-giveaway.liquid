@@ -1,0 +1,71 @@
+{% assign giveaway = settings.cart_giveaway_product %}
+
+{% if giveaway %}
+	<tr class="cart-item giveaway-item" role="row">
+		<td class="cart-item__media" role="cell">
+			<a href="{{ settings.cart_giveaway_url }}">
+				<img class="cart-item__image" src="{{ giveaway.featured_image | image_url: width: 300 }}" alt="{{ giveaway.title }}" loading="lazy" width="150">
+			</a>
+		</td>
+
+		<td class="cart-item__details" role="cell">
+			<a href="{{ settings.cart_giveaway_url }}" class="cart-item__name h4 break">{{ giveaway.title }}</a>
+			<span class="price">{% if giveaway.price <= 0 %}FREE{% else %}{{ giveaway.price | money }}{% endif %}</span>
+		</td>
+
+		<td class="cart-item__totals right" role="cell">
+			<div class="cart-item__price-wrapper">
+				<span class="price price--end">{% if giveaway.price <= 0 %}FREE{% else %}{{ giveaway.price | money }}{% endif %}</span>
+			</div>
+		</td>
+
+		<td class="cart-item__quantity" role="cell">
+			<quantity-popover>
+				<div class="cart-item__quantity-wrapper quantity-popover-wrapper">
+					<div class="quantity-popover-container">
+						<quantity-input class="quantity cart-quantity">
+							<!-- Minus -->
+							<button class="quantity__button" name="minus" type="button" disabled aria-disabled="true">
+								<span class="visually-hidden">Decrease quantity</span>
+								<span class="svg-wrapper">
+									{{ 'icon-minus.svg' | inline_asset_content }}
+								</span>
+							</button>
+
+							<!-- Fixed Qty -->
+							<input class="quantity__input" type="number" value="1" min="1" max="1" step="1" readonly disabled aria-label="Quantity">
+
+							<!-- Plus -->
+							<button class="quantity__button" name="plus" type="button" disabled aria-disabled="true">
+								<span class="visually-hidden">Increase quantity</span>
+								<span class="svg-wrapper">
+									{{ 'icon-plus.svg' | inline_asset_content }}
+								</span>
+							</button>
+
+						</quantity-input>
+					</div>
+
+					<!-- Remove -->
+					<cart-remove-button class="giveaway-remove">
+						<button type="button" class="button button--tertiary cart-remove-button" aria-label="Remove giveaway">
+							<span class="svg-wrapper">
+								{{ 'icon-remove.svg' | inline_asset_content }}
+							</span>
+						</button>
+					</cart-remove-button>
+
+				</div>
+
+				<!-- Keep for theme compatibility -->
+				<div class="cart-item__error" role="alert" hidden>
+					<small class="cart-item__error-text"></small>
+					<span class="svg-wrapper">
+						{{ 'icon-error.svg' | inline_asset_content }}
+					</span>
+				</div>
+
+			</quantity-popover>
+		</td>
+	</tr>
+{% endif %}

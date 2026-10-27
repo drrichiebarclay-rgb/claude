@@ -1,0 +1,43 @@
+{% if settings.enable_free_shipping and cart.item_count > 0 %}
+
+{% liquid
+  assign threshold = settings.free_shipping_threshold | times: 100
+  assign cart_total = cart.total_price
+
+  assign percentage = cart_total | times: 100 | divided_by: threshold
+
+  if percentage > 100
+    assign percentage = 100
+  endif
+
+  assign remaining = threshold | minus: cart_total
+%}
+
+<div class="free-shipping-bar">
+
+  {% if cart_total >= threshold %}
+
+    <div class="free-shipping-message success">
+      🎉 Congratulations! You've unlocked <strong>FREE Shipping</strong>.
+    </div>
+
+  {% else %}
+
+    <div class="free-shipping-message">
+      🚚 You're only
+      <strong>{{ remaining | money }}</strong>
+      away from <strong>FREE Shipping</strong>
+    </div>
+
+  {% endif %}
+
+  <div class="shipping-progress">
+    <div
+      class="shipping-progress-fill"
+      style="width:{{ percentage }}%">
+    </div>
+  </div>
+
+</div>
+
+{% endif %}

@@ -1,0 +1,40 @@
+{% assign default_variant = item.product.selected_or_first_available_variant %}
+
+{% if item.product.has_only_default_variant == false %}
+  <td headers="CartDrawer-ColumnProductPlan" class="subscription-convert-box test2" role="cell">
+    <select
+      id="variant-plan-select"
+      class="subscription-plan-select"
+      data-line="{{ line }}"
+    >
+      {% assign seen_options = '' %}
+      {% for variant in item.product.variants %}
+          {% if variant.available %}
+            {% assign marker = '|' | append: variant.option1 | append: '|' %}
+            {% unless seen_options contains marker %}
+              {% assign seen_options = seen_options | append: marker %}
+              {% for allocation in variant.selling_plan_allocations %}
+                  {% assign plan = allocation.selling_plan %}
+                  <option value="{{ variant.id }}" data-plan-id="{{ plan.id }}" {% if item.selling_plan_allocation and item.selling_plan_allocation.selling_plan.id == plan.id %}selected{% endif %}>
+                      {{ plan.name }}
+                  </option>
+              {% endfor %}
+            {% endunless %}
+          {% endif %}
+      {% endfor %}
+      <option value="{{ default_variant.id }}" data-plan-id="" {% if item.selling_plan_allocation == blank %}selected{% endif %}>One Time Purchase</option>
+    </select>
+  </td>
+{% elsif default_variant.selling_plan_allocations.size > 0 and default_variant.price > 0 %}
+  <td headers="CartDrawer-ColumnProductPlan" class="subscription-convert-box test" role="cell">
+    <select id="subscription-plan-select" class="subscription-plan-select" data-line="{{ line }}">
+      {% for allocation in default_variant.selling_plan_allocations %}
+        {% assign plan = allocation.selling_plan %}
+        <option value="{{ plan.id }}" {% if item.selling_plan_allocation and item.selling_plan_allocation.selling_plan.id == plan.id %}selected{% endif %}>
+          {{ plan.name }}
+        </option>
+      {% endfor %}
+      <option value="" {% if item.selling_plan_allocation == blank %}selected{% endif %}>One Time Purchase</option>
+    </select>
+  </td>
+{% endif %}
