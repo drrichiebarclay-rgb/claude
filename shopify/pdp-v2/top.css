@@ -24,7 +24,9 @@ html body .mc .mc__buy-copy > .mc-bf{margin-top:24px}
   html body .mc .mc__buy-copy > .mc__buy-serving{margin-top:32px}
   html body .mc .mc__buy-copy > .mc__rating,html body .mc .mc__buy-copy > .mc__eyebrow,
   html body .mc .mc__buy-copy > .mc__buy-title,html body .mc .mc__buy-copy > .mc-subhead{order:0;text-align:center}
-  html body .mc .mc__buy-copy > .mc__rating{display:flex;justify-content:center;align-items:center;flex-wrap:wrap}
-  html body .mc .mc__buy-media{order:1;margin:18px 0 22px}
+  html body .mc .mc__buy-copy > .mc__rating{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:20px}
+  html body .mc .mc__buy-copy > .mc__buy-title{margin-top:16px}
+  html body .mc .mc__buy-copy > .mc-subhead{margin-top:12px}
+  html body .mc .mc__buy-media{order:1;margin:26px 0 22px}
   html body .mc .mc__note{order:4}
 }
