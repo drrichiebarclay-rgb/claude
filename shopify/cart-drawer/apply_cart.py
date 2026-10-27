@@ -9,6 +9,8 @@ for subscriptions; savings and cost-per-day lines; "Checkout · £total"; one tr
 - Free lines (the welcome kit) leave the table for an 8hours-style list: "Your free welcome gifts (n)",
   thumbnail, name, value struck through, Free. Subtotal reads struck total · total · Save £x, where the
   struck total is the sum of the struck prices shown above.
+- With a NAD subscription, the 12-week ebook and the Forever Jar (welcome-kit items that aren't cart
+  lines) are listed with the gifts at £10 each, and counted in the struck subtotal.
 - Quantity inputs are keyed by line (updates[key]), so the new order can't move quantities at checkout.
 - No price under the title (the right-hand column has it).
 - Button: "Checkout · £150" from the live cart total. Under the payment icons: secure checkout ·
@@ -54,12 +56,33 @@ STYLE = """
 SUB_NOTE = """
         {%- liquid
           assign mc_has_sub = false
+          assign mc_nad_sub = false
+          assign mc_has_ebook = false
+          assign mc_has_jar = false
           for mc_i in cart.items
             if mc_i.selling_plan_allocation
               assign mc_has_sub = true
-              break
+              if mc_i.product.handle contains 'nad-cellular-complex'
+                assign mc_nad_sub = true
+              endif
+            endif
+            if mc_i.product.handle contains 'ebook'
+              assign mc_has_ebook = true
+            elsif mc_i.product.handle contains 'jar'
+              assign mc_has_jar = true
             endif
           endfor
+          # The 12-week guide and the Forever Jar come in every welcome kit but aren't cart lines;
+          # with a NAD subscription they're listed with the gifts (names, pictures and values as
+          # on the product page), unless the cart already carries them.
+          assign mc_add_ebook = false
+          assign mc_add_jar = false
+          if mc_nad_sub and mc_has_ebook == false
+            assign mc_add_ebook = true
+          endif
+          if mc_nad_sub and mc_has_jar == false
+            assign mc_add_jar = true
+          endif
         -%}
         {%- if mc_has_sub -%}
           <div class="mc-cart-sub">
@@ -157,6 +180,12 @@ GIFTS = """                </table>
                       assign mc_gifts = mc_gifts | plus: item.quantity
                     endif
                   endfor
+                  if mc_add_ebook
+                    assign mc_gifts = mc_gifts | plus: 1
+                  endif
+                  if mc_add_jar
+                    assign mc_gifts = mc_gifts | plus: 1
+                  endif
                 -%}
                 {%- if mc_gifts > 0 -%}
                   <div class="mc-cart-gifts">
@@ -202,6 +231,21 @@ GIFTS = """                </table>
                             <span class="mc-cart-gift__free">Free</span>
                           </li>
                         {%- endfor -%}
+                        {%- if mc_pass == 5 and mc_add_ebook -%}
+                          <li class="mc-cart-gift">
+                            <img class="mc-cart-gift__img" src="https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-gift-guide-v2.jpg?v=1791392560&width=120" alt="" loading="lazy" width="40" height="40">
+                            <span class="mc-cart-gift__name">12-Week Protocol eBook</span>
+                            <s class="mc-cart-gift__was"><span class="visually-hidden">Worth </span>{{ 1000 | money }}</s>
+                            <span class="mc-cart-gift__free">Free</span>
+                          </li>
+                        {%- elsif mc_pass == 6 and mc_add_jar -%}
+                          <li class="mc-cart-gift">
+                            <img class="mc-cart-gift__img" src="https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-forever-jar.jpg?v=1791023224&width=120" alt="" loading="lazy" width="40" height="40">
+                            <span class="mc-cart-gift__name">Forever Jar</span>
+                            <s class="mc-cart-gift__was"><span class="visually-hidden">Worth </span>{{ 1000 | money }}</s>
+                            <span class="mc-cart-gift__free">Free</span>
+                          </li>
+                        {%- endif -%}
                       {%- endfor -%}
                     </ul>
                   </div>
@@ -230,6 +274,12 @@ TOTALS_NEW = """<div class="totals mc-totals" role="status">
                 endif
                 assign mc_was_total = mc_was_total | plus: mc_line
               endfor
+              if mc_add_ebook
+                assign mc_was_total = mc_was_total | plus: 1000
+              endif
+              if mc_add_jar
+                assign mc_was_total = mc_was_total | plus: 1000
+              endif
               assign mc_saved = mc_was_total | minus: cart.total_price
             -%}
             <p class="mc-totals__value">
