@@ -1,6 +1,6 @@
 /* ---- Top of the page, AgeMate-style: stars, title and subhead over the images on phones,
    then a "View third-party testing results" button under them ---- */
-html body .mc .mc-subhead{margin:8px 0 0;font-size:17px;line-height:1.35;color:#242223}
+html body .mc .mc-subhead{margin:8px 0 0;font-size:17px;line-height:1.4;color:#242223;text-wrap:balance}
 html body .mc .mc-tests-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:52px;margin:14px 0 0;padding:10px 20px;
   border:1.5px solid #242223;border-radius:999px;background:none;font:inherit;font-size:16px;font-weight:500;color:#242223;cursor:pointer;transition:background .2s,color .2s}
 html body .mc .mc-tests-btn:hover{background:#242223;color:#fff}
