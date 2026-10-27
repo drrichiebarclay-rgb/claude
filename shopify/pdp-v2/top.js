@@ -19,3 +19,32 @@
     media.appendChild(b);
   }
 })();
+
+/* Sticky bar: its button price follows the selected plan as Skio bills it (£150 / £60); show it per
+   month like the plan cards (plan-prices.css), old price struck through. Card 1 = monthly, 2 = quarterly. */
+(function () {
+  var PER_MONTH = { 1: ['£60/mo', '£70'], 2: ['£50/mo', '£70'] };
+  function update() {
+    var span = document.querySelector('.mh__sticky [data-mh-cta-price]');
+    if (!span) return;
+    var cards = [].slice.call(document.querySelectorAll('.mc__plans > label.mc__plan'));
+    var p = PER_MONTH[cards.findIndex(function (c) { return c.classList.contains('is-selected'); }) + 1];
+    if (!p) return;
+    var html = '<s class="mc-sticky-was">' + p[1] + '</s> ' + p[0];
+    if (span.innerHTML !== html) span.innerHTML = html;
+  }
+  function start() {
+    var span = document.querySelector('.mh__sticky [data-mh-cta-price]');
+    if (span && window.MutationObserver) {
+      new MutationObserver(update).observe(span, { childList: true, characterData: true, subtree: true });
+    }
+    document.addEventListener('click', function (e) {
+      if (e.target.closest && e.target.closest('.mc__plan')) { setTimeout(update, 0); setTimeout(update, 60); }
+    });
+    document.addEventListener('change', function () { setTimeout(update, 0); });
+    document.addEventListener('muto:home:plan', update); /* fired by muto-home.js after it paints the price */
+    update();
+    setTimeout(update, 400);
+  }
+  if (document.readyState === 'complete') start(); else window.addEventListener('load', start);
+})();
