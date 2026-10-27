@@ -6,6 +6,7 @@ for subscriptions; savings and cost-per-day lines; "Checkout · £total"; one tr
 - Subscription in the cart: three lines at the top (90 days or every payment back, skip/pause/cancel, 4.8/5).
 - NAD line: grey "Replaces 5 supplements · £x a day" under the title (no per-day on one-time),
   green ticked "You save £x every 3 months / every month, ongoing" on subscriptions.
+- No price under the title (the right-hand column has it).
 - Button: "Checkout · £150" from the live cart total. Under the payment icons: secure checkout ·
   cancel anytime · 90-day guarantee.
 
@@ -172,6 +173,9 @@ def main(src, dst):
     s = sub(s, LOOP_OPEN, LOOP_OPEN_NEW)
     s = sub(s, LOOP_CLOSE, LOOP_CLOSE_NEW)
     s = sub(s, NAME, NAME_NEW)
+    # The line's price under the title repeats the one on the right; drop it
+    s = cut(s, "{%- if item.original_price != item.final_price and is_giveaway_product == false -%}",
+            "{%- if item.product.has_only_default_variant == false")
     s = sub(s, CHECKOUT, CHECKOUT_NEW)
     s = sub(s, PAY_FOOTER, PAY_FOOTER_NEW)
     s = sub(s, "<style>\n  .drawer {", STYLE.strip() + "\n\n<style>\n  .drawer {")
