@@ -10,6 +10,14 @@ New plan pricing, a new top of page and sticky-bar price on the product page, an
 
 No section, asset, app or Skio changes.
 
+# Update, 27 October afternoon: replace the template once more
+
+Live already has this morning's two files. **Copy `templates/product.muto-nad-v2.json` once more** (the cart drawer hasn't changed). The new file is built from live as it stands now, so nothing on live is lost. It changes **desktop** to match phones:
+
+- The offer ("Choose your plan", plans, one-time, button) comes straight after the stars, title and descriptor.
+- The serving line and description move below the button.
+- The "How it helps" list is hidden on desktop.
+
 # Before you start
 
 - **Files:** `MUTO_PDP_v2_Cart_27Oct2026.zip`. They're also in GitHub at `handoff/pdp-v2-cart/` (repo drrichiebarclay-rgb/claude, branch `claude/beautiful-bohr-wkhdur`).
