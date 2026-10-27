@@ -1,0 +1,29 @@
+/* ---- Top of the page, AgeMate-style: stars, title and subhead over the images on phones,
+   then a "View third-party testing results" button under them ---- */
+html body .mc .mc-subhead{margin:8px 0 0;font-size:17px;line-height:1.35;color:#242223}
+html body .mc .mc-tests-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:52px;margin:14px 0 0;padding:10px 20px;
+  border:1.5px solid #242223;border-radius:999px;background:none;font:inherit;font-size:16px;font-weight:500;color:#242223;cursor:pointer;transition:background .2s,color .2s}
+html body .mc .mc-tests-btn:hover{background:#242223;color:#fff}
+html body .mc .mc-tests-btn:focus-visible{outline:2px solid #242223;outline-offset:2px}
+html body .mc .mc-tests-btn__tick{flex:0 0 20px;display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#7ee0f0;box-shadow:0 0 0 1px #242223;color:#242223}
+html body .mc .mc-tests-btn__tick svg{width:11px;height:11px}
+/* Phones: the copy column dissolves into the page's column (as the left one already does), so its
+   parts can be ordered around the photograph: stars, MUTO, title, subhead · images + testing button ·
+   the offer (Black Friday box, "Choose your plan", plans, one-time, button, badges) · then the
+   serving line, description, benefits, reviews and folds */
+@media (max-width:989px){
+  html body .mc .mc__buy-grid{gap:0}
+  html body .mc .mc__buy-copy{display:contents}
+  html body .mc .mc__buy-copy > *{order:3}
+  html body .mc .mc__buy-copy > .mc-bf,html body .mc .mc__buy-copy > .mc__trust,html body .mc .mc__buy-copy > .mc__plans,
+  html body .mc .mc__buy-copy > .mc__pf,html body .mc .mc__buy-copy > .mc__onetime,html body .mc .mc__buy-copy > .mc__buy-cta,
+  html body .mc .mc__buy-copy > .mc__buy-actions,html body .mc .mc__buy-copy > .mpb-x,
+  html body .mc .mc__buy-copy > .mc__pf > *{order:2} /* .mc__pf is display:contents: its button is the item */
+  html body .mc .mc__buy-copy > .mc-bf{margin-top:0}
+  html body .mc .mc__buy-copy > .mc__buy-serving{margin-top:32px}
+  html body .mc .mc__buy-copy > .mc__rating,html body .mc .mc__buy-copy > .mc__eyebrow,
+  html body .mc .mc__buy-copy > .mc__buy-title,html body .mc .mc__buy-copy > .mc-subhead{order:0;text-align:center}
+  html body .mc .mc__buy-copy > .mc__rating{display:flex;justify-content:center;align-items:center;flex-wrap:wrap}
+  html body .mc .mc__buy-media{order:1;margin:18px 0 22px}
+  html body .mc .mc__note{order:4}
+}
