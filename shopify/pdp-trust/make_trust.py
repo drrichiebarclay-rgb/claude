@@ -142,6 +142,19 @@ BANDS = [  # section key -> ground, in page order. The buy box keeps the live pa
     ("faq", GREY),
 ]
 
+# A line straight after the subhead (which the easy_read script adds; this runs after it).
+COLLAB = "In collaboration with seven leading scientists from world-leading research institutions."
+COLLAB_JS = """<script>
+(function () {
+  var sub = document.querySelector('.mc .mc-subhead');
+  if (!sub || document.querySelector('.mc-collab')) return;
+  var p = document.createElement('p');
+  p.className = 'mc-collab';
+  p.textContent = %s;
+  sub.insertAdjacentElement('afterend', p);
+})();
+</script>""" % json.dumps(COLLAB, ensure_ascii=False)
+
 # Rotating stats under Add to cart. Placed right after the button, inside the same wrapper, so the
 # buy column's ordering keeps it directly under the button.
 STATS = [
@@ -282,6 +295,10 @@ def bands_css():
                  'html body .mc .mc__buy-cta::after{content:"90-day money-back guarantee";display:block;width:fit-content;margin:5px auto 0;'
                  'padding-left:22px;font-size:14px;font-weight:500;line-height:18px;letter-spacing:0;'
                  """background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23242223' stroke-width='1.8' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M12 2.8 4.5 5.8v5.6c0 4.9 3.2 8.6 7.5 10 4.3-1.4 7.5-5.1 7.5-10V5.8z'/%3E%3Cpath d='m8.6 12 2.4 2.4 4.4-4.8'/%3E%3C/svg%3E") left center/16px 16px no-repeat}""")
+    # Line under the subhead (added by COLLAB_JS): ordered with the title group, centred on phones like it
+    rules.append('html body .mc .mc__buy-copy > .mc-collab{order:0}'
+                 'html body .mc .mc-collab{margin:10px 0 0;font-size:15px;line-height:1.4;color:rgba(36,34,35,.72)}'
+                 '@media (max-width:989px){html body .mc .mc__buy-copy > .mc-collab{text-align:center}}')
     # Rotating stats under Add to cart (built by STATS_JS)
     rules.append('html body .mc .mc-stats{display:grid;grid-template-columns:minmax(64px,1fr) auto;align-items:center;gap:16px;'
                  'margin:14px 0 0;padding:14px 18px;border:1.5px solid rgba(36,34,35,.12);border-radius:14px;background:#fff}'
@@ -312,7 +329,7 @@ def bands_css():
     css = "\n".join(rules)
     return {"type": "custom-liquid", "settings": {
         "custom_liquid": "<style>\n/* Flat, alternating band grounds for this page (no gradient washes). Built by make_trust.py. */\n"
-                         + css + "\n</style>" + DRAG_JS + SHIP_JS + STATS_JS,
+                         + css + "\n</style>" + DRAG_JS + SHIP_JS + STATS_JS + COLLAB_JS,
         "color_scheme": "scheme-1", "padding_top": 0, "padding_bottom": 0}}
 
 
