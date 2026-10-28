@@ -48,7 +48,7 @@ html body .mc .mc-bf__main{grid-column:1;min-width:0}
 html body .mc .mc-bf__offer{margin:0;font-size:clamp(24px,2.4vw,30px);font-weight:600;line-height:1.05;letter-spacing:-.01em}
 html body .mc .mc-bf__kit{margin:4px 0 0;font-size:16px;font-weight:600;line-height:1.25}
 html body .mc .mc-bf__sched{margin:8px 0 0;font-size:14px;line-height:1.4;color:rgba(36,34,35,.75)}
-html body .mc .mc-bf__count{grid-column:2;grid-row:2;margin:0;min-width:96px;padding:10px 12px 8px;border:1.5px solid #242223;border-radius:10px;text-align:center}
+html body .mc .mc-bf__count{grid-column:2;grid-row:2;margin:0;min-width:96px;max-width:130px;padding:10px 12px 8px;border:1.5px solid #242223;border-radius:10px;text-align:center}
 html body .mc .mc-bf__count b{display:block;font-size:30px;font-weight:600;line-height:1;font-variant-numeric:tabular-nums}
 html body .mc .mc-bf__count small{display:block;margin-top:4px;font-family:var(--mc-mono,monospace);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
 html body .mc .mc-bf__foot{grid-column:1/-1;display:flex;align-items:center;gap:12px;margin-top:10px}
@@ -98,8 +98,8 @@ JS = """/* Black Friday: 53%% off the first order plus the welcome kit, limited 
       '<p class="mc-bf__sched">%(schedule)s</p></div>';
     var hasCount = left >= 0 && left <= TOTAL;
     if (hasCount) {
-      html += '<p class="mc-bf__count" aria-label="' + left + ' of ' + TOTAL + ' orders left"><b>' + left +
-        '</b><small>of ' + TOTAL + ' left</small></p>';
+      html += '<p class="mc-bf__count" aria-label="' + left + ' out of ' + TOTAL + ' remaining"><b>' + left +
+        '</b><small>out of ' + TOTAL + ' remaining</small></p>';
     }
     html += '<div class="mc-bf__foot">' +
       (hasCount ? '<span class="mc-bf__bar" aria-hidden="true"><i style="width:' + Math.round(left / TOTAL * 100) + '%%"></i></span>' : '') +

@@ -196,21 +196,26 @@ STATS_JS = """<script>
 })();
 </script>""" % json.dumps(STATS)
 
-# Delivery line: "Ready to ship - arrives by Thu 29th Oct", always the next calendar day in UK time,
-# rolling over at midnight while the page is open.
+# Delivery line: "Ready to ship - arrives by Thu 29th Oct": the next calendar day in UK time, or the day after
+# from the 9pm cut-off, updating while the page is open.
 SHIP_JS = """<script>
 (function () {
   var el = document.querySelector('.mc .mpb-del');
   if (!el || el.dataset.ship) return;
   el.dataset.ship = '1';
+  /* Royal Mail logo (theme/assets/royal-mail-logo.png), inline so it needs no upload */
+  var RM_LOGO = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAAkCAYAAADGrhlwAAAMTWlDQ1BJQ0MgUHJvZmlsZQAAeJyVVwdYU8kWnltSIQQIREBK6E0QkRJASggtgPQuKiEJEEqMCUHFjiy7gmsXEazoKoiCqysgiw11bSyKvS8WVJR1cV3sypsQQJd95XvzfXPvf/8588855869MwMAvYsvleaimgDkSfJlMcH+rKTkFBbpGUCALqABL6DJF8ilnKiocADL8P3v5fU1aA3LZQel1j/b/2vREorkAgCQKIjThXJBHsQ/AYC3CqSyfACIUsibz8qXKvFaiHVk0EGIa5Q4U4VblThdhS8O2sTFcCF+BABZnc+XZQKg0Qd5VoEgE+rQYbTASSIUSyD2g9gnL2+GEOJFENtAGzgmXanPTv9KJ/Nvmukjmnx+5ghWxTJYyAFiuTSXP+f/TMf/Lnm5iuExrGFVz5KFxChjhnl7lDMjTInVIX4rSY+IhFgbABQXCwftlZiZpQiJV9mjNgI5F+YMMCGeJM+N5Q3xMUJ+QBjEhhBnSHIjwodsijLEQUobmD+0QpzPi4NYD+IakTwwdsjmmGxGzPC41zJkXM4Q/5QvG/RBqf9ZkRPPUelj2lki3pA+5liYFZcIMRXigAJxQgTEGhBHyHNiw4ZsUguzuBHDNjJFjDIWC4hlIkmwv0ofK8+QBcUM2e/Okw/Hjh3LEvMihvCl/Ky4EFWusEcC/qD/MBasTyThxA/riORJ4cOxCEUBgarYcbJIEh+r4nE9ab5/jKovbifNjRqyx/1FucFK3gziOHlB7HDfgnw4OVX6eIk0PypO5Sdemc0PjVL5g+8D4YALAgALKGBNBzNANhB39Db1widVSxDgAxnIBCLgMMQM90gcbJHAaywoBL9DJALykX7+g60iUAD5T6NYJSce4VRXB5Ax1KZUyQGPIc4DYSAXPisGlSQjHiSAR5AR/8MjPqwCGEMurMr2f88Ps18YDmTChxjF8Igs+rAlMZAYQAwhBhFtcQPcB/fCw+HVD1ZnnI17DMfxxZ7wmNBJeEC4Sugi3JwuLpKN8nIy6IL6QUP5Sf86P7gV1HTF/XFvqA6VcSZuABxwFzgOB/eFI7tCljvktzIrrFHaf4vgqzc0ZEdxoqCUMRQ/is3onhp2Gq4jKspcf50fla/pI/nmjrSMHp/7VfaF8B422hL7DjuAncaOY2exVqwJsLCjWDPWjh1W4pEZ92hwxg2PFjPoTw7UGT1nvrxZZSblTnVOPU4fVW35otn5yo+RO0M6RybOzMpnceCKIWLxJALHcSxnJ2c3AJTrj+r39ip6cF1BmO1fuCW/AeB9dGBg4OcvXOhRAH50h7+EQ184GzZcWtQAOHNIoJAVqDhceSHAPwcdfn36wBiYAxsYjzNwg+ucHwgEoSASxIFkMA16nwXnuQzMAvPAYlACysBKsA5Ugi1gO6gBe8F+0ARawXHwCzgPLoKr4DacPd3gOegDr8EHBEFICA1hIPqICWKJ2CPOCBvxQQKRcCQGSUbSkExEgiiQecgSpAxZjVQi25Ba5EfkEHIcOYt0IjeR+0gP8ifyHsVQdVQHNUKt0PEoG+WgYWgcOhXNRGeihWgxuhytQKvRPWgjehw9j15Fu9DnaD8GMDWMiZliDhgb42KRWAqWgcmwBVgpVo5VY/VYC3zPl7EurBd7hxNxBs7CHeAMDsHjcQE+E1+AL8Mr8Rq8ET+JX8bv4334ZwKNYEiwJ3gSeIQkQiZhFqGEUE7YSThIOAW/pW7CayKRyCRaE93ht5hMzCbOJS4jbiI2EI8RO4kPif0kEkmfZE/yJkWS+KR8UglpA2kP6SjpEqmb9JasRjYhO5ODyClkCbmIXE7eTT5CvkR+Qv5A0aRYUjwpkRQhZQ5lBWUHpYVygdJN+UDVolpTvalx1GzqYmoFtZ56inqH+kpNTc1MzUMtWk2stkitQm2f2hm1+2rv1LXV7dS56qnqCvXl6rvUj6nfVH9Fo9GsaH60FFo+bTmtlnaCdo/2VoOh4ajB0xBqLNSo0mjUuKTxgk6hW9I59Gn0Qno5/QD9Ar1Xk6JppcnV5Gsu0KzSPKR5XbNfi6E1QStSK09rmdZurbNaT7VJ2lbagdpC7WLt7dontB8yMIY5g8sQMJYwdjBOMbp1iDrWOjydbJ0ynb06HTp9utq6LroJurN1q3QP63YxMaYVk8fMZa5g7mdeY74fYzSGM0Y0ZumY+jGXxrzRG6vnpyfSK9Vr0Luq916fpR+on6O/Sr9J/64BbmBnEG0wy2CzwSmD3rE6Y73GCsaWjt0/9pYhamhnGGM413C7Ybthv5GxUbCR1GiD0QmjXmOmsZ9xtvFa4yPGPSYMEx8Tsclak6Mmz1i6LA4rl1XBOsnqMzU0DTFVmG4z7TD9YGZtFm9WZNZgdtecas42zzBfa95m3mdhYjHZYp5FncUtS4ol2zLLcr3lacs3VtZWiVbfWjVZPbXWs+ZZF1rXWd+xodn42sy0qba5Yku0Zdvm2G6yvWiH2rnaZdlV2V2wR+3d7MX2m+w7xxHGeYyTjKsed91B3YHjUOBQ53DfkekY7ljk2OT4YrzF+JTxq8afHv/ZydUp12mH0+0J2hNCJxRNaJnwp7Ods8C5yvnKRNrEoIkLJzZPfOli7yJy2exyw5XhOtn1W9c2109u7m4yt3q3HncL9zT3je7X2TrsKPYy9hkPgoe/x0KPVo93nm6e+Z77Pf/wcvDK8drt9XSS9STRpB2THnqbefO9t3l3+bB80ny2+nT5mvryfat9H/iZ+wn9dvo94dhysjl7OC/8nfxl/gf933A9ufO5xwKwgOCA0oCOQO3A+MDKwHtBZkGZQXVBfcGuwXODj4UQQsJCVoVc5xnxBLxaXl+oe+j80JNh6mGxYZVhD8LtwmXhLZPRyaGT10y+E2EZIYloigSRvMg1kXejrKNmRv0cTYyOiq6KfhwzIWZezOlYRuz02N2xr+P841bE3Y63iVfEtyXQE1ITahPeJAYkrk7sShqfND/pfLJBsji5OYWUkpCyM6V/SuCUdVO6U11TS1KvTbWeOnvq2WkG03KnHZ5On86ffiCNkJaYtjvtIz+SX83vT+elb0zvE3AF6wXPhX7CtcIekbdotehJhnfG6oynmd6ZazJ7snyzyrN6xVxxpfhldkj2luw3OZE5u3IGchNzG/LIeWl5hyTakhzJyRnGM2bP6JTaS0ukXTM9Z66b2ScLk+2UI/Kp8uZ8HbjRb1fYKL5R3C/wKagqeDsrYdaB2VqzJbPb59jNWTrnSWFQ4Q9z8bmCuW3zTOctnnd/Pmf+tgXIgvQFbQvNFxYv7F4UvKhmMXVxzuJfi5yKVhf9tSRxSUuxUfGi4offBH9TV6JRIiu5/q3Xt1u+w78Tf9exdOLSDUs/lwpLz5U5lZWXfVwmWHbu+wnfV3w/sDxjeccKtxWbVxJXSlZeW+W7qma11urC1Q/XTF7TuJa1tnTtX+umrztb7lK+ZT11vWJ9V0V4RfMGiw0rN3yszKq8WuVf1bDRcOPSjW82CTdd2uy3uX6L0ZayLe+3irfe2Ba8rbHaqrp8O3F7wfbHOxJ2nP6B/UPtToOdZTs/7ZLs6qqJqTlZ615bu9tw94o6tE5R17Mndc/FvQF7m+sd6rc1MBvK9oF9in3Pfkz78dr+sP1tB9gH6n+y/GnjQcbB0kakcU5jX1NWU1dzcnPnodBDbS1eLQd/dvx5V6tpa9Vh3cMrjlCPFB8ZOFp4tP+Y9Fjv8czjD9umt90+kXTiysnokx2nwk6d+SXolxOnOaePnvE+03rW8+yhc+xzTefdzje2u7Yf/NX114Mdbh2NF9wvNF/0uNjSOanzyCXfS8cvB1z+5QrvyvmrEVc7r8Vfu3E99XrXDeGNpzdzb768VXDrw+1Fdwh3Su9q3i2/Z3iv+jfb3xq63LoO3w+43/4g9sHth4KHzx/JH33sLn5Me1z+xORJ7VPnp609QT0Xn0151v1c+vxDb8nvWr9vfGHz4qc//P5o70vq634peznw57JX+q92/eXyV1t/VP+913mvP7wpfav/tuYd+93p94nvn3yY9ZH0seKT7aeWz2Gf7wzkDQxI+TL+4FYAA8qjTQYAf+4CgJYMAAOeG6lTVOfDwYKozrSDCPwnrDpDDha4c6mHe/roXri7uQ7Avh0AWEF9eioAUTQA4jwAOnHiSB0+yw2eO5WFCM8GWwWf0vPSwb8pqjPpV36PvgOlqgsYff8XjuGDN8kQCgUAAAZmSURBVHic7ZlbbBxXGcd/Z2Z29u7s+krsxE1NTILj4IRECaFBpIgKpZUa8YKiJg/lpaiiEhJP8ILEAwXeQDw05YGXQoMqUAFVbWnaxlZDm/QGDUmTENzUTmJ77b3MrnfHs3M5h4d1Yrtek9LdtRDi/zZzzvy/73++831zLsL3fRqBffmyyjz9GyL9/Q3xOJOT9Dx0jNj27aIRHqMhLxbRefgwqYNfWtORwKsCoIfCa3JYZ15TzfBFawbJnTBz4YTKXDzRFIfvhKZE6E7w/T6UWpexa32ElJR0tE3RHjkNtD5ILRO0sGCTzeePn3/llyoz7XD+6md47+UnVc6ysG27VWZbI2g2m3vkvdGfqKj1i6e2DU7h+jOo4Arbtk4RKfxcXRh9XM3lrW+2wnbTBVWrDtf++tMndw9pZM+muf6Eg+ZtJqz1c/0Jh7k30ozsMBh/9/FfuW612eabL+jqB9feHhmM4S3cS//Rx0R+9DTO9Chy7iz50dPcdfQxUc7sZtfWGB9OXP9Ds+03vcpV3vnRnsrOLtJD+4XQNPaceklUS2Mq8AJix78ihKaRHrlXTL11ShUnfniEwaeaar/pEerb9Sg3P8zj29Z3lDujCGxlz09Tms+A7yhVnVTVSvl72UyRu+/5frPNNz9Cm4bvEfm//1GVxp/72T8ujTH02cOUKrOoQFIJXuX9Sy8yMHDox5VsL51bhhpa5tRDa8q2ZVGc/TORwb2cy76NSHWid3RzLv83wp/eQz7zPJrttsR0S1YK7xa72LjQzdiVWabGJ3lgZAcCeO78DTYOmBzUtzFRDnOgBbZbImhywyALXgf9UUH/8AFyQe39F3YcA2BCKrKduVaYbo2gHzz6cNNz4+PCyJ96qaEFVvXmTaRdIbDthngqVy6jxeI41ycb4hFn9+1dl2X9emFFlROmQDMFwmj+jNHqTG6hC4Qu7vhuNRnoMQ0Eq3xdYebu73YiHQUCggXF9EkLvxh8MgXLoMc0eo+lmDppEZTl7fe9D6VQSjH1a2tRDWx+JI2Xk0w/Y63Jlz4QJ749jPV6hfYvJ5g8sVRgVgjyCgGZ35fwSwEbj6bouj/J9EkLBCR2RPALAc5ND4DoXSGCisLN+oRSOqEOHXu89m+JbTVJ7owAgqAiKZyprPZKgJ7UQEFiOEL5gkNyZwQjoaO8Zd0MQWpfFLMnBEDlapXKlSrOjIduro5k3SonXYWSoBkCs8ug474EypGIsIasKjLPFkntj+HmAnKvlIkNhokPmtjjLpu/1Y50FMG8JPXFGNa5+nsfs8tAegppS5Kfqwlq+3wU+5pLqN0g1KGjmYKN30hRzfikD8TwihI34xPuMoj0hSi+s5p7laD2Q3GMpIaSsDDh0bY7im8FzD0/jwgJeo60kRyO1HUyvi2MEILMs0X8UkDh9Qqd9yXr9o1sCuHlAornbLoeSJI+GEePCKafLtH3cJpov0l8e5jqjMf0M0Wmf2vR/WAbSipg7RxbtfSx/+kSOAotLMiPlTESGl6hlkfKUwS2JNIXqkUwVCM2khrSUSSGwvjzAX5psX/AogOrEf6UgW/VprByFR2HEtgfeEhX4c9LIptCGAkNNxcs7dwDBbIu3dqCnBseXtZHSTCSOm4+IDZgEu4NkRyOEGo3KF+q4uUDzG6Dnq+3YXYboMP8hSpaRGPD3iiRvhC9x1MEC/U90PTa1Aaw3rSRnqTwl1quKV+hmQJ31ie6OURkU4jU/hiRLeaaA1Rf0GLf7MtlCBQ9DyYpvmXjFwK6vpYkuSuCc8NjYcIlP1bGvuaifDC7DYQAezFhkyNR+r/dgQrASOh1DetJnepULfvL71ex3rAJKjXxfkmimYK5F+fx5yXdR9rYsC+G2a7fHoS1sOLHqoUFsrr0gRbVkI4EBUabjnTkbcKOryaID4apXK4S3WLi5nxm/1RaZF3kcpZxGSCXHdKKECif+gdBGghNoPxao2aK2vQNas9CAzSBChRCX+oHHykKy8UAyGXT5VZe3EJhrEIopRMdMPFLAfnT5aVGxQoxsFIMsKI0r4JcmXsfjYqSwGL7cjGrBP0nkJ5i5nfFT/p5y2BEBwYaIlCui/J99Hi8IZ6gUkEYBsI0G+IRzbh9CAr5f3tY/3FgnXlN6en2hm8f1ufAeR3xf0H/7fifE9SUM4XsCy9QvnixoZ3vrSvJRvEv4wfkvAgjM/oAAAAASUVORK5CYII=';
+  var CUTOFF = 21;
   var DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   function ord(n) { var t = n % 100; if (t > 10 && t < 14) return 'th'; return ['th', 'st', 'nd', 'rd'][n % 10] || 'th'; }
   function tomorrowUK() {
-    var p = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', year: 'numeric', month: 'numeric', day: 'numeric' })
-      .formatToParts(new Date());
+    var p = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', year: 'numeric', month: 'numeric', day: 'numeric',
+      hour: 'numeric', hourCycle: 'h23' }).formatToParts(new Date());
     var get = function (t) { return +p.filter(function (x) { return x.type === t; })[0].value; };
-    var d = new Date(Date.UTC(get('year'), get('month') - 1, get('day') + 1));
+    /* Next-day cut-off is 9pm UK time: from 21:00 it arrives the day after tomorrow */
+    var days = get('hour') >= CUTOFF ? 2 : 1;
+    var d = new Date(Date.UTC(get('year'), get('month') - 1, get('day') + days));
     return DAYS[d.getUTCDay()] + ' ' + d.getUTCDate() + ord(d.getUTCDate()) + ' ' + MONTHS[d.getUTCMonth()];
   }
   var last = '';
@@ -218,7 +223,8 @@ SHIP_JS = """<script>
     var t = tomorrowUK();
     if (t === last) return;
     last = t;
-    el.innerHTML = '<span class="mc-ship__dot" aria-hidden="true"></span><span>Ready to ship — arrives by <b>' + t + '</b></span>';
+    el.innerHTML = '<span class="mc-ship__dot" aria-hidden="true"></span><span>Ready to ship — arrives by <b>' + t + '</b></span>' +
+      '<span class="mc-ship__rm"><img src="' + RM_LOGO + '" alt="Royal Mail" width="32" height="22">Tracked 24hr delivery</span>';
   }
   paint();
   setInterval(paint, 60000);
@@ -315,7 +321,10 @@ def bands_css():
                  '@media (max-width:420px){html body .mc .mc-stats{gap:12px;padding:12px 14px}html body .mc .mc-stats__text{font-size:14px}}'
                  '@media (prefers-reduced-motion:reduce){html body .mc .mc-stats__bar i,html body .mc .mc-stats__text{transition:none}}')
     # "Ready to ship - arrives by <tomorrow>" line under the button (filled in by SHIP_JS)
-    rules.append('html body .mc .mpb-del{align-items:center}'
+    rules.append('html body .mc .mpb-del{align-items:center;flex-wrap:wrap;row-gap:6px}'
+                 'html body .mc .mpb-del .mc-ship__rm{display:inline-flex;align-items:center;gap:7px;margin-left:4px;padding-left:12px;border-left:1px solid rgba(36,34,35,.18);white-space:nowrap}'
+                 'html body .mc .mpb-del .mc-ship__rm img{display:block;width:32px;height:auto}'
+                 '@media (max-width:520px){html body .mc .mpb-del .mc-ship__rm{flex-basis:100%;margin-left:20px;padding-left:0;border-left:0}}'
                  'html body .mc .mpb-del .mc-ship__dot{flex:0 0 10px;width:10px;height:10px;border-radius:50%;background:#6bce7f;'
                  'box-shadow:0 0 0 0 rgba(107,206,127,.6);animation:mcShip 2s ease-out infinite}'
                  '@keyframes mcShip{70%{box-shadow:0 0 0 7px rgba(107,206,127,0)}100%{box-shadow:0 0 0 0 rgba(107,206,127,0)}}'
