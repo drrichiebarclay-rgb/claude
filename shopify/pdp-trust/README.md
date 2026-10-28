@@ -57,7 +57,6 @@ Same page as above, built from it by `make_bf.py`. Changes:
 
 - **Box above the plans** (white, black outline): "BLACK FRIDAY OFFER" / "53% off your first order" / "plus a welcome kit worth £77" / "£99 for your first order, £125 on your second, £150 on your third." On the right, a counter tile "500 of 500 left", a bar along the foot and "Limited to 500 orders."
 - **Quarterly card:** "Save 53%", **£33/mo** with £70 struck through, "3 months’ supply: £99 for your first box, then £125, then £150 · £1.10 a day". The sticky bar shows £33/mo too.
-- **Subhead:** "Our lowest price yet, while stocks last. Been waiting to try MUTO? Now’s the time to run the 90-day test."
 - **Monthly card:** "Save 28%", **£49.99/mo** with £70 struck through, "£49.99 for your first month, then £60 every 4 weeks · £1.79 a day", welcome kit worth £62.
 - The orders-left count is the shop metafield **`muto.bf_orders_left`** (created 28 Oct, set to 500; Settings → Custom data → Shop → "Black Friday orders left (53% offer)"). Blank hides the count; 0 shows "All 500 have gone."
 

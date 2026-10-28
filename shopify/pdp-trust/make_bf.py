@@ -146,10 +146,7 @@ def main():
     old_s = "var PER_MONTH = { 1: ['£60/mo', '£70'], 2: ['£50/mo', '£70'] };"
     assert old_s in t
     t = t.replace(old_s, "var PER_MONTH = { 1: ['%s', '£70'], 2: ['%s', '£70'] };" % (M_PER_MONTH, Q_PER_MONTH))
-    # 5. subhead
-    old_h = "var SUBHEAD = 'Everything your body needs after 35 for energy, recovery, stress, immunity and longevity.';"
-    assert old_h in t
-    t = t.replace(old_h, "var SUBHEAD = %s;" % json.dumps(SUBHEAD, ensure_ascii=False))
+    # 5. subhead: kept as on the main page (the Black Friday subhead was dropped on 28 Oct)
     assert "pre-sale" not in t.lower() and "MUTO10" not in t
     er["custom_liquid"] = t
     hs["custom_liquid"] = h

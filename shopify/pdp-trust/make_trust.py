@@ -301,7 +301,7 @@ def bands_css():
                  """background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23242223' stroke-width='1.8' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M12 2.8 4.5 5.8v5.6c0 4.9 3.2 8.6 7.5 10 4.3-1.4 7.5-5.1 7.5-10V5.8z'/%3E%3Cpath d='m8.6 12 2.4 2.4 4.4-4.8'/%3E%3C/svg%3E") left center/16px 16px no-repeat}""")
     # Line under the subhead (added by COLLAB_JS): ordered with the title group, centred on phones like it
     rules.append('html body .mc .mc__buy-copy > .mc-collab{order:0}'
-                 'html body .mc .mc-collab{margin:12px 0 0;font-size:17px;font-weight:500;line-height:1.4;color:#242223}'
+                 'html body .mc .mc-collab{margin:12px 0 0;font-size:17px;font-weight:400;line-height:1.4;color:#242223}'
                  '@media (max-width:989px){html body .mc .mc__buy-copy > .mc-collab{text-align:center}}')
     # Rotating stats under Add to cart (built by STATS_JS)
     rules.append('html body .mc .mc-stats{display:grid;grid-template-columns:minmax(64px,1fr) auto;align-items:center;gap:16px;'
