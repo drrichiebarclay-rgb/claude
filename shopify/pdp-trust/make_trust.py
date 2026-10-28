@@ -126,7 +126,7 @@ FOUNDER = {"type": "muto-crea-founder",
         "space_top": 100, "space_bottom": 100}}
 
 # --- Page backgrounds: no gradient washes, alternating flat grey and white ---
-GREY, WHITE = "#f2f2f2", "#ffffff"
+GREY, WHITE = "#c8d2cf", "#ffffff"   # grey = brand sage #C8D2CF
 BANDS = [  # section key -> ground, in page order. The buy box and the nav keep the live page's own
            # #fafafa; "compare" and "howto" keep their live sage (#c8d2cf) bands, so none of those is listed.
     ("statement", WHITE),
@@ -293,6 +293,10 @@ def bands_css():
     for key, ground in BANDS:
         w = f'[id$="__{key}"]'
         rules.append(f"{w},{w} > .mc,{w} > .mh,{w} > .mil{{background:{ground}!important}}")
+        if ground == GREY:
+            # On the sage bands: masks that use the page ground follow the band, and the sage glass
+            # cards (reviews) turn white so they don't vanish into a sage background
+            rules.append(f"{w}{{--mc-ground:{GREY}}}{w} .mc{{--mc-ground:{GREY};--mt-sage:rgba(255,255,255,.6)}}")
     # Subhead under the title: fill each line before breaking (the live rule balances it into two short
     # lines), medium weight.
     rules.append('html body .mc .mc-subhead,html body .mc .mc__buy-copy > .mc-subhead{text-wrap:wrap!important;font-weight:500!important}')
