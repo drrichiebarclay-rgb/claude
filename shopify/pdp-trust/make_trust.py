@@ -129,7 +129,7 @@ GREY, WHITE = "#f2f2f2", "#ffffff"
 BANDS = [  # section key -> ground, in page order. The buy box keeps the live page's own
            # plain #fafafa, and "compare" keeps its live sage (#c8d2cf) band, so neither is listed.
     ("statement", WHITE),
-    ("board", "#fafafa"),  # brand white
+    ("board", WHITE),
     ("standards", WHITE),
     ("results", GREY),
     ("quotes", WHITE),
