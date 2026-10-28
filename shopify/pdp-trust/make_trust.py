@@ -109,7 +109,7 @@ FOUNDER = {"type": "muto-crea-founder",
     "settings": {
         "eyebrow": "Our founder",
         "heading": "Built by a doctor\nwho wanted proof.",
-        "text": "<p>Richie Barclay is a cell biologist, with a PhD in cellular biology and nutrition, and a former cricketer.</p>"
+        "text": "<p>Richie Barclay is a cell biologist with a PhD in cellular biology and nutrition, a Harley Street nutritionist for the last 13 years, and a former cricketer.</p>"
                 "<p>He started MUTO after years of watching supplements sell on claims nobody had checked, with the doses hidden in blends. "
                 "So MUTO does it the other way: every dose is on the label, every batch goes to an outside lab, "
                 "and six doctors and scientists review the formula.</p>",
@@ -211,6 +211,16 @@ def main():
     v2 = json.loads(raw2[raw2.index("{"):])
     for key in FROM_V2:
         d["sections"][key] = v2["sections"][key]
+
+    # Under the buy button: drop the serving line, the "Not another multivitamin" copy and the
+    # review-quote slider (the rotating reviews band further down does that job). Blanked and
+    # hidden, not deleted, so they can be switched back in the theme editor.
+    buy = d["sections"]["buy"]
+    buy["settings"]["serving"] = ""
+    buy["settings"]["text"] = ""
+    for k, blk in buy["blocks"].items():
+        if blk["type"] == "snippet":
+            blk["disabled"] = True
 
     d["sections"].update({
         "statement": STATEMENT,

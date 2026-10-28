@@ -384,21 +384,24 @@
           "settings": {
             "quote": "“No afternoon slump and in general feeling great”",
             "name": "Lynda"
-          }
+          },
+          "disabled": true
         },
         "snippet_2": {
           "type": "snippet",
           "settings": {
             "quote": "“More focused during the day”",
             "name": "Alexandra"
-          }
+          },
+          "disabled": true
         },
         "snippet_7": {
           "type": "snippet",
           "settings": {
             "quote": "“I love that this replaces multiple products”",
             "name": "Amy C"
-          }
+          },
+          "disabled": true
         },
         "x_delivery": {
           "type": "delivery",
@@ -502,10 +505,10 @@
         "rating_link": "#ReviewsWidget",
         "eyebrow": "",
         "heading": "NAD+ Cellular Complex",
-        "serving": "2 capsules with breakfast · 30-day supply (60 capsules)",
+        "serving": "",
         "points_foot": "",
         "points_note": "",
-        "text": "<p><strong>Not another multivitamin. The next generation of one.</strong></p><p>The active vitamins and minerals you’d want from a good multivitamin, plus the cellular science most leave out: NR for NAD⁺, CoQ10, PQQ and resveratrol. 19 ingredients, every dose on the label, two capsules, one jar.</p>",
+        "text": "",
         "image_fallback": "",
         "image_alt": "The MUTO creatine pouch photographed with the NAD+ Cellular Complex set",
         "gallery_from_product": true,
@@ -1924,7 +1927,7 @@
       "settings": {
         "eyebrow": "Our founder",
         "heading": "Built by a doctor\nwho wanted proof.",
-        "text": "<p>Richie Barclay is a cell biologist, with a PhD in cellular biology and nutrition, and a former cricketer.</p><p>He started MUTO after years of watching supplements sell on claims nobody had checked, with the doses hidden in blends. So MUTO does it the other way: every dose is on the label, every batch goes to an outside lab, and six doctors and scientists review the formula.</p>",
+        "text": "<p>Richie Barclay is a cell biologist with a PhD in cellular biology and nutrition, a Harley Street nutritionist for the last 13 years, and a former cricketer.</p><p>He started MUTO after years of watching supplements sell on claims nobody had checked, with the doses hidden in blends. So MUTO does it the other way: every dose is on the label, every batch goes to an outside lab, and six doctors and scientists review the formula.</p>",
         "quote": "I built MUTO because I was tired of supplements that ask you to take them on trust.",
         "quote_by": "Dr Richie Barclay, PhD, founder",
         "link_label": "Got a question? Email Richie",
