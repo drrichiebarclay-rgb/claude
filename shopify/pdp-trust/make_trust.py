@@ -160,9 +160,9 @@ BANDS = [  # section key -> ground, in page order. The buy box and the nav keep 
     ("benefits", WHITE),
     ("board", WHITE),
     ("standards", WHITE),
-    ("library", WHITE),
     ("results", WHITE),
     ("quotes", GREY),
+    ("library", WHITE),
     ("founder", WHITE),
     ("timeline", WHITE),
     ("howto", WHITE),
@@ -435,6 +435,7 @@ def bands_css():
 def clinical(d):
     S = d["sections"]
 
+    S["compare"]["settings"]["heading"] = "See the difference\nfor yourself."
     S["howto"]["settings"]["band"] = "ground"   # white band (bands_css), not the live sage
     S["library"]["settings"]["bg"] = "#ffffff"
     b = S["benefits"]["settings"]          # the live "Five jobs" cards, reframed for 40s and 50s
@@ -549,9 +550,9 @@ def main():
         "board_anchor",     # #scientific-board, linked from the buy box
         "board",            # "Six scientists put their name to MUTO.", compact row
         "standards",        # "Checked, not taken on trust."
-        "library",          # "Every ingredient has a job." (live)
-        "results",          # customer videos, 9:16
+        "results",          # customer videos, 9:16 (above the ingredients, 28 Oct)
         "quotes",           # 20 rotating written reviews
+        "library",          # "Every ingredient has a job." (live)
         "founder",
         "compare",          # "MUTO vs the usual" (live)
         "timeline",         # "What you can expect over time." (live)

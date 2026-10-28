@@ -84,11 +84,11 @@ In order, below the buy box. **New** blocks are in bold; the rest is `muto-nad-v
 4. **Benefits:** the live five cards, with a new heading: "Benefits built on published science." (small line above: "Five jobs. One daily jar."), and a new line under it: "What you need after 35. Your biology shifts. What you need evolves."
 5. **Science board:** "Six scientists put their name to MUTO.", compact row, white background.
 6. **Standards:** four cards. Card 1 has the "View third-party testing results" button, which opens the certificate panel (batch 2333).
-7. "Every ingredient has a job." ingredient library
-8. **Customer videos:** "Don't take our word for it.", 8 videos in a row that scrolls: Kate Bright, David Mercado, Lucy Halliday, Harry Insley, Adam Facey, Max Richards, Adam Hamilton, Yolanda King. Ellen Gray's video is removed, and so is the footnote under the row.
-9. **Reviews:** "What our community say.", 20 five-star REVIEWS.io reviews that rotate every 6 seconds, with "4.8 from 103 reviews".
+7. **Customer videos:** "Don't take our word for it.", 8 videos in a row that scrolls: Kate Bright, David Mercado, Lucy Halliday, Harry Insley, Adam Facey, Max Richards, Adam Hamilton, Yolanda King. Ellen Gray's video is removed, and so is the footnote under the row.
+8. **Reviews:** "What our community say.", 20 five-star REVIEWS.io reviews that rotate every 6 seconds, with "4.8 from 103 reviews".
+9. "Every ingredient has a job." ingredient library
 10. **Founder:** Dr Richie Barclay, PhD: cell biologist, Harley Street nutritionist for 13 years, former cricketer and tennis player.
-11. Comparison, "What you can expect over time." timeline, "How to take it.", FAQs (all 10 from live), REVIEWS.io widget.
+11. Comparison (heading now "See the difference for yourself."), "What you can expect over time." timeline, "How to take it.", FAQs (all 10 from live), REVIEWS.io widget.
 
 Also changed from `muto-nad-v2`:
 
