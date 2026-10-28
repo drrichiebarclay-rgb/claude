@@ -320,6 +320,8 @@ def bands_css():
                  'html body .mc .mc-stats.is-fading .mc-stats__text{opacity:0}'
                  '@media (max-width:420px){html body .mc .mc-stats{gap:12px;padding:12px 14px}html body .mc .mc-stats__text{font-size:14px}}'
                  '@media (prefers-reduced-motion:reduce){html body .mc .mc-stats__bar i,html body .mc .mc-stats__text{transition:none}}')
+    # Plan cards: the billing line under each plan name much smaller on phones, so it fits
+    rules.append('@media (max-width:749px){html body .mc .mc__plan-note{font-size:12px!important;line-height:1.35}}')
     # "How it helps" list in the buy box: hidden on phones too (desktop already hides it)
     rules.append('html body .mc .mc__buy-points{display:none!important}')
     # "Ready to ship - arrives by <tomorrow>" line under the button (filled in by SHIP_JS)
