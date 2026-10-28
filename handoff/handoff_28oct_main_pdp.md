@@ -13,7 +13,7 @@ That means **6 new files to add**, **template changes on 2 products**, **removin
 - **Copy to:** the live theme, Clone Of Live | Buy Box Redesign [31-08] (ID 200736047451).
 - **Preview:** the page is already on the 3M refill plan theme (ID 202682564955):
   <https://muto.co/products/muto-nad-cellular-complex?preview_theme_id=202682564955&view=muto-nad-trust>
-- **Your edits are kept.** The buy box, its `easy_read` block, the sticky bar, the comparison table and the test-results panel are copied from the **live `muto-nad-v2` template as of 28 October**. If you've edited `muto-nad-v2` since, tell Richie before copying, and the template will be rebuilt from your latest version.
+- **Your edits are kept.** The buy box, its `easy_read` block, the comparison table and the test-results panel are copied from the **live `muto-nad-v2` template as of 28 October**. If you've edited `muto-nad-v2` since, tell Richie before copying, and the template will be rebuilt from your latest version.
 
 # Step 1: add the 6 files, in this order
 
