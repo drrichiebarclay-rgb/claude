@@ -77,7 +77,7 @@ The scrolling announcement bar at the top of every page (section `muto-announce`
 
 In order, below the buy box. **New** blocks are in bold; the rest is `muto-nad-v2` as it is on live today.
 
-1. "On this page" menu (pins to the top as you scroll, as on live)
+1. "On this page" menu (pins to the top as you scroll, as on live), with three new links: **Standards**, **What people say** (the videos) and **Founder**, 11 links in page order
 2. **Statement:** "Not ready to slow down." / "The next-generation multi-nutrient, built for what your body needs in your 40s and 50s." / tag "Got a wearable? Track the shift over 90 days."
 3. **Benefits:** the live five cards, with a new heading: "Benefits built on published science." (small line above: "Five jobs. One daily jar."), line under it now speaks to 40s and 50s.
 4. **Science board:** "Six scientists put their name to MUTO.", compact row, white background.

@@ -405,6 +405,18 @@ def clinical(d):
 
     # The timeline, FAQ and comparison are the live page's own and stay exactly as they are.
 
+def nav_links(d):
+    """'On this page' menu: the live links plus the new bands, in page order (targets are section keys)."""
+    nav = d["sections"]["nav"]
+    links = {b["settings"]["target"]: b["settings"]["label"] for b in nav["blocks"].values()}
+    links.update({"standards": "Standards", "results": "What people say", "founder": "Founder"})
+    order = [k for k in d["order"] if k in links]
+    assert len(order) == len(links), set(links) - set(order)
+    nav["blocks"] = {"n%d" % (i + 1): {"type": "link", "settings": {"label": links[k], "target": k}}
+                     for i, k in enumerate(order)}
+    nav["block_order"] = list(nav["blocks"])
+
+
 def main():
     # Base: the LIVE main page (muto-nad-v2) exactly as it is, so its own sections stay: the
     # "On this page" nav, "Five jobs. One daily jar.", the ingredient library, the comparison,
@@ -468,6 +480,7 @@ def main():
     ]
     # No sticky add-to-cart bar on this page (removed 28 Oct)
     d["sections"].pop("sticky", None)
+    nav_links(d)
     hoist_styles(d)
     assert sorted(d["order"]) == sorted(d["sections"]), set(d["order"]) ^ set(d["sections"])
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
