@@ -905,7 +905,7 @@
             "show_play": true,
             "result": "",
             "quote": "",
-            "name": "Kate",
+            "name": "Kate Bright",
             "tag": "",
             "detail": ""
           }
@@ -931,17 +931,17 @@
         "r9": {
           "type": "result",
           "settings": {
-            "image": "shopify://shop_images/cover-2.png",
-            "image_fallback": "",
+            "image": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/preview_images/3dcc774e01284c63ab3f6eaf40bc5fb7.thumbnail.0000000000.jpg?v=1766048998",
             "image_alt": "A MUTO customer talking to camera",
             "image_position": "",
-            "video": "shopify://files/videos/Muto 2.mp4",
+            "video": "shopify://files/videos/Lucy Short.mp4",
             "video_url": "",
             "video_link": "",
             "show_play": true,
             "result": "",
             "quote": "",
-            "name": "",
+            "name": "Lucy Halliday",
             "tag": "",
             "detail": ""
           }

@@ -205,9 +205,10 @@ def clinical(d):
     PREVIEW = "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/preview_images/"
     NEW_VIDEOS = [
         # key, name, video file in Shopify, cover (fallback URL; Shopify's own thumbnail of the video)
-        ("r7", "Kate", "kate v4.mp4", PREVIEW + "ae14f3b1ff0f4ef09ae55be1fd8cfadd.thumbnail.0000000000.jpg?v=1773314771", ""),
-        ("r8", "David", None, "", "shopify://shop_images/cover-1.png"),        # placeholder: Muto 1.mp4
-        ("r9", "", None, "", "shopify://shop_images/cover-2.png"),             # placeholder: Muto 2.mp4
+        ("r7", "Kate Bright", "kate v4.mp4", PREVIEW + "ae14f3b1ff0f4ef09ae55be1fd8cfadd.thumbnail.0000000000.jpg?v=1773314771", ""),
+        ("r8", "David Mercado", None, "", "shopify://shop_images/cover-1.png"),  # placeholder (Muto 1.mp4) until his file is in Files
+        # Lucy: the Drive file is "testimonial.mp4"; "Lucy Short.mp4" (already in Files, Dec 2025) is used meanwhile
+        ("r9", "Lucy Halliday", "Lucy Short.mp4", PREVIEW + "3dcc774e01284c63ab3f6eaf40bc5fb7.thumbnail.0000000000.jpg?v=1766048998", ""),
     ]
     PLACEHOLDER = {"r8": "Muto 1.mp4", "r9": "Muto 2.mp4"}
     for key, name, video, fallback, cover in NEW_VIDEOS:
