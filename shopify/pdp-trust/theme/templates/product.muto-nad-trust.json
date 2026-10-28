@@ -1999,8 +1999,8 @@
           "type": "stat",
           "settings": {
             "tag": "NAD+",
-            "figure": "↓",
-            "text": "NAD+ falls steadily as you age, in studies of human tissue"
+            "figure": "50%",
+            "text": "less NAD+ by your 40s"
           }
         },
         "p4": {
