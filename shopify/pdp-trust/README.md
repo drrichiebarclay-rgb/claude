@@ -39,7 +39,7 @@ The new bands use the page's own patterns (sage glass cards, mono notes opposite
 
 - Videos: "Real people. Real stories." → "Customer reports."
 - Board: "Our experts." → "Scientific Advisory Board." / "Six doctors and scientists who review the formula."
-- Steps: "Give it 90 days. See how you feel." → "A 90-day protocol. Measured by you." Steps: Record a baseline / 2 capsules, with breakfast / First check-in / Compare with day 1.
+- Timeline: "Your first 90 days. What to expect." Day 1 set your baseline / Day 30 afternoons that hold / Day 60 bouncing back sooner / Day 90 feel it, or your money back.
 - Compare: "The easy way to get NAD⁺." → "One formula. Every dose declared." Rows: "300mg NR…", "Every dose declared on the label".
 - FAQ: new "How is it tested?"; "Why not just take one vitamin?" now names the doses.
 

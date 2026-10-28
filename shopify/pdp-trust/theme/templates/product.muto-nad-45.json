@@ -938,8 +938,8 @@
           "type": "step",
           "settings": {
             "chip": "Day 1",
-            "title": "Record a baseline.",
-            "text": "Score your energy and sleep out of 10. It takes 30 seconds.",
+            "title": "Set your baseline.",
+            "text": "Two capsules with breakfast. Score your energy, sleep and recovery out of 10, or note your wearable’s numbers.",
             "image": "shopify://shop_images/1BBE18C7-9CBA-4EA3-BB3F-60C13D1F4F19.png",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-baseline.jpg?v=1791020791",
             "image_alt": "A cyclist checking the watch on their wrist, hands resting on the bars",
@@ -949,9 +949,9 @@
         "s2": {
           "type": "step",
           "settings": {
-            "chip": "Daily",
-            "title": "2 capsules, with breakfast.",
-            "text": "Same time each day. Keep the jar by the kettle.",
+            "chip": "Day 30",
+            "title": "Afternoons that hold.",
+            "text": "Usually the first thing people notice: less of a 3pm slump, energy left for the evening. B vitamins help reduce tiredness and fatigue.",
             "image": "shopify://shop_images/333AFFA4-7F5A-41E9-A34E-780C1C51FBDE.png",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-steady.jpg?v=1791020790",
             "image_alt": "An athlete between sets in the gym",
@@ -961,9 +961,9 @@
         "s3": {
           "type": "step",
           "settings": {
-            "chip": "Day 30",
-            "title": "First check-in.",
-            "text": "Score again. Most people notice the afternoons first.",
+            "chip": "Day 60",
+            "title": "Bouncing back sooner.",
+            "text": "Vitamin D supports normal muscle function. A long walk, a game of tennis or a gym session stops costing you the next day.",
             "image": "shopify://shop_images/image6.png",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-checkin-close.jpg?v=1791021630",
             "image_alt": "A wrist resting on an ice bath, the watch showing a live heart rate of 97 BPM",
@@ -974,8 +974,8 @@
           "type": "step",
           "settings": {
             "chip": "Day 90",
-            "title": "Compare with day 1.",
-            "text": "See the difference, or get your money back.",
+            "title": "Feel it, or your money back.",
+            "text": "Compare your scores with day 1. Not feeling the difference? Email us and we’ll refund what you paid, minus delivery.",
             "image": "shopify://shop_images/1C46F449-B491-4589-BF89-04157F7CB0F6.png",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-verdict.jpg?v=1791020808",
             "image_alt": "Three athletes laughing together after a session, city skyline behind",
@@ -990,8 +990,8 @@
         "s4"
       ],
       "settings": {
-        "heading": "A 90-day protocol.",
-        "heading_right": "Measured by you.",
+        "heading": "Your first 90 days.",
+        "heading_right": "What to expect.",
         "fit": "nad",
         "space_top": 102,
         "space_bottom": 100

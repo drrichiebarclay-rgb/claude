@@ -175,13 +175,19 @@ def clinical(d):
     b["space_top"] = 60       # sits straight under the statement band
 
     st = S["steps"]
-    st["settings"]["heading"] = "A 90-day protocol."
-    st["settings"]["heading_right"] = "Measured by you."
+    st["settings"]["heading"] = "Your first 90 days."
+    st["settings"]["heading_right"] = "What to expect."
+    # Benefits follow the live timeline (muto-nad-v2) and stay within authorised claims
+    # (B vitamins: tiredness and fatigue; vitamin D: normal muscle function).
     steps = [
-        ("Day 1", "Record a baseline.", "Score your energy and sleep out of 10. It takes 30 seconds."),
-        ("Daily", "2 capsules, with breakfast.", "Same time each day. Keep the jar by the kettle."),
-        ("Day 30", "First check-in.", "Score again. Most people notice the afternoons first."),
-        ("Day 90", "Compare with day 1.", "See the difference, or get your money back."),
+        ("Day 1", "Set your baseline.",
+         "Two capsules with breakfast. Score your energy, sleep and recovery out of 10, or note your wearable’s numbers."),
+        ("Day 30", "Afternoons that hold.",
+         "Usually the first thing people notice: less of a 3pm slump, energy left for the evening. B vitamins help reduce tiredness and fatigue."),
+        ("Day 60", "Bouncing back sooner.",
+         "Vitamin D supports normal muscle function. A long walk, a game of tennis or a gym session stops costing you the next day."),
+        ("Day 90", "Feel it, or your money back.",
+         "Compare your scores with day 1. Not feeling the difference? Email us and we’ll refund what you paid, minus delivery."),
     ]
     for k, (chip, title, text) in zip(st["block_order"], steps):
         st["blocks"][k]["settings"].update({"chip": chip, "title": title, "text": text})
