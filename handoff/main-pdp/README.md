@@ -79,7 +79,7 @@ In order, below the buy box. **New** blocks are in bold; the rest is `muto-nad-v
 
 1. "On this page" menu (pins to the top as you scroll, as on live), with three new links: **Standards**, **What people say** (the videos) and **Founder**, 11 links in page order
 2. **Statement:** "Not ready to slow down." / "The next-generation multi-nutrient, built for what your body needs in your 40s and 50s." / tag "Got a wearable? Track the shift over 90 days."
-3. **Benefits:** the live five cards, with a new heading: "Benefits built on published science." (small line above: "Five jobs. One daily jar."), line under it now speaks to 40s and 50s.
+3. **Benefits:** the live five cards, with a new heading: "Benefits built on published science." (small line above: "Five jobs. One daily jar."), and a new line under it: "What you need after 35. Your biology shifts. What you need evolves."
 4. **Science board:** "Six scientists put their name to MUTO.", compact row, white background.
 5. **Standards:** four cards. Card 1 has the "View third-party testing results" button, which opens the certificate panel (batch 2333).
 6. "Every ingredient has a job." ingredient library

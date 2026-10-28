@@ -364,8 +364,7 @@ def clinical(d):
     b = S["benefits"]["settings"]          # the live "Five jobs" cards, reframed for 40s and 50s
     b["eyebrow"] = "Five jobs. One daily jar."
     b["heading"] = "Benefits built on\npublished science."
-    b["lede"] = ("19 nutrients in two capsules, each chosen for what the research says your body needs "
-                 "in your 40s and 50s. So you can keep up with work, family and everything else.")
+    b["lede"] = "What you need after 35. Your biology shifts. What you need evolves."
 
     r = S["results"]["settings"]           # the 9:16 customer videos
     r["heading"] = "Don’t take\nour word for it."
