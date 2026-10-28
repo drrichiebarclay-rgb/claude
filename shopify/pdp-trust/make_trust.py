@@ -49,9 +49,8 @@ def standards():
             "link_label": link_label, "link": link, "no_link_note": note}}
         order.append(key)
     return {"type": "muto-crea-standards", "blocks": blocks, "block_order": order, "settings": {
-        "eyebrow": "Our standards",
         "heading": "Checked, not\ntaken on trust.",
-        "lede": "Most supplements are sold without independent checks, and many hide their doses in blends. These are the four things we hold MUTO to.",
+        "lede": "The four things we hold every jar to",
         "foot": "",
         "space_top": 100, "space_bottom": 100}}
 
@@ -78,7 +77,7 @@ def reviews():
             "topic": topic, "quote": quote, "name": name, "age": age, "verified": True}}
         order.append(k)
     return {"type": "muto-crea-reviews", "blocks": blocks, "block_order": order, "settings": {
-        "eyebrow": "Customer reviews",
+        "eyebrow": "Verified customers",
         "heading": "Selected\nreviews.",
         "summary": "",  # e.g. "4.8 from 412 reviews": the live REVIEWS.io figure
         "interval": 6, "min_age": 30, "require_age": False,
@@ -124,6 +123,8 @@ def clinical(d):
     b = S["board"]["settings"]
     b["heading"] = "Scientific\nAdvisory Board."
     b["note"] = "Six doctors and scientists who review the formula."
+    b["compact"] = True       # the thin one-row strip: all six across on desktop, small swipeable cards on phones
+    b["space_top"] = 60       # sits straight under the statement band
 
     st = S["steps"]
     st["settings"]["heading"] = "A 90-day protocol."
@@ -176,12 +177,12 @@ def main():
 
     d["order"] = [
         "buy",
-        "standards",        # our greatest asset, straight under the buy box
-        "results",          # customer videos, 9:16
-        "reviews_top",      # 20 rotating written reviews
-        "founder",
-        "board",
         "statement",        # "A daily supplement. Built for your biology after 35 years old."
+        "board",            # Scientific Advisory Board, compact row
+        "standards",
+        "results",          # customer videos, 9:16
+        "reviews_top",      # up to 20 rotating written reviews
+        "founder",
         "problem", "benefits", "steps", "guarantee", "why", "compare", "faq",
         "custom_reviews_KpXTpD", "sticky", "easy_read",
     ]

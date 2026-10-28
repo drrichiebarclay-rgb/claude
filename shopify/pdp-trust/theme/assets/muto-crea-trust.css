@@ -1,109 +1,114 @@
 /* MUTO — trust bands for the NAD+ product page: statement, standards,
-   rotating reviews and founder. Built on muto-crea.css: same font (Neue Haas
-   Grotesk, --mc-font), inks and spacing model. The clinical register comes
-   from hairline rules, small uppercase labels and numbered items.
+   rotating reviews and founder. Drawn in the page's own language so they sit
+   with the board, results and why bands:
+   - Neue Haas Grotesk (--mc-font) for headings and copy; Sometype Mono
+     (--mc-mono) only for small notes, labels and tags, at the board's sizes.
+   - Heading left, mono note on the right margin (the board/results pattern).
+   - Sage glass cards, 24px radius, inset highlight (the why cards).
+   - Tag pills with the sparkle (.mh__tag), here in brand lime.
+   Brand palette: #FAFAFA ground, #C8D2CF sage, #5EFAFF cyan, #C9FFB7 lime,
+   #F0FF84 yellow, #242223 charcoal ink.
 
-   SPECIFICITY: every rule starts with `html .mc`. Sections further down the
-   page link muto-crea.css again, after this file, and its zero-specificity
-   reset (`.mc :where(p,h2,li…){margin:0;padding:0}`, `.mc{background}`) is
-   (0,1,0) — the same weight as a bare `.mc__x` rule — so a later copy of it
-   would win and strip every margin and padding here. `html .mc .mc__x` is
-   (0,2,1) and holds whatever order the stylesheets arrive in. */
+   SPECIFICITY: every rule starts with `html .mc`. Later sections link
+   muto-crea.css again, after this file, and its zero-specificity reset
+   (`.mc :where(p,h2,li…){margin:0;padding:0}`) would otherwise win and strip
+   the spacing here. */
 
-html .mc--stm,html .mc--std,html .mc--rev,html .mc--fdr{font-family:var(--mc-font);background:var(--mc-ground)}
-html .mc--std{background:#fff}
-html .mc .mc__mono{font-family:var(--mc-font);font-weight:500;font-size:12px;letter-spacing:.08em;text-transform:uppercase;line-height:1.3}
+html .mc--stm,html .mc--std,html .mc--rev,html .mc--fdr{
+  --mt-ink:#242223;--mt-ground:#fafafa;--mt-sage:rgba(200,210,207,.4);--mt-sage-solid:#c8d2cf;
+  --mt-lime:#c9ffb7;--mt-cyan:#5efaff;--mt-muted:rgba(36,34,35,.62);--mt-hair:rgba(36,34,35,.14);
+  font-family:var(--mc-font);color:var(--mt-ink);background:var(--mt-ground)}
 
-html .mc .mc__trust-link{display:inline-flex;gap:.4em;margin-top:20px;font-weight:500;font-size:16px;color:var(--mc-ink);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+/* --- Shared pieces ------------------------------------------------------- */
+html .mc .mc__trust-top{display:flex;flex-direction:column;gap:14px;margin:0 0 28px}
+html .mc .mc__trust-note{margin:0;font-family:var(--mc-mono);font-size:14px;font-weight:500;line-height:1.2;letter-spacing:.07em;text-transform:uppercase;color:var(--mt-muted)}
+html .mc .mc__trust-label{font-family:var(--mc-mono);font-size:12px;font-weight:500;line-height:1.2;letter-spacing:.08em;text-transform:uppercase;color:var(--mt-muted)}
+html .mc .mc__trust-tag{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;margin:0;padding:5px 12px;border-radius:999px;background:var(--mt-lime);color:var(--mt-ink);font-family:var(--mc-mono);font-size:12px;font-weight:500;line-height:1.2;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+html .mc .mc__trust-spark{flex:0 0 auto;width:9px;height:9px;background:currentColor;clip-path:polygon(50% 0%,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0% 50%,39% 39%)}
+html .mc .mc__trust-card{border-radius:24px;background:var(--mt-sage);box-shadow:inset 0 0 0 1px rgba(249,249,249,.45);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+html .mc .mc__trust-link{display:inline-flex;gap:.4em;margin-top:22px;font-weight:500;font-size:16px;color:var(--mt-ink);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
 html .mc .mc__trust-link:hover{opacity:.75}
-html .mc .mc__trust-link:focus-visible,html .mc .mc__rev-btn:focus-visible,html .mc .mc__rev-rail:focus-visible{outline:2px solid var(--mc-ink);outline-offset:3px}
+html .mc .mc__trust-link:focus-visible,html .mc .mc__rev-btn:focus-visible,html .mc .mc__rev-rail:focus-visible{outline:2px solid var(--mt-ink);outline-offset:3px}
+@media (min-width:750px){
+  html .mc .mc__trust-top{flex-direction:row;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:48px}
+  html .mc .mc__trust-note{text-align:right;max-width:360px}
+}
 
-/* Shared band spacing: 56px on phones, 80px from 990px. Neighbouring theme
-   bands bring their own padding, so this is deliberately tighter than theirs. */
+/* Band spacing: 56px on phones, 88px from 990px, scaled by the editor's
+   Space above / below. */
 html .mc .mc__stm,html .mc .mc__std,html .mc .mc__rev,html .mc .mc__fdr{
   padding-top:calc(56px*var(--mc-spt,1));padding-bottom:calc(56px*var(--mc-spb,1))}
 @media (min-width:990px){
   html .mc .mc__stm,html .mc .mc__std,html .mc .mc__rev,html .mc .mc__fdr{
-    padding-top:calc(80px*var(--mc-spt,1));padding-bottom:calc(80px*var(--mc-spb,1))}
+    padding-top:calc(88px*var(--mc-spt,1));padding-bottom:calc(88px*var(--mc-spb,1))}
 }
-
-/* Small label above each band heading. */
-html .mc .mc__std-eyebrow,html .mc .mc__rev-eyebrow,html .mc .mc__fdr-eyebrow,html .mc .mc__stm-label{margin:0 0 14px;color:var(--mc-muted)}
 
 /* --- Statement ----------------------------------------------------------- */
-html .mc .mc__stm{text-align:center;max-width:980px;margin:0 auto}
+html .mc .mc__stm{text-align:center;max-width:1000px;margin:0 auto}
+html .mc .mc__stm-label{display:block;margin:0 0 16px}
 html .mc .mc__stm-head{font-size:clamp(36px,5.2vw,76px)}
-html .mc .mc__stm-sub{margin:18px 0 0;font-size:clamp(18px,1.67vw,24px);line-height:1.25;color:rgba(22,47,49,.78)}
+html .mc .mc__stm-sub{margin:18px 0 0;font-size:clamp(18px,1.67vw,24px);line-height:1.25;color:rgba(36,34,35,.72)}
 
-/* --- Standards ----------------------------------------------------------- */
-html .mc .mc__std-top{display:grid;gap:16px;margin:0 0 32px}
-html .mc .mc__std-lede{margin:0;font-size:17px;line-height:1.4;max-width:420px;color:rgba(22,47,49,.8)}
-html .mc .mc__std-list{display:grid;grid-template-columns:1fr;margin:0;padding:0;list-style:none;border-top:1px solid var(--mc-hair)}
-html .mc .mc__std-item{display:flex;flex-direction:column;margin:0;padding:22px 0 26px;border-bottom:1px solid var(--mc-hair)}
-html .mc .mc__std-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 18px}
-html .mc .mc__std-num{color:var(--mc-muted)}
-html .mc .mc__std-stat{display:inline-block;padding:5px 9px;border:1px solid var(--mc-hair);border-radius:999px;color:var(--mc-ink);white-space:nowrap}
-html .mc .mc__std-title{margin:0 0 10px;font-size:clamp(20px,1.67vw,24px);line-height:1.08}
-html .mc .mc__std-text{margin:0;font-size:16px;line-height:1.42;color:rgba(22,47,49,.8)}
+/* --- Standards: four sage glass cards ------------------------------------ */
+html .mc .mc__std-list{display:grid;grid-template-columns:1fr;gap:12px;margin:0;padding:0;list-style:none}
+html .mc .mc__std-item{display:flex;flex-direction:column;margin:0;padding:24px;border-radius:24px;background:var(--mt-sage);box-shadow:inset 0 0 0 1px rgba(249,249,249,.45)}
+html .mc .mc__std-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 40px}
+html .mc .mc__std-title{margin:0 0 12px;font-family:var(--mc-font);font-weight:500;font-size:24px;line-height:1.1;letter-spacing:-.01em;text-transform:none;color:var(--mt-ink)}
+html .mc .mc__std-text{margin:0;font-size:16px;line-height:1.36;color:rgba(36,34,35,.78)}
 html .mc .mc__std-text > * + *{margin-top:10px}
-html .mc .mc__std-note{margin:16px 0 0;color:var(--mc-muted)}
-html .mc .mc__std-foot{margin:20px 0 0;font-size:13px;color:var(--mc-muted)}
+html .mc .mc__std-note{margin:auto 0 0;padding-top:20px}
+html .mc .mc__std-item .mc__trust-link{margin-top:auto;padding-top:20px}
+html .mc .mc__std-foot{margin:20px 0 0;font-size:13px;color:var(--mt-muted)}
 @media (min-width:750px){
-  html .mc .mc__std-top{grid-template-columns:minmax(0,1fr) minmax(0,420px);align-items:end;gap:40px;margin-bottom:40px}
-  html .mc .mc__std-list{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:40px}
+  html .mc .mc__std-list{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (min-width:1100px){
-  html .mc .mc__std-list{grid-template-columns:repeat(4,minmax(0,1fr));column-gap:0;border-bottom:1px solid var(--mc-hair)}
-  html .mc .mc__std-item{padding:26px 28px 30px;border-bottom:0;border-left:1px solid var(--mc-hair)}
-  html .mc .mc__std-item:first-child{padding-left:0;border-left:0}
-  html .mc .mc__std-item:last-child{padding-right:0}
+  html .mc .mc__std-list{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+  html .mc .mc__std-item{min-height:300px}
 }
 
 /* --- Rotating reviews ---------------------------------------------------- */
-html .mc .mc__rev-top{display:grid;gap:18px;margin:0 0 28px}
-html .mc .mc__rev-side{display:flex;flex-direction:column;gap:12px}
+html .mc .mc__rev-side{display:flex;flex-direction:column;gap:14px}
 html .mc .mc__rev-summary{margin:0;font-size:16px}
-html .mc .mc__rev-stars{margin:0;color:var(--mc-ink);letter-spacing:.14em;font-size:13px;line-height:1}
+html .mc .mc__rev-stars{margin:0;color:var(--mt-ink);letter-spacing:.14em;font-size:13px;line-height:1}
 html .mc .mc__rev-nav{display:flex;align-items:center;gap:12px}
 html .mc .mc__rev-nav[hidden]{display:none}
-html .mc .mc__rev-btn{appearance:none;-webkit-appearance:none;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border-radius:50%;border:1px solid var(--mc-rule);background:transparent;color:var(--mc-ink);font-family:var(--mc-font);font-size:18px;line-height:1;cursor:pointer;transition:background var(--mc-dur) var(--mc-ease)}
-html .mc .mc__rev-btn:hover{background:var(--mc-sage)}
-html .mc .mc__rev-count{margin:0;min-width:60px;text-align:center;color:var(--mc-ink)}
+html .mc .mc__rev-btn{appearance:none;-webkit-appearance:none;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:0;border-radius:50%;background:var(--mt-sage);color:var(--mt-ink);font-family:var(--mc-font);font-size:18px;line-height:1;cursor:pointer;transition:background var(--mc-dur) var(--mc-ease)}
+html .mc .mc__rev-btn:hover{background:var(--mt-cyan)}
+html .mc .mc__rev-count{margin:0;min-width:60px;text-align:center;color:var(--mt-ink)}
 html .mc .mc__rev-rail{display:grid;grid-auto-flow:column;grid-auto-columns:84%;column-gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;list-style:none;margin:0 calc(-1*var(--mc-gutter));padding:0 var(--mc-gutter);scroll-padding:0 var(--mc-gutter)}
-html .mc .mc__rev-card{scroll-snap-align:start;display:flex;flex-direction:column;gap:12px;margin:0;padding:24px 22px 20px;min-height:250px;background:#fff;border:1px solid var(--mc-hair);border-radius:12px}
-html .mc .mc__rev-topic{margin:0;color:var(--mc-muted)}
-html .mc .mc__rev-quote{flex:1;margin:0;padding:0;font-size:19px;line-height:1.32}
-html .mc .mc__rev-who{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:6px 12px;margin:0;padding-top:14px;border-top:1px solid var(--mc-hair)}
-html .mc .mc__rev-name{font-weight:500;font-size:16px}
-html .mc .mc__rev-ver{font-size:11px;color:var(--mc-muted)}
-html .mc .mc__rev-foot{margin:18px 0 0;font-size:13px;color:var(--mc-muted)}
+html .mc .mc__rev-card{scroll-snap-align:start;display:flex;flex-direction:column;gap:14px;margin:0;padding:24px;min-height:260px;border-radius:24px;background:var(--mt-sage);box-shadow:inset 0 0 0 1px rgba(249,249,249,.45)}
+html .mc .mc__rev-quote{flex:1;margin:0;padding:0;font-size:20px;line-height:1.28;letter-spacing:-.005em}
+html .mc .mc__rev-who{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:6px 12px;margin:0;padding-top:14px;border-top:1px solid var(--mt-hair)}
+html .mc .mc__rev-name{font-weight:500;font-size:18px}
+html .mc .mc__rev-foot{margin:18px 0 0;font-size:13px;color:var(--mt-muted)}
 @media (min-width:750px){
-  html .mc .mc__rev-top{grid-template-columns:minmax(0,1fr) auto;align-items:end}
   html .mc .mc__rev-side{align-items:flex-end}
   html .mc .mc__rev-rail{grid-auto-columns:calc((100% - 24px)/2.2)}
 }
 @media (min-width:1100px){
-  html .mc .mc__rev-rail{grid-auto-columns:calc((100% - 24px)/3);margin:0;padding:0;scroll-padding:0}
-  html .mc .mc__rev-quote{font-size:21px}
+  html .mc .mc__rev-rail{grid-auto-columns:calc((100% - 32px)/3);column-gap:16px;margin:0;padding:0;scroll-padding:0}
+  html .mc .mc__rev-quote{font-size:22px}
 }
 
 /* --- Founder ------------------------------------------------------------- */
 html .mc .mc__fdr{display:grid;gap:28px}
 /* muto-image draws an absolutely positioned slot, so the frame carries the
-   ratio and the positioning context. Without it the photo escapes the column. */
-html .mc .mc__fdr-frame{position:relative;width:100%;aspect-ratio:4/5;overflow:hidden;border-radius:12px;background:var(--mc-sage)}
+   ratio and the positioning context; without it the photo escapes the column. */
+html .mc .mc__fdr-frame{position:relative;width:100%;aspect-ratio:4/5;overflow:hidden;border-radius:20px;background:var(--mt-sage)}
 html .mc .mc__fdr-frame .mh__img{width:100%;height:100%;object-fit:cover;object-position:var(--mh-pos,50% 50%)}
-html .mc .mc__fdr-caption{margin:10px 0 0;color:var(--mc-muted)}
-html .mc .mc__fdr-text{margin:20px 0 0;font-size:17px;line-height:1.45;color:rgba(22,47,49,.85);max-width:560px}
+html .mc .mc__fdr-caption{margin:10px 0 0}
+html .mc .mc__fdr-eyebrow{display:block;margin:0 0 16px;font-size:14px;letter-spacing:.07em}
+html .mc .mc__fdr-text{margin:22px 0 0;font-size:17px;line-height:1.42;color:rgba(36,34,35,.8);max-width:560px}
 html .mc .mc__fdr-text > * + *{margin-top:12px}
-html .mc .mc__fdr-quote{margin:26px 0 0;padding:0 0 0 18px;border-left:2px solid var(--mc-ink);max-width:560px}
-html .mc .mc__fdr-quote blockquote{margin:0;padding:0;font-size:clamp(20px,1.8vw,26px);line-height:1.25;font-weight:500}
-html .mc .mc__fdr-quote figcaption{margin:10px 0 0;color:var(--mc-muted)}
-html .mc .mc__fdr-facts{margin:28px 0 0;padding:0;border-top:1px solid var(--mc-hair);max-width:560px}
-html .mc .mc__fdr-fact{display:grid;grid-template-columns:120px minmax(0,1fr);gap:16px;margin:0;padding:11px 0;border-bottom:1px solid var(--mc-hair)}
-html .mc .mc__fdr-fact dt{margin:0;padding-top:2px;color:var(--mc-muted)}
+html .mc .mc__fdr-quote{margin:28px 0 0;padding:22px 24px;max-width:560px;border-radius:24px;background:var(--mt-sage);box-shadow:inset 0 0 0 1px rgba(249,249,249,.45)}
+html .mc .mc__fdr-quote blockquote{margin:0;padding:0;font-size:clamp(20px,1.8vw,24px);line-height:1.25;font-weight:500}
+html .mc .mc__fdr-quote figcaption{margin:14px 0 0}
+html .mc .mc__fdr-facts{margin:26px 0 0;padding:0;border-top:1px solid var(--mt-hair);max-width:560px}
+html .mc .mc__fdr-fact{display:grid;grid-template-columns:130px minmax(0,1fr);gap:16px;margin:0;padding:12px 0;border-bottom:1px solid var(--mt-hair)}
+html .mc .mc__fdr-fact dt{margin:0;padding-top:3px}
 html .mc .mc__fdr-fact dd{margin:0;font-size:16px;line-height:1.35}
 @media (min-width:990px){
-  html .mc .mc__fdr{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:64px;align-items:center}
-  html .mc .mc__fdr-media{max-width:520px}
+  html .mc .mc__fdr{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:72px;align-items:center}
+  html .mc .mc__fdr-media{max-width:540px}
 }

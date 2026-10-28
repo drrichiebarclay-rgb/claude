@@ -16,26 +16,23 @@
 <div class="mc mc--std" style="--mc-spt:{{ spt }};--mc-spb:{{ spb }}">
   <div class="mc__wrap">
     <section class="mc__std" aria-labelledby="{{ heading_id }}">
-      <div class="mc__std-top">
-        <div>
-          {%- if section.settings.eyebrow != blank -%}<p class="mc__mono mc__std-eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
-          <h2 class="mc__h2" id="{{ heading_id }}">{{ section.settings.heading | escape | newline_to_br }}</h2>
-        </div>
-        {%- if section.settings.lede != blank -%}<p class="mc__std-lede">{{ section.settings.lede }}</p>{%- endif -%}
+      <div class="mc__trust-top">
+        <h2 class="mc__h2" id="{{ heading_id }}">{{ section.settings.heading | escape | newline_to_br }}</h2>
+        {%- if section.settings.lede != blank -%}<p class="mc__trust-note">{{ section.settings.lede }}</p>{%- endif -%}
       </div>
       <ol class="mc__std-list">
         {%- for block in section.blocks -%}
           <li class="mc__std-item" {{ block.shopify_attributes }}>
             <div class="mc__std-meta">
-              <span class="mc__mono mc__std-num" aria-hidden="true">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
-              {%- if block.settings.stat != blank -%}<span class="mc__mono mc__std-stat">{{ block.settings.stat }}</span>{%- endif -%}
+              <span class="mc__trust-label mc__std-num" aria-hidden="true">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+              {%- if block.settings.stat != blank -%}<span class="mc__trust-tag"><span class="mc__trust-spark" aria-hidden="true"></span>{{ block.settings.stat }}</span>{%- endif -%}
             </div>
-            <h3 class="mc__h3 mc__std-title">{{ block.settings.title }}</h3>
+            <h3 class="mc__std-title">{{ block.settings.title }}</h3>
             {%- if block.settings.text != blank -%}<div class="mc__rt mc__std-text">{{ block.settings.text }}</div>{%- endif -%}
             {%- if block.settings.link_label != blank and block.settings.link != blank -%}
               <a class="mc__trust-link" href="{{ block.settings.link }}">{{ block.settings.link_label }} <span aria-hidden="true">→</span></a>
             {%- elsif block.settings.no_link_note != blank -%}
-              <p class="mc__mono mc__std-note">{{ block.settings.no_link_note }}</p>
+              <p class="mc__trust-label mc__std-note">{{ block.settings.no_link_note }}</p>
             {%- endif -%}
           </li>
         {%- endfor -%}
@@ -51,9 +48,8 @@
   "class": "mc-section",
   "max_blocks": 6,
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Small label", "default": "Our standards" },
-    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Checked, not\ntaken on trust." },
-    { "type": "textarea", "id": "lede", "label": "Intro (right of the heading on desktop)" },
+        { "type": "textarea", "id": "heading", "label": "Heading", "default": "Our standards." },
+    { "type": "text", "id": "lede", "label": "Note", "info": "Sits opposite the heading on desktop, like the board and video bands." },
     { "type": "text", "id": "foot", "label": "Small line below" },
     { "type": "header", "content": "Spacing" },
     { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 2, "unit": "%", "default": 100 },

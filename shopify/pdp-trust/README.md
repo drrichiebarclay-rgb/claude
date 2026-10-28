@@ -17,15 +17,17 @@ All four sections are new names, so nothing on live is overwritten except the te
 | # | Band | Status |
 |---|---|---|
 | 1 | Buy box | unchanged |
-| 2 | **Our standards**: third-party tested, 300mg NR + declared doses, Scientific Advisory Board, UK made GMP · ISO | new |
-| 3 | Customer videos, 9:16 (existing "results" band) | retitled "Customer reports." |
-| 4 | **Rotating reviews** ("Selected reviews."): up to 20 hand-picked written reviews, name + age, auto-advance every 6s | new |
-| 5 | **Founder**: Dr Richie Barclay, PhD | new |
-| 6 | Scientific Advisory Board | retitled |
-| 7 | **Statement**: "A daily supplement." / "Built for your biology after 35 years old." | new |
+| 2 | **Statement**: "A daily supplement." / "Built for your biology after 35 years old." | new |
+| 3 | Scientific Advisory Board, now the **compact row** (all six across on desktop) | retitled |
+| 4 | **Our standards**: four sage cards (third-party tested, 300mg NR + declared doses, advisory board, UK made GMP · ISO) | new |
+| 5 | Customer videos, 9:16 (existing "results" band) | retitled "Customer reports." |
+| 6 | **Rotating reviews** ("Selected reviews."): up to 20 hand-picked reviews, name + age, auto-advance every 6s | new |
+| 7 | **Founder**: Dr Richie Barclay, PhD | new |
 | 8+ | Problem, benefits, 90-day steps, guarantee, compare, FAQ, REVIEWS.io widget | copy tightened |
 
 The old "Why people trust MUTO" three-card band is **hidden, not deleted** (founder and standards now cover it).
+
+The new bands use the page's own patterns (sage glass cards, mono notes opposite the heading, sparkle tag pills) in the brand palette: #FAFAFA, #C8D2CF, #5EFAFF, #C9FFB7, #F0FF84, #242223.
 
 ## More clinical copy (light touch)
 

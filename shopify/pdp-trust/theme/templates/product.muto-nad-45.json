@@ -583,10 +583,10 @@
         "field": true,
         "heading": "Scientific\nAdvisory Board.",
         "note": "Six doctors and scientists who review the formula.",
-        "compact": false,
+        "compact": true,
         "rail_gap": 64,
         "fit": "nad",
-        "space_top": 104,
+        "space_top": 60,
         "space_bottom": 100
       }
     },
@@ -1331,9 +1331,8 @@
         "made"
       ],
       "settings": {
-        "eyebrow": "Our standards",
         "heading": "Checked, not\ntaken on trust.",
-        "lede": "Most supplements are sold without independent checks, and many hide their doses in blends. These are the four things we hold MUTO to.",
+        "lede": "The four things we hold every jar to",
         "foot": "",
         "space_top": 100,
         "space_bottom": 100
@@ -1434,7 +1433,7 @@
         "rv8"
       ],
       "settings": {
-        "eyebrow": "Customer reviews",
+        "eyebrow": "Verified customers",
         "heading": "Selected\nreviews.",
         "summary": "",
         "interval": 6,
@@ -1503,12 +1502,12 @@
   },
   "order": [
     "buy",
+    "statement",
+    "board",
     "standards",
     "results",
     "reviews_top",
     "founder",
-    "board",
-    "statement",
     "problem",
     "benefits",
     "steps",

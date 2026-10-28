@@ -21,18 +21,16 @@
 <div class="mc mc--rev" style="--mc-spt:{{ spt }};--mc-spb:{{ spb }}">
   <div class="mc__wrap">
     <section class="mc__rev" aria-labelledby="{{ heading_id }}" aria-roledescription="carousel" data-mc-rev data-interval="{{ section.settings.interval | default: 6 }}">
-      <div class="mc__rev-top">
-        <div>
-          {%- if section.settings.eyebrow != blank -%}<p class="mc__mono mc__rev-eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
-          <h2 class="mc__h2" id="{{ heading_id }}">{{ section.settings.heading | escape | newline_to_br }}</h2>
-        </div>
+      <div class="mc__trust-top">
+        <h2 class="mc__h2" id="{{ heading_id }}">{{ section.settings.heading | escape | newline_to_br }}</h2>
         <div class="mc__rev-side">
+          {%- if section.settings.eyebrow != blank -%}<p class="mc__trust-note">{{ section.settings.eyebrow }}</p>{%- endif -%}
           {%- if section.settings.summary != blank -%}
             <p class="mc__rev-summary"><span class="mc__rev-stars" aria-hidden="true">★★★★★</span> {{ section.settings.summary }}</p>
           {%- endif -%}
           <div class="mc__rev-nav">
             <button type="button" class="mc__rev-btn" data-mc-rev-prev aria-label="Previous review">←</button>
-            <p class="mc__mono mc__rev-count" aria-hidden="true"><span data-mc-rev-at>01</span> / <span data-mc-rev-of>01</span></p>
+            <p class="mc__trust-label mc__rev-count" aria-hidden="true"><span data-mc-rev-at>01</span> / <span data-mc-rev-of>01</span></p>
             <button type="button" class="mc__rev-btn" data-mc-rev-next aria-label="Next review">→</button>
           </div>
         </div>
@@ -56,11 +54,11 @@
           {%- if show -%}
             <li class="mc__rev-card" {{ block.shopify_attributes }}>
               <p class="mc__rev-stars" aria-label="5 out of 5 stars">★★★★★</p>
-              {%- if block.settings.topic != blank -%}<p class="mc__mono mc__rev-topic">{{ block.settings.topic }}</p>{%- endif -%}
+              {%- if block.settings.topic != blank -%}<p class="mc__trust-tag mc__rev-topic"><span class="mc__trust-spark" aria-hidden="true"></span>{{ block.settings.topic }}</p>{%- endif -%}
               <blockquote class="mc__rev-quote">“{{ block.settings.quote }}”</blockquote>
               <p class="mc__rev-who">
                 <span class="mc__rev-name">{{ block.settings.name }}{% if age > 0 %}, {{ age }}{% endif %}</span>
-                {%- if block.settings.verified -%}<span class="mc__mono mc__rev-ver"><span aria-hidden="true">✓</span> Verified buyer</span>{%- endif -%}
+                {%- if block.settings.verified -%}<span class="mc__trust-label mc__rev-ver"><span aria-hidden="true">✓</span> Verified buyer</span>{%- endif -%}
               </p>
             </li>
           {%- endif -%}
@@ -112,7 +110,7 @@
   "class": "mc-section",
   "max_blocks": 20,
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Small label", "default": "Customer reviews" },
+    { "type": "text", "id": "eyebrow", "label": "Note", "default": "Verified customers", "info": "Sits opposite the heading on desktop." },
     { "type": "textarea", "id": "heading", "label": "Heading", "default": "What customers\nreport." },
     { "type": "text", "id": "summary", "label": "Rating summary", "info": "E.g. \"4.8 from 412 reviews\". Use the live figure from REVIEWS.io. Blank hides it." },
     { "type": "range", "id": "interval", "label": "Seconds per review", "min": 3, "max": 12, "step": 1, "unit": "s", "default": 6 },
