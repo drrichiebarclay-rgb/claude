@@ -27,6 +27,8 @@ All four sections are new names, so nothing on live is overwritten except the te
 
 The old "Why people trust MUTO" three-card band is **hidden, not deleted** (founder and standards now cover it).
 
+**Backgrounds:** no gradient washes anywhere on the page. Bands alternate flat grey (#F2F2F2) and white, set in a template-only `bands` style block at the end of the template (built by `make_trust.py`).
+
 The new bands use the page's own patterns (sage glass cards, mono notes opposite the heading, sparkle tag pills) in the brand palette: #FAFAFA, #C8D2CF, #5EFAFF, #C9FFB7, #F0FF84, #242223.
 
 ## More clinical copy (light touch)

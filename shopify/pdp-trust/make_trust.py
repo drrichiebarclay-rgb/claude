@@ -110,6 +110,31 @@ FOUNDER = {"type": "muto-crea-founder",
         "caption": "",
         "space_top": 100, "space_bottom": 100}}
 
+# --- Page backgrounds: no gradient washes, alternating flat grey and white ---
+GREY, WHITE = "#f2f2f2", "#ffffff"
+BANDS = [  # section key -> ground, in page order
+    ("buy", GREY), ("statement", WHITE), ("board", GREY), ("standards", WHITE),
+    ("results", GREY), ("reviews_top", WHITE), ("founder", GREY), ("problem", WHITE),
+    ("benefits", GREY), ("steps", WHITE), ("guarantee", GREY), ("compare", WHITE),
+    ("faq", GREY),
+]
+
+def bands_css():
+    """A template-only style block. Each section is matched by the end of its
+    Shopify wrapper id (shopify-section-template--…__<key>), so it reaches only
+    this page and only these sections. !important because the washes are set on
+    the bands' own root classes in muto-crea.css / muto-home.css."""
+    rules = []
+    for key, ground in BANDS:
+        w = f'[id$="__{key}"]'
+        rules.append(f"{w},{w} > .mc,{w} > .mh{{background:{ground}!important}}")
+    css = "\n".join(rules)
+    return {"type": "custom-liquid", "settings": {
+        "custom_liquid": "<style>\n/* Flat, alternating band grounds for this page (no gradient washes). Built by make_trust.py. */\n"
+                         + css + "\n</style>",
+        "color_scheme": "scheme-1", "padding_top": 0, "padding_bottom": 0}}
+
+
 # --- Existing sections: a slightly more clinical voice ----------------------
 def clinical(d):
     S = d["sections"]
@@ -175,6 +200,8 @@ def main():
         "founder": FOUNDER,
     })
     clinical(d)
+    d["sections"]["custom_reviews_KpXTpD"]["settings"]["bg_color"] = WHITE
+    d["sections"]["bands"] = bands_css()
 
     d["order"] = [
         "buy",
@@ -185,7 +212,7 @@ def main():
         "reviews_top",      # up to 20 rotating written reviews
         "founder",
         "problem", "benefits", "steps", "guarantee", "why", "compare", "faq",
-        "custom_reviews_KpXTpD", "sticky", "easy_read",
+        "custom_reviews_KpXTpD", "sticky", "easy_read", "bands",
     ]
     assert sorted(d["order"]) == sorted(d["sections"]), set(d["order"]) ^ set(d["sections"])
     os.makedirs(os.path.dirname(OUT), exist_ok=True)

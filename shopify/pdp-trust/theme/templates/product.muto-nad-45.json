@@ -1230,7 +1230,7 @@
       "type": "custom-reviews",
       "name": "Custom Reviews",
       "settings": {
-        "bg_color": "#fafafa",
+        "bg_color": "#ffffff",
         "padding_top": 110,
         "padding_bottom": 50,
         "custom_class": "",
@@ -1498,6 +1498,15 @@
         "space_top": 100,
         "space_bottom": 100
       }
+    },
+    "bands": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<style>\n/* Flat, alternating band grounds for this page (no gradient washes). Built by make_trust.py. */\n[id$=\"__buy\"],[id$=\"__buy\"] > .mc,[id$=\"__buy\"] > .mh{background:#f2f2f2!important}\n[id$=\"__statement\"],[id$=\"__statement\"] > .mc,[id$=\"__statement\"] > .mh{background:#ffffff!important}\n[id$=\"__board\"],[id$=\"__board\"] > .mc,[id$=\"__board\"] > .mh{background:#f2f2f2!important}\n[id$=\"__standards\"],[id$=\"__standards\"] > .mc,[id$=\"__standards\"] > .mh{background:#ffffff!important}\n[id$=\"__results\"],[id$=\"__results\"] > .mc,[id$=\"__results\"] > .mh{background:#f2f2f2!important}\n[id$=\"__reviews_top\"],[id$=\"__reviews_top\"] > .mc,[id$=\"__reviews_top\"] > .mh{background:#ffffff!important}\n[id$=\"__founder\"],[id$=\"__founder\"] > .mc,[id$=\"__founder\"] > .mh{background:#f2f2f2!important}\n[id$=\"__problem\"],[id$=\"__problem\"] > .mc,[id$=\"__problem\"] > .mh{background:#ffffff!important}\n[id$=\"__benefits\"],[id$=\"__benefits\"] > .mc,[id$=\"__benefits\"] > .mh{background:#f2f2f2!important}\n[id$=\"__steps\"],[id$=\"__steps\"] > .mc,[id$=\"__steps\"] > .mh{background:#ffffff!important}\n[id$=\"__guarantee\"],[id$=\"__guarantee\"] > .mc,[id$=\"__guarantee\"] > .mh{background:#f2f2f2!important}\n[id$=\"__compare\"],[id$=\"__compare\"] > .mc,[id$=\"__compare\"] > .mh{background:#ffffff!important}\n[id$=\"__faq\"],[id$=\"__faq\"] > .mc,[id$=\"__faq\"] > .mh{background:#f2f2f2!important}\n</style>",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
@@ -1517,6 +1526,7 @@
     "faq",
     "custom_reviews_KpXTpD",
     "sticky",
-    "easy_read"
+    "easy_read",
+    "bands"
   ]
 }
