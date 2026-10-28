@@ -4,6 +4,10 @@ Template `product.muto-nad-45` (the main NAD+ page, `/products/muto-nad-cellular
 Built on the **live** template as of 28 Oct (`live-snapshot-28oct/`, last edited on live 19 Oct), so live edits are kept.
 The buy box is not touched. Rebuild with `python3 make_trust.py`.
 
+## The main page is now `muto-nad-v2` (27 Oct)
+
+The main product moved to template `product.muto-nad-v2` on 27 Oct. The buy box in this build is taken **verbatim from that live template**: the `buy` section (`muto-pdp-v2-buy`), its `easy_read` styling block (incl. the Black Friday box), the sticky bar, the `#scientific-board` anchor and the `#test-results` certificate panel (`muto-test-results`). `make_trust.py` copies them from `live-snapshot-28oct/templates__product.muto-nad-v2.json`.
+
 ## Files to copy into the live theme (in this order)
 
 1. `theme/assets/muto-crea-trust.css`

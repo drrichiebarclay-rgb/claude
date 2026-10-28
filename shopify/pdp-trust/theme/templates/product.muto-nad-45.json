@@ -10,7 +10,7 @@
 {
   "sections": {
     "buy": {
-      "type": "muto-crea-buy",
+      "type": "muto-pdp-v2-buy",
       "blocks": {
         "g1": {
           "type": "slide",
@@ -36,40 +36,70 @@
             "image_alt": "A cyclist at speed, shot with motion blur"
           }
         },
-        "ben1": {
+        "job1": {
           "type": "point",
           "settings": {
-            "text": "Supports your cells’ NAD+"
+            "label": "Energy",
+            "title": "Afternoons that don’t fade",
+            "icon": "",
+            "dark": false,
+            "text": ""
           }
         },
-        "ben2": {
+        "job2": {
           "type": "point",
           "settings": {
-            "text": "Less tiredness + fatigue"
+            "label": "Recovery",
+            "title": "Bounce back from a busy week",
+            "icon": "",
+            "dark": false,
+            "text": ""
           }
         },
-        "ben3": {
+        "job3": {
           "type": "point",
           "settings": {
-            "text": "Supports energy metabolism"
+            "label": "Mind",
+            "title": "A clearer head, all day",
+            "icon": "",
+            "dark": false,
+            "text": ""
           }
         },
-        "ben4": {
+        "job4": {
           "type": "point",
           "settings": {
-            "text": "Helps protect your cells"
+            "label": "Ageing well",
+            "title": "Age on your own terms",
+            "icon": "",
+            "dark": false,
+            "text": ""
           }
         },
-        "ben5": {
+        "job5": {
           "type": "point",
           "settings": {
-            "text": "Five bottles in one"
+            "label": "Immunity",
+            "title": "Stay well through winter",
+            "icon": "",
+            "dark": false,
+            "text": ""
           }
         },
-        "ben6": {
+        "job6": {
           "type": "point",
           "settings": {
-            "text": "Track it on your wearable"
+            "label": "Simplicity",
+            "title": "One jar replaces five",
+            "icon": "",
+            "dark": false,
+            "text": ""
+          }
+        },
+        "tr1": {
+          "type": "trust",
+          "settings": {
+            "text": "90-day money-back guarantee"
           }
         },
         "p1": {
@@ -79,33 +109,9 @@
             "price": "£60",
             "price_suffix": "",
             "was": "£70",
-            "save": "Save 14% + free gifts",
+            "save": "Save 14%",
             "note": "Billed £60 every 4 weeks · £2 a day",
-            "detail": "<ul><li>Free welcome kit (£62 in value)</li><li>Free gifts in boxes 2 to 6</li><li>Cancel or pause anytime</li><li>90-day money-back guarantee</li></ul>"
-          }
-        },
-        "k0": {
-          "type": "gift",
-          "settings": {
-            "value": "£30",
-            "name": "Creatine",
-            "row_label": "Creatine",
-            "row_note": "",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
-            "image_alt": "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate, part of the welcome kit",
-            "plans": ""
-          }
-        },
-        "k1": {
-          "type": "gift",
-          "settings": {
-            "value": "£12",
-            "name": "Socks",
-            "row_label": "Socks (Size UK 6-11)",
-            "row_note": "",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-socks.jpg?v=1791023071",
-            "image_alt": "A pouch of MUTO Performance Socks, part of the welcome kit",
-            "plans": ""
+            "detail": "<ul><li>90-day money-back guarantee</li><li>Skip, pause or cancel online, no phone calls</li><li>Free UK delivery</li><li>Free welcome kit worth £62, then thank-you gifts in boxes 2 to 6</li></ul>"
           }
         },
         "k2": {
@@ -120,18 +126,6 @@
             "plans": ""
           }
         },
-        "qk3": {
-          "type": "gift",
-          "settings": {
-            "value": "£15",
-            "name": "Bottle",
-            "row_label": "Performance Bottle",
-            "row_note": "",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-bottle.jpg?v=1791022787",
-            "image_alt": "The MUTO Performance Bottle in translucent blue",
-            "plans": "2"
-          }
-        },
         "k3": {
           "type": "gift",
           "settings": {
@@ -141,6 +135,42 @@
             "row_note": "",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-gift-guide-v2.jpg?v=1791392560",
             "image_alt": "The MUTO 12 Week Protocol Guide, a black book with the formula listed down its cover",
+            "plans": ""
+          }
+        },
+        "qk3": {
+          "type": "gift",
+          "settings": {
+            "value": "£15",
+            "name": "Bottle",
+            "row_label": "Water bottle",
+            "row_note": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-bottle.jpg?v=1791022787",
+            "image_alt": "The MUTO Performance Bottle in translucent blue",
+            "plans": "2"
+          }
+        },
+        "k1": {
+          "type": "gift",
+          "settings": {
+            "value": "£12",
+            "name": "Socks",
+            "row_label": "Socks (Size UK 6-11)",
+            "row_note": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-socks.jpg?v=1791023071",
+            "image_alt": "A pouch of MUTO Performance Socks, part of the welcome kit",
+            "plans": ""
+          }
+        },
+        "k0": {
+          "type": "gift",
+          "settings": {
+            "value": "£30",
+            "name": "Creatine",
+            "row_label": "Creatine",
+            "row_note": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
+            "image_alt": "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate, part of the welcome kit",
             "plans": ""
           }
         },
@@ -171,7 +201,7 @@
           "type": "month",
           "settings": {
             "label": "Box 3",
-            "text": "Performance Socks",
+            "text": "Socks",
             "value": "£12",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-socks.jpg?v=1791023071",
             "image_alt": "A pouch of MUTO Performance Socks, free with order 3",
@@ -292,61 +322,61 @@
           "type": "plan",
           "settings": {
             "name": "Quarterly plan",
-            "price": "£150",
+            "price": "£50/mo",
             "price_suffix": "",
             "was": "£210",
-            "save": "Save 28% + free gifts",
-            "note": "Billed £150 every 3 months · £1.67 a day",
-            "detail": "<ul><li>Free welcome kit (£77 in value)</li><li>Free gifts in boxes 2 and 3, then creatine in every box</li><li>Cancel or pause anytime</li><li>90-day money-back guarantee</li></ul>"
+            "save": "Save 28%",
+            "note": "3 months’ supply, billed £150 every 3 months · £1.67 a day",
+            "detail": "<ul><li>90-day money-back guarantee</li><li>Skip, pause or cancel online, no phone calls</li><li>Free UK delivery</li><li>Free welcome kit worth £77, then thank-you gifts in later boxes</li></ul>"
           }
         },
-        "a0": {
+        "fold1": {
           "type": "fold",
           "settings": {
             "title": "Who it’s for",
-            "text": "<p><strong>Made for adults 35+.</strong>&nbsp;Most customers are in their 40s and 50s.</p><p><strong>It’s for you if:</strong></p><ul><li>Afternoons feel harder than they used to</li><li>Recovery takes longer than it did</li><li>Your supplement shelf is full and you’re not sure what works</li><li>You’re not ready to slow down</li></ul><p><strong>No wearable needed.</strong>&nbsp;Got one? Track your recovery and readiness as you go. Walkers, gardeners and gym-goers all take it.</p><p><strong>Not for</strong>&nbsp;under-18s, or if you’re pregnant or breastfeeding. On medication? Check with your doctor first.</p>"
+            "text": "<p><strong>Made for adults in their 40s, 50s and 60s.</strong> Most of our customers are in their 40s and 50s. You don’t need to be sporty or own a smartwatch.</p><p>It’s for you if afternoons feel harder than they used to, you get less back from the same effort, or you want to keep up with work, family and the things you love.</p>"
           }
         },
-        "a1": {
+        "fold2": {
+          "type": "fold",
+          "settings": {
+            "title": "What it does",
+            "text": "<p>Five jobs in one daily formula:</p><ul><li><strong>Energy.</strong> Vitamins B6 and B12 contribute to the reduction of tiredness and fatigue.</li><li><strong>Recovery.</strong> Vitamin D contributes to normal muscle function.</li><li><strong>Stress.</strong> B vitamins contribute to normal psychological function, and B5 to normal mental performance.</li><li><strong>Longevity.</strong> 300mg NR, which your body turns into NAD+, plus zinc, which contributes to the protection of cells from oxidative stress.</li><li><strong>Immunity.</strong> Vitamin D, zinc, copper, folate, B6 and B12 contribute to the normal function of the immune system.</li></ul><p>One jar instead of five pots: no separate NAD+, CoQ10, resveratrol, D3 + K2 or B-complex.</p>"
+          }
+        },
+        "fold3": {
           "type": "fold",
           "settings": {
             "title": "What’s inside",
-            "text": "<p>19 ingredients in 2 capsules. Every amount is listed, so you can check it.</p><p><strong>NR (nicotinamide riboside), 300mg.</strong>&nbsp;The main one. A form of vitamin B3 that your body uses to make NAD⁺. 300mg is the most allowed in the UK.</p><p><strong>TMG (trimethylglycine), 450mg.</strong>&nbsp;Works alongside NR, supporting the body’s natural methylation processes.</p><p><strong>8 B vitamins, in their active form.</strong>&nbsp;Your body can use them straight away. They help reduce tiredness and help your body get energy from food.</p><ul><li>B1 (thiamine): 5mg</li><li>B2 (riboflavin): 5mg</li><li>B3 (niacin): 16mg NE</li><li>B5 (pantothenic acid): 10mg</li><li>B6 (as P5P): 5mg</li><li>Folate (as 5-MTHF): 400µg</li><li>B12 (as methylcobalamin): 100µg</li><li>Biotin: 300µg</li></ul><p><strong>Vitamin D3, 2,000 IU (50µg), and K2 (MK-7), 100µg.</strong>&nbsp;Vitamin D helps keep your muscles and bones working normally. K2 works alongside it.</p><p><strong>Zinc, 15mg, and copper, 1mg.</strong>&nbsp;They help protect your cells.</p><p><strong>CoQ10, 150mg, and PQQ, 20mg.</strong>&nbsp;Found in every cell. Your body makes less CoQ10 as you get older.</p><p><strong>Grape seed extract, 150mg (95% polyphenols), and trans-resveratrol, 50mg.</strong>&nbsp;Plant extracts.</p><p><strong>BioPerine® (black pepper extract), 5mg.</strong>&nbsp;Helps your body take in the rest.</p>"
+            "text": "<p>19 ingredients in two capsules. Every dose is on the label, per two-capsule serving:</p><ul><li><strong>TMG (trimethylglycine)</strong> 450mg</li><li><strong>NR (nicotinamide riboside)</strong> 300mg</li><li><strong>Grape seed extract</strong> 150mg · 120:1 extract, 95% polyphenols, 142.5mg</li><li><strong>CoQ10</strong> 150mg · ubiquinone</li><li><strong>Zinc</strong> 15mg · zinc bisglycinate</li><li><strong>Trans-resveratrol</strong> 50mg · from Japanese knotweed root, 95%</li><li><strong>Vitamin D3</strong> 50mcg (2,000 IU) · cholecalciferol, from algae</li><li><strong>PQQ</strong> 20mg · pyrroloquinoline quinone</li><li><strong>Vitamin B3</strong> 16mg · nicotinamide, no flush</li><li><strong>Vitamin B12</strong> 100mcg · methylcobalamin</li><li><strong>Vitamin B5</strong> 10mg · calcium D-pantothenate</li><li><strong>Copper</strong> 1mg · copper bisglycinate</li><li><strong>Vitamin K2</strong> 100mcg · menaquinone-7, MK-7</li><li><strong>Vitamin B6</strong> 5mg · pyridoxal-5′-phosphate, P5P</li><li><strong>Vitamin B2</strong> 5mg · riboflavin-5′-phosphate</li><li><strong>Vitamin B1</strong> 5mg · thiamine hydrochloride</li><li><strong>BioPerine® black pepper extract</strong> 5mg · 95% piperine, 4.75mg</li><li><strong>Folate</strong> 400mcg · L-5-methyltetrahydrofolate, 5-MTHF</li><li><strong>Biotin</strong> 300mcg · D-biotin</li></ul><p>Filter them by job on our <a href=\"/pages/ingredients\">ingredients page</a>.</p>"
           }
         },
-        "fold_t9eahe": {
-          "type": "fold",
-          "settings": {
-            "title": "What does it replace?",
-            "text": "<p><strong>Up to five pots on your shelf:</strong></p><ul><li>An NAD⁺ or NR supplement</li><li>CoQ10</li><li>Trans-resveratrol</li><li>Vitamin D3 + K2</li><li>A methylated B-complex</li></ul><p>Plus PQQ, TMG, zinc, copper and grapeseed extract, all in the same two capsules.</p><p><strong>And creatine’s on us.</strong>&nbsp;Micronised creatine comes free with your subscription.</p><p><strong>Your daily foundation. One jar, two capsules, done.</strong></p><p>Never stop a prescribed medicine without asking your doctor.</p>"
-          }
-        },
-        "a2": {
-          "type": "fold",
-          "settings": {
-            "title": "Is it safe?",
-            "text": "<p>We hold MUTO to a higher bar than UK law asks:</p><ul><li>Made in a GMP-certified UK facility</li><li>Every batch checked by an independent lab</li><li>Every ingredient within UK safety limits, with NR at the full 300mg approved for adults</li><li>Every dose on the label, no hidden blends</li><li>Vegan and allergen-free</li><li>Formula reviewed by our Scientific Advisory Board</li></ul><p>Not for under-18s, or if you’re pregnant or breastfeeding. Take medicine? Ask your doctor first.</p>"
-          }
-        },
-        "a3": {
+        "fold4": {
           "type": "fold",
           "settings": {
             "title": "How to take it",
-            "text": "<p>Take 2 capsules every morning with breakfast.</p><p><strong>Why the morning?</strong>&nbsp;It fits the start of your day, and it’s the easiest habit to keep.</p><p><strong>Why with food?</strong>&nbsp;CoQ10, vitamin D3 and K2 are fat-soluble, so your body absorbs them better alongside healthy fats. Eggs, avocado, yoghurt, nuts or olive oil all work.</p><p><strong>Missed a day?</strong>&nbsp;Just carry on the next morning. Don’t double up.</p><p><strong>Give it 90 days.</strong>&nbsp;Consistency matters more than timing. Take it daily and track how you feel along the way.</p><p><strong>The foundation, not the fix.</strong>&nbsp;No supplement makes up for poor sleep, no movement or a bad diet. MUTO works best alongside the basics: sleep well, move often, eat well.</p>"
+            "text": "<p>Two capsules every morning with breakfast.</p><p><strong>Why with food?</strong> CoQ10, vitamin D3 and K2 dissolve in fat, so your body takes them in best with a meal.</p><p><strong>Why every day?</strong> It works best as a habit. Keep the jar by the kettle.</p>"
           }
         },
-        "a4": {
+        "fold5": {
           "type": "fold",
           "settings": {
-            "title": "Delivery and stopping",
-            "text": "<p>Free next-day delivery in the UK. A new box comes every 4 weeks with free gifts on each order.&nbsp;</p><p>Skip, pause or stop online. No phone calls.</p>"
+            "title": "Quality and testing",
+            "text": "<ul><li>Every dose on the label, no proprietary blends</li><li>Only UK-authorised ingredients: that’s why we use NR, not NMN</li><li>Made in the UK to GMP standards</li><li>Every batch tested before release for heavy metals, microbes and capsule quality</li><li>Vegan capsules from plant cellulose, vitamin D3 from algae, no major allergens</li></ul><p><a href=\"#test-results\">See the results for the current batch</a></p>"
           }
         },
-        "a5": {
+        "fold6": {
           "type": "fold",
           "settings": {
-            "title": "Money-back promise",
-            "text": "<p>Take it every day for 90 days. Not for you? Email us. We’ll give your money back, minus delivery.</p>"
+            "title": "Delivery, skipping and cancelling",
+            "text": "<p>Free next-day delivery in the UK. A new jar arrives every 4 weeks, with gifts on your orders.</p><p>Skip, pause or cancel online anytime. No phone calls, and we remind you five days before every payment.</p>"
+          }
+        },
+        "fold7": {
+          "type": "fold",
+          "settings": {
+            "title": "90-day money-back promise",
+            "text": "<p>Take it every day for 90 days. If you don’t feel the difference, email <a href=\"mailto:hello@mutolongevity.com\">hello@mutolongevity.com</a> and you get every subscription payment back.</p>"
           }
         },
         "snippet_1": {
@@ -363,18 +393,56 @@
             "name": "Alexandra"
           }
         },
-        "snippet_3": {
-          "type": "snippet",
-          "settings": {
-            "quote": "“Has actually changed my recovery”",
-            "name": "Adam H"
-          }
-        },
         "snippet_7": {
           "type": "snippet",
           "settings": {
             "quote": "“I love that this replaces multiple products”",
             "name": "Amy C"
+          }
+        },
+        "x_delivery": {
+          "type": "delivery",
+          "settings": {
+            "text": "Free <strong>next-day delivery</strong> in the UK"
+          }
+        },
+        "x_badges": {
+          "type": "badges",
+          "settings": {
+            "mark_1": "UK",
+            "label_1": "Made in the UK",
+            "mark_2": "GMP",
+            "label_2": "Made to GMP standards",
+            "mark_3": "shield",
+            "label_3": "Every batch tested"
+          }
+        },
+        "x_promise": {
+          "type": "promise",
+          "settings": {
+            "title": "No-risk 90-day guarantee",
+            "text": "Feel the difference in 90 days, or get every subscription payment back. Skip, pause or cancel online anytime."
+          }
+        },
+        "x_doctors": {
+          "type": "doctors",
+          "settings": {
+            "face_1": "shopify://shop_images/Dr_James_Cover_Final.png",
+            "face_2": "shopify://shop_images/Dr_Alka_Cover_Final.png",
+            "face_3": "shopify://shop_images/Dr_Richard_Cover_Final.png",
+            "face_4": "shopify://shop_images/Dr_Matt.png",
+            "title": "Formulated with leading doctors and scientists",
+            "text": "Meet our scientific advisory board",
+            "link": "#scientific-board"
+          }
+        },
+        "x_lists": {
+          "type": "lists",
+          "settings": {
+            "title_1": "Free from",
+            "items_1": "Proprietary blends\nFillers\nCaffeine and stimulants\nMajor allergens",
+            "title_2": "Made with",
+            "items_2": "Vegan capsules\nVitamin D3 from algae\nActive B vitamins\nBisglycinate minerals"
           }
         }
       },
@@ -382,18 +450,19 @@
         "g1",
         "g2",
         "g3",
-        "ben1",
-        "ben2",
-        "ben3",
-        "ben4",
-        "ben5",
-        "ben6",
+        "job1",
+        "job2",
+        "job3",
+        "job4",
+        "job5",
+        "job6",
+        "tr1",
         "p1",
-        "k0",
-        "k1",
         "k2",
-        "qk3",
         "k3",
+        "qk3",
+        "k1",
+        "k0",
         "k4",
         "mg2",
         "mg3",
@@ -408,17 +477,21 @@
         "qm3b",
         "qm4",
         "plan_RAXANa",
-        "a0",
-        "a1",
-        "fold_t9eahe",
-        "a2",
-        "a3",
-        "a4",
-        "a5",
+        "fold1",
+        "fold2",
+        "fold3",
+        "fold4",
+        "fold5",
+        "fold6",
+        "fold7",
         "snippet_1",
         "snippet_2",
-        "snippet_3",
-        "snippet_7"
+        "snippet_7",
+        "x_delivery",
+        "x_badges",
+        "x_promise",
+        "x_doctors",
+        "x_lists"
       ],
       "custom_css": [],
       "settings": {
@@ -427,17 +500,19 @@
         "rating_count": "",
         "rating_stars": 5,
         "rating_link": "#ReviewsWidget",
-        "eyebrow": "MUTO",
+        "eyebrow": "",
         "heading": "NAD+ Cellular Complex",
-        "serving": "30-day supply (60 capsules), 2 a day, third-party tested, 90-day guarantee.",
-        "text": "<p><strong>For adults 35+ who aren’t ready to slow down.</strong></p><p>Somewhere in your 40s, energy stops being automatic. MUTO supports where energy is created, in your 30 trillion cells, with 19 ingredients in two capsules a day. You don’t have to take our word for it. Watch your recovery and readiness on your wearable over 90 days.</p><p><a href=\"#whats-inside\">Ingredients + nutritional information</a></p>",
+        "serving": "2 capsules with breakfast · 30-day supply (60 capsules)",
+        "points_foot": "",
+        "points_note": "",
+        "text": "<p><strong>Not another multivitamin. The next generation of one.</strong></p><p>The active vitamins and minerals you’d want from a good multivitamin, plus the cellular science most leave out: NR for NAD⁺, CoQ10, PQQ and resveratrol. 19 ingredients, every dose on the label, two capsules, one jar.</p>",
         "image_fallback": "",
         "image_alt": "The MUTO creatine pouch photographed with the NAD+ Cellular Complex set",
         "gallery_from_product": true,
         "gallery_position": "100% 50%",
         "note_title": "",
         "note_text": "",
-        "plans_banner": "New customer offer, free welcome kit worth £77",
+        "plans_banner": "New customers: free welcome kit worth £77",
         "plans_label": "Choose your plan",
         "hidden_plans": "",
         "kit_title": "Welcome kit — arrives with your first box",
@@ -454,14 +529,14 @@
         "kit_foot_4": "No contract",
         "kit_foot_4_pop_title": "No contract",
         "kit_foot_4_pop": "<p>You’re never tied in. Pause, start again or stop your plan whenever you like, from your account. No questions asked.</p>",
-        "gifts_label": "Future gifts",
+        "gifts_label": "Thank-you gifts in later boxes",
         "gifts_text": "",
-        "onetime_label": "One-time purchase, no gifts – [price]",
+        "onetime_label": "Prefer to try one jar first? Buy once – [price] (no gifts)",
         "onetime_link": "",
-        "cta_label": "Start Your 90 Days",
+        "cta_label": "Add to cart",
         "show_quantity": false,
         "qty_label": "Quantity",
-        "cta_price": true,
+        "cta_price": false,
         "cta_link": "",
         "research_title": "",
         "refs": "",
@@ -1260,10 +1335,375 @@
     "easy_read": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "<style>\n/* -2 product page (product.muto-nad-45): Artah-style buy box.\n   Scoped to this template only (this block lives in the template). */\n\n/* ---- Title block ---- */\nhtml body .mc .mc__eyebrow{font-size:13px;letter-spacing:.12em}\nhtml body .mc .mc__buy-title{font-size:clamp(30px,3.2vw,46px);line-height:.95;margin-top:6px}\nhtml body .mc .mc__buy-serving{margin-top:14px;font-size:12px;line-height:1.5;letter-spacing:.08em}\nhtml body .mc .mc__buy-text{margin-top:14px;font-size:15px;line-height:1.55;color:#242223}\nhtml body .mc .mc__buy-text p:first-child{font-size:18px;line-height:1.35;padding-bottom:14px;margin-bottom:14px;border-bottom:2px solid var(--mc-ink-alt,#242223);color:var(--mc-ink-alt,#242223)}\nhtml body .mc .mc__buy-text p:first-child strong{font-weight:500}\nhtml body .mc .mc__buy-text > * + *{margin-top:10px}\nhtml body .mc .mc__buy-text a[href=\"#whats-inside\"]{color:rgba(36,34,35,.7);font-weight:500;text-decoration:underline;text-underline-offset:4px}\n\n/* ---- Benefits: two columns with rules, like a spec list ---- */\nhtml body .mc .mc__buy-points{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;column-gap:28px}\nhtml body .mc .mc__buy-points::before{content:\"Benefits\";grid-column:1/-1;font-size:14px;font-weight:500;color:rgba(36,34,35,.6);padding-bottom:8px}\nhtml body .mc .mc__point{padding:11px 0;padding-left:0;border-top:1px solid rgba(36,34,35,.14);font-size:14px;line-height:1.35;font-weight:500}\nhtml body .mc .mc__point + .mc__point{margin-top:0}\nhtml body .mc .mc__point::before{display:none}\n/* \"Choose your plan\", with a rule either side */\nhtml body .mc .mc__buy-points::after{content:\"Choose your plan\";grid-column:1/-1;margin-top:26px;display:flex;align-items:center;gap:16px;font-size:20px;font-weight:500;letter-spacing:-.01em;color:var(--mc-ink-alt,#242223);\n  background:linear-gradient(var(--mc-ink-alt,#242223),var(--mc-ink-alt,#242223)) left center/calc(50% - 110px) 2px no-repeat,linear-gradient(var(--mc-ink-alt,#242223),var(--mc-ink-alt,#242223)) right center/calc(50% - 110px) 2px no-repeat;justify-content:center}\nhtml body .mc .mc__trust{display:none}\n\n/* ---- Plans: one box per plan; clicking a box selects it and expands it ---- */\nhtml body .mc .mc__plans{margin-top:16px;padding:0;border-radius:0;background:none;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;overflow:visible;display:flex;flex-direction:column}\nhtml body .mc .mc__plans > *{order:9}\nhtml body .mc .mc__plans-banner{order:1;margin:0;padding:12px 18px;border-radius:14px 14px 0 0;font-size:13px;line-height:1.3;letter-spacing:.06em}\n/* Skio order is monthly (1) then quarterly (2); quarterly leads. The selected plan's detail and\n   the gift area (which the section fills for the selected plan) sit inside that plan's box. */\nhtml body .mc .mc__plans > label.mc__plan:nth-of-type(2){order:2;margin-top:0}\nhtml body .mc .mc__plans > .mc__plan-detail[data-mc-plan-for=\"2\"]{order:3}\nhtml body .mc .mc__plans:has(> label.mc__plan:nth-of-type(2).is-selected) > .mc__kit{order:4}\nhtml body .mc .mc__plans > label.mc__plan:nth-of-type(1){order:5;margin-top:14px}\nhtml body .mc .mc__plans > .mc__plan-detail[data-mc-plan-for=\"1\"]{order:6}\nhtml body .mc .mc__plans:has(> label.mc__plan:nth-of-type(1).is-selected) > .mc__kit{order:7}\n/* Collapsed box */\nhtml body .mc .mc__plan{padding:18px 18px 16px;border:0;border-radius:14px;background:#fff;box-shadow:inset 0 0 0 1px #242223}\nhtml body .mc .mc__plan + .mc__plan{padding-top:18px;border-top:0}\nhtml body .mc .mc__plans > label.mc__plan:nth-of-type(2){border-radius:0 0 14px 14px;box-shadow:inset 1px 0 0 #242223,inset -1px 0 0 #242223,inset 0 -1px 0 #242223}\n/* Open box: card, then ticks, then gifts, all inside one outline */\nhtml body .mc .mc__plan.is-selected{border-radius:14px 14px 0 0;box-shadow:inset 2px 0 0 #242223,inset -2px 0 0 #242223,inset 0 2px 0 #242223}\nhtml body .mc .mc__plans > label.mc__plan:nth-of-type(2).is-selected{border-radius:0;box-shadow:inset 2px 0 0 #242223,inset -2px 0 0 #242223}\nhtml body .mc .mc__plan-head{gap:12px;flex-wrap:wrap}\nhtml body .mc .mc__plan-name{font-size:18px;line-height:1.25}\nhtml body .mc .mc__plan-save{height:26px;margin-left:0;padding:0 11px;border-radius:13px;font-size:11.5px;background:#242223;color:#fff;letter-spacing:.06em}\nhtml body .mc .mc__plan-price{font-size:20px}\nhtml body .mc .mc__plan-was{font-size:14px;margin-top:3px}\nhtml body .mc .mc__plan-note{font-size:13px;line-height:1.35;margin-top:6px;margin-left:33px;color:rgba(36,34,35,.7)}\nhtml body .mc .mc__plans > .mc__plan-detail{margin:0;padding:0 18px 4px;border-radius:0;background:#fff;box-shadow:inset 2px 0 0 #242223,inset -2px 0 0 #242223;font-size:15px;line-height:1.4;color:#242223}\nhtml body .mc .mc__plan-detail ul{margin:0;padding:14px 0 0;border-top:1.5px solid #242223;display:grid;gap:8px}\nhtml body .mc .mc__plan-detail li{margin:0;padding-left:24px;list-style:none;position:relative;font-weight:500}\nhtml body .mc .mc__plan-detail li::before{content:\"\";position:absolute;left:0;top:.38em;width:13px;height:10px;background:currentColor;clip-path:polygon(0 52%,13% 38%,38% 64%,88% 2%,100% 16%,38% 92%)}\n/* Gifts for the selected plan, closing the box */\nhtml body .mc .mc__plans > .mc__kit{margin:0;padding:16px 18px 18px;border-top:0;border-radius:0 0 14px 14px;background:#fff;box-shadow:inset 2px 0 0 #242223,inset -2px 0 0 #242223,inset 0 -2px 0 #242223}\nhtml body .mc .mc__kit-title{font-family:var(--mc-mono,monospace);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}\nhtml body .mc .mc__kit-list{display:grid !important;grid-template-columns:none !important;grid-auto-flow:column;grid-auto-columns:minmax(0,72px);justify-content:start;gap:10px !important;margin-top:12px}\nhtml body .mc .mc__kit-list li{text-align:center}\nhtml body .mc .mc__kit-frame{border-radius:8px;overflow:hidden}\nhtml body .mc .mc__kit-value{font-size:11.5px;margin-top:5px}\nhtml body .mc .mc__kit-name{font-size:11.5px;line-height:1.25}\nhtml body .mc .mc__kit-more{margin-top:16px}\nhtml body .mc .mc__kit-sum{display:flex;align-items:center;justify-content:center;gap:8px;min-height:46px;border-radius:23px;background:rgba(36,34,35,.07);font-size:15px;font-weight:500;cursor:pointer}\n\n/* ---- Welcome kit and later gifts ---- */\nhtml body .mc .mc__kit-month-n,html body .mc .mc__kit-month-v,html body .mc .mc__kit-month-t{font-size:12px;color:#242223}\nhtml body .mc .mc__kit-body{font-size:14px;color:#242223}\n\n/* ---- One-time purchase as its own row, then the button ---- */\nhtml body .mc .mc__onetime{display:block;width:100%;margin-top:14px;padding:16px 20px;border:1px solid rgba(36,34,35,.2);border-radius:14px;background:#fff;text-align:left;text-decoration:none;font-size:15px;line-height:1.3}\nhtml body .mc .mc__onetime:hover{border-color:var(--mc-ink-alt,#242223)}\nhtml body .mc .mc__buy-cta{margin-top:16px;height:58px}\nhtml body .mc .mc__btn{font-size:16px}\n\n/* ---- Folds and review quotes under the button ---- */\nhtml body .mc .mc__acc-sum{font-size:15px;min-height:52px}\nhtml body .mc .mc__acc-body{font-size:15px;line-height:1.5;color:#242223}\nhtml body .mc .mc__rev-q{font-size:15px}\n\n@media (max-width:749px){\n  html body .mc .mc__buy-title{font-size:32px}\n  html body .mc .mc__buy-text p:first-child{font-size:17px}\n  html body .mc .mc__buy-points{column-gap:16px}\n  html body .mc .mc__point{font-size:13.5px}\n  html body .mc .mc__buy-points::after{font-size:18px;background-size:calc(50% - 95px) 2px,calc(50% - 95px) 2px}\n  html body .mc .mc__plan-detail ul{grid-template-columns:1fr}\n}\n\n/* Button: old price struck through, then the price (\"Subscribe · £70 £60\") */\nhtml body .mc .mc-art__cta-was{font-weight:500;opacity:.55;text-decoration:line-through}\nhtml body .mc .mc-art__cta-was:not(:empty)::before{content:\"\\00b7\";display:inline-block;margin:0 .42em;opacity:.9;text-decoration:none}\nhtml body .mc .mc-art__cta-was:not(:empty) + .mc__btn-price::before{content:\"\";margin:0 0 0 .35em}\n\n/* Desktop gallery: thumbnails in their own column to the left of the main image (not over it) */\n@media screen and (min-width:990px){\n  html body .mc .mc__gallery{display:grid;grid-template-columns:72px minmax(0,1fr);column-gap:16px;align-items:start}\n  html body .mc .mc__gallery-main{grid-column:2;grid-row:1}\n  html body .mc .mc__thumbs{grid-column:1;grid-row:1;position:static;left:auto;top:auto;z-index:auto;\n    display:flex;flex-direction:column;gap:12px;margin:0;padding:2px;\n    align-self:stretch;height:0;min-height:100%;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin}\n  html body .mc .mc__thumbs[hidden]{display:none}\n  html body .mc .mc__thumb{width:64px;flex:0 0 auto;border-radius:10px}\n}\n\n\n/* Black Friday pre-sale box, above the plans */\nhtml body .mc .mc-bf{margin:18px 0 0;padding:14px 16px;border-radius:12px;background:#242223;color:#fff;display:grid;grid-template-columns:1fr auto;gap:6px 14px;align-items:center}\nhtml body .mc .mc-bf[hidden]{display:none}\nhtml body .mc .mc-bf__tag{grid-column:1/-1;display:flex;align-items:center;gap:8px;font-family:var(--mc-mono,monospace);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7ee0f0}\nhtml body .mc .mc-bf__dot{width:7px;height:7px;border-radius:50%;background:#7ee0f0;animation:mcBfPulse 1.6s ease-in-out infinite}\n@keyframes mcBfPulse{50%{opacity:.25}}\nhtml body .mc .mc-bf__offer{font-size:17px;font-weight:600;line-height:1.25;margin:0}\nhtml body .mc .mc-bf__note{grid-column:1;font-size:12px;line-height:1.35;opacity:.75;margin:0}\nhtml body .mc .mc-bf__note b{font-family:var(--mc-mono,monospace);letter-spacing:.06em;opacity:1;color:#fff}\nhtml body .mc .mc-bf__clock{grid-column:2;grid-row:2/4;display:flex;gap:6px;text-align:center}\nhtml body .mc .mc-bf__clock span{min-width:38px;padding:6px 4px 4px;border-radius:8px;background:rgba(255,255,255,.1);font-size:18px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1}\nhtml body .mc .mc-bf__clock small{display:block;margin-top:3px;font-size:9px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;opacity:.7}\nhtml body .mc .mc-bf__ends{grid-column:1/-1;font-size:12px;opacity:.75;margin:2px 0 0}\nhtml body .mc .mc-bf__stock{grid-column:1/-1;margin-top:6px}\nhtml body .mc .mc-bf__stock p{margin:0 0 6px;font-size:13px}\nhtml body .mc .mc-bf__stock b{color:#7ee0f0}\nhtml body .mc .mc-bf__bar{display:block;height:6px;border-radius:3px;background:rgba(255,255,255,.15);overflow:hidden}\nhtml body .mc .mc-bf__bar i{display:block;height:100%;background:#7ee0f0;border-radius:3px}\n@media (max-width:420px){\n  html body .mc .mc-bf{grid-template-columns:1fr}\n  html body .mc .mc-bf__clock{grid-column:1;grid-row:auto;margin-top:4px}\n}\n\n/* -2 page only: sections below the buy box back to standard sizes (they were enlarged) */\n/* ---- Rest of the page: back to standard sizes (was enlarged) ---- */\nhtml body .mc .mc__body,html body .mc .mc__ben-body,html body .mc .mc__ben-lede,html body .mc .mc__ben-name,\nhtml body .mc .mc__ben-sub,html body .mc .mc__step-text,html body .mc .mc__faq-body,html body .mc .mc__faq-sum,\nhtml body .mc .mc__gua-text,html body .mc .mc__note-text{font-size:16px;line-height:1.5}\nhtml body .mc .mc__ben-body,html body .mc .mc__faq-body{color:#242223}\nhtml body .mc .mc__prob-lede{font-size:18px;line-height:1.45}\nhtml body .mc .mc__prob-quote{font-size:22px;line-height:1.2}\nhtml body .mc .mc__prob-text{font-size:16px;line-height:1.45}\nhtml body .mc .mc__step-title{font-size:21px;line-height:1.2}\nhtml body .mc .mc__step-chip,html body .mc .mc__gua-chip{font-size:14px}\nhtml body .mc .mc__gua-aside{font-size:20px}\nhtml body .mc .mc__tabs{display:none}\nhtml body .mh .mh__why-title{font-size:22px}\nhtml body .mh .mh__why-text{font-size:16px;line-height:1.5;color:var(--mh-ink,#162f31)}\nhtml body .mh .mh__board-note,html body .mh .mh__res-note{font-size:15px;color:#242223}\nhtml body .mh .mh__res-quote{font-size:15px;line-height:1.45;color:#242223}\nhtml body .mh .mh__res-detail,html body .mh .mh__res-foot{font-size:13px;color:rgba(35,33,35,.8)}\nhtml body .mh__sticky-sub{font-size:13px;color:rgba(249,249,249,.85)}\nhtml body .mh__sticky-btn{font-size:15px}\n\n@media (max-width:749px){\n  html body .mc .mc__prob-quote{font-size:20px}\n  html body .mc .mc__step-title{font-size:19px}\n}\n\n</style>\n<div id=\"mc-bf-data\" hidden data-left=\"{{ shop.metafields.muto.bf_boxes_left.value }}\"></div>\n<script>\n/* \"Ingredients + nutritional information\" opens the What's inside fold and scrolls to it */\ndocument.addEventListener('click', function (e) {\n  var a = e.target.closest && e.target.closest('a[href=\"#whats-inside\"]');\n  if (!a) return;\n  var d = [].find.call(document.querySelectorAll('.mc__acc-item'), function (x) {\n    var s = x.querySelector('summary'); return s && /inside|ingredient/i.test(s.textContent);\n  });\n  if (!d) return;\n  e.preventDefault();\n  d.open = true;\n  d.scrollIntoView({ behavior: 'smooth', block: 'center' });\n});\n\n(function () {\n  var norm = function (t) { return (t || '').replace(/\\s+/g, '').replace(/\\/mo$/, ''); };\n  function cards() { return [].slice.call(document.querySelectorAll('.mc__plans > label.mc__plan')); }\n\n  /* The button shows the old price of whichever plan its price belongs to, struck through */\n  function syncWas() {\n    var price = document.querySelector('.mc__buy-cta [data-mh-cta-price]');\n    if (!price) return;\n    var now = norm(price.textContent);\n    var card = cards().find(function (c) {\n      var p = c.querySelector('.mc__plan-price'); return p && norm(p.textContent) === now;\n    }) || document.querySelector('.mc__plans > label.mc__plan.is-selected');\n    var was = card && card.querySelector('.mc__plan-was');\n    var s = price.parentNode.querySelector('.mc-art__cta-was');\n    if (!s) {\n      s = document.createElement('s');\n      s.className = 'mc-art__cta-was';\n      price.parentNode.insertBefore(s, price);\n    }\n    var t = was ? was.textContent.trim() : '';\n    if (s.textContent !== t) s.textContent = t;\n  }\n\n  /* Start on the quarterly plan (the second card in Skio's order) */\n  function selectQuarterly(tries) {\n    var c = cards()[1];\n    if (!c) return;\n    if (c.classList.contains('is-selected')) return;\n    var input = c.querySelector('.mc__plan-input');\n    if (input && input.disabled) return;\n    c.click();\n    if (input && !input.checked) { input.checked = true; input.dispatchEvent(new Event('change', { bubbles: true })); }\n    if (tries > 0) setTimeout(function () { selectQuarterly(tries - 1); }, 250);\n  }\n\n  function start() {\n    var price = document.querySelector('.mc__buy-cta [data-mh-cta-price]');\n    if (price && window.MutationObserver) {\n      new MutationObserver(syncWas).observe(price, { childList: true, characterData: true, subtree: true });\n    }\n    document.addEventListener('change', function () { setTimeout(syncWas, 0); });\n    document.addEventListener('click', function (e) {\n      if (e.target.closest && e.target.closest('.mc__plan')) setTimeout(syncWas, 0);\n    });\n    syncWas();\n    setTimeout(function () { selectQuarterly(4); setTimeout(syncWas, 50); }, 300);\n  }\n  if (document.readyState === 'complete') start(); else window.addEventListener('load', start);\n})();\n\n/* Clicking anywhere in a plan's gifts box selects that plan */\ndocument.addEventListener('click', function (e) {\n  var d = e.target.closest && e.target.closest('.mc__plans > .mc__plan-detail[data-mc-plan-for]');\n  if (!d || (e.target.closest && e.target.closest('a'))) return;\n  var n = parseInt(d.getAttribute('data-mc-plan-for'), 10);\n  var card = document.querySelectorAll('.mc__plans > label.mc__plan')[n - 1];\n  if (card && !card.classList.contains('is-selected')) card.click();\n});\n\n/* Black Friday pre-sale: real countdown to the offer's end, code applied automatically.\n   Change END and CODE here. After END the box disappears and the code is no longer applied.\n   Welcome kits left comes from the shop metafield muto.bf_boxes_left (printed into #mc-bf-data by the\n   template); it must be the real number left. Blank hides the count. */\n(function () {\n  var CODE = 'MUTO10';\n  var TOTAL = 500;\n  var END = new Date('2026-10-28T23:59:00Z'); /* 23:59 UK time, Wed 28 Oct */\n  if (Date.now() >= END.getTime()) return;\n\n  /* Apply the code: Shopify keeps it for the cart and checkout */\n  try {\n    if (!sessionStorage.getItem('mcBf' + CODE)) {\n      fetch('/discount/' + encodeURIComponent(CODE), { credentials: 'same-origin' })\n        .then(function () { try { sessionStorage.setItem('mcBf' + CODE, '1'); } catch (e) {} });\n    }\n  } catch (e) {\n    fetch('/discount/' + encodeURIComponent(CODE), { credentials: 'same-origin' });\n  }\n\n  function pad(n) { return (n < 10 ? '0' : '') + n; }\n  function mount() {\n    var plans = document.querySelector('.mc .mc__plans');\n    if (!plans || document.querySelector('.mc-bf')) return;\n    var box = document.createElement('div');\n    box.className = 'mc-bf';\n    box.setAttribute('role', 'note');\n    box.innerHTML =\n      '<p class=\"mc-bf__tag\"><span class=\"mc-bf__dot\"></span>Black Friday pre-sale</p>' +\n      '<p class=\"mc-bf__offer\">Extra 10% off the Quarterly plan, plus a free welcome kit worth £77</p>' +\n      '<p class=\"mc-bf__note\">£135 for your first box instead of £150. Code <b>' + CODE + '</b> is applied automatically at checkout</p>' +\n      '<div class=\"mc-bf__clock\" aria-live=\"off\">' +\n        '<span data-u=\"d\">00<small>days</small></span><span data-u=\"h\">00<small>hrs</small></span>' +\n        '<span data-u=\"m\">00<small>min</small></span><span data-u=\"s\">00<small>sec</small></span></div>' +\n      '<p class=\"mc-bf__ends\">Pre-sale ends 23:59, Wednesday 28 October.</p>';\n    var data = document.getElementById('mc-bf-data');\n    var left = data ? parseInt(data.getAttribute('data-left'), 10) : NaN;\n    if (left >= 0 && left <= TOTAL) {\n      var stock = document.createElement('div');\n      stock.className = 'mc-bf__stock';\n      stock.innerHTML = '<p><b>' + left + ' of ' + TOTAL + '</b> free welcome kits left at this price</p>' +\n        '<span class=\"mc-bf__bar\"><i style=\"width:' + Math.max(2, Math.round((TOTAL - left) / TOTAL * 100)) + '%\"></i></span>';\n      box.appendChild(stock);\n    }\n    plans.parentNode.insertBefore(box, plans);\n    var u = {};\n    [].forEach.call(box.querySelectorAll('[data-u]'), function (el) { u[el.getAttribute('data-u')] = el.firstChild; });\n    function tick() {\n      var t = Math.floor((END.getTime() - Date.now()) / 1000);\n      if (t <= 0) { box.hidden = true; clearInterval(iv); return; }\n      u.d.nodeValue = pad(Math.floor(t / 86400));\n      u.h.nodeValue = pad(Math.floor(t % 86400 / 3600));\n      u.m.nodeValue = pad(Math.floor(t % 3600 / 60));\n      u.s.nodeValue = pad(t % 60);\n    }\n    var iv = setInterval(tick, 1000);\n    tick();\n  }\n  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount); else mount();\n})();\n\n</script>",
+        "custom_liquid": "<style>\n/* -2 product page (product.muto-nad-45): Artah-style buy box.\n   Scoped to this template only (this block lives in the template). */\n\n/* ---- Title block ---- */\nhtml body .mc .mc__eyebrow{font-size:13px;letter-spacing:.12em}\nhtml body .mc .mc__buy-title{font-size:clamp(30px,3.2vw,46px);line-height:.95;margin-top:6px}\nhtml body .mc .mc__buy-serving{margin-top:14px;font-size:12px;line-height:1.5;letter-spacing:.08em}\nhtml body .mc .mc__buy-text{margin-top:14px;font-size:15px;line-height:1.55;color:#242223}\nhtml body .mc .mc__buy-text p:first-child{font-size:18px;line-height:1.35;padding-bottom:14px;margin-bottom:14px;border-bottom:2px solid var(--mc-ink-alt,#242223);color:var(--mc-ink-alt,#242223)}\nhtml body .mc .mc__buy-text p:first-child strong{font-weight:500}\nhtml body .mc .mc__buy-text > * + *{margin-top:10px}\nhtml body .mc .mc__buy-text a[href=\"#whats-inside\"]{color:rgba(36,34,35,.7);font-weight:500;text-decoration:underline;text-underline-offset:4px}\n\n/* ---- Benefits: two columns with rules, like a spec list ---- */\nhtml body .mc .mc__buy-points{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;column-gap:28px}\nhtml body .mc .mc__buy-points::before{content:\"Benefits\";grid-column:1/-1;font-size:14px;font-weight:500;color:rgba(36,34,35,.6);padding-bottom:8px}\nhtml body .mc .mc__point{padding:11px 0;padding-left:0;border-top:1px solid rgba(36,34,35,.14);font-size:14px;line-height:1.35;font-weight:500}\nhtml body .mc .mc__point + .mc__point{margin-top:0}\nhtml body .mc .mc__point::before{display:none}\n/* \"Choose your plan\", with a rule either side */\nhtml body .mc .mc__buy-points::after{content:\"Choose your plan\";grid-column:1/-1;margin-top:26px;display:flex;align-items:center;gap:16px;font-size:20px;font-weight:500;letter-spacing:-.01em;color:var(--mc-ink-alt,#242223);\n  background:linear-gradient(var(--mc-ink-alt,#242223),var(--mc-ink-alt,#242223)) left center/calc(50% - 110px) 2px no-repeat,linear-gradient(var(--mc-ink-alt,#242223),var(--mc-ink-alt,#242223)) right center/calc(50% - 110px) 2px no-repeat;justify-content:center}\nhtml body .mc .mc__trust{display:none}\n\n/* ---- Plans: one box per plan; clicking a box selects it and expands it ---- */\nhtml body .mc .mc__plans{margin-top:16px;padding:0;border-radius:0;background:none;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;overflow:visible;display:flex;flex-direction:column}\nhtml body .mc .mc__plans > *{order:9}\nhtml body .mc .mc__plans-banner{order:1;margin:0;padding:12px 18px;border-radius:14px 14px 0 0;font-size:13px;line-height:1.3;letter-spacing:.06em}\n/* Skio order is monthly (1) then quarterly (2); quarterly leads. The selected plan's detail and\n   the gift area (which the section fills for the selected plan) sit inside that plan's box. */\nhtml body .mc .mc__plans > label.mc__plan:nth-of-type(2){order:2;margin-top:0}\nhtml body .mc .mc__plans > .mc__plan-detail[data-mc-plan-for=\"2\"]{order:3}\nhtml body .mc .mc__plans:has(> label.mc__plan:nth-of-type(2).is-selected) > .mc__kit{order:4}\nhtml body .mc .mc__plans > label.mc__plan:nth-of-type(1){order:5;margin-top:14px}\nhtml body .mc .mc__plans > .mc__plan-detail[data-mc-plan-for=\"1\"]{order:6}\nhtml body .mc .mc__plans:has(> label.mc__plan:nth-of-type(1).is-selected) > .mc__kit{order:7}\n/* Collapsed box */\nhtml body .mc .mc__plan{padding:18px 18px 16px;border:0;border-radius:14px;background:#fff;box-shadow:inset 0 0 0 1px #242223}\nhtml body .mc .mc__plan + .mc__plan{padding-top:18px;border-top:0}\nhtml body .mc .mc__plans > label.mc__plan:nth-of-type(2){border-radius:0 0 14px 14px;box-shadow:inset 1px 0 0 #242223,inset -1px 0 0 #242223,inset 0 -1px 0 #242223}\n/* Open box: card, then ticks, then gifts, all inside one outline */\nhtml body .mc .mc__plan.is-selected{border-radius:14px 14px 0 0;box-shadow:inset 2px 0 0 #242223,inset -2px 0 0 #242223,inset 0 2px 0 #242223}\nhtml body .mc .mc__plans > label.mc__plan:nth-of-type(2).is-selected{border-radius:0;box-shadow:inset 2px 0 0 #242223,inset -2px 0 0 #242223}\nhtml body .mc .mc__plan-head{gap:12px;flex-wrap:wrap}\nhtml body .mc .mc__plan-name{font-size:18px;line-height:1.25}\nhtml body .mc .mc__plan-save{height:26px;margin-left:0;padding:0 11px;border-radius:13px;font-size:11.5px;background:#242223;color:#fff;letter-spacing:.06em}\nhtml body .mc .mc__plan-price{font-size:20px}\nhtml body .mc .mc__plan-was{font-size:14px;margin-top:3px}\nhtml body .mc .mc__plan-note{font-size:13px;line-height:1.35;margin-top:6px;margin-left:33px;color:rgba(36,34,35,.7)}\nhtml body .mc .mc__plans > .mc__plan-detail{margin:0;padding:0 18px 4px;border-radius:0;background:#fff;box-shadow:inset 2px 0 0 #242223,inset -2px 0 0 #242223;font-size:15px;line-height:1.4;color:#242223}\nhtml body .mc .mc__plan-detail ul{margin:0;padding:14px 0 0;border-top:1.5px solid #242223;display:grid;gap:8px}\nhtml body .mc .mc__plan-detail li{margin:0;padding-left:24px;list-style:none;position:relative;font-weight:500}\nhtml body .mc .mc__plan-detail li::before{content:\"\";position:absolute;left:0;top:.38em;width:13px;height:10px;background:currentColor;clip-path:polygon(0 52%,13% 38%,38% 64%,88% 2%,100% 16%,38% 92%)}\n/* Gifts for the selected plan, closing the box */\nhtml body .mc .mc__plans > .mc__kit{margin:0;padding:16px 18px 18px;border-top:0;border-radius:0 0 14px 14px;background:#fff;box-shadow:inset 2px 0 0 #242223,inset -2px 0 0 #242223,inset 0 -2px 0 #242223}\nhtml body .mc .mc__kit-title{font-family:var(--mc-mono,monospace);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}\nhtml body .mc .mc__kit-list{display:grid !important;grid-template-columns:none !important;grid-auto-flow:column;grid-auto-columns:minmax(0,72px);justify-content:start;gap:10px !important;margin-top:12px}\nhtml body .mc .mc__kit-list li{text-align:center}\nhtml body .mc .mc__kit-frame{border-radius:8px;overflow:hidden}\nhtml body .mc .mc__kit-value{font-size:11.5px;margin-top:5px}\nhtml body .mc .mc__kit-name{font-size:11.5px;line-height:1.25}\nhtml body .mc .mc__kit-more{margin-top:16px}\nhtml body .mc .mc__kit-sum{display:flex;align-items:center;justify-content:center;gap:8px;min-height:46px;border-radius:23px;background:rgba(36,34,35,.07);font-size:15px;font-weight:500;cursor:pointer}\n\n/* ---- Welcome kit and later gifts ---- */\nhtml body .mc .mc__kit-month-n,html body .mc .mc__kit-month-v,html body .mc .mc__kit-month-t{font-size:12px;color:#242223}\nhtml body .mc .mc__kit-body{font-size:14px;color:#242223}\n\n/* ---- One-time purchase as its own row, then the button ---- */\nhtml body .mc .mc__onetime{display:block;width:100%;margin-top:14px;padding:16px 20px;border:1px solid rgba(36,34,35,.2);border-radius:14px;background:#fff;text-align:left;text-decoration:none;font-size:15px;line-height:1.3}\nhtml body .mc .mc__onetime:hover{border-color:var(--mc-ink-alt,#242223)}\nhtml body .mc .mc__buy-cta{margin-top:16px;height:58px}\nhtml body .mc .mc__btn{font-size:16px}\n\n/* ---- Folds and review quotes under the button ---- */\nhtml body .mc .mc__acc-sum{font-size:15px;min-height:52px}\nhtml body .mc .mc__acc-body{font-size:15px;line-height:1.5;color:#242223}\nhtml body .mc .mc__rev-q{font-size:15px}\n\n@media (max-width:749px){\n  html body .mc .mc__buy-title{font-size:32px}\n  html body .mc .mc__buy-text p:first-child{font-size:17px}\n  html body .mc .mc__buy-points{column-gap:16px}\n  html body .mc .mc__point{font-size:13.5px}\n  html body .mc .mc__buy-points::after{font-size:18px;background-size:calc(50% - 95px) 2px,calc(50% - 95px) 2px}\n  html body .mc .mc__plan-detail ul{grid-template-columns:1fr}\n}\n\n/* Button: old price struck through, then the price (\"Subscribe · £70 £60\") */\nhtml body .mc .mc-art__cta-was{font-weight:500;opacity:.55;text-decoration:line-through}\nhtml body .mc .mc-art__cta-was:not(:empty)::before{content:\"\\00b7\";display:inline-block;margin:0 .42em;opacity:.9;text-decoration:none}\nhtml body .mc .mc-art__cta-was:not(:empty) + .mc__btn-price::before{content:\"\";margin:0 0 0 .35em}\n\n/* Desktop gallery: thumbnails in their own column to the left of the main image (not over it) */\n@media screen and (min-width:990px){\n  html body .mc .mc__gallery{display:grid;grid-template-columns:72px minmax(0,1fr);column-gap:16px;align-items:start}\n  html body .mc .mc__gallery-main{grid-column:2;grid-row:1}\n  html body .mc .mc__thumbs{grid-column:1;grid-row:1;position:static;left:auto;top:auto;z-index:auto;\n    display:flex;flex-direction:column;gap:12px;margin:0;padding:2px;\n    align-self:stretch;height:0;min-height:100%;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin}\n  html body .mc .mc__thumbs[hidden]{display:none}\n  html body .mc .mc__thumb{width:64px;flex:0 0 auto;border-radius:10px}\n}\n\n\n/* Black Friday pre-sale box, above the plans */\nhtml body .mc .mc-bf{margin:18px 0 0;padding:14px 16px;border-radius:12px;background:#242223;color:#fff;display:grid;grid-template-columns:1fr auto;gap:6px 14px;align-items:center}\nhtml body .mc .mc-bf[hidden]{display:none}\nhtml body .mc .mc-bf__tag{grid-column:1/-1;display:flex;align-items:center;gap:8px;font-family:var(--mc-mono,monospace);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7ee0f0}\nhtml body .mc .mc-bf__dot{width:7px;height:7px;border-radius:50%;background:#7ee0f0;animation:mcBfPulse 1.6s ease-in-out infinite}\n@keyframes mcBfPulse{50%{opacity:.25}}\nhtml body .mc .mc-bf__offer{font-size:17px;font-weight:600;line-height:1.25;margin:0}\nhtml body .mc .mc-bf__note{grid-column:1;font-size:12px;line-height:1.35;opacity:.75;margin:0}\nhtml body .mc .mc-bf__note b{font-family:var(--mc-mono,monospace);letter-spacing:.06em;opacity:1;color:#fff}\nhtml body .mc .mc-bf__clock{grid-column:2;grid-row:2/4;display:flex;gap:6px;text-align:center}\nhtml body .mc .mc-bf__clock span{min-width:38px;padding:6px 4px 4px;border-radius:8px;background:rgba(255,255,255,.1);font-size:18px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1}\nhtml body .mc .mc-bf__clock small{display:block;margin-top:3px;font-size:9px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;opacity:.7}\nhtml body .mc .mc-bf__ends{grid-column:1/-1;font-size:12px;opacity:.75;margin:2px 0 0}\nhtml body .mc .mc-bf__stock{grid-column:1/-1;margin-top:6px}\nhtml body .mc .mc-bf__stock p{margin:0 0 6px;font-size:13px}\nhtml body .mc .mc-bf__stock b{color:#7ee0f0}\nhtml body .mc .mc-bf__bar{display:block;height:6px;border-radius:3px;background:rgba(255,255,255,.15);overflow:hidden}\nhtml body .mc .mc-bf__bar i{display:block;height:100%;background:#7ee0f0;border-radius:3px}\n@media (max-width:420px){\n  html body .mc .mc-bf{grid-template-columns:1fr}\n  html body .mc .mc-bf__clock{grid-column:1;grid-row:auto;margin-top:4px}\n}\n\n/* -2 page only: sections below the buy box back to standard sizes (they were enlarged) */\n/* ---- Rest of the page: back to standard sizes (was enlarged) ---- */\nhtml body .mc .mc__body,html body .mc .mc__ben-body,html body .mc .mc__ben-lede,html body .mc .mc__ben-name,\nhtml body .mc .mc__ben-sub,html body .mc .mc__step-text,html body .mc .mc__faq-body,html body .mc .mc__faq-sum,\nhtml body .mc .mc__gua-text,html body .mc .mc__note-text{font-size:16px;line-height:1.5}\nhtml body .mc .mc__ben-body,html body .mc .mc__faq-body{color:#242223}\nhtml body .mc .mc__prob-lede{font-size:18px;line-height:1.45}\nhtml body .mc .mc__prob-quote{font-size:22px;line-height:1.2}\nhtml body .mc .mc__prob-text{font-size:16px;line-height:1.45}\nhtml body .mc .mc__step-title{font-size:21px;line-height:1.2}\nhtml body .mc .mc__step-chip,html body .mc .mc__gua-chip{font-size:14px}\nhtml body .mc .mc__gua-aside{font-size:20px}\nhtml body .mc .mc__tabs{display:none}\nhtml body .mh .mh__why-title{font-size:22px}\nhtml body .mh .mh__why-text{font-size:16px;line-height:1.5;color:var(--mh-ink,#162f31)}\nhtml body .mh .mh__board-note,html body .mh .mh__res-note{font-size:15px;color:#242223}\nhtml body .mh .mh__res-quote{font-size:15px;line-height:1.45;color:#242223}\nhtml body .mh .mh__res-detail,html body .mh .mh__res-foot{font-size:13px;color:rgba(35,33,35,.8)}\nhtml body .mh__sticky-sub{font-size:13px;color:rgba(249,249,249,.85)}\nhtml body .mh__sticky-btn{font-size:15px}\n\n@media (max-width:749px){\n  html body .mc .mc__prob-quote{font-size:20px}\n  html body .mc .mc__step-title{font-size:19px}\n}\n\n/* ---- 40-60 buy box ---- */\n/* Main PDP buy box for 40-60 year olds who aren't sport focused.\n   Loaded after artah.css + bf.css in the easy_read block, so it only overrides. */\n\n/* ---- Easier to read: bigger type, darker greys ---- */\nhtml body .mc .mc__buy-serving{font-size:13px;color:#242223}\nhtml body .mc .mc__buy-text{font-size:17px;line-height:1.55}\nhtml body .mc .mc__buy-text p:first-child{font-size:21px;line-height:1.3}\nhtml body .mc .mc__buy-text a[href=\"#whats-inside\"]{color:#242223}\nhtml body .mc .mc__point{font-size:16px;line-height:1.35;padding:12px 0}\nhtml body .mc .mc__buy-points::before{content:\"How it helps\";font-size:15px;color:#242223}\nhtml body .mc .mc__plan-name{font-size:19px}\nhtml body .mc .mc__plan-save{font-size:12.5px}\nhtml body .mc .mc__plan-price{font-size:22px}\nhtml body .mc .mc__plan-note{font-size:15px;color:#242223}\nhtml body .mc .mc__plans > .mc__plan-detail{font-size:16px}\nhtml body .mc .mc__plans-banner{font-size:14px}\nhtml body .mc .mc__kit-title{font-size:13px}\nhtml body .mc .mc__kit-list{grid-auto-columns:minmax(0,80px)}\nhtml body .mc .mc__kit-value,html body .mc .mc__kit-name{font-size:13px}\nhtml body .mc .mc__kit-month-n,html body .mc .mc__kit-month-v,html body .mc .mc__kit-month-t{font-size:13px}\nhtml body .mc .mc__kit-sum{font-size:16px;min-height:50px}\nhtml body .mc .mc__onetime{font-size:16px;padding:18px 20px}\nhtml body .mc .mc__btn{font-size:18px}\nhtml body .mc .mc__buy-cta{height:62px}\nhtml body .mc .mc__acc-sum{font-size:17px;min-height:56px}\nhtml body .mc .mc__acc-body{font-size:16px}\nhtml body .mc .mc__rev-q{font-size:18px}\nhtml body .mc .mc__rev-n{font-size:13px;color:#242223}\n\n/* ---- Reassurance before the price: three ticks in one row, then \"Choose your plan\" ---- */\nhtml body .mc .mc__buy-points::after{content:none}\nhtml body .mc .mc__trust{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:18px 0 0;padding:0;list-style:none}\nhtml body .mc .mc__trust li{display:flex;align-items:flex-start;gap:8px;margin:0;padding:12px;border-radius:12px;background:rgba(36,34,35,.06);font-size:14px;line-height:1.3;font-weight:500;color:#242223}\nhtml body .mc .mc__trust li::before{content:\"\";flex:0 0 13px;height:10px;margin-top:.3em;background:currentColor;clip-path:polygon(0 52%,13% 38%,38% 64%,88% 2%,100% 16%,38% 92%)}\nhtml body .mc .mc__trust::after{content:\"Choose your plan\";grid-column:1/-1;margin-top:20px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:500;letter-spacing:-.01em;color:var(--mc-ink-alt,#242223);\n  background:linear-gradient(var(--mc-ink-alt,#242223),var(--mc-ink-alt,#242223)) left center/calc(50% - 110px) 2px no-repeat,linear-gradient(var(--mc-ink-alt,#242223),var(--mc-ink-alt,#242223)) right center/calc(50% - 110px) 2px no-repeat}\n\n@media (max-width:749px){\n  html body .mc .mc__buy-text p:first-child{font-size:19px}\n  html body .mc .mc__buy-text{font-size:16px}\n  html body .mc .mc__buy-points{grid-template-columns:1fr}\n  html body .mc .mc__point{font-size:16px}\n  html body .mc .mc__trust{grid-template-columns:1fr;gap:6px}\n  html body .mc .mc__trust li{padding:10px 12px;font-size:15px}\n  html body .mc .mc__trust::after{font-size:18px;margin-top:16px;background-size:calc(50% - 95px) 2px,calc(50% - 95px) 2px}\n  html body .mc .mc__kit-list{grid-auto-columns:minmax(0,72px)}\n}\n\n/* New PDP: plain #fafafa behind the buy box, no gradient */\nhtml body .mc.mc--buy,html body .mc.mc--buy.mc--fit-nad{background:#fafafa!important}\n/* New PDP: the pills moved under the button as badges; only the heading stays */\nhtml body .mc .mc__trust li{display:none}\nhtml body .mc .mc__trust::after{margin-top:8px}\n\n/* ---- Plan cards, AG1-style: per-month price, % off tag in the top-left corner, Best value bar ---- */\n/* Skio still bills £150 every 3 months and £60 every 4 weeks. The section prints Skio's price and\n   compare-at, so the per-month figures are drawn here and Skio's are hidden (still in the DOM, so the\n   button keeps reading the billed price). Card 1 = monthly, card 2 = quarterly (Skio's order). */\nhtml body .mc .mc__plans > label.mc__plan{padding-top:44px}\nhtml body .mc .mc__plan-save{position:absolute;top:0;left:0;height:28px;margin:0;padding:0 12px;border-radius:14px 0 10px 0;\n  display:flex;align-items:center;background:#7ee0f0;color:#242223;font-family:var(--mc-mono,monospace);\n  font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}\nhtml body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-save{border-radius:0 0 10px 0}\nhtml body .mc .mc__plan-prices > *{display:none}\nhtml body .mc .mc__plan-prices::before,html body .mc .mc__plan-prices::after{display:block}\nhtml body .mc .mc__plan-prices::before{font-weight:500;font-size:22px;line-height:1.1;letter-spacing:-.01em;color:#242223}\nhtml body .mc .mc__plan-prices::after{margin-top:4px;font-size:16px;line-height:1.2;text-decoration:line-through;color:rgba(36,34,35,.5)}\nhtml body .mc .mc__plans > label.mc__plan:nth-of-type(1) .mc__plan-prices::before{content:\"£60/mo\"}\nhtml body .mc .mc__plans > label.mc__plan:nth-of-type(1) .mc__plan-prices::after{content:\"£70\"}\nhtml body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-prices::before{content:\"£50/mo\"}\nhtml body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-prices::after{content:\"£70\"}\n/* Best value: the dark bar over the quarterly box leads with it; the welcome-kit line follows */\nhtml body .mc .mc__plans-banner{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:4px 16px}\nhtml body .mc .mc__plans-banner::before{content:\"\\2726\\00a0\\00a0 Best value\";color:#7ee0f0;font-family:var(--mc-mono,monospace);letter-spacing:.1em}\n\n/* ---- Top of the page, AgeMate-style: stars, title and subhead over the images on phones,\n   then a \"View third-party testing results\" button under them ---- */\nhtml body .mc .mc-subhead{margin:8px 0 0;font-size:17px;line-height:1.4;color:#242223;text-wrap:balance}\nhtml body .mc .mc-tests-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:52px;margin:14px 0 0;padding:10px 20px;\n  border:1.5px solid #242223;border-radius:999px;background:none;font:inherit;font-size:16px;font-weight:500;color:#242223;cursor:pointer;transition:background .2s,color .2s}\nhtml body .mc .mc-tests-btn:hover{background:#242223;color:#fff}\nhtml body .mc .mc-tests-btn:focus-visible{outline:2px solid #242223;outline-offset:2px}\nhtml body .mc .mc-tests-btn__tick{flex:0 0 20px;display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#7ee0f0;box-shadow:0 0 0 1px #242223;color:#242223}\nhtml body .mc .mc-tests-btn__tick svg{width:11px;height:11px}\n/* Rating row, AgeMate-style: bigger stars, the score in Neue Haas, as typed, no underline */\nhtml body .mc .mc__rating{align-items:center;gap:10px}\nhtml body .mc .mc__stars{gap:4px;margin-top:0}\nhtml body .mc .mc__stars > span{width:19px;height:18px}\nhtml body .mc .mc__rating-text{font-family:var(--mc-font);font-size:17px;line-height:1.2;font-weight:500;letter-spacing:0;text-transform:none;text-decoration:none;color:#242223}\n/* Sticky bar: old price struck through before the per-month price */\nhtml body .mh__sticky .mc-sticky-was{margin-right:.25em;font-weight:500;opacity:.55;text-decoration:line-through}\n/* Room under \"Choose your plan\" before the Black Friday box */\nhtml body .mc .mc__buy-copy > .mc-bf{margin-top:24px}\n/* Order of the copy column, same at every width: stars, title, subhead · the offer (Black Friday box,\n   \"Choose your plan\", plans, one-time, button, badges) · then the serving line, description, reviews and\n   folds. Phones also put the images and testing button between the subhead and the offer (below). */\nhtml body .mc .mc__buy-copy > *{order:3}\nhtml body .mc .mc__buy-copy > .mc-bf,html body .mc .mc__buy-copy > .mc__trust,html body .mc .mc__buy-copy > .mc__plans,\nhtml body .mc .mc__buy-copy > .mc__pf,html body .mc .mc__buy-copy > .mc__onetime,html body .mc .mc__buy-copy > .mc__buy-cta,\nhtml body .mc .mc__buy-copy > .mc__buy-actions,html body .mc .mc__buy-copy > .mpb-x,\nhtml body .mc .mc__buy-copy > .mc__pf > *{order:2} /* .mc__pf is display:contents: its button is the item */\nhtml body .mc .mc__buy-copy > .mc__rating,html body .mc .mc__buy-copy > .mc__eyebrow,\nhtml body .mc .mc__buy-copy > .mc__buy-title,html body .mc .mc__buy-copy > .mc-subhead{order:0}\nhtml body .mc .mc__buy-copy > .mc__buy-serving{margin-top:32px}\n/* Desktop: the copy column is a flex column so the order above applies; \"How it helps\" is dropped */\n@media (min-width:990px){\n  html body .mc .mc__buy-copy{display:flex;flex-direction:column}\n  html body .mc .mc__buy-copy > .mc__buy-points{display:none}\n  html body .mc .mc__buy-copy > .mc__trust{margin-top:36px}\n  html body .mc .mc__buy-copy > .mc__buy-title{margin-top:20px}\n  html body .mc .mc__buy-copy > .mc-subhead{margin-top:18px}\n}\n/* Phones: the copy column dissolves into the page's column (as the left one already does), so the\n   images and testing button can sit between the subhead and the offer; headline centred */\n@media (max-width:989px){\n  html body .mc .mc__buy-grid{gap:0}\n  html body .mc .mc__buy-copy{display:contents}\n  html body .mc .mc__buy-copy > .mc__rating,html body .mc .mc__buy-copy > .mc__eyebrow,\n  html body .mc .mc__buy-copy > .mc__buy-title,html body .mc .mc__buy-copy > .mc-subhead{text-align:center}\n  html body .mc .mc__buy-copy > .mc__rating{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:20px}\n  html body .mc .mc__buy-copy > .mc__buy-title{margin-top:16px}\n  html body .mc .mc__buy-copy > .mc-subhead{margin-top:12px}\n  html body .mc .mc__buy-media{order:1;margin:26px 0 22px}\n  html body .mc .mc__note{order:4}\n}\n</style>\n<div id=\"mc-bf-data\" hidden data-left=\"{{ shop.metafields.muto.bf_boxes_left.value }}\"></div>\n<script>\n/* \"Ingredients + nutritional information\" opens the What's inside fold and scrolls to it */\ndocument.addEventListener('click', function (e) {\n  var a = e.target.closest && e.target.closest('a[href=\"#whats-inside\"]');\n  if (!a) return;\n  var d = [].find.call(document.querySelectorAll('.mc__acc-item'), function (x) {\n    var s = x.querySelector('summary'); return s && /inside|ingredient/i.test(s.textContent);\n  });\n  if (!d) return;\n  e.preventDefault();\n  d.open = true;\n  d.scrollIntoView({ behavior: 'smooth', block: 'center' });\n});\n\n(function () {\n  var norm = function (t) { return (t || '').replace(/\\s+/g, '').replace(/\\/mo$/, ''); };\n  function cards() { return [].slice.call(document.querySelectorAll('.mc__plans > label.mc__plan')); }\n\n  /* The button shows the old price of whichever plan its price belongs to, struck through */\n  function syncWas() {\n    var price = document.querySelector('.mc__buy-cta [data-mh-cta-price]');\n    if (!price) return;\n    var now = norm(price.textContent);\n    var card = cards().find(function (c) {\n      var p = c.querySelector('.mc__plan-price'); return p && norm(p.textContent) === now;\n    }) || document.querySelector('.mc__plans > label.mc__plan.is-selected');\n    var was = card && card.querySelector('.mc__plan-was');\n    var s = price.parentNode.querySelector('.mc-art__cta-was');\n    if (!s) {\n      s = document.createElement('s');\n      s.className = 'mc-art__cta-was';\n      price.parentNode.insertBefore(s, price);\n    }\n    var t = was ? was.textContent.trim() : '';\n    if (s.textContent !== t) s.textContent = t;\n  }\n\n  /* Start on the quarterly plan (the second card in Skio's order) */\n  function selectQuarterly(tries) {\n    var c = cards()[1];\n    if (!c) return;\n    if (c.classList.contains('is-selected')) return;\n    var input = c.querySelector('.mc__plan-input');\n    if (input && input.disabled) return;\n    c.click();\n    if (input && !input.checked) { input.checked = true; input.dispatchEvent(new Event('change', { bubbles: true })); }\n    if (tries > 0) setTimeout(function () { selectQuarterly(tries - 1); }, 250);\n  }\n\n  function start() {\n    var price = document.querySelector('.mc__buy-cta [data-mh-cta-price]');\n    if (price && window.MutationObserver) {\n      new MutationObserver(syncWas).observe(price, { childList: true, characterData: true, subtree: true });\n    }\n    document.addEventListener('change', function () { setTimeout(syncWas, 0); });\n    document.addEventListener('click', function (e) {\n      if (e.target.closest && e.target.closest('.mc__plan')) setTimeout(syncWas, 0);\n    });\n    syncWas();\n    setTimeout(function () { selectQuarterly(4); setTimeout(syncWas, 50); }, 300);\n  }\n  if (document.readyState === 'complete') start(); else window.addEventListener('load', start);\n})();\n\n/* Clicking anywhere in a plan's gifts box selects that plan */\ndocument.addEventListener('click', function (e) {\n  var d = e.target.closest && e.target.closest('.mc__plans > .mc__plan-detail[data-mc-plan-for]');\n  if (!d || (e.target.closest && e.target.closest('a'))) return;\n  var n = parseInt(d.getAttribute('data-mc-plan-for'), 10);\n  var card = document.querySelectorAll('.mc__plans > label.mc__plan')[n - 1];\n  if (card && !card.classList.contains('is-selected')) card.click();\n});\n\n/* Black Friday pre-sale: real countdown to the offer's end, code applied automatically.\n   Change END and CODE here. After END the box disappears and the code is no longer applied.\n   Welcome kits left comes from the shop metafield muto.bf_boxes_left (printed into #mc-bf-data by the\n   template); it must be the real number left. Blank hides the count. */\n(function () {\n  var CODE = 'MUTO10';\n  var TOTAL = 500;\n  var END = new Date('2026-10-28T23:59:00Z'); /* 23:59 UK time, Wed 28 Oct */\n  if (Date.now() >= END.getTime()) return;\n\n  /* Apply the code: Shopify keeps it for the cart and checkout */\n  try {\n    if (!sessionStorage.getItem('mcBf' + CODE)) {\n      fetch('/discount/' + encodeURIComponent(CODE), { credentials: 'same-origin' })\n        .then(function () { try { sessionStorage.setItem('mcBf' + CODE, '1'); } catch (e) {} });\n    }\n  } catch (e) {\n    fetch('/discount/' + encodeURIComponent(CODE), { credentials: 'same-origin' });\n  }\n\n  function pad(n) { return (n < 10 ? '0' : '') + n; }\n  function mount() {\n    var plans = document.querySelector('.mc .mc__plans');\n    if (!plans || document.querySelector('.mc-bf')) return;\n    var box = document.createElement('div');\n    box.className = 'mc-bf';\n    box.setAttribute('role', 'note');\n    box.innerHTML =\n      '<p class=\"mc-bf__tag\"><span class=\"mc-bf__dot\"></span>Black Friday pre-sale</p>' +\n      '<p class=\"mc-bf__offer\">Extra 10% off the Quarterly plan, plus a free welcome kit worth £77</p>' +\n      '<p class=\"mc-bf__note\">£135 for your first box instead of £150. Code <b>' + CODE + '</b> is applied automatically at checkout</p>' +\n      '<div class=\"mc-bf__clock\" aria-live=\"off\">' +\n        '<span data-u=\"d\">00<small>days</small></span><span data-u=\"h\">00<small>hrs</small></span>' +\n        '<span data-u=\"m\">00<small>min</small></span><span data-u=\"s\">00<small>sec</small></span></div>' +\n      '<p class=\"mc-bf__ends\">Pre-sale ends 23:59, Wednesday 28 October.</p>';\n    var data = document.getElementById('mc-bf-data');\n    var left = data ? parseInt(data.getAttribute('data-left'), 10) : NaN;\n    if (left >= 0 && left <= TOTAL) {\n      var stock = document.createElement('div');\n      stock.className = 'mc-bf__stock';\n      stock.innerHTML = '<p><b>' + left + ' of ' + TOTAL + '</b> free welcome kits left at this price</p>' +\n        '<span class=\"mc-bf__bar\"><i style=\"width:' + Math.max(2, Math.round((TOTAL - left) / TOTAL * 100)) + '%\"></i></span>';\n      box.appendChild(stock);\n    }\n    plans.parentNode.insertBefore(box, plans);\n    var u = {};\n    [].forEach.call(box.querySelectorAll('[data-u]'), function (el) { u[el.getAttribute('data-u')] = el.firstChild; });\n    function tick() {\n      var t = Math.floor((END.getTime() - Date.now()) / 1000);\n      if (t <= 0) { box.hidden = true; clearInterval(iv); return; }\n      u.d.nodeValue = pad(Math.floor(t / 86400));\n      u.h.nodeValue = pad(Math.floor(t % 86400 / 3600));\n      u.m.nodeValue = pad(Math.floor(t % 3600 / 60));\n      u.s.nodeValue = pad(t % 60);\n    }\n    var iv = setInterval(tick, 1000);\n    tick();\n  }\n  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount); else mount();\n})();\n\n/* Subhead under the title, and the testing-results button under the images. The button opens the\n   page's test-results panel (the tests section listens for [data-mtr-open]). */\n(function () {\n  var SUBHEAD = 'Everything your body needs after 35 for energy, recovery, stress, immunity and longevity.';\n  var title = document.querySelector('.mc .mc__buy-title');\n  if (title && !document.querySelector('.mc-subhead')) {\n    var p = document.createElement('p');\n    p.className = 'mc-subhead';\n    p.textContent = SUBHEAD;\n    title.insertAdjacentElement('afterend', p);\n  }\n  var media = document.querySelector('.mc .mc__buy-media');\n  if (media && !media.querySelector('.mc-tests-btn') && document.querySelector('[data-mtr]')) {\n    var b = document.createElement('button');\n    b.type = 'button';\n    b.className = 'mc-tests-btn';\n    b.setAttribute('data-mtr-open', '');\n    b.innerHTML = '<span class=\"mc-tests-btn__tick\" aria-hidden=\"true\"><svg viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M2.5 6.2 5 8.6l4.5-5\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span>View third-party testing results';\n    media.appendChild(b);\n  }\n})();\n\n/* Sticky bar: its button price follows the selected plan as Skio bills it (£150 / £60); show it per\n   month like the plan cards (plan-prices.css), old price struck through. Card 1 = monthly, 2 = quarterly. */\n(function () {\n  var PER_MONTH = { 1: ['£60/mo', '£70'], 2: ['£50/mo', '£70'] };\n  function update() {\n    var span = document.querySelector('.mh__sticky [data-mh-cta-price]');\n    if (!span) return;\n    var cards = [].slice.call(document.querySelectorAll('.mc__plans > label.mc__plan'));\n    var p = PER_MONTH[cards.findIndex(function (c) { return c.classList.contains('is-selected'); }) + 1];\n    if (!p) return;\n    var html = '<s class=\"mc-sticky-was\">' + p[1] + '</s> ' + p[0];\n    if (span.innerHTML !== html) span.innerHTML = html;\n  }\n  function start() {\n    var span = document.querySelector('.mh__sticky [data-mh-cta-price]');\n    if (span && window.MutationObserver) {\n      new MutationObserver(update).observe(span, { childList: true, characterData: true, subtree: true });\n    }\n    document.addEventListener('click', function (e) {\n      if (e.target.closest && e.target.closest('.mc__plan')) { setTimeout(update, 0); setTimeout(update, 60); }\n    });\n    document.addEventListener('change', function () { setTimeout(update, 0); });\n    document.addEventListener('muto:home:plan', update); /* fired by muto-home.js after it paints the price */\n    update();\n    setTimeout(update, 400);\n  }\n  if (document.readyState === 'complete') start(); else window.addEventListener('load', start);\n})();\n</script>",
         "color_scheme": "scheme-1",
         "padding_top": 0,
         "padding_bottom": 0
+      }
+    },
+    "board_anchor": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<style>[id$=\"__board_anchor\"]{height:0;overflow:hidden;margin:0!important;padding:0!important}[id$=\"__board\"] .mh{background:var(--mc-ground,#f9f9f9)}</style><span id=\"scientific-board\" style=\"display:block;position:relative;top:-80px\"></span>",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "tests": {
+      "type": "muto-test-results",
+      "blocks": {
+        "t01": {
+          "type": "test",
+          "settings": {
+            "group": "Heavy metals",
+            "name": "Lead (Pb)",
+            "spec": "Under 3 ppm",
+            "result": "0.010 ppm",
+            "note": "300× under the limit",
+            "pass": true
+          }
+        },
+        "t02": {
+          "type": "test",
+          "settings": {
+            "group": "Heavy metals",
+            "name": "Cadmium (Cd)",
+            "spec": "Under 1 ppm",
+            "result": "0.013 ppm",
+            "note": "77× under the limit",
+            "pass": true
+          }
+        },
+        "t03": {
+          "type": "test",
+          "settings": {
+            "group": "Heavy metals",
+            "name": "Mercury (Hg)",
+            "spec": "Under 0.1 ppm",
+            "result": "0.010 ppm",
+            "note": "10× under the limit",
+            "pass": true
+          }
+        },
+        "t04": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "Salmonella",
+            "spec": "Not detected in 25g",
+            "result": "Not detected",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t05": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "E. coli",
+            "spec": "Under 10 cfu/g",
+            "result": "Under 10 cfu/g",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t06": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "Enterobacteria",
+            "spec": "Under 10,000 cfu/g",
+            "result": "Under 10 cfu/g",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t07": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "Total plate count",
+            "spec": "Under 500,000 cfu/g",
+            "result": "Under 100 cfu/g",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t08": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "Yeasts",
+            "spec": "Under 10,000 cfu/g",
+            "result": "Under 100 cfu/g",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t09": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "Mould",
+            "spec": "Under 10,000 cfu/g",
+            "result": "Under 100 cfu/g",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t10": {
+          "type": "test",
+          "settings": {
+            "group": "Capsule quality",
+            "name": "Weight uniformity",
+            "spec": "Within ±7.5%",
+            "result": "Complies",
+            "note": "Every capsule holds the same dose",
+            "pass": true
+          }
+        },
+        "t11": {
+          "type": "test",
+          "settings": {
+            "group": "Capsule quality",
+            "name": "Disintegration",
+            "spec": "Under 30 minutes",
+            "result": "Complies",
+            "note": "Breaks down in time to be absorbed",
+            "pass": true
+          }
+        },
+        "f01": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "TMG (trimethylglycine)",
+            "form": "Trimethylglycine",
+            "amount": "450mg"
+          }
+        },
+        "f02": {
+          "type": "item",
+          "settings": {
+            "group": "NR, for NAD+",
+            "name": "NR (nicotinamide riboside)",
+            "form": "Nicotinamide riboside",
+            "amount": "300mg"
+          }
+        },
+        "f03": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "Grape seed extract",
+            "form": "120:1 extract, 95% polyphenols (142.5mg)",
+            "amount": "150mg"
+          }
+        },
+        "f04": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "CoQ10",
+            "form": "Ubiquinone",
+            "amount": "150mg"
+          }
+        },
+        "f05": {
+          "type": "item",
+          "settings": {
+            "group": "Minerals",
+            "name": "Zinc",
+            "form": "Zinc bisglycinate",
+            "amount": "15mg"
+          }
+        },
+        "f06": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "Trans-resveratrol",
+            "form": "From Japanese knotweed root, 95%",
+            "amount": "50mg"
+          }
+        },
+        "f07": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin D3",
+            "form": "Cholecalciferol, from algae",
+            "amount": "50mcg (2,000 IU)"
+          }
+        },
+        "f08": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "PQQ",
+            "form": "Pyrroloquinoline quinone",
+            "amount": "20mg"
+          }
+        },
+        "f09": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B3",
+            "form": "Nicotinamide (no flush)",
+            "amount": "16mg"
+          }
+        },
+        "f10": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B12",
+            "form": "Methylcobalamin",
+            "amount": "100mcg"
+          }
+        },
+        "f11": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B5",
+            "form": "Calcium D-pantothenate",
+            "amount": "10mg"
+          }
+        },
+        "f12": {
+          "type": "item",
+          "settings": {
+            "group": "Minerals",
+            "name": "Copper",
+            "form": "Copper bisglycinate",
+            "amount": "1mg"
+          }
+        },
+        "f13": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin K2",
+            "form": "Menaquinone-7 (MK-7)",
+            "amount": "100mcg"
+          }
+        },
+        "f14": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B6",
+            "form": "Pyridoxal-5′-phosphate (P5P)",
+            "amount": "5mg"
+          }
+        },
+        "f15": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B2",
+            "form": "Riboflavin-5′-phosphate",
+            "amount": "5mg"
+          }
+        },
+        "f16": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B1",
+            "form": "Thiamine hydrochloride",
+            "amount": "5mg"
+          }
+        },
+        "f17": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "BioPerine® black pepper extract",
+            "form": "95% piperine (4.75mg)",
+            "amount": "5mg"
+          }
+        },
+        "f18": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Folate",
+            "form": "L-5-methyltetrahydrofolate (5-MTHF)",
+            "amount": "400mcg"
+          }
+        },
+        "f19": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Biotin",
+            "form": "D-biotin",
+            "amount": "300mcg"
+          }
+        }
+      },
+      "block_order": [
+        "t01",
+        "t02",
+        "t03",
+        "t04",
+        "t05",
+        "t06",
+        "t07",
+        "t08",
+        "t09",
+        "t10",
+        "t11",
+        "f01",
+        "f02",
+        "f03",
+        "f04",
+        "f05",
+        "f06",
+        "f07",
+        "f08",
+        "f09",
+        "f10",
+        "f11",
+        "f12",
+        "f13",
+        "f14",
+        "f15",
+        "f16",
+        "f17",
+        "f18",
+        "f19"
+      ],
+      "settings": {
+        "show_button": false,
+        "button_label": "View third-party testing results",
+        "product": "NAD+ Cellular Complex",
+        "batch": "2333",
+        "doc_label": "Certificate of analysis",
+        "made": "12 Oct 2026",
+        "bbe": "Oct 2028",
+        "issued": "15 Oct 2026",
+        "group_order": "NR, for NAD+|Vitamins|Minerals|Other actives",
+        "heading": "Every result came in within its limit.",
+        "stat_value": "300×",
+        "stat_label": "Under the lead limit",
+        "chip": "No salmonella detected",
+        "note": "Results from the certificate of analysis for batch 2333, issued 15 Oct 2026. Ask us for the certificate for your batch: hello@mutolongevity.com",
+        "formula_sub": "What went into each capsule of this batch, per two-capsule serving, heaviest first. Vitamins are made with a small overage so the label dose holds right up to the best-before date.",
+        "capsule": "Capsule: hypromellose (HPMC), made from plant cellulose. Allergen and intolerance free.",
+        "why_1_h": "Heavy metals",
+        "why_1": "<p>Lead, cadmium and mercury can build up in the body over time, and they can come in through plant extracts and minerals. Every batch is checked against strict limits, and this one came in well under each: lead at 0.010 ppm against a limit of 3.</p>",
+        "why_2_h": "Microbes",
+        "why_2": "<p>Bacteria, yeasts and moulds can grow in ingredients that are stored or handled badly. This batch was screened for six, including salmonella and E. coli, and every result was far inside its limit: no salmonella detected, and every other count under 100 per gram.</p>",
+        "why_3_h": "Capsule quality",
+        "why_3": "<p>Weight uniformity checks every capsule holds the same fill, so every serving gets the dose on the label. Disintegration checks the capsule breaks down within 30 minutes, so the ingredients are released in time to be absorbed.</p>",
+        "why_4_h": "Every batch, not just the first",
+        "why_4": "<p>A new batch gets a new certificate. We’ll update these results each time, and your batch number is on the jar.</p>",
+        "certificate": ""
       }
     },
     "statement": {
@@ -1286,7 +1726,7 @@
             "title": "Third-party tested",
             "text": "<p>Every batch is tested by an independent lab for identity, potency, heavy metals and microbes before it’s released.</p>",
             "link_label": "View the certificates",
-            "link": "",
+            "link": "#test-results",
             "no_link_note": "Certificates of analysis on request"
           }
         },
@@ -1634,7 +2074,7 @@
     "bands": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "<style>\n/* Flat, alternating band grounds for this page (no gradient washes). Built by make_trust.py. */\n[id$=\"__buy\"],[id$=\"__buy\"] > .mc,[id$=\"__buy\"] > .mh{background:#f2f2f2!important}\n[id$=\"__statement\"],[id$=\"__statement\"] > .mc,[id$=\"__statement\"] > .mh{background:#ffffff!important}\n[id$=\"__board\"],[id$=\"__board\"] > .mc,[id$=\"__board\"] > .mh{background:#f2f2f2!important}\n[id$=\"__standards\"],[id$=\"__standards\"] > .mc,[id$=\"__standards\"] > .mh{background:#ffffff!important}\n[id$=\"__results\"],[id$=\"__results\"] > .mc,[id$=\"__results\"] > .mh{background:#f2f2f2!important}\n[id$=\"__quotes\"],[id$=\"__quotes\"] > .mc,[id$=\"__quotes\"] > .mh{background:#ffffff!important}\n[id$=\"__founder\"],[id$=\"__founder\"] > .mc,[id$=\"__founder\"] > .mh{background:#f2f2f2!important}\n[id$=\"__problem\"],[id$=\"__problem\"] > .mc,[id$=\"__problem\"] > .mh{background:#ffffff!important}\n[id$=\"__benefits\"],[id$=\"__benefits\"] > .mc,[id$=\"__benefits\"] > .mh{background:#f2f2f2!important}\n[id$=\"__steps\"],[id$=\"__steps\"] > .mc,[id$=\"__steps\"] > .mh{background:#ffffff!important}\n[id$=\"__guarantee\"],[id$=\"__guarantee\"] > .mc,[id$=\"__guarantee\"] > .mh{background:#f2f2f2!important}\n[id$=\"__compare\"],[id$=\"__compare\"] > .mc,[id$=\"__compare\"] > .mh{background:#ffffff!important}\n[id$=\"__faq\"],[id$=\"__faq\"] > .mc,[id$=\"__faq\"] > .mh{background:#f2f2f2!important}\n</style>",
+        "custom_liquid": "<style>\n/* Flat, alternating band grounds for this page (no gradient washes). Built by make_trust.py. */\n[id$=\"__statement\"],[id$=\"__statement\"] > .mc,[id$=\"__statement\"] > .mh{background:#ffffff!important}\n[id$=\"__results\"],[id$=\"__results\"] > .mc,[id$=\"__results\"] > .mh{background:#f2f2f2!important}\n[id$=\"__quotes\"],[id$=\"__quotes\"] > .mc,[id$=\"__quotes\"] > .mh{background:#ffffff!important}\n[id$=\"__founder\"],[id$=\"__founder\"] > .mc,[id$=\"__founder\"] > .mh{background:#f2f2f2!important}\n[id$=\"__problem\"],[id$=\"__problem\"] > .mc,[id$=\"__problem\"] > .mh{background:#ffffff!important}\n[id$=\"__benefits\"],[id$=\"__benefits\"] > .mc,[id$=\"__benefits\"] > .mh{background:#f2f2f2!important}\n[id$=\"__steps\"],[id$=\"__steps\"] > .mc,[id$=\"__steps\"] > .mh{background:#ffffff!important}\n[id$=\"__guarantee\"],[id$=\"__guarantee\"] > .mc,[id$=\"__guarantee\"] > .mh{background:#f2f2f2!important}\n[id$=\"__compare\"],[id$=\"__compare\"] > .mc,[id$=\"__compare\"] > .mh{background:#ffffff!important}\n[id$=\"__faq\"],[id$=\"__faq\"] > .mc,[id$=\"__faq\"] > .mh{background:#f2f2f2!important}\n</style>",
         "color_scheme": "scheme-1",
         "padding_top": 0,
         "padding_bottom": 0
@@ -1644,8 +2084,10 @@
   "order": [
     "buy",
     "statement",
+    "board_anchor",
     "board",
     "standards",
+    "tests",
     "results",
     "quotes",
     "founder",

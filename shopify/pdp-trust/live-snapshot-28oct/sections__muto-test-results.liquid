@@ -1,0 +1,355 @@
+{%- comment -%}
+  MUTO — Test results.
+  A batch's certificate of analysis as a panel: an overview (tests run, tests
+  passed, what's in it, what isn't), every test with its limit and result, the
+  formula as declared for the batch, and why each test matters.
+
+  It opens from any element with data-mtr-open (the ingredient library's
+  "View third-party testing results" button) or a link to #test-results, so
+  other pages can open it too. data-mtr-open="3" or a link to #test-results-3
+  opens it at the third tab (Formula). The section itself shows a button only if
+  "Show a button here" is ticked.
+
+  BLOCKS: one "Test" per line of the certificate's results, and one "Formula
+  item" per ingredient. Group names make the categories, in the order first
+  used. Typed from the certificate, so update them with each new batch.
+  MOBILE: a full-screen sheet; the side menu becomes a row of chips.
+{%- endcomment -%}
+{{ 'muto-crea.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign sid = section.id
+  assign s = section.settings
+  assign tests = section.blocks | where: 'type', 'test'
+  assign items = section.blocks | where: 'type', 'item'
+  assign tgroups = ''
+  assign passed = 0
+  for b in tests
+    unless tgroups contains b.settings.group
+      assign tgroups = tgroups | append: b.settings.group | append: '|'
+    endunless
+    if b.settings.pass
+      assign passed = passed | plus: 1
+    endif
+  endfor
+  assign tgroups = tgroups | remove_last: '|' | split: '|'
+  assign fgroups = ''
+  if s.group_order != blank
+    assign fgroups = s.group_order | append: '|'
+  endif
+  for b in items
+    unless fgroups contains b.settings.group
+      assign fgroups = fgroups | append: b.settings.group | append: '|'
+    endunless
+  endfor
+  assign fgroups = fgroups | remove_last: '|' | split: '|'
+-%}
+<style>
+  .mtr-btn{display:inline-flex;align-items:center;gap:10px;height:56px;padding:0 24px;border:1px solid var(--mc-ink,#162f31);border-radius:8px;background:none;font:inherit;font-family:var(--mc-font);font-size:16px;font-weight:500;color:var(--mc-ink,#162f31);cursor:pointer;transition:background .2s,color .2s}
+  .mtr-btn:hover{background:var(--mc-ink,#162f31);color:#fff}
+  .mtr-btn__tick{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--mc-cyan,#5efaff);box-shadow:0 0 0 1px var(--mc-ink,#162f31)}
+  .mtr-btn__tick svg{width:11px;height:11px}
+  #shopify-section-{{ sid }} .mtr-here{display:flex;justify-content:center;padding:24px 20px}
+
+  .mtr{width:min(1180px,calc(100% - 48px));max-width:none;height:min(860px,calc(100% - 48px));max-height:none;margin:auto;padding:0;border:0;border-radius:16px;background:#fff;color:var(--mc-ink,#162f31);font-family:var(--mc-font);overflow:hidden;box-shadow:0 30px 80px rgba(22,47,49,.25)}
+  .mtr::backdrop{background:rgba(22,47,49,.45)}
+  .mtr[open]{display:grid;grid-template-rows:auto minmax(0,1fr)}
+  .mtr h2,.mtr h3{font-family:var(--mc-font);font-weight:500;-webkit-font-smoothing:antialiased;margin:0;color:var(--mc-ink)}
+  .mtr__top{display:flex;align-items:center;gap:16px;padding:20px 28px;border-bottom:1px solid var(--mc-hair,rgba(22,47,49,.14))}
+  .mtr__title{font-size:20px;line-height:1.2;font-weight:500;letter-spacing:.01em;text-transform:uppercase}
+  .mtr__batch{padding:7px 14px;border:1px solid var(--mc-hair,rgba(22,47,49,.14));border-radius:20px;font-family:var(--mc-mono);font-size:13px;letter-spacing:.04em}
+  .mtr__doc{margin-left:auto;font-family:var(--mc-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mc-muted,#7f9c9e);text-align:right}
+  .mtr__x{flex:0 0 44px;display:grid;place-items:center;width:44px;height:44px;border:0;border-radius:50%;background:var(--mc-ground,#f9f9f9);color:var(--mc-ink);cursor:pointer}
+  .mtr__x:hover{background:var(--mc-mint,#c8d2cf)}
+  .mtr__body{display:grid;grid-template-columns:260px minmax(0,1fr);min-height:0}
+  .mtr__side{display:flex;flex-direction:column;gap:6px;padding:24px 20px;background:var(--mc-ground,#f9f9f9);border-right:1px solid var(--mc-hair,rgba(22,47,49,.14));overflow:auto}
+  .mtr__tab{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:12px;min-height:48px;padding:0 16px;border-radius:24px;font-size:15px;font-weight:500;letter-spacing:.02em;text-transform:uppercase;color:var(--mc-ink-alt,#242223);cursor:pointer}
+  .mtr__tab:hover{background:#fff}
+  .mtr__tab[aria-selected="true"]{background:var(--mc-ink);color:#fff}
+  .mtr__tab:focus-visible,.mtr__x:focus-visible,.mtr-btn:focus-visible{outline:2px solid var(--mc-ink);outline-offset:2px}
+  .mtr__tab b{font-family:var(--mc-mono);font-weight:400;font-size:12px;opacity:.6}
+  .mtr__meta{margin-top:auto;padding-top:20px;border-top:1px solid var(--mc-hair,rgba(22,47,49,.14));display:grid;gap:6px;font-family:var(--mc-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--mc-muted,#7f9c9e)}
+  .mtr__ok{display:flex;align-items:center;gap:8px;margin-bottom:6px;font-family:var(--mc-font);font-size:15px;font-weight:500;letter-spacing:0;text-transform:none;color:var(--mc-ink)}
+  .mtr__main{overflow:auto;padding:40px 48px 48px;overscroll-behavior:contain}
+  .mtr__panel[hidden]{display:none}
+  .mtr__h{font-size:clamp(28px,3vw,44px);line-height:.95;letter-spacing:-.012em;text-transform:uppercase;text-wrap:balance}
+  .mtr__sub{margin:14px 0 0;font-size:18px;line-height:1.45;color:var(--mc-ink-alt)}
+  .mtr__stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:32px 0 24px;border-top:1px solid var(--mc-hair,rgba(22,47,49,.14));border-bottom:1px solid var(--mc-hair,rgba(22,47,49,.14))}
+  .mtr__stat{padding:22px 0 20px}
+  .mtr__stat + .mtr__stat{padding-left:28px;border-left:1px solid var(--mc-hair,rgba(22,47,49,.14))}
+  .mtr__sv{display:block;font-size:clamp(40px,4vw,56px);font-weight:500;line-height:1;letter-spacing:-.02em}
+  .mtr__sl{display:block;margin-top:10px;font-family:var(--mc-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mc-muted,#7f9c9e)}
+  .mtr__chip{display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border:1px solid var(--mc-hair,rgba(22,47,49,.14));border-radius:24px;font-size:15px;font-weight:500}
+  .mtr__dot{flex:0 0 18px;display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--mc-cyan,#5efaff);box-shadow:0 0 0 1px var(--mc-ink)}
+  .mtr__dot svg{width:10px;height:10px}
+  .mtr__list{margin-top:36px}
+  .mtr__lh{display:flex;justify-content:space-between;gap:16px;padding-bottom:12px;border-bottom:1px solid var(--mc-hair,rgba(22,47,49,.14));font-family:var(--mc-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mc-muted,#7f9c9e)}
+  .mtr__row{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:18px 0;border-bottom:1px solid var(--mc-hair,rgba(22,47,49,.14));font-size:18px}
+  .mtr__row span:last-child{display:flex;gap:20px;align-items:baseline;text-align:right}
+  .mtr__row small{font-size:15px;color:var(--mc-muted,#7f9c9e)}
+  .mtr__note{margin:28px 0 0;font-size:13px;line-height:1.5;color:var(--mc-muted,#7f9c9e)}
+  .mtr .mtr__gh{margin:40px 0 0;font-size:22px;text-transform:uppercase;letter-spacing:.01em}
+  .mtr__t{width:100%;margin-top:12px;border-collapse:collapse;border:0;table-layout:fixed;font-size:16px;line-height:1.4}
+  .mtr__t th,.mtr__t td{padding:14px 12px 14px 0;text-align:left;vertical-align:top;border:0;border-bottom:1px solid var(--mc-hair,rgba(22,47,49,.14));background:none}
+  .mtr__t thead th{padding-top:0;font-family:var(--mc-mono);font-weight:400;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mc-muted,#7f9c9e)}
+  .mtr__t tbody th{font-weight:500;color:var(--mc-ink)}
+  .mtr__t td{color:var(--mc-ink-alt)}
+  .mtr__t .r{text-align:right;padding-right:0}
+  .mtr__pass{display:inline-flex;align-items:center;gap:8px;font-weight:500;color:var(--mc-ink)}
+  .mtr__t small{display:block;margin-top:4px;font-size:13px;font-weight:400;color:var(--mc-muted,#7f9c9e)}
+  .mtr__t small.f{display:none}
+  .mtr__why{display:grid;gap:28px;margin-top:28px}
+  .mtr__why h3{font-size:22px;text-transform:uppercase;letter-spacing:.01em}
+  .mtr__why div{margin-top:10px;max-width:64ch;font-size:17px;line-height:1.55;color:var(--mc-ink-alt)}
+  .mtr__why div > * + *{margin-top:10px}
+  .mtr__cert{display:inline-flex;align-items:center;gap:8px;margin-top:32px;font-size:15px;font-weight:500;color:var(--mc-ink);text-decoration:underline;text-underline-offset:3px}
+  html.mtr-lock{overflow:hidden}
+  @media (max-width:749px){
+    .mtr{width:100%;height:100%;max-height:100%;margin:0;border-radius:0}
+    .mtr__top{position:relative;flex-wrap:wrap;gap:10px 12px;padding:14px 64px 14px 16px}
+    .mtr__title{font-size:16px}
+    .mtr__doc{order:3;flex-basis:100%;margin:0;text-align:left;font-size:11px}
+    .mtr__x{position:absolute;top:10px;right:12px}
+    .mtr__body{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr)}
+    .mtr__side{flex-direction:row;gap:8px;padding:12px 16px;border-right:0;border-bottom:1px solid var(--mc-hair,rgba(22,47,49,.14));overflow-x:auto;scrollbar-width:none}
+    .mtr__side::-webkit-scrollbar{display:none}
+    .mtr__tab{flex:0 0 auto;min-height:40px;padding:0 14px;font-size:13px;white-space:nowrap;border:1px solid var(--mc-hair,rgba(22,47,49,.14));border-radius:20px;background:#fff}
+    .mtr__tab[aria-selected="true"]{border-color:var(--mc-ink)}
+    .mtr__meta{display:none}
+    .mtr__main{padding:28px 16px 40px}
+    .mtr__sub{font-size:16px}
+    .mtr__stats{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .mtr__stat + .mtr__stat{padding-left:12px}
+    .mtr__sv{font-size:32px}
+    .mtr__sl{font-size:10px}
+    .mtr__row{font-size:16px;flex-wrap:wrap}
+    .mtr__row span:last-child{gap:12px}
+    .mtr__row small{font-size:13px}
+    .mtr__t{font-size:14px}
+    .mtr__t .hide-s{display:none}
+    .mtr__t small.f{display:block}
+    .mtr__why div{font-size:15px}
+  }
+</style>
+
+{%- capture tick -%}<svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6.2 5 8.6l4.5-5" stroke="#162f31" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>{%- endcapture -%}
+
+{%- if s.show_button -%}
+  <div class="mtr-here"><button type="button" class="mtr-btn" data-mtr-open><span class="mtr-btn__tick">{{ tick }}</span>{{ s.button_label }}</button></div>
+{%- endif -%}
+
+<dialog class="mtr" id="test-results" aria-labelledby="mtr-title-{{ sid }}" data-mtr>
+  <div class="mtr__top">
+    <h2 class="mtr__title" id="mtr-title-{{ sid }}">{{ s.product }}</h2>
+    {%- if s.batch != blank -%}<span class="mtr__batch">Batch {{ s.batch }}</span>{%- endif -%}
+    {%- if s.doc_label != blank -%}<span class="mtr__doc">{{ s.doc_label }}</span>{%- endif -%}
+    <button type="button" class="mtr__x" data-mtr-close aria-label="Close"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l10 10M13 3 3 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+  </div>
+  <div class="mtr__body">
+    <div class="mtr__side" role="tablist" aria-label="Test results">
+      {%- assign tabs = 'Overview,Full results,Formula,Why it matters' | split: ',' -%}
+      {%- for t in tabs -%}
+        <button type="button" class="mtr__tab" role="tab" id="mtr-tab-{{ sid }}-{{ forloop.index }}" aria-controls="mtr-p-{{ sid }}-{{ forloop.index }}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"{% unless forloop.first %} tabindex="-1"{% endunless %}><b>{{ forloop.index | prepend: '0' }}</b>{{ t }}</button>
+      {%- endfor -%}
+      <div class="mtr__meta">
+        <span class="mtr__ok"><span class="mtr__dot">{{ tick }}</span>{{ passed }} of {{ tests.size }} tests passed</span>
+        {%- if s.made != blank -%}<span>Made {{ s.made }}</span>{%- endif -%}
+        {%- if s.bbe != blank -%}<span>Best before {{ s.bbe }}</span>{%- endif -%}
+        {%- if s.issued != blank -%}<span>Certificate {{ s.issued }}</span>{%- endif -%}
+      </div>
+    </div>
+
+    <div class="mtr__main" data-mtr-main>
+      {%- comment -%} 1 Overview {%- endcomment -%}
+      <section class="mtr__panel" role="tabpanel" id="mtr-p-{{ sid }}-1" aria-labelledby="mtr-tab-{{ sid }}-1">
+        <h3 class="mtr__h">{{ s.heading }}</h3>
+        <p class="mtr__sub">{{ tests.size }} tests across {{ tgroups.size }} categories, on the batch in your jar.</p>
+        <div class="mtr__stats">
+          <p class="mtr__stat"><span class="mtr__sv">{{ tests.size }}</span><span class="mtr__sl">Tests run</span></p>
+          <p class="mtr__stat"><span class="mtr__sv">{{ passed }}</span><span class="mtr__sl">Passed</span></p>
+          <p class="mtr__stat"><span class="mtr__sv">{{ s.stat_value }}</span><span class="mtr__sl">{{ s.stat_label }}</span></p>
+        </div>
+        {%- if s.chip != blank -%}<span class="mtr__chip"><span class="mtr__dot">{{ tick }}</span>{{ s.chip }}</span>{%- endif -%}
+
+        <div class="mtr__list">
+          <p class="mtr__lh"><span>What’s in it</span><span>Per serving</span></p>
+          {%- for g in fgroups -%}
+            {%- assign n = 0 -%}{%- assign one = '' -%}
+            {%- for b in items -%}{%- if b.settings.group == g -%}{%- assign n = n | plus: 1 -%}{%- assign one = b.settings.amount -%}{%- endif -%}{%- endfor -%}
+            <p class="mtr__row"><span>{{ g }}</span><span>{%- if n == 1 -%}{{ one }}{%- else -%}{{ n }} ingredients{%- endif -%}</span></p>
+          {%- endfor -%}
+        </div>
+
+        <div class="mtr__list">
+          <p class="mtr__lh"><span>What’s not in it</span><span>Result</span></p>
+          {%- for g in tgroups -%}
+            {%- assign n = 0 -%}{%- assign ok = 0 -%}
+            {%- for b in tests -%}{%- if b.settings.group == g -%}{%- assign n = n | plus: 1 -%}{%- if b.settings.pass -%}{%- assign ok = ok | plus: 1 -%}{%- endif -%}{%- endif -%}{%- endfor -%}
+            <p class="mtr__row"><span>{{ g }}</span><span><span>{{ n }} tested</span><small>{%- if ok == n -%}All within limits{%- else -%}{{ ok }} of {{ n }} within limits{%- endif -%}</small></span></p>
+          {%- endfor -%}
+        </div>
+        {%- if s.note != blank -%}<p class="mtr__note">{{ s.note }}</p>{%- endif -%}
+      </section>
+
+      {%- comment -%} 2 Every test {%- endcomment -%}
+      <section class="mtr__panel" role="tabpanel" id="mtr-p-{{ sid }}-2" aria-labelledby="mtr-tab-{{ sid }}-2" hidden>
+        <h3 class="mtr__h">Every test, every result.</h3>
+        <p class="mtr__sub">The limit each result had to meet, and what this batch measured. ppm is parts per million (mg per kg); cfu/g is microbes per gram.</p>
+        {%- for g in tgroups -%}
+          <h3 class="mtr__gh">{{ g }}</h3>
+          <table class="mtr__t">
+            <colgroup><col style="width:30%"><col style="width:26%"><col style="width:26%"><col style="width:18%"></colgroup>
+            <thead><tr><th scope="col">Test</th><th scope="col">Limit</th><th scope="col">Result</th><th scope="col" class="r">Status</th></tr></thead>
+            <tbody>
+              {%- for b in tests -%}
+                {%- if b.settings.group == g -%}
+                  <tr {{ b.shopify_attributes }}>
+                    <th scope="row">{{ b.settings.name }}{%- if b.settings.note != blank -%}<small>{{ b.settings.note }}</small>{%- endif -%}</th>
+                    <td>{{ b.settings.spec }}</td>
+                    <td>{{ b.settings.result }}</td>
+                    <td class="r">{%- if b.settings.pass -%}<span class="mtr__pass"><span class="mtr__dot">{{ tick }}</span><span class="hide-s">Pass</span></span>{%- else -%}Outside limit{%- endif -%}</td>
+                  </tr>
+                {%- endif -%}
+              {%- endfor -%}
+            </tbody>
+          </table>
+        {%- endfor -%}
+        {%- if s.note != blank -%}<p class="mtr__note">{{ s.note }}</p>{%- endif -%}
+      </section>
+
+      {%- comment -%} 3 Formula {%- endcomment -%}
+      <section class="mtr__panel" role="tabpanel" id="mtr-p-{{ sid }}-3" aria-labelledby="mtr-tab-{{ sid }}-3" hidden>
+        <h3 class="mtr__h">All {{ items.size }} ingredients, as made.</h3>
+        <p class="mtr__sub">{{ s.formula_sub }}</p>
+        <table class="mtr__t" style="margin-top:28px">
+          <colgroup><col style="width:34%"><col class="hide-s" style="width:44%"><col style="width:22%"></colgroup>
+          <thead><tr><th scope="col">Ingredient</th><th scope="col" class="hide-s">Form</th><th scope="col" class="r">Per serving</th></tr></thead>
+          <tbody>
+            {%- for b in items -%}
+              <tr {{ b.shopify_attributes }}><th scope="row">{{ b.settings.name }}<small class="f">{{ b.settings.form }}</small></th><td class="hide-s">{{ b.settings.form }}</td><td class="r">{{ b.settings.amount }}</td></tr>
+            {%- endfor -%}
+          </tbody>
+        </table>
+        {%- if s.capsule != blank -%}<p class="mtr__note">{{ s.capsule }}</p>{%- endif -%}
+      </section>
+
+      {%- comment -%} 4 Why it matters {%- endcomment -%}
+      <section class="mtr__panel" role="tabpanel" id="mtr-p-{{ sid }}-4" aria-labelledby="mtr-tab-{{ sid }}-4" hidden>
+        <h3 class="mtr__h">Why we test for it.</h3>
+        <div class="mtr__why">
+          {%- for n in (1..4) -%}
+            {%- assign hk = 'why_' | append: n | append: '_h' -%}
+            {%- assign tk = 'why_' | append: n -%}
+            {%- if s[hk] != blank -%}<div style="margin:0;max-width:none"><h3>{{ s[hk] }}</h3><div>{{ s[tk] }}</div></div>{%- endif -%}
+          {%- endfor -%}
+        </div>
+        {%- if s.certificate != blank -%}<a class="mtr__cert" href="{{ s.certificate }}" target="_blank" rel="noopener">Download the certificate (PDF) →</a>{%- endif -%}
+      </section>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  (function () {
+    var d = document.querySelector('#shopify-section-{{ sid }} [data-mtr]');
+    if (!d || d.dataset.ready) return;
+    d.dataset.ready = 1;
+    /* Out of the section, so the theme's section styles can't clip or stack it */
+    document.body.appendChild(d);
+    var tabs = [].slice.call(d.querySelectorAll('.mtr__tab'));
+    var panels = tabs.map(function (t) { return document.getElementById(t.getAttribute('aria-controls')); });
+    var main = d.querySelector('[data-mtr-main]');
+    function show(i, focus) {
+      tabs.forEach(function (t, n) {
+        var on = n === i;
+        t.setAttribute('aria-selected', on);
+        t.tabIndex = on ? 0 : -1;
+        panels[n].hidden = !on;
+      });
+      main.scrollTop = 0;
+      if (focus) tabs[i].focus();
+      if (tabs[i].scrollIntoView && tabs[i].parentNode.scrollWidth > tabs[i].parentNode.clientWidth) tabs[i].scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { show(i); });
+      t.addEventListener('keydown', function (e) {
+        var n = null;
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight') n = (i + 1) % tabs.length;
+        if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') n = (i - 1 + tabs.length) % tabs.length;
+        if (n !== null) { e.preventDefault(); show(n, true); }
+      });
+    });
+    function open(tab) {
+      show(Math.max(0, Math.min(tabs.length - 1, (parseInt(tab, 10) || 1) - 1)));
+      if (d.showModal) d.showModal(); else d.setAttribute('open', '');
+      document.documentElement.classList.add('mtr-lock');
+    }
+    function close() { if (d.close) d.close(); else d.removeAttribute('open'); }
+    d.addEventListener('close', function () { document.documentElement.classList.remove('mtr-lock'); });
+    d.querySelector('[data-mtr-close]').addEventListener('click', close);
+    /* A click on the dimmed backdrop closes it */
+    d.addEventListener('click', function (e) { if (e.target === d) close(); });
+    document.addEventListener('click', function (e) {
+      var t = e.target.closest && e.target.closest('[data-mtr-open], a[href*="#test-results"]');
+      if (!t) return;
+      e.preventDefault();
+      /* data-mtr-open="3", or a link to #test-results-3, opens at the third tab */
+      var m = (t.getAttribute('href') || '').match(/#test-results-(\d)/);
+      open(t.getAttribute('data-mtr-open') || (m && m[1]));
+    });
+    var h = location.hash.match(/^#test-results(?:-(\d))?$/);
+    if (h) open(h[1]);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "MUTO — Test results",
+  "tag": "section",
+  "settings": [
+    { "type": "checkbox", "id": "show_button", "label": "Show a button here", "info": "Off: the panel opens from the ingredient library's button, or any link to #test-results.", "default": false },
+    { "type": "text", "id": "button_label", "label": "Button", "default": "View third-party testing results" },
+    { "type": "text", "id": "product", "label": "Product", "default": "NAD+ Cellular Complex" },
+    { "type": "text", "id": "batch", "label": "Batch" },
+    { "type": "text", "id": "doc_label", "label": "Label beside the batch", "default": "Certificate of analysis" },
+    { "type": "text", "id": "made", "label": "Made" },
+    { "type": "text", "id": "bbe", "label": "Best before" },
+    { "type": "text", "id": "issued", "label": "Certificate date" },
+    { "type": "text", "id": "group_order", "label": "Formula categories, in order", "info": "Split with |. Any category not listed follows.", "default": "NR, for NAD+|Vitamins|Minerals|Other actives" },
+    { "type": "text", "id": "heading", "label": "Overview heading", "default": "Every result came in within its limit." },
+    { "type": "text", "id": "stat_value", "label": "Third number", "default": "300×" },
+    { "type": "text", "id": "stat_label", "label": "Third number: what it is", "default": "Under the lead limit" },
+    { "type": "text", "id": "chip", "label": "Highlight", "default": "No salmonella detected" },
+    { "type": "textarea", "id": "note", "label": "Note under the results" },
+    { "type": "textarea", "id": "formula_sub", "label": "Formula intro" },
+    { "type": "text", "id": "capsule", "label": "Capsule note" },
+    { "type": "text", "id": "why_1_h", "label": "Why it matters 1: heading" },
+    { "type": "richtext", "id": "why_1", "label": "Why it matters 1" },
+    { "type": "text", "id": "why_2_h", "label": "Why it matters 2: heading" },
+    { "type": "richtext", "id": "why_2", "label": "Why it matters 2" },
+    { "type": "text", "id": "why_3_h", "label": "Why it matters 3: heading" },
+    { "type": "richtext", "id": "why_3", "label": "Why it matters 3" },
+    { "type": "text", "id": "why_4_h", "label": "Why it matters 4: heading" },
+    { "type": "richtext", "id": "why_4", "label": "Why it matters 4" },
+    { "type": "url", "id": "certificate", "label": "Certificate PDF", "info": "Optional. Upload it to Files and paste its link." }
+  ],
+  "blocks": [
+    { "type": "test", "name": "Test", "settings": [
+      { "type": "text", "id": "group", "label": "Category", "info": "e.g. Heavy metals" },
+      { "type": "text", "id": "name", "label": "Test" },
+      { "type": "text", "id": "spec", "label": "Limit" },
+      { "type": "text", "id": "result", "label": "Result" },
+      { "type": "text", "id": "note", "label": "Plain-English note" },
+      { "type": "checkbox", "id": "pass", "label": "Within limit", "default": true }
+    ] },
+    { "type": "item", "name": "Formula item", "settings": [
+      { "type": "text", "id": "group", "label": "Category", "info": "e.g. Vitamins" },
+      { "type": "text", "id": "name", "label": "Ingredient" },
+      { "type": "text", "id": "form", "label": "Form" },
+      { "type": "text", "id": "amount", "label": "Per serving" }
+    ] }
+  ],
+  "max_blocks": 50,
+  "presets": [{ "name": "MUTO — Test results" }],
+  "enabled_on": { "templates": ["page", "product", "index"] }
+}
+{% endschema %}

@@ -11,6 +11,11 @@ import json, os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SNAP = os.path.join(HERE, "live-snapshot-28oct", "templates__product.muto-nad-45.json")
+# The main product moved to template muto-nad-v2 on 27 Oct. Its buy box (section muto-pdp-v2-buy),
+# the easy_read block that styles it (incl. the Black Friday box), the sticky bar, the
+# #scientific-board anchor and the #test-results certificate panel are taken from it verbatim.
+V2 = os.path.join(HERE, "live-snapshot-28oct", "templates__product.muto-nad-v2.json")
+FROM_V2 = ["buy", "easy_read", "sticky", "board_anchor", "tests"]
 OUT = os.path.join(HERE, "theme", "templates", "product.muto-nad-45.json")
 CDN = "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/"
 
@@ -37,7 +42,7 @@ STANDARDS_ITEMS = [
      "<p>Manufactured in the UK to GMP standards, in an ISO-certified facility.</p>",
      "", "", ""),
 ]
-CERTS_URL = ""  # e.g. "/pages/certificates" once they're published
+CERTS_URL = "#test-results"  # opens the certificate-of-analysis panel (section muto-test-results)
 
 def standards():
     blocks, order = {}, []
@@ -126,7 +131,7 @@ FOUNDER = {"type": "muto-crea-founder",
 # --- Page backgrounds: no gradient washes, alternating flat grey and white ---
 GREY, WHITE = "#f2f2f2", "#ffffff"
 BANDS = [  # section key -> ground, in page order
-    ("buy", GREY), ("statement", WHITE), ("board", GREY), ("standards", WHITE),
+    ("statement", WHITE),  # buy box keeps the live page's own plain #fafafa ("board", GREY), ("standards", WHITE),
     ("results", GREY), ("quotes", WHITE), ("founder", GREY), ("problem", WHITE),
     ("benefits", GREY), ("steps", WHITE), ("guarantee", GREY), ("compare", WHITE),
     ("faq", GREY),
@@ -206,6 +211,11 @@ def main():
     head, d = raw[: raw.index("{")], json.loads(raw[raw.index("{"):])
     assert d["sections"]["faq"]["blocks"][d["sections"]["faq"]["block_order"][0]]["type"] == "q", "check FAQ block type"
 
+    raw2 = open(V2).read()
+    v2 = json.loads(raw2[raw2.index("{"):])
+    for key in FROM_V2:
+        d["sections"][key] = v2["sections"][key]
+
     d["sections"].update({
         "statement": STATEMENT,
         "standards": standards(),
@@ -219,8 +229,10 @@ def main():
     d["order"] = [
         "buy",
         "statement",        # "A daily supplement. Built for your biology after 35 years old."
+        "board_anchor",     # #scientific-board, linked from the buy box
         "board",            # Scientific Advisory Board, compact row
         "standards",
+        "tests",            # #test-results: certificate-of-analysis panel (a dialog, opens from links)
         "results",          # customer videos, 9:16
         "quotes",      # up to 20 rotating written reviews
         "founder",
