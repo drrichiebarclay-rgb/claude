@@ -58,7 +58,8 @@ html body .mc .mc-bf__note{flex:0 0 auto;margin:0;font-size:12px;line-height:1.3
 html body .mc .mc-bf__note b{font-family:var(--mc-mono,monospace);letter-spacing:.06em;color:#242223}
 @media (max-width:480px){
   html body .mc .mc-bf{grid-template-columns:1fr}
-  html body .mc .mc-bf__count{grid-column:1;grid-row:auto;display:flex;align-items:baseline;gap:8px;margin-top:10px;text-align:left}
+  html body .mc .mc-bf__count{grid-column:1;grid-row:auto;display:flex;align-items:baseline;justify-content:center;gap:8px;margin-top:10px;max-width:none;width:100%;text-align:left}
+  html body .mc .mc-bf__count small{white-space:nowrap}
   html body .mc .mc-bf__count b{display:inline;font-size:24px}
   html body .mc .mc-bf__count small{display:inline;margin:0}
   html body .mc .mc-bf__foot{flex-wrap:wrap}
