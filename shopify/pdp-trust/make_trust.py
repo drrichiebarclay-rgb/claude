@@ -168,8 +168,8 @@ def clinical(d):
     S["results"]["settings"]["space_top"] = 70   # sits under the standards band, which brings its own space
 
     b = S["board"]["settings"]
-    b["heading"] = "Scientific\nAdvisory Board."
-    b["note"] = "Six doctors and scientists who review the formula."
+    b["heading"] = "Six scientists put\ntheir name to MUTO."
+    b["note"] = "Our Scientific Advisory Board reviews the formula"
     b["field"] = False        # plain #FAFAFA ground, no mint wash
     b["compact"] = True       # the thin one-row strip: all six across on desktop, small swipeable cards on phones
     b["space_top"] = 60       # sits straight under the statement band
