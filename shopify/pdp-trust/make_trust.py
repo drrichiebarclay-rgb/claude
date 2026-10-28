@@ -33,10 +33,10 @@ PROBLEM_STATS = [  # tag, figure, line, source. Checked 28 Oct.
      "Crawford et al., JAMA Network Open (2022): 17 of 30 immune supplements"),
     ("Inflammation", "1 in 2", "deaths are linked to chronic inflammation",
      "Furman et al., Nature Medicine (2019)"),
-    # 50% by 40 is Richie's call (28 Oct). Massudi shows the decline with age but gives no % by age:
-    # swap the source for one that states the figure when there is one.
-    ("NAD+", "50%", "less NAD+ by your 40s",
-     "Massudi et al., PLoS ONE (2012)"),
+    # Peluso et al. (Nutrients 2022) re-analysed Massudi's skin data: ~60% less NAD+ from young adults to
+    # middle age. So 50% is conservative, and the line says where it was measured.
+    ("NAD+", "50%", "less NAD+ in skin by middle age",
+     "Massudi et al., PLoS ONE (2012), analysed in Peluso et al., Nutrients (2022)"),
     ("Mitochondria", "50%", "lower muscle mitochondrial capacity by your late 60s",
      "Conley et al., Journal of Physiology (2000)"),
 ]

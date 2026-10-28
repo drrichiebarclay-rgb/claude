@@ -2000,7 +2000,7 @@
           "settings": {
             "tag": "NAD+",
             "figure": "50%",
-            "text": "less NAD+ by your 40s"
+            "text": "less NAD+ in skin by middle age"
           }
         },
         "p4": {
@@ -2021,7 +2021,7 @@
       "settings": {
         "label": "The problem",
         "heading": "Your biology shifts.\nMost supplements don’t.",
-        "sources": "<p>01. Crawford et al., JAMA Network Open (2022): 17 of 30 immune supplements. 02. Furman et al., Nature Medicine (2019). 03. Massudi et al., PLoS ONE (2012). 04. Conley et al., Journal of Physiology (2000).</p>",
+        "sources": "<p>01. Crawford et al., JAMA Network Open (2022): 17 of 30 immune supplements. 02. Furman et al., Nature Medicine (2019). 03. Massudi et al., PLoS ONE (2012), analysed in Peluso et al., Nutrients (2022). 04. Conley et al., Journal of Physiology (2000).</p>",
         "space_top": 70,
         "space_bottom": 150
       }
