@@ -161,6 +161,16 @@ def main():
     m["settings"]["save"] = M_SAVE
     m["settings"]["note"] = M_NOTE
 
+    # Black bar over the plans: "Black Friday offer" (the "✦ Best value" label stays on its left)
+    d["sections"]["buy"]["settings"]["plans_banner"] = "Black Friday offer"
+    # Ticks: the welcome-kit line first, on both plans
+    import re as _re
+    for plan in (q, m):
+        items = _re.findall(r"<li>.*?</li>", plan["settings"]["detail"])
+        kit = [i for i in items if "welcome kit" in i.lower()]
+        assert len(kit) == 1, items
+        plan["settings"]["detail"] = "<ul>" + "".join(kit + [i for i in items if i not in kit]) + "</ul>"
+
     with open(OUT, "w") as fh:
         fh.write(head)
         json.dump(d, fh, ensure_ascii=False, indent=2)

@@ -111,7 +111,7 @@
             "was": "£70",
             "save": "Save 28%",
             "note": "£49.99 for your first month, then £60 every 4 weeks · £1.79 a day",
-            "detail": "<ul><li>90-day money-back guarantee</li><li>Skip, pause or cancel online, no phone calls</li><li>Free UK delivery</li><li>Free welcome kit worth £62, then thank-you gifts in boxes 2 to 6</li></ul>"
+            "detail": "<ul><li>Free welcome kit worth £62, then thank-you gifts in boxes 2 to 6</li><li>90-day money-back guarantee</li><li>Skip, pause or cancel online, no phone calls</li><li>Free UK delivery</li></ul>"
           }
         },
         "k2": {
@@ -327,7 +327,7 @@
             "was": "£210",
             "save": "Save 53%",
             "note": "3 months’ supply: £99 for your first box, then £125, then £150 · £1.10 a day",
-            "detail": "<ul><li>90-day money-back guarantee</li><li>Skip, pause or cancel online, no phone calls</li><li>Free UK delivery</li><li>Free welcome kit worth £77, then thank-you gifts in later boxes</li></ul>"
+            "detail": "<ul><li>Free welcome kit worth £77, then thank-you gifts in later boxes</li><li>90-day money-back guarantee</li><li>Skip, pause or cancel online, no phone calls</li><li>Free UK delivery</li></ul>"
           }
         },
         "fold1": {
@@ -515,7 +515,7 @@
         "gallery_position": "100% 50%",
         "note_title": "",
         "note_text": "",
-        "plans_banner": "New customers: free welcome kit worth £77",
+        "plans_banner": "Black Friday offer",
         "plans_label": "Choose your plan",
         "hidden_plans": "",
         "kit_title": "Welcome kit — arrives with your first box",
