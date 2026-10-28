@@ -5,7 +5,7 @@ subtitle: "28 October 2026"
 
 The main product page and -2 move to a new template, **`muto-nad-trust`**. The buy box is the one on the site today. Below it are new blocks: the science board, standards, customer videos, reviews and the founder. The Black Friday pre-sale box and its MUTO10 code are removed.
 
-That means **6 new files to add**, **template changes on 2 products**, and **removing the pre-sale box from 3 live templates**. No existing theme file is overwritten.
+That means **6 new files to add**, **template changes on 2 products**, **removing the pre-sale box from 3 live templates** and **2 announcement-bar messages to take down**. No existing theme file is overwritten.
 
 # Before you start
 
@@ -38,7 +38,7 @@ With the Shopify CLI, from the unzipped folder:
 
 Or in admin: Online Store → Themes → live theme → … → Edit code. Add a new asset, then each new section, then a new product template named `muto-nad-trust`, and paste each file in.
 
-All the other sections the page uses are already on live and unchanged: `muto-pdp-v2-buy`, `muto-home-board`, `muto-test-results`, `muto-home-results`, `muto-crea-problem`, `muto-crea-benefits`, `muto-crea-steps`, `muto-crea-guarantee`, `muto-home-why`, `muto-chapter`, `muto-crea-faq`, `custom-reviews`, `muto-home-sticky`.
+All the other sections the page uses are already on live and unchanged: `muto-pdp-v2-buy`, `muto-home-board`, `muto-test-results`, `muto-home-results`, `muto-crea-problem`, `muto-crea-benefits`, `muto-crea-steps`, `muto-crea-guarantee`, `muto-home-why`, `muto-chapter`, `muto-crea-faq`, `custom-reviews`.
 
 # Step 2: change the product templates
 
@@ -69,6 +69,10 @@ The new `muto-nad-trust` template already has all three removed.
 
 **Quick stopgap** if step 3 can't be done straight away: Online Store → Customize → Theme settings → Custom CSS, add `.mc-bf:has(.mc-bf__clock){display:none !important}`. That hides the box on every page. The script still runs, but MUTO10 is ended, so nothing is applied.
 
+# Step 4: the announcement bar
+
+The scrolling announcement bar at the top of every page (section `muto-announce` in the header group) still advertises the ended offer: **"EXTRA 10% OFF OUR QUARTERLY PLAN"** and **"ENDS ON 28.10.26"**. Remove those two messages (Customize → Header → announcement bar). The other three ("LIMITED NEW CUSTOMER OFFER", "£77 OF FREE GIFTS WITH EACH ORDER", "FREE ULTRAPURE CREATINE, BOTTLE, SOCKS, JAR, EBOOK") can stay.
+
 # What's on the new page
 
 In order, below the buy box:
@@ -84,10 +88,11 @@ In order, below the buy box:
 Also changed from `muto-nad-v2`:
 
 - **Under the buy button:** the serving line, "Not another multivitamin…" copy and the quote slider are blanked or hidden (not deleted).
-- **Buy button** (and the sticky bar's) in brand green **#6BCE7F**, charcoal label, with a second line inside it: a shield and "90-day money-back guarantee".
+- **Buy button** in brand green **#6BCE7F**, charcoal label, with a second line inside it: a shield and "90-day money-back guarantee".
 - **Under the subhead:** "In collaboration with seven leading scientists from world-leading research institutions, including four universities in the UK and Australia."
 - **Rotating stats** under the button, every 3.5 seconds: "94% reported better recovery", "92% reported improved energy", "88% bounce back quicker", with a black bar that fills left to right to each figure. Set in `STATS` in `make_trust.py`.
 - **Delivery line** under the button: "● Ready to ship — arrives by **Thu 29th Oct**". The date is always the next calendar day in UK time, set by a script and rolling over at midnight. Before the script runs it says "arrives tomorrow".
+- **No sticky add-to-cart bar.** The `sticky` section isn't in this template, so nothing slides in at the top or bottom of the page as you scroll.
 - **Backgrounds:** no gradient washes. The bands alternate flat grey (#F2F2F2) and white, set in the `head_styles` block at the top of the template.
 - **Not carried over from `muto-nad-v2`:** the "On this page" menu, "Five jobs. One daily jar.", the ingredient library, the v2 timeline and "How to take it". They stay in `muto-nad-v2` if they're wanted back.
 
@@ -107,4 +112,6 @@ Also changed from `muto-nad-v2`:
 4. **Videos:** all 8 play. The row scrolls sideways (trackpad, drag, or swipe on a phone).
 5. **Reviews:** the cards move on every 6 seconds, and the arrows work.
 6. **On a phone:** nothing runs off the side; the statement tag wraps onto two lines.
-7. **-3 and any page on `muto-nad-performance`:** no Black Friday box (step 3).
+7. **No sticky bar** appears as you scroll the page.
+8. **-3 and any page on `muto-nad-performance`:** no Black Friday box (step 3).
+9. **Announcement bar:** no "extra 10% off" or "ends on 28.10.26" (step 4).

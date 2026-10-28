@@ -1254,18 +1254,6 @@
         "button_style": "gradient-secondary"
       }
     },
-    "sticky": {
-      "type": "muto-home-sticky",
-      "settings": {
-        "product": "",
-        "sticky_cta_label": "Add to cart",
-        "sticky_label": "NAD+ Cellular Complex",
-        "plan_cta_label": "",
-        "cta_link": "",
-        "sticky_sub": "Pause or stop any time",
-        "schema_on": false
-      }
-    },
     "easy_read": {
       "type": "custom-liquid",
       "settings": {
@@ -2010,7 +1998,6 @@
     "compare",
     "faq",
     "custom_reviews_KpXTpD",
-    "sticky",
     "easy_read",
     "bands"
   ]

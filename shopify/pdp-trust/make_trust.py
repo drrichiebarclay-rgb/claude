@@ -470,8 +470,10 @@ def main():
         "quotes",      # up to 20 rotating written reviews
         "founder",
         "problem", "benefits", "steps", "guarantee", "why", "compare", "faq",
-        "custom_reviews_KpXTpD", "sticky", "easy_read", "bands",
+        "custom_reviews_KpXTpD", "easy_read", "bands",
     ]
+    # No sticky add-to-cart bar on this page (removed 28 Oct)
+    d["sections"].pop("sticky", None)
     hoist_styles(d)
     assert sorted(d["order"]) == sorted(d["sections"]), set(d["order"]) ^ set(d["sections"])
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
