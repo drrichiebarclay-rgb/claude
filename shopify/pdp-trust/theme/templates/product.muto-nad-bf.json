@@ -856,24 +856,6 @@
             "detail": ""
           }
         },
-        "r4": {
-          "type": "result",
-          "settings": {
-            "image": "shopify://shop_images/Ellen_Gray.jpg",
-            "image_fallback": "",
-            "image_alt": "A MUTO customer talking to camera about their 90 days",
-            "image_position": "",
-            "video": "shopify://files/videos/MU12_MUTO_VIDEO AD_TOFU_PROBLEM AWARE_HIGH PERFORMER_METRICS_HRV_TESTIMONIAL_ELLEN_CREATOR AD.MP4",
-            "video_url": "",
-            "video_link": "",
-            "show_play": true,
-            "result": "",
-            "quote": "",
-            "name": "Ellen Gray",
-            "tag": "",
-            "detail": ""
-          }
-        },
         "r5": {
           "type": "result",
           "settings": {
@@ -913,6 +895,24 @@
         "r7": {
           "type": "result",
           "settings": {
+            "image": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/preview_images/ae14f3b1ff0f4ef09ae55be1fd8cfadd.thumbnail.0000000000.jpg?v=1773314771",
+            "image_alt": "A MUTO customer talking to camera",
+            "image_position": "",
+            "video": "shopify://files/videos/kate v4.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "result": "",
+            "quote": "",
+            "name": "Kate",
+            "tag": "",
+            "detail": ""
+          }
+        },
+        "r8": {
+          "type": "result",
+          "settings": {
             "image": "shopify://shop_images/cover-1.png",
             "image_fallback": "",
             "image_alt": "A MUTO customer talking to camera",
@@ -928,7 +928,7 @@
             "detail": ""
           }
         },
-        "r8": {
+        "r9": {
           "type": "result",
           "settings": {
             "image": "shopify://shop_images/cover-2.png",
@@ -951,11 +951,11 @@
         "r1",
         "r2",
         "r3",
-        "r4",
         "r5",
         "result_NmUnkJ",
         "r7",
-        "r8"
+        "r8",
+        "r9"
       ],
       "settings": {
         "heading": "Don’t take\nour word for it.",

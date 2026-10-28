@@ -196,14 +196,27 @@ def clinical(d):
     r["note"] = "MUTO customers, in their own words"
     r["foot"] = "Individual experiences. Everyone is different, and we can’t promise results."
     S["results"]["settings"]["space_top"] = 70
-    # Two more customer videos, from the live testimonials on page.borrowed-energy (same files and covers).
-    # Names aren't recorded there: fill them in once known (a blank name shows no caption).
-    for key, video, cover in [("r7", "shopify://files/videos/Muto 1.mp4", "shopify://shop_images/cover-1.png"),
-                              ("r8", "shopify://files/videos/Muto 2.mp4", "shopify://shop_images/cover-2.png")]:
+    # Ellen Gray's video is removed.
+    S["results"]["blocks"].pop("r4", None)
+    S["results"]["block_order"].remove("r4")
+    # Three more customer videos (Richie's Google Drive). Kate's is already in Shopify Files; David's and
+    # "testimonial.mp4" have to be uploaded in Content -> Files first. Until then their tiles keep the
+    # placeholder video named below. Set the file name (as Shopify shows it) to switch a tile over.
+    PREVIEW = "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/preview_images/"
+    NEW_VIDEOS = [
+        # key, name, video file in Shopify, cover (fallback URL; Shopify's own thumbnail of the video)
+        ("r7", "Kate", "kate v4.mp4", PREVIEW + "ae14f3b1ff0f4ef09ae55be1fd8cfadd.thumbnail.0000000000.jpg?v=1773314771", ""),
+        ("r8", "David", None, "", "shopify://shop_images/cover-1.png"),        # placeholder: Muto 1.mp4
+        ("r9", "", None, "", "shopify://shop_images/cover-2.png"),             # placeholder: Muto 2.mp4
+    ]
+    PLACEHOLDER = {"r8": "Muto 1.mp4", "r9": "Muto 2.mp4"}
+    for key, name, video, fallback, cover in NEW_VIDEOS:
+        if video is None:
+            video, name = PLACEHOLDER[key], ""
         S["results"]["blocks"][key] = {"type": "result", "settings": {
-            "image": cover, "image_fallback": "", "image_alt": "A MUTO customer talking to camera",
-            "image_position": "", "video": video, "video_url": "", "video_link": "", "show_play": True,
-            "result": "", "quote": "", "name": "", "tag": "", "detail": ""}}
+            "image": cover, "image_fallback": fallback, "image_alt": "A MUTO customer talking to camera",
+            "image_position": "", "video": "shopify://files/videos/" + video, "video_url": "", "video_link": "",
+            "show_play": True, "result": "", "quote": "", "name": name, "tag": "", "detail": ""}}
         S["results"]["block_order"].append(key)   # sits under the standards band, which brings its own space
 
     b = S["board"]["settings"]
