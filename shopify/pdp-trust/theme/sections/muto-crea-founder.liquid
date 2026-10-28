@@ -35,8 +35,8 @@
         {%- if section.settings.text != blank -%}<div class="mc__rt mc__fdr-text">{{ section.settings.text }}</div>{%- endif -%}
         {%- if section.settings.quote != blank -%}
           <figure class="mc__fdr-quote">
-            <blockquote>{{ section.settings.quote }}</blockquote>
-            {%- if section.settings.quote_by != blank -%}<figcaption class="mc__trust-label">{{ section.settings.quote_by }}</figcaption>{%- endif -%}
+            <p class="mc__fdr-quote-text">“{{ section.settings.quote }}”</p>
+            {%- if section.settings.quote_by != blank -%}<figcaption class="mc__fdr-sign">{{ section.settings.quote_by }}</figcaption>{%- endif -%}
           </figure>
         {%- endif -%}
         {%- if section.blocks.size > 0 -%}

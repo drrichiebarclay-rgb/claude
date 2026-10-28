@@ -1090,138 +1090,39 @@
       "disabled": true
     },
     "compare": {
-      "type": "muto-crea-compare",
+      "type": "muto-chapter",
       "blocks": {
-        "r1": {
-          "type": "row",
+        "t1": {
+          "type": "table",
           "settings": {
-            "claim": "300mg NR, the building block for NAD+",
-            "m1": "yes",
-            "m2": "yes",
-            "m3": "yes",
-            "m4": "dash"
-          }
-        },
-        "r2": {
-          "type": "row",
-          "settings": {
-            "claim": "Plus TMG, which works alongside NR",
-            "m1": "yes",
-            "m2": "no",
-            "m3": "yes",
-            "m4": "dash"
-          }
-        },
-        "r3": {
-          "type": "row",
-          "settings": {
-            "claim": "Plus 12 vitamins and minerals",
-            "m1": "yes",
-            "m2": "no",
-            "m3": "yes",
-            "m4": "dash"
-          }
-        },
-        "r4": {
-          "type": "row",
-          "settings": {
-            "claim": "Plus CoQ10 and PQQ",
-            "m1": "yes",
-            "m2": "no",
-            "m3": "yes",
-            "m4": "dash"
-          }
-        },
-        "r5": {
-          "type": "row",
-          "settings": {
-            "claim": "Plus 3 plant extracts, like grape seed",
-            "m1": "yes",
-            "m2": "no",
-            "m3": "yes",
-            "m4": "dash"
-          }
-        },
-        "r6": {
-          "type": "row",
-          "settings": {
-            "claim": "Just 2 capsules a day",
-            "m1": "yes",
-            "m2": "yes",
-            "m3": "no",
-            "m4": "no"
-          }
-        },
-        "r7": {
-          "type": "row",
-          "settings": {
-            "claim": "All 19 ingredients for £2 a day",
-            "m1": "yes",
-            "m2": "no",
-            "m3": "no",
-            "m4": "no"
-          }
-        },
-        "r8": {
-          "type": "row",
-          "settings": {
-            "claim": "Every dose declared on the label",
-            "m1": "yes",
-            "m2": "dash",
-            "m3": "dash",
-            "m4": "dash"
-          }
-        },
-        "r9": {
-          "type": "row",
-          "settings": {
-            "claim": "Money back for 90 days",
-            "m1": "yes",
-            "m2": "dash",
-            "m3": "dash",
-            "m4": "no"
-          }
-        },
-        "r10": {
-          "type": "row",
-          "settings": {
-            "claim": "Free creatine (worth £30) in your first box",
-            "m1": "yes",
-            "m2": "dash",
-            "m3": "dash",
-            "m4": "dash"
+            "heading": "",
+            "rows": "| MUTO | Multivitamin | Greens powder | Collagen or joint capsules\nBuilt for | What you need after 35: five jobs | The basics | The basics | One area\nNR, for NAD+ | ✓ 300mg | Not usually included | Not usually included | Not usually included\nActive (methylated) B vitamins | ✓ | Varies: check the label | Varies: check the label | Not usually included\nVitamin D3 with K2 | ✓ 2,000 IU + 100µg | Varies: check the label | Varies: check the label | Not usually included\nZinc and copper, dosed as a pair | ✓ 15mg + 1mg | Varies: check the label | Varies: check the label | Not usually included\nEvery dose on the label | ✓ All 19 | Varies: blends are allowed | Varies: blends are allowed | Varies\nEvery batch third-party tested | ✓ | Not required by law | Not required by law | Not required by law\nScientists with names | ✓ PhD founder + six-member board | Varies | Varies | Varies\n90-day money-back guarantee | ✓ | Varies | Varies | Varies\nHow many pots | One jar | One of several | One of several | One of several",
+            "highlight": 2,
+            "note": "Comparisons are by category, not brand, and products vary. Hold any label up against ours. Multivitamins, greens and collagen do the job they were built for; MUTO was built for a different one.",
+            "fold": false
           }
         }
       },
       "block_order": [
-        "r1",
-        "r2",
-        "r3",
-        "r4",
-        "r5",
-        "r6",
-        "r7",
-        "r8",
-        "r9",
-        "r10"
+        "t1"
       ],
       "settings": {
-        "heading": "One formula.\nEvery dose declared.",
-        "table_caption": "How MUTO compares",
-        "claim_label": "What we compare",
-        "density": "compact",
-        "head_gap": 40,
-        "claim_width": 562,
-        "col_pitch": 160,
-        "panel_width": 120,
-        "col_1": "MUTO",
-        "col_1_logo": true,
-        "col_2": "NAD+ alone",
-        "col_3": "Lots of pills",
-        "col_4": "NAD+ drips",
-        "fit": "nad",
-        "space_top": 70,
-        "space_bottom": 70
+        "anchor": "compare",
+        "number": "",
+        "label": "MUTO vs the usual",
+        "heading": "What you’ve been taking vs what you actually need.",
+        "intro": "<p>Most people in their 40s and 50s are taking some mix of these. Here’s how they compare.</p>",
+        "art": "none",
+        "art_beside": false,
+        "takeaway": "",
+        "line": "",
+        "cta_label": "",
+        "cta_link": "",
+        "small": "",
+        "tint": false,
+        "band": "mint",
+        "space_top": 96,
+        "space_bottom": 96
       }
     },
     "faq": {
@@ -1725,7 +1626,7 @@
             "stat": "Every batch",
             "title": "Third-party tested",
             "text": "<p>Every batch is tested by an independent lab for identity, potency, heavy metals and microbes before it’s released.</p>",
-            "link_label": "View the certificates",
+            "link_label": "View third-party testing results",
             "link": "#test-results",
             "no_link_note": "Certificates of analysis on request"
           }
@@ -2018,48 +1919,14 @@
     },
     "founder": {
       "type": "muto-crea-founder",
-      "blocks": {
-        "f1": {
-          "type": "fact",
-          "settings": {
-            "label": "Founder",
-            "value": "Dr Richie Barclay"
-          }
-        },
-        "f2": {
-          "type": "fact",
-          "settings": {
-            "label": "Training",
-            "value": "PhD, cellular biology and nutrition"
-          }
-        },
-        "f3": {
-          "type": "fact",
-          "settings": {
-            "label": "Before MUTO",
-            "value": "Cricketer"
-          }
-        },
-        "f4": {
-          "type": "fact",
-          "settings": {
-            "label": "Reviewed by",
-            "value": "A Scientific Advisory Board of 6 doctors and scientists"
-          }
-        }
-      },
-      "block_order": [
-        "f1",
-        "f2",
-        "f3",
-        "f4"
-      ],
+      "blocks": {},
+      "block_order": [],
       "settings": {
         "eyebrow": "Our founder",
         "heading": "Built by a doctor\nwho wanted proof.",
-        "text": "<p>Supplements are a loosely policed industry. Doses hide in proprietary blends, and claims often go unchecked.</p><p>Dr Richie Barclay, a cell biologist with a PhD in cellular biology and nutrition, built MUTO to bring the rigour of the lab to it: every dose on the label, every batch tested by an outside lab, and a board of doctors and scientists who review the formula.</p>",
+        "text": "<p>Richie Barclay is a cell biologist, with a PhD in cellular biology and nutrition, and a former cricketer.</p><p>He started MUTO after years of watching supplements sell on claims nobody had checked, with the doses hidden in blends. So MUTO does it the other way: every dose is on the label, every batch goes to an outside lab, and six doctors and scientists review the formula.</p>",
         "quote": "I built MUTO because I was tired of supplements that ask you to take them on trust.",
-        "quote_by": "Dr Richie Barclay, PhD · Founder",
+        "quote_by": "Dr Richie Barclay, PhD, founder",
         "link_label": "Got a question? Email Richie",
         "link": "mailto:hello@mutolongevity.com",
         "image": "shopify://shop_images/about-founder.jpg",
@@ -2074,7 +1941,7 @@
     "bands": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "<style>\n/* Flat, alternating band grounds for this page (no gradient washes). Built by make_trust.py. */\n[id$=\"__statement\"],[id$=\"__statement\"] > .mc,[id$=\"__statement\"] > .mh{background:#ffffff!important}\n[id$=\"__results\"],[id$=\"__results\"] > .mc,[id$=\"__results\"] > .mh{background:#f2f2f2!important}\n[id$=\"__quotes\"],[id$=\"__quotes\"] > .mc,[id$=\"__quotes\"] > .mh{background:#ffffff!important}\n[id$=\"__founder\"],[id$=\"__founder\"] > .mc,[id$=\"__founder\"] > .mh{background:#f2f2f2!important}\n[id$=\"__problem\"],[id$=\"__problem\"] > .mc,[id$=\"__problem\"] > .mh{background:#ffffff!important}\n[id$=\"__benefits\"],[id$=\"__benefits\"] > .mc,[id$=\"__benefits\"] > .mh{background:#f2f2f2!important}\n[id$=\"__steps\"],[id$=\"__steps\"] > .mc,[id$=\"__steps\"] > .mh{background:#ffffff!important}\n[id$=\"__guarantee\"],[id$=\"__guarantee\"] > .mc,[id$=\"__guarantee\"] > .mh{background:#f2f2f2!important}\n[id$=\"__compare\"],[id$=\"__compare\"] > .mc,[id$=\"__compare\"] > .mh{background:#ffffff!important}\n[id$=\"__faq\"],[id$=\"__faq\"] > .mc,[id$=\"__faq\"] > .mh{background:#f2f2f2!important}\n</style>",
+        "custom_liquid": "<style>\n/* Flat, alternating band grounds for this page (no gradient washes). Built by make_trust.py. */\n[id$=\"__statement\"],[id$=\"__statement\"] > .mc,[id$=\"__statement\"] > .mh{background:#ffffff!important}\n[id$=\"__board\"],[id$=\"__board\"] > .mc,[id$=\"__board\"] > .mh{background:#f2f2f2!important}\n[id$=\"__standards\"],[id$=\"__standards\"] > .mc,[id$=\"__standards\"] > .mh{background:#ffffff!important}\n[id$=\"__results\"],[id$=\"__results\"] > .mc,[id$=\"__results\"] > .mh{background:#f2f2f2!important}\n[id$=\"__quotes\"],[id$=\"__quotes\"] > .mc,[id$=\"__quotes\"] > .mh{background:#ffffff!important}\n[id$=\"__founder\"],[id$=\"__founder\"] > .mc,[id$=\"__founder\"] > .mh{background:#f2f2f2!important}\n[id$=\"__problem\"],[id$=\"__problem\"] > .mc,[id$=\"__problem\"] > .mh{background:#ffffff!important}\n[id$=\"__benefits\"],[id$=\"__benefits\"] > .mc,[id$=\"__benefits\"] > .mh{background:#f2f2f2!important}\n[id$=\"__steps\"],[id$=\"__steps\"] > .mc,[id$=\"__steps\"] > .mh{background:#ffffff!important}\n[id$=\"__guarantee\"],[id$=\"__guarantee\"] > .mc,[id$=\"__guarantee\"] > .mh{background:#f2f2f2!important}\n[id$=\"__faq\"],[id$=\"__faq\"] > .mc,[id$=\"__faq\"] > .mh{background:#f2f2f2!important}\n</style>",
         "color_scheme": "scheme-1",
         "padding_top": 0,
         "padding_bottom": 0

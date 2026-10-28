@@ -6,7 +6,7 @@ The buy box is not touched. Rebuild with `python3 make_trust.py`.
 
 ## The main page is now `muto-nad-v2` (27 Oct)
 
-The main product moved to template `product.muto-nad-v2` on 27 Oct. The buy box in this build is taken **verbatim from that live template**: the `buy` section (`muto-pdp-v2-buy`), its `easy_read` styling block (incl. the Black Friday box), the sticky bar, the `#scientific-board` anchor and the `#test-results` certificate panel (`muto-test-results`). `make_trust.py` copies them from `live-snapshot-28oct/templates__product.muto-nad-v2.json`.
+The main product moved to template `product.muto-nad-v2` on 27 Oct. The buy box in this build is taken **verbatim from that live template**: the `buy` section (`muto-pdp-v2-buy`), its `easy_read` styling block (incl. the Black Friday box), the sticky bar, the `#scientific-board` anchor, the `#test-results` certificate panel (`muto-test-results`) and the "MUTO vs the usual" comparison (`compare`, section `muto-chapter`). `make_trust.py` copies them from `live-snapshot-28oct/templates__product.muto-nad-v2.json`.
 
 ## Files to copy into the live theme (in this order)
 

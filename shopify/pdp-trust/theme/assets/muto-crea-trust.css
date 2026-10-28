@@ -101,9 +101,9 @@ html .mc .mc__fdr-caption{margin:10px 0 0}
 html .mc .mc__fdr-eyebrow{display:block;margin:0 0 16px;font-size:14px;letter-spacing:.07em}
 html .mc .mc__fdr-text{margin:22px 0 0;font-size:17px;line-height:1.42;color:rgba(36,34,35,.8);max-width:560px}
 html .mc .mc__fdr-text > * + *{margin-top:12px}
-html .mc .mc__fdr-quote{margin:28px 0 0;padding:22px 24px;max-width:560px;border-radius:24px;background:var(--mt-sage);box-shadow:inset 0 0 0 1px rgba(249,249,249,.45)}
-html .mc .mc__fdr-quote blockquote{margin:0;padding:0;font-size:clamp(20px,1.8vw,24px);line-height:1.25;font-weight:500}
-html .mc .mc__fdr-quote figcaption{margin:14px 0 0}
+html .mc .mc__fdr-quote{margin:36px 0 0;padding:28px 0 0;max-width:560px;border-top:1px solid var(--mt-hair)}
+html .mc .mc__fdr-quote-text{margin:0;font-family:var(--mc-font);font-style:normal;font-weight:500;font-size:clamp(22px,2vw,28px);line-height:1.22;letter-spacing:-.01em;color:var(--mt-ink)}
+html .mc .mc__fdr-sign{margin:16px 0 0;font-family:var(--mc-mono);font-size:14px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--mt-muted)}
 html .mc .mc__fdr-facts{margin:26px 0 0;padding:0;border-top:1px solid var(--mt-hair);max-width:560px}
 html .mc .mc__fdr-fact{display:grid;grid-template-columns:130px minmax(0,1fr);gap:16px;margin:0;padding:12px 0;border-bottom:1px solid var(--mt-hair)}
 html .mc .mc__fdr-fact dt{margin:0;padding-top:3px}
@@ -122,3 +122,10 @@ html .mc--rev .mc__rev-rail{display:grid!important}
 html .mc--rev .mc__rev-card{display:flex!important;transform:none!important}
 /* Dawn's base.css sets blockquotes in italic with a left rule. */
 html .mc .mc__rev-quote{font-style:normal;border:0}
+
+/* The certificate button on standards card 01: the test-results section's own .mtr-btn, sized to the card */
+html .mc .mc__std-item .mc__std-cert{align-self:flex-start;margin-top:auto;height:48px;padding:0 18px;font-size:15px;text-decoration:none}
+html .mc .mc__std-item .mc__std-text + .mc__std-cert{margin-top:24px}
+@media (min-width:1100px){html .mc .mc__std-item .mc__std-text + .mc__std-cert{margin-top:auto}}
+html .mc .mc__std-item .mc__std-cert{width:100%;justify-content:center;gap:8px;padding:0 12px;font-size:14px;white-space:nowrap}
+html .mc .mc__std-item .mc__std-cert .mtr-btn__tick{flex:0 0 20px}

@@ -15,7 +15,7 @@ SNAP = os.path.join(HERE, "live-snapshot-28oct", "templates__product.muto-nad-45
 # the easy_read block that styles it (incl. the Black Friday box), the sticky bar, the
 # #scientific-board anchor and the #test-results certificate panel are taken from it verbatim.
 V2 = os.path.join(HERE, "live-snapshot-28oct", "templates__product.muto-nad-v2.json")
-FROM_V2 = ["buy", "easy_read", "sticky", "board_anchor", "tests"]
+FROM_V2 = ["buy", "easy_read", "sticky", "board_anchor", "tests", "compare"]  # compare = "MUTO vs the usual"
 OUT = os.path.join(HERE, "theme", "templates", "product.muto-nad-45.json")
 CDN = "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/"
 
@@ -31,7 +31,7 @@ STANDARDS_ITEMS = [
     ("tested", "Every batch", "Third-party tested",
      "<p>Every batch is tested by an independent lab for identity, potency, heavy metals and microbes before it’s released.</p>",
      # Set CERTS_URL to the page where the certificates are published.
-     "View the certificates", "", "Certificates of analysis on request"),
+     "View third-party testing results", "", "Certificates of analysis on request"),
     ("dose", "300mg NR", "Full, declared doses",
      "<p>Nicotinamide riboside at 300mg, the maximum daily amount authorised in Great Britain. All 19 ingredients are on the label with their doses. No proprietary blends.</p>",
      "", "", ""),
@@ -104,21 +104,17 @@ def reviews():
 
 # --- New: founder ------------------------------------------------------------
 FOUNDER = {"type": "muto-crea-founder",
-    "blocks": {
-        "f1": {"type": "fact", "settings": {"label": "Founder", "value": "Dr Richie Barclay"}},
-        "f2": {"type": "fact", "settings": {"label": "Training", "value": "PhD, cellular biology and nutrition"}},
-        "f3": {"type": "fact", "settings": {"label": "Before MUTO", "value": "Cricketer"}},
-        "f4": {"type": "fact", "settings": {"label": "Reviewed by", "value": "A Scientific Advisory Board of 6 doctors and scientists"}},
-    },
-    "block_order": ["f1", "f2", "f3", "f4"],
+    "blocks": {},
+    "block_order": [],
     "settings": {
         "eyebrow": "Our founder",
         "heading": "Built by a doctor\nwho wanted proof.",
-        "text": "<p>Supplements are a loosely policed industry. Doses hide in proprietary blends, and claims often go unchecked.</p>"
-                "<p>Dr Richie Barclay, a cell biologist with a PhD in cellular biology and nutrition, built MUTO to bring the rigour of the lab to it: "
-                "every dose on the label, every batch tested by an outside lab, and a board of doctors and scientists who review the formula.</p>",
+        "text": "<p>Richie Barclay is a cell biologist, with a PhD in cellular biology and nutrition, and a former cricketer.</p>"
+                "<p>He started MUTO after years of watching supplements sell on claims nobody had checked, with the doses hidden in blends. "
+                "So MUTO does it the other way: every dose is on the label, every batch goes to an outside lab, "
+                "and six doctors and scientists review the formula.</p>",
         "quote": "I built MUTO because I was tired of supplements that ask you to take them on trust.",
-        "quote_by": "Dr Richie Barclay, PhD · Founder",
+        "quote_by": "Dr Richie Barclay, PhD, founder",
         "link_label": "Got a question? Email Richie",
         "link": "mailto:hello@mutolongevity.com",
         "image": "shopify://shop_images/about-founder.jpg",
@@ -130,10 +126,18 @@ FOUNDER = {"type": "muto-crea-founder",
 
 # --- Page backgrounds: no gradient washes, alternating flat grey and white ---
 GREY, WHITE = "#f2f2f2", "#ffffff"
-BANDS = [  # section key -> ground, in page order
-    ("statement", WHITE),  # buy box keeps the live page's own plain #fafafa ("board", GREY), ("standards", WHITE),
-    ("results", GREY), ("quotes", WHITE), ("founder", GREY), ("problem", WHITE),
-    ("benefits", GREY), ("steps", WHITE), ("guarantee", GREY), ("compare", WHITE),
+BANDS = [  # section key -> ground, in page order. The buy box keeps the live page's own
+           # plain #fafafa, and "compare" keeps its live sage (#c8d2cf) band, so neither is listed.
+    ("statement", WHITE),
+    ("board", GREY),
+    ("standards", WHITE),
+    ("results", GREY),
+    ("quotes", WHITE),
+    ("founder", GREY),
+    ("problem", WHITE),
+    ("benefits", GREY),
+    ("steps", WHITE),
+    ("guarantee", GREY),
     ("faq", GREY),
 ]
 
@@ -181,14 +185,6 @@ def clinical(d):
     ]
     for k, (chip, title, text) in zip(st["block_order"], steps):
         st["blocks"][k]["settings"].update({"chip": chip, "title": title, "text": text})
-
-    c = S["compare"]
-    c["settings"]["heading"] = "One formula.\nEvery dose declared."
-    for blk in c["blocks"].values():
-        if blk["settings"].get("claim") == "Every amount on the label":
-            blk["settings"]["claim"] = "Every dose declared on the label"
-        if blk["settings"].get("claim") == "NR, the building block for NAD+":
-            blk["settings"]["claim"] = "300mg NR, the building block for NAD+"
 
     f = S["faq"]
     for blk in f["blocks"].values():
