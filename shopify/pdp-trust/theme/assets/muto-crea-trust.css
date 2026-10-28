@@ -34,12 +34,12 @@ html .mc .mc__trust-link:focus-visible,html .mc .mc__rev-btn:focus-visible,html 
   html .mc .mc__trust-note{text-align:right;max-width:360px}
 }
 
-/* Band spacing: 56px on phones, 88px from 990px, scaled by the editor's
+/* Band spacing: 40px on phones (below), 56px from 750px, 88px from 990px, scaled by the editor's
    Space above / below. */
-html .mc .mc__stm,html .mc .mc__std,html .mc .mc__rev,html .mc .mc__fdr{
+html .mc .mc__stm,html .mc .mc__std,html .mc .mc__rev,html .mc .mc__fdr,html .mc .mc__prb{
   padding-top:calc(56px*var(--mc-spt,1));padding-bottom:calc(56px*var(--mc-spb,1))}
 @media (min-width:990px){
-  html .mc .mc__stm,html .mc .mc__std,html .mc .mc__rev,html .mc .mc__fdr{
+  html .mc .mc__stm,html .mc .mc__std,html .mc .mc__rev,html .mc .mc__fdr,html .mc .mc__prb{
     padding-top:calc(88px*var(--mc-spt,1));padding-bottom:calc(88px*var(--mc-spb,1))}
 }
 
@@ -149,4 +149,58 @@ html .mc .mc__prb-src p{margin:0}
   html .mc .mc__prb-list{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:48px}
   html .mc .mc__prb-item{min-height:340px}
   html .mc .mc__prb-text{font-size:18px}
+}
+
+/* --- Phones: a smaller, tighter scale for every new band -------------------
+   Read at arm's length on a 390px screen: headings 28px, body 14-15px, mono
+   labels 11px, cards with 16-18px padding and less dead space inside. */
+@media (max-width:749px){
+  html .mc .mc__stm,html .mc .mc__std,html .mc .mc__rev,html .mc .mc__fdr,html .mc .mc__prb{
+    padding-top:calc(40px*var(--mc-spt,1));padding-bottom:calc(40px*var(--mc-spb,1))}
+  html .mc .mc__trust-top{gap:10px;margin-bottom:20px}
+  html .mc .mc__trust-note,html .mc .mc__prb-pill,html .mc .mc__fdr-eyebrow,html .mc .mc__fdr-sign{font-size:11px;margin-bottom:10px}
+  html .mc .mc__trust-note{margin-bottom:0}
+  html .mc .mc__trust-label{font-size:10.5px}
+  html .mc .mc__trust-tag{padding:4px 9px;font-size:10px;letter-spacing:.06em;gap:5px}
+  html .mc .mc__trust-spark{width:7px;height:7px}
+  /* Statement */
+  html .mc .mc__stm-head{font-size:32px}
+  html .mc .mc__stm-sub{margin-top:12px;font-size:15px;line-height:1.35}
+  html .mc .mc__stm-note{margin-top:16px}
+  /* Problem: two by two, as compact tiles */
+  html .mc .mc__prb-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:20px}
+  html .mc .mc__prb-item{padding:14px 14px 16px;border-radius:16px}
+  html .mc .mc__prb-item .mc__std-meta{margin:0}
+  html .mc .mc__prb-item .mc__trust-label{display:none}
+  html .mc .mc__prb-fig{margin-top:20px;font-size:34px}
+  html .mc .mc__prb-fig::after{width:28px;height:2px;margin-top:10px}
+  html .mc .mc__prb-text{margin-top:10px;font-size:13px;line-height:1.3}
+  html .mc .mc__prb-src{margin-top:16px;font-size:9.5px;line-height:1.5}
+  /* Standards */
+  html .mc .mc__std-list{gap:8px}
+  html .mc .mc__std-item{padding:18px;border-radius:18px}
+  html .mc .mc__std-meta{margin-bottom:18px}
+  html .mc .mc__std-title{margin-bottom:8px;font-size:19px}
+  html .mc .mc__std-text{font-size:14px;line-height:1.4}
+  html .mc .mc__std-item .mc__std-cert{height:44px;font-size:13px}
+  html .mc .mc__std-item .mc__std-text + .mc__std-cert{margin-top:16px}
+  /* Reviews */
+  html .mc .mc__rev-rail{grid-auto-columns:80%;column-gap:8px}
+  html .mc .mc__rev-card{gap:10px;padding:18px;min-height:0;border-radius:18px}
+  html .mc .mc__rev-quote{font-size:16px;line-height:1.35}
+  html .mc .mc__rev-name{font-size:15px}
+  html .mc .mc__rev-who{padding-top:10px}
+  html .mc .mc__rev-summary{font-size:14px}
+  html .mc .mc__rev-btn{width:38px;height:38px;font-size:15px}
+  html .mc .mc__rev-foot{font-size:12px}
+  /* Founder */
+  html .mc .mc__fdr{gap:20px}
+  html .mc .mc__fdr-frame{aspect-ratio:1/1;border-radius:16px}
+  html .mc .mc__fdr-text{margin-top:14px;font-size:15px;line-height:1.45}
+  html .mc .mc__fdr-quote{margin-top:24px;padding-top:18px}
+  html .mc .mc__fdr-quote-text{font-size:19px}
+  html .mc .mc__fdr-facts{margin-top:18px}
+  html .mc .mc__fdr-fact{grid-template-columns:96px minmax(0,1fr);gap:12px;padding:10px 0}
+  html .mc .mc__fdr-fact dd{font-size:14px}
+  html .mc .mc__trust-link{margin-top:16px;font-size:15px}
 }

@@ -99,6 +99,7 @@ Also changed from `muto-nad-v2`:
 - **Delivery line** under the button: "● Ready to ship — arrives by **Thu 29th Oct** | [Royal Mail logo] Tracked 24hr delivery". The date is the next calendar day in UK time, or the day after from the **9pm cut-off**, set by a script that updates while the page is open. Before the script runs it says "arrives tomorrow". The logo is `theme/assets/royal-mail-logo.png`, embedded in the template (nothing to upload).
 - **"How it helps" list** in the buy box is hidden on phones as well as desktop.
 - **Phones:** the billing line under each plan name is smaller (12px) so it fits, and the delivery line is centred.
+- **Phones, whole page:** a smaller, tighter scale below 750px. Headings 28px (the statement 32px), lines under headings 15px, body 14-15px, smaller cards with less padding, benefit cards narrower, problem stats two by two, section spacing 40px. The new bands' sizes are in `muto-crea-trust.css`. The live sections' sizes are in the template's `head_styles` block, so they only change on this page.
 - **No sticky add-to-cart bar.** The `sticky` section isn't in this template, so nothing slides in at the top or bottom of the page as you scroll.
 - **Backgrounds:** no gradient washes. Almost every band is flat white. Brand sage grey (#C8D2CF) is used only on "What our community say" and the comparison (as on live). "How to take it" and the ingredient library are white too. Set in the `head_styles` block at the top of the template.
 

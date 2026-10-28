@@ -379,6 +379,39 @@ def bands_css():
                  '[id$="__results"] .mh__res-rail::-webkit-scrollbar-thumb{background:rgba(36,34,35,.3);border-radius:3px}'
                  '[id$="__results"] .mh__res-card{flex:0 0 calc((100% - 60px)/5.5)!important;scroll-snap-align:start}'
                  '[id$="__results"] .mh__res-rail.is-dragging{cursor:grabbing;scroll-snap-type:none;user-select:none}}')
+    # Phones: one smaller, tighter scale for the live sections too, matching the new bands
+    # (muto-crea-trust.css). Headings 28px, ledes 15px, body 14px, card titles 17-20px, smaller cards.
+    rules.append('@media screen and (max-width:749px){'
+                 'html body .mc__h2,html body .mh__h2,html body .mch__h{font-size:28px!important;line-height:.95!important}'
+                 'html body .mc .mc__stm-head{font-size:32px!important}'
+                 'html body .mbc__lede,html body .mtl__lede,html body .mil__lede,html body .mh__lede,html body .mch__intro{font-size:15px!important;line-height:1.4!important}'
+                 'html body .mbc__eyebrow,html body .mtl__eyebrow,html body .mil__eyebrow,html body .mh__board-note,html body .mh__res-note,html body .mh__mono{font-size:11px!important}'
+                 # benefit cards: narrower, shorter, smaller type on the glass panel
+                 'html body .mbc__card{flex-basis:66%!important;aspect-ratio:4/5!important}'
+                 'html body .mbc__panel{padding:16px 18px 18px!important}'
+                 'html body .mbc__t{font-size:20px!important}html body .mbc__x{font-size:13.5px!important;line-height:1.35!important}'
+                 'html body .mbc__btn{height:46px!important;padding:0 20px!important;font-size:14px!important}'
+                 'html body .mbc__arrow{width:46px!important;height:46px!important}'
+                 # ingredient library
+                 'html body .mil__filter{padding:10px 16px!important;font-size:14px!important}'
+                 'html body .mil__name{font-size:17px!important}html body .mil__dose{font-size:13px!important}'
+                 'html body .mil__cat-text{font-size:20px!important}html body .mil__cat-btn{min-height:46px!important;font-size:15px!important}'
+                 'html body .mil__tag{font-size:10px!important;padding:7px 9px!important}'
+                 # timeline
+                 'html body .mtl__t{font-size:18px!important}html body .mtl__x{font-size:14px!important;line-height:1.4!important}'
+                 'html body .mtl__pill{height:28px!important;font-size:11.5px!important}'
+                 # comparison and how to take it (muto-chapter)
+                 'html body .mch__bt{font-size:18px!important}html body .mch__bx{font-size:14.5px!important}'
+                 'html body .mch__q{font-size:18px!important}html body .mch__table-h{font-size:18px!important}'
+                 'html body .mch__t{font-size:13.5px!important}html body .mch th{font-size:13px!important}'
+                 # board and videos (muto-home)
+                 'html body .mh__member-name{font-size:16px!important}html body .mh__member-role{font-size:12px!important}'
+                 'html body .mh__res-name{font-size:15px!important}'
+                 # FAQs, section menu
+                 'html body .mc__faq{padding-top:40px!important;padding-bottom:40px!important}'
+                 'html body .mc__faq-list{margin-top:20px!important}html body .mc__faq-body{font-size:14.5px!important}'
+                 'html body .msn__nav ol a{font-size:13px!important}'
+                 '}')
     css = "\n".join(rules)
     return {"type": "custom-liquid", "settings": {
         "custom_liquid": "<style>\n/* Flat, alternating band grounds for this page (no gradient washes). Built by make_trust.py. */\n"
