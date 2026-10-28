@@ -280,6 +280,18 @@ DRAG_JS = """<script>
 </script>"""
 
 
+def rerunnable(js):
+    """Wrap an injector so it runs again whenever Shopify re-draws a section. The theme editor
+    replaces the buy box's markup each time it is selected or edited, which wiped the delivery
+    line, the stats and the collaboration line; each injector is guarded, so re-running is safe."""
+    head, tail = "<script>\n(function () {", "})();\n</script>"
+    assert js.startswith(head) and js.endswith(tail), js[:40]
+    body = js[len(head):-len(tail)]
+    return (head + "\n  function run() {" + body + "  }\n  run();\n"
+            "  document.addEventListener('shopify:section:load', function () { setTimeout(run, 60); });\n"
+            + tail)
+
+
 def hoist_styles(d, keys=("easy_read", "bands")):
     """Move the <style> of the page's Custom Liquid blocks into one block at the top of the page.
 
@@ -327,7 +339,7 @@ def bands_css():
             # On the sage band the sage glass cards (reviews) turn white so they don't vanish into it
             rules.append(f"{w} .mc{{--mt-sage:rgba(255,255,255,.6)}}")
     # Small line above "Benefits built on published science." in caps, like the other bands' labels
-    rules.append('[id$="__benefits"] .mbc__eyebrow{text-transform:uppercase!important;letter-spacing:.12em!important}')
+    rules.append('[id$="__benefits"] .mbc__eyebrow{text-transform:uppercase!important;letter-spacing:.12em!important;line-height:1.2!important;margin-bottom:-8px!important}')  # grid row gap 24 - 8 = 16px to the heading, as the problem band
     # Subhead under the title: fill each line before breaking (the live rule balances it into two short
     # lines), medium weight.
     rules.append('html body .mc .mc-subhead,html body .mc .mc__buy-copy > .mc-subhead{text-wrap:wrap!important;font-weight:500!important}')
@@ -415,7 +427,7 @@ def bands_css():
     css = "\n".join(rules)
     return {"type": "custom-liquid", "settings": {
         "custom_liquid": "<style>\n/* Flat, alternating band grounds for this page (no gradient washes). Built by make_trust.py. */\n"
-                         + css + "\n</style>" + DRAG_JS + SHIP_JS + STATS_JS + COLLAB_JS,
+                         + css + "\n</style>" + "".join(rerunnable(j) for j in (DRAG_JS, SHIP_JS, STATS_JS, COLLAB_JS)),
         "color_scheme": "scheme-1", "padding_top": 0, "padding_bottom": 0}}
 
 
