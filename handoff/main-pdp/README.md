@@ -100,7 +100,7 @@ Also changed from `muto-nad-v2`:
 - **"How it helps" list** in the buy box is hidden on phones as well as desktop.
 - **Phones:** the billing line under each plan name is smaller (12px) so it fits, and the delivery line is centred.
 - **No sticky add-to-cart bar.** The `sticky` section isn't in this template, so nothing slides in at the top or bottom of the page as you scroll.
-- **Backgrounds:** no gradient washes. The bands alternate flat brand sage grey (#C8D2CF) and white, set in the `head_styles` block at the top of the template.
+- **Backgrounds:** no gradient washes. Almost every band is flat white. Brand sage grey (#C8D2CF) is used only on "What our community say" and the comparison (as on live). "How to take it" and the ingredient library are white too. Set in the `head_styles` block at the top of the template.
 
 ## How it's built
 

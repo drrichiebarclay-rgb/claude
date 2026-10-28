@@ -149,23 +149,24 @@ FOUNDER = {"type": "muto-crea-founder",
         "caption": "",
         "space_top": 100, "space_bottom": 100}}
 
-# --- Page backgrounds: no gradient washes, alternating flat grey and white ---
+# --- Page backgrounds: no gradient washes; flat white, with the sage grey used rarely ---
 GREY, WHITE = "#c8d2cf", "#ffffff"   # grey = brand sage #C8D2CF
 BANDS = [  # section key -> ground, in page order. The buy box and the nav keep the live page's own
-           # #fafafa; "compare" and "howto" keep their live sage (#c8d2cf) bands, so none of those is listed.
+           # #fafafa and "compare" keeps its live sage band. Mostly white; grey used rarely (28 Oct).
     ("statement", WHITE),
     ("problem", WHITE),
-    ("benefits", GREY),
+    ("benefits", WHITE),
     ("board", WHITE),
     ("standards", WHITE),
-    ("library", GREY),
+    ("library", WHITE),
     ("results", WHITE),
     ("quotes", GREY),
     ("founder", WHITE),
-    ("timeline", GREY),
+    ("timeline", WHITE),
+    ("howto", WHITE),
     ("faq", WHITE),
 ]
-REVIEWS_GROUND = GREY   # the REVIEWS.io widget band (its own colour setting)
+REVIEWS_GROUND = WHITE  # the REVIEWS.io widget band (its own colour setting)
 
 # A line straight after the subhead (which the easy_read script adds; this runs after it).
 COLLAB = "In collaboration with seven leading scientists from world-leading research institutions, including four universities in the UK and Australia."
@@ -318,10 +319,11 @@ def bands_css():
     for key, ground in BANDS:
         w = f'[id$="__{key}"]'
         rules.append(f"{w},{w} > .mc,{w} > .mh,{w} > .mil{{background:{ground}!important}}")
+        # Masks that use the page ground (e.g. the timeline dots) follow the band
+        rules.append(f"{w}{{--mc-ground:{ground}}}{w} .mc{{--mc-ground:{ground}}}")
         if ground == GREY:
-            # On the sage bands: masks that use the page ground follow the band, and the sage glass
-            # cards (reviews) turn white so they don't vanish into a sage background
-            rules.append(f"{w}{{--mc-ground:{GREY}}}{w} .mc{{--mc-ground:{GREY};--mt-sage:rgba(255,255,255,.6)}}")
+            # On the sage band the sage glass cards (reviews) turn white so they don't vanish into it
+            rules.append(f"{w} .mc{{--mt-sage:rgba(255,255,255,.6)}}")
     # Small line above "Benefits built on published science." in caps, like the other bands' labels
     rules.append('[id$="__benefits"] .mbc__eyebrow{text-transform:uppercase!important;letter-spacing:.12em!important}')
     # Subhead under the title: fill each line before breaking (the live rule balances it into two short
@@ -386,6 +388,8 @@ def bands_css():
 def clinical(d):
     S = d["sections"]
 
+    S["howto"]["settings"]["band"] = "ground"   # white band (bands_css), not the live sage
+    S["library"]["settings"]["bg"] = "#ffffff"
     b = S["benefits"]["settings"]          # the live "Five jobs" cards, reframed for 40s and 50s
     b["eyebrow"] = "Five jobs. One daily jar."
     b["heading"] = "Benefits built on\npublished science."
