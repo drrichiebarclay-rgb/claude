@@ -96,7 +96,7 @@ def reviews():
         order.append(k)
     return {"type": "muto-crea-reviews", "blocks": blocks, "block_order": order, "settings": {
         "eyebrow": "Verified customers",
-        "heading": "Selected\nreviews.",
+        "heading": "What our\ncommunity say.",
         "summary": "4.8 from 103 reviews",  # REVIEWS.io, 28 Oct 2026 (4.83 average): update as it moves
         "interval": 6, "min_age": 30, "require_age": False,
         "foot": "Real reviews from verified customers, in their own words. Everyone is different.",

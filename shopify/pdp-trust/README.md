@@ -25,7 +25,7 @@ All four sections are new names, so nothing on live is overwritten except the te
 | 3 | Scientific Advisory Board, now the **compact row** (all six across on desktop) | retitled |
 | 4 | **Our standards**: four sage cards (third-party tested, 300mg NR + declared doses, advisory board, UK made GMP · ISO) | new |
 | 5 | Customer videos, 9:16 (existing "results" band) | retitled "Don’t take our word for it." |
-| 6 | **Rotating reviews** ("Selected reviews."): up to 20 hand-picked reviews, name + age, auto-advance every 6s | new |
+| 6 | **Rotating reviews** ("What our community say."): up to 20 hand-picked reviews, name + age, auto-advance every 6s | new |
 | 7 | **Founder**: Dr Richie Barclay, PhD | new |
 | 8+ | Problem, benefits, 90-day steps, guarantee, compare, FAQ, REVIEWS.io widget | copy tightened |
 
