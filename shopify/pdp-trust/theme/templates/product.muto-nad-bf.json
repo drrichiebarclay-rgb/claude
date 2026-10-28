@@ -909,6 +909,42 @@
             "tag": "",
             "detail": ""
           }
+        },
+        "r7": {
+          "type": "result",
+          "settings": {
+            "image": "shopify://shop_images/cover-1.png",
+            "image_fallback": "",
+            "image_alt": "A MUTO customer talking to camera",
+            "image_position": "",
+            "video": "shopify://files/videos/Muto 1.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "result": "",
+            "quote": "",
+            "name": "",
+            "tag": "",
+            "detail": ""
+          }
+        },
+        "r8": {
+          "type": "result",
+          "settings": {
+            "image": "shopify://shop_images/cover-2.png",
+            "image_fallback": "",
+            "image_alt": "A MUTO customer talking to camera",
+            "image_position": "",
+            "video": "shopify://files/videos/Muto 2.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "result": "",
+            "quote": "",
+            "name": "",
+            "tag": "",
+            "detail": ""
+          }
         }
       },
       "block_order": [
@@ -917,7 +953,9 @@
         "r3",
         "r4",
         "r5",
-        "result_NmUnkJ"
+        "result_NmUnkJ",
+        "r7",
+        "r8"
       ],
       "settings": {
         "heading": "Don’t take\nour word for it.",
@@ -1937,7 +1975,7 @@
     "bands": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "<style>\n/* Flat, alternating band grounds for this page (no gradient washes). Built by make_trust.py. */\n[id$=\"__statement\"],[id$=\"__statement\"] > .mc,[id$=\"__statement\"] > .mh{background:#ffffff!important}\n[id$=\"__board\"],[id$=\"__board\"] > .mc,[id$=\"__board\"] > .mh{background:#ffffff!important}\n[id$=\"__standards\"],[id$=\"__standards\"] > .mc,[id$=\"__standards\"] > .mh{background:#ffffff!important}\n[id$=\"__results\"],[id$=\"__results\"] > .mc,[id$=\"__results\"] > .mh{background:#f2f2f2!important}\n[id$=\"__quotes\"],[id$=\"__quotes\"] > .mc,[id$=\"__quotes\"] > .mh{background:#ffffff!important}\n[id$=\"__founder\"],[id$=\"__founder\"] > .mc,[id$=\"__founder\"] > .mh{background:#f2f2f2!important}\n[id$=\"__problem\"],[id$=\"__problem\"] > .mc,[id$=\"__problem\"] > .mh{background:#ffffff!important}\n[id$=\"__benefits\"],[id$=\"__benefits\"] > .mc,[id$=\"__benefits\"] > .mh{background:#f2f2f2!important}\n[id$=\"__steps\"],[id$=\"__steps\"] > .mc,[id$=\"__steps\"] > .mh{background:#ffffff!important}\n[id$=\"__guarantee\"],[id$=\"__guarantee\"] > .mc,[id$=\"__guarantee\"] > .mh{background:#f2f2f2!important}\n[id$=\"__faq\"],[id$=\"__faq\"] > .mc,[id$=\"__faq\"] > .mh{background:#f2f2f2!important}\n</style>",
+        "custom_liquid": "<style>\n/* Flat, alternating band grounds for this page (no gradient washes). Built by make_trust.py. */\n[id$=\"__statement\"],[id$=\"__statement\"] > .mc,[id$=\"__statement\"] > .mh{background:#ffffff!important}\n[id$=\"__board\"],[id$=\"__board\"] > .mc,[id$=\"__board\"] > .mh{background:#ffffff!important}\n[id$=\"__standards\"],[id$=\"__standards\"] > .mc,[id$=\"__standards\"] > .mh{background:#ffffff!important}\n[id$=\"__results\"],[id$=\"__results\"] > .mc,[id$=\"__results\"] > .mh{background:#f2f2f2!important}\n[id$=\"__quotes\"],[id$=\"__quotes\"] > .mc,[id$=\"__quotes\"] > .mh{background:#ffffff!important}\n[id$=\"__founder\"],[id$=\"__founder\"] > .mc,[id$=\"__founder\"] > .mh{background:#f2f2f2!important}\n[id$=\"__problem\"],[id$=\"__problem\"] > .mc,[id$=\"__problem\"] > .mh{background:#ffffff!important}\n[id$=\"__benefits\"],[id$=\"__benefits\"] > .mc,[id$=\"__benefits\"] > .mh{background:#f2f2f2!important}\n[id$=\"__steps\"],[id$=\"__steps\"] > .mc,[id$=\"__steps\"] > .mh{background:#ffffff!important}\n[id$=\"__guarantee\"],[id$=\"__guarantee\"] > .mc,[id$=\"__guarantee\"] > .mh{background:#f2f2f2!important}\n[id$=\"__faq\"],[id$=\"__faq\"] > .mc,[id$=\"__faq\"] > .mh{background:#f2f2f2!important}\n@media screen and (min-width:990px){[id$=\"__results\"] .mh__res-rail{display:flex!important;overflow-x:auto!important;scroll-snap-type:x proximity;scrollbar-width:thin;padding-bottom:12px!important;cursor:grab}[id$=\"__results\"] .mh__res-rail::-webkit-scrollbar{display:block;height:6px}[id$=\"__results\"] .mh__res-rail::-webkit-scrollbar-thumb{background:rgba(36,34,35,.3);border-radius:3px}[id$=\"__results\"] .mh__res-card{flex:0 0 calc((100% - 60px)/5.5)!important;scroll-snap-align:start}[id$=\"__results\"] .mh__res-rail.is-dragging{cursor:grabbing;scroll-snap-type:none;user-select:none}}\n</style><script>\n(function () {\n  var rail = document.querySelector('[id$=\"__results\"] .mh__res-rail');\n  if (!rail || rail.dataset.drag) return;\n  rail.dataset.drag = '1';\n  var down = false, moved = false, x0 = 0, s0 = 0;\n  rail.addEventListener('mousedown', function (e) { down = true; moved = false; x0 = e.pageX; s0 = rail.scrollLeft; });\n  window.addEventListener('mousemove', function (e) {\n    if (!down) return;\n    var dx = e.pageX - x0;\n    if (Math.abs(dx) > 4) { moved = true; rail.classList.add('is-dragging'); }\n    if (moved) { e.preventDefault(); rail.scrollLeft = s0 - dx; }\n  });\n  window.addEventListener('mouseup', function () { down = false; rail.classList.remove('is-dragging'); });\n  /* A drag must not also count as a click on a video's play button */\n  rail.addEventListener('click', function (e) { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);\n})();\n</script>",
         "color_scheme": "scheme-1",
         "padding_top": 0,
         "padding_bottom": 0

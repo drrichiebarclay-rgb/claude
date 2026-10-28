@@ -142,6 +142,27 @@ BANDS = [  # section key -> ground, in page order. The buy box keeps the live pa
     ("faq", GREY),
 ]
 
+# Mouse drag-to-scroll for the customer-video row on desktop (touch and trackpads scroll natively).
+DRAG_JS = """<script>
+(function () {
+  var rail = document.querySelector('[id$="__results"] .mh__res-rail');
+  if (!rail || rail.dataset.drag) return;
+  rail.dataset.drag = '1';
+  var down = false, moved = false, x0 = 0, s0 = 0;
+  rail.addEventListener('mousedown', function (e) { down = true; moved = false; x0 = e.pageX; s0 = rail.scrollLeft; });
+  window.addEventListener('mousemove', function (e) {
+    if (!down) return;
+    var dx = e.pageX - x0;
+    if (Math.abs(dx) > 4) { moved = true; rail.classList.add('is-dragging'); }
+    if (moved) { e.preventDefault(); rail.scrollLeft = s0 - dx; }
+  });
+  window.addEventListener('mouseup', function () { down = false; rail.classList.remove('is-dragging'); });
+  /* A drag must not also count as a click on a video's play button */
+  rail.addEventListener('click', function (e) { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
+})();
+</script>"""
+
+
 def bands_css():
     """A template-only style block. Each section is matched by the end of its
     Shopify wrapper id (shopify-section-template--…__<key>), so it reaches only
@@ -151,10 +172,18 @@ def bands_css():
     for key, ground in BANDS:
         w = f'[id$="__{key}"]'
         rules.append(f"{w},{w} > .mc,{w} > .mh{{background:{ground}!important}}")
+    # Customer videos: a scrolling row on desktop too (the section's own desktop layout is a fixed
+    # 6-across grid that wraps a 7th card). ~5.5 cards show so the cut-off one says "scroll".
+    rules.append('@media screen and (min-width:990px){[id$="__results"] .mh__res-rail{display:flex!important;'
+                 'overflow-x:auto!important;scroll-snap-type:x proximity;scrollbar-width:thin;padding-bottom:12px!important;cursor:grab}'
+                 '[id$="__results"] .mh__res-rail::-webkit-scrollbar{display:block;height:6px}'
+                 '[id$="__results"] .mh__res-rail::-webkit-scrollbar-thumb{background:rgba(36,34,35,.3);border-radius:3px}'
+                 '[id$="__results"] .mh__res-card{flex:0 0 calc((100% - 60px)/5.5)!important;scroll-snap-align:start}'
+                 '[id$="__results"] .mh__res-rail.is-dragging{cursor:grabbing;scroll-snap-type:none;user-select:none}}')
     css = "\n".join(rules)
     return {"type": "custom-liquid", "settings": {
         "custom_liquid": "<style>\n/* Flat, alternating band grounds for this page (no gradient washes). Built by make_trust.py. */\n"
-                         + css + "\n</style>",
+                         + css + "\n</style>" + DRAG_JS,
         "color_scheme": "scheme-1", "padding_top": 0, "padding_bottom": 0}}
 
 
@@ -166,7 +195,16 @@ def clinical(d):
     r["heading"] = "Don’t take\nour word for it."
     r["note"] = "MUTO customers, in their own words"
     r["foot"] = "Individual experiences. Everyone is different, and we can’t promise results."
-    S["results"]["settings"]["space_top"] = 70   # sits under the standards band, which brings its own space
+    S["results"]["settings"]["space_top"] = 70
+    # Two more customer videos, from the live testimonials on page.borrowed-energy (same files and covers).
+    # Names aren't recorded there: fill them in once known (a blank name shows no caption).
+    for key, video, cover in [("r7", "shopify://files/videos/Muto 1.mp4", "shopify://shop_images/cover-1.png"),
+                              ("r8", "shopify://files/videos/Muto 2.mp4", "shopify://shop_images/cover-2.png")]:
+        S["results"]["blocks"][key] = {"type": "result", "settings": {
+            "image": cover, "image_fallback": "", "image_alt": "A MUTO customer talking to camera",
+            "image_position": "", "video": video, "video_url": "", "video_link": "", "show_play": True,
+            "result": "", "quote": "", "name": "", "tag": "", "detail": ""}}
+        S["results"]["block_order"].append(key)   # sits under the standards band, which brings its own space
 
     b = S["board"]["settings"]
     b["heading"] = "Six scientists put\ntheir name to MUTO."
