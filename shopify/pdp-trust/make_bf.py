@@ -123,10 +123,12 @@ def main():
     head, d = raw[: raw.index("{")], json.loads(raw[raw.index("{"):])
     er = d["sections"]["easy_read"]["settings"]
     t = er["custom_liquid"]
+    hs = d["sections"]["head_styles"]["settings"]   # the page's styles, at the top (see make_trust.hoist_styles)
 
     # 1. styles: the white Black Friday box (the trust build has already removed the pre-sale box)
-    k = t.index("/* -2 page only:")
-    t = t[:k] + CSS + t[k:]
+    h = hs["custom_liquid"]
+    k = h.index("/* -2 page only:")
+    h = h[:k] + CSS + h[k:]
     # 2. script, before the subhead script
     k = t.index("/* Subhead under the title")
     t = t[:k] + JS + "\n" + t[k:]
@@ -134,11 +136,11 @@ def main():
     t = DATA + "\n" + t
     # 4. quarterly card: per-month price drawn by the stylesheet, and the sticky bar's copy of it
     old_q = 'label.mc__plan:nth-of-type(2) .mc__plan-prices::before{content:"£50/mo"}'
-    assert old_q in t
-    t = t.replace(old_q, 'label.mc__plan:nth-of-type(2) .mc__plan-prices::before{content:"%s"}' % Q_PER_MONTH)
+    assert old_q in h
+    h = h.replace(old_q, 'label.mc__plan:nth-of-type(2) .mc__plan-prices::before{content:"%s"}' % Q_PER_MONTH)
     old_m = 'label.mc__plan:nth-of-type(1) .mc__plan-prices::before{content:"£60/mo"}'
-    assert old_m in t
-    t = t.replace(old_m, 'label.mc__plan:nth-of-type(1) .mc__plan-prices::before{content:"%s"}' % M_PER_MONTH)
+    assert old_m in h
+    h = h.replace(old_m, 'label.mc__plan:nth-of-type(1) .mc__plan-prices::before{content:"%s"}' % M_PER_MONTH)
     old_s = "var PER_MONTH = { 1: ['£60/mo', '£70'], 2: ['£50/mo', '£70'] };"
     assert old_s in t
     t = t.replace(old_s, "var PER_MONTH = { 1: ['%s', '£70'], 2: ['%s', '£70'] };" % (M_PER_MONTH, Q_PER_MONTH))
@@ -148,6 +150,7 @@ def main():
     t = t.replace(old_h, "var SUBHEAD = %s;" % json.dumps(SUBHEAD, ensure_ascii=False))
     assert "pre-sale" not in t.lower() and "MUTO10" not in t
     er["custom_liquid"] = t
+    hs["custom_liquid"] = h
 
     q = next(b for b in d["sections"]["buy"]["blocks"].values()
              if b["type"] == "plan" and b["settings"].get("name") == "Quarterly plan")

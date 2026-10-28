@@ -84,12 +84,12 @@ In order, below the buy box:
 Also changed from `muto-nad-v2`:
 
 - **Under the buy button:** the serving line, "Not another multivitamin…" copy and the quote slider are blanked or hidden (not deleted).
-- **Backgrounds:** no gradient washes. The bands alternate flat grey (#F2F2F2) and white, set in a Custom Liquid block called `bands` at the end of the template.
+- **Backgrounds:** no gradient washes. The bands alternate flat grey (#F2F2F2) and white, set in the `head_styles` block at the top of the template.
 - **Not carried over from `muto-nad-v2`:** the "On this page" menu, "Five jobs. One daily jar.", the ingredient library, the v2 timeline and "How to take it". They stay in `muto-nad-v2` if they're wanted back.
 
 ## How it's built
 
-- **Template-only** apart from the four new sections and their stylesheet. The page-specific styles and scripts are in the `easy_read` and `bands` Custom Liquid blocks.
+- **Template-only** apart from the four new sections and their stylesheet. The page's own styles are in a Custom Liquid block called `head_styles` at the **top** of the template, so the buy box is styled from the first paint (with them at the bottom, the old design flashed on load). Its scripts stay in `easy_read` and `bands` at the bottom.
 - **Source:** `shopify/pdp-trust/make_trust.py` builds the template. Change copy there and rebuild rather than editing by hand, or tell Richie about manual edits so they aren't lost on the next rebuild.
 
 # Check after publishing

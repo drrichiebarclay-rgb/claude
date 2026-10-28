@@ -163,6 +163,25 @@ DRAG_JS = """<script>
 </script>"""
 
 
+def hoist_styles(d, keys=("easy_read", "bands")):
+    """Move the <style> of the page's Custom Liquid blocks into one block at the top of the page.
+
+    easy_read restyles the buy box and sits at the end of the template, so the browser painted the
+    buy box with the section's own defaults first and restyled it once it reached the bottom: the old
+    design flashed on load. Styles now arrive before the buy box; the scripts stay at the end, because
+    they work on elements that have to exist first."""
+    css = []
+    for key in keys:
+        st = d["sections"][key]["settings"]
+        t = st["custom_liquid"]
+        i, j = t.index("<style>"), t.index("</style>") + len("</style>")
+        css.append(t[i:j])
+        st["custom_liquid"] = t[:i] + t[j:]
+    d["sections"]["head_styles"] = {"type": "custom-liquid", "settings": {
+        "custom_liquid": "\n".join(css), "color_scheme": "scheme-1", "padding_top": 0, "padding_bottom": 0}}
+    d["order"].insert(0, "head_styles")
+
+
 def strip_presale(t):
     i = t.index("/* Black Friday pre-sale box, above the plans */")
     j = t.index("/* -2 page only:", i)
@@ -329,6 +348,7 @@ def main():
         "problem", "benefits", "steps", "guarantee", "why", "compare", "faq",
         "custom_reviews_KpXTpD", "sticky", "easy_read", "bands",
     ]
+    hoist_styles(d)
     assert sorted(d["order"]) == sorted(d["sections"]), set(d["order"]) ^ set(d["sections"])
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w") as fh:
