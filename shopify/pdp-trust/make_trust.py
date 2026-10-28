@@ -142,6 +142,43 @@ BANDS = [  # section key -> ground, in page order. The buy box keeps the live pa
     ("faq", GREY),
 ]
 
+# Rotating stats under Add to cart. Placed right after the button, inside the same wrapper, so the
+# buy column's ordering keeps it directly under the button.
+STATS = [
+    (94, "reported better recovery"),
+    (92, "reported improved energy"),
+    (93, "bounce back quicker"),
+]
+STATS_JS = """<script>
+(function () {
+  var STATS = %s;
+  var btn = document.querySelector('.mc .mc__buy-cta');
+  if (!btn || document.querySelector('.mc-stats')) return;
+  var box = document.createElement('div');
+  box.className = 'mc-stats';
+  box.innerHTML = '<span class="mc-stats__bar" aria-hidden="true"><i></i></span><p class="mc-stats__text" aria-live="polite"></p>';
+  btn.insertAdjacentElement('afterend', box);
+  var bar = box.querySelector('i'), text = box.querySelector('.mc-stats__text');
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var n = 0;
+  function show(i) {
+    var s = STATS[i];
+    text.innerHTML = '<b>' + s[0] + '%%</b> ' + s[1];
+    bar.style.width = '0';
+    if (still) { bar.style.width = s[0] + '%%'; return; }
+    requestAnimationFrame(function () { requestAnimationFrame(function () { bar.style.width = s[0] + '%%'; }); });
+  }
+  show(0);
+  setInterval(function () {
+    if (document.hidden) return;
+    n = (n + 1) %% STATS.length;
+    if (still) { show(n); return; }
+    box.classList.add('is-fading');
+    setTimeout(function () { show(n); box.classList.remove('is-fading'); }, 350);
+  }, 3500);
+})();
+</script>""" % json.dumps(STATS)
+
 # Delivery line: "Ready to ship - arrives by Thu 29th Oct", always the next calendar day in UK time,
 # rolling over at midnight while the page is open.
 SHIP_JS = """<script>
@@ -245,6 +282,17 @@ def bands_css():
                  'html body .mc .mc__buy-cta::after{content:"90-day money-back guarantee";display:block;width:fit-content;margin:5px auto 0;'
                  'padding-left:22px;font-size:14px;font-weight:500;line-height:18px;letter-spacing:0;'
                  """background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23242223' stroke-width='1.8' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M12 2.8 4.5 5.8v5.6c0 4.9 3.2 8.6 7.5 10 4.3-1.4 7.5-5.1 7.5-10V5.8z'/%3E%3Cpath d='m8.6 12 2.4 2.4 4.4-4.8'/%3E%3C/svg%3E") left center/16px 16px no-repeat}""")
+    # Rotating stats under Add to cart (built by STATS_JS)
+    rules.append('html body .mc .mc-stats{display:grid;grid-template-columns:minmax(64px,1fr) auto;align-items:center;gap:16px;'
+                 'margin:14px 0 0;padding:14px 18px;border:1.5px solid rgba(36,34,35,.12);border-radius:14px;background:#fff}'
+                 'html body .mc .mc-stats__bar{position:relative;display:block;height:12px;border-radius:6px;background:#ecebe6;overflow:visible}'
+                 'html body .mc .mc-stats__bar i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:6px;'
+                 'background:linear-gradient(90deg,#9fe0ad,#6bce7f);box-shadow:0 0 14px rgba(107,206,127,.55);transition:width .9s cubic-bezier(.2,0,.2,1)}'
+                 'html body .mc .mc-stats__text{margin:0;font-size:15px;font-weight:500;line-height:1.25;color:#242223;white-space:nowrap;transition:opacity .35s}'
+                 'html body .mc .mc-stats__text b{font-weight:700;color:#2f8a46}'
+                 'html body .mc .mc-stats.is-fading .mc-stats__text{opacity:0}'
+                 '@media (max-width:420px){html body .mc .mc-stats{gap:12px;padding:12px 14px}html body .mc .mc-stats__text{font-size:14px}}'
+                 '@media (prefers-reduced-motion:reduce){html body .mc .mc-stats__bar i,html body .mc .mc-stats__text{transition:none}}')
     # "Ready to ship - arrives by <tomorrow>" line under the button (filled in by SHIP_JS)
     rules.append('html body .mc .mpb-del{align-items:center}'
                  'html body .mc .mpb-del .mc-ship__dot{flex:0 0 10px;width:10px;height:10px;border-radius:50%;background:#6bce7f;'
@@ -264,7 +312,7 @@ def bands_css():
     css = "\n".join(rules)
     return {"type": "custom-liquid", "settings": {
         "custom_liquid": "<style>\n/* Flat, alternating band grounds for this page (no gradient washes). Built by make_trust.py. */\n"
-                         + css + "\n</style>" + DRAG_JS + SHIP_JS,
+                         + css + "\n</style>" + DRAG_JS + SHIP_JS + STATS_JS,
         "color_scheme": "scheme-1", "padding_top": 0, "padding_bottom": 0}}
 
 
