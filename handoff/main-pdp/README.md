@@ -84,7 +84,7 @@ In order, below the buy box:
 Also changed from `muto-nad-v2`:
 
 - **Under the buy button:** the serving line, "Not another multivitamin…" copy and the quote slider are blanked or hidden (not deleted).
-- **Buy button** (and the sticky bar's) in brand green **#6BCE7F**, charcoal label.
+- **Buy button** (and the sticky bar's) in brand green **#6BCE7F**, charcoal label, with a second line inside it: a shield and "90-day money-back guarantee".
 - **Delivery line** under the button: "● Ready to ship — arrives by **Thu 29th Oct**". The date is always the next calendar day in UK time, set by a script and rolling over at midnight. Before the script runs it says "arrives tomorrow".
 - **Backgrounds:** no gradient washes. The bands alternate flat grey (#F2F2F2) and white, set in the `head_styles` block at the top of the template.
 - **Not carried over from `muto-nad-v2`:** the "On this page" menu, "Five jobs. One daily jar.", the ingredient library, the v2 timeline and "How to take it". They stay in `muto-nad-v2` if they're wanted back.

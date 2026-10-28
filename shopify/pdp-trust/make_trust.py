@@ -238,6 +238,13 @@ def bands_css():
     rules.append('html body .mc .mc-subhead,html body .mc .mc__buy-copy > .mc-subhead{text-wrap:wrap!important;font-weight:500!important}')
     # Buy button (and the sticky bar's) in brand green #6bce7f, charcoal label
     rules.append('html body .mc .mc__buy-cta,html body .mh__sticky .mh__sticky-btn{background:#6bce7f!important;color:#242223!important}')
+    # Add to cart: a second line inside the button, shield + "90-day money-back guarantee"
+    rules.append('html body .mc .mc__buy-cta{height:auto!important;min-height:68px;padding-top:12px!important;padding-bottom:12px!important;'
+                 'flex-direction:column;align-items:center;justify-content:center;text-align:center}'
+                 'html body .mc .mc__buy-cta .btn-label-wrapper{padding-bottom:0}'
+                 'html body .mc .mc__buy-cta::after{content:"90-day money-back guarantee";display:block;width:fit-content;margin:5px auto 0;'
+                 'padding-left:22px;font-size:14px;font-weight:500;line-height:18px;letter-spacing:0;'
+                 """background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23242223' stroke-width='1.8' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M12 2.8 4.5 5.8v5.6c0 4.9 3.2 8.6 7.5 10 4.3-1.4 7.5-5.1 7.5-10V5.8z'/%3E%3Cpath d='m8.6 12 2.4 2.4 4.4-4.8'/%3E%3C/svg%3E") left center/16px 16px no-repeat}""")
     # "Ready to ship - arrives by <tomorrow>" line under the button (filled in by SHIP_JS)
     rules.append('html body .mc .mpb-del{align-items:center}'
                  'html body .mc .mpb-del .mc-ship__dot{flex:0 0 10px;width:10px;height:10px;border-radius:50%;background:#6bce7f;'
