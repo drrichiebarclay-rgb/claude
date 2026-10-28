@@ -320,11 +320,14 @@ def bands_css():
                  'html body .mc .mc-stats.is-fading .mc-stats__text{opacity:0}'
                  '@media (max-width:420px){html body .mc .mc-stats{gap:12px;padding:12px 14px}html body .mc .mc-stats__text{font-size:14px}}'
                  '@media (prefers-reduced-motion:reduce){html body .mc .mc-stats__bar i,html body .mc .mc-stats__text{transition:none}}')
+    # "How it helps" list in the buy box: hidden on phones too (desktop already hides it)
+    rules.append('html body .mc .mc__buy-points{display:none!important}')
     # "Ready to ship - arrives by <tomorrow>" line under the button (filled in by SHIP_JS)
     rules.append('html body .mc .mpb-del{align-items:center;flex-wrap:wrap;row-gap:6px}'
                  'html body .mc .mpb-del .mc-ship__rm{display:inline-flex;align-items:center;gap:7px;margin-left:4px;padding-left:12px;border-left:1px solid rgba(36,34,35,.18);white-space:nowrap}'
                  'html body .mc .mpb-del .mc-ship__rm img{display:block;width:32px;height:auto}'
-                 '@media (max-width:520px){html body .mc .mpb-del .mc-ship__rm{flex-basis:100%;margin-left:20px;padding-left:0;border-left:0}}'
+                 '@media (max-width:520px){html body .mc .mpb-del .mc-ship__rm{flex-basis:100%;justify-content:center;margin-left:0;padding-left:0;border-left:0}}'
+                 '@media (max-width:749px){html body .mc .mpb-del{justify-content:center;text-align:center}}'
                  'html body .mc .mpb-del .mc-ship__dot{flex:0 0 10px;width:10px;height:10px;border-radius:50%;background:#6bce7f;'
                  'box-shadow:0 0 0 0 rgba(107,206,127,.6);animation:mcShip 2s ease-out infinite}'
                  '@keyframes mcShip{70%{box-shadow:0 0 0 7px rgba(107,206,127,0)}100%{box-shadow:0 0 0 0 rgba(107,206,127,0)}}'

@@ -92,6 +92,7 @@ Also changed from `muto-nad-v2`:
 - **Under the subhead:** "In collaboration with seven leading scientists from world-leading research institutions, including four universities in the UK and Australia."
 - **Rotating stats** under the button, every 3.5 seconds: "94% reported better recovery", "92% reported improved energy", "88% bounce back quicker", with a black bar that fills left to right to each figure. Set in `STATS` in `make_trust.py`.
 - **Delivery line** under the button: "● Ready to ship — arrives by **Thu 29th Oct** | [Royal Mail logo] Tracked 24hr delivery". The date is the next calendar day in UK time, or the day after from the **9pm cut-off**, set by a script that updates while the page is open. Before the script runs it says "arrives tomorrow". The logo is `theme/assets/royal-mail-logo.png`, embedded in the template (nothing to upload).
+- **"How it helps" list** in the buy box is hidden on phones as well as desktop.
 - **No sticky add-to-cart bar.** The `sticky` section isn't in this template, so nothing slides in at the top or bottom of the page as you scroll.
 - **Backgrounds:** no gradient washes. The bands alternate flat grey (#F2F2F2) and white, set in the `head_styles` block at the top of the template.
 - **Not carried over from `muto-nad-v2`:** the "On this page" menu, "Five jobs. One daily jar.", the ingredient library, the v2 timeline and "How to take it". They stay in `muto-nad-v2` if they're wanted back.
