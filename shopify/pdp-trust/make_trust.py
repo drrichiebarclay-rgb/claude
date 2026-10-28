@@ -162,8 +162,8 @@ def clinical(d):
     S = d["sections"]
 
     r = S["results"]["settings"]           # the 9:16 customer videos
-    r["heading"] = "Customer\nreports."
-    r["note"] = "Filmed by customers, in their own words."
+    r["heading"] = "Don’t take\nour word for it."
+    r["note"] = "MUTO customers, in their own words"
     r["foot"] = "Individual experiences. Everyone is different, and we can’t promise results."
     S["results"]["settings"]["space_top"] = 70   # sits under the standards band, which brings its own space
 
