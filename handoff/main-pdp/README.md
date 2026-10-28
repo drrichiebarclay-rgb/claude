@@ -3,7 +3,7 @@ title: "MUTO main product page: new template for the main URL and -2"
 subtitle: "28 October 2026"
 ---
 
-The main product page and -2 move to a new template, **`muto-nad-trust`**. The buy box is the one on the site today. Below it are new blocks: the science board, standards, customer videos, reviews and the founder. The Black Friday pre-sale box and its MUTO10 code are removed.
+The main product page and -2 move to a new template, **`muto-nad-trust`**. It is today's `muto-nad-v2` page, with every section kept: buy box, "On this page" menu, "Five jobs. One daily jar.", the ingredient library, comparison, timeline, "How to take it", FAQs. New blocks slot in between: the statement, the science board, standards, customer videos, reviews and the founder. The Black Friday pre-sale box and its MUTO10 code are removed.
 
 That means **6 new files to add**, **template changes on 2 products**, **removing the pre-sale box from 3 live templates** and **2 announcement-bar messages to take down**. No existing theme file is overwritten.
 
@@ -13,7 +13,7 @@ That means **6 new files to add**, **template changes on 2 products**, **removin
 - **Copy to:** the live theme, Clone Of Live | Buy Box Redesign [31-08] (ID 200736047451).
 - **Preview:** the page is already on the 3M refill plan theme (ID 202682564955):
   <https://muto.co/products/muto-nad-cellular-complex?preview_theme_id=202682564955&view=muto-nad-trust>
-- **Your edits are kept.** The buy box, its `easy_read` block, the comparison table and the test-results panel are copied from the **live `muto-nad-v2` template as of 28 October**. If you've edited `muto-nad-v2` since, tell Richie before copying, and the template will be rebuilt from your latest version.
+- **Your edits are kept.** Everything except the new blocks is copied from the **live `muto-nad-v2` template as of 28 October**: the buy box and its `easy_read` block, the menu, benefits, ingredient library, comparison, timeline, "How to take it", the FAQs and the test-results panel. If you've edited `muto-nad-v2` since, tell Richie before copying, and the template will be rebuilt from your latest version.
 
 # Step 1: add the 6 files, in this order
 
@@ -38,7 +38,7 @@ With the Shopify CLI, from the unzipped folder:
 
 Or in admin: Online Store → Themes → live theme → … → Edit code. Add a new asset, then each new section, then a new product template named `muto-nad-trust`, and paste each file in.
 
-All the other sections the page uses are already on live and unchanged: `muto-pdp-v2-buy`, `muto-home-board`, `muto-test-results`, `muto-home-results`, `muto-crea-problem`, `muto-crea-benefits`, `muto-crea-steps`, `muto-crea-guarantee`, `muto-home-why`, `muto-chapter`, `muto-crea-faq`, `custom-reviews`.
+All the other sections the page uses are already on live and unchanged: `muto-pdp-v2-buy`, `muto-section-nav`, `muto-benefit-cards`, `muto-home-board`, `muto-ingredient-library`, `muto-home-results`, `muto-chapter`, `muto-timeline`, `muto-crea-faq`, `custom-reviews`, `muto-test-results`.
 
 # Step 2: change the product templates
 
@@ -75,15 +75,18 @@ The scrolling announcement bar at the top of every page (section `muto-announce`
 
 # What's on the new page
 
-In order, below the buy box:
+In order, below the buy box. **New** blocks are in bold; the rest is `muto-nad-v2` as it is on live today.
 
-1. **Statement:** "Not ready to slow down." / "The next-generation multi-nutrient, built for what your body needs in your 40s and 50s." / tag "Got a wearable? Track the shift over 90 days."
-2. **Science board:** "Six scientists put their name to MUTO.", compact row, white background.
-3. **Standards:** four cards. Card 1 has the "View third-party testing results" button, which opens the certificate panel (batch 2333).
-4. **Customer videos:** "Don't take our word for it.", 8 videos in a row that scrolls: Kate Bright, David Mercado, Lucy Halliday, Harry Insley, Adam Facey, Max Richards, Adam Hamilton, Yolanda King. Ellen Gray's video is removed, and so is the footnote under the row.
-5. **Reviews:** "What our community say.", 20 five-star REVIEWS.io reviews that rotate every 6 seconds, with "4.8 from 103 reviews".
-6. **Founder:** Dr Richie Barclay, PhD: cell biologist, Harley Street nutritionist for 13 years, former cricketer and tennis player.
-7. Problem, benefits, **timeline** ("Your first 90 days." day 1 / 30 / 60 / 90), guarantee, **"MUTO vs the usual"** comparison (as on live), FAQs (7; "Do I need a smartwatch?" removed), REVIEWS.io widget.
+1. "On this page" menu (pins to the top as you scroll, as on live)
+2. **Statement:** "Not ready to slow down." / "The next-generation multi-nutrient, built for what your body needs in your 40s and 50s." / tag "Got a wearable? Track the shift over 90 days."
+3. "Five jobs. One daily jar." benefits
+4. **Science board:** "Six scientists put their name to MUTO.", compact row, white background.
+5. **Standards:** four cards. Card 1 has the "View third-party testing results" button, which opens the certificate panel (batch 2333).
+6. "Every ingredient has a job." ingredient library
+7. **Customer videos:** "Don't take our word for it.", 8 videos in a row that scrolls: Kate Bright, David Mercado, Lucy Halliday, Harry Insley, Adam Facey, Max Richards, Adam Hamilton, Yolanda King. Ellen Gray's video is removed, and so is the footnote under the row.
+8. **Reviews:** "What our community say.", 20 five-star REVIEWS.io reviews that rotate every 6 seconds, with "4.8 from 103 reviews".
+9. **Founder:** Dr Richie Barclay, PhD: cell biologist, Harley Street nutritionist for 13 years, former cricketer and tennis player.
+10. Comparison, "What you can expect over time." timeline, "How to take it.", FAQs (all 10 from live), REVIEWS.io widget.
 
 Also changed from `muto-nad-v2`:
 
@@ -96,7 +99,6 @@ Also changed from `muto-nad-v2`:
 - **Phones:** the billing line under each plan name is smaller (12px) so it fits, and the delivery line is centred.
 - **No sticky add-to-cart bar.** The `sticky` section isn't in this template, so nothing slides in at the top or bottom of the page as you scroll.
 - **Backgrounds:** no gradient washes. The bands alternate flat grey (#F2F2F2) and white, set in the `head_styles` block at the top of the template.
-- **Not carried over from `muto-nad-v2`:** the "On this page" menu, "Five jobs. One daily jar.", the ingredient library, the v2 timeline and "How to take it". They stay in `muto-nad-v2` if they're wanted back.
 
 ## How it's built
 
@@ -105,11 +107,12 @@ Also changed from `muto-nad-v2`:
 
 # Check after publishing
 
-1. **Main URL and -2:** the buy box matches today's page, with **no** dark Black Friday box above the plans.
+1. **Main URL and -2:** the buy box and every section from today's page are there (menu, Five jobs, ingredient library, comparison, timeline, How to take it, FAQs), with **no** dark Black Friday box above the plans.
 2. **Add to cart** on the Quarterly plan, the Monthly plan and one-time purchase. Each lands in the cart at the full price, with **no MUTO10**.
 3. **Clicks:**
    - The stars scroll to the reviews widget.
    - "Scientific board" scrolls to the board.
+   - Each "On this page" menu link scrolls to its section.
    - "View third-party testing results" (under the images, and on standards card 1) opens the certificate panel.
 4. **Videos:** all 8 play. The row scrolls sideways (trackpad, drag, or swipe on a phone).
 5. **Reviews:** the cards move on every 6 seconds, and the arrows work.
