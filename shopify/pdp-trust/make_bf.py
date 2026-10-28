@@ -59,8 +59,8 @@ html body .mc .mc-bf__note b{font-family:var(--mc-mono,monospace);letter-spacing
 @media (max-width:480px){
   html body .mc .mc-bf{grid-template-columns:1fr}
   html body .mc .mc-bf__count{grid-column:1;grid-row:auto;display:flex;align-items:baseline;justify-content:center;gap:8px;margin-top:10px;max-width:none;width:100%;text-align:left}
-  html body .mc .mc-bf__count small{white-space:nowrap}
-  html body .mc .mc-bf__count b{display:inline;font-size:24px}
+  html body .mc .mc-bf__count small{white-space:nowrap;font-family:var(--mc-font);font-size:17px;font-weight:500;letter-spacing:0;text-transform:none}
+  html body .mc .mc-bf__count b{display:inline;font-size:28px}
   html body .mc .mc-bf__count small{display:inline;margin:0}
   html body .mc .mc-bf__foot{flex-wrap:wrap}
 }
