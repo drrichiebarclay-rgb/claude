@@ -297,6 +297,8 @@ def bands_css():
             # On the sage bands: masks that use the page ground follow the band, and the sage glass
             # cards (reviews) turn white so they don't vanish into a sage background
             rules.append(f"{w}{{--mc-ground:{GREY}}}{w} .mc{{--mc-ground:{GREY};--mt-sage:rgba(255,255,255,.6)}}")
+    # Small line above "Benefits built on published science." in caps, like the other bands' labels
+    rules.append('[id$="__benefits"] .mbc__eyebrow{text-transform:uppercase!important;letter-spacing:.12em!important}')
     # Subhead under the title: fill each line before breaking (the live rule balances it into two short
     # lines), medium weight.
     rules.append('html body .mc .mc-subhead,html body .mc .mc__buy-copy > .mc-subhead{text-wrap:wrap!important;font-weight:500!important}')
