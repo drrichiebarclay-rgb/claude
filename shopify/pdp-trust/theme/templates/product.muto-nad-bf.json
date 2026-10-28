@@ -913,17 +913,17 @@
         "r8": {
           "type": "result",
           "settings": {
-            "image": "shopify://shop_images/cover-1.png",
-            "image_fallback": "",
+            "image": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/preview_images/cd1132a29bdc4f5081bfd9e6b008339b.thumbnail.0000000000.jpg?v=1793207168",
             "image_alt": "A MUTO customer talking to camera",
             "image_position": "",
-            "video": "shopify://files/videos/Muto 1.mp4",
+            "video": "shopify://files/videos/✅Copy of David Chat.mp4",
             "video_url": "",
             "video_link": "",
             "show_play": true,
             "result": "",
             "quote": "",
-            "name": "",
+            "name": "David Mercado",
             "tag": "",
             "detail": ""
           }
