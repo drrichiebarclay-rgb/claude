@@ -204,6 +204,10 @@ def clinical(d):
         "text": "<p>Every batch is tested by an independent lab for identity, potency, heavy metals and microbes before it’s released. "
                 "MUTO is made in the UK to GMP standards, in an ISO-certified facility.</p>"}}
     f["block_order"].insert(4, "q_tested")
+    # "Do I need a smartwatch?" removed
+    for k in [k for k, b in f["blocks"].items() if b["settings"].get("title") == "Do I need a smartwatch?"]:
+        del f["blocks"][k]
+        f["block_order"].remove(k)
 
     # The three "why" cards say what the founder and standards bands now say in full.
     S["why"]["disabled"] = True

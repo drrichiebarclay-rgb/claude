@@ -1166,13 +1166,6 @@
             "text": "<p>Email <a href=\"mailto:hello@mutolongevity.com\">hello@mutolongevity.com</a> within 14 days after your 90 days end. We’ll give back what you paid, minus delivery.</p><p>This is for first-time subscribers who buy at muto.co.</p>"
           }
         },
-        "q6": {
-          "type": "q",
-          "settings": {
-            "title": "Do I need a smartwatch?",
-            "text": "<p>No. A pen and paper is fine.</p>"
-          }
-        },
         "q5": {
           "type": "q",
           "settings": {
@@ -1195,7 +1188,6 @@
         "q2",
         "q_tested",
         "q4",
-        "q6",
         "q5"
       ],
       "settings": {
