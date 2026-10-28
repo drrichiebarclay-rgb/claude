@@ -76,7 +76,7 @@ In order, below the buy box:
 1. **Statement:** "Not ready to slow down." / "The next-generation multi-nutrient, built for what your body needs in your 40s and 50s." / tag "Got a wearable? Track the shift over 90 days."
 2. **Science board:** "Six scientists put their name to MUTO.", compact row, white background.
 3. **Standards:** four cards. Card 1 has the "View third-party testing results" button, which opens the certificate panel (batch 2333).
-4. **Customer videos:** "Don't take our word for it.", 8 videos in a row that scrolls: Harry Insley, Yolanda King, Adam Facey, Max Richards, Adam Hamilton, Kate Bright, David Mercado, Lucy Halliday. Ellen Gray's video is removed.
+4. **Customer videos:** "Don't take our word for it.", 8 videos in a row that scrolls: Kate Bright, David Mercado, Lucy Halliday, Harry Insley, Yolanda King, Adam Facey, Max Richards, Adam Hamilton. Ellen Gray's video is removed.
 5. **Reviews:** "What our community say.", 20 five-star REVIEWS.io reviews that rotate every 6 seconds, with "4.8 from 103 reviews".
 6. **Founder:** Dr Richie Barclay, PhD.
 7. Problem, benefits, **timeline** ("Your first 90 days." day 1 / 30 / 60 / 90), guarantee, **"MUTO vs the usual"** comparison (as on live), FAQs (7; "Do I need a smartwatch?" removed), REVIEWS.io widget.

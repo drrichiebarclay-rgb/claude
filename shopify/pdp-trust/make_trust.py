@@ -368,7 +368,10 @@ def clinical(d):
             "image": cover, "image_fallback": fallback, "image_alt": "A MUTO customer talking to camera",
             "image_position": "", "video": "shopify://files/videos/" + video, "video_url": "", "video_link": "",
             "show_play": True, "result": "", "quote": "", "name": name, "tag": "", "detail": ""}}
-        S["results"]["block_order"].append(key)   # sits under the standards band, which brings its own space
+        S["results"]["block_order"].append(key)
+    # Kate, David and Lucy lead the row
+    lead = ["r7", "r8", "r9"]
+    S["results"]["block_order"] = lead + [k for k in S["results"]["block_order"] if k not in lead]   # sits under the standards band, which brings its own space
 
     b = S["board"]["settings"]
     b["heading"] = "Six scientists put\ntheir name to MUTO."

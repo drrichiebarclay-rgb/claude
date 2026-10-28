@@ -948,14 +948,14 @@
         }
       },
       "block_order": [
+        "r7",
+        "r8",
+        "r9",
         "r1",
         "r2",
         "r3",
         "r5",
-        "result_NmUnkJ",
-        "r7",
-        "r8",
-        "r9"
+        "result_NmUnkJ"
       ],
       "settings": {
         "heading": "Don’t take\nour word for it.",
