@@ -142,6 +142,35 @@ BANDS = [  # section key -> ground, in page order. The buy box keeps the live pa
     ("faq", GREY),
 ]
 
+# Delivery line: "Ready to ship - arrives by Thu 29th Oct", always the next calendar day in UK time,
+# rolling over at midnight while the page is open.
+SHIP_JS = """<script>
+(function () {
+  var el = document.querySelector('.mc .mpb-del');
+  if (!el || el.dataset.ship) return;
+  el.dataset.ship = '1';
+  var DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  function ord(n) { var t = n % 100; if (t > 10 && t < 14) return 'th'; return ['th', 'st', 'nd', 'rd'][n % 10] || 'th'; }
+  function tomorrowUK() {
+    var p = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', year: 'numeric', month: 'numeric', day: 'numeric' })
+      .formatToParts(new Date());
+    var get = function (t) { return +p.filter(function (x) { return x.type === t; })[0].value; };
+    var d = new Date(Date.UTC(get('year'), get('month') - 1, get('day') + 1));
+    return DAYS[d.getUTCDay()] + ' ' + d.getUTCDate() + ord(d.getUTCDate()) + ' ' + MONTHS[d.getUTCMonth()];
+  }
+  var last = '';
+  function paint() {
+    var t = tomorrowUK();
+    if (t === last) return;
+    last = t;
+    el.innerHTML = '<span class="mc-ship__dot" aria-hidden="true"></span><span>Ready to ship — arrives by <b>' + t + '</b></span>';
+  }
+  paint();
+  setInterval(paint, 60000);
+})();
+</script>"""
+
 # Mouse drag-to-scroll for the customer-video row on desktop (touch and trackpads scroll natively).
 DRAG_JS = """<script>
 (function () {
@@ -207,6 +236,16 @@ def bands_css():
     # Subhead under the title: fill each line before breaking (the live rule balances it into two short
     # lines), medium weight.
     rules.append('html body .mc .mc-subhead,html body .mc .mc__buy-copy > .mc-subhead{text-wrap:wrap!important;font-weight:500!important}')
+    # Buy button (and the sticky bar's) in brand green #6bce7f, charcoal label
+    rules.append('html body .mc .mc__buy-cta,html body .mh__sticky .mh__sticky-btn{background:#6bce7f!important;color:#242223!important}')
+    # "Ready to ship - arrives by <tomorrow>" line under the button (filled in by SHIP_JS)
+    rules.append('html body .mc .mpb-del{align-items:center}'
+                 'html body .mc .mpb-del .mc-ship__dot{flex:0 0 10px;width:10px;height:10px;border-radius:50%;background:#6bce7f;'
+                 'box-shadow:0 0 0 0 rgba(107,206,127,.6);animation:mcShip 2s ease-out infinite}'
+                 '@keyframes mcShip{70%{box-shadow:0 0 0 7px rgba(107,206,127,0)}100%{box-shadow:0 0 0 0 rgba(107,206,127,0)}}'
+                 'html body .mc .mpb-del b{font-weight:600;text-decoration:underline;text-decoration-color:#6bce7f;'
+                 'text-decoration-thickness:2px;text-underline-offset:3px}'
+                 '@media (prefers-reduced-motion:reduce){html body .mc .mpb-del .mc-ship__dot{animation:none}}')
     # Customer videos: a scrolling row on desktop too (the section's own desktop layout is a fixed
     # 6-across grid that wraps a 7th card). ~5.5 cards show so the cut-off one says "scroll".
     rules.append('@media screen and (min-width:990px){[id$="__results"] .mh__res-rail{display:flex!important;'
@@ -218,7 +257,7 @@ def bands_css():
     css = "\n".join(rules)
     return {"type": "custom-liquid", "settings": {
         "custom_liquid": "<style>\n/* Flat, alternating band grounds for this page (no gradient washes). Built by make_trust.py. */\n"
-                         + css + "\n</style>" + DRAG_JS,
+                         + css + "\n</style>" + DRAG_JS + SHIP_JS,
         "color_scheme": "scheme-1", "padding_top": 0, "padding_bottom": 0}}
 
 
@@ -319,6 +358,9 @@ def main():
     # review-quote slider (the rotating reviews band further down does that job). Blanked and
     # hidden, not deleted, so they can be switched back in the theme editor.
     buy = d["sections"]["buy"]
+    # Delivery line: "Ready to ship - arrives by <next calendar day>", the date filled in by SHIP_JS.
+    # "tomorrow" is what shows before the script runs.
+    buy["blocks"]["x_delivery"]["settings"]["text"] = "Ready to ship — arrives <strong>tomorrow</strong>"
     buy["settings"]["serving"] = ""
     buy["settings"]["text"] = ""
     for k, blk in buy["blocks"].items():
