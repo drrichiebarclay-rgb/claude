@@ -80,9 +80,9 @@ In order, below the buy box:
 1. **Statement:** "Not ready to slow down." / "The next-generation multi-nutrient, built for what your body needs in your 40s and 50s." / tag "Got a wearable? Track the shift over 90 days."
 2. **Science board:** "Six scientists put their name to MUTO.", compact row, white background.
 3. **Standards:** four cards. Card 1 has the "View third-party testing results" button, which opens the certificate panel (batch 2333).
-4. **Customer videos:** "Don't take our word for it.", 8 videos in a row that scrolls: Kate Bright, David Mercado, Lucy Halliday, Harry Insley, Adam Facey, Max Richards, Adam Hamilton, Yolanda King. Ellen Gray's video is removed.
+4. **Customer videos:** "Don't take our word for it.", 8 videos in a row that scrolls: Kate Bright, David Mercado, Lucy Halliday, Harry Insley, Adam Facey, Max Richards, Adam Hamilton, Yolanda King. Ellen Gray's video is removed, and so is the footnote under the row.
 5. **Reviews:** "What our community say.", 20 five-star REVIEWS.io reviews that rotate every 6 seconds, with "4.8 from 103 reviews".
-6. **Founder:** Dr Richie Barclay, PhD.
+6. **Founder:** Dr Richie Barclay, PhD: cell biologist, Harley Street nutritionist for 13 years, former cricketer and tennis player.
 7. Problem, benefits, **timeline** ("Your first 90 days." day 1 / 30 / 60 / 90), guarantee, **"MUTO vs the usual"** comparison (as on live), FAQs (7; "Do I need a smartwatch?" removed), REVIEWS.io widget.
 
 Also changed from `muto-nad-v2`:
@@ -93,6 +93,7 @@ Also changed from `muto-nad-v2`:
 - **Rotating stats** under the button, every 3.5 seconds: "94% reported better recovery", "92% reported improved energy", "88% bounce back quicker", with a black bar that fills left to right to each figure. Set in `STATS` in `make_trust.py`.
 - **Delivery line** under the button: "● Ready to ship — arrives by **Thu 29th Oct** | [Royal Mail logo] Tracked 24hr delivery". The date is the next calendar day in UK time, or the day after from the **9pm cut-off**, set by a script that updates while the page is open. Before the script runs it says "arrives tomorrow". The logo is `theme/assets/royal-mail-logo.png`, embedded in the template (nothing to upload).
 - **"How it helps" list** in the buy box is hidden on phones as well as desktop.
+- **Phones:** the billing line under each plan name is smaller (12px) so it fits, and the delivery line is centred.
 - **No sticky add-to-cart bar.** The `sticky` section isn't in this template, so nothing slides in at the top or bottom of the page as you scroll.
 - **Backgrounds:** no gradient washes. The bands alternate flat grey (#F2F2F2) and white, set in the `head_styles` block at the top of the template.
 - **Not carried over from `muto-nad-v2`:** the "On this page" menu, "Five jobs. One daily jar.", the ingredient library, the v2 timeline and "How to take it". They stay in `muto-nad-v2` if they're wanted back.
