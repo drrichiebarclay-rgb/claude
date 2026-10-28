@@ -16,25 +16,43 @@ OUT = os.path.join(HERE, "theme", "templates", "product.muto-nad-bf.json")
 # --- Offer ----------------------------------------------------------------------------------
 TOTAL = 500
 CODE = ""   # the 53%-off discount code once it exists in Shopify; blank = nothing applied
-OFFER = "Get 53% off your first order, plus a welcome kit worth £77"
+HEADLINE = "53% off your first order"
+KIT = "plus a welcome kit worth £77"
+SCHEDULE = "£99 for your first order, £125 on your second, £150 on your third."
+# Quarterly card while the offer runs: £99 first box = £33/mo, £1.10 a day (90 days)
+Q_SAVE = "Save 53%"
+Q_NOTE = "3 months’ supply: £99 for your first box, then £125, then £150 · £1.10 a day"
+Q_PER_MONTH = "£33/mo"
 # Orders left: shop metafield muto.bf_orders_left (integer). Blank hides the count.
 DATA = ('<div id="mc-bf-data" hidden data-left="{{ shop.metafields.muto.bf_boxes_left.value }}"'
         ' data-orders="{{ shop.metafields.muto.bf_orders_left.value }}"></div>')
 
-CSS = """/* Black Friday box, above the plans: white, black outline, orders left out of 500 */
-html body .mc .mc-bf{margin:18px 0 0;padding:14px 16px 16px;border:1.5px solid #242223;border-radius:12px;background:#fff;color:#242223}
+CSS = """/* Black Friday box, above the plans: white, black outline. Offer on the left, orders left out
+   of 500 on the right (under it on phones), a bar along the foot. */
+html body .mc .mc-bf{margin:18px 0 0;padding:16px 18px 16px;border:1.5px solid #242223;border-radius:12px;background:#fff;color:#242223;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;align-items:start}
 html body .mc .mc-bf[hidden]{display:none}
-html body .mc .mc-bf__tag{display:flex;align-items:center;gap:8px;margin:0 0 6px;font-family:var(--mc-mono,monospace);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
-html body .mc .mc-bf__dot{width:7px;height:7px;border-radius:50%;background:#242223;animation:mcBfPulse 1.6s ease-in-out infinite}
+html body .mc .mc-bf__tag{grid-column:1/-1;display:flex;align-items:center;gap:8px;margin:0 0 4px;font-family:var(--mc-mono,monospace);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+html body .mc .mc-bf__dot{width:8px;height:8px;border-radius:50%;background:#242223;animation:mcBfPulse 1.6s ease-in-out infinite}
 @keyframes mcBfPulse{50%{opacity:.25}}
-html body .mc .mc-bf__offer{margin:0;font-size:17px;font-weight:600;line-height:1.25}
-html body .mc .mc-bf__stock{display:flex;align-items:center;gap:12px;margin-top:12px}
-html body .mc .mc-bf__count{flex:0 0 auto;margin:0;font-size:13px;line-height:1.2}
-html body .mc .mc-bf__count b{font-size:15px;font-variant-numeric:tabular-nums}
+html body .mc .mc-bf__main{grid-column:1;min-width:0}
+html body .mc .mc-bf__offer{margin:0;font-size:clamp(24px,2.4vw,30px);font-weight:600;line-height:1.05;letter-spacing:-.01em}
+html body .mc .mc-bf__kit{margin:4px 0 0;font-size:16px;font-weight:600;line-height:1.25}
+html body .mc .mc-bf__sched{margin:8px 0 0;font-size:14px;line-height:1.4;color:rgba(36,34,35,.75)}
+html body .mc .mc-bf__count{grid-column:2;grid-row:2;margin:0;min-width:96px;padding:10px 12px 8px;border:1.5px solid #242223;border-radius:10px;text-align:center}
+html body .mc .mc-bf__count b{display:block;font-size:30px;font-weight:600;line-height:1;font-variant-numeric:tabular-nums}
+html body .mc .mc-bf__count small{display:block;margin-top:4px;font-family:var(--mc-mono,monospace);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+html body .mc .mc-bf__foot{grid-column:1/-1;display:flex;align-items:center;gap:12px;margin-top:10px}
 html body .mc .mc-bf__bar{flex:1;display:block;height:6px;border-radius:3px;background:rgba(36,34,35,.12);overflow:hidden}
 html body .mc .mc-bf__bar i{display:block;height:100%;background:#242223;border-radius:3px}
-html body .mc .mc-bf__note{margin:8px 0 0;font-size:12px;line-height:1.35;color:rgba(36,34,35,.7)}
+html body .mc .mc-bf__note{flex:0 0 auto;margin:0;font-size:12px;line-height:1.35;color:rgba(36,34,35,.7)}
 html body .mc .mc-bf__note b{font-family:var(--mc-mono,monospace);letter-spacing:.06em;color:#242223}
+@media (max-width:480px){
+  html body .mc .mc-bf{grid-template-columns:1fr}
+  html body .mc .mc-bf__count{grid-column:1;grid-row:auto;display:flex;align-items:baseline;gap:8px;margin-top:10px;text-align:left}
+  html body .mc .mc-bf__count b{display:inline;font-size:24px}
+  html body .mc .mc-bf__count small{display:inline;margin:0}
+  html body .mc .mc-bf__foot{flex-wrap:wrap}
+}
 
 """
 
@@ -64,21 +82,25 @@ JS = """/* Black Friday: 53%% off the first order plus the welcome kit, limited 
     box.className = 'mc-bf';
     box.setAttribute('role', 'note');
     var html =
-      '<p class="mc-bf__tag"><span class="mc-bf__dot"></span>Black Friday</p>' +
-      '<p class="mc-bf__offer">%(offer)s</p>';
-    if (left >= 0 && left <= TOTAL) {
-      html += '<div class="mc-bf__stock"><p class="mc-bf__count">' +
-        (left > 0 ? '<b>' + left + '</b> of ' + TOTAL + ' left' : '<b>All ' + TOTAL + '</b> have gone') +
-        '</p><span class="mc-bf__bar" aria-hidden="true"><i style="width:' + Math.round(left / TOTAL * 100) + '%%"></i></span></div>';
+      '<p class="mc-bf__tag"><span class="mc-bf__dot"></span>Black Friday offer</p>' +
+      '<div class="mc-bf__main"><p class="mc-bf__offer">%(headline)s</p>' +
+      '<p class="mc-bf__kit">%(kit)s</p>' +
+      '<p class="mc-bf__sched">%(schedule)s</p></div>';
+    var hasCount = left >= 0 && left <= TOTAL;
+    if (hasCount) {
+      html += '<p class="mc-bf__count" aria-label="' + left + ' of ' + TOTAL + ' orders left"><b>' + left +
+        '</b><small>of ' + TOTAL + ' left</small></p>';
     }
-    html += '<p class="mc-bf__note">Limited to ' + TOTAL + ' orders.' +
-      (CODE ? ' Code <b>' + CODE + '</b> is applied automatically at checkout.' : '') + '</p>';
+    html += '<div class="mc-bf__foot">' +
+      (hasCount ? '<span class="mc-bf__bar" aria-hidden="true"><i style="width:' + Math.round(left / TOTAL * 100) + '%%"></i></span>' : '') +
+      '<p class="mc-bf__note">' + (hasCount && left === 0 ? 'All ' + TOTAL + ' have gone.' : 'Limited to ' + TOTAL + ' orders.') +
+      (CODE ? ' Code <b>' + CODE + '</b> is applied at checkout.' : '') + '</p></div>';
     box.innerHTML = html;
     plans.parentNode.insertBefore(box, plans);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount); else mount();
 })();
-""" % {"code": json.dumps(CODE), "total": TOTAL, "offer": OFFER}
+""" % {"code": json.dumps(CODE), "total": TOTAL, "headline": HEADLINE, "kit": KIT, "schedule": SCHEDULE}
 
 
 def cut(text, start, end_marker):
@@ -107,8 +129,20 @@ def main():
     old = '<div id="mc-bf-data" hidden data-left="{{ shop.metafields.muto.bf_boxes_left.value }}"></div>'
     assert old in t
     t = t.replace(old, DATA)
+    # 4. quarterly card: per-month price drawn by the stylesheet, and the sticky bar's copy of it
+    old_q = 'label.mc__plan:nth-of-type(2) .mc__plan-prices::before{content:"£50/mo"}'
+    assert old_q in t
+    t = t.replace(old_q, 'label.mc__plan:nth-of-type(2) .mc__plan-prices::before{content:"%s"}' % Q_PER_MONTH)
+    old_s = "var PER_MONTH = { 1: ['£60/mo', '£70'], 2: ['£50/mo', '£70'] };"
+    assert old_s in t
+    t = t.replace(old_s, "var PER_MONTH = { 1: ['£60/mo', '£70'], 2: ['%s', '£70'] };" % Q_PER_MONTH)
     assert "pre-sale" not in t.lower() and "MUTO10" not in t, "old pre-sale box left behind"
     er["custom_liquid"] = t
+
+    q = next(b for b in d["sections"]["buy"]["blocks"].values()
+             if b["type"] == "plan" and b["settings"].get("name") == "Quarterly plan")
+    q["settings"]["save"] = Q_SAVE
+    q["settings"]["note"] = Q_NOTE
 
     with open(OUT, "w") as fh:
         fh.write(head)

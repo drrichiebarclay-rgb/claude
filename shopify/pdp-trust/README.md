@@ -51,15 +51,15 @@ The new bands use the page's own patterns (sage glass cards, mono notes opposite
 
 ## Black Friday clone: `product.muto-nad-bf`
 
-Same page as above, built from it by `make_bf.py`, with one change: the dark pre-sale box above the plans is replaced by a small white box with a black outline:
+Same page as above, built from it by `make_bf.py`. Changes:
 
-- "BLACK FRIDAY" / "Get 53% off your first order, plus a welcome kit worth £77"
-- **Orders left:** "412 of 500 left" with a bar, from the shop metafield **`muto.bf_orders_left`** (integer). Blank hides the count; 0 shows "All 500 have gone".
-- "Limited to 500 orders."
+- **Box above the plans** (white, black outline): "BLACK FRIDAY OFFER" / "53% off your first order" / "plus a welcome kit worth £77" / "£99 for your first order, £125 on your second, £150 on your third." On the right, a counter tile "500 of 500 left", a bar along the foot and "Limited to 500 orders."
+- **Quarterly card:** "Save 53%", **£33/mo** with £70 struck through, "3 months’ supply: £99 for your first box, then £125, then £150 · £1.10 a day". The sticky bar shows £33/mo too.
+- The orders-left count is the shop metafield **`muto.bf_orders_left`** (created 28 Oct, set to 500; Settings → Custom data → Shop → "Black Friday orders left (53% offer)"). Blank hides the count; 0 shows "All 500 have gone."
 
 Before it goes live:
 
-- [ ] **Create the discount** (53% off the first order) in Shopify. Then set `CODE` at the top of `make_bf.py` and rebuild, so the page applies it automatically, as MUTO10 was.
-- [ ] **Create the metafield** Settings → Custom data → Shop → `muto.bf_orders_left`, Integer, set to 500.
-- [ ] **Flow:** Order created, the order uses the code → `muto.bf_orders_left` minus 1 (same pattern as the welcome-kit Flow in `handoff/handoff_17oct_pdp_buybox.md`).
-- [ ] **At 0:** turn the discount off. The box will say "All 500 have gone".
+- [ ] **Discounts:** £99 first box, £125 second, £150 third on the Quarterly plan (Skio bills £150). These need to exist in Shopify / Skio. Then set `CODE` at the top of `make_bf.py` and rebuild so the page applies the code automatically, as MUTO10 was.
+- [ ] **Add-to-cart button** still shows Skio’s billed price (£150) until the discount applies; check it reads right in the cart.
+- [ ] **Flow:** Order created + uses the Black Friday code → `muto.bf_orders_left` minus 1 (same pattern as the welcome-kit Flow in `handoff/handoff_17oct_pdp_buybox.md`).
+- [ ] **At 0:** turn the discount off. The box will say "All 500 have gone."
