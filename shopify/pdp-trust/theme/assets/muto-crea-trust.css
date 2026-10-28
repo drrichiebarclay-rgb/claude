@@ -134,7 +134,8 @@ html .mc .mc__stm-note .mc__trust-tag{align-self:auto;white-space:normal;text-al
 @media (max-width:749px){html .mc .mc__stm-note .mc__trust-tag{font-size:11px;letter-spacing:.04em;padding:6px 12px;border-radius:12px;line-height:1.35;text-align:center;text-wrap:balance;max-width:280px}}
 
 /* --- Problem stats (muto-crea-stats): standards-style cards ---------------- */
-html .mc .mc__prb-pill{display:inline-flex;align-items:center;margin:0 0 20px;padding:9px 18px;border:1px solid var(--mt-ink);border-radius:999px;font-family:var(--mc-mono);font-size:12px;font-weight:500;line-height:1;letter-spacing:.1em;text-transform:uppercase}
+/* Label above the heading: Sometype Mono caps, no box (as "Our founder") */
+html .mc .mc__prb-pill{display:block;margin:0 0 16px;padding:0;border:0;font-family:var(--mc-mono);font-size:14px;font-weight:500;line-height:1.2;letter-spacing:.07em;text-transform:uppercase;color:var(--mt-muted)}
 html .mc .mc__prb-list{display:grid;grid-template-columns:1fr;gap:12px;margin:28px 0 0;padding:0;list-style:none}
 html .mc .mc__prb-item{display:flex;flex-direction:column;margin:0;padding:24px;border-radius:24px;background:var(--mt-sage);box-shadow:inset 0 0 0 1px rgba(249,249,249,.45)}
 html .mc .mc__prb-fig{margin:36px 0 0;font-size:clamp(56px,6vw,88px);font-weight:600;line-height:.95;letter-spacing:-.03em;font-variant-numeric:tabular-nums;white-space:nowrap}
