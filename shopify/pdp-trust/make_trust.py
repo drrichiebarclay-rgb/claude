@@ -28,12 +28,14 @@ STATEMENT = {"type": "muto-crea-statement", "settings": {
     "space_top": 100, "space_bottom": 100}}
 
 # --- New: problem stats (straight after the statement, before the benefits) ---
-PROBLEM_STATS = [  # tag, figure, line, source. Checked 28 Oct; 03 is Richie's figure (source to confirm).
+PROBLEM_STATS = [  # tag, figure, line, source. Checked 28 Oct.
     ("Trust", "57%", "of supplements tested didn’t match their label",
      "Crawford et al., JAMA Network Open (2022): 17 of 30 immune supplements"),
     ("Inflammation", "1 in 2", "deaths are linked to chronic inflammation",
      "Furman et al., Nature Medicine (2019)"),
-    ("NAD+", "50%", "less NAD+ by the time you reach 40",
+    # Massudi shows NAD+ falling with age in human skin (r = -0.71 in men), not a set % by a set age,
+    # so the card states the direction only. Swap in a number once there's a source that gives one.
+    ("NAD+", "↓", "NAD+ falls steadily as you age, in studies of human tissue",
      "Massudi et al., PLoS ONE (2012)"),
     ("Mitochondria", "50%", "lower muscle mitochondrial capacity by your late 60s",
      "Conley et al., Journal of Physiology (2000)"),
