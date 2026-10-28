@@ -37,6 +37,9 @@ CSS = """/* Black Friday box, above the plans: white, black outline. Offer on th
    of 500 on the right (under it on phones), a bar along the foot. */
 html body .mc .mc-bf{margin:18px 0 0;padding:16px 18px 16px;border:1.5px solid #242223;border-radius:12px;background:#fff;color:#242223;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;align-items:start}
 html body .mc .mc-bf[hidden]{display:none}
+/* Black Friday: the "Best value" bar over the quarterly box in brand lime, charcoal text */
+html body .mc .mc__plans-banner{background:#c9ffb7!important;color:#242223!important}
+html body .mc .mc__plans-banner::before{color:#242223!important}
 /* Black Friday subhead: fill each line before breaking (no balancing), a touch heavier */
 html body .mc .mc-subhead,html body .mc .mc__buy-copy > .mc-subhead{text-wrap:wrap!important;font-weight:500!important}
 html body .mc .mc-bf__tag{grid-column:1/-1;display:flex;align-items:center;gap:8px;margin:0 0 4px;font-family:var(--mc-mono,monospace);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
