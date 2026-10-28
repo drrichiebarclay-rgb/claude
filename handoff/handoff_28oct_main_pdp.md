@@ -78,7 +78,7 @@ The scrolling announcement bar at the top of every page (section `muto-announce`
 
 In order, below the buy box. **New** blocks are in bold; the rest is `muto-nad-v2` as it is on live today.
 
-1. "On this page" menu (pins to the top as you scroll, as on live), with four new links: **The problem**, **Standards**, **What people say** (the videos) and **Founder**, 12 links in page order
+1. "On this page" menu (pins to the top as you scroll, as on live), with four new links: **Problem**, **Standards**, **What people say** (the videos) and **Founder**, 12 links in page order
 2. **Statement:** "Not ready to slow down." / "The next-generation multi-nutrient, built for what your body needs in your 40s and 50s." / tag "Got a wearable? Track the shift over 90 days."
 3. **The problem:** pill "The problem", heading "Your biology shifts. Most supplements don’t." Four cards in the standards style (number, lime topic tag, big figure, cyan rule, one line): **57%** of supplements tested didn’t match their label (Crawford et al., JAMA Network Open 2022) · **1 in 2** deaths are linked to chronic inflammation (Furman et al., Nature Medicine 2019) · **↓** NAD+ falls steadily as you age, in studies of human tissue (Massudi et al., PLoS ONE 2012) · **50%** lower muscle mitochondrial capacity by your late 60s (Conley et al., Journal of Physiology 2000). Sources in a small line underneath.
 3. **Benefits:** the live five cards, with a new heading: "Benefits built on published science." (small line above: "Five jobs. One daily jar."), and a new line under it: "What you need after 35. Your biology shifts. What you need evolves."

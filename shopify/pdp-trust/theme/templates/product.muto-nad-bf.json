@@ -556,7 +556,7 @@
         "n1": {
           "type": "link",
           "settings": {
-            "label": "The problem",
+            "label": "Problem",
             "target": "problem"
           }
         },

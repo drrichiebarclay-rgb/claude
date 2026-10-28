@@ -445,7 +445,7 @@ def nav_links(d):
     """'On this page' menu: the live links plus the new bands, in page order (targets are section keys)."""
     nav = d["sections"]["nav"]
     links = {b["settings"]["target"]: b["settings"]["label"] for b in nav["blocks"].values()}
-    links.update({"problem": "The problem", "standards": "Standards", "results": "What people say", "founder": "Founder"})
+    links.update({"problem": "Problem", "standards": "Standards", "results": "What people say", "founder": "Founder"})
     order = [k for k in d["order"] if k in links]
     assert len(order) == len(links), set(links) - set(order)
     nav["blocks"] = {"n%d" % (i + 1): {"type": "link", "settings": {"label": links[k], "target": k}}
