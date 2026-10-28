@@ -964,7 +964,7 @@
         "field": false,
         "fit": "nad",
         "rail_gap": 48,
-        "foot": "Individual experiences. Everyone is different, and we can’t promise results.",
+        "foot": "",
         "space_top": 70,
         "space_bottom": 100
       }

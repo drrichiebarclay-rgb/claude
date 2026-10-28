@@ -353,7 +353,7 @@ def clinical(d):
     r = S["results"]["settings"]           # the 9:16 customer videos
     r["heading"] = "Don’t take\nour word for it."
     r["note"] = "MUTO customers, in their own words"
-    r["foot"] = "Individual experiences. Everyone is different, and we can’t promise results."
+    r["foot"] = ""   # footnote under the videos removed (28 Oct)
     S["results"]["settings"]["space_top"] = 70
     # Ellen Gray's video is removed.
     S["results"]["blocks"].pop("r4", None)
