@@ -355,6 +355,12 @@ def bands_css():
 def clinical(d):
     S = d["sections"]
 
+    b = S["benefits"]["settings"]          # the live "Five jobs" cards, reframed for 40s and 50s
+    b["eyebrow"] = "Five jobs. One daily jar."
+    b["heading"] = "Benefits built on\npublished science."
+    b["lede"] = ("19 nutrients in two capsules, each chosen for what the research says your body needs "
+                 "in your 40s and 50s. So you can keep up with work, family and everything else.")
+
     r = S["results"]["settings"]           # the 9:16 customer videos
     r["heading"] = "Don’t take\nour word for it."
     r["note"] = "MUTO customers, in their own words"
