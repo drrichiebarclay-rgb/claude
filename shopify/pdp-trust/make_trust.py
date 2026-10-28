@@ -177,9 +177,13 @@ STATS_JS = """<script>
   function show(i) {
     var s = STATS[i];
     text.innerHTML = '<b>' + s[0] + '%%</b> ' + s[1];
+    /* Snap back to empty with no transition, then fill left to right */
+    bar.style.transition = 'none';
     bar.style.width = '0';
+    void bar.offsetWidth;
+    bar.style.transition = '';
     if (still) { bar.style.width = s[0] + '%%'; return; }
-    requestAnimationFrame(function () { requestAnimationFrame(function () { bar.style.width = s[0] + '%%'; }); });
+    requestAnimationFrame(function () { bar.style.width = s[0] + '%%'; });
   }
   show(0);
   setInterval(function () {
@@ -304,9 +308,9 @@ def bands_css():
                  'margin:14px 0 0;padding:14px 18px;border:1.5px solid rgba(36,34,35,.12);border-radius:14px;background:#fff}'
                  'html body .mc .mc-stats__bar{position:relative;display:block;height:12px;border-radius:6px;background:#ecebe6;overflow:visible}'
                  'html body .mc .mc-stats__bar i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:6px;'
-                 'background:linear-gradient(90deg,#9fe0ad,#6bce7f);box-shadow:0 0 14px rgba(107,206,127,.55);transition:width .9s cubic-bezier(.2,0,.2,1)}'
+                 'background:#242223;transition:width .9s cubic-bezier(.2,0,.2,1)}'
                  'html body .mc .mc-stats__text{margin:0;font-size:15px;font-weight:500;line-height:1.25;color:#242223;white-space:nowrap;transition:opacity .35s}'
-                 'html body .mc .mc-stats__text b{font-weight:700;color:#2f8a46}'
+                 'html body .mc .mc-stats__text b{font-weight:700;color:#242223}'
                  'html body .mc .mc-stats.is-fading .mc-stats__text{opacity:0}'
                  '@media (max-width:420px){html body .mc .mc-stats{gap:12px;padding:12px 14px}html body .mc .mc-stats__text{font-size:14px}}'
                  '@media (prefers-reduced-motion:reduce){html body .mc .mc-stats__bar i,html body .mc .mc-stats__text{transition:none}}')
