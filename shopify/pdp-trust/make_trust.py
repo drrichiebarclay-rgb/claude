@@ -172,6 +172,9 @@ def bands_css():
     for key, ground in BANDS:
         w = f'[id$="__{key}"]'
         rules.append(f"{w},{w} > .mc,{w} > .mh{{background:{ground}!important}}")
+    # Subhead under the title: fill each line before breaking (the live rule balances it into two short
+    # lines), medium weight.
+    rules.append('html body .mc .mc-subhead,html body .mc .mc__buy-copy > .mc-subhead{text-wrap:wrap!important;font-weight:500!important}')
     # Customer videos: a scrolling row on desktop too (the section's own desktop layout is a fixed
     # 6-across grid that wraps a 7th card). ~5.5 cards show so the cut-off one says "scroll".
     rules.append('@media screen and (min-width:990px){[id$="__results"] .mh__res-rail{display:flex!important;'
