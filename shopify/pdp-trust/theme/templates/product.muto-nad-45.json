@@ -580,7 +580,7 @@
         "m6"
       ],
       "settings": {
-        "field": true,
+        "field": false,
         "heading": "Scientific\nAdvisory Board.",
         "note": "Six doctors and scientists who review the formula.",
         "compact": true,

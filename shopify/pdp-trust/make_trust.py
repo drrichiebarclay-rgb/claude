@@ -123,6 +123,7 @@ def clinical(d):
     b = S["board"]["settings"]
     b["heading"] = "Scientific\nAdvisory Board."
     b["note"] = "Six doctors and scientists who review the formula."
+    b["field"] = False        # plain #FAFAFA ground, no mint wash
     b["compact"] = True       # the thin one-row strip: all six across on desktop, small swipeable cards on phones
     b["space_top"] = 60       # sits straight under the statement band
 
