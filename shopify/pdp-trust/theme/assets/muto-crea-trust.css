@@ -112,3 +112,13 @@ html .mc .mc__fdr-fact dd{margin:0;font-size:16px;line-height:1.35}
   html .mc .mc__fdr{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:72px;align-items:center}
   html .mc .mc__fdr-media{max-width:540px}
 }
+
+/* Defensive: the band must never be faded or hidden by a script or an app
+   stylesheet that targets carousels or anything named "review" (it showed as
+   an empty band on the preview theme once). !important beats inline styles. */
+html .mc--rev,html .mc--rev .mc__wrap,html .mc--rev .mc__rev,html .mc--rev .mc__trust-top,
+html .mc--rev .mc__rev-rail,html .mc--rev .mc__rev-card{visibility:visible!important;opacity:1!important}
+html .mc--rev .mc__rev-rail{display:grid!important}
+html .mc--rev .mc__rev-card{display:flex!important;transform:none!important}
+/* Dawn's base.css sets blockquotes in italic with a left rule. */
+html .mc .mc__rev-quote{font-style:normal;border:0}

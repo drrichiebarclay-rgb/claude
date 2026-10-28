@@ -20,7 +20,7 @@
 -%}
 <div class="mc mc--rev" style="--mc-spt:{{ spt }};--mc-spb:{{ spb }}">
   <div class="mc__wrap">
-    <section class="mc__rev" aria-labelledby="{{ heading_id }}" aria-roledescription="carousel" data-mc-rev data-interval="{{ section.settings.interval | default: 6 }}">
+    <section class="mc__rev" aria-labelledby="{{ heading_id }}" data-mc-rev data-interval="{{ section.settings.interval | default: 6 }}">
       <div class="mc__trust-top">
         <h2 class="mc__h2" id="{{ heading_id }}">{{ section.settings.heading | escape | newline_to_br }}</h2>
         <div class="mc__rev-side">

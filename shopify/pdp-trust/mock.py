@@ -12,7 +12,7 @@ for i,k in enumerate(s['block_order'],1):
     tail=(f'<p class="mc__trust-label mc__std-note">{b["no_link_note"]}</p>' if b['no_link_note'] and not b['link'] else '')
     items+=f'<li class="mc__std-item"><div class="mc__std-meta"><span class="mc__trust-label mc__std-num">0{i}</span><span class="mc__trust-tag">{SPK}{e(b["stat"])}</span></div><h3 class="mc__std-title">{e(b["title"])}</h3><div class="mc__rt mc__std-text">{b["text"]}</div>{tail}</li>'
 out.append(f'<div class="mc mc--std"><div class="mc__wrap"><section class="mc__std"><div class="mc__trust-top"><h2 class="mc__h2">{br(ss["heading"])}</h2><p class="mc__trust-note">{e(ss["lede"])}</p></div><ol class="mc__std-list">{items}</ol></section></div></div>')
-r=S['reviews_top']; rs=r['settings']; cards=''
+r=S['quotes']; rs=r['settings']; cards=''
 for k in r['block_order']:
     b=r['blocks'][k]['settings']
     cards+=f'<li class="mc__rev-card"><p class="mc__rev-stars">★★★★★</p><p class="mc__trust-tag mc__rev-topic">{SPK}{e(b["topic"])}</p><blockquote class="mc__rev-quote">“{e(b["quote"])}”</blockquote><p class="mc__rev-who"><span class="mc__rev-name">{e(b["name"])}</span><span class="mc__trust-label mc__rev-ver">✓ Verified buyer</span></p></li>'

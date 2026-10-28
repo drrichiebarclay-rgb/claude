@@ -114,7 +114,7 @@ FOUNDER = {"type": "muto-crea-founder",
 GREY, WHITE = "#f2f2f2", "#ffffff"
 BANDS = [  # section key -> ground, in page order
     ("buy", GREY), ("statement", WHITE), ("board", GREY), ("standards", WHITE),
-    ("results", GREY), ("reviews_top", WHITE), ("founder", GREY), ("problem", WHITE),
+    ("results", GREY), ("quotes", WHITE), ("founder", GREY), ("problem", WHITE),
     ("benefits", GREY), ("steps", WHITE), ("guarantee", GREY), ("compare", WHITE),
     ("faq", GREY),
 ]
@@ -196,7 +196,7 @@ def main():
     d["sections"].update({
         "statement": STATEMENT,
         "standards": standards(),
-        "reviews_top": reviews(),
+        "quotes": reviews(),
         "founder": FOUNDER,
     })
     clinical(d)
@@ -209,7 +209,7 @@ def main():
         "board",            # Scientific Advisory Board, compact row
         "standards",
         "results",          # customer videos, 9:16
-        "reviews_top",      # up to 20 rotating written reviews
+        "quotes",      # up to 20 rotating written reviews
         "founder",
         "problem", "benefits", "steps", "guarantee", "why", "compare", "faq",
         "custom_reviews_KpXTpD", "sticky", "easy_read", "bands",
