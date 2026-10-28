@@ -1,0 +1,134 @@
+/* MUTO — trust bands for the NAD+ product page: statement, standards,
+   rotating reviews and founder. Drawn in the page's own language so they sit
+   with the board, results and why bands:
+   - Neue Haas Grotesk (--mc-font) for headings and copy; Sometype Mono
+     (--mc-mono) only for small notes, labels and tags, at the board's sizes.
+   - Heading left, mono note on the right margin (the board/results pattern).
+   - Sage glass cards, 24px radius, inset highlight (the why cards).
+   - Tag pills with the sparkle (.mh__tag), here in brand lime.
+   Brand palette: #FAFAFA ground, #C8D2CF sage, #5EFAFF cyan, #C9FFB7 lime,
+   #F0FF84 yellow, #242223 charcoal ink.
+
+   SPECIFICITY: every rule starts with `html .mc`. Later sections link
+   muto-crea.css again, after this file, and its zero-specificity reset
+   (`.mc :where(p,h2,li…){margin:0;padding:0}`) would otherwise win and strip
+   the spacing here. */
+
+html .mc--stm,html .mc--std,html .mc--rev,html .mc--fdr{
+  --mt-ink:#242223;--mt-ground:#fafafa;--mt-sage:rgba(200,210,207,.4);--mt-sage-solid:#c8d2cf;
+  --mt-lime:#c9ffb7;--mt-cyan:#5efaff;--mt-muted:rgba(36,34,35,.62);--mt-hair:rgba(36,34,35,.14);
+  font-family:var(--mc-font);color:var(--mt-ink);background:var(--mt-ground)}
+
+/* --- Shared pieces ------------------------------------------------------- */
+html .mc .mc__trust-top{display:flex;flex-direction:column;gap:14px;margin:0 0 28px}
+html .mc .mc__trust-note{margin:0;font-family:var(--mc-mono);font-size:14px;font-weight:500;line-height:1.2;letter-spacing:.07em;text-transform:uppercase;color:var(--mt-muted)}
+html .mc .mc__trust-label{font-family:var(--mc-mono);font-size:12px;font-weight:500;line-height:1.2;letter-spacing:.08em;text-transform:uppercase;color:var(--mt-muted)}
+html .mc .mc__trust-tag{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;margin:0;padding:5px 12px;border-radius:999px;background:var(--mt-lime);color:var(--mt-ink);font-family:var(--mc-mono);font-size:12px;font-weight:500;line-height:1.2;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+html .mc .mc__trust-spark{flex:0 0 auto;width:9px;height:9px;background:currentColor;clip-path:polygon(50% 0%,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0% 50%,39% 39%)}
+html .mc .mc__trust-card{border-radius:24px;background:var(--mt-sage);box-shadow:inset 0 0 0 1px rgba(249,249,249,.45);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+html .mc .mc__trust-link{display:inline-flex;gap:.4em;margin-top:22px;font-weight:500;font-size:16px;color:var(--mt-ink);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+html .mc .mc__trust-link:hover{opacity:.75}
+html .mc .mc__trust-link:focus-visible,html .mc .mc__rev-btn:focus-visible,html .mc .mc__rev-rail:focus-visible{outline:2px solid var(--mt-ink);outline-offset:3px}
+@media (min-width:750px){
+  html .mc .mc__trust-top{flex-direction:row;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:48px}
+  html .mc .mc__trust-note{text-align:right;max-width:360px}
+}
+
+/* Band spacing: 56px on phones, 88px from 990px, scaled by the editor's
+   Space above / below. */
+html .mc .mc__stm,html .mc .mc__std,html .mc .mc__rev,html .mc .mc__fdr{
+  padding-top:calc(56px*var(--mc-spt,1));padding-bottom:calc(56px*var(--mc-spb,1))}
+@media (min-width:990px){
+  html .mc .mc__stm,html .mc .mc__std,html .mc .mc__rev,html .mc .mc__fdr{
+    padding-top:calc(88px*var(--mc-spt,1));padding-bottom:calc(88px*var(--mc-spb,1))}
+}
+
+/* --- Statement ----------------------------------------------------------- */
+html .mc .mc__stm{text-align:center;max-width:1000px;margin:0 auto}
+html .mc .mc__stm-label{display:block;margin:0 0 16px}
+html .mc .mc__stm-head{font-size:clamp(36px,5.2vw,76px)}
+html .mc .mc__stm-sub{margin:18px 0 0;font-size:clamp(18px,1.67vw,24px);line-height:1.25;color:rgba(36,34,35,.72)}
+
+/* --- Standards: four sage glass cards ------------------------------------ */
+html .mc .mc__std-list{display:grid;grid-template-columns:1fr;gap:12px;margin:0;padding:0;list-style:none}
+html .mc .mc__std-item{display:flex;flex-direction:column;margin:0;padding:24px;border-radius:24px;background:var(--mt-sage);box-shadow:inset 0 0 0 1px rgba(249,249,249,.45)}
+html .mc .mc__std-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 40px}
+html .mc .mc__std-title{margin:0 0 12px;font-family:var(--mc-font);font-weight:500;font-size:24px;line-height:1.1;letter-spacing:-.01em;text-transform:none;color:var(--mt-ink)}
+html .mc .mc__std-text{margin:0;font-size:16px;line-height:1.36;color:rgba(36,34,35,.78)}
+html .mc .mc__std-text > * + *{margin-top:10px}
+html .mc .mc__std-note{margin:auto 0 0;padding-top:20px}
+html .mc .mc__std-item .mc__trust-link{margin-top:auto;padding-top:20px}
+html .mc .mc__std-foot{margin:20px 0 0;font-size:13px;color:var(--mt-muted)}
+@media (min-width:750px){
+  html .mc .mc__std-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (min-width:1100px){
+  html .mc .mc__std-list{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+  html .mc .mc__std-item{min-height:300px}
+}
+
+/* --- Rotating reviews ---------------------------------------------------- */
+html .mc .mc__rev-side{display:flex;flex-direction:column;gap:14px}
+html .mc .mc__rev-summary{margin:0;font-size:16px}
+html .mc .mc__rev-stars{margin:0;color:var(--mt-ink);letter-spacing:.14em;font-size:13px;line-height:1}
+html .mc .mc__rev-nav{display:flex;align-items:center;gap:12px}
+html .mc .mc__rev-nav[hidden]{display:none}
+html .mc .mc__rev-btn{appearance:none;-webkit-appearance:none;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:0;border-radius:50%;background:var(--mt-sage);color:var(--mt-ink);font-family:var(--mc-font);font-size:18px;line-height:1;cursor:pointer;transition:background var(--mc-dur) var(--mc-ease)}
+html .mc .mc__rev-btn:hover{background:var(--mt-cyan)}
+html .mc .mc__rev-count{margin:0;min-width:60px;text-align:center;color:var(--mt-ink)}
+html .mc .mc__rev-rail{display:grid;grid-auto-flow:column;grid-auto-columns:84%;column-gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;list-style:none;margin:0 calc(-1*var(--mc-gutter));padding:0 var(--mc-gutter);scroll-padding:0 var(--mc-gutter)}
+html .mc .mc__rev-card{scroll-snap-align:start;display:flex;flex-direction:column;gap:14px;margin:0;padding:24px;min-height:260px;border-radius:24px;background:var(--mt-sage);box-shadow:inset 0 0 0 1px rgba(249,249,249,.45)}
+html .mc .mc__rev-quote{flex:1;margin:0;padding:0;font-size:20px;line-height:1.28;letter-spacing:-.005em}
+html .mc .mc__rev-who{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:6px 12px;margin:0;padding-top:14px;border-top:1px solid var(--mt-hair)}
+html .mc .mc__rev-name{font-weight:500;font-size:18px}
+html .mc .mc__rev-foot{margin:18px 0 0;font-size:13px;color:var(--mt-muted)}
+@media (min-width:750px){
+  html .mc .mc__rev-side{align-items:flex-end}
+  html .mc .mc__rev-rail{grid-auto-columns:calc((100% - 24px)/2.2)}
+}
+@media (min-width:1100px){
+  html .mc .mc__rev-rail{grid-auto-columns:calc((100% - 32px)/3);column-gap:16px;margin:0;padding:0;scroll-padding:0}
+  html .mc .mc__rev-quote{font-size:22px}
+}
+
+/* --- Founder ------------------------------------------------------------- */
+html .mc .mc__fdr{display:grid;gap:28px}
+/* muto-image draws an absolutely positioned slot, so the frame carries the
+   ratio and the positioning context; without it the photo escapes the column. */
+html .mc .mc__fdr-frame{position:relative;width:100%;aspect-ratio:4/5;overflow:hidden;border-radius:20px;background:var(--mt-sage)}
+html .mc .mc__fdr-frame .mh__img{width:100%;height:100%;object-fit:cover;object-position:var(--mh-pos,50% 50%)}
+html .mc .mc__fdr-caption{margin:10px 0 0}
+html .mc .mc__fdr-eyebrow{display:block;margin:0 0 16px;font-size:14px;letter-spacing:.07em}
+html .mc .mc__fdr-text{margin:22px 0 0;font-size:17px;line-height:1.42;color:rgba(36,34,35,.8);max-width:560px}
+html .mc .mc__fdr-text > * + *{margin-top:12px}
+html .mc .mc__fdr-quote{margin:36px 0 0;padding:28px 0 0;max-width:560px;border-top:1px solid var(--mt-hair)}
+html .mc .mc__fdr-quote-text{margin:0;font-family:var(--mc-font);font-style:normal;font-weight:500;font-size:clamp(22px,2vw,28px);line-height:1.22;letter-spacing:-.01em;color:var(--mt-ink)}
+html .mc .mc__fdr-sign{margin:16px 0 0;font-family:var(--mc-mono);font-size:14px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--mt-muted)}
+html .mc .mc__fdr-facts{margin:26px 0 0;padding:0;border-top:1px solid var(--mt-hair);max-width:560px}
+html .mc .mc__fdr-fact{display:grid;grid-template-columns:130px minmax(0,1fr);gap:16px;margin:0;padding:12px 0;border-bottom:1px solid var(--mt-hair)}
+html .mc .mc__fdr-fact dt{margin:0;padding-top:3px}
+html .mc .mc__fdr-fact dd{margin:0;font-size:16px;line-height:1.35}
+@media (min-width:990px){
+  html .mc .mc__fdr{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:72px;align-items:center}
+  html .mc .mc__fdr-media{max-width:540px}
+}
+
+/* Defensive: the band must never be faded or hidden by a script or an app
+   stylesheet that targets carousels or anything named "review" (it showed as
+   an empty band on the preview theme once). !important beats inline styles. */
+html .mc--rev,html .mc--rev .mc__wrap,html .mc--rev .mc__rev,html .mc--rev .mc__trust-top,
+html .mc--rev .mc__rev-rail,html .mc--rev .mc__rev-card{visibility:visible!important;opacity:1!important}
+html .mc--rev .mc__rev-rail{display:grid!important}
+html .mc--rev .mc__rev-card{display:flex!important;transform:none!important}
+/* Dawn's base.css sets blockquotes in italic with a left rule. */
+html .mc .mc__rev-quote{font-style:normal;border:0}
+
+/* The certificate button on standards card 01: the test-results section's own .mtr-btn, sized to the card */
+html .mc .mc__std-item .mc__std-cert{align-self:flex-start;margin-top:auto;height:48px;padding:0 18px;font-size:15px;text-decoration:none}
+html .mc .mc__std-item .mc__std-text + .mc__std-cert{margin-top:24px}
+@media (min-width:1100px){html .mc .mc__std-item .mc__std-text + .mc__std-cert{margin-top:auto}}
+html .mc .mc__std-item .mc__std-cert{width:100%;justify-content:center;gap:8px;padding:0 12px;font-size:14px;white-space:nowrap}
+html .mc .mc__std-item .mc__std-cert .mtr-btn__tick{flex:0 0 20px}
+html .mc .mc__stm-note{margin:24px 0 0;display:flex;justify-content:center}
+html .mc .mc__stm-note .mc__trust-tag{align-self:auto;white-space:normal;text-align:left}
+@media (max-width:749px){html .mc .mc__stm-note .mc__trust-tag{font-size:11px;letter-spacing:.04em;padding:6px 12px;border-radius:12px;line-height:1.35;text-align:center;text-wrap:balance;max-width:280px}}

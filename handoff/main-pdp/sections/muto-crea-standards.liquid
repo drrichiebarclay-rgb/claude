@@ -1,0 +1,74 @@
+{%- comment -%}
+  MUTO — Standards. A numbered list of what we hold ourselves to, laid out
+  like a spec sheet: number, headline figure, title, one or two lines, and
+  an optional link (for example to the published certificates).
+
+  BLOCKS, one per standard. Desktop: four columns between hairline rules.
+  MOBILE: stacked rows.
+{%- endcomment -%}
+{{ 'muto-crea.css' | asset_url | stylesheet_tag }}
+{{ 'muto-crea-trust.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign spt = section.settings.space_top | default: 100 | times: 0.01
+  assign spb = section.settings.space_bottom | default: 100 | times: 0.01
+  assign heading_id = 'mc-std-' | append: section.id
+-%}
+<div class="mc mc--std" style="--mc-spt:{{ spt }};--mc-spb:{{ spb }}">
+  <div class="mc__wrap">
+    <section class="mc__std" aria-labelledby="{{ heading_id }}">
+      <div class="mc__trust-top">
+        <h2 class="mc__h2" id="{{ heading_id }}">{{ section.settings.heading | escape | newline_to_br }}</h2>
+        {%- if section.settings.lede != blank -%}<p class="mc__trust-note">{{ section.settings.lede }}</p>{%- endif -%}
+      </div>
+      <ol class="mc__std-list">
+        {%- for block in section.blocks -%}
+          <li class="mc__std-item" {{ block.shopify_attributes }}>
+            <div class="mc__std-meta">
+              <span class="mc__trust-label mc__std-num" aria-hidden="true">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+              {%- if block.settings.stat != blank -%}<span class="mc__trust-tag"><span class="mc__trust-spark" aria-hidden="true"></span>{{ block.settings.stat }}</span>{%- endif -%}
+            </div>
+            <h3 class="mc__std-title">{{ block.settings.title }}</h3>
+            {%- if block.settings.text != blank -%}<div class="mc__rt mc__std-text">{{ block.settings.text }}</div>{%- endif -%}
+            {%- if block.settings.link_label != blank and block.settings.link != blank and block.settings.link contains '#test-results' -%}
+              {%- comment -%} The certificate panel's own button (styles from the muto-test-results section), as on the live page {%- endcomment -%}
+              <a class="mtr-btn mc__std-cert" href="{{ block.settings.link }}"><span class="mtr-btn__tick"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6.2 5 8.6l4.5-5" stroke="#162f31" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>{{ block.settings.link_label }}</a>
+            {%- elsif block.settings.link_label != blank and block.settings.link != blank -%}
+              <a class="mc__trust-link" href="{{ block.settings.link }}">{{ block.settings.link_label }} <span aria-hidden="true">→</span></a>
+            {%- elsif block.settings.no_link_note != blank -%}
+              <p class="mc__trust-label mc__std-note">{{ block.settings.no_link_note }}</p>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ol>
+      {%- if section.settings.foot != blank -%}<p class="mc__std-foot">{{ section.settings.foot }}</p>{%- endif -%}
+    </section>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "MUTO — Standards",
+  "tag": "section",
+  "class": "mc-section",
+  "max_blocks": 6,
+  "settings": [
+        { "type": "textarea", "id": "heading", "label": "Heading", "default": "Our standards." },
+    { "type": "text", "id": "lede", "label": "Note", "info": "Sits opposite the heading on desktop, like the board and video bands." },
+    { "type": "text", "id": "foot", "label": "Small line below" },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 2, "unit": "%", "default": 100 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 2, "unit": "%", "default": 100 }
+  ],
+  "blocks": [
+    { "type": "standard", "name": "Standard", "settings": [
+      { "type": "text", "id": "stat", "label": "Tag", "info": "Short, e.g. \"300mg NR\" or \"GMP · ISO\". Shown in a small tag beside the number." },
+      { "type": "text", "id": "title", "label": "Title", "default": "Third-party tested" },
+      { "type": "richtext", "id": "text", "label": "Copy" },
+      { "type": "text", "id": "link_label", "label": "Link label", "info": "E.g. \"View the certificates\"." },
+      { "type": "text", "id": "link", "label": "Link", "info": "A page link, or #test-results to open the certificate panel. The label and link only show when both are filled in." },
+      { "type": "text", "id": "no_link_note", "label": "Line shown when there is no link", "info": "E.g. \"Certificates on request\"." }
+    ] }
+  ],
+  "presets": [{ "name": "MUTO — Standards" }],
+  "enabled_on": { "templates": ["product", "page", "index"] }
+}
+{% endschema %}

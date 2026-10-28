@@ -1,6 +1,8 @@
 # Main product page: trust bands and a more clinical voice (28 Oct 2026)
 
-Template `product.muto-nad-45` (the main NAD+ page, `/products/muto-nad-cellular-complex`).
+**Dev handover (28 Oct): `handoff/MUTO_Dev_Handoff_Main_PDP_28Oct2026.docx`.** MUTO10 was ended on 28 Oct 17:19 and the pre-sale box is removed from this template.
+
+Template `product.muto-nad-trust` (the main NAD+ page, `/products/muto-nad-cellular-complex`).
 Built on the **live** template as of 28 Oct (`live-snapshot-28oct/`, last edited on live 19 Oct), so live edits are kept.
 The buy box is not touched. Rebuild with `python3 make_trust.py`.
 
@@ -12,7 +14,7 @@ The main product moved to template `product.muto-nad-v2` on 27 Oct. The buy box 
 
 1. `theme/assets/muto-crea-trust.css`
 2. `theme/sections/muto-crea-standards.liquid`, `muto-crea-reviews.liquid`, `muto-crea-founder.liquid`, `muto-crea-statement.liquid`
-3. `theme/templates/product.muto-nad-45.json`
+3. `theme/templates/product.muto-nad-trust.json`
 
 All four sections are new names, so nothing on live is overwritten except the template.
 
