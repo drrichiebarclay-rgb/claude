@@ -1,7 +1,14 @@
 /* MUTO — trust bands for the NAD+ product page: statement, standards,
    rotating reviews and founder. Built on muto-crea.css (load that first):
    same fonts, inks and spacing model. The clinical register comes from
-   hairline rules, mono labels and numbered items, not from a new palette. */
+   hairline rules, small uppercase labels and numbered items, not from a new
+   palette or typeface: Neue Haas Grotesk (the page's --mc-font) throughout,
+   labels and figures included, so no mono face appears in these bands. */
+
+.mc--stm,.mc--std,.mc--rev,.mc--fdr,
+.mc--stm .mc__mono,.mc--std .mc__mono,.mc--rev .mc__mono,.mc--fdr .mc__mono,
+.mc--rev .mc__rev-btn{font-family:var(--mc-font)}
+.mc--stm .mc__mono,.mc--std .mc__mono,.mc--rev .mc__mono,.mc--fdr .mc__mono{letter-spacing:.06em}
 
 .mc--stm,.mc--std,.mc--rev,.mc--fdr{background:var(--mc-ground)}
 .mc--std{background:#fff}
@@ -24,7 +31,7 @@
 .mc__std-list{display:grid;grid-template-columns:1fr;border-top:1px solid var(--mc-hair)}
 .mc__std-item{padding:26px 0 30px;border-bottom:1px solid var(--mc-hair);display:flex;flex-direction:column}
 .mc__std-num{color:var(--mc-muted);margin-bottom:22px}
-.mc__std-stat{font-family:var(--mc-mono);font-weight:500;font-size:clamp(26px,2.5vw,36px);letter-spacing:-.01em;line-height:1;margin-bottom:14px}
+.mc__std-stat{font-family:var(--mc-font);font-weight:500;font-size:clamp(26px,2.5vw,36px);letter-spacing:-.01em;line-height:1;margin-bottom:14px}
 .mc .mc__std-title{margin-bottom:10px}
 .mc__std-text{font-size:16px;line-height:1.38;color:rgba(22,47,49,.82)}
 .mc__std-note{margin-top:18px;font-size:12px;color:var(--mc-muted)}
