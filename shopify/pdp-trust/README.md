@@ -41,7 +41,6 @@ The new bands use the page's own patterns (sage glass cards, mono notes opposite
 
 ## Before it goes live
 
-- [ ] **Reviews: fill to 20.** 8 real quotes are in (from the landing pages). Pick 12 more from REVIEWS.io, 5-star, over-30s, on-message (energy, recovery, feeling like yourself, one jar, the science). Copy the words exactly.
+- **Reviews: 20 in.** 5-star REVIEWS.io reviews, copied word for word (whole or one unbroken passage). Rating line "4.8 from 103 reviews" is typed in: update it as the count grows.
 - [ ] **Ages.** Add each reviewer's age (with their OK). Reviews with an age under 30 are hidden automatically. Once every card has an age, tick "Only reviews with an age" to enforce over-30s only.
-- [ ] **Rating summary** (e.g. "4.8 from 412 reviews"): add the live REVIEWS.io figure, or leave blank.
 - [ ] **Certificates link.** The copy says "Certificates of analysis on request" until a URL is set. Once the certificates are published, set the link on standard 01 (or `CERTS_URL` in `make_trust.py`) and the card shows "View the certificates →".
