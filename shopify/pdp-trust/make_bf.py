@@ -37,6 +37,8 @@ CSS = """/* Black Friday box, above the plans: white, black outline. Offer on th
    of 500 on the right (under it on phones), a bar along the foot. */
 html body .mc .mc-bf{margin:18px 0 0;padding:16px 18px 16px;border:1.5px solid #242223;border-radius:12px;background:#fff;color:#242223;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;align-items:start}
 html body .mc .mc-bf[hidden]{display:none}
+/* Plan bar: "Black Friday offer · Limited stock" on the left, "Best value" on the right as a filled turquoise pill */
+html body .mc .mc__plans-banner::before{order:2;content:"Best value"!important;padding:6px 12px;border-radius:999px;background:#5efaff;color:#242223!important;font-size:12px;line-height:1;letter-spacing:.1em}
 /* Black Friday subhead: fill each line before breaking (no balancing), a touch heavier */
 html body .mc .mc-subhead,html body .mc .mc__buy-copy > .mc-subhead{text-wrap:wrap!important;font-weight:500!important}
 html body .mc .mc-bf__tag{grid-column:1/-1;display:flex;align-items:center;gap:8px;margin:0 0 4px;font-family:var(--mc-mono,monospace);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
@@ -162,7 +164,7 @@ def main():
     m["settings"]["note"] = M_NOTE
 
     # Black bar over the plans: "Black Friday offer" (the "✦ Best value" label stays on its left)
-    d["sections"]["buy"]["settings"]["plans_banner"] = "Black Friday offer"
+    d["sections"]["buy"]["settings"]["plans_banner"] = "Black Friday offer · Limited stock"
     # Ticks: the welcome-kit line first, on both plans
     import re as _re
     for plan in (q, m):
