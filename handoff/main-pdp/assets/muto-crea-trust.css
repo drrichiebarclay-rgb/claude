@@ -14,7 +14,7 @@
    (`.mc :where(p,h2,li…){margin:0;padding:0}`) would otherwise win and strip
    the spacing here. */
 
-html .mc--stm,html .mc--std,html .mc--rev,html .mc--fdr{
+html .mc--stm,html .mc--std,html .mc--rev,html .mc--fdr,html .mc--prb{
   --mt-ink:#242223;--mt-ground:#fafafa;--mt-sage:rgba(200,210,207,.4);--mt-sage-solid:#c8d2cf;
   --mt-lime:#c9ffb7;--mt-cyan:#5efaff;--mt-muted:rgba(36,34,35,.62);--mt-hair:rgba(36,34,35,.14);
   font-family:var(--mc-font);color:var(--mt-ink);background:var(--mt-ground)}
@@ -132,3 +132,19 @@ html .mc .mc__std-item .mc__std-cert .mtr-btn__tick{flex:0 0 20px}
 html .mc .mc__stm-note{margin:24px 0 0;display:flex;justify-content:center}
 html .mc .mc__stm-note .mc__trust-tag{align-self:auto;white-space:normal;text-align:left}
 @media (max-width:749px){html .mc .mc__stm-note .mc__trust-tag{font-size:11px;letter-spacing:.04em;padding:6px 12px;border-radius:12px;line-height:1.35;text-align:center;text-wrap:balance;max-width:280px}}
+
+/* --- Problem stats (muto-crea-stats) -------------------------------------- */
+html .mc .mc__prb-pill{display:inline-flex;align-items:center;margin:0 0 20px;padding:10px 22px;border:1.5px solid var(--mt-ink);border-radius:999px;font-family:var(--mc-mono);font-size:13px;font-weight:500;line-height:1;letter-spacing:.1em;text-transform:uppercase}
+html .mc .mc__prb-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:28px 0 0;padding:0;list-style:none}
+html .mc .mc__prb-item{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:12px;margin:0;padding:30px 14px 40px;min-height:180px;border-radius:16px;background:var(--mt-sage);text-align:center}
+html .mc .mc__prb-fig{margin:0;font-size:clamp(40px,5vw,72px);font-weight:600;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;white-space:nowrap}
+html .mc .mc__prb-text{margin:0;max-width:240px;font-size:13px;font-weight:500;line-height:1.3;letter-spacing:.02em;text-transform:uppercase;text-wrap:balance}
+html .mc .mc__prb-ref{position:absolute;left:14px;bottom:12px;font-family:var(--mc-mono);font-size:11px;color:var(--mt-muted)}
+html .mc .mc__prb-src{margin:20px 0 0;font-size:12px;line-height:1.5;color:var(--mt-muted)}
+html .mc .mc__prb-src p{margin:0}
+@media (min-width:990px){
+  html .mc .mc__prb-list{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:44px}
+  html .mc .mc__prb-item{min-height:240px;padding:52px 20px 48px;border-radius:20px}
+  html .mc .mc__prb-text{font-size:16px}
+  html .mc .mc__prb-ref{left:20px;bottom:16px}
+}

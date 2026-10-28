@@ -5,7 +5,7 @@ subtitle: "28 October 2026"
 
 The main product page and -2 move to a new template, **`muto-nad-trust`**. It is today's `muto-nad-v2` page, with every section kept: buy box, "On this page" menu, "Five jobs. One daily jar.", the ingredient library, comparison, timeline, "How to take it", FAQs. New blocks slot in between: the statement, the science board, standards, customer videos, reviews and the founder. The Black Friday pre-sale box and its MUTO10 code are removed.
 
-That means **6 new files to add**, **template changes on 2 products**, **removing the pre-sale box from 3 live templates** and **2 announcement-bar messages to take down**. No existing theme file is overwritten.
+That means **7 new files to add**, **template changes on 2 products**, **removing the pre-sale box from 3 live templates** and **2 announcement-bar messages to take down**. No existing theme file is overwritten.
 
 # Before you start
 
@@ -15,14 +15,15 @@ That means **6 new files to add**, **template changes on 2 products**, **removin
   <https://muto.co/products/muto-nad-cellular-complex?preview_theme_id=202682564955&view=muto-nad-trust>
 - **Your edits are kept.** Everything except the new blocks is copied from the **live `muto-nad-v2` template as of 28 October**: the buy box and its `easy_read` block, the menu, benefits, ingredient library, comparison, timeline, "How to take it", the FAQs and the test-results panel. If you've edited `muto-nad-v2` since, tell Richie before copying, and the template will be rebuilt from your latest version.
 
-# Step 1: add the 6 files, in this order
+# Step 1: add the 7 files, in this order
 
 Every file is new; nothing with these names exists on live.
 
 | File | What it is |
 |---|---|
-| `assets/muto-crea-trust.css` | Styles for the four new blocks |
+| `assets/muto-crea-trust.css` | Styles for the five new blocks |
 | `sections/muto-crea-statement.liquid` | "Not ready to slow down." band |
+| `sections/muto-crea-stats.liquid` | "The problem": four stat boxes with sources |
 | `sections/muto-crea-standards.liquid` | "Checked, not taken on trust." four standards cards |
 | `sections/muto-crea-reviews.liquid` | "What our community say." rotating reviews (20) |
 | `sections/muto-crea-founder.liquid` | Founder band |
@@ -79,6 +80,7 @@ In order, below the buy box. **New** blocks are in bold; the rest is `muto-nad-v
 
 1. "On this page" menu (pins to the top as you scroll, as on live), with three new links: **Standards**, **What people say** (the videos) and **Founder**, 11 links in page order
 2. **Statement:** "Not ready to slow down." / "The next-generation multi-nutrient, built for what your body needs in your 40s and 50s." / tag "Got a wearable? Track the shift over 90 days."
+3. **The problem:** "Your biology shifts. Most supplements don’t." Four boxes: **57%** of supplements tested didn’t match their label (Crawford et al., JAMA Network Open 2022) · **1 in 2** deaths are linked to chronic inflammation (Furman et al., Nature Medicine 2019) · **30%** less NAD+ in liver tissue after 60 (Zhou et al., British Journal of Pharmacology 2016) · **50%** lower muscle mitochondrial capacity by your late 60s (Conley et al., Journal of Physiology 2000). Sources in a small line underneath.
 3. **Benefits:** the live five cards, with a new heading: "Benefits built on published science." (small line above: "Five jobs. One daily jar."), and a new line under it: "What you need after 35. Your biology shifts. What you need evolves."
 4. **Science board:** "Six scientists put their name to MUTO.", compact row, white background.
 5. **Standards:** four cards. Card 1 has the "View third-party testing results" button, which opens the certificate panel (batch 2333).
@@ -102,7 +104,7 @@ Also changed from `muto-nad-v2`:
 
 ## How it's built
 
-- **Template-only** apart from the four new sections and their stylesheet. The page's own styles are in a Custom Liquid block called `head_styles` at the **top** of the template, so the buy box is styled from the first paint (with them at the bottom, the old design flashed on load). Its scripts stay in `easy_read` and `bands` at the bottom.
+- **Template-only** apart from the five new sections and their stylesheet. The page's own styles are in a Custom Liquid block called `head_styles` at the **top** of the template, so the buy box is styled from the first paint (with them at the bottom, the old design flashed on load). Its scripts stay in `easy_read` and `bands` at the bottom.
 - **Source:** `shopify/pdp-trust/make_trust.py` builds the template. Change copy there and rebuild rather than editing by hand, or tell Richie about manual edits so they aren't lost on the next rebuild.
 
 # Check after publishing

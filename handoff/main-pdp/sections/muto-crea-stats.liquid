@@ -1,0 +1,56 @@
+{%- comment -%}
+  MUTO — Problem stats. A small pill label, a heading, then four boxes: a big
+  figure, a short caps line and its reference number. The sources run in a
+  small line underneath, numbered to match.
+
+  BLOCKS, one per stat. Desktop: four in a row. MOBILE: two by two.
+{%- endcomment -%}
+{{ 'muto-crea.css' | asset_url | stylesheet_tag }}
+{{ 'muto-crea-trust.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign spt = section.settings.space_top | default: 100 | times: 0.01
+  assign spb = section.settings.space_bottom | default: 100 | times: 0.01
+  assign heading_id = 'mc-prb-' | append: section.id
+-%}
+<div class="mc mc--prb" style="--mc-spt:{{ spt }};--mc-spb:{{ spb }}">
+  <div class="mc__wrap">
+    <section class="mc__prb" aria-labelledby="{{ heading_id }}">
+      {%- if section.settings.label != blank -%}<p class="mc__prb-pill">{{ section.settings.label }}</p>{%- endif -%}
+      <h2 class="mc__h2" id="{{ heading_id }}">{{ section.settings.heading | escape | newline_to_br }}</h2>
+      <ol class="mc__prb-list">
+        {%- for block in section.blocks -%}
+          <li class="mc__prb-item" {{ block.shopify_attributes }}>
+            <p class="mc__prb-fig">{{ block.settings.figure }}</p>
+            <p class="mc__prb-text">{{ block.settings.text }}</p>
+            <span class="mc__prb-ref" aria-hidden="true">({{ forloop.index | prepend: '0' | slice: -2, 2 }})</span>
+          </li>
+        {%- endfor -%}
+      </ol>
+      {%- if section.settings.sources != blank -%}<div class="mc__prb-src">{{ section.settings.sources }}</div>{%- endif -%}
+    </section>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "MUTO — Problem stats",
+  "tag": "section",
+  "class": "mc-section",
+  "max_blocks": 4,
+  "settings": [
+    { "type": "text", "id": "label", "label": "Pill label", "default": "The problem" },
+    { "type": "textarea", "id": "heading", "label": "Heading" },
+    { "type": "richtext", "id": "sources", "label": "Sources", "info": "Numbered to match the boxes, e.g. 01. Author et al., Journal (year)." },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 2, "unit": "%", "default": 100 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 2, "unit": "%", "default": 100 }
+  ],
+  "blocks": [
+    { "type": "stat", "name": "Stat", "settings": [
+      { "type": "text", "id": "figure", "label": "Figure", "info": "E.g. 57% or 1 in 2" },
+      { "type": "text", "id": "text", "label": "Line under it" }
+    ] }
+  ],
+  "presets": [{ "name": "MUTO — Problem stats" }],
+  "enabled_on": { "templates": ["product", "page", "index"] }
+}
+{% endschema %}

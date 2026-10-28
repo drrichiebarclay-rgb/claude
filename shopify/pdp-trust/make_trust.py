@@ -27,6 +27,30 @@ STATEMENT = {"type": "muto-crea-statement", "settings": {
     "note": "Got a wearable? Track the shift over 90 days.",
     "space_top": 100, "space_bottom": 100}}
 
+# --- New: problem stats (straight after the statement, before the benefits) ---
+PROBLEM_STATS = [  # figure, line, source. Checked 28 Oct; 03 is the one to confirm against the full text.
+    ("57%", "of supplements tested didn’t match their label",
+     "Crawford et al., JAMA Network Open (2022): 17 of 30 immune supplements"),
+    ("1 in 2", "deaths are linked to chronic inflammation",
+     "Furman et al., Nature Medicine (2019)"),
+    ("30%", "less NAD+ in liver tissue after 60",
+     "Zhou et al., British Journal of Pharmacology (2016)"),
+    ("50%", "lower muscle mitochondrial capacity by your late 60s",
+     "Conley et al., Journal of Physiology (2000)"),
+]
+
+
+def problem():
+    blocks = {"p%d" % (i + 1): {"type": "stat", "settings": {"figure": f, "text": x}}
+              for i, (f, x, _) in enumerate(PROBLEM_STATS)}
+    sources = " ".join("%02d. %s." % (i + 1, s) for i, (_, _, s) in enumerate(PROBLEM_STATS))
+    return {"type": "muto-crea-stats", "blocks": blocks, "block_order": list(blocks), "settings": {
+        "label": "The problem",
+        "heading": "Your biology shifts.\nMost supplements don’t.",
+        "sources": "<p>" + sources + "</p>",
+        "space_top": 40, "space_bottom": 100}}
+
+
 # --- New: standards ----------------------------------------------------------
 STANDARDS_ITEMS = [
     ("tested", "Every batch", "Third-party tested",
@@ -130,6 +154,7 @@ GREY, WHITE = "#c8d2cf", "#ffffff"   # grey = brand sage #C8D2CF
 BANDS = [  # section key -> ground, in page order. The buy box and the nav keep the live page's own
            # #fafafa; "compare" and "howto" keep their live sage (#c8d2cf) bands, so none of those is listed.
     ("statement", WHITE),
+    ("problem", WHITE),
     ("benefits", GREY),
     ("board", WHITE),
     ("standards", WHITE),
@@ -453,6 +478,7 @@ def main():
 
     d["sections"].update({
         "statement": STATEMENT,
+        "problem": problem(),
         "standards": standards(),
         "quotes": reviews(),
         "founder": FOUNDER,
@@ -467,6 +493,7 @@ def main():
         "buy",
         "nav",              # "On this page" (live)
         "statement",        # "Not ready to slow down."
+        "problem",          # four problem stats, with sources
         "benefits",         # "Five jobs. One daily jar." (live)
         "board_anchor",     # #scientific-board, linked from the buy box
         "board",            # "Six scientists put their name to MUTO.", compact row
