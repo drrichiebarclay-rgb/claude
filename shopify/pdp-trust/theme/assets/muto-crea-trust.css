@@ -129,3 +129,6 @@ html .mc .mc__std-item .mc__std-text + .mc__std-cert{margin-top:24px}
 @media (min-width:1100px){html .mc .mc__std-item .mc__std-text + .mc__std-cert{margin-top:auto}}
 html .mc .mc__std-item .mc__std-cert{width:100%;justify-content:center;gap:8px;padding:0 12px;font-size:14px;white-space:nowrap}
 html .mc .mc__std-item .mc__std-cert .mtr-btn__tick{flex:0 0 20px}
+html .mc .mc__stm-note{margin:24px 0 0;display:flex;justify-content:center}
+html .mc .mc__stm-note .mc__trust-tag{align-self:auto;white-space:normal;text-align:left}
+@media (max-width:749px){html .mc .mc__stm-note .mc__trust-tag{font-size:11px;letter-spacing:.04em;padding:6px 12px;border-radius:12px;line-height:1.35;text-align:center;text-wrap:balance;max-width:280px}}

@@ -24,6 +24,7 @@ STATEMENT = {"type": "muto-crea-statement", "settings": {
     "label": "",
     "heading": "Not ready to slow down.",
     "sub": "The next-generation multi-nutrient, built for what your body needs in your 40s and 50s.",
+    "note": "Got a wearable? Track the shift over 90 days.",
     "space_top": 100, "space_bottom": 100}}
 
 # --- New: standards ----------------------------------------------------------

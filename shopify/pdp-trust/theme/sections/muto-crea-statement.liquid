@@ -14,6 +14,7 @@
       {%- if section.settings.label != blank -%}<p class="mc__trust-label mc__stm-label">{{ section.settings.label }}</p>{%- endif -%}
       <h2 class="mc__h2 mc__stm-head">{{ section.settings.heading | escape | newline_to_br }}</h2>
       {%- if section.settings.sub != blank -%}<p class="mc__stm-sub">{{ section.settings.sub }}</p>{%- endif -%}
+      {%- if section.settings.note != blank -%}<p class="mc__stm-note"><span class="mc__trust-tag"><span class="mc__trust-spark" aria-hidden="true"></span>{{ section.settings.note }}</span></p>{%- endif -%}
     </section>
   </div>
 </div>
@@ -26,6 +27,7 @@
     { "type": "text", "id": "label", "label": "Small label above (optional)" },
     { "type": "textarea", "id": "heading", "label": "Heading", "default": "A daily supplement." },
     { "type": "text", "id": "sub", "label": "Sub-heading", "default": "Built for your biology after 35 years old." },
+    { "type": "text", "id": "note", "label": "Tag under the sub-heading (optional)" },
     { "type": "header", "content": "Spacing" },
     { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 2, "unit": "%", "default": 100 },
     { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 2, "unit": "%", "default": 100 }
