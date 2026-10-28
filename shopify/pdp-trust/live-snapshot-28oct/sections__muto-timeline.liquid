@@ -1,0 +1,119 @@
+{%- comment -%}
+  MUTO — Timeline.
+  A centred heading and line, then a photo on the left (pinned while the list
+  scrolls) and a vertical timeline on the right: a dot on a line per milestone,
+  a "Day 30" pill, a title and a line. The last milestone's dot and line are
+  faded, as the one still ahead.
+
+  BLOCKS: one "Milestone" each. MOBILE: the photo leads, the timeline follows.
+{%- endcomment -%}
+{{ 'muto-crea.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign sid = section.id
+  assign s = section.settings
+-%}
+<style>
+  #shopify-section-{{ sid }} h2,#shopify-section-{{ sid }} h3{font-family:var(--mc-font);font-weight:500;-webkit-font-smoothing:antialiased;margin:0}
+  #shopify-section-{{ sid }} .mtl{padding-top:{{ s.space_top }}px;padding-bottom:{{ s.space_bottom }}px;background:{% if s.band == 'mint' %}var(--mc-mint,#c8d2cf){% else %}var(--mc-ground){% endif %}}
+  #shopify-section-{{ sid }} .mtl__head{text-align:center;max-width:900px;margin:0 auto}
+  #shopify-section-{{ sid }} .mtl__h{color:var(--mc-ink)}
+  #shopify-section-{{ sid }} .mtl__eyebrow{margin:0 0 16px;font-family:var(--mc-mono);font-size:14px;letter-spacing:.08em;color:var(--mc-muted)}
+  #shopify-section-{{ sid }} .mtl__item:last-child::after{background:{% if s.band == 'mint' %}var(--mc-mint,#c8d2cf){% else %}var(--mc-ground){% endif %}}
+  #shopify-section-{{ sid }} .mtl__lede{margin:18px auto 0;max-width:640px;font-size:20px;line-height:1.45;color:var(--mc-ink-alt)}
+  #shopify-section-{{ sid }} .mtl__grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:72px;align-items:start;margin-top:64px}
+  #shopify-section-{{ sid }} .mtl__img{position:sticky;top:{{ s.sticky_top }}px;aspect-ratio:4/5;border-radius:12px;overflow:hidden;background:var(--mc-mint)}
+  #shopify-section-{{ sid }} .mtl__img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  #shopify-section-{{ sid }} .mtl__list{margin:0;padding:0;list-style:none}
+  #shopify-section-{{ sid }} .mtl__item{position:relative;padding:0 0 64px 44px}
+  #shopify-section-{{ sid }} .mtl__item:last-child{padding-bottom:0}
+  /* The line runs from this dot to the next */
+  #shopify-section-{{ sid }} .mtl__item::before{content:"";position:absolute;left:7px;top:14px;bottom:-14px;width:2px;background:var(--mc-ink)}
+  #shopify-section-{{ sid }} .mtl__item:last-child::before{display:none}
+  #shopify-section-{{ sid }} .mtl__item:nth-last-child(2)::before{background:linear-gradient(var(--mc-ink) 70%,var(--mc-hair))}
+  #shopify-section-{{ sid }} .mtl__item::after{content:"";position:absolute;left:0;top:7px;width:16px;height:16px;border-radius:50%;background:var(--mc-cyan);border:2px solid var(--mc-ink);box-sizing:border-box}
+  #shopify-section-{{ sid }} .mtl__item:last-child::after{background:var(--mc-ground);border-color:var(--mc-muted)}
+  #shopify-section-{{ sid }} .mtl__top{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+  #shopify-section-{{ sid }} .mtl__pill{display:inline-flex;align-items:center;height:32px;padding:0 14px;border-radius:16px;background:var(--mc-ink);color:#fff;font-family:var(--mc-mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+  #shopify-section-{{ sid }} .mtl__t{font-size:clamp(22px,2vw,28px);line-height:1.15;letter-spacing:-.01em;color:var(--mc-ink)}
+  #shopify-section-{{ sid }} .mtl__x{margin-top:14px;max-width:60ch;font-size:18px;line-height:1.55;color:var(--mc-ink-alt)}
+  #shopify-section-{{ sid }} .mtl__x > * + *{margin-top:10px}
+  #shopify-section-{{ sid }} .mtl__foot{margin:40px 0 0 44px;font-size:13px;line-height:1.5;color:var(--mc-muted)}
+  @media (max-width:989px){
+    #shopify-section-{{ sid }} .mtl__grid{grid-template-columns:1fr;gap:40px;margin-top:40px}
+    #shopify-section-{{ sid }} .mtl__img{position:relative;top:auto;aspect-ratio:4/3}
+  }
+  @media (max-width:749px){
+    #shopify-section-{{ sid }} .mtl{padding-top:{{ s.space_top | times: 0.6 | round }}px;padding-bottom:{{ s.space_bottom | times: 0.6 | round }}px}
+    #shopify-section-{{ sid }} .mtl__lede{font-size:16px}
+    #shopify-section-{{ sid }} .mtl__item{padding:0 0 44px 36px}
+    #shopify-section-{{ sid }} .mtl__t{font-size:21px}
+    #shopify-section-{{ sid }} .mtl__x{font-size:16px}
+    #shopify-section-{{ sid }} .mtl__foot{margin-left:36px}
+  }
+</style>
+
+<div class="mc mtl"{% if s.anchor != blank %} id="{{ s.anchor }}"{% endif %}>
+  <div class="mc__wrap">
+    <div class="mtl__head">
+      {%- if s.eyebrow != blank -%}<p class="mtl__eyebrow">{{ s.eyebrow }}</p>{%- endif -%}
+      <h2 class="mc__h2 mtl__h">{{ s.heading | escape | newline_to_br }}</h2>
+      {%- if s.lede != blank -%}<p class="mtl__lede">{{ s.lede }}</p>{%- endif -%}
+    </div>
+    <div class="mtl__grid">
+      <div class="mtl__img">
+        {%- if s.image != blank -%}
+          {{ s.image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '600,900,1200', sizes: '(min-width: 990px) 45vw, 100vw', alt: s.image_alt }}
+        {%- elsif s.image_fallback != blank -%}
+          <img src="{{ s.image_fallback }}" alt="{{ s.image_alt | escape }}" loading="lazy" width="1200" height="1500">
+        {%- endif -%}
+      </div>
+      <div>
+        <ol class="mtl__list">
+          {%- for block in section.blocks -%}
+            <li class="mtl__item" {{ block.shopify_attributes }}>
+              <div class="mtl__top">
+                {%- if block.settings.pill != blank -%}<span class="mtl__pill">{{ block.settings.pill }}</span>{%- endif -%}
+                <h3 class="mtl__t">{{ block.settings.title }}</h3>
+              </div>
+              {%- if block.settings.text != blank -%}<div class="mtl__x">{{ block.settings.text }}</div>{%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ol>
+        {%- if s.foot != blank -%}<p class="mtl__foot">{{ s.foot }}</p>{%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO — Timeline",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Small line above the heading", "info": "e.g. a chapter number" },
+    { "type": "text", "id": "anchor", "label": "Anchor", "info": "For links to this section" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "What you can expect over time." },
+    { "type": "textarea", "id": "lede", "label": "Line under the heading" },
+    { "type": "image_picker", "id": "image", "label": "Photo" },
+    { "type": "text", "id": "image_fallback", "label": "Photo URL (if no photo picked)" },
+    { "type": "text", "id": "image_alt", "label": "Photo description" },
+    { "type": "textarea", "id": "foot", "label": "Small print under the timeline" },
+    { "type": "select", "id": "band", "label": "Background", "default": "ground", "options": [
+      { "value": "ground", "label": "Page background (#fafafa)" }, { "value": "mint", "label": "Mint (#c8d2cf)" }
+    ] },
+    { "type": "range", "id": "sticky_top", "label": "Pinned photo: distance from top", "min": 0, "max": 240, "step": 4, "unit": "px", "default": 120 },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 96 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 96 }
+  ],
+  "blocks": [
+    { "type": "milestone", "name": "Milestone", "settings": [
+      { "type": "text", "id": "pill", "label": "Pill", "info": "e.g. Day 30" },
+      { "type": "text", "id": "title", "label": "Title" },
+      { "type": "richtext", "id": "text", "label": "Text" }
+    ] }
+  ],
+  "max_blocks": 8,
+  "presets": [{ "name": "MUTO — Timeline" }],
+  "enabled_on": { "templates": ["product", "page", "index"] }
+}
+{% endschema %}

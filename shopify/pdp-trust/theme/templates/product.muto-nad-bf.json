@@ -550,6 +550,165 @@
         "space_bottom": 100
       }
     },
+    "nav": {
+      "type": "muto-section-nav",
+      "blocks": {
+        "n1": {
+          "type": "link",
+          "settings": {
+            "label": "Benefits",
+            "target": "benefits"
+          }
+        },
+        "n2": {
+          "type": "link",
+          "settings": {
+            "label": "The experts",
+            "target": "board"
+          }
+        },
+        "n3": {
+          "type": "link",
+          "settings": {
+            "label": "Ingredients",
+            "target": "library"
+          }
+        },
+        "n4": {
+          "type": "link",
+          "settings": {
+            "label": "Comparison",
+            "target": "compare"
+          }
+        },
+        "n5": {
+          "type": "link",
+          "settings": {
+            "label": "What to expect",
+            "target": "timeline"
+          }
+        },
+        "n6": {
+          "type": "link",
+          "settings": {
+            "label": "How to take it",
+            "target": "howto"
+          }
+        },
+        "n7": {
+          "type": "link",
+          "settings": {
+            "label": "FAQs",
+            "target": "faq"
+          }
+        },
+        "n8": {
+          "type": "link",
+          "settings": {
+            "label": "Reviews",
+            "target": "reviews"
+          }
+        }
+      },
+      "block_order": [
+        "n1",
+        "n2",
+        "n3",
+        "n4",
+        "n5",
+        "n6",
+        "n7",
+        "n8"
+      ],
+      "settings": {
+        "label": "On this page",
+        "nav_top": 0
+      }
+    },
+    "benefits": {
+      "type": "muto-benefit-cards",
+      "blocks": {
+        "b1": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Golden_Hour_Family_Beach_Walk.png",
+            "image_fallback": "",
+            "position": "",
+            "title": "Energy",
+            "text": "Your body turns NR into NAD+, CoQ10 and PQQ support your mitochondria, and active B vitamins help release energy from food."
+          }
+        },
+        "b2": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/038A80BF-8A59-420A-8CC3-3C5DDFB275B6.png",
+            "image_fallback": "",
+            "position": "",
+            "title": "Recovery",
+            "text": "Vitamin D3 supports normal muscle function, CoQ10 and PQQ support the mitochondria that refill your energy, and riboflavin helps reduce tiredness."
+          }
+        },
+        "b3": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/3E3756BE-4955-4D85-81D7-30B61D5035B0.png",
+            "image_fallback": "",
+            "position": "",
+            "title": "Stress",
+            "text": "Active B vitamins, with zinc, support normal psychological function and mental performance through a demanding week."
+          }
+        },
+        "b4": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Golden_Hour_Ocean_Portrait.png",
+            "image_fallback": "",
+            "position": "",
+            "title": "Longevity",
+            "text": "300mg NR paired with TMG, plus trans-resveratrol and grape seed polyphenols, vitamin K2 for your bones and zinc to help protect your cells."
+          }
+        },
+        "b5": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/D9D67CEB-ADD5-421D-97BD-39141E88C5E9.png",
+            "image_fallback": "",
+            "position": "",
+            "title": "Immunity",
+            "text": "Vitamin D3, zinc, copper, folate and vitamins B6 and B12 all support the normal function of your immune system."
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5"
+      ],
+      "settings": {
+        "eyebrow": "",
+        "heading": "Five jobs.\nOne daily jar.",
+        "lede": "19 nutrients in two capsules, built for what your body needs after 35. So you can keep up with work, family and everything else.",
+        "button_label": "View supplement facts",
+        "button_link": "",
+        "button_tab": "3",
+        "foot": "",
+        "anchor": "",
+        "band": "ground",
+        "space_top": 96,
+        "space_bottom": 96
+      }
+    },
+    "board_anchor": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<style>[id$=\"__board_anchor\"]{height:0;overflow:hidden;margin:0!important;padding:0!important}[id$=\"__board\"] .mh{background:var(--mc-ground,#f9f9f9)}</style><span id=\"scientific-board\" style=\"display:block;position:relative;top:-80px\"></span>",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "board": {
       "type": "muto-home-board",
       "blocks": {
@@ -662,473 +821,319 @@
         "heading": "Six scientists put\ntheir name to MUTO.",
         "note": "Our Scientific Advisory Board reviews the formula",
         "compact": true,
-        "rail_gap": 64,
+        "rail_gap": 40,
         "fit": "nad",
         "space_top": 60,
-        "space_bottom": 100
+        "space_bottom": 72
       }
     },
-    "problem": {
-      "type": "muto-crea-problem",
+    "library": {
+      "type": "muto-ingredient-library",
       "blocks": {
-        "c1": {
-          "type": "card",
+        "ing01": {
+          "type": "ingredient",
           "settings": {
-            "quote": "“I used to have so much energy.”",
-            "text": "Now the afternoon slump turns up every day.",
-            "image": "shopify://shop_images/image14.png",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-problem-tired.jpg?v=1791018569",
-            "image_alt": "An athlete head down on a gym bike, sweating, a watch on their wrist",
-            "image_position": "50% 35%"
+            "name": "Nicotinamide Riboside (NR)",
+            "dose": "300 mg",
+            "tags": "Energy, Longevity",
+            "colour": "#f8f8f6",
+            "pattern": "ring",
+            "description": "The main ingredient. A form of vitamin B3 your body turns into NAD+, the molecule your cells use to make energy. NAD+ levels fall as we age.",
+            "supports": "Energy, NAD+ levels",
+            "why": "Nicotinamide riboside reaches NAD+ in fewer steps than other forms of vitamin B3. 300mg a day is the most the UK allows in a food supplement for adults, so MUTO uses the full amount.",
+            "refs": "Trammell SAJ, et al. Nicotinamide riboside is uniquely and orally bioavailable in mice and humans. Nat Commun. 2016.\nMartens CR, et al. Chronic nicotinamide riboside supplementation is well-tolerated and elevates NAD+ in healthy middle-aged and older adults. Nat Commun. 2018.\nConze D, et al. Safety and metabolism of long-term administration of NIAGEN (nicotinamide riboside chloride) in a randomized, double-blind, placebo-controlled clinical trial of healthy overweight adults. Sci Rep. 2019.\nEFSA NDA Panel. Safety of nicotinamide riboside chloride as a novel food. EFSA J. 2019."
           }
         },
-        "c2": {
-          "type": "card",
+        "ing02": {
+          "type": "ingredient",
           "settings": {
-            "quote": "“My body takes longer to recover.”",
-            "text": "A long walk or a game of tennis costs you the next day.",
-            "image": "shopify://shop_images/55EA0B34-E750-455E-A653-69C748D79E57.png",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-problem-recovery.jpg?v=1791018568",
-            "image_alt": "A runner bent over with hands on knees, catching her breath at sunset",
-            "image_position": "50% 35%"
+            "name": "Vitamin B12 (Methylcobalamin)",
+            "dose": "100 mcg",
+            "tags": "Energy, Immunity, Stress",
+            "colour": "#b01830",
+            "pattern": "streak",
+            "description": "Contributes to normal energy-yielding metabolism, normal immune function, normal psychological function and the reduction of tiredness and fatigue.",
+            "supports": "Energy, immune function, psychological function",
+            "why": "Methylcobalamin is a form of B12 your body can use as it is. Absorbing B12 from food tends to get harder with age, so 100mcg is well above the 2.5mcg daily reference intake.",
+            "refs": "Baik HW, Russell RM. Vitamin B12 deficiency in the elderly. Annu Rev Nutr. 1999.\nStabler SP. Vitamin B12 deficiency. N Engl J Med. 2013.\nEFSA NDA Panel. Scientific opinion on dietary reference values for cobalamin (vitamin B12). EFSA J. 2015.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
           }
         },
-        "c4": {
-          "type": "card",
+        "ing03": {
+          "type": "ingredient",
           "settings": {
-            "quote": "“I just want to feel like me again.”",
-            "text": "Not younger. Just yourself, with something left at the end of the day.",
-            "image": "shopify://shop_images/46EE29F8-4F3F-4512-A6FB-1FE3B7D0CDA8.png",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-problem-data.jpg?v=1791018568",
-            "image_alt": "Two athletes at a table reading a recovery score on a phone, trackers on both wrists",
-            "image_position": "50% 65%"
+            "name": "CoQ10",
+            "dose": "150 mg",
+            "tags": "Energy, Recovery",
+            "colour": "#ec8c1e",
+            "pattern": "pile",
+            "description": "Found in every cell, where it’s part of how your mitochondria make energy. Your body makes less CoQ10 as you get older.",
+            "supports": "Cellular energy",
+            "why": "150mg sits in the middle of the range most supplements use. CoQ10 is fat-soluble, which is why we say take MUTO with breakfast: food helps your body absorb it.",
+            "refs": "Kalén A, Appelkvist EL, Dallner G. Age-related changes in the lipid compositions of rat and human tissues. Lipids. 1989.\nBhagavan HN, Chopra RK. Coenzyme Q10: absorption, tissue uptake, metabolism and pharmacokinetics. Free Radic Res. 2006.\nHidaka T, et al. Safety assessment of coenzyme Q10 (CoQ10). Biofactors. 2008."
           }
         },
-        "c3": {
-          "type": "card",
+        "ing04": {
+          "type": "ingredient",
           "settings": {
-            "quote": "“Too many pills.”",
-            "text": "A cupboard full, and no idea which ones work.",
-            "image": "shopify://shop_images/Frame_2147230149.png",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-problem-box.jpg?v=1791018999",
-            "image_alt": "The MUTO NAD+ Cellular Complex box open, with the jar, vial and refill pouch inside",
-            "image_position": ""
+            "name": "Vitamin D3 (Vegan)",
+            "dose": "50 mcg",
+            "tags": "Immunity, Recovery, Longevity",
+            "colour": "#dec496",
+            "pattern": "pile",
+            "description": "Contributes to normal immune function, normal muscle function and the maintenance of normal bones. Most of us in the UK get too little sun from October to March.",
+            "supports": "Immune function, muscles, bones",
+            "why": "D3 (cholecalciferol) is the form your skin makes from sunlight, and it raises blood vitamin D levels more effectively than D2 (ergocalciferol). 50mcg (2,000 IU) is half the UK safe upper limit of 100mcg a day. The NHS advises everyone to consider vitamin D in autumn and winter.",
+            "refs": "Tripkovic L, et al. Comparison of vitamin D2 and vitamin D3 supplementation in raising serum 25-hydroxyvitamin D status: a systematic review and meta-analysis. Am J Clin Nutr. 2012.\nMartineau AR, et al. Vitamin D supplementation to prevent acute respiratory tract infections: systematic review and meta-analysis of individual participant data. BMJ. 2017.\nHolick MF. Vitamin D deficiency. N Engl J Med. 2007.\nScientific Advisory Committee on Nutrition (SACN). Vitamin D and Health. 2016.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
+          }
+        },
+        "ing05": {
+          "type": "ingredient",
+          "settings": {
+            "name": "TMG (Trimethylglycine)",
+            "dose": "450 mg",
+            "tags": "Longevity",
+            "colour": "#f4f4f0",
+            "pattern": "burst",
+            "description": "Also called betaine, and found naturally in beetroot. Works alongside NR, supporting the body’s natural methylation processes.",
+            "supports": "Methylation",
+            "why": "Making and clearing NAD+ uses up methyl groups, and TMG donates them. That’s why it’s often paired with NAD+ precursors like NR.",
+            "refs": "Craig SA. Betaine in human nutrition. Am J Clin Nutr. 2004.\nOlthof MR, et al. Low dose betaine supplementation leads to immediate and long term lowering of plasma homocysteine in healthy men and women. J Nutr. 2003."
+          }
+        },
+        "ing06": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Vitamin B2 (Riboflavin)",
+            "dose": "5 mg",
+            "tags": "Energy, Recovery, Longevity",
+            "colour": "#f0aa14",
+            "pattern": "streak",
+            "description": "Contributes to the reduction of tiredness and fatigue and to the protection of cells from oxidative stress.",
+            "supports": "Energy, protecting cells",
+            "why": "Riboflavin is part of the enzymes that release energy from food. 5mg is well above the 1.4mg daily reference intake. It’s also why your urine may look brighter yellow: that’s normal.",
+            "refs": "Powers HJ. Riboflavin (vitamin B-2) and health. Am J Clin Nutr. 2003.\nEFSA NDA Panel. Dietary reference values for riboflavin. EFSA J. 2017.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
+          }
+        },
+        "ing07": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Vitamin K2 (MK-7)",
+            "dose": "100 mcg",
+            "tags": "Longevity",
+            "colour": "#eedea0",
+            "pattern": "mound",
+            "description": "Contributes to the maintenance of normal bones. Paired with vitamin D3.",
+            "supports": "Bones",
+            "why": "MK-7 is the longest-lasting form of vitamin K2 in the body, so once a day is enough. Vitamin D helps your body absorb calcium, and K2 works alongside it.",
+            "refs": "Schurgers LJ, et al. Vitamin K-containing dietary supplements: comparison of synthetic vitamin K1 and natto-derived menaquinone-7. Blood. 2007.\nKnapen MHJ, et al. Three-year low-dose menaquinone-7 supplementation helps decrease bone loss in healthy postmenopausal women. Osteoporos Int. 2013.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
+          }
+        },
+        "ing08": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Zinc (Bisglycinate)",
+            "dose": "15 mg",
+            "tags": "Immunity, Longevity, Stress",
+            "colour": "#ececea",
+            "pattern": "burst",
+            "description": "Contributes to normal immune function, normal cognitive function and the protection of cells from oxidative stress.",
+            "supports": "Immune function, cognitive function, cells",
+            "why": "Zinc bisglycinate is zinc bound to glycine, an amino acid, a form that is well absorbed and gentle on the stomach. 15mg is 150% of the daily reference intake and within the UK safe level of 25mg a day. It’s paired with copper, because taking zinc long-term can lower copper levels.",
+            "refs": "Gandia P, et al. A bioavailability study comparing two oral formulations containing zinc (Zn bis-glycinate vs. Zn gluconate) after a single administration to twelve healthy female volunteers. Int J Vitam Nutr Res. 2007.\nPrasad AS. Zinc in human health: effect of zinc on immune cells. Mol Med. 2008.\nFosmire GJ. Zinc toxicity. Am J Clin Nutr. 1990.\nExpert Group on Vitamins and Minerals. Safe Upper Levels for Vitamins and Minerals. Food Standards Agency. 2003.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
+          }
+        },
+        "ing09": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Folate (5-MTHF)",
+            "dose": "400 mcg",
+            "tags": "Immunity, Energy, Stress",
+            "colour": "#e8a028",
+            "pattern": "mound",
+            "description": "Contributes to normal immune function, normal psychological function and the reduction of tiredness and fatigue.",
+            "supports": "Immune function, energy, psychological function",
+            "why": "5-MTHF is the active form of folate. Many people carry a common gene variant (MTHFR) that makes converting ordinary folic acid less efficient, so we skip that step. 400mcg is 200% of the daily reference intake.",
+            "refs": "Pietrzik K, Bailey L, Shane B. Folic acid and L-5-methyltetrahydrofolate: comparison of clinical pharmacokinetics and pharmacodynamics. Clin Pharmacokinet. 2010.\nFrosst P, et al. A candidate genetic risk factor for vascular disease: a common mutation in methylenetetrahydrofolate reductase. Nat Genet. 1995.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
+          }
+        },
+        "ing10": {
+          "type": "ingredient",
+          "settings": {
+            "name": "PQQ",
+            "dose": "20 mg",
+            "tags": "Energy, Recovery",
+            "colour": "#963428",
+            "pattern": "ring",
+            "description": "Pyrroloquinoline quinone. Found in small amounts in foods like kiwi, parsley and green tea, and studied for its role in the mitochondria, where cells make energy.",
+            "supports": "Cellular energy",
+            "why": "20mg a day is the amount most often used in human studies of PQQ.",
+            "refs": "Harris CB, et al. Dietary pyrroloquinoline quinone (PQQ) alters indicators of inflammation and mitochondrial-related metabolism in human subjects. J Nutr Biochem. 2013.\nEFSA NDA Panel. Safety of pyrroloquinoline quinone disodium salt as a novel food. EFSA J. 2017."
+          }
+        },
+        "ing11": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Trans-Resveratrol",
+            "dose": "50 mg",
+            "tags": "Longevity",
+            "colour": "#e2dacc",
+            "pattern": "streak",
+            "description": "A plant compound found in grape skins, widely studied in healthy-ageing research.",
+            "supports": "Plant polyphenols",
+            "why": "Trans-resveratrol is the stable, active form of resveratrol. It’s fat-soluble, so it’s best taken with food, like the rest of MUTO.",
+            "refs": "Baur JA, Sinclair DA. Therapeutic potential of resveratrol: the in vivo evidence. Nat Rev Drug Discov. 2006.\nWalle T. Bioavailability of resveratrol. Ann N Y Acad Sci. 2011."
+          }
+        },
+        "ing12": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Grape Seed Extract",
+            "dose": "150 mg",
+            "tags": "Longevity",
+            "colour": "#60222e",
+            "pattern": "mound",
+            "description": "Plant polyphenols from grape seeds. Paired with trans-resveratrol.",
+            "supports": "Plant polyphenols",
+            "why": "Standardised to 95% polyphenols, so every batch has the same amount: about 142mg of polyphenols per serve.",
+            "refs": "Bagchi D, et al. Free radicals and grape seed proanthocyanidin extract: importance in human health and disease prevention. Toxicology. 2000.\nFeringa HH, et al. The effect of grape seed extract on cardiovascular risk markers: a meta-analysis of randomized controlled trials. J Am Diet Assoc. 2011."
+          }
+        },
+        "ing13": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Vitamin B6 (P5P)",
+            "dose": "5 mg",
+            "tags": "Energy, Immunity, Stress",
+            "colour": "#f4e8be",
+            "pattern": "pile",
+            "description": "Contributes to normal psychological function, normal immune function, the regulation of hormonal activity and the reduction of tiredness and fatigue.",
+            "supports": "Immune function, psychological function, hormones",
+            "why": "P5P (pyridoxal-5-phosphate) is the active form of B6, ready to use. 5mg is half the UK safe upper level of 10mg a day.",
+            "refs": "EFSA NDA Panel. Dietary reference values for vitamin B6. EFSA J. 2016.\nExpert Group on Vitamins and Minerals. Safe Upper Levels for Vitamins and Minerals. Food Standards Agency. 2003.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
+          }
+        },
+        "ing14": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Vitamin B1 (Thiamine)",
+            "dose": "5 mg",
+            "tags": "Energy, Stress",
+            "colour": "#f6f6f2",
+            "pattern": "mound",
+            "description": "Contributes to normal energy-yielding metabolism and normal psychological function.",
+            "supports": "Energy, psychological function",
+            "why": "5mg is well above the 1.1mg daily reference intake. Thiamine dissolves in water and your body stores very little, so a daily dose keeps levels steady.",
+            "refs": "Lonsdale D. A review of the biochemistry, metabolism and clinical benefits of thiamin(e) and its derivatives. Evid Based Complement Alternat Med. 2006.\nEFSA NDA Panel. Dietary reference values for thiamin. EFSA J. 2016.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
+          }
+        },
+        "ing15": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Vitamin B3 (Niacin)",
+            "dose": "16 mg NE",
+            "tags": "Energy, Stress",
+            "colour": "#f8f8f4",
+            "pattern": "burst",
+            "description": "Contributes to normal psychological function and the reduction of tiredness and fatigue.",
+            "supports": "Energy, psychological function",
+            "why": "16mg niacin equivalents is 100% of the daily reference intake. It’s on top of the NR, which is also a form of vitamin B3.",
+            "refs": "Bogan KL, Brenner C. Nicotinic acid, nicotinamide, and nicotinamide riboside: a molecular evaluation of NAD+ precursor vitamins in human nutrition. Annu Rev Nutr. 2008.\nEFSA NDA Panel. Scientific opinion on dietary reference values for niacin. EFSA J. 2014.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
+          }
+        },
+        "ing16": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Vitamin B5 (Pantothenic Acid)",
+            "dose": "10 mg",
+            "tags": "Energy, Stress",
+            "colour": "#f4f0e2",
+            "pattern": "ring",
+            "description": "Contributes to normal mental performance and the reduction of tiredness and fatigue.",
+            "supports": "Mental performance, energy",
+            "why": "10mg is about 167% of the 6mg daily reference intake.",
+            "refs": "EFSA NDA Panel. Scientific opinion on dietary reference values for pantothenic acid. EFSA J. 2014.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
+          }
+        },
+        "ing17": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Biotin",
+            "dose": "300 mcg",
+            "tags": "Energy, Stress",
+            "colour": "#f8f8f8",
+            "pattern": "streak",
+            "description": "Contributes to normal energy-yielding metabolism and normal psychological function.",
+            "supports": "Energy, psychological function",
+            "why": "300mcg is six times the 50mcg daily reference intake and well within safe levels. Biotin can affect some blood test results, so tell your doctor you take it before a blood test.",
+            "refs": "Li D, et al. Association of biotin ingestion with performance of hormone and nonhormone assays in healthy adults. JAMA. 2017.\nUS Food and Drug Administration. The FDA warns that biotin may interfere with lab tests. Safety communication. 2017, updated 2019.\nEFSA NDA Panel. Scientific opinion on dietary reference values for biotin. EFSA J. 2014.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
+          }
+        },
+        "ing18": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Copper (Bisglycinate)",
+            "dose": "1 mg",
+            "tags": "Immunity, Energy",
+            "colour": "#2882aa",
+            "pattern": "burst",
+            "description": "Contributes to normal immune function and normal energy-yielding metabolism.",
+            "supports": "Immune function, energy",
+            "why": "Copper bisglycinate is bound to glycine, like the zinc, so it’s well absorbed. 1mg is 100% of the daily reference intake. It’s there to keep the 15mg of zinc in balance, since zinc taken long-term can lower copper levels.",
+            "refs": "Fosmire GJ. Zinc toxicity. Am J Clin Nutr. 1990.\nEFSA NDA Panel. Scientific opinion on dietary reference values for copper. EFSA J. 2015.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
+          }
+        },
+        "ing19": {
+          "type": "ingredient",
+          "settings": {
+            "name": "BioPerine® (Black Pepper)",
+            "dose": "5 mg",
+            "tags": "Absorption",
+            "colour": "#c4a060",
+            "pattern": "pile",
+            "description": "Black pepper extract. Added to help your body take in the other ingredients.",
+            "supports": "Absorption",
+            "why": "BioPerine is a branded black pepper extract standardised for piperine. Only a small amount is needed, and it adds no taste or heat to the capsules.",
+            "refs": "Shoba G, et al. Influence of piperine on the pharmacokinetics of curcumin in animals and human volunteers. Planta Med. 1998.\nBadmaev V, Majeed M, Prakash L. Piperine derived from black pepper increases the plasma levels of coenzyme Q10 following oral supplementation. J Nutr Biochem. 2000."
           }
         }
       },
       "block_order": [
-        "c1",
-        "c2",
-        "c4",
-        "c3"
+        "ing01",
+        "ing02",
+        "ing03",
+        "ing04",
+        "ing05",
+        "ing06",
+        "ing07",
+        "ing08",
+        "ing09",
+        "ing10",
+        "ing11",
+        "ing12",
+        "ing13",
+        "ing14",
+        "ing15",
+        "ing16",
+        "ing17",
+        "ing18",
+        "ing19"
       ],
       "settings": {
-        "eyebrow": "The problem",
-        "heading": "You don’t feel old.\nSo why so tired?",
-        "lede": "You still work hard, look after everyone and keep moving. But the afternoons drag, the aches hang around, and the energy you used to take for granted isn’t there. It’s not just you, and it’s not in your head.",
-        "space_top": 100,
-        "space_bottom": 100
+        "eyebrow": "NAD+ Cellular Complex · 19 ingredients · 2 capsules",
+        "heading": "Every ingredient has a job.",
+        "heading_tag": "h2",
+        "lede": "19 ingredients, every dose on the label. Filter by what they support, and tap one to see why it’s there.",
+        "filters": "Energy, Recovery, Stress, Longevity, Immunity",
+        "supports_label": "Supports:",
+        "tests_label": "",
+        "cta_label": "Start your 90 days",
+        "cta_link": "/products/muto-nad-cellular-complex",
+        "foot": "Every dose is on the label. No blends, no fillers, vegan.",
+        "grade": true,
+        "bg": "#f9f9f9",
+        "pad_top": 96,
+        "pad_bottom": 96
       }
-    },
-    "benefits": {
-      "type": "muto-crea-benefits",
-      "blocks": {
-        "pf": {
-          "type": "panel",
-          "settings": {
-            "label": "What people notice",
-            "key": "feel",
-            "heading": "What people\nnotice first",
-            "lede": "Real customers, in their own words. Everyone is different.",
-            "image": "shopify://shop_images/D2AA08A2-83BB-4249-AC48-A8261A413D04.png",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-benefits-feel.jpg?v=1791019769",
-            "image_alt": "A cyclist pausing mid-ride in the sun, sunglasses pushed up, catching their breath",
-            "image_position": "50% 8%",
-            "cta_label": "Try it for 90 days",
-            "cta_link": ""
-          }
-        },
-        "f1": {
-          "type": "benefit",
-          "settings": {
-            "panel": "feel",
-            "title": "Energy that lasts past lunch",
-            "sub": "“No afternoon slump and in general feeling great” – Lynda",
-            "text": "<p>Most people notice the afternoons first. No 3pm slump, and energy left for the evening. It’s not a buzz like coffee. It builds steadily, day by day.</p>"
-          }
-        },
-        "f2": {
-          "type": "benefit",
-          "settings": {
-            "panel": "feel",
-            "title": "Bouncing back sooner",
-            "sub": "“Has actually changed my recovery” – Adam H",
-            "text": "<p>Ready for the next walk, round of golf or class sooner, instead of days later.</p>"
-          }
-        },
-        "f3": {
-          "type": "benefit",
-          "settings": {
-            "panel": "feel",
-            "title": "Easier mornings",
-            "sub": "“I predominantly struggle with mornings but already feel myself finding these easier” – Becca",
-            "text": "<p>Getting up feels less like a battle. You don’t need a gadget to notice.</p>"
-          }
-        },
-        "f4": {
-          "type": "benefit",
-          "settings": {
-            "panel": "feel",
-            "title": "Feeling like yourself",
-            "sub": "“I didn't realise how flat I'd been feeling until this helped lift me out of it” – Holly P",
-            "text": "<p>Many people say they didn’t realise how flat they’d been feeling until it lifted.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "pf",
-        "f1",
-        "f2",
-        "f3",
-        "f4"
-      ],
-      "settings": {
-        "eyebrow": "What you may notice",
-        "tablist_label": "Choose a view",
-        "space_top": 96,
-        "space_bottom": 100
-      }
-    },
-    "results": {
-      "type": "muto-home-results",
-      "blocks": {
-        "r1": {
-          "type": "result",
-          "settings": {
-            "image": "shopify://shop_images/about-pillar-stress-harry.jpg",
-            "image_fallback": "",
-            "image_alt": "A MUTO customer talking to camera about their 90 days",
-            "image_position": "",
-            "video": "shopify://files/videos/Nothing Gets in on Trust_V01.mp4",
-            "video_url": "",
-            "video_link": "",
-            "show_play": true,
-            "result": "",
-            "quote": "",
-            "name": "Harry Insley",
-            "tag": "",
-            "detail": ""
-          }
-        },
-        "r2": {
-          "type": "result",
-          "settings": {
-            "image": "shopify://shop_images/home-athlete-yolanda.jpg",
-            "image_fallback": "",
-            "image_alt": "A MUTO customer talking to camera about their 90 days",
-            "image_position": "",
-            "video": "shopify://files/videos/The Baseline.mp4",
-            "video_url": "",
-            "video_link": "",
-            "show_play": true,
-            "result": "",
-            "quote": "",
-            "name": "Yolanda King",
-            "tag": "",
-            "detail": ""
-          }
-        },
-        "r3": {
-          "type": "result",
-          "settings": {
-            "image": "shopify://shop_images/IMG_3566_JPG.jpg",
-            "image_fallback": "",
-            "image_alt": "A MUTO customer talking to camera about their 90 days",
-            "image_position": "",
-            "video": "shopify://files/videos/clip 3.mp4",
-            "video_url": "",
-            "video_link": "",
-            "show_play": true,
-            "result": "",
-            "quote": "",
-            "name": "Adam Facey",
-            "tag": "",
-            "detail": ""
-          }
-        },
-        "r5": {
-          "type": "result",
-          "settings": {
-            "image": "shopify://shop_images/max-richards.jpg",
-            "image_fallback": "",
-            "image_alt": "A MUTO customer talking to camera about their 90 days",
-            "image_position": "",
-            "video": "shopify://files/videos/MUTO_Creator-Ad_Max-Richards_Script-B.mp4",
-            "video_url": "",
-            "video_link": "",
-            "show_play": true,
-            "result": "",
-            "quote": "",
-            "name": "Max Richards",
-            "tag": "",
-            "detail": ""
-          }
-        },
-        "result_NmUnkJ": {
-          "type": "result",
-          "settings": {
-            "image": "shopify://shop_images/IMG_1115_JPG.jpg",
-            "image_fallback": "",
-            "image_alt": "",
-            "image_position": "",
-            "video": "shopify://files/videos/MU06_26_MUTO_VIDEO-1.mp4",
-            "video_url": "",
-            "video_link": "",
-            "show_play": true,
-            "result": "",
-            "quote": "",
-            "name": "Adam Hamilton",
-            "tag": "",
-            "detail": ""
-          }
-        },
-        "r7": {
-          "type": "result",
-          "settings": {
-            "image": "",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/preview_images/ae14f3b1ff0f4ef09ae55be1fd8cfadd.thumbnail.0000000000.jpg?v=1773314771",
-            "image_alt": "A MUTO customer talking to camera",
-            "image_position": "",
-            "video": "shopify://files/videos/kate v4.mp4",
-            "video_url": "",
-            "video_link": "",
-            "show_play": true,
-            "result": "",
-            "quote": "",
-            "name": "Kate Bright",
-            "tag": "",
-            "detail": ""
-          }
-        },
-        "r8": {
-          "type": "result",
-          "settings": {
-            "image": "",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/preview_images/cd1132a29bdc4f5081bfd9e6b008339b.thumbnail.0000000000.jpg?v=1793207168",
-            "image_alt": "A MUTO customer talking to camera",
-            "image_position": "",
-            "video": "shopify://files/videos/✅Copy of David Chat.mp4",
-            "video_url": "",
-            "video_link": "",
-            "show_play": true,
-            "result": "",
-            "quote": "",
-            "name": "David Mercado",
-            "tag": "",
-            "detail": ""
-          }
-        },
-        "r9": {
-          "type": "result",
-          "settings": {
-            "image": "",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/preview_images/3dcc774e01284c63ab3f6eaf40bc5fb7.thumbnail.0000000000.jpg?v=1766048998",
-            "image_alt": "A MUTO customer talking to camera",
-            "image_position": "",
-            "video": "shopify://files/videos/Lucy Short.mp4",
-            "video_url": "",
-            "video_link": "",
-            "show_play": true,
-            "result": "",
-            "quote": "",
-            "name": "Lucy Halliday",
-            "tag": "",
-            "detail": ""
-          }
-        }
-      },
-      "block_order": [
-        "r7",
-        "r8",
-        "r9",
-        "r1",
-        "r3",
-        "r5",
-        "result_NmUnkJ",
-        "r2"
-      ],
-      "settings": {
-        "heading": "Don’t take\nour word for it.",
-        "note": "MUTO customers, in their own words",
-        "ratio": "9/16",
-        "field": false,
-        "fit": "nad",
-        "rail_gap": 48,
-        "foot": "",
-        "space_top": 70,
-        "space_bottom": 100
-      }
-    },
-    "steps": {
-      "type": "muto-crea-steps",
-      "blocks": {
-        "s1": {
-          "type": "step",
-          "settings": {
-            "chip": "Day 1",
-            "title": "Set your baseline.",
-            "text": "Two capsules with breakfast. Score your energy, sleep and recovery out of 10, or note your wearable’s numbers.",
-            "image": "shopify://shop_images/1BBE18C7-9CBA-4EA3-BB3F-60C13D1F4F19.png",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-baseline.jpg?v=1791020791",
-            "image_alt": "A cyclist checking the watch on their wrist, hands resting on the bars",
-            "image_position": "50% 35%"
-          }
-        },
-        "s2": {
-          "type": "step",
-          "settings": {
-            "chip": "Day 30",
-            "title": "Afternoons that hold.",
-            "text": "Usually the first thing people notice: less of a 3pm slump, energy left for the evening. B vitamins help reduce tiredness and fatigue.",
-            "image": "shopify://shop_images/333AFFA4-7F5A-41E9-A34E-780C1C51FBDE.png",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-steady.jpg?v=1791020790",
-            "image_alt": "An athlete between sets in the gym",
-            "image_position": "50% 15%"
-          }
-        },
-        "s3": {
-          "type": "step",
-          "settings": {
-            "chip": "Day 60",
-            "title": "Bouncing back sooner.",
-            "text": "Vitamin D supports normal muscle function. A long walk, a game of tennis or a gym session stops costing you the next day.",
-            "image": "shopify://shop_images/image6.png",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-checkin-close.jpg?v=1791021630",
-            "image_alt": "A wrist resting on an ice bath, the watch showing a live heart rate of 97 BPM",
-            "image_position": "50% 50%"
-          }
-        },
-        "s4": {
-          "type": "step",
-          "settings": {
-            "chip": "Day 90",
-            "title": "Feel it, or your money back.",
-            "text": "Compare your scores with day 1. Not feeling the difference? Email us and we’ll refund what you paid, minus delivery.",
-            "image": "shopify://shop_images/1C46F449-B491-4589-BF89-04157F7CB0F6.png",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-verdict.jpg?v=1791020808",
-            "image_alt": "Three athletes laughing together after a session, city skyline behind",
-            "image_position": "50% 8%"
-          }
-        }
-      },
-      "block_order": [
-        "s1",
-        "s2",
-        "s3",
-        "s4"
-      ],
-      "settings": {
-        "heading": "Your first 90 days.",
-        "heading_right": "What to expect.",
-        "fit": "nad",
-        "space_top": 102,
-        "space_bottom": 100
-      }
-    },
-    "guarantee": {
-      "type": "muto-crea-guarantee",
-      "blocks": {
-        "c1": {
-          "type": "chip",
-          "settings": {
-            "text": "90 days to try"
-          }
-        },
-        "c2": {
-          "type": "chip",
-          "settings": {
-            "text": "Free delivery"
-          }
-        },
-        "c3": {
-          "type": "chip",
-          "settings": {
-            "text": "Stop any time"
-          }
-        }
-      },
-      "block_order": [
-        "c1",
-        "c2",
-        "c3"
-      ],
-      "settings": {
-        "heading": "Try it.\nNo risk.",
-        "aside": "Not for you? Get your money back.",
-        "number": "90",
-        "unit": "days to try it",
-        "text": "<p>Take it every day for 90 days. Not for you? Email us. We’ll give your money back, minus delivery. You can stop any time.</p>",
-        "image": "shopify://shop_images/42FB6D71-CEAF-4B0A-962A-E043F6098596.png",
-        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-guarantee-bottle.jpg?v=1791023640",
-        "image_alt": "Harry Insley resting on a log after a session, drinking from a MUTO bottle",
-        "image_position": "50% 8%",
-        "space_top": 100,
-        "space_bottom": 100
-      }
-    },
-    "why": {
-      "type": "muto-home-why",
-      "blocks": {
-        "w1": {
-          "type": "card",
-          "settings": {
-            "title": "Made by a scientist you can talk to.",
-            "text": "Dr Richie Barclay, PhD, made MUTO and checks it with a board of doctors. Got a question? Email him.",
-            "image": "shopify://shop_images/about-founder.jpg",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-founder.jpg?v=1790751995",
-            "image_alt": "Dr Richie Barclay holding a jar of NAD+ Cellular Complex",
-            "image_position": "50% 20%"
-          }
-        },
-        "w2": {
-          "type": "card",
-          "settings": {
-            "title": "Nothing hidden.",
-            "text": "Every amount is on the label. Made in the UK.",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-why-manufacturing.jpg?v=1790767821",
-            "image_alt": "Capsules moving along a filling line at the UK manufacturer",
-            "image_position": ""
-          }
-        },
-        "w3": {
-          "type": "card",
-          "settings": {
-            "title": "Try it for 90 days.",
-            "text": "See how you feel. Not for you? Get your money back.",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-why-wearable.jpg?v=1790767821",
-            "image_alt": "A wrist wearing a sports watch, seen underwater",
-            "image_position": ""
-          }
-        }
-      },
-      "block_order": [
-        "w1",
-        "w2",
-        "w3"
-      ],
-      "settings": {
-        "heading": "Why people trust MUTO",
-        "heading_right": "",
-        "align": "center",
-        "ink": "teal",
-        "card_min": 380,
-        "head_gap": 64,
-        "field": true,
-        "fit": "nad",
-        "space_top": 100,
-        "space_bottom": 100
-      },
-      "disabled": true
     },
     "compare": {
       "type": "muto-chapter",
@@ -1166,67 +1171,206 @@
         "space_bottom": 96
       }
     },
+    "timeline": {
+      "type": "muto-timeline",
+      "blocks": {
+        "m1": {
+          "type": "milestone",
+          "settings": {
+            "pill": "Day 1",
+            "title": "Your baseline",
+            "text": "<p>Score your afternoons, sleep and recovery out of 10, or note your wearable’s numbers. Then two capsules with breakfast.</p>"
+          }
+        },
+        "m2": {
+          "type": "milestone",
+          "settings": {
+            "pill": "Day 30",
+            "title": "Afternoons that hold",
+            "text": "<p>Usually the first thing people notice. B vitamins help reduce tiredness and fatigue, and NR tops up the NAD+ your cells use to make energy. Less of a 3pm slump, and energy left for the evening.</p>"
+          }
+        },
+        "m3": {
+          "type": "milestone",
+          "settings": {
+            "pill": "Day 60",
+            "title": "Bouncing back sooner",
+            "text": "<p>Vitamin D supports normal muscle function, and CoQ10 and PQQ support your mitochondria. A walk, a round of golf or a gym session stops hanging around for days.</p>"
+          }
+        },
+        "m4": {
+          "type": "milestone",
+          "settings": {
+            "pill": "Day 90",
+            "title": "Feeling like yourself",
+            "text": "<p>Compare your scores with day 1. Many people say they hadn’t realised how flat they’d been feeling. Not for you? Get every subscription payment back.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "m1",
+        "m2",
+        "m3",
+        "m4"
+      ],
+      "settings": {
+        "eyebrow": "",
+        "anchor": "",
+        "heading": "What you can expect over time.",
+        "lede": "What people tell us they notice, and roughly when. Everyone’s different, so score yourself on day 1 and compare.",
+        "image": "shopify://shop_images/B41838FF-C1C0-41C3-AF29-AE2348CE86A8.png",
+        "image_fallback": "",
+        "image_alt": "",
+        "foot": "Based on what customers tell us, not a clinical study. Everyone’s different.",
+        "band": "ground",
+        "sticky_top": 120,
+        "space_top": 96,
+        "space_bottom": 96
+      }
+    },
+    "howto": {
+      "type": "muto-chapter",
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/nad-take-two.jpg",
+            "image_fallback": "",
+            "kicker": "Step 1",
+            "title": "Two capsules with breakfast",
+            "text": "<p>CoQ10, vitamin D3 and K2 dissolve in fat, so your body takes them in best with food.</p>"
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Coffee_MUTO.jpg",
+            "image_fallback": "",
+            "kicker": "Step 2",
+            "title": "Every morning",
+            "text": "<p>It works best as a daily habit. Keep the jar by the kettle so you don’t forget.</p>"
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/D2AA08A2-83BB-4249-AC48-A8261A413D04.png",
+            "image_fallback": "",
+            "kicker": "Step 3",
+            "title": "Check in at day 30 and 90",
+            "text": "<p>Score your energy and sleep out of 10 on day 1, then compare. Not for you after 90 days? Get every subscription payment back.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      "settings": {
+        "anchor": "how-to-take-it",
+        "number": "",
+        "label": "How to take it",
+        "heading": "How to take it.",
+        "intro": "<p>Three steps. Two capsules. About ten seconds a day.</p>",
+        "art": "none",
+        "art_beside": false,
+        "takeaway": "",
+        "line": "",
+        "cta_label": "",
+        "cta_link": "",
+        "small": "",
+        "tint": false,
+        "band": "mint",
+        "space_top": 96,
+        "space_bottom": 96
+      }
+    },
     "faq": {
       "type": "muto-crea-faq",
       "blocks": {
-        "q0": {
-          "type": "q",
-          "settings": {
-            "title": "Is it right for my age?",
-            "text": "<p>Yes. MUTO is made for adults over 35, and most of our customers are in their 40s and 50s. You don’t need to be sporty or own a smartwatch.</p>"
-          }
-        },
-        "q3": {
-          "type": "q",
-          "settings": {
-            "title": "Is it safe with my other pills?",
-            "text": "<p>Usually, yes. Coffee is fine too.</p><p>Take medicine? Ask your doctor first, especially if you take a blood thinner like warfarin.</p>"
-          }
-        },
         "q1": {
           "type": "q",
           "settings": {
-            "title": "How do I know it’s working?",
-            "text": "<p>Before you start, score your energy and sleep out of 10. Do it again at day 30 and day 90. Then compare.</p>"
+            "title": "Who is MUTO for?",
+            "text": "<p>Adults over 35. Most of our customers are in their 40s and 50s. You don’t need to be sporty or own a smartwatch.</p>"
           }
         },
         "q2": {
           "type": "q",
           "settings": {
-            "title": "When will I notice something?",
-            "text": "<p>Give it 60 to 90 days. Some people notice a change in a few weeks. For others it takes longer.</p>"
+            "title": "What is NAD+, and why does it matter?",
+            "text": "<p>NAD+ is a molecule every cell uses to turn food into energy. Your body makes less of it from your mid-30s. MUTO gives you 300mg of NR, a form of vitamin B3 your body turns into NAD+.</p>"
+          }
+        },
+        "q3": {
+          "type": "q",
+          "settings": {
+            "title": "Why NR and not NMN?",
+            "text": "<p>NR is authorised for food supplements in the UK. NMN is still under assessment, so we don’t use it. 300mg of NR is the most allowed in Great Britain.</p>"
           }
         },
         "q4": {
           "type": "q",
           "settings": {
-            "title": "What if it’s not for me?",
-            "text": "<p>Email <a href=\"mailto:hello@mutolongevity.com\">hello@mutolongevity.com</a> within 14 days after your 90 days end. We’ll give back what you paid, minus delivery.</p><p>This is for first-time subscribers who buy at muto.co.</p>"
+            "title": "When will I notice something?",
+            "text": "<p>Give it 60 to 90 days. Many people notice their afternoons first, sometimes within a few weeks. For others it takes longer.</p>"
           }
         },
         "q5": {
           "type": "q",
           "settings": {
-            "title": "Why not just take one vitamin?",
-            "text": "<p>You can. MUTO puts 19 ingredients, each at a declared dose, into 2 capsules: 300mg NR plus the B vitamins, TMG, CoQ10 and PQQ that work alongside it. One jar instead of several pots.</p>"
+            "title": "How do I know it’s working?",
+            "text": "<p>Before you start, score your energy, sleep and recovery out of 10. Do it again at day 30 and day 90, then compare. A pen and paper is fine.</p>"
           }
         },
-        "q_tested": {
+        "q6": {
+          "type": "q",
+          "settings": {
+            "title": "Is it safe with my other medication?",
+            "text": "<p>Usually, yes. Coffee is fine too. If you take medicine, ask your doctor first, especially if you take a blood thinner like warfarin.</p>"
+          }
+        },
+        "q7": {
+          "type": "q",
+          "settings": {
+            "title": "Is it vegan?",
+            "text": "<p>Yes. The capsules are plant cellulose, vitamin D3 comes from algae, and there are no major allergens, fillers, caffeine or stimulants.</p>"
+          }
+        },
+        "q8": {
           "type": "q",
           "settings": {
             "title": "How is it tested?",
-            "text": "<p>Every batch is tested by an independent lab for identity, potency, heavy metals and microbes before it’s released. MUTO is made in the UK to GMP standards, in an ISO-certified facility.</p>"
+            "text": "<p>Every batch is tested before release for heavy metals, microbes and capsule quality. <a href=\"#test-results\">See the results for the current batch</a>.</p>"
+          }
+        },
+        "q9": {
+          "type": "q",
+          "settings": {
+            "title": "Can I skip, pause or cancel?",
+            "text": "<p>Yes, online, anytime. No phone calls. We send a reminder five days before every payment.</p>"
+          }
+        },
+        "q10": {
+          "type": "q",
+          "settings": {
+            "title": "What if it’s not for me?",
+            "text": "<p>Take it every day for 90 days. If you don’t feel the difference, email <a href=\"mailto:hello@mutolongevity.com\">hello@mutolongevity.com</a> and you get every subscription payment back.</p>"
           }
         }
       },
       "block_order": [
-        "q0",
-        "q3",
         "q1",
         "q2",
-        "q_tested",
+        "q3",
         "q4",
-        "q5"
+        "q5",
+        "q6",
+        "q7",
+        "q8",
+        "q9",
+        "q10"
       ],
       "settings": {
         "heading": "FAQs",
@@ -1235,11 +1379,11 @@
         "space_bottom": 100
       }
     },
-    "custom_reviews_KpXTpD": {
+    "reviews": {
       "type": "custom-reviews",
       "name": "Custom Reviews",
       "settings": {
-        "bg_color": "#ffffff",
+        "bg_color": "#f2f2f2",
         "padding_top": 110,
         "padding_bottom": 50,
         "custom_class": "",
@@ -1252,24 +1396,6 @@
         "button_label": "Load more reviews",
         "button_link": "#",
         "button_style": "gradient-secondary"
-      }
-    },
-    "easy_read": {
-      "type": "custom-liquid",
-      "settings": {
-        "custom_liquid": "<div id=\"mc-bf-data\" hidden data-left=\"{{ shop.metafields.muto.bf_boxes_left.value }}\" data-orders=\"{{ shop.metafields.muto.bf_orders_left.value }}\"></div>\n\n\n<script>\n/* \"Ingredients + nutritional information\" opens the What's inside fold and scrolls to it */\ndocument.addEventListener('click', function (e) {\n  var a = e.target.closest && e.target.closest('a[href=\"#whats-inside\"]');\n  if (!a) return;\n  var d = [].find.call(document.querySelectorAll('.mc__acc-item'), function (x) {\n    var s = x.querySelector('summary'); return s && /inside|ingredient/i.test(s.textContent);\n  });\n  if (!d) return;\n  e.preventDefault();\n  d.open = true;\n  d.scrollIntoView({ behavior: 'smooth', block: 'center' });\n});\n\n(function () {\n  var norm = function (t) { return (t || '').replace(/\\s+/g, '').replace(/\\/mo$/, ''); };\n  function cards() { return [].slice.call(document.querySelectorAll('.mc__plans > label.mc__plan')); }\n\n  /* The button shows the old price of whichever plan its price belongs to, struck through */\n  function syncWas() {\n    var price = document.querySelector('.mc__buy-cta [data-mh-cta-price]');\n    if (!price) return;\n    var now = norm(price.textContent);\n    var card = cards().find(function (c) {\n      var p = c.querySelector('.mc__plan-price'); return p && norm(p.textContent) === now;\n    }) || document.querySelector('.mc__plans > label.mc__plan.is-selected');\n    var was = card && card.querySelector('.mc__plan-was');\n    var s = price.parentNode.querySelector('.mc-art__cta-was');\n    if (!s) {\n      s = document.createElement('s');\n      s.className = 'mc-art__cta-was';\n      price.parentNode.insertBefore(s, price);\n    }\n    var t = was ? was.textContent.trim() : '';\n    if (s.textContent !== t) s.textContent = t;\n  }\n\n  /* Start on the quarterly plan (the second card in Skio's order) */\n  function selectQuarterly(tries) {\n    var c = cards()[1];\n    if (!c) return;\n    if (c.classList.contains('is-selected')) return;\n    var input = c.querySelector('.mc__plan-input');\n    if (input && input.disabled) return;\n    c.click();\n    if (input && !input.checked) { input.checked = true; input.dispatchEvent(new Event('change', { bubbles: true })); }\n    if (tries > 0) setTimeout(function () { selectQuarterly(tries - 1); }, 250);\n  }\n\n  function start() {\n    var price = document.querySelector('.mc__buy-cta [data-mh-cta-price]');\n    if (price && window.MutationObserver) {\n      new MutationObserver(syncWas).observe(price, { childList: true, characterData: true, subtree: true });\n    }\n    document.addEventListener('change', function () { setTimeout(syncWas, 0); });\n    document.addEventListener('click', function (e) {\n      if (e.target.closest && e.target.closest('.mc__plan')) setTimeout(syncWas, 0);\n    });\n    syncWas();\n    setTimeout(function () { selectQuarterly(4); setTimeout(syncWas, 50); }, 300);\n  }\n  if (document.readyState === 'complete') start(); else window.addEventListener('load', start);\n})();\n\n/* Clicking anywhere in a plan's gifts box selects that plan */\ndocument.addEventListener('click', function (e) {\n  var d = e.target.closest && e.target.closest('.mc__plans > .mc__plan-detail[data-mc-plan-for]');\n  if (!d || (e.target.closest && e.target.closest('a'))) return;\n  var n = parseInt(d.getAttribute('data-mc-plan-for'), 10);\n  var card = document.querySelectorAll('.mc__plans > label.mc__plan')[n - 1];\n  if (card && !card.classList.contains('is-selected')) card.click();\n});\n\n\n/* Black Friday: 53% off the first order plus the welcome kit, limited to TOTAL orders.\n   Orders left comes from the shop metafield muto.bf_orders_left (printed into #mc-bf-data by the\n   template); it must be the real number left. Blank hides the count. CODE, once set, is applied\n   automatically so it is on the cart and checkout. */\n(function () {\n  var CODE = \"\";\n  var TOTAL = 500;\n  if (CODE) {\n    try {\n      if (!sessionStorage.getItem('mcBf' + CODE)) {\n        fetch('/discount/' + encodeURIComponent(CODE), { credentials: 'same-origin' })\n          .then(function () { try { sessionStorage.setItem('mcBf' + CODE, '1'); } catch (e) {} });\n      }\n    } catch (e) {\n      fetch('/discount/' + encodeURIComponent(CODE), { credentials: 'same-origin' });\n    }\n  }\n  function mount() {\n    var plans = document.querySelector('.mc .mc__plans');\n    if (!plans || document.querySelector('.mc-bf')) return;\n    var data = document.getElementById('mc-bf-data');\n    var left = data ? parseInt(data.getAttribute('data-orders'), 10) : NaN;\n    var box = document.createElement('div');\n    box.className = 'mc-bf';\n    box.setAttribute('role', 'note');\n    var html =\n      '<p class=\"mc-bf__tag\"><span class=\"mc-bf__dot\"></span>Black Friday offer</p>' +\n      '<div class=\"mc-bf__main\"><p class=\"mc-bf__offer\">53% off your first order</p>' +\n      '<p class=\"mc-bf__kit\">plus a welcome kit worth £77</p>' +\n      '<p class=\"mc-bf__sched\">£99 for your first order, £125 on your second, £150 on your third.</p></div>';\n    var hasCount = left >= 0 && left <= TOTAL;\n    if (hasCount) {\n      html += '<p class=\"mc-bf__count\" aria-label=\"' + left + ' out of ' + TOTAL + ' remaining\"><b>' + left +\n        '</b><small>out of ' + TOTAL + ' remaining</small></p>';\n    }\n    html += '<div class=\"mc-bf__foot\">' +\n      (hasCount ? '<span class=\"mc-bf__bar\" aria-hidden=\"true\"><i style=\"width:' + Math.round(left / TOTAL * 100) + '%\"></i></span>' : '') +\n      '<p class=\"mc-bf__note\">' + (hasCount && left === 0 ? 'All ' + TOTAL + ' have gone.' : 'Limited to ' + TOTAL + ' orders.') +\n      (CODE ? ' Code <b>' + CODE + '</b> is applied at checkout.' : '') + '</p></div>';\n    box.innerHTML = html;\n    plans.parentNode.insertBefore(box, plans);\n  }\n  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount); else mount();\n})();\n\n/* Subhead under the title, and the testing-results button under the images. The button opens the\n   page's test-results panel (the tests section listens for [data-mtr-open]). */\n(function () {\n  var SUBHEAD = 'Everything your body needs after 35 for energy, recovery, stress, immunity and longevity.';\n  var title = document.querySelector('.mc .mc__buy-title');\n  if (title && !document.querySelector('.mc-subhead')) {\n    var p = document.createElement('p');\n    p.className = 'mc-subhead';\n    p.textContent = SUBHEAD;\n    title.insertAdjacentElement('afterend', p);\n  }\n  var media = document.querySelector('.mc .mc__buy-media');\n  if (media && !media.querySelector('.mc-tests-btn') && document.querySelector('[data-mtr]')) {\n    var b = document.createElement('button');\n    b.type = 'button';\n    b.className = 'mc-tests-btn';\n    b.setAttribute('data-mtr-open', '');\n    b.innerHTML = '<span class=\"mc-tests-btn__tick\" aria-hidden=\"true\"><svg viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M2.5 6.2 5 8.6l4.5-5\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span>View third-party testing results';\n    media.appendChild(b);\n  }\n})();\n\n/* Sticky bar: its button price follows the selected plan as Skio bills it (£150 / £60); show it per\n   month like the plan cards (plan-prices.css), old price struck through. Card 1 = monthly, 2 = quarterly. */\n(function () {\n  var PER_MONTH = { 1: ['£49.99/mo', '£70'], 2: ['£33/mo', '£70'] };\n  function update() {\n    var span = document.querySelector('.mh__sticky [data-mh-cta-price]');\n    if (!span) return;\n    var cards = [].slice.call(document.querySelectorAll('.mc__plans > label.mc__plan'));\n    var p = PER_MONTH[cards.findIndex(function (c) { return c.classList.contains('is-selected'); }) + 1];\n    if (!p) return;\n    var html = '<s class=\"mc-sticky-was\">' + p[1] + '</s> ' + p[0];\n    if (span.innerHTML !== html) span.innerHTML = html;\n  }\n  function start() {\n    var span = document.querySelector('.mh__sticky [data-mh-cta-price]');\n    if (span && window.MutationObserver) {\n      new MutationObserver(update).observe(span, { childList: true, characterData: true, subtree: true });\n    }\n    document.addEventListener('click', function (e) {\n      if (e.target.closest && e.target.closest('.mc__plan')) { setTimeout(update, 0); setTimeout(update, 60); }\n    });\n    document.addEventListener('change', function () { setTimeout(update, 0); });\n    document.addEventListener('muto:home:plan', update); /* fired by muto-home.js after it paints the price */\n    update();\n    setTimeout(update, 400);\n  }\n  if (document.readyState === 'complete') start(); else window.addEventListener('load', start);\n})();\n</script>",
-        "color_scheme": "scheme-1",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
-    "board_anchor": {
-      "type": "custom-liquid",
-      "settings": {
-        "custom_liquid": "<style>[id$=\"__board_anchor\"]{height:0;overflow:hidden;margin:0!important;padding:0!important}[id$=\"__board\"] .mh{background:var(--mc-ground,#f9f9f9)}</style><span id=\"scientific-board\" style=\"display:block;position:relative;top:-80px\"></span>",
-        "color_scheme": "scheme-1",
-        "padding_top": 0,
-        "padding_bottom": 0
       }
     },
     "tests": {
@@ -1628,6 +1754,185 @@
         "certificate": ""
       }
     },
+    "easy_read": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div id=\"mc-bf-data\" hidden data-left=\"{{ shop.metafields.muto.bf_boxes_left.value }}\" data-orders=\"{{ shop.metafields.muto.bf_orders_left.value }}\"></div>\n\n\n<script>\n/* \"Ingredients + nutritional information\" opens the What's inside fold and scrolls to it */\ndocument.addEventListener('click', function (e) {\n  var a = e.target.closest && e.target.closest('a[href=\"#whats-inside\"]');\n  if (!a) return;\n  var d = [].find.call(document.querySelectorAll('.mc__acc-item'), function (x) {\n    var s = x.querySelector('summary'); return s && /inside|ingredient/i.test(s.textContent);\n  });\n  if (!d) return;\n  e.preventDefault();\n  d.open = true;\n  d.scrollIntoView({ behavior: 'smooth', block: 'center' });\n});\n\n(function () {\n  var norm = function (t) { return (t || '').replace(/\\s+/g, '').replace(/\\/mo$/, ''); };\n  function cards() { return [].slice.call(document.querySelectorAll('.mc__plans > label.mc__plan')); }\n\n  /* The button shows the old price of whichever plan its price belongs to, struck through */\n  function syncWas() {\n    var price = document.querySelector('.mc__buy-cta [data-mh-cta-price]');\n    if (!price) return;\n    var now = norm(price.textContent);\n    var card = cards().find(function (c) {\n      var p = c.querySelector('.mc__plan-price'); return p && norm(p.textContent) === now;\n    }) || document.querySelector('.mc__plans > label.mc__plan.is-selected');\n    var was = card && card.querySelector('.mc__plan-was');\n    var s = price.parentNode.querySelector('.mc-art__cta-was');\n    if (!s) {\n      s = document.createElement('s');\n      s.className = 'mc-art__cta-was';\n      price.parentNode.insertBefore(s, price);\n    }\n    var t = was ? was.textContent.trim() : '';\n    if (s.textContent !== t) s.textContent = t;\n  }\n\n  /* Start on the quarterly plan (the second card in Skio's order) */\n  function selectQuarterly(tries) {\n    var c = cards()[1];\n    if (!c) return;\n    if (c.classList.contains('is-selected')) return;\n    var input = c.querySelector('.mc__plan-input');\n    if (input && input.disabled) return;\n    c.click();\n    if (input && !input.checked) { input.checked = true; input.dispatchEvent(new Event('change', { bubbles: true })); }\n    if (tries > 0) setTimeout(function () { selectQuarterly(tries - 1); }, 250);\n  }\n\n  function start() {\n    var price = document.querySelector('.mc__buy-cta [data-mh-cta-price]');\n    if (price && window.MutationObserver) {\n      new MutationObserver(syncWas).observe(price, { childList: true, characterData: true, subtree: true });\n    }\n    document.addEventListener('change', function () { setTimeout(syncWas, 0); });\n    document.addEventListener('click', function (e) {\n      if (e.target.closest && e.target.closest('.mc__plan')) setTimeout(syncWas, 0);\n    });\n    syncWas();\n    setTimeout(function () { selectQuarterly(4); setTimeout(syncWas, 50); }, 300);\n  }\n  if (document.readyState === 'complete') start(); else window.addEventListener('load', start);\n})();\n\n/* Clicking anywhere in a plan's gifts box selects that plan */\ndocument.addEventListener('click', function (e) {\n  var d = e.target.closest && e.target.closest('.mc__plans > .mc__plan-detail[data-mc-plan-for]');\n  if (!d || (e.target.closest && e.target.closest('a'))) return;\n  var n = parseInt(d.getAttribute('data-mc-plan-for'), 10);\n  var card = document.querySelectorAll('.mc__plans > label.mc__plan')[n - 1];\n  if (card && !card.classList.contains('is-selected')) card.click();\n});\n\n\n/* Black Friday: 53% off the first order plus the welcome kit, limited to TOTAL orders.\n   Orders left comes from the shop metafield muto.bf_orders_left (printed into #mc-bf-data by the\n   template); it must be the real number left. Blank hides the count. CODE, once set, is applied\n   automatically so it is on the cart and checkout. */\n(function () {\n  var CODE = \"\";\n  var TOTAL = 500;\n  if (CODE) {\n    try {\n      if (!sessionStorage.getItem('mcBf' + CODE)) {\n        fetch('/discount/' + encodeURIComponent(CODE), { credentials: 'same-origin' })\n          .then(function () { try { sessionStorage.setItem('mcBf' + CODE, '1'); } catch (e) {} });\n      }\n    } catch (e) {\n      fetch('/discount/' + encodeURIComponent(CODE), { credentials: 'same-origin' });\n    }\n  }\n  function mount() {\n    var plans = document.querySelector('.mc .mc__plans');\n    if (!plans || document.querySelector('.mc-bf')) return;\n    var data = document.getElementById('mc-bf-data');\n    var left = data ? parseInt(data.getAttribute('data-orders'), 10) : NaN;\n    var box = document.createElement('div');\n    box.className = 'mc-bf';\n    box.setAttribute('role', 'note');\n    var html =\n      '<p class=\"mc-bf__tag\"><span class=\"mc-bf__dot\"></span>Black Friday offer</p>' +\n      '<div class=\"mc-bf__main\"><p class=\"mc-bf__offer\">53% off your first order</p>' +\n      '<p class=\"mc-bf__kit\">plus a welcome kit worth £77</p>' +\n      '<p class=\"mc-bf__sched\">£99 for your first order, £125 on your second, £150 on your third.</p></div>';\n    var hasCount = left >= 0 && left <= TOTAL;\n    if (hasCount) {\n      html += '<p class=\"mc-bf__count\" aria-label=\"' + left + ' out of ' + TOTAL + ' remaining\"><b>' + left +\n        '</b><small>out of ' + TOTAL + ' remaining</small></p>';\n    }\n    html += '<div class=\"mc-bf__foot\">' +\n      (hasCount ? '<span class=\"mc-bf__bar\" aria-hidden=\"true\"><i style=\"width:' + Math.round(left / TOTAL * 100) + '%\"></i></span>' : '') +\n      '<p class=\"mc-bf__note\">' + (hasCount && left === 0 ? 'All ' + TOTAL + ' have gone.' : 'Limited to ' + TOTAL + ' orders.') +\n      (CODE ? ' Code <b>' + CODE + '</b> is applied at checkout.' : '') + '</p></div>';\n    box.innerHTML = html;\n    plans.parentNode.insertBefore(box, plans);\n  }\n  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount); else mount();\n})();\n\n/* Subhead under the title, and the testing-results button under the images. The button opens the\n   page's test-results panel (the tests section listens for [data-mtr-open]). */\n(function () {\n  var SUBHEAD = 'Everything your body needs after 35 for energy, recovery, stress, immunity and longevity.';\n  var title = document.querySelector('.mc .mc__buy-title');\n  if (title && !document.querySelector('.mc-subhead')) {\n    var p = document.createElement('p');\n    p.className = 'mc-subhead';\n    p.textContent = SUBHEAD;\n    title.insertAdjacentElement('afterend', p);\n  }\n  var media = document.querySelector('.mc .mc__buy-media');\n  if (media && !media.querySelector('.mc-tests-btn') && document.querySelector('[data-mtr]')) {\n    var b = document.createElement('button');\n    b.type = 'button';\n    b.className = 'mc-tests-btn';\n    b.setAttribute('data-mtr-open', '');\n    b.innerHTML = '<span class=\"mc-tests-btn__tick\" aria-hidden=\"true\"><svg viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M2.5 6.2 5 8.6l4.5-5\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span>View third-party testing results';\n    media.appendChild(b);\n  }\n})();\n\n/* Sticky bar: its button price follows the selected plan as Skio bills it (£150 / £60); show it per\n   month like the plan cards (plan-prices.css), old price struck through. Card 1 = monthly, 2 = quarterly. */\n(function () {\n  var PER_MONTH = { 1: ['£49.99/mo', '£70'], 2: ['£33/mo', '£70'] };\n  function update() {\n    var span = document.querySelector('.mh__sticky [data-mh-cta-price]');\n    if (!span) return;\n    var cards = [].slice.call(document.querySelectorAll('.mc__plans > label.mc__plan'));\n    var p = PER_MONTH[cards.findIndex(function (c) { return c.classList.contains('is-selected'); }) + 1];\n    if (!p) return;\n    var html = '<s class=\"mc-sticky-was\">' + p[1] + '</s> ' + p[0];\n    if (span.innerHTML !== html) span.innerHTML = html;\n  }\n  function start() {\n    var span = document.querySelector('.mh__sticky [data-mh-cta-price]');\n    if (span && window.MutationObserver) {\n      new MutationObserver(update).observe(span, { childList: true, characterData: true, subtree: true });\n    }\n    document.addEventListener('click', function (e) {\n      if (e.target.closest && e.target.closest('.mc__plan')) { setTimeout(update, 0); setTimeout(update, 60); }\n    });\n    document.addEventListener('change', function () { setTimeout(update, 0); });\n    document.addEventListener('muto:home:plan', update); /* fired by muto-home.js after it paints the price */\n    update();\n    setTimeout(update, 400);\n  }\n  if (document.readyState === 'complete') start(); else window.addEventListener('load', start);\n})();\n</script>",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "results": {
+      "type": "muto-home-results",
+      "blocks": {
+        "r1": {
+          "type": "result",
+          "settings": {
+            "image": "shopify://shop_images/about-pillar-stress-harry.jpg",
+            "image_fallback": "",
+            "image_alt": "A MUTO customer talking to camera about their 90 days",
+            "image_position": "",
+            "video": "shopify://files/videos/Nothing Gets in on Trust_V01.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "result": "",
+            "quote": "",
+            "name": "Harry Insley",
+            "tag": "",
+            "detail": ""
+          }
+        },
+        "r2": {
+          "type": "result",
+          "settings": {
+            "image": "shopify://shop_images/home-athlete-yolanda.jpg",
+            "image_fallback": "",
+            "image_alt": "A MUTO customer talking to camera about their 90 days",
+            "image_position": "",
+            "video": "shopify://files/videos/The Baseline.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "result": "",
+            "quote": "",
+            "name": "Yolanda King",
+            "tag": "",
+            "detail": ""
+          }
+        },
+        "r3": {
+          "type": "result",
+          "settings": {
+            "image": "shopify://shop_images/IMG_3566_JPG.jpg",
+            "image_fallback": "",
+            "image_alt": "A MUTO customer talking to camera about their 90 days",
+            "image_position": "",
+            "video": "shopify://files/videos/clip 3.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "result": "",
+            "quote": "",
+            "name": "Adam Facey",
+            "tag": "",
+            "detail": ""
+          }
+        },
+        "r5": {
+          "type": "result",
+          "settings": {
+            "image": "shopify://shop_images/max-richards.jpg",
+            "image_fallback": "",
+            "image_alt": "A MUTO customer talking to camera about their 90 days",
+            "image_position": "",
+            "video": "shopify://files/videos/MUTO_Creator-Ad_Max-Richards_Script-B.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "result": "",
+            "quote": "",
+            "name": "Max Richards",
+            "tag": "",
+            "detail": ""
+          }
+        },
+        "result_NmUnkJ": {
+          "type": "result",
+          "settings": {
+            "image": "shopify://shop_images/IMG_1115_JPG.jpg",
+            "image_fallback": "",
+            "image_alt": "",
+            "image_position": "",
+            "video": "shopify://files/videos/MU06_26_MUTO_VIDEO-1.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "result": "",
+            "quote": "",
+            "name": "Adam Hamilton",
+            "tag": "",
+            "detail": ""
+          }
+        },
+        "r7": {
+          "type": "result",
+          "settings": {
+            "image": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/preview_images/ae14f3b1ff0f4ef09ae55be1fd8cfadd.thumbnail.0000000000.jpg?v=1773314771",
+            "image_alt": "A MUTO customer talking to camera",
+            "image_position": "",
+            "video": "shopify://files/videos/kate v4.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "result": "",
+            "quote": "",
+            "name": "Kate Bright",
+            "tag": "",
+            "detail": ""
+          }
+        },
+        "r8": {
+          "type": "result",
+          "settings": {
+            "image": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/preview_images/cd1132a29bdc4f5081bfd9e6b008339b.thumbnail.0000000000.jpg?v=1793207168",
+            "image_alt": "A MUTO customer talking to camera",
+            "image_position": "",
+            "video": "shopify://files/videos/✅Copy of David Chat.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "result": "",
+            "quote": "",
+            "name": "David Mercado",
+            "tag": "",
+            "detail": ""
+          }
+        },
+        "r9": {
+          "type": "result",
+          "settings": {
+            "image": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/preview_images/3dcc774e01284c63ab3f6eaf40bc5fb7.thumbnail.0000000000.jpg?v=1766048998",
+            "image_alt": "A MUTO customer talking to camera",
+            "image_position": "",
+            "video": "shopify://files/videos/Lucy Short.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "result": "",
+            "quote": "",
+            "name": "Lucy Halliday",
+            "tag": "",
+            "detail": ""
+          }
+        }
+      },
+      "block_order": [
+        "r7",
+        "r8",
+        "r9",
+        "r1",
+        "r3",
+        "r5",
+        "result_NmUnkJ",
+        "r2"
+      ],
+      "settings": {
+        "heading": "Don’t take\nour word for it.",
+        "note": "MUTO customers, in their own words",
+        "ratio": "9/16",
+        "field": false,
+        "fit": "nad",
+        "rail_gap": 48,
+        "foot": "",
+        "space_top": 70,
+        "space_bottom": 100
+      }
+    },
     "statement": {
       "type": "muto-crea-statement",
       "settings": {
@@ -1972,7 +2277,7 @@
     "head_styles": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "<style>\n/* -2 product page (product.muto-nad-45): Artah-style buy box.\n   Scoped to this template only (this block lives in the template). */\n\n/* ---- Title block ---- */\nhtml body .mc .mc__eyebrow{font-size:13px;letter-spacing:.12em}\nhtml body .mc .mc__buy-title{font-size:clamp(30px,3.2vw,46px);line-height:.95;margin-top:6px}\nhtml body .mc .mc__buy-serving{margin-top:14px;font-size:12px;line-height:1.5;letter-spacing:.08em}\nhtml body .mc .mc__buy-text{margin-top:14px;font-size:15px;line-height:1.55;color:#242223}\nhtml body .mc .mc__buy-text p:first-child{font-size:18px;line-height:1.35;padding-bottom:14px;margin-bottom:14px;border-bottom:2px solid var(--mc-ink-alt,#242223);color:var(--mc-ink-alt,#242223)}\nhtml body .mc .mc__buy-text p:first-child strong{font-weight:500}\nhtml body .mc .mc__buy-text > * + *{margin-top:10px}\nhtml body .mc .mc__buy-text a[href=\"#whats-inside\"]{color:rgba(36,34,35,.7);font-weight:500;text-decoration:underline;text-underline-offset:4px}\n\n/* ---- Benefits: two columns with rules, like a spec list ---- */\nhtml body .mc .mc__buy-points{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;column-gap:28px}\nhtml body .mc .mc__buy-points::before{content:\"Benefits\";grid-column:1/-1;font-size:14px;font-weight:500;color:rgba(36,34,35,.6);padding-bottom:8px}\nhtml body .mc .mc__point{padding:11px 0;padding-left:0;border-top:1px solid rgba(36,34,35,.14);font-size:14px;line-height:1.35;font-weight:500}\nhtml body .mc .mc__point + .mc__point{margin-top:0}\nhtml body .mc .mc__point::before{display:none}\n/* \"Choose your plan\", with a rule either side */\nhtml body .mc .mc__buy-points::after{content:\"Choose your plan\";grid-column:1/-1;margin-top:26px;display:flex;align-items:center;gap:16px;font-size:20px;font-weight:500;letter-spacing:-.01em;color:var(--mc-ink-alt,#242223);\n  background:linear-gradient(var(--mc-ink-alt,#242223),var(--mc-ink-alt,#242223)) left center/calc(50% - 110px) 2px no-repeat,linear-gradient(var(--mc-ink-alt,#242223),var(--mc-ink-alt,#242223)) right center/calc(50% - 110px) 2px no-repeat;justify-content:center}\nhtml body .mc .mc__trust{display:none}\n\n/* ---- Plans: one box per plan; clicking a box selects it and expands it ---- */\nhtml body .mc .mc__plans{margin-top:16px;padding:0;border-radius:0;background:none;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;overflow:visible;display:flex;flex-direction:column}\nhtml body .mc .mc__plans > *{order:9}\nhtml body .mc .mc__plans-banner{order:1;margin:0;padding:12px 18px;border-radius:14px 14px 0 0;font-size:13px;line-height:1.3;letter-spacing:.06em}\n/* Skio order is monthly (1) then quarterly (2); quarterly leads. The selected plan's detail and\n   the gift area (which the section fills for the selected plan) sit inside that plan's box. */\nhtml body .mc .mc__plans > label.mc__plan:nth-of-type(2){order:2;margin-top:0}\nhtml body .mc .mc__plans > .mc__plan-detail[data-mc-plan-for=\"2\"]{order:3}\nhtml body .mc .mc__plans:has(> label.mc__plan:nth-of-type(2).is-selected) > .mc__kit{order:4}\nhtml body .mc .mc__plans > label.mc__plan:nth-of-type(1){order:5;margin-top:14px}\nhtml body .mc .mc__plans > .mc__plan-detail[data-mc-plan-for=\"1\"]{order:6}\nhtml body .mc .mc__plans:has(> label.mc__plan:nth-of-type(1).is-selected) > .mc__kit{order:7}\n/* Collapsed box */\nhtml body .mc .mc__plan{padding:18px 18px 16px;border:0;border-radius:14px;background:#fff;box-shadow:inset 0 0 0 1px #242223}\nhtml body .mc .mc__plan + .mc__plan{padding-top:18px;border-top:0}\nhtml body .mc .mc__plans > label.mc__plan:nth-of-type(2){border-radius:0 0 14px 14px;box-shadow:inset 1px 0 0 #242223,inset -1px 0 0 #242223,inset 0 -1px 0 #242223}\n/* Open box: card, then ticks, then gifts, all inside one outline */\nhtml body .mc .mc__plan.is-selected{border-radius:14px 14px 0 0;box-shadow:inset 2px 0 0 #242223,inset -2px 0 0 #242223,inset 0 2px 0 #242223}\nhtml body .mc .mc__plans > label.mc__plan:nth-of-type(2).is-selected{border-radius:0;box-shadow:inset 2px 0 0 #242223,inset -2px 0 0 #242223}\nhtml body .mc .mc__plan-head{gap:12px;flex-wrap:wrap}\nhtml body .mc .mc__plan-name{font-size:18px;line-height:1.25}\nhtml body .mc .mc__plan-save{height:26px;margin-left:0;padding:0 11px;border-radius:13px;font-size:11.5px;background:#242223;color:#fff;letter-spacing:.06em}\nhtml body .mc .mc__plan-price{font-size:20px}\nhtml body .mc .mc__plan-was{font-size:14px;margin-top:3px}\nhtml body .mc .mc__plan-note{font-size:13px;line-height:1.35;margin-top:6px;margin-left:33px;color:rgba(36,34,35,.7)}\nhtml body .mc .mc__plans > .mc__plan-detail{margin:0;padding:0 18px 4px;border-radius:0;background:#fff;box-shadow:inset 2px 0 0 #242223,inset -2px 0 0 #242223;font-size:15px;line-height:1.4;color:#242223}\nhtml body .mc .mc__plan-detail ul{margin:0;padding:14px 0 0;border-top:1.5px solid #242223;display:grid;gap:8px}\nhtml body .mc .mc__plan-detail li{margin:0;padding-left:24px;list-style:none;position:relative;font-weight:500}\nhtml body .mc .mc__plan-detail li::before{content:\"\";position:absolute;left:0;top:.38em;width:13px;height:10px;background:currentColor;clip-path:polygon(0 52%,13% 38%,38% 64%,88% 2%,100% 16%,38% 92%)}\n/* Gifts for the selected plan, closing the box */\nhtml body .mc .mc__plans > .mc__kit{margin:0;padding:16px 18px 18px;border-top:0;border-radius:0 0 14px 14px;background:#fff;box-shadow:inset 2px 0 0 #242223,inset -2px 0 0 #242223,inset 0 -2px 0 #242223}\nhtml body .mc .mc__kit-title{font-family:var(--mc-mono,monospace);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}\nhtml body .mc .mc__kit-list{display:grid !important;grid-template-columns:none !important;grid-auto-flow:column;grid-auto-columns:minmax(0,72px);justify-content:start;gap:10px !important;margin-top:12px}\nhtml body .mc .mc__kit-list li{text-align:center}\nhtml body .mc .mc__kit-frame{border-radius:8px;overflow:hidden}\nhtml body .mc .mc__kit-value{font-size:11.5px;margin-top:5px}\nhtml body .mc .mc__kit-name{font-size:11.5px;line-height:1.25}\nhtml body .mc .mc__kit-more{margin-top:16px}\nhtml body .mc .mc__kit-sum{display:flex;align-items:center;justify-content:center;gap:8px;min-height:46px;border-radius:23px;background:rgba(36,34,35,.07);font-size:15px;font-weight:500;cursor:pointer}\n\n/* ---- Welcome kit and later gifts ---- */\nhtml body .mc .mc__kit-month-n,html body .mc .mc__kit-month-v,html body .mc .mc__kit-month-t{font-size:12px;color:#242223}\nhtml body .mc .mc__kit-body{font-size:14px;color:#242223}\n\n/* ---- One-time purchase as its own row, then the button ---- */\nhtml body .mc .mc__onetime{display:block;width:100%;margin-top:14px;padding:16px 20px;border:1px solid rgba(36,34,35,.2);border-radius:14px;background:#fff;text-align:left;text-decoration:none;font-size:15px;line-height:1.3}\nhtml body .mc .mc__onetime:hover{border-color:var(--mc-ink-alt,#242223)}\nhtml body .mc .mc__buy-cta{margin-top:16px;height:58px}\nhtml body .mc .mc__btn{font-size:16px}\n\n/* ---- Folds and review quotes under the button ---- */\nhtml body .mc .mc__acc-sum{font-size:15px;min-height:52px}\nhtml body .mc .mc__acc-body{font-size:15px;line-height:1.5;color:#242223}\nhtml body .mc .mc__rev-q{font-size:15px}\n\n@media (max-width:749px){\n  html body .mc .mc__buy-title{font-size:32px}\n  html body .mc .mc__buy-text p:first-child{font-size:17px}\n  html body .mc .mc__buy-points{column-gap:16px}\n  html body .mc .mc__point{font-size:13.5px}\n  html body .mc .mc__buy-points::after{font-size:18px;background-size:calc(50% - 95px) 2px,calc(50% - 95px) 2px}\n  html body .mc .mc__plan-detail ul{grid-template-columns:1fr}\n}\n\n/* Button: old price struck through, then the price (\"Subscribe · £70 £60\") */\nhtml body .mc .mc-art__cta-was{font-weight:500;opacity:.55;text-decoration:line-through}\nhtml body .mc .mc-art__cta-was:not(:empty)::before{content:\"\\00b7\";display:inline-block;margin:0 .42em;opacity:.9;text-decoration:none}\nhtml body .mc .mc-art__cta-was:not(:empty) + .mc__btn-price::before{content:\"\";margin:0 0 0 .35em}\n\n/* Desktop gallery: thumbnails in their own column to the left of the main image (not over it) */\n@media screen and (min-width:990px){\n  html body .mc .mc__gallery{display:grid;grid-template-columns:72px minmax(0,1fr);column-gap:16px;align-items:start}\n  html body .mc .mc__gallery-main{grid-column:2;grid-row:1}\n  html body .mc .mc__thumbs{grid-column:1;grid-row:1;position:static;left:auto;top:auto;z-index:auto;\n    display:flex;flex-direction:column;gap:12px;margin:0;padding:2px;\n    align-self:stretch;height:0;min-height:100%;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin}\n  html body .mc .mc__thumbs[hidden]{display:none}\n  html body .mc .mc__thumb{width:64px;flex:0 0 auto;border-radius:10px}\n}\n\n\n/* Black Friday box, above the plans: white, black outline. Offer on the left, orders left out\n   of 500 on the right (under it on phones), a bar along the foot. */\nhtml body .mc .mc-bf{margin:18px 0 0;padding:16px 18px 16px;border:1.5px solid #242223;border-radius:12px;background:#fff;color:#242223;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;align-items:start}\nhtml body .mc .mc-bf[hidden]{display:none}\n/* Plan bar: \"Black Friday offer · Limited stock\" on the left, \"Best value\" on the right as a filled turquoise pill */\nhtml body .mc .mc__plans-banner::before{order:2;content:\"Best value\"!important;padding:6px 12px;border-radius:999px;background:#5efaff;color:#242223!important;font-size:12px;line-height:1;letter-spacing:.1em}\n/* Black Friday subhead: fill each line before breaking (no balancing), a touch heavier */\nhtml body .mc .mc-subhead,html body .mc .mc__buy-copy > .mc-subhead{text-wrap:wrap!important;font-weight:500!important}\nhtml body .mc .mc-bf__tag{grid-column:1/-1;display:flex;align-items:center;gap:8px;margin:0 0 4px;font-family:var(--mc-mono,monospace);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}\nhtml body .mc .mc-bf__dot{width:8px;height:8px;border-radius:50%;background:#242223;animation:mcBfPulse 1.6s ease-in-out infinite}\n@keyframes mcBfPulse{50%{opacity:.25}}\nhtml body .mc .mc-bf__main{grid-column:1;min-width:0}\nhtml body .mc .mc-bf__offer{margin:0;font-size:clamp(24px,2.4vw,30px);font-weight:600;line-height:1.05;letter-spacing:-.01em}\nhtml body .mc .mc-bf__kit{margin:4px 0 0;font-size:16px;font-weight:600;line-height:1.25}\nhtml body .mc .mc-bf__sched{margin:8px 0 0;font-size:14px;line-height:1.4;color:rgba(36,34,35,.75)}\nhtml body .mc .mc-bf__count{grid-column:2;grid-row:2;margin:0;min-width:96px;max-width:130px;padding:10px 12px 8px;border:1.5px solid #242223;border-radius:10px;text-align:center}\nhtml body .mc .mc-bf__count b{display:block;font-size:30px;font-weight:600;line-height:1;font-variant-numeric:tabular-nums}\nhtml body .mc .mc-bf__count small{display:block;margin-top:4px;font-family:var(--mc-mono,monospace);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}\nhtml body .mc .mc-bf__foot{grid-column:1/-1;display:flex;align-items:center;gap:12px;margin-top:10px}\nhtml body .mc .mc-bf__bar{flex:1;display:block;height:6px;border-radius:3px;background:rgba(36,34,35,.12);overflow:hidden}\nhtml body .mc .mc-bf__bar i{display:block;height:100%;background:#242223;border-radius:3px}\nhtml body .mc .mc-bf__note{flex:0 0 auto;margin:0;font-size:12px;line-height:1.35;color:rgba(36,34,35,.7)}\nhtml body .mc .mc-bf__note b{font-family:var(--mc-mono,monospace);letter-spacing:.06em;color:#242223}\n@media (max-width:480px){\n  html body .mc .mc-bf{grid-template-columns:1fr}\n  html body .mc .mc-bf__count{grid-column:1;grid-row:auto;display:flex;align-items:baseline;justify-content:center;gap:8px;margin-top:10px;max-width:none;width:100%;text-align:left}\n  html body .mc .mc-bf__count small{white-space:nowrap;font-family:var(--mc-font);font-size:17px;font-weight:500;letter-spacing:0;text-transform:none}\n  html body .mc .mc-bf__count b{display:inline;font-size:28px}\n  html body .mc .mc-bf__count small{display:inline;margin:0}\n  html body .mc .mc-bf__foot{flex-wrap:wrap}\n}\n\n/* -2 page only: sections below the buy box back to standard sizes (they were enlarged) */\n/* ---- Rest of the page: back to standard sizes (was enlarged) ---- */\nhtml body .mc .mc__body,html body .mc .mc__ben-body,html body .mc .mc__ben-lede,html body .mc .mc__ben-name,\nhtml body .mc .mc__ben-sub,html body .mc .mc__step-text,html body .mc .mc__faq-body,html body .mc .mc__faq-sum,\nhtml body .mc .mc__gua-text,html body .mc .mc__note-text{font-size:16px;line-height:1.5}\nhtml body .mc .mc__ben-body,html body .mc .mc__faq-body{color:#242223}\nhtml body .mc .mc__prob-lede{font-size:18px;line-height:1.45}\nhtml body .mc .mc__prob-quote{font-size:22px;line-height:1.2}\nhtml body .mc .mc__prob-text{font-size:16px;line-height:1.45}\nhtml body .mc .mc__step-title{font-size:21px;line-height:1.2}\nhtml body .mc .mc__step-chip,html body .mc .mc__gua-chip{font-size:14px}\nhtml body .mc .mc__gua-aside{font-size:20px}\nhtml body .mc .mc__tabs{display:none}\nhtml body .mh .mh__why-title{font-size:22px}\nhtml body .mh .mh__why-text{font-size:16px;line-height:1.5;color:var(--mh-ink,#162f31)}\nhtml body .mh .mh__board-note,html body .mh .mh__res-note{font-size:15px;color:#242223}\nhtml body .mh .mh__res-quote{font-size:15px;line-height:1.45;color:#242223}\nhtml body .mh .mh__res-detail,html body .mh .mh__res-foot{font-size:13px;color:rgba(35,33,35,.8)}\nhtml body .mh__sticky-sub{font-size:13px;color:rgba(249,249,249,.85)}\nhtml body .mh__sticky-btn{font-size:15px}\n\n@media (max-width:749px){\n  html body .mc .mc__prob-quote{font-size:20px}\n  html body .mc .mc__step-title{font-size:19px}\n}\n\n/* ---- 40-60 buy box ---- */\n/* Main PDP buy box for 40-60 year olds who aren't sport focused.\n   Loaded after artah.css + bf.css in the easy_read block, so it only overrides. */\n\n/* ---- Easier to read: bigger type, darker greys ---- */\nhtml body .mc .mc__buy-serving{font-size:13px;color:#242223}\nhtml body .mc .mc__buy-text{font-size:17px;line-height:1.55}\nhtml body .mc .mc__buy-text p:first-child{font-size:21px;line-height:1.3}\nhtml body .mc .mc__buy-text a[href=\"#whats-inside\"]{color:#242223}\nhtml body .mc .mc__point{font-size:16px;line-height:1.35;padding:12px 0}\nhtml body .mc .mc__buy-points::before{content:\"How it helps\";font-size:15px;color:#242223}\nhtml body .mc .mc__plan-name{font-size:19px}\nhtml body .mc .mc__plan-save{font-size:12.5px}\nhtml body .mc .mc__plan-price{font-size:22px}\nhtml body .mc .mc__plan-note{font-size:15px;color:#242223}\nhtml body .mc .mc__plans > .mc__plan-detail{font-size:16px}\nhtml body .mc .mc__plans-banner{font-size:14px}\nhtml body .mc .mc__kit-title{font-size:13px}\nhtml body .mc .mc__kit-list{grid-auto-columns:minmax(0,80px)}\nhtml body .mc .mc__kit-value,html body .mc .mc__kit-name{font-size:13px}\nhtml body .mc .mc__kit-month-n,html body .mc .mc__kit-month-v,html body .mc .mc__kit-month-t{font-size:13px}\nhtml body .mc .mc__kit-sum{font-size:16px;min-height:50px}\nhtml body .mc .mc__onetime{font-size:16px;padding:18px 20px}\nhtml body .mc .mc__btn{font-size:18px}\nhtml body .mc .mc__buy-cta{height:62px}\nhtml body .mc .mc__acc-sum{font-size:17px;min-height:56px}\nhtml body .mc .mc__acc-body{font-size:16px}\nhtml body .mc .mc__rev-q{font-size:18px}\nhtml body .mc .mc__rev-n{font-size:13px;color:#242223}\n\n/* ---- Reassurance before the price: three ticks in one row, then \"Choose your plan\" ---- */\nhtml body .mc .mc__buy-points::after{content:none}\nhtml body .mc .mc__trust{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:18px 0 0;padding:0;list-style:none}\nhtml body .mc .mc__trust li{display:flex;align-items:flex-start;gap:8px;margin:0;padding:12px;border-radius:12px;background:rgba(36,34,35,.06);font-size:14px;line-height:1.3;font-weight:500;color:#242223}\nhtml body .mc .mc__trust li::before{content:\"\";flex:0 0 13px;height:10px;margin-top:.3em;background:currentColor;clip-path:polygon(0 52%,13% 38%,38% 64%,88% 2%,100% 16%,38% 92%)}\nhtml body .mc .mc__trust::after{content:\"Choose your plan\";grid-column:1/-1;margin-top:20px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:500;letter-spacing:-.01em;color:var(--mc-ink-alt,#242223);\n  background:linear-gradient(var(--mc-ink-alt,#242223),var(--mc-ink-alt,#242223)) left center/calc(50% - 110px) 2px no-repeat,linear-gradient(var(--mc-ink-alt,#242223),var(--mc-ink-alt,#242223)) right center/calc(50% - 110px) 2px no-repeat}\n\n@media (max-width:749px){\n  html body .mc .mc__buy-text p:first-child{font-size:19px}\n  html body .mc .mc__buy-text{font-size:16px}\n  html body .mc .mc__buy-points{grid-template-columns:1fr}\n  html body .mc .mc__point{font-size:16px}\n  html body .mc .mc__trust{grid-template-columns:1fr;gap:6px}\n  html body .mc .mc__trust li{padding:10px 12px;font-size:15px}\n  html body .mc .mc__trust::after{font-size:18px;margin-top:16px;background-size:calc(50% - 95px) 2px,calc(50% - 95px) 2px}\n  html body .mc .mc__kit-list{grid-auto-columns:minmax(0,72px)}\n}\n\n/* New PDP: plain #fafafa behind the buy box, no gradient */\nhtml body .mc.mc--buy,html body .mc.mc--buy.mc--fit-nad{background:#fafafa!important}\n/* New PDP: the pills moved under the button as badges; only the heading stays */\nhtml body .mc .mc__trust li{display:none}\nhtml body .mc .mc__trust::after{margin-top:8px}\n\n/* ---- Plan cards, AG1-style: per-month price, % off tag in the top-left corner, Best value bar ---- */\n/* Skio still bills £150 every 3 months and £60 every 4 weeks. The section prints Skio's price and\n   compare-at, so the per-month figures are drawn here and Skio's are hidden (still in the DOM, so the\n   button keeps reading the billed price). Card 1 = monthly, card 2 = quarterly (Skio's order). */\nhtml body .mc .mc__plans > label.mc__plan{padding-top:44px}\nhtml body .mc .mc__plan-save{position:absolute;top:0;left:0;height:28px;margin:0;padding:0 12px;border-radius:14px 0 10px 0;\n  display:flex;align-items:center;background:#7ee0f0;color:#242223;font-family:var(--mc-mono,monospace);\n  font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}\nhtml body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-save{border-radius:0 0 10px 0}\nhtml body .mc .mc__plan-prices > *{display:none}\nhtml body .mc .mc__plan-prices::before,html body .mc .mc__plan-prices::after{display:block}\nhtml body .mc .mc__plan-prices::before{font-weight:500;font-size:22px;line-height:1.1;letter-spacing:-.01em;color:#242223}\nhtml body .mc .mc__plan-prices::after{margin-top:4px;font-size:16px;line-height:1.2;text-decoration:line-through;color:rgba(36,34,35,.5)}\nhtml body .mc .mc__plans > label.mc__plan:nth-of-type(1) .mc__plan-prices::before{content:\"£49.99/mo\"}\nhtml body .mc .mc__plans > label.mc__plan:nth-of-type(1) .mc__plan-prices::after{content:\"£70\"}\nhtml body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-prices::before{content:\"£33/mo\"}\nhtml body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-prices::after{content:\"£70\"}\n/* Best value: the dark bar over the quarterly box leads with it; the welcome-kit line follows */\nhtml body .mc .mc__plans-banner{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:4px 16px}\nhtml body .mc .mc__plans-banner::before{content:\"\\2726\\00a0\\00a0 Best value\";color:#7ee0f0;font-family:var(--mc-mono,monospace);letter-spacing:.1em}\n\n/* ---- Top of the page, AgeMate-style: stars, title and subhead over the images on phones,\n   then a \"View third-party testing results\" button under them ---- */\nhtml body .mc .mc-subhead{margin:8px 0 0;font-size:17px;line-height:1.4;color:#242223;text-wrap:balance}\nhtml body .mc .mc-tests-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:52px;margin:14px 0 0;padding:10px 20px;\n  border:1.5px solid #242223;border-radius:999px;background:none;font:inherit;font-size:16px;font-weight:500;color:#242223;cursor:pointer;transition:background .2s,color .2s}\nhtml body .mc .mc-tests-btn:hover{background:#242223;color:#fff}\nhtml body .mc .mc-tests-btn:focus-visible{outline:2px solid #242223;outline-offset:2px}\nhtml body .mc .mc-tests-btn__tick{flex:0 0 20px;display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#7ee0f0;box-shadow:0 0 0 1px #242223;color:#242223}\nhtml body .mc .mc-tests-btn__tick svg{width:11px;height:11px}\n/* Rating row, AgeMate-style: bigger stars, the score in Neue Haas, as typed, no underline */\nhtml body .mc .mc__rating{align-items:center;gap:10px}\nhtml body .mc .mc__stars{gap:4px;margin-top:0}\nhtml body .mc .mc__stars > span{width:19px;height:18px}\nhtml body .mc .mc__rating-text{font-family:var(--mc-font);font-size:17px;line-height:1.2;font-weight:500;letter-spacing:0;text-transform:none;text-decoration:none;color:#242223}\n/* Sticky bar: old price struck through before the per-month price */\nhtml body .mh__sticky .mc-sticky-was{margin-right:.25em;font-weight:500;opacity:.55;text-decoration:line-through}\n/* Room under \"Choose your plan\" before the Black Friday box */\nhtml body .mc .mc__buy-copy > .mc-bf{margin-top:24px}\n/* Order of the copy column, same at every width: stars, title, subhead · the offer (Black Friday box,\n   \"Choose your plan\", plans, one-time, button, badges) · then the serving line, description, reviews and\n   folds. Phones also put the images and testing button between the subhead and the offer (below). */\nhtml body .mc .mc__buy-copy > *{order:3}\nhtml body .mc .mc__buy-copy > .mc-bf,html body .mc .mc__buy-copy > .mc__trust,html body .mc .mc__buy-copy > .mc__plans,\nhtml body .mc .mc__buy-copy > .mc__pf,html body .mc .mc__buy-copy > .mc__onetime,html body .mc .mc__buy-copy > .mc__buy-cta,\nhtml body .mc .mc__buy-copy > .mc__buy-actions,html body .mc .mc__buy-copy > .mpb-x,\nhtml body .mc .mc__buy-copy > .mc__pf > *{order:2} /* .mc__pf is display:contents: its button is the item */\nhtml body .mc .mc__buy-copy > .mc__rating,html body .mc .mc__buy-copy > .mc__eyebrow,\nhtml body .mc .mc__buy-copy > .mc__buy-title,html body .mc .mc__buy-copy > .mc-subhead{order:0}\nhtml body .mc .mc__buy-copy > .mc__buy-serving{margin-top:32px}\n/* Desktop: the copy column is a flex column so the order above applies; \"How it helps\" is dropped */\n@media (min-width:990px){\n  html body .mc .mc__buy-copy{display:flex;flex-direction:column}\n  html body .mc .mc__buy-copy > .mc__buy-points{display:none}\n  html body .mc .mc__buy-copy > .mc__trust{margin-top:36px}\n  html body .mc .mc__buy-copy > .mc__buy-title{margin-top:20px}\n  html body .mc .mc__buy-copy > .mc-subhead{margin-top:18px}\n}\n/* Phones: the copy column dissolves into the page's column (as the left one already does), so the\n   images and testing button can sit between the subhead and the offer; headline centred */\n@media (max-width:989px){\n  html body .mc .mc__buy-grid{gap:0}\n  html body .mc .mc__buy-copy{display:contents}\n  html body .mc .mc__buy-copy > .mc__rating,html body .mc .mc__buy-copy > .mc__eyebrow,\n  html body .mc .mc__buy-copy > .mc__buy-title,html body .mc .mc__buy-copy > .mc-subhead{text-align:center}\n  html body .mc .mc__buy-copy > .mc__rating{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:20px}\n  html body .mc .mc__buy-copy > .mc__buy-title{margin-top:16px}\n  html body .mc .mc__buy-copy > .mc-subhead{margin-top:12px}\n  html body .mc .mc__buy-media{order:1;margin:26px 0 22px}\n  html body .mc .mc__note{order:4}\n}\n</style>\n<style>\n/* Flat, alternating band grounds for this page (no gradient washes). Built by make_trust.py. */\n[id$=\"__statement\"],[id$=\"__statement\"] > .mc,[id$=\"__statement\"] > .mh{background:#ffffff!important}\n[id$=\"__board\"],[id$=\"__board\"] > .mc,[id$=\"__board\"] > .mh{background:#ffffff!important}\n[id$=\"__standards\"],[id$=\"__standards\"] > .mc,[id$=\"__standards\"] > .mh{background:#ffffff!important}\n[id$=\"__results\"],[id$=\"__results\"] > .mc,[id$=\"__results\"] > .mh{background:#f2f2f2!important}\n[id$=\"__quotes\"],[id$=\"__quotes\"] > .mc,[id$=\"__quotes\"] > .mh{background:#ffffff!important}\n[id$=\"__founder\"],[id$=\"__founder\"] > .mc,[id$=\"__founder\"] > .mh{background:#f2f2f2!important}\n[id$=\"__problem\"],[id$=\"__problem\"] > .mc,[id$=\"__problem\"] > .mh{background:#ffffff!important}\n[id$=\"__benefits\"],[id$=\"__benefits\"] > .mc,[id$=\"__benefits\"] > .mh{background:#f2f2f2!important}\n[id$=\"__steps\"],[id$=\"__steps\"] > .mc,[id$=\"__steps\"] > .mh{background:#ffffff!important}\n[id$=\"__guarantee\"],[id$=\"__guarantee\"] > .mc,[id$=\"__guarantee\"] > .mh{background:#f2f2f2!important}\n[id$=\"__faq\"],[id$=\"__faq\"] > .mc,[id$=\"__faq\"] > .mh{background:#f2f2f2!important}\nhtml body .mc .mc-subhead,html body .mc .mc__buy-copy > .mc-subhead{text-wrap:wrap!important;font-weight:500!important}\nhtml body .mc .mc__buy-cta,html body .mh__sticky .mh__sticky-btn{background:#6bce7f!important;color:#242223!important}\nhtml body .mc .mc__buy-cta{height:auto!important;min-height:68px;padding-top:12px!important;padding-bottom:12px!important;flex-direction:column;align-items:center;justify-content:center;text-align:center}html body .mc .mc__buy-cta .btn-label-wrapper{padding-bottom:0}html body .mc .mc__buy-cta::after{content:\"90-day money-back guarantee\";display:block;width:fit-content;margin:5px auto 0;padding-left:22px;font-size:14px;font-weight:500;line-height:18px;letter-spacing:0;background:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23242223' stroke-width='1.8' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M12 2.8 4.5 5.8v5.6c0 4.9 3.2 8.6 7.5 10 4.3-1.4 7.5-5.1 7.5-10V5.8z'/%3E%3Cpath d='m8.6 12 2.4 2.4 4.4-4.8'/%3E%3C/svg%3E\") left center/16px 16px no-repeat}\nhtml body .mc .mc__buy-copy > .mc-collab{order:0}html body .mc .mc-collab{margin:12px 0 0;font-size:17px;font-weight:400;line-height:1.4;color:#242223}@media (max-width:989px){html body .mc .mc__buy-copy > .mc-collab{text-align:center}}\nhtml body .mc .mc-stats{display:grid;grid-template-columns:minmax(64px,1fr) auto;align-items:center;gap:16px;margin:14px 0 0;padding:14px 18px;border:1.5px solid rgba(36,34,35,.12);border-radius:14px;background:#fff}html body .mc .mc-stats__bar{position:relative;display:block;height:12px;border-radius:6px;background:#ecebe6;overflow:visible}html body .mc .mc-stats__bar i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:6px;background:#242223;transition:width .9s cubic-bezier(.2,0,.2,1)}html body .mc .mc-stats__text{margin:0;font-size:15px;font-weight:500;line-height:1.25;color:#242223;white-space:nowrap;transition:opacity .35s}html body .mc .mc-stats__text b{font-weight:700;color:#242223}html body .mc .mc-stats.is-fading .mc-stats__text{opacity:0}@media (max-width:420px){html body .mc .mc-stats{gap:12px;padding:12px 14px}html body .mc .mc-stats__text{font-size:14px}}@media (prefers-reduced-motion:reduce){html body .mc .mc-stats__bar i,html body .mc .mc-stats__text{transition:none}}\n@media (max-width:749px){html body .mc .mc__plan-note{font-size:12px!important;line-height:1.35}}\nhtml body .mc .mc__buy-points{display:none!important}\nhtml body .mc .mpb-del{align-items:center;flex-wrap:wrap;row-gap:6px}html body .mc .mpb-del .mc-ship__rm{display:inline-flex;align-items:center;gap:7px;margin-left:4px;padding-left:12px;border-left:1px solid rgba(36,34,35,.18);white-space:nowrap}html body .mc .mpb-del .mc-ship__rm img{display:block;width:32px;height:auto}@media (max-width:520px){html body .mc .mpb-del .mc-ship__rm{flex-basis:100%;justify-content:center;margin-left:0;padding-left:0;border-left:0}}@media (max-width:749px){html body .mc .mpb-del{justify-content:center;text-align:center}}html body .mc .mpb-del .mc-ship__dot{flex:0 0 10px;width:10px;height:10px;border-radius:50%;background:#6bce7f;box-shadow:0 0 0 0 rgba(107,206,127,.6);animation:mcShip 2s ease-out infinite}@keyframes mcShip{70%{box-shadow:0 0 0 7px rgba(107,206,127,0)}100%{box-shadow:0 0 0 0 rgba(107,206,127,0)}}html body .mc .mpb-del b{font-weight:600;text-decoration:underline;text-decoration-color:#6bce7f;text-decoration-thickness:2px;text-underline-offset:3px}@media (prefers-reduced-motion:reduce){html body .mc .mpb-del .mc-ship__dot{animation:none}}\n@media screen and (min-width:990px){[id$=\"__results\"] .mh__res-rail{display:flex!important;overflow-x:auto!important;scroll-snap-type:x proximity;scrollbar-width:thin;padding-bottom:12px!important;cursor:grab}[id$=\"__results\"] .mh__res-rail::-webkit-scrollbar{display:block;height:6px}[id$=\"__results\"] .mh__res-rail::-webkit-scrollbar-thumb{background:rgba(36,34,35,.3);border-radius:3px}[id$=\"__results\"] .mh__res-card{flex:0 0 calc((100% - 60px)/5.5)!important;scroll-snap-align:start}[id$=\"__results\"] .mh__res-rail.is-dragging{cursor:grabbing;scroll-snap-type:none;user-select:none}}\n</style>",
+        "custom_liquid": "<style>\n/* -2 product page (product.muto-nad-45): Artah-style buy box.\n   Scoped to this template only (this block lives in the template). */\n\n/* ---- Title block ---- */\nhtml body .mc .mc__eyebrow{font-size:13px;letter-spacing:.12em}\nhtml body .mc .mc__buy-title{font-size:clamp(30px,3.2vw,46px);line-height:.95;margin-top:6px}\nhtml body .mc .mc__buy-serving{margin-top:14px;font-size:12px;line-height:1.5;letter-spacing:.08em}\nhtml body .mc .mc__buy-text{margin-top:14px;font-size:15px;line-height:1.55;color:#242223}\nhtml body .mc .mc__buy-text p:first-child{font-size:18px;line-height:1.35;padding-bottom:14px;margin-bottom:14px;border-bottom:2px solid var(--mc-ink-alt,#242223);color:var(--mc-ink-alt,#242223)}\nhtml body .mc .mc__buy-text p:first-child strong{font-weight:500}\nhtml body .mc .mc__buy-text > * + *{margin-top:10px}\nhtml body .mc .mc__buy-text a[href=\"#whats-inside\"]{color:rgba(36,34,35,.7);font-weight:500;text-decoration:underline;text-underline-offset:4px}\n\n/* ---- Benefits: two columns with rules, like a spec list ---- */\nhtml body .mc .mc__buy-points{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;column-gap:28px}\nhtml body .mc .mc__buy-points::before{content:\"Benefits\";grid-column:1/-1;font-size:14px;font-weight:500;color:rgba(36,34,35,.6);padding-bottom:8px}\nhtml body .mc .mc__point{padding:11px 0;padding-left:0;border-top:1px solid rgba(36,34,35,.14);font-size:14px;line-height:1.35;font-weight:500}\nhtml body .mc .mc__point + .mc__point{margin-top:0}\nhtml body .mc .mc__point::before{display:none}\n/* \"Choose your plan\", with a rule either side */\nhtml body .mc .mc__buy-points::after{content:\"Choose your plan\";grid-column:1/-1;margin-top:26px;display:flex;align-items:center;gap:16px;font-size:20px;font-weight:500;letter-spacing:-.01em;color:var(--mc-ink-alt,#242223);\n  background:linear-gradient(var(--mc-ink-alt,#242223),var(--mc-ink-alt,#242223)) left center/calc(50% - 110px) 2px no-repeat,linear-gradient(var(--mc-ink-alt,#242223),var(--mc-ink-alt,#242223)) right center/calc(50% - 110px) 2px no-repeat;justify-content:center}\nhtml body .mc .mc__trust{display:none}\n\n/* ---- Plans: one box per plan; clicking a box selects it and expands it ---- */\nhtml body .mc .mc__plans{margin-top:16px;padding:0;border-radius:0;background:none;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;overflow:visible;display:flex;flex-direction:column}\nhtml body .mc .mc__plans > *{order:9}\nhtml body .mc .mc__plans-banner{order:1;margin:0;padding:12px 18px;border-radius:14px 14px 0 0;font-size:13px;line-height:1.3;letter-spacing:.06em}\n/* Skio order is monthly (1) then quarterly (2); quarterly leads. The selected plan's detail and\n   the gift area (which the section fills for the selected plan) sit inside that plan's box. */\nhtml body .mc .mc__plans > label.mc__plan:nth-of-type(2){order:2;margin-top:0}\nhtml body .mc .mc__plans > .mc__plan-detail[data-mc-plan-for=\"2\"]{order:3}\nhtml body .mc .mc__plans:has(> label.mc__plan:nth-of-type(2).is-selected) > .mc__kit{order:4}\nhtml body .mc .mc__plans > label.mc__plan:nth-of-type(1){order:5;margin-top:14px}\nhtml body .mc .mc__plans > .mc__plan-detail[data-mc-plan-for=\"1\"]{order:6}\nhtml body .mc .mc__plans:has(> label.mc__plan:nth-of-type(1).is-selected) > .mc__kit{order:7}\n/* Collapsed box */\nhtml body .mc .mc__plan{padding:18px 18px 16px;border:0;border-radius:14px;background:#fff;box-shadow:inset 0 0 0 1px #242223}\nhtml body .mc .mc__plan + .mc__plan{padding-top:18px;border-top:0}\nhtml body .mc .mc__plans > label.mc__plan:nth-of-type(2){border-radius:0 0 14px 14px;box-shadow:inset 1px 0 0 #242223,inset -1px 0 0 #242223,inset 0 -1px 0 #242223}\n/* Open box: card, then ticks, then gifts, all inside one outline */\nhtml body .mc .mc__plan.is-selected{border-radius:14px 14px 0 0;box-shadow:inset 2px 0 0 #242223,inset -2px 0 0 #242223,inset 0 2px 0 #242223}\nhtml body .mc .mc__plans > label.mc__plan:nth-of-type(2).is-selected{border-radius:0;box-shadow:inset 2px 0 0 #242223,inset -2px 0 0 #242223}\nhtml body .mc .mc__plan-head{gap:12px;flex-wrap:wrap}\nhtml body .mc .mc__plan-name{font-size:18px;line-height:1.25}\nhtml body .mc .mc__plan-save{height:26px;margin-left:0;padding:0 11px;border-radius:13px;font-size:11.5px;background:#242223;color:#fff;letter-spacing:.06em}\nhtml body .mc .mc__plan-price{font-size:20px}\nhtml body .mc .mc__plan-was{font-size:14px;margin-top:3px}\nhtml body .mc .mc__plan-note{font-size:13px;line-height:1.35;margin-top:6px;margin-left:33px;color:rgba(36,34,35,.7)}\nhtml body .mc .mc__plans > .mc__plan-detail{margin:0;padding:0 18px 4px;border-radius:0;background:#fff;box-shadow:inset 2px 0 0 #242223,inset -2px 0 0 #242223;font-size:15px;line-height:1.4;color:#242223}\nhtml body .mc .mc__plan-detail ul{margin:0;padding:14px 0 0;border-top:1.5px solid #242223;display:grid;gap:8px}\nhtml body .mc .mc__plan-detail li{margin:0;padding-left:24px;list-style:none;position:relative;font-weight:500}\nhtml body .mc .mc__plan-detail li::before{content:\"\";position:absolute;left:0;top:.38em;width:13px;height:10px;background:currentColor;clip-path:polygon(0 52%,13% 38%,38% 64%,88% 2%,100% 16%,38% 92%)}\n/* Gifts for the selected plan, closing the box */\nhtml body .mc .mc__plans > .mc__kit{margin:0;padding:16px 18px 18px;border-top:0;border-radius:0 0 14px 14px;background:#fff;box-shadow:inset 2px 0 0 #242223,inset -2px 0 0 #242223,inset 0 -2px 0 #242223}\nhtml body .mc .mc__kit-title{font-family:var(--mc-mono,monospace);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}\nhtml body .mc .mc__kit-list{display:grid !important;grid-template-columns:none !important;grid-auto-flow:column;grid-auto-columns:minmax(0,72px);justify-content:start;gap:10px !important;margin-top:12px}\nhtml body .mc .mc__kit-list li{text-align:center}\nhtml body .mc .mc__kit-frame{border-radius:8px;overflow:hidden}\nhtml body .mc .mc__kit-value{font-size:11.5px;margin-top:5px}\nhtml body .mc .mc__kit-name{font-size:11.5px;line-height:1.25}\nhtml body .mc .mc__kit-more{margin-top:16px}\nhtml body .mc .mc__kit-sum{display:flex;align-items:center;justify-content:center;gap:8px;min-height:46px;border-radius:23px;background:rgba(36,34,35,.07);font-size:15px;font-weight:500;cursor:pointer}\n\n/* ---- Welcome kit and later gifts ---- */\nhtml body .mc .mc__kit-month-n,html body .mc .mc__kit-month-v,html body .mc .mc__kit-month-t{font-size:12px;color:#242223}\nhtml body .mc .mc__kit-body{font-size:14px;color:#242223}\n\n/* ---- One-time purchase as its own row, then the button ---- */\nhtml body .mc .mc__onetime{display:block;width:100%;margin-top:14px;padding:16px 20px;border:1px solid rgba(36,34,35,.2);border-radius:14px;background:#fff;text-align:left;text-decoration:none;font-size:15px;line-height:1.3}\nhtml body .mc .mc__onetime:hover{border-color:var(--mc-ink-alt,#242223)}\nhtml body .mc .mc__buy-cta{margin-top:16px;height:58px}\nhtml body .mc .mc__btn{font-size:16px}\n\n/* ---- Folds and review quotes under the button ---- */\nhtml body .mc .mc__acc-sum{font-size:15px;min-height:52px}\nhtml body .mc .mc__acc-body{font-size:15px;line-height:1.5;color:#242223}\nhtml body .mc .mc__rev-q{font-size:15px}\n\n@media (max-width:749px){\n  html body .mc .mc__buy-title{font-size:32px}\n  html body .mc .mc__buy-text p:first-child{font-size:17px}\n  html body .mc .mc__buy-points{column-gap:16px}\n  html body .mc .mc__point{font-size:13.5px}\n  html body .mc .mc__buy-points::after{font-size:18px;background-size:calc(50% - 95px) 2px,calc(50% - 95px) 2px}\n  html body .mc .mc__plan-detail ul{grid-template-columns:1fr}\n}\n\n/* Button: old price struck through, then the price (\"Subscribe · £70 £60\") */\nhtml body .mc .mc-art__cta-was{font-weight:500;opacity:.55;text-decoration:line-through}\nhtml body .mc .mc-art__cta-was:not(:empty)::before{content:\"\\00b7\";display:inline-block;margin:0 .42em;opacity:.9;text-decoration:none}\nhtml body .mc .mc-art__cta-was:not(:empty) + .mc__btn-price::before{content:\"\";margin:0 0 0 .35em}\n\n/* Desktop gallery: thumbnails in their own column to the left of the main image (not over it) */\n@media screen and (min-width:990px){\n  html body .mc .mc__gallery{display:grid;grid-template-columns:72px minmax(0,1fr);column-gap:16px;align-items:start}\n  html body .mc .mc__gallery-main{grid-column:2;grid-row:1}\n  html body .mc .mc__thumbs{grid-column:1;grid-row:1;position:static;left:auto;top:auto;z-index:auto;\n    display:flex;flex-direction:column;gap:12px;margin:0;padding:2px;\n    align-self:stretch;height:0;min-height:100%;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin}\n  html body .mc .mc__thumbs[hidden]{display:none}\n  html body .mc .mc__thumb{width:64px;flex:0 0 auto;border-radius:10px}\n}\n\n\n/* Black Friday box, above the plans: white, black outline. Offer on the left, orders left out\n   of 500 on the right (under it on phones), a bar along the foot. */\nhtml body .mc .mc-bf{margin:18px 0 0;padding:16px 18px 16px;border:1.5px solid #242223;border-radius:12px;background:#fff;color:#242223;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;align-items:start}\nhtml body .mc .mc-bf[hidden]{display:none}\n/* Plan bar: \"Black Friday offer · Limited stock\" on the left, \"Best value\" on the right as a filled turquoise pill */\nhtml body .mc .mc__plans-banner::before{order:2;content:\"Best value\"!important;padding:6px 12px;border-radius:999px;background:#5efaff;color:#242223!important;font-size:12px;line-height:1;letter-spacing:.1em}\n/* Black Friday subhead: fill each line before breaking (no balancing), a touch heavier */\nhtml body .mc .mc-subhead,html body .mc .mc__buy-copy > .mc-subhead{text-wrap:wrap!important;font-weight:500!important}\nhtml body .mc .mc-bf__tag{grid-column:1/-1;display:flex;align-items:center;gap:8px;margin:0 0 4px;font-family:var(--mc-mono,monospace);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}\nhtml body .mc .mc-bf__dot{width:8px;height:8px;border-radius:50%;background:#242223;animation:mcBfPulse 1.6s ease-in-out infinite}\n@keyframes mcBfPulse{50%{opacity:.25}}\nhtml body .mc .mc-bf__main{grid-column:1;min-width:0}\nhtml body .mc .mc-bf__offer{margin:0;font-size:clamp(24px,2.4vw,30px);font-weight:600;line-height:1.05;letter-spacing:-.01em}\nhtml body .mc .mc-bf__kit{margin:4px 0 0;font-size:16px;font-weight:600;line-height:1.25}\nhtml body .mc .mc-bf__sched{margin:8px 0 0;font-size:14px;line-height:1.4;color:rgba(36,34,35,.75)}\nhtml body .mc .mc-bf__count{grid-column:2;grid-row:2;margin:0;min-width:96px;max-width:130px;padding:10px 12px 8px;border:1.5px solid #242223;border-radius:10px;text-align:center}\nhtml body .mc .mc-bf__count b{display:block;font-size:30px;font-weight:600;line-height:1;font-variant-numeric:tabular-nums}\nhtml body .mc .mc-bf__count small{display:block;margin-top:4px;font-family:var(--mc-mono,monospace);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}\nhtml body .mc .mc-bf__foot{grid-column:1/-1;display:flex;align-items:center;gap:12px;margin-top:10px}\nhtml body .mc .mc-bf__bar{flex:1;display:block;height:6px;border-radius:3px;background:rgba(36,34,35,.12);overflow:hidden}\nhtml body .mc .mc-bf__bar i{display:block;height:100%;background:#242223;border-radius:3px}\nhtml body .mc .mc-bf__note{flex:0 0 auto;margin:0;font-size:12px;line-height:1.35;color:rgba(36,34,35,.7)}\nhtml body .mc .mc-bf__note b{font-family:var(--mc-mono,monospace);letter-spacing:.06em;color:#242223}\n@media (max-width:480px){\n  html body .mc .mc-bf{grid-template-columns:1fr}\n  html body .mc .mc-bf__count{grid-column:1;grid-row:auto;display:flex;align-items:baseline;justify-content:center;gap:8px;margin-top:10px;max-width:none;width:100%;text-align:left}\n  html body .mc .mc-bf__count small{white-space:nowrap;font-family:var(--mc-font);font-size:17px;font-weight:500;letter-spacing:0;text-transform:none}\n  html body .mc .mc-bf__count b{display:inline;font-size:28px}\n  html body .mc .mc-bf__count small{display:inline;margin:0}\n  html body .mc .mc-bf__foot{flex-wrap:wrap}\n}\n\n/* -2 page only: sections below the buy box back to standard sizes (they were enlarged) */\n/* ---- Rest of the page: back to standard sizes (was enlarged) ---- */\nhtml body .mc .mc__body,html body .mc .mc__ben-body,html body .mc .mc__ben-lede,html body .mc .mc__ben-name,\nhtml body .mc .mc__ben-sub,html body .mc .mc__step-text,html body .mc .mc__faq-body,html body .mc .mc__faq-sum,\nhtml body .mc .mc__gua-text,html body .mc .mc__note-text{font-size:16px;line-height:1.5}\nhtml body .mc .mc__ben-body,html body .mc .mc__faq-body{color:#242223}\nhtml body .mc .mc__prob-lede{font-size:18px;line-height:1.45}\nhtml body .mc .mc__prob-quote{font-size:22px;line-height:1.2}\nhtml body .mc .mc__prob-text{font-size:16px;line-height:1.45}\nhtml body .mc .mc__step-title{font-size:21px;line-height:1.2}\nhtml body .mc .mc__step-chip,html body .mc .mc__gua-chip{font-size:14px}\nhtml body .mc .mc__gua-aside{font-size:20px}\nhtml body .mc .mc__tabs{display:none}\nhtml body .mh .mh__why-title{font-size:22px}\nhtml body .mh .mh__why-text{font-size:16px;line-height:1.5;color:var(--mh-ink,#162f31)}\nhtml body .mh .mh__board-note,html body .mh .mh__res-note{font-size:15px;color:#242223}\nhtml body .mh .mh__res-quote{font-size:15px;line-height:1.45;color:#242223}\nhtml body .mh .mh__res-detail,html body .mh .mh__res-foot{font-size:13px;color:rgba(35,33,35,.8)}\nhtml body .mh__sticky-sub{font-size:13px;color:rgba(249,249,249,.85)}\nhtml body .mh__sticky-btn{font-size:15px}\n\n@media (max-width:749px){\n  html body .mc .mc__prob-quote{font-size:20px}\n  html body .mc .mc__step-title{font-size:19px}\n}\n\n/* ---- 40-60 buy box ---- */\n/* Main PDP buy box for 40-60 year olds who aren't sport focused.\n   Loaded after artah.css + bf.css in the easy_read block, so it only overrides. */\n\n/* ---- Easier to read: bigger type, darker greys ---- */\nhtml body .mc .mc__buy-serving{font-size:13px;color:#242223}\nhtml body .mc .mc__buy-text{font-size:17px;line-height:1.55}\nhtml body .mc .mc__buy-text p:first-child{font-size:21px;line-height:1.3}\nhtml body .mc .mc__buy-text a[href=\"#whats-inside\"]{color:#242223}\nhtml body .mc .mc__point{font-size:16px;line-height:1.35;padding:12px 0}\nhtml body .mc .mc__buy-points::before{content:\"How it helps\";font-size:15px;color:#242223}\nhtml body .mc .mc__plan-name{font-size:19px}\nhtml body .mc .mc__plan-save{font-size:12.5px}\nhtml body .mc .mc__plan-price{font-size:22px}\nhtml body .mc .mc__plan-note{font-size:15px;color:#242223}\nhtml body .mc .mc__plans > .mc__plan-detail{font-size:16px}\nhtml body .mc .mc__plans-banner{font-size:14px}\nhtml body .mc .mc__kit-title{font-size:13px}\nhtml body .mc .mc__kit-list{grid-auto-columns:minmax(0,80px)}\nhtml body .mc .mc__kit-value,html body .mc .mc__kit-name{font-size:13px}\nhtml body .mc .mc__kit-month-n,html body .mc .mc__kit-month-v,html body .mc .mc__kit-month-t{font-size:13px}\nhtml body .mc .mc__kit-sum{font-size:16px;min-height:50px}\nhtml body .mc .mc__onetime{font-size:16px;padding:18px 20px}\nhtml body .mc .mc__btn{font-size:18px}\nhtml body .mc .mc__buy-cta{height:62px}\nhtml body .mc .mc__acc-sum{font-size:17px;min-height:56px}\nhtml body .mc .mc__acc-body{font-size:16px}\nhtml body .mc .mc__rev-q{font-size:18px}\nhtml body .mc .mc__rev-n{font-size:13px;color:#242223}\n\n/* ---- Reassurance before the price: three ticks in one row, then \"Choose your plan\" ---- */\nhtml body .mc .mc__buy-points::after{content:none}\nhtml body .mc .mc__trust{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:18px 0 0;padding:0;list-style:none}\nhtml body .mc .mc__trust li{display:flex;align-items:flex-start;gap:8px;margin:0;padding:12px;border-radius:12px;background:rgba(36,34,35,.06);font-size:14px;line-height:1.3;font-weight:500;color:#242223}\nhtml body .mc .mc__trust li::before{content:\"\";flex:0 0 13px;height:10px;margin-top:.3em;background:currentColor;clip-path:polygon(0 52%,13% 38%,38% 64%,88% 2%,100% 16%,38% 92%)}\nhtml body .mc .mc__trust::after{content:\"Choose your plan\";grid-column:1/-1;margin-top:20px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:500;letter-spacing:-.01em;color:var(--mc-ink-alt,#242223);\n  background:linear-gradient(var(--mc-ink-alt,#242223),var(--mc-ink-alt,#242223)) left center/calc(50% - 110px) 2px no-repeat,linear-gradient(var(--mc-ink-alt,#242223),var(--mc-ink-alt,#242223)) right center/calc(50% - 110px) 2px no-repeat}\n\n@media (max-width:749px){\n  html body .mc .mc__buy-text p:first-child{font-size:19px}\n  html body .mc .mc__buy-text{font-size:16px}\n  html body .mc .mc__buy-points{grid-template-columns:1fr}\n  html body .mc .mc__point{font-size:16px}\n  html body .mc .mc__trust{grid-template-columns:1fr;gap:6px}\n  html body .mc .mc__trust li{padding:10px 12px;font-size:15px}\n  html body .mc .mc__trust::after{font-size:18px;margin-top:16px;background-size:calc(50% - 95px) 2px,calc(50% - 95px) 2px}\n  html body .mc .mc__kit-list{grid-auto-columns:minmax(0,72px)}\n}\n\n/* New PDP: plain #fafafa behind the buy box, no gradient */\nhtml body .mc.mc--buy,html body .mc.mc--buy.mc--fit-nad{background:#fafafa!important}\n/* New PDP: the pills moved under the button as badges; only the heading stays */\nhtml body .mc .mc__trust li{display:none}\nhtml body .mc .mc__trust::after{margin-top:8px}\n\n/* ---- Plan cards, AG1-style: per-month price, % off tag in the top-left corner, Best value bar ---- */\n/* Skio still bills £150 every 3 months and £60 every 4 weeks. The section prints Skio's price and\n   compare-at, so the per-month figures are drawn here and Skio's are hidden (still in the DOM, so the\n   button keeps reading the billed price). Card 1 = monthly, card 2 = quarterly (Skio's order). */\nhtml body .mc .mc__plans > label.mc__plan{padding-top:44px}\nhtml body .mc .mc__plan-save{position:absolute;top:0;left:0;height:28px;margin:0;padding:0 12px;border-radius:14px 0 10px 0;\n  display:flex;align-items:center;background:#7ee0f0;color:#242223;font-family:var(--mc-mono,monospace);\n  font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}\nhtml body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-save{border-radius:0 0 10px 0}\nhtml body .mc .mc__plan-prices > *{display:none}\nhtml body .mc .mc__plan-prices::before,html body .mc .mc__plan-prices::after{display:block}\nhtml body .mc .mc__plan-prices::before{font-weight:500;font-size:22px;line-height:1.1;letter-spacing:-.01em;color:#242223}\nhtml body .mc .mc__plan-prices::after{margin-top:4px;font-size:16px;line-height:1.2;text-decoration:line-through;color:rgba(36,34,35,.5)}\nhtml body .mc .mc__plans > label.mc__plan:nth-of-type(1) .mc__plan-prices::before{content:\"£49.99/mo\"}\nhtml body .mc .mc__plans > label.mc__plan:nth-of-type(1) .mc__plan-prices::after{content:\"£70\"}\nhtml body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-prices::before{content:\"£33/mo\"}\nhtml body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-prices::after{content:\"£70\"}\n/* Best value: the dark bar over the quarterly box leads with it; the welcome-kit line follows */\nhtml body .mc .mc__plans-banner{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:4px 16px}\nhtml body .mc .mc__plans-banner::before{content:\"\\2726\\00a0\\00a0 Best value\";color:#7ee0f0;font-family:var(--mc-mono,monospace);letter-spacing:.1em}\n\n/* ---- Top of the page, AgeMate-style: stars, title and subhead over the images on phones,\n   then a \"View third-party testing results\" button under them ---- */\nhtml body .mc .mc-subhead{margin:8px 0 0;font-size:17px;line-height:1.4;color:#242223;text-wrap:balance}\nhtml body .mc .mc-tests-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:52px;margin:14px 0 0;padding:10px 20px;\n  border:1.5px solid #242223;border-radius:999px;background:none;font:inherit;font-size:16px;font-weight:500;color:#242223;cursor:pointer;transition:background .2s,color .2s}\nhtml body .mc .mc-tests-btn:hover{background:#242223;color:#fff}\nhtml body .mc .mc-tests-btn:focus-visible{outline:2px solid #242223;outline-offset:2px}\nhtml body .mc .mc-tests-btn__tick{flex:0 0 20px;display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#7ee0f0;box-shadow:0 0 0 1px #242223;color:#242223}\nhtml body .mc .mc-tests-btn__tick svg{width:11px;height:11px}\n/* Rating row, AgeMate-style: bigger stars, the score in Neue Haas, as typed, no underline */\nhtml body .mc .mc__rating{align-items:center;gap:10px}\nhtml body .mc .mc__stars{gap:4px;margin-top:0}\nhtml body .mc .mc__stars > span{width:19px;height:18px}\nhtml body .mc .mc__rating-text{font-family:var(--mc-font);font-size:17px;line-height:1.2;font-weight:500;letter-spacing:0;text-transform:none;text-decoration:none;color:#242223}\n/* Sticky bar: old price struck through before the per-month price */\nhtml body .mh__sticky .mc-sticky-was{margin-right:.25em;font-weight:500;opacity:.55;text-decoration:line-through}\n/* Room under \"Choose your plan\" before the Black Friday box */\nhtml body .mc .mc__buy-copy > .mc-bf{margin-top:24px}\n/* Order of the copy column, same at every width: stars, title, subhead · the offer (Black Friday box,\n   \"Choose your plan\", plans, one-time, button, badges) · then the serving line, description, reviews and\n   folds. Phones also put the images and testing button between the subhead and the offer (below). */\nhtml body .mc .mc__buy-copy > *{order:3}\nhtml body .mc .mc__buy-copy > .mc-bf,html body .mc .mc__buy-copy > .mc__trust,html body .mc .mc__buy-copy > .mc__plans,\nhtml body .mc .mc__buy-copy > .mc__pf,html body .mc .mc__buy-copy > .mc__onetime,html body .mc .mc__buy-copy > .mc__buy-cta,\nhtml body .mc .mc__buy-copy > .mc__buy-actions,html body .mc .mc__buy-copy > .mpb-x,\nhtml body .mc .mc__buy-copy > .mc__pf > *{order:2} /* .mc__pf is display:contents: its button is the item */\nhtml body .mc .mc__buy-copy > .mc__rating,html body .mc .mc__buy-copy > .mc__eyebrow,\nhtml body .mc .mc__buy-copy > .mc__buy-title,html body .mc .mc__buy-copy > .mc-subhead{order:0}\nhtml body .mc .mc__buy-copy > .mc__buy-serving{margin-top:32px}\n/* Desktop: the copy column is a flex column so the order above applies; \"How it helps\" is dropped */\n@media (min-width:990px){\n  html body .mc .mc__buy-copy{display:flex;flex-direction:column}\n  html body .mc .mc__buy-copy > .mc__buy-points{display:none}\n  html body .mc .mc__buy-copy > .mc__trust{margin-top:36px}\n  html body .mc .mc__buy-copy > .mc__buy-title{margin-top:20px}\n  html body .mc .mc__buy-copy > .mc-subhead{margin-top:18px}\n}\n/* Phones: the copy column dissolves into the page's column (as the left one already does), so the\n   images and testing button can sit between the subhead and the offer; headline centred */\n@media (max-width:989px){\n  html body .mc .mc__buy-grid{gap:0}\n  html body .mc .mc__buy-copy{display:contents}\n  html body .mc .mc__buy-copy > .mc__rating,html body .mc .mc__buy-copy > .mc__eyebrow,\n  html body .mc .mc__buy-copy > .mc__buy-title,html body .mc .mc__buy-copy > .mc-subhead{text-align:center}\n  html body .mc .mc__buy-copy > .mc__rating{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:20px}\n  html body .mc .mc__buy-copy > .mc__buy-title{margin-top:16px}\n  html body .mc .mc__buy-copy > .mc-subhead{margin-top:12px}\n  html body .mc .mc__buy-media{order:1;margin:26px 0 22px}\n  html body .mc .mc__note{order:4}\n}\n</style>\n<style>\n/* Flat, alternating band grounds for this page (no gradient washes). Built by make_trust.py. */\n[id$=\"__statement\"],[id$=\"__statement\"] > .mc,[id$=\"__statement\"] > .mh,[id$=\"__statement\"] > .mil{background:#ffffff!important}\n[id$=\"__benefits\"],[id$=\"__benefits\"] > .mc,[id$=\"__benefits\"] > .mh,[id$=\"__benefits\"] > .mil{background:#f2f2f2!important}\n[id$=\"__board\"],[id$=\"__board\"] > .mc,[id$=\"__board\"] > .mh,[id$=\"__board\"] > .mil{background:#ffffff!important}\n[id$=\"__standards\"],[id$=\"__standards\"] > .mc,[id$=\"__standards\"] > .mh,[id$=\"__standards\"] > .mil{background:#ffffff!important}\n[id$=\"__library\"],[id$=\"__library\"] > .mc,[id$=\"__library\"] > .mh,[id$=\"__library\"] > .mil{background:#f2f2f2!important}\n[id$=\"__results\"],[id$=\"__results\"] > .mc,[id$=\"__results\"] > .mh,[id$=\"__results\"] > .mil{background:#ffffff!important}\n[id$=\"__quotes\"],[id$=\"__quotes\"] > .mc,[id$=\"__quotes\"] > .mh,[id$=\"__quotes\"] > .mil{background:#f2f2f2!important}\n[id$=\"__founder\"],[id$=\"__founder\"] > .mc,[id$=\"__founder\"] > .mh,[id$=\"__founder\"] > .mil{background:#ffffff!important}\n[id$=\"__timeline\"],[id$=\"__timeline\"] > .mc,[id$=\"__timeline\"] > .mh,[id$=\"__timeline\"] > .mil{background:#f2f2f2!important}\n[id$=\"__faq\"],[id$=\"__faq\"] > .mc,[id$=\"__faq\"] > .mh,[id$=\"__faq\"] > .mil{background:#ffffff!important}\nhtml body .mc .mc-subhead,html body .mc .mc__buy-copy > .mc-subhead{text-wrap:wrap!important;font-weight:500!important}\nhtml body .mc .mc__buy-cta,html body .mh__sticky .mh__sticky-btn{background:#6bce7f!important;color:#242223!important}\nhtml body .mc .mc__buy-cta{height:auto!important;min-height:68px;padding-top:12px!important;padding-bottom:12px!important;flex-direction:column;align-items:center;justify-content:center;text-align:center}html body .mc .mc__buy-cta .btn-label-wrapper{padding-bottom:0}html body .mc .mc__buy-cta::after{content:\"90-day money-back guarantee\";display:block;width:fit-content;margin:5px auto 0;padding-left:22px;font-size:14px;font-weight:500;line-height:18px;letter-spacing:0;background:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23242223' stroke-width='1.8' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M12 2.8 4.5 5.8v5.6c0 4.9 3.2 8.6 7.5 10 4.3-1.4 7.5-5.1 7.5-10V5.8z'/%3E%3Cpath d='m8.6 12 2.4 2.4 4.4-4.8'/%3E%3C/svg%3E\") left center/16px 16px no-repeat}\nhtml body .mc .mc__buy-copy > .mc-collab{order:0}html body .mc .mc-collab{margin:12px 0 0;font-size:17px;font-weight:400;line-height:1.4;color:#242223}@media (max-width:989px){html body .mc .mc__buy-copy > .mc-collab{text-align:center}}\nhtml body .mc .mc-stats{display:grid;grid-template-columns:minmax(64px,1fr) auto;align-items:center;gap:16px;margin:14px 0 0;padding:14px 18px;border:1.5px solid rgba(36,34,35,.12);border-radius:14px;background:#fff}html body .mc .mc-stats__bar{position:relative;display:block;height:12px;border-radius:6px;background:#ecebe6;overflow:visible}html body .mc .mc-stats__bar i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:6px;background:#242223;transition:width .9s cubic-bezier(.2,0,.2,1)}html body .mc .mc-stats__text{margin:0;font-size:15px;font-weight:500;line-height:1.25;color:#242223;white-space:nowrap;transition:opacity .35s}html body .mc .mc-stats__text b{font-weight:700;color:#242223}html body .mc .mc-stats.is-fading .mc-stats__text{opacity:0}@media (max-width:420px){html body .mc .mc-stats{gap:12px;padding:12px 14px}html body .mc .mc-stats__text{font-size:14px}}@media (prefers-reduced-motion:reduce){html body .mc .mc-stats__bar i,html body .mc .mc-stats__text{transition:none}}\n@media (max-width:749px){html body .mc .mc__plan-note{font-size:12px!important;line-height:1.35}}\nhtml body .mc .mc__buy-points{display:none!important}\nhtml body .mc .mpb-del{align-items:center;flex-wrap:wrap;row-gap:6px}html body .mc .mpb-del .mc-ship__rm{display:inline-flex;align-items:center;gap:7px;margin-left:4px;padding-left:12px;border-left:1px solid rgba(36,34,35,.18);white-space:nowrap}html body .mc .mpb-del .mc-ship__rm img{display:block;width:32px;height:auto}@media (max-width:520px){html body .mc .mpb-del .mc-ship__rm{flex-basis:100%;justify-content:center;margin-left:0;padding-left:0;border-left:0}}@media (max-width:749px){html body .mc .mpb-del{justify-content:center;text-align:center}}html body .mc .mpb-del .mc-ship__dot{flex:0 0 10px;width:10px;height:10px;border-radius:50%;background:#6bce7f;box-shadow:0 0 0 0 rgba(107,206,127,.6);animation:mcShip 2s ease-out infinite}@keyframes mcShip{70%{box-shadow:0 0 0 7px rgba(107,206,127,0)}100%{box-shadow:0 0 0 0 rgba(107,206,127,0)}}html body .mc .mpb-del b{font-weight:600;text-decoration:underline;text-decoration-color:#6bce7f;text-decoration-thickness:2px;text-underline-offset:3px}@media (prefers-reduced-motion:reduce){html body .mc .mpb-del .mc-ship__dot{animation:none}}\n@media screen and (min-width:990px){[id$=\"__results\"] .mh__res-rail{display:flex!important;overflow-x:auto!important;scroll-snap-type:x proximity;scrollbar-width:thin;padding-bottom:12px!important;cursor:grab}[id$=\"__results\"] .mh__res-rail::-webkit-scrollbar{display:block;height:6px}[id$=\"__results\"] .mh__res-rail::-webkit-scrollbar-thumb{background:rgba(36,34,35,.3);border-radius:3px}[id$=\"__results\"] .mh__res-card{flex:0 0 calc((100% - 60px)/5.5)!important;scroll-snap-align:start}[id$=\"__results\"] .mh__res-rail.is-dragging{cursor:grabbing;scroll-snap-type:none;user-select:none}}\n</style>",
         "color_scheme": "scheme-1",
         "padding_top": 0,
         "padding_bottom": 0
@@ -1982,22 +2287,22 @@
   "order": [
     "head_styles",
     "buy",
+    "nav",
     "statement",
+    "benefits",
     "board_anchor",
     "board",
     "standards",
-    "tests",
+    "library",
     "results",
     "quotes",
     "founder",
-    "problem",
-    "benefits",
-    "steps",
-    "guarantee",
-    "why",
     "compare",
+    "timeline",
+    "howto",
     "faq",
-    "custom_reviews_KpXTpD",
+    "reviews",
+    "tests",
     "easy_read",
     "bands"
   ]

@@ -127,20 +127,20 @@ FOUNDER = {"type": "muto-crea-founder",
 
 # --- Page backgrounds: no gradient washes, alternating flat grey and white ---
 GREY, WHITE = "#f2f2f2", "#ffffff"
-BANDS = [  # section key -> ground, in page order. The buy box keeps the live page's own
-           # plain #fafafa, and "compare" keeps its live sage (#c8d2cf) band, so neither is listed.
+BANDS = [  # section key -> ground, in page order. The buy box and the nav keep the live page's own
+           # #fafafa; "compare" and "howto" keep their live sage (#c8d2cf) bands, so none of those is listed.
     ("statement", WHITE),
+    ("benefits", GREY),
     ("board", WHITE),
     ("standards", WHITE),
-    ("results", GREY),
-    ("quotes", WHITE),
-    ("founder", GREY),
-    ("problem", WHITE),
-    ("benefits", GREY),
-    ("steps", WHITE),
-    ("guarantee", GREY),
-    ("faq", GREY),
+    ("library", GREY),
+    ("results", WHITE),
+    ("quotes", GREY),
+    ("founder", WHITE),
+    ("timeline", GREY),
+    ("faq", WHITE),
 ]
+REVIEWS_GROUND = GREY   # the REVIEWS.io widget band (its own colour setting)
 
 # A line straight after the subhead (which the easy_read script adds; this runs after it).
 COLLAB = "In collaboration with seven leading scientists from world-leading research institutions, including four universities in the UK and Australia."
@@ -292,7 +292,7 @@ def bands_css():
     rules = []
     for key, ground in BANDS:
         w = f'[id$="__{key}"]'
-        rules.append(f"{w},{w} > .mc,{w} > .mh{{background:{ground}!important}}")
+        rules.append(f"{w},{w} > .mc,{w} > .mh,{w} > .mil{{background:{ground}!important}}")
     # Subhead under the title: fill each line before breaking (the live rule balances it into two short
     # lines), medium weight.
     rules.append('html body .mc .mc-subhead,html body .mc .mc__buy-copy > .mc-subhead{text-wrap:wrap!important;font-weight:500!important}')
@@ -397,53 +397,18 @@ def clinical(d):
     b["compact"] = True       # the thin one-row strip: all six across on desktop, small swipeable cards on phones
     b["space_top"] = 60       # sits straight under the statement band
 
-    st = S["steps"]
-    st["settings"]["heading"] = "Your first 90 days."
-    st["settings"]["heading_right"] = "What to expect."
-    # Benefits follow the live timeline (muto-nad-v2) and stay within authorised claims
-    # (B vitamins: tiredness and fatigue; vitamin D: normal muscle function).
-    steps = [
-        ("Day 1", "Set your baseline.",
-         "Two capsules with breakfast. Score your energy, sleep and recovery out of 10, or note your wearable’s numbers."),
-        ("Day 30", "Afternoons that hold.",
-         "Usually the first thing people notice: less of a 3pm slump, energy left for the evening. B vitamins help reduce tiredness and fatigue."),
-        ("Day 60", "Bouncing back sooner.",
-         "Vitamin D supports normal muscle function. A long walk, a game of tennis or a gym session stops costing you the next day."),
-        ("Day 90", "Feel it, or your money back.",
-         "Compare your scores with day 1. Not feeling the difference? Email us and we’ll refund what you paid, minus delivery."),
-    ]
-    for k, (chip, title, text) in zip(st["block_order"], steps):
-        st["blocks"][k]["settings"].update({"chip": chip, "title": title, "text": text})
-
-    f = S["faq"]
-    for blk in f["blocks"].values():
-        s = blk["settings"]
-        if s["title"] == "Why not just take one vitamin?":
-            s["text"] = ("<p>You can. MUTO puts 19 ingredients, each at a declared dose, into 2 capsules: "
-                         "300mg NR plus the B vitamins, TMG, CoQ10 and PQQ that work alongside it. One jar instead of several pots.</p>")
-    f["blocks"]["q_tested"] = {"type": "q", "settings": {
-        "title": "How is it tested?",
-        "text": "<p>Every batch is tested by an independent lab for identity, potency, heavy metals and microbes before it’s released. "
-                "MUTO is made in the UK to GMP standards, in an ISO-certified facility.</p>"}}
-    f["block_order"].insert(4, "q_tested")
-    # "Do I need a smartwatch?" removed
-    for k in [k for k, b in f["blocks"].items() if b["settings"].get("title") == "Do I need a smartwatch?"]:
-        del f["blocks"][k]
-        f["block_order"].remove(k)
-
-    # The three "why" cards say what the founder and standards bands now say in full.
-    S["why"]["disabled"] = True
-
+    # The timeline, FAQ and comparison are the live page's own and stay exactly as they are.
 
 def main():
-    raw = open(SNAP).read()
+    # Base: the LIVE main page (muto-nad-v2) exactly as it is, so its own sections stay: the
+    # "On this page" nav, "Five jobs. One daily jar.", the ingredient library, the comparison,
+    # the timeline, "How to take it", the FAQs, reviews and the test-results panel.
+    raw = open(V2).read()
     head, d = raw[: raw.index("{")], json.loads(raw[raw.index("{"):])
-    assert d["sections"]["faq"]["blocks"][d["sections"]["faq"]["block_order"][0]]["type"] == "q", "check FAQ block type"
-
-    raw2 = open(V2).read()
-    v2 = json.loads(raw2[raw2.index("{"):])
-    for key in FROM_V2:
-        d["sections"][key] = v2["sections"][key]
+    # The 9:16 customer videos come from the earlier main page (muto-nad-45 snapshot).
+    raw45 = open(SNAP).read()
+    old = json.loads(raw45[raw45.index("{"):])
+    d["sections"]["results"] = old["sections"]["results"]
 
     # The Black Friday pre-sale box (and its automatic MUTO10 code) is removed: MUTO10 was ended
     # on 28 Oct. Its styles, its script and its data div all come out of easy_read.
@@ -470,21 +435,30 @@ def main():
         "founder": FOUNDER,
     })
     clinical(d)
-    d["sections"]["custom_reviews_KpXTpD"]["settings"]["bg_color"] = WHITE
+    d["sections"]["reviews"]["settings"]["bg_color"] = REVIEWS_GROUND
     d["sections"]["bands"] = bands_css()
 
+    # Page order follows the nav (Benefits, The experts, Ingredients, Comparison, What to expect,
+    # How to take it, FAQs, Reviews), with the new bands slotted in.
     d["order"] = [
         "buy",
+        "nav",              # "On this page" (live)
         "statement",        # "Not ready to slow down."
+        "benefits",         # "Five jobs. One daily jar." (live)
         "board_anchor",     # #scientific-board, linked from the buy box
-        "board",            # Scientific Advisory Board, compact row
-        "standards",
-        "tests",            # #test-results: certificate-of-analysis panel (a dialog, opens from links)
+        "board",            # "Six scientists put their name to MUTO.", compact row
+        "standards",        # "Checked, not taken on trust."
+        "library",          # "Every ingredient has a job." (live)
         "results",          # customer videos, 9:16
-        "quotes",      # up to 20 rotating written reviews
+        "quotes",           # 20 rotating written reviews
         "founder",
-        "problem", "benefits", "steps", "guarantee", "why", "compare", "faq",
-        "custom_reviews_KpXTpD", "easy_read", "bands",
+        "compare",          # "MUTO vs the usual" (live)
+        "timeline",         # "What you can expect over time." (live)
+        "howto",            # "How to take it." (live)
+        "faq",              # live, 10 questions
+        "reviews",          # REVIEWS.io widget (live)
+        "tests",            # #test-results: certificate-of-analysis panel (a dialog, opens from links)
+        "easy_read", "bands",
     ]
     # No sticky add-to-cart bar on this page (removed 28 Oct)
     d["sections"].pop("sticky", None)
