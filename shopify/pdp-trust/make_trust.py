@@ -110,7 +110,7 @@ FOUNDER = {"type": "muto-crea-founder",
     "settings": {
         "eyebrow": "Our founder",
         "heading": "Built by a doctor\nwho wanted proof.",
-        "text": "<p>Richie Barclay is a cell biologist with a PhD in cellular biology and nutrition, a Harley Street nutritionist for the last 13 years, and a former cricketer.</p>"
+        "text": "<p>Richie Barclay is a cell biologist with a PhD in cellular biology and nutrition, a Harley Street nutritionist for the last 13 years, and a former cricketer and tennis player.</p>"
                 "<p>He started MUTO after years of watching supplements sell on claims nobody had checked, with the doses hidden in blends. "
                 "So MUTO does it the other way: every dose is on the label, every batch goes to an outside lab, "
                 "and six doctors and scientists review the formula.</p>",
