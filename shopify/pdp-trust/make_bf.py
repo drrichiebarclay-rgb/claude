@@ -10,7 +10,7 @@ Out: theme/templates/product.muto-nad-bf.json
 import json, os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SRC = os.path.join(HERE, "theme", "templates", "product.muto-nad-45.json")
+SRC = os.path.join(HERE, "theme", "templates", "product.muto-nad-trust.json")
 OUT = os.path.join(HERE, "theme", "templates", "product.muto-nad-bf.json")
 
 # --- Offer ----------------------------------------------------------------------------------
@@ -124,19 +124,14 @@ def main():
     er = d["sections"]["easy_read"]["settings"]
     t = er["custom_liquid"]
 
-    # 1. styles: the dark pre-sale box -> the white Black Friday box
-    a, b = cut(t, "/* Black Friday pre-sale box, above the plans */", "/* -2 page only:")
-    t = a + CSS + b
-    # 2. script: the pre-sale countdown -> the Black Friday box
-    start = "/* Black Friday pre-sale: real countdown"
-    i = t.index(start)
-    end = "if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount); else mount();\n})();\n"
-    j = t.index(end, i) + len(end)
-    t = t[:i] + JS + t[j:]
-    # 3. data: add the orders-left count
-    old = '<div id="mc-bf-data" hidden data-left="{{ shop.metafields.muto.bf_boxes_left.value }}"></div>'
-    assert old in t
-    t = t.replace(old, DATA)
+    # 1. styles: the white Black Friday box (the trust build has already removed the pre-sale box)
+    k = t.index("/* -2 page only:")
+    t = t[:k] + CSS + t[k:]
+    # 2. script, before the subhead script
+    k = t.index("/* Subhead under the title")
+    t = t[:k] + JS + "\n" + t[k:]
+    # 3. data: the orders-left count
+    t = DATA + "\n" + t
     # 4. quarterly card: per-month price drawn by the stylesheet, and the sticky bar's copy of it
     old_q = 'label.mc__plan:nth-of-type(2) .mc__plan-prices::before{content:"£50/mo"}'
     assert old_q in t
@@ -151,7 +146,7 @@ def main():
     old_h = "var SUBHEAD = 'Everything your body needs after 35 for energy, recovery, stress, immunity and longevity.';"
     assert old_h in t
     t = t.replace(old_h, "var SUBHEAD = %s;" % json.dumps(SUBHEAD, ensure_ascii=False))
-    assert "pre-sale" not in t.lower() and "MUTO10" not in t, "old pre-sale box left behind"
+    assert "pre-sale" not in t.lower() and "MUTO10" not in t
     er["custom_liquid"] = t
 
     q = next(b for b in d["sections"]["buy"]["blocks"].values()

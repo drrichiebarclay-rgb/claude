@@ -16,7 +16,7 @@ SNAP = os.path.join(HERE, "live-snapshot-28oct", "templates__product.muto-nad-45
 # #scientific-board anchor and the #test-results certificate panel are taken from it verbatim.
 V2 = os.path.join(HERE, "live-snapshot-28oct", "templates__product.muto-nad-v2.json")
 FROM_V2 = ["buy", "easy_read", "sticky", "board_anchor", "tests", "compare"]  # compare = "MUTO vs the usual"
-OUT = os.path.join(HERE, "theme", "templates", "product.muto-nad-45.json")
+OUT = os.path.join(HERE, "theme", "templates", "product.muto-nad-trust.json")
 CDN = "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/"
 
 # --- New: statement ----------------------------------------------------------
@@ -163,6 +163,19 @@ DRAG_JS = """<script>
 </script>"""
 
 
+def strip_presale(t):
+    i = t.index("/* Black Friday pre-sale box, above the plans */")
+    j = t.index("/* -2 page only:", i)
+    t = t[:i] + t[j:]
+    i = t.index("/* Black Friday pre-sale: real countdown")
+    end = "if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount); else mount();\n})();\n"
+    j = t.index(end, i) + len(end)
+    t = t[:i] + t[j:]
+    t = t.replace('<div id="mc-bf-data" hidden data-left="{{ shop.metafields.muto.bf_boxes_left.value }}"></div>', "")
+    assert "MUTO10" not in t and "pre-sale" not in t.lower() and "mc-bf-data" not in t
+    return t
+
+
 def bands_css():
     """A template-only style block. Each section is matched by the end of its
     Shopify wrapper id (shopify-section-template--…__<key>), so it reaches only
@@ -277,6 +290,11 @@ def main():
     v2 = json.loads(raw2[raw2.index("{"):])
     for key in FROM_V2:
         d["sections"][key] = v2["sections"][key]
+
+    # The Black Friday pre-sale box (and its automatic MUTO10 code) is removed: MUTO10 was ended
+    # on 28 Oct. Its styles, its script and its data div all come out of easy_read.
+    er = d["sections"]["easy_read"]["settings"]
+    er["custom_liquid"] = strip_presale(er["custom_liquid"])
 
     # Under the buy button: drop the serving line, the "Not another multivitamin" copy and the
     # review-quote slider (the rotating reviews band further down does that job). Blanked and
