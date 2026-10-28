@@ -22,8 +22,8 @@ CDN = "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/"
 # --- New: statement ----------------------------------------------------------
 STATEMENT = {"type": "muto-crea-statement", "settings": {
     "label": "",
-    "heading": "A daily supplement.",
-    "sub": "Built for your biology after 35 years old.",
+    "heading": "Not ready to slow down.",
+    "sub": "The next-generation multi-nutrient, built for what your body needs in your 40s and 50s.",
     "space_top": 100, "space_bottom": 100}}
 
 # --- New: standards ----------------------------------------------------------
@@ -234,7 +234,7 @@ def main():
 
     d["order"] = [
         "buy",
-        "statement",        # "A daily supplement. Built for your biology after 35 years old."
+        "statement",        # "Not ready to slow down."
         "board_anchor",     # #scientific-board, linked from the buy box
         "board",            # Scientific Advisory Board, compact row
         "standards",

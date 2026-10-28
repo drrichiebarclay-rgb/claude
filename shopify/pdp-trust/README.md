@@ -21,7 +21,7 @@ All four sections are new names, so nothing on live is overwritten except the te
 | # | Band | Status |
 |---|---|---|
 | 1 | Buy box | unchanged |
-| 2 | **Statement**: "A daily supplement." / "Built for your biology after 35 years old." | new |
+| 2 | **Statement**: "Not ready to slow down." / "The next-generation multi-nutrient, built for what your body needs in your 40s and 50s." | new |
 | 3 | Scientific Advisory Board, now the **compact row** (all six across on desktop) | retitled |
 | 4 | **Our standards**: four sage cards (third-party tested, 300mg NR + declared doses, advisory board, UK made GMP · ISO) | new |
 | 5 | Customer videos, 9:16 (existing "results" band) | retitled "Customer reports." |
