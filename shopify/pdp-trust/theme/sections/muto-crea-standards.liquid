@@ -26,8 +26,10 @@
       <ol class="mc__std-list">
         {%- for block in section.blocks -%}
           <li class="mc__std-item" {{ block.shopify_attributes }}>
-            <p class="mc__mono mc__std-num" aria-hidden="true">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</p>
-            {%- if block.settings.stat != blank -%}<p class="mc__std-stat">{{ block.settings.stat }}</p>{%- endif -%}
+            <div class="mc__std-meta">
+              <span class="mc__mono mc__std-num" aria-hidden="true">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+              {%- if block.settings.stat != blank -%}<span class="mc__mono mc__std-stat">{{ block.settings.stat }}</span>{%- endif -%}
+            </div>
             <h3 class="mc__h3 mc__std-title">{{ block.settings.title }}</h3>
             {%- if block.settings.text != blank -%}<div class="mc__rt mc__std-text">{{ block.settings.text }}</div>{%- endif -%}
             {%- if block.settings.link_label != blank and block.settings.link != blank -%}
@@ -59,7 +61,7 @@
   ],
   "blocks": [
     { "type": "standard", "name": "Standard", "settings": [
-      { "type": "text", "id": "stat", "label": "Headline figure", "info": "Short, e.g. \"300mg NR\" or \"GMP · ISO\"." },
+      { "type": "text", "id": "stat", "label": "Tag", "info": "Short, e.g. \"300mg NR\" or \"GMP · ISO\". Shown in a small tag beside the number." },
       { "type": "text", "id": "title", "label": "Title", "default": "Third-party tested" },
       { "type": "richtext", "id": "text", "label": "Copy" },
       { "type": "text", "id": "link_label", "label": "Link label", "info": "E.g. \"View the certificates\"." },

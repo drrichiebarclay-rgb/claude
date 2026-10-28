@@ -15,6 +15,7 @@
   <div class="mc__wrap">
     <section class="mc__fdr" aria-labelledby="{{ heading_id }}">
       <div class="mc__fdr-media">
+        <div class="mc__fdr-frame">
         {% render 'muto-image',
           image: section.settings.image,
           fallback: section.settings.image_fallback,
@@ -23,6 +24,7 @@
           sizes: '(min-width: 990px) 560px, 92vw',
           widths: '400,560,800,1120',
           position: section.settings.image_position %}
+        </div>
         {%- if section.settings.caption != blank -%}
           <p class="mc__mono mc__fdr-caption">{{ section.settings.caption }}</p>
         {%- endif -%}

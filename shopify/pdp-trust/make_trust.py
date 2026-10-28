@@ -23,7 +23,7 @@ STATEMENT = {"type": "muto-crea-statement", "settings": {
 
 # --- New: standards ----------------------------------------------------------
 STANDARDS_ITEMS = [
-    ("tested", "Batch-tested", "Third-party tested",
+    ("tested", "Every batch", "Third-party tested",
      "<p>Every batch is tested by an independent lab for identity, potency, heavy metals and microbes before it’s released.</p>",
      # Set CERTS_URL to the page where the certificates are published.
      "View the certificates", "", "Certificates of analysis on request"),
@@ -79,7 +79,7 @@ def reviews():
         order.append(k)
     return {"type": "muto-crea-reviews", "blocks": blocks, "block_order": order, "settings": {
         "eyebrow": "Customer reviews",
-        "heading": "What customers\nreport.",
+        "heading": "Selected\nreviews.",
         "summary": "",  # e.g. "4.8 from 412 reviews": the live REVIEWS.io figure
         "interval": 6, "min_age": 30, "require_age": False,
         "foot": "Real reviews from verified customers, in their own words. Everyone is different.",
@@ -119,6 +119,7 @@ def clinical(d):
     r["heading"] = "Customer\nreports."
     r["note"] = "Filmed by customers, in their own words."
     r["foot"] = "Individual experiences. Everyone is different, and we can’t promise results."
+    S["results"]["settings"]["space_top"] = 70   # sits under the standards band, which brings its own space
 
     b = S["board"]["settings"]
     b["heading"] = "Scientific\nAdvisory Board."

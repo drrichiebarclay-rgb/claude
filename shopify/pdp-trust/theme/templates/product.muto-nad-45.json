@@ -849,7 +849,7 @@
         "fit": "nad",
         "rail_gap": 48,
         "foot": "Individual experiences. Everyone is different, and we can’t promise results.",
-        "space_top": 100,
+        "space_top": 70,
         "space_bottom": 100
       }
     },
@@ -1282,7 +1282,7 @@
         "tested": {
           "type": "standard",
           "settings": {
-            "stat": "Batch-tested",
+            "stat": "Every batch",
             "title": "Third-party tested",
             "text": "<p>Every batch is tested by an independent lab for identity, potency, heavy metals and microbes before it’s released.</p>",
             "link_label": "View the certificates",
@@ -1435,7 +1435,7 @@
       ],
       "settings": {
         "eyebrow": "Customer reviews",
-        "heading": "What customers\nreport.",
+        "heading": "Selected\nreviews.",
         "summary": "",
         "interval": 6,
         "min_age": 30,

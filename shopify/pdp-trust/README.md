@@ -19,7 +19,7 @@ All four sections are new names, so nothing on live is overwritten except the te
 | 1 | Buy box | unchanged |
 | 2 | **Our standards**: third-party tested, 300mg NR + declared doses, Scientific Advisory Board, UK made GMP · ISO | new |
 | 3 | Customer videos, 9:16 (existing "results" band) | retitled "Customer reports." |
-| 4 | **Rotating reviews**: up to 20 hand-picked written reviews, name + age, auto-advance every 6s | new |
+| 4 | **Rotating reviews** ("Selected reviews."): up to 20 hand-picked written reviews, name + age, auto-advance every 6s | new |
 | 5 | **Founder**: Dr Richie Barclay, PhD | new |
 | 6 | Scientific Advisory Board | retitled |
 | 7 | **Statement**: "A daily supplement." / "Built for your biology after 35 years old." | new |
