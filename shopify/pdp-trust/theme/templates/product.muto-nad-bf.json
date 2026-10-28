@@ -556,74 +556,81 @@
         "n1": {
           "type": "link",
           "settings": {
+            "label": "The problem",
+            "target": "problem"
+          }
+        },
+        "n2": {
+          "type": "link",
+          "settings": {
             "label": "Benefits",
             "target": "benefits"
           }
         },
-        "n2": {
+        "n3": {
           "type": "link",
           "settings": {
             "label": "The experts",
             "target": "board"
           }
         },
-        "n3": {
+        "n4": {
           "type": "link",
           "settings": {
             "label": "Standards",
             "target": "standards"
           }
         },
-        "n4": {
+        "n5": {
           "type": "link",
           "settings": {
             "label": "Ingredients",
             "target": "library"
           }
         },
-        "n5": {
+        "n6": {
           "type": "link",
           "settings": {
             "label": "What people say",
             "target": "results"
           }
         },
-        "n6": {
+        "n7": {
           "type": "link",
           "settings": {
             "label": "Founder",
             "target": "founder"
           }
         },
-        "n7": {
+        "n8": {
           "type": "link",
           "settings": {
             "label": "Comparison",
             "target": "compare"
           }
         },
-        "n8": {
+        "n9": {
           "type": "link",
           "settings": {
             "label": "What to expect",
             "target": "timeline"
           }
         },
-        "n9": {
+        "n10": {
           "type": "link",
           "settings": {
             "label": "How to take it",
             "target": "howto"
           }
         },
-        "n10": {
+        "n11": {
           "type": "link",
           "settings": {
             "label": "FAQs",
             "target": "faq"
           }
         },
-        "n11": {
+        "n12": {
           "type": "link",
           "settings": {
             "label": "Reviews",
@@ -642,7 +649,8 @@
         "n8",
         "n9",
         "n10",
-        "n11"
+        "n11",
+        "n12"
       ],
       "settings": {
         "label": "On this page",
@@ -1974,6 +1982,7 @@
         "p1": {
           "type": "stat",
           "settings": {
+            "tag": "Trust",
             "figure": "57%",
             "text": "of supplements tested didn’t match their label"
           }
@@ -1981,6 +1990,7 @@
         "p2": {
           "type": "stat",
           "settings": {
+            "tag": "Inflammation",
             "figure": "1 in 2",
             "text": "deaths are linked to chronic inflammation"
           }
@@ -1988,13 +1998,15 @@
         "p3": {
           "type": "stat",
           "settings": {
-            "figure": "30%",
-            "text": "less NAD+ in liver tissue after 60"
+            "tag": "NAD+",
+            "figure": "50%",
+            "text": "less NAD+ by the time you reach 40"
           }
         },
         "p4": {
           "type": "stat",
           "settings": {
+            "tag": "Mitochondria",
             "figure": "50%",
             "text": "lower muscle mitochondrial capacity by your late 60s"
           }
@@ -2009,9 +2021,9 @@
       "settings": {
         "label": "The problem",
         "heading": "Your biology shifts.\nMost supplements don’t.",
-        "sources": "<p>01. Crawford et al., JAMA Network Open (2022): 17 of 30 immune supplements. 02. Furman et al., Nature Medicine (2019). 03. Zhou et al., British Journal of Pharmacology (2016). 04. Conley et al., Journal of Physiology (2000).</p>",
-        "space_top": 40,
-        "space_bottom": 100
+        "sources": "<p>01. Crawford et al., JAMA Network Open (2022): 17 of 30 immune supplements. 02. Furman et al., Nature Medicine (2019). 03. Massudi et al., PLoS ONE (2012). 04. Conley et al., Journal of Physiology (2000).</p>",
+        "space_top": 70,
+        "space_bottom": 150
       }
     },
     "standards": {

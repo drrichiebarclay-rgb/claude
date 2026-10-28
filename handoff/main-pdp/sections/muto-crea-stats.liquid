@@ -1,9 +1,9 @@
 {%- comment -%}
-  MUTO — Problem stats. A small pill label, a heading, then four boxes: a big
-  figure, a short caps line and its reference number. The sources run in a
+  MUTO — Problem stats. A small pill label, a heading, then four cards in the
+  standards style: number and topic tag, a big figure and one line. The sources run in a
   small line underneath, numbered to match.
 
-  BLOCKS, one per stat. Desktop: four in a row. MOBILE: two by two.
+  BLOCKS, one per stat. Desktop: four in a row. Tablet: two by two. MOBILE: stacked.
 {%- endcomment -%}
 {{ 'muto-crea.css' | asset_url | stylesheet_tag }}
 {{ 'muto-crea-trust.css' | asset_url | stylesheet_tag }}
@@ -20,9 +20,12 @@
       <ol class="mc__prb-list">
         {%- for block in section.blocks -%}
           <li class="mc__prb-item" {{ block.shopify_attributes }}>
+            <div class="mc__std-meta">
+              <span class="mc__trust-label" aria-hidden="true">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+              {%- if block.settings.tag != blank -%}<span class="mc__trust-tag"><span class="mc__trust-spark" aria-hidden="true"></span>{{ block.settings.tag }}</span>{%- endif -%}
+            </div>
             <p class="mc__prb-fig">{{ block.settings.figure }}</p>
             <p class="mc__prb-text">{{ block.settings.text }}</p>
-            <span class="mc__prb-ref" aria-hidden="true">({{ forloop.index | prepend: '0' | slice: -2, 2 }})</span>
           </li>
         {%- endfor -%}
       </ol>
@@ -46,6 +49,7 @@
   ],
   "blocks": [
     { "type": "stat", "name": "Stat", "settings": [
+      { "type": "text", "id": "tag", "label": "Tag", "info": "Short topic, e.g. \"NAD+\". Shown in a small tag beside the number." },
       { "type": "text", "id": "figure", "label": "Figure", "info": "E.g. 57% or 1 in 2" },
       { "type": "text", "id": "text", "label": "Line under it" }
     ] }

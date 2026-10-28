@@ -28,27 +28,27 @@ STATEMENT = {"type": "muto-crea-statement", "settings": {
     "space_top": 100, "space_bottom": 100}}
 
 # --- New: problem stats (straight after the statement, before the benefits) ---
-PROBLEM_STATS = [  # figure, line, source. Checked 28 Oct; 03 is the one to confirm against the full text.
-    ("57%", "of supplements tested didn’t match their label",
+PROBLEM_STATS = [  # tag, figure, line, source. Checked 28 Oct; 03 is Richie's figure (source to confirm).
+    ("Trust", "57%", "of supplements tested didn’t match their label",
      "Crawford et al., JAMA Network Open (2022): 17 of 30 immune supplements"),
-    ("1 in 2", "deaths are linked to chronic inflammation",
+    ("Inflammation", "1 in 2", "deaths are linked to chronic inflammation",
      "Furman et al., Nature Medicine (2019)"),
-    ("30%", "less NAD+ in liver tissue after 60",
-     "Zhou et al., British Journal of Pharmacology (2016)"),
-    ("50%", "lower muscle mitochondrial capacity by your late 60s",
+    ("NAD+", "50%", "less NAD+ by the time you reach 40",
+     "Massudi et al., PLoS ONE (2012)"),
+    ("Mitochondria", "50%", "lower muscle mitochondrial capacity by your late 60s",
      "Conley et al., Journal of Physiology (2000)"),
 ]
 
 
 def problem():
-    blocks = {"p%d" % (i + 1): {"type": "stat", "settings": {"figure": f, "text": x}}
-              for i, (f, x, _) in enumerate(PROBLEM_STATS)}
-    sources = " ".join("%02d. %s." % (i + 1, s) for i, (_, _, s) in enumerate(PROBLEM_STATS))
+    blocks = {"p%d" % (i + 1): {"type": "stat", "settings": {"tag": g, "figure": f, "text": x}}
+              for i, (g, f, x, _) in enumerate(PROBLEM_STATS)}
+    sources = " ".join("%02d. %s." % (i + 1, s) for i, (_, _, _, s) in enumerate(PROBLEM_STATS))
     return {"type": "muto-crea-stats", "blocks": blocks, "block_order": list(blocks), "settings": {
         "label": "The problem",
         "heading": "Your biology shifts.\nMost supplements don’t.",
         "sources": "<p>" + sources + "</p>",
-        "space_top": 40, "space_bottom": 100}}
+        "space_top": 70, "space_bottom": 150}}
 
 
 # --- New: standards ----------------------------------------------------------
@@ -443,7 +443,7 @@ def nav_links(d):
     """'On this page' menu: the live links plus the new bands, in page order (targets are section keys)."""
     nav = d["sections"]["nav"]
     links = {b["settings"]["target"]: b["settings"]["label"] for b in nav["blocks"].values()}
-    links.update({"standards": "Standards", "results": "What people say", "founder": "Founder"})
+    links.update({"problem": "The problem", "standards": "Standards", "results": "What people say", "founder": "Founder"})
     order = [k for k in d["order"] if k in links]
     assert len(order) == len(links), set(links) - set(order)
     nav["blocks"] = {"n%d" % (i + 1): {"type": "link", "settings": {"label": links[k], "target": k}}
