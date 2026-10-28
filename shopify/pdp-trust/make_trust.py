@@ -160,7 +160,7 @@ COLLAB_JS = """<script>
 STATS = [
     (94, "reported better recovery"),
     (92, "reported improved energy"),
-    (93, "bounce back quicker"),
+    (88, "bounce back quicker"),
 ]
 STATS_JS = """<script>
 (function () {
