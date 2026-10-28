@@ -23,6 +23,12 @@ SCHEDULE = "£99 for your first order, £125 on your second, £150 on your third
 Q_SAVE = "Save 53%"
 Q_NOTE = "3 months’ supply: £99 for your first box, then £125, then £150 · £1.10 a day"
 Q_PER_MONTH = "£33/mo"
+# Monthly card while the offer runs: £49.99 first month, then £60 every 4 weeks (49.99 / 28 = £1.79 a day)
+M_SAVE = "Save 28%"   # £49.99 vs £70 is 28.6%, rounded down
+M_NOTE = "£49.99 for your first month, then £60 every 4 weeks · £1.79 a day"
+M_PER_MONTH = "£49.99/mo"
+# Subhead under the title (set by the easy_read script)
+SUBHEAD = "Our lowest price yet, while stocks last. Been waiting to try MUTO? Now’s the time to run the 90-day test."
 # Orders left: shop metafield muto.bf_orders_left (integer). Blank hides the count.
 DATA = ('<div id="mc-bf-data" hidden data-left="{{ shop.metafields.muto.bf_boxes_left.value }}"'
         ' data-orders="{{ shop.metafields.muto.bf_orders_left.value }}"></div>')
@@ -133,9 +139,16 @@ def main():
     old_q = 'label.mc__plan:nth-of-type(2) .mc__plan-prices::before{content:"£50/mo"}'
     assert old_q in t
     t = t.replace(old_q, 'label.mc__plan:nth-of-type(2) .mc__plan-prices::before{content:"%s"}' % Q_PER_MONTH)
+    old_m = 'label.mc__plan:nth-of-type(1) .mc__plan-prices::before{content:"£60/mo"}'
+    assert old_m in t
+    t = t.replace(old_m, 'label.mc__plan:nth-of-type(1) .mc__plan-prices::before{content:"%s"}' % M_PER_MONTH)
     old_s = "var PER_MONTH = { 1: ['£60/mo', '£70'], 2: ['£50/mo', '£70'] };"
     assert old_s in t
-    t = t.replace(old_s, "var PER_MONTH = { 1: ['£60/mo', '£70'], 2: ['%s', '£70'] };" % Q_PER_MONTH)
+    t = t.replace(old_s, "var PER_MONTH = { 1: ['%s', '£70'], 2: ['%s', '£70'] };" % (M_PER_MONTH, Q_PER_MONTH))
+    # 5. subhead
+    old_h = "var SUBHEAD = 'Everything your body needs after 35 for energy, recovery, stress, immunity and longevity.';"
+    assert old_h in t
+    t = t.replace(old_h, "var SUBHEAD = %s;" % json.dumps(SUBHEAD, ensure_ascii=False))
     assert "pre-sale" not in t.lower() and "MUTO10" not in t, "old pre-sale box left behind"
     er["custom_liquid"] = t
 
@@ -143,6 +156,10 @@ def main():
              if b["type"] == "plan" and b["settings"].get("name") == "Quarterly plan")
     q["settings"]["save"] = Q_SAVE
     q["settings"]["note"] = Q_NOTE
+    m = next(b for b in d["sections"]["buy"]["blocks"].values()
+             if b["type"] == "plan" and b["settings"].get("name") == "Monthly plan")
+    m["settings"]["save"] = M_SAVE
+    m["settings"]["note"] = M_NOTE
 
     with open(OUT, "w") as fh:
         fh.write(head)
