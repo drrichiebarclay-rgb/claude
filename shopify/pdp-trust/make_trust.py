@@ -58,14 +58,27 @@ def standards():
 # Real customer words only, copied from REVIEWS.io. Add up to 20; fill in ages
 # (with the customer's OK) and set require_age to True once every card has one.
 REVIEWS = [
-    # topic (ours), quote (theirs, exact), name, age
+    # topic (ours), quote (theirs: the whole review or one unbroken passage of it,
+    # copied exactly from REVIEWS.io), name, age. All 5-star.
+    ("Mid-30s", "Being in my mid 30s, everything has started to slow down. Muto is providing me with a sense of vitality which I haven’t experienced since my mid 20s", "Jonathon R", ""),
+    ("Healthy ageing", "bought it to support healthy ageing and have been genuinely surprised at how quickly I felt a difference. My recovery and sleep have noticeably improved.", "K R", ""),
     ("Afternoon energy", "No afternoon slump and in general feeling great", "Lynda", ""),
     ("Feeling like yourself", "I didn't realise how flat I'd been feeling until this helped lift me out of it", "Holly P", ""),
-    ("Recovery", "Has actually changed my recovery", "Adam H", ""),
+    ("A month in", "I have been using for almost a month and can honestly say I have felt such a difference", "Michelle F", ""),
+    ("From a sceptic", "I am usually sceptical to new supplements but this has been highly recommended by my friend so gave it a shot. It has exceeded my expectations, which is not easy as I am well-versed in nutrition and supplements.", "Aleks", ""),
+    ("Sustained energy", "I have sustained energy, I sleep better, perform better in workouts, and don’t crash anymore.", "Danny S", ""),
+    ("Tracked on Oura", "I track the effectiveness of my supplements using my Oura ring, and all my key biometrics are improving: recovery, sleep, HRV and RHR", "Hugh K", ""),
     ("Mornings", "I predominantly struggle with mornings but already feel myself finding these easier", "Becca", ""),
-    ("Marathon training", "I started taking Muto for my Boston Marathon training hoping to have better recovery; and it did not disappoint", "Rebeca", ""),
-    ("Focus", "More focused during the day", "Alexandra", ""),
+    ("Recovery", "Has actually changed my recovery", "Adam H", ""),
+    ("All-day energy", "The cellular energy boost it gives you really enables me to power through my day.", "Max", ""),
+    ("Energy and sleep", "Since starting taking Muto my energy levels and my sleep has improved drastically (even within the first month)", "Matteo M", ""),
     ("Fewer pots", "I love that this replaces multiple products", "Amy C", ""),
+    ("Keeping up", "Started using muto because I felt like my body couldn’t keep up with the amount of exercise I wanted to do. After taking muto, I felt more energised and ready for my next session!", "Brendan", ""),
+    ("Marathon training", "I started taking Muto for my Boston Marathon training hoping to have better recovery; and it did not disappoint", "Rebeca", ""),
+    ("Training more often", "As a keen runner, I’ve noticed how Muto has helped me recover faster meaning I can train harder, more often.", "Ayo P", ""),
+    ("Focus", "I’ve been taking MUTO every day for just under 2 months now and definitely feel more focused during the day", "Alexandra", ""),
+    ("Consistent energy", "Energy is up and staying consistent.", "Jack", ""),
+    ("Clearer mind", "I feel like I have more energy and a clearer mind.", "Sam", ""),
     ("A scientist who picks up the phone", "Richie from the team gave me a call just to chat about my background and goals", "Mathew H", ""),
 ]
 
@@ -79,7 +92,7 @@ def reviews():
     return {"type": "muto-crea-reviews", "blocks": blocks, "block_order": order, "settings": {
         "eyebrow": "Verified customers",
         "heading": "Selected\nreviews.",
-        "summary": "",  # e.g. "4.8 from 412 reviews": the live REVIEWS.io figure
+        "summary": "4.8 from 103 reviews",  # REVIEWS.io, 28 Oct 2026 (4.83 average): update as it moves
         "interval": 6, "min_age": 30, "require_age": False,
         "foot": "Real reviews from verified customers, in their own words. Everyone is different.",
         "space_top": 100, "space_bottom": 100}}
