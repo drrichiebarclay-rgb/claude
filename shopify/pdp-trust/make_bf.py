@@ -161,6 +161,13 @@ def main():
     m["settings"]["save"] = M_SAVE
     m["settings"]["note"] = M_NOTE
 
+    # Founder photo: Richie on stage (Tom cropped out), Black Friday page only
+    fs = d["sections"]["founder"]["settings"]
+    fs["image"] = "shopify://shop_images/founder-bf-stage.jpg"
+    fs["image_fallback"] = "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/founder-bf-stage.jpg?v=1793283537"
+    fs["image_alt"] = "Dr Richie Barclay speaking on stage at a MUTO event"
+    fs["image_position"] = "50% 30%"
+
     # Black bar over the plans: "Black Friday offer" (the "✦ Best value" label stays on its left)
     d["sections"]["buy"]["settings"]["plans_banner"] = "Black Friday offer · Limited stock"
     # Ticks: the welcome-kit line first, on both plans
