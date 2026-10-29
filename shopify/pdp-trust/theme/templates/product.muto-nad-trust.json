@@ -327,7 +327,7 @@
             "was": "£210",
             "save": "Save 28%",
             "note": "3 months’ supply, billed £150 every 3 months · £1.67 a day",
-            "detail": "<ul><li>90-day money-back guarantee</li><li>Skip, pause or cancel online, no phone calls</li><li>Free UK delivery</li><li>Free welcome kit worth £77, then thank-you gifts in later boxes</li></ul>"
+            "detail": "<ul><li>90-day money-back guarantee</li><li>Skip, pause or cancel online, no phone calls</li><li>Free UK delivery</li><li>Free welcome kit worth £87, then thank-you gifts in later boxes</li></ul>"
           }
         },
         "fold1": {
@@ -447,6 +447,18 @@
             "title_2": "Made with",
             "items_2": "Vegan capsules\nVitamin D3 from algae\nActive B vitamins\nBisglycinate minerals"
           }
+        },
+        "qk_vial": {
+          "type": "gift",
+          "settings": {
+            "value": "£10",
+            "name": "Travel vial",
+            "row_label": "Travel vial",
+            "row_note": "",
+            "image_fallback": "",
+            "image_alt": "The MUTO travel vial",
+            "plans": "2"
+          }
         }
       },
       "block_order": [
@@ -461,6 +473,7 @@
         "job6",
         "tr1",
         "p1",
+        "qk_vial",
         "k2",
         "k3",
         "qk3",
@@ -515,7 +528,7 @@
         "gallery_position": "100% 50%",
         "note_title": "",
         "note_text": "",
-        "plans_banner": "New customers: free welcome kit worth £77",
+        "plans_banner": "New customers: free welcome kit worth £87",
         "plans_label": "Choose your plan",
         "hidden_plans": "",
         "kit_title": "Welcome kit — arrives with your first box",

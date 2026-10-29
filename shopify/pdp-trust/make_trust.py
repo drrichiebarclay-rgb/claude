@@ -487,6 +487,29 @@ def clinical(d):
 
     # The timeline, FAQ and comparison are the live page's own and stay exactly as they are.
 
+# --- Travel vial: a first-order gift on the 3-month (quarterly) plan only -------------------------
+# The cart adds it from the theme setting cart_free_product_3m (product muto-travel-vial-free, £0 with a
+# £10 compare-at, so the cart's gift list strikes through £10). Here it is the kit tile and the
+# itemised row, scoped to the quarterly card (plan 2), and the quarterly kit is now worth £87.
+VIAL_IMAGE = ""   # a photo of the vial once there is one (Shopify Files URL)
+KIT_Q_OLD, KIT_Q_NEW = "£77", "£87"
+
+
+def travel_vial(buy):
+    buy["blocks"]["qk_vial"] = {"type": "gift", "settings": {
+        "value": "£10", "name": "Travel vial", "row_label": "Travel vial", "row_note": "",
+        "image_fallback": VIAL_IMAGE, "image_alt": "The MUTO travel vial", "plans": "2"}}
+    order = buy["block_order"]
+    first_gift = next(i for i, k in enumerate(order) if buy["blocks"][k]["type"] == "gift")
+    order.insert(first_gift, "qk_vial")
+    q = next(b for b in buy["blocks"].values()
+             if b["type"] == "plan" and b["settings"].get("name") == "Quarterly plan")
+    assert KIT_Q_OLD in q["settings"]["detail"]
+    q["settings"]["detail"] = q["settings"]["detail"].replace(KIT_Q_OLD, KIT_Q_NEW)
+    assert KIT_Q_OLD in buy["settings"]["plans_banner"]
+    buy["settings"]["plans_banner"] = buy["settings"]["plans_banner"].replace(KIT_Q_OLD, KIT_Q_NEW)
+
+
 def nav_links(d):
     """'On this page' menu: the live links plus the new bands, in page order (targets are section keys)."""
     nav = d["sections"]["nav"]
@@ -527,6 +550,7 @@ def main():
     for k, blk in buy["blocks"].items():
         if blk["type"] == "snippet":
             blk["disabled"] = True
+    travel_vial(buy)
 
     d["sections"].update({
         "statement": STATEMENT,

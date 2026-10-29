@@ -17,7 +17,7 @@ OUT = os.path.join(HERE, "theme", "templates", "product.muto-nad-bf.json")
 TOTAL = 500
 CODE = ""   # the 53%-off discount code once it exists in Shopify; blank = nothing applied
 HEADLINE = "53% off your first order"
-KIT = "plus a welcome kit worth £77"
+KIT = "plus a welcome kit worth £87"   # quarterly kit incl. the £10 travel vial (28 Oct)
 SCHEDULE = "£99 for your first order, £125 on your second, £150 on your third."
 # Quarterly card while the offer runs: £99 first box = £33/mo, £1.10 a day (90 days)
 Q_SAVE = "Save 53%"

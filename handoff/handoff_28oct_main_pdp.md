@@ -5,7 +5,7 @@ subtitle: "28 October 2026"
 
 The main product page and -2 move to a new template, **`muto-nad-trust`**. It is today's `muto-nad-v2` page, with every section kept: buy box, "On this page" menu, "Five jobs. One daily jar.", the ingredient library, comparison, timeline, "How to take it", FAQs. New blocks slot in between: the statement, four problem stats, the science board, standards, customer videos, reviews and the founder. The Black Friday pre-sale box and its MUTO10 code are removed.
 
-That means **7 new files to add**, **template changes on 2 products**, **removing the pre-sale box from 3 live templates** and **2 announcement-bar messages to take down**. No existing theme file is overwritten.
+That means **7 new files to add**, **template changes on 2 products**, **removing the pre-sale box from 3 live templates** and **2 announcement-bar messages to take down** and **1 cart setting for the new travel vial**. No existing theme file is overwritten.
 
 # Before you start
 
@@ -70,7 +70,16 @@ The new `muto-nad-trust` template already has all three removed.
 
 **Quick stopgap** if step 3 can't be done straight away: Online Store → Customize → Theme settings → Custom CSS, add `.mc-bf:has(.mc-bf__clock){display:none !important}`. That hides the box on every page. The script still runs, but MUTO10 is ended, so nothing is applied.
 
-# Step 4: the announcement bar
+# Step 4: the travel vial (3-month plan, first order)
+
+A free **travel vial** now comes with the first order on the 3-month plan only, shown with **£10 crossed out**, like the other gifts.
+
+- **Product: already created.** "Travel Vial", handle `muto-travel-vial-free`, SKU `TRAVEL-VIAL`, £0 with a £10 compare-at, unlisted, stock not tracked, published to the Online Store. It still needs a photo.
+- **Cart: one setting to change on the live theme.** Online Store → Customize → Theme settings → the cart giveaway settings → the 3-month free products list (`cart_free_product_3m`). Add **Travel Vial** (`muto-travel-vial-free`) to the list, alongside the bottle, socks, creatine and Garmin entry. The theme's giveaway script then adds it to the cart at £0 whenever the 3-month NAD+ subscription is in it. The cart drawer lists it under "Your free welcome gifts" with £10 struck through and "Free". Subscription renewals don't carry cart gifts, so it only ships with the first order.
+- **Page: in the template.** The welcome kit shows a "Travel vial" tile (£10 struck through) and an itemised row on the quarterly plan only. The quarterly kit is now worth **£87** (was £77) in the plan's bullet and the bar above the plans.
+- **Also say £87** wherever else the quarterly kit is quoted at £77, e.g. the announcement bar's "£77 OF FREE GIFTS WITH EACH ORDER" if that's meant to be the quarterly figure.
+
+# Step 5: the announcement bar
 
 The scrolling announcement bar at the top of every page (section `muto-announce` in the header group) still advertises the ended offer: **"EXTRA 10% OFF OUR QUARTERLY PLAN"** and **"ENDS ON 28.10.26"**. Remove those two messages (Customize → Header → announcement bar). The other three ("LIMITED NEW CUSTOMER OFFER", "£77 OF FREE GIFTS WITH EACH ORDER", "FREE ULTRAPURE CREATINE, BOTTLE, SOCKS, JAR, EBOOK") can stay.
 
@@ -122,4 +131,5 @@ Also changed from `muto-nad-v2`:
 6. **On a phone:** nothing runs off the side; the statement tag wraps onto two lines.
 7. **No sticky bar** appears as you scroll the page.
 8. **-3 and any page on `muto-nad-performance`:** no Black Friday box (step 3).
-9. **Announcement bar:** no "extra 10% off" or "ends on 28.10.26" (step 4).
+9. **Travel vial:** add the 3-month plan to the cart. The drawer's gift list shows Travel Vial, £10 struck through, Free. The monthly plan doesn't get it.
+10. **Announcement bar:** no "extra 10% off" or "ends on 28.10.26" (step 5).
