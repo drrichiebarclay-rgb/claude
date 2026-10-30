@@ -22,7 +22,7 @@ Every file is new; nothing with these names exists on live.
 | File | What it is |
 |---|---|
 | `assets/muto-crea-trust.css` | Styles for the five new blocks |
-| `sections/muto-crea-statement.liquid` | "Not ready to slow down." band |
+| `sections/muto-crea-statement.liquid` | "The best is still ahead." band |
 | `sections/muto-crea-stats.liquid` | "The problem": four stat boxes with sources |
 | `sections/muto-crea-standards.liquid` | "Checked, not taken on trust." four standards cards |
 | `sections/muto-crea-reviews.liquid` | "What our community say." rotating reviews (20) |
@@ -88,7 +88,7 @@ The scrolling announcement bar at the top of every page (section `muto-announce`
 In order, below the buy box. **New** blocks are in bold; the rest is `muto-nad-v2` as it is on live today.
 
 1. "On this page" menu (pins to the top as you scroll, as on live), with four new links: **Problem**, **Standards**, **What people say** (the videos) and **Founder**, 12 links in page order
-2. **Statement:** "Not ready to slow down." / "The next-generation multi-nutrient, built for what your body needs in your 40s and 50s." / tag "Got a wearable? Track the shift over 90 days."
+2. **Statement:** "The best is still ahead." / "Built for your energy, recovery and sleep in your 40s and 50s. Five supplements in one daily jar." / tag "Track it on your wearable for 90 days, or your money back."
 3. **The problem:** small mono label "The problem", heading "Your biology shifts. Most supplements don’t." Four cards in the standards style (number, lime topic tag, big figure, cyan rule, one line): **57%** of supplements tested didn’t match their label (Crawford et al., JAMA Network Open 2022) · **3–8%** muscle lost every decade after 30 (Volpi et al., Curr Opin Clin Nutr Metab Care 2004) · **50%** less NAD+ by middle age (Massudi et al., PLoS ONE 2012, analysed in Peluso et al., Nutrients 2022) · **~50%** drop in muscle mitochondrial capacity and energy between your 40s and late 60s (Conley et al., Journal of Physiology 2000). Sources in a small line underneath.
 4. **Benefits:** the live five cards, with a new heading: "Benefits built on published science." (small line above: "Five jobs. One daily jar."), and a new line under it: "What you need after 35. Your biology shifts. What you need evolves."
 5. **Science board:** "Six scientists put their name to MUTO.", compact row, white background.

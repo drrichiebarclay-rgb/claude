@@ -22,9 +22,9 @@ CDN = "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/"
 # --- New: statement ----------------------------------------------------------
 STATEMENT = {"type": "muto-crea-statement", "settings": {
     "label": "",
-    "heading": "Not ready to slow down.",
-    "sub": "The next-generation multi-nutrient, built for what your body needs in your 40s and 50s.",
-    "note": "Got a wearable? Track the shift over 90 days.",
+    "heading": "The best is still ahead.",
+    "sub": "Built for your energy, recovery and sleep in your 40s and 50s. Five supplements in one daily jar.",
+    "note": "Track it on your wearable for 90 days, or your money back.",
     "space_top": 100, "space_bottom": 100}}
 
 # --- New: problem stats (straight after the statement, before the benefits) ---
