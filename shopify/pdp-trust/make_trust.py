@@ -307,7 +307,7 @@ def hoist_styles(d, keys=("easy_read", "bands")):
         css.append(t[i:j])
         st["custom_liquid"] = t[:i] + t[j:]
     d["sections"]["head_styles"] = {"type": "custom-liquid", "settings": {
-        "custom_liquid": "\n".join(css), "color_scheme": "scheme-1", "padding_top": 0, "padding_bottom": 0}}
+        "custom_liquid": FONT_PRELOAD + "\n" + "\n".join(css), "color_scheme": "scheme-1", "padding_top": 0, "padding_bottom": 0}}
     d["order"].insert(0, "head_styles")
 
 
@@ -565,6 +565,59 @@ def early_scripts(d):
     d["order"].insert(d["order"].index("buy") + 1, "early")
 
 
+# --- Page speed ------------------------------------------------------------------------------------
+# The REVIEWS.io widget at the foot of the page loaded its script the blocking way, mid-page: the
+# browser stopped building the page until it had downloaded and run, and the page's load event waited
+# on it. It now loads when the reader comes within ~1200px of it, or when the browser is idle after
+# the page has loaded (so it is always there for search engines and the rich snippets), or on a click
+# on a link to it. The widget's own settings are untouched.
+REVIEWS_SRC = '<script src="https://widget.reviews.io/polaris/build.js"></script>'
+REVIEWS_LOADER = """
+(function () {
+  var el = document.getElementById('ReviewsWidget'), started = false;
+  function go() {
+    if (started) return;
+    started = true;
+    var s = document.createElement('script');
+    s.src = 'https://widget.reviews.io/polaris/build.js';
+    s.async = true;
+    s.onload = function () { window.__mutoReviews(); };
+    document.head.appendChild(s);
+  }
+  if (el && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries, obs) {
+      if (entries[0].isIntersecting) { obs.disconnect(); go(); }
+    }, { rootMargin: '1200px 0px' }).observe(el);
+  } else {
+    go();
+  }
+  window.addEventListener('load', function () {
+    (window.requestIdleCallback || function (f) { setTimeout(f, 2500); })(go, { timeout: 4000 });
+  });
+  document.addEventListener('click', function (e) {
+    if (e.target.closest && e.target.closest('a[href*="ReviewsWidget"], a[href*="#reviews"], [data-reviews-jump]')) go();
+  }, true);
+})();
+"""
+
+
+def lazy_reviews(st):
+    c = st["review_content"]
+    assert c.count(REVIEWS_SRC) == 1 and c.count("new ReviewsWidget(") == 1
+    c = c.replace(REVIEWS_SRC, "")
+    c = c.replace("new ReviewsWidget(", "window.__mutoReviews = function () {\nnew ReviewsWidget(")
+    end = c.rindex("</script>")
+    c = c[:end].rstrip() + "\n};\n" + REVIEWS_LOADER + "</script>" + c[end + len("</script>"):]
+    st["review_content"] = c
+
+
+# The two weights the buy box opens with, fetched straight away rather than once muto-crea.css arrives
+FONT_PRELOAD = "".join(
+    '<link rel="preload" as="font" type="font/woff2" crossorigin href="%s">' % u for u in (
+        "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/NeueHaasDisplay-Roman.woff2?v=1788216240",
+        "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/NeueHaasDisplay-Mediu.woff2?v=1788216243"))
+
+
 def nav_links(d):
     """'On this page' menu: the live links plus the new bands, in page order (targets are section keys)."""
     nav = d["sections"]["nav"]
@@ -616,6 +669,7 @@ def main():
     })
     clinical(d)
     d["sections"]["reviews"]["settings"]["bg_color"] = REVIEWS_GROUND
+    lazy_reviews(d["sections"]["reviews"]["settings"])
     d["sections"]["bands"] = bands_css()
 
     # Page order follows the nav (Benefits, The experts, Ingredients, Comparison, What to expect,

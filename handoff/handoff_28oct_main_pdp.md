@@ -117,6 +117,17 @@ Also changed from `muto-nad-v2`:
 - **Template-only** apart from the five new sections and their stylesheet. The page's own styles are in a Custom Liquid block called `head_styles` at the **top** of the template, so the buy box is styled from the first paint (with them at the bottom, the old design flashed on load). Its scripts stay in `easy_read` and `bands` at the bottom. A Custom Liquid block called `early`, straight after the buy box, opens the page on the Quarterly plan and adds the subhead, the testing-results button, the collaboration line, the rotating stats and the delivery line before the first paint, so nothing jumps on load (it used to flip from Monthly to Quarterly once the page had loaded). The same scripts at the bottom stay as a safety net. The `bands` scripts (delivery line, rotating stats, collaboration line, video drag) run again after `shopify:section:load`, so they survive the theme editor re-drawing the buy box.
 - **Source:** `shopify/pdp-trust/make_trust.py` builds the template. Change copy there and rebuild rather than editing by hand, or tell Richie about manual edits so they aren't lost on the next rebuild.
 
+# Page speed (theme-wide, for you to do)
+
+The template now does its part: the REVIEWS.io widget loads only when the reader nears it (or once the page is idle), the two Neue Haas weights are preloaded, and nothing in the buy box moves after first paint. What's left is in `layout/theme.liquid` and the app embeds, which every page shares, so it's yours to change and test:
+
+1. **Render-blocking scripts in `<head>`.** `jquery-min.js`, `slick-min.js` and `custom.js` load with no `defer`, so a phone downloads and runs ~130 KB of script before it can draw anything. Add `defer` to all three (they keep their order). First search the theme for inline scripts that call `$(` or `jQuery(` straight away rather than on `DOMContentLoaded`. Those would break, so wrap them first.
+2. **The OpenAI pixel** is initialised with `debug: true`. Set it to `false`.
+3. **The Usermaven script** sits before `<head>`. Move it inside `<head>` (it already loads deferred).
+4. **App embeds** (Online Store → Customize → App embeds). REVIEWS.io core and rating snippet, Klaviyo, Elevar, Triple Whale, Microsoft Clarity, Alia and Pandectes all load on every page. Turn off any that aren't used. Clarity and Alia are the usual candidates to load only on key pages.
+5. **Preload the page's stylesheets.** On product pages, add `<link rel="preload" as="style">` in `<head>` for `muto-crea.css` and `muto-home.css`. The buy box links them from the body, so the browser finds them late.
+6. **Measure before and after** with PageSpeed Insights (mobile) on the main URL. Watch LCP (the first product photo, already marked high priority) and Total Blocking Time.
+
 # Check after publishing
 
 1. **Main URL and -2:** the buy box and every section from today's page are there (menu, Five jobs, ingredient library, comparison, timeline, How to take it, FAQs), with **no** dark Black Friday box above the plans.
