@@ -491,14 +491,15 @@ def clinical(d):
 # The cart adds it from the theme setting cart_free_product_3m (product muto-travel-vial-free, £0 with a
 # £10 compare-at, so the cart's gift list strikes through £10). Here it is the kit tile and the
 # itemised row, scoped to the quarterly card (plan 2), and the quarterly kit is now worth £87.
-VIAL_IMAGE = ""   # a photo of the vial once there is one (Shopify Files URL)
+VIAL_IMAGE = "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-travel-vial.jpg?v=1793355262"
 KIT_Q_OLD, KIT_Q_NEW = "£77", "£87"
 
 
 def travel_vial(buy):
     buy["blocks"]["qk_vial"] = {"type": "gift", "settings": {
         "value": "£10", "name": "Travel vial", "row_label": "Travel vial", "row_note": "",
-        "image_fallback": VIAL_IMAGE, "image_alt": "The MUTO travel vial", "plans": "2"}}
+        "image": "shopify://shop_images/gift-travel-vial.jpg", "image_fallback": VIAL_IMAGE,
+        "image_alt": "The MUTO travel vial, a frosted glass tube of capsules with a silver cap", "plans": "2"}}
     order = buy["block_order"]
     first_gift = next(i for i, k in enumerate(order) if buy["blocks"][k]["type"] == "gift")
     order.insert(first_gift, "qk_vial")

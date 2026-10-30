@@ -74,7 +74,7 @@ The new `muto-nad-trust` template already has all three removed.
 
 A free **travel vial** now comes with the first order on the 3-month plan only, shown with **£10 crossed out**, like the other gifts.
 
-- **Product: already created.** "Travel Vial", handle `muto-travel-vial-free`, SKU `TRAVEL-VIAL`, £0 with a £10 compare-at, unlisted, stock not tracked, published to the Online Store. It still needs a photo.
+- **Product: already created.** "Travel Vial", handle `muto-travel-vial-free`, SKU `TRAVEL-VIAL`, £0 with a £10 compare-at, unlisted, stock not tracked, published to the Online Store. Its photo is on the product, so it shows in the cart.
 - **Cart: one setting to change on the live theme.** Online Store → Customize → Theme settings → the cart giveaway settings → the 3-month free products list (`cart_free_product_3m`). Add **Travel Vial** (`muto-travel-vial-free`) to the list, alongside the bottle, socks, creatine and Garmin entry. The theme's giveaway script then adds it to the cart at £0 whenever the 3-month NAD+ subscription is in it. The cart drawer lists it under "Your free welcome gifts" with £10 struck through and "Free". Subscription renewals don't carry cart gifts, so it only ships with the first order.
 - **Page: in the template.** The welcome kit shows a "Travel vial" tile (£10 struck through) and an itemised row on the quarterly plan only. The quarterly kit is now worth **£87** (was £77) in the plan's bullet and the bar above the plans.
 - **Also say £87** wherever else the quarterly kit is quoted at £77, e.g. the announcement bar's "£77 OF FREE GIFTS WITH EACH ORDER" if that's meant to be the quarterly figure.

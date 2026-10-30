@@ -455,8 +455,9 @@
             "name": "Travel vial",
             "row_label": "Travel vial",
             "row_note": "",
-            "image_fallback": "",
-            "image_alt": "The MUTO travel vial",
+            "image": "shopify://shop_images/gift-travel-vial.jpg",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-travel-vial.jpg?v=1793355262",
+            "image_alt": "The MUTO travel vial, a frosted glass tube of capsules with a silver cap",
             "plans": "2"
           }
         }

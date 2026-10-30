@@ -21,11 +21,13 @@ KIT = "plus a welcome kit worth £87"   # quarterly kit incl. the £10 travel vi
 SCHEDULE = "£99 for your first order, £125 on your second, £150 on your third."
 # Quarterly card while the offer runs: £99 first box = £33/mo, £1.10 a day (90 days)
 Q_SAVE = "Save 53%"
-Q_NOTE = "3 months’ supply: £99 for your first box, then £125, then £150 · £1.10 a day"
+Q_NOTE = "3 months’ supply: £99 for your first box, then £125, then £150"
+Q_DAY = "£1.10 a day"   # shown big, in a lime pill beside the plan name
 Q_PER_MONTH = "£33/mo"
 # Monthly card while the offer runs: £49.99 first month, then £60 every 4 weeks (49.99 / 28 = £1.79 a day)
 M_SAVE = "Save 28%"   # £49.99 vs £70 is 28.6%, rounded down
-M_NOTE = "£49.99 for your first month, then £60 every 4 weeks · £1.79 a day"
+M_NOTE = "£49.99 for your first month, then £60 every 4 weeks"
+M_DAY = "£1.79 a day"
 M_PER_MONTH = "£49.99/mo"
 # Subhead under the title (set by the easy_read script)
 SUBHEAD = "Our lowest price yet, while stocks last. Been waiting to try MUTO? Now’s the time to run the 90-day test."
@@ -65,7 +67,14 @@ html body .mc .mc-bf__note b{font-family:var(--mc-mono,monospace);letter-spacing
   html body .mc .mc-bf__foot{flex-wrap:wrap}
 }
 
+/* The daily cost, the big sell: a lime pill beside each plan's name */
+html body .mc .mc__plans > label.mc__plan .mc__plan-head::after{display:inline-flex;align-items:center;height:28px;padding:0 11px;border-radius:14px;background:#c9ffb7;color:#242223;font-size:15px;font-weight:600;line-height:1;letter-spacing:-.005em;white-space:nowrap}
+html body .mc .mc__plans > label.mc__plan:nth-of-type(1) .mc__plan-head::after{content:"%(m_day)s"}
+html body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-head::after{content:"%(q_day)s"}
+@media (max-width:480px){html body .mc .mc__plans > label.mc__plan .mc__plan-head::after{height:24px;padding:0 9px;font-size:13.5px}}
 """
+
+CSS = CSS.replace("%(m_day)s", M_DAY).replace("%(q_day)s", Q_DAY)
 
 JS = """/* Black Friday: 53%% off the first order plus the welcome kit, limited to TOTAL orders.
    Orders left comes from the shop metafield muto.bf_orders_left (printed into #mc-bf-data by the
