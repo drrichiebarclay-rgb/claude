@@ -79,10 +79,13 @@ CSS = CSS.replace("%(m_day)s", M_DAY).replace("%(q_day)s", Q_DAY)
 # --- Sticky bar -------------------------------------------------------------------------------------
 BAR_H = 44
 BAR = """<style>
-.mc-bfbar-slot{height:%(h)dpx}
-.mc-bfbar{position:relative;z-index:60;display:flex;align-items:center;justify-content:center;gap:14px;height:%(h)dpx;padding:0 16px;
+/* The theme pulls the page up under its see-through header on product pages, so the bar can't sit in
+   the page: it is fixed to the top of the screen and the whole page (announcement area, header, content)
+   starts below it. The blue announcement bar is hidden on this page. */
+body{padding-top:%(h)dpx}
+[id$="__muto-announce"]{display:none!important}
+.mc-bfbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:center;gap:14px;height:%(h)dpx;padding:0 16px;
   background:#242223;color:#fff;font-family:var(--mc-font,inherit);font-size:15px;line-height:1;text-decoration:none;white-space:nowrap;overflow:hidden}
-.mc-bfbar.is-fixed{position:fixed;top:0;left:0;right:0;box-shadow:0 1px 0 rgba(255,255,255,.08)}
 .mc-bfbar:hover,.mc-bfbar:focus-visible{color:#fff}
 .mc-bfbar:focus-visible{outline:2px solid #5efaff;outline-offset:-3px}
 .mc-bfbar__tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--mc-mono,monospace);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
@@ -97,32 +100,21 @@ BAR = """<style>
 @media (max-width:370px){.mc-bfbar__sep--left,.mc-bfbar__left{display:none}}
 </style>
 {%%- assign mc_left = shop.metafields.muto.bf_orders_left.value -%%}
-<div class="mc-bfbar-slot" id="mc-bfbar-slot">
-  <a class="mc-bfbar" href="#MainContent" aria-label="Black Friday offer: %(headline)s %(kit)s. See the offer.">
-    <span class="mc-bfbar__tag"><span class="mc-bfbar__dot" aria-hidden="true"></span>Black Friday</span>
-    <span class="mc-bfbar__msg"><b>%(short)s</b><span class="mc-bfbar__more"> %(kit)s</span></span>
-    {%%- if mc_left != blank and mc_left >= 0 -%%}
-      <span class="mc-bfbar__sep mc-bfbar__sep--left" aria-hidden="true">·</span>
-      <span class="mc-bfbar__left"><b>{{ mc_left }}</b>/%(total)d left</span>
-    {%%- endif -%%}
-    <span class="mc-bfbar__sep mc-bfbar__sep--cta" aria-hidden="true">·</span>
-    <span class="mc-bfbar__cta">Claim offer</span>
-  </a>
-</div>
+<a class="mc-bfbar" id="mc-bfbar" href="#MainContent" aria-label="Black Friday offer: %(headline)s %(kit)s. See the offer.">
+  <span class="mc-bfbar__tag"><span class="mc-bfbar__dot" aria-hidden="true"></span>Black Friday</span>
+  <span class="mc-bfbar__msg"><b>%(short)s</b><span class="mc-bfbar__more"> %(kit)s</span></span>
+  {%%- if mc_left != blank and mc_left >= 0 -%%}
+    <span class="mc-bfbar__sep mc-bfbar__sep--left" aria-hidden="true">·</span>
+    <span class="mc-bfbar__left"><b>{{ mc_left }}</b>/%(total)d left</span>
+  {%%- endif -%%}
+  <span class="mc-bfbar__sep mc-bfbar__sep--cta" aria-hidden="true">·</span>
+  <span class="mc-bfbar__cta">Claim offer</span>
+</a>
 <script>
 (function () {
-  var slot = document.getElementById('mc-bfbar-slot');
-  if (!slot) return;
-  var bar = slot.firstElementChild, ticking = false;
-  function update() {
-    ticking = false;
-    bar.classList.toggle('is-fixed', slot.getBoundingClientRect().top <= 0);
-  }
-  window.addEventListener('scroll', function () {
-    if (!ticking) { ticking = true; requestAnimationFrame(update); }
-  }, { passive: true });
-  update();
-  /* Tap: bring the offer box (or the plans) into view */
+  var bar = document.getElementById('mc-bfbar');
+  if (!bar) return;
+  /* Tap: bring the offer box (or the plans) into view, clear of the bar */
   bar.addEventListener('click', function (e) {
     var to = document.querySelector('.mc-bf') || document.querySelector('.mc__plans');
     if (!to) return;

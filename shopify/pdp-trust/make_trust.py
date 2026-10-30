@@ -38,7 +38,7 @@ PROBLEM_STATS = [  # tag, figure, line, source. Updated 30 Oct.
      "Moore et al., Journals of Gerontology Series A (2015)"),
     ("Longevity", "3–8%", "of muscle lost every decade after 30",
      "Volpi et al., Current Opinion in Clinical Nutrition and Metabolic Care (2004)"),
-    ("Trust", "57%", "of immune supplements tested didn’t match their label",
+    ("Trust", "57%", "of supplements tested didn’t match their label",
      "Crawford et al., JAMA Network Open (2022): 17 of 30 products"),
 ]
 
