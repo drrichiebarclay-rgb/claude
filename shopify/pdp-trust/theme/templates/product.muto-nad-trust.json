@@ -1996,33 +1996,33 @@
         "p1": {
           "type": "stat",
           "settings": {
-            "tag": "Trust",
-            "figure": "57%",
-            "text": "of supplements tested didn’t match their label"
+            "tag": "Energy",
+            "figure": "~50%",
+            "text": "drop in your muscles’ energy-making capacity between your 40s and late 60s"
           }
         },
         "p2": {
           "type": "stat",
           "settings": {
-            "tag": "Muscle",
-            "figure": "3–8%",
-            "text": "muscle lost every decade after 30"
+            "tag": "Recovery",
+            "figure": "~65%",
+            "text": "more protein per meal needed to switch on muscle repair as you age"
           }
         },
         "p3": {
           "type": "stat",
           "settings": {
-            "tag": "NAD+",
-            "figure": "50%",
-            "text": "less NAD+ by middle age"
+            "tag": "Longevity",
+            "figure": "3–8%",
+            "text": "of muscle lost every decade after 30"
           }
         },
         "p4": {
           "type": "stat",
           "settings": {
-            "tag": "Mitochondria",
-            "figure": "~50%",
-            "text": "drop in muscle mitochondrial capacity and energy between your 40s and late 60s"
+            "tag": "Trust",
+            "figure": "57%",
+            "text": "of immune supplements tested didn’t match their label"
           }
         }
       },
@@ -2035,7 +2035,7 @@
       "settings": {
         "label": "The problem",
         "heading": "Your biology shifts.\nMost supplements don’t.",
-        "sources": "<p>01. Crawford et al., JAMA Network Open (2022): 17 of 30 immune supplements. 02. Volpi et al., Current Opinion in Clinical Nutrition and Metabolic Care (2004). 03. Massudi et al., PLoS ONE (2012), analysed in Peluso et al., Nutrients (2022). 04. Conley et al., Journal of Physiology (2000).</p>",
+        "sources": "<p>01. Conley et al., Journal of Physiology (2000). 02. Moore et al., Journals of Gerontology Series A (2015). 03. Volpi et al., Current Opinion in Clinical Nutrition and Metabolic Care (2004). 04. Crawford et al., JAMA Network Open (2022): 17 of 30 products.</p>",
         "space_top": 70,
         "space_bottom": 150
       }
