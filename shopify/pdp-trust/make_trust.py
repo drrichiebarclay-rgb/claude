@@ -28,16 +28,16 @@ STATEMENT = {"type": "muto-crea-statement", "settings": {
     "space_top": 100, "space_bottom": 100}}
 
 # --- New: problem stats (straight after the statement, before the benefits) ---
-PROBLEM_STATS = [  # tag, figure, line, source. Checked 28 Oct.
+PROBLEM_STATS = [  # tag, figure, line, source. Updated 30 Oct.
     ("Trust", "57%", "of supplements tested didn’t match their label",
      "Crawford et al., JAMA Network Open (2022): 17 of 30 immune supplements"),
-    ("Inflammation", "1 in 2", "deaths are linked to chronic inflammation",
-     "Furman et al., Nature Medicine (2019)"),
-    # Peluso et al. (Nutrients 2022) re-analysed Massudi's skin data: ~60% less NAD+ from young adults to
-    # middle age. So 50% is conservative, and the line says where it was measured.
-    ("NAD+", "50%", "less NAD+ in skin by middle age",
+    ("Muscle", "3–8%", "muscle lost every decade after 30",
+     "Volpi et al., Current Opinion in Clinical Nutrition and Metabolic Care (2004)"),
+    # Peluso et al. (Nutrients 2022) re-analysed Massudi's data (measured in skin): ~60% less NAD+ from
+    # young adults to middle age, so 50% is conservative.
+    ("NAD+", "50%", "less NAD+ by middle age",
      "Massudi et al., PLoS ONE (2012), analysed in Peluso et al., Nutrients (2022)"),
-    ("Mitochondria", "50%", "lower muscle mitochondrial capacity by your late 60s",
+    ("Mitochondria", "~50%", "drop in muscle mitochondrial capacity and energy between your 40s and late 60s",
      "Conley et al., Journal of Physiology (2000)"),
 ]
 
