@@ -182,7 +182,7 @@ It only reorders when gifts are being added, so changing a quantity doesn't trig
 
 ## The saving line in the cart drawer
 
-The drawer says "You save £111 every 3 months, ongoing" under the BF product. That's wrong, because the BF price is for the first order only. Replace `snippets/cart-drawer.liquid` with the one in the zip (`snippets/cart-drawer.liquid`). It's the live file from 27 Oct with one change: for products whose handle contains `bf-` (or that are tagged `first-order-offer`), it says **"You save £111 on your first order"**. The main product keeps "every 3 months, ongoing". If you've edited the drawer since 27 Oct, copy the change across instead. It's the `mc_first_only` block above the "You save" line.
+The drawer says "You save £111 every 3 months, ongoing" under the BF product. That's wrong, because the BF price is for the first order only. Replace `snippets/cart-drawer.liquid` with the one in the zip (`snippets/cart-drawer.liquid`). It's the live file from 27 Oct with one change: for products whose handle contains `bf-` (or that are tagged `first-order-offer`), it says **"You save £111 on your first order"**. The main product says "You save £60 every 3 months" ("ongoing" removed). If you've edited the drawer since 27 Oct, copy the change across instead. It's the `mc_first_only` block above the "You save" line.
 
 # Step 3: point the main URL and -2 at the Black Friday product
 
