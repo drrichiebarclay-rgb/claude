@@ -1,0 +1,20 @@
+/*
+ * Black Friday: the main NAD+ product URL and -2 point to /products/bf-nad-cellular-complex.
+ * Switch both products back to muto-nad-trust after Black Friday. Built by hand (30 Oct).
+ */
+{
+  "sections": {
+    "redirect": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<script>\n  /* Black Friday: this product's page sends visitors to the Black Friday product, keeping any\n     tracking parameters (utm_*, gclid, fbclid). Not in the theme editor, so the page stays editable. */\n  if (!(window.Shopify && Shopify.designMode)) {\n    location.replace('/products/bf-nad-cellular-complex' + location.search + location.hash);\n  }\n</script>\n<noscript><meta http-equiv=\"refresh\" content=\"0; url=/products/bf-nad-cellular-complex\"></noscript>\n<p style=\"padding:40px 20px;text-align:center\"><a href=\"/products/bf-nad-cellular-complex\">Go to the Black Friday offer</a></p>",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "redirect"
+  ]
+}

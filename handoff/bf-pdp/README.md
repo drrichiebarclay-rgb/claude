@@ -1,45 +1,40 @@
 ---
-title: "MUTO Black Friday product page: main URL and -2"
+title: "MUTO Black Friday: BF product page, with the main URL and -2 pointing to it"
 subtitle: "30 October 2026"
 ---
 
-For Black Friday, the main product page and -2 move to a new template, **`muto-nad-bf`**. It's the new main page (`muto-nad-trust`: every live section plus the new trust blocks) with the Black Friday offer on top:
+For Black Friday, the offer lives on its own product, **BF NAD+ Cellular Complex** (`/products/bf-nad-cellular-complex`). It's already created, unlisted, set to the **`muto-nad-bf`** template, and its Skio plans carry the Black Friday prices:
+- **3-month:** £99, then £125.
+- **Monthly:** £49.99, then £60.
 
+The **main URL and -2 send visitors to it** for the duration, using a small redirect template that keeps tracking parameters. After Black Friday they switch to `muto-nad-trust`, the new page without the offer.
+
+The page itself is the new main page (every live section plus the new trust blocks) with the Black Friday offer on top:
 - **Sticky black bar:** "Black Friday · 53% off your first order plus a welcome kit worth £87 · 481/500 left · Claim offer".
-- **White offer box above the plans:** a live count of orders left out of 500.
-- **Plan cards:** Black Friday pricing, and the daily cost in a lime pill.
-
-After Black Friday, both URLs switch to `muto-nad-trust` (included), the same page without the offer.
+- **Offer box above the plans:** white, with a live count of orders left out of 500.
+- **Plan cards:** Black Friday pricing, with the daily cost in a lime pill.
 
 # Must be done before it goes live
 
-These are outside the theme. The page **says** the offer, but nothing here **applies** it.
-
-1. **The Black Friday prices at checkout.** The page shows:
-   - **Quarterly:** £99 for the first box, then £125, then £150. That's £33/mo, £1.10 a day, "Save 53%".
-   - **Monthly:** £49.99 for the first month, then £60 every 4 weeks. That's £1.79 a day, "Save 28%".
-
-   **No discount or Skio offer for this exists yet.** Without one, the cart and checkout charge the normal £150 / £60. Set it up in Skio, or as a Shopify discount, so checkout matches the page.
-   - If it's a discount code, tell Richie. The page can apply a code automatically.
-   - It's the `CODE` setting in `make_bf.py`, currently blank.
-2. **Orders left.** The bar and the box read the shop metafield **`muto.bf_orders_left`** (now **481**). Nothing counts it down yet. Either a Shopify Flow ("order created with the NAD+ subscription → decrease `muto.bf_orders_left` by 1") or a person updating it (Settings → Custom data → Shop → `bf_orders_left`). At 0 the box says "All 500 have gone."
-3. **The duplicated 3-month plan in Skio.** On 30 Oct a copy of the 3-month subscription (`copy-of-subscription-refills-3-month`, selling plan **694836494683**) was attached to the 90-day variants. It showed as a third, empty plan card.
-   - **On the new templates:** already hidden, via the buy box's "Hidden plans" setting.
-   - **On live `muto-nad-v2`:** add the same ID to "Hidden plans" (main and -2 show the extra card until step 3), or delete the copy in Skio if nobody needs it.
-   - **If the copy is the Black Friday plan:** tell Richie, as the hidden ID must change.
-4. **The travel vial in the cart**, see below.
+1. **Take the Black Friday 3-month plan off the main product. Urgent: it affects the live site now.** The BF 3-month plan (Skio group `bf-subscription-refills-3-month`, selling plan **694836494683**, **£99** first order) is attached to the **main** product's 90-day variants as well as the BF product's. On today's live page it shows as an extra, unpriced "3-MONTH SUBSCRIPTION" card, and anyone who picks it pays the Black Friday price on the main product. In Skio, remove the main product's variants from that plan group. The new templates hide it on the main product (`muto-nad-trust`, "Hidden plans"). The BF template doesn't hide it, because there it's the real plan.
+2. **Check the third payment.** The page says "£99 for your first order, £125 on your second, £150 on your third." Skio has £99, then £125 from the second order. Make sure the £150 from the third order is set (e.g. on the Month 7 variant or a second price step).
+3. **Orders left.** The bar and the box read the shop metafield **`muto.bf_orders_left`** (now **481**). Nothing counts it down yet:
+   - **To count it down:** use a Shopify Flow ("order created with the BF product → decrease `muto.bf_orders_left` by 1"), or have someone update it by hand (Settings → Custom data → Shop → `bf_orders_left`).
+   - **At 0:** the box says "All 500 have gone."
+4. **The cart** (step 2): add the travel vial to the 3-month gift list, and update the cart drawer so the BF saving says "on your first order".
 
 # Before you start
 
 - **Files:** `MUTO_BF_PDP_30Oct2026.zip`, also in GitHub at `handoff/bf-pdp/` (repo drrichiebarclay-rgb/claude, branch `claude/gifted-wozniak-e239h5`).
 - **Copy to:** the live theme, Clone Of Live | Buy Box Redesign [31-08] (ID 200736047451).
 - **Preview:** both pages are on the 3M refill plan theme (ID 202682564955):
-  - Black Friday: <https://muto.co/products/muto-nad-cellular-complex?preview_theme_id=202682564955&view=muto-nad-bf>
+  - Black Friday (the BF product): <https://muto.co/products/bf-nad-cellular-complex?preview_theme_id=202682564955>
   - After Black Friday: <https://muto.co/products/muto-nad-cellular-complex?preview_theme_id=202682564955&view=muto-nad-trust>
 - **Your edits are kept.** The buy box, its `easy_read` block, the menu, benefits, ingredient library, comparison, timeline, "How to take it", FAQs and the test-results panel are copied from **live `muto-nad-v2` as of 28 October**. If you've edited `muto-nad-v2` since, tell Richie first, and both templates will be rebuilt from your version.
+- **The cart drawer change** is in the zip at `snippets/cart-drawer.liquid` (step 2).
 - **Images:** the founder photo (`founder-bf-stage.jpg`) and the travel vial photo (`gift-travel-vial.jpg`) are already in Content → Files, so there is nothing to upload.
 
-# Step 1: add the 8 files, in this order
+# Step 1: add the 9 files, in this order
 
 Every file is new; nothing with these names exists on live.
 
@@ -51,8 +46,9 @@ Every file is new; nothing with these names exists on live.
 | `sections/muto-crea-standards.liquid` | "Checked, not taken on trust." four standards cards |
 | `sections/muto-crea-reviews.liquid` | "What our community say." rotating reviews (20) |
 | `sections/muto-crea-founder.liquid` | Founder band |
-| `templates/product.muto-nad-bf.json` | **The Black Friday page** |
-| `templates/product.muto-nad-trust.json` | The same page without the offer, for after Black Friday |
+| `templates/product.muto-nad-bf.json` | **The Black Friday page** (the BF product already points at it) |
+| `templates/product.muto-bf-redirect.json` | Sends the main URL and -2 to the BF product, keeping `?utm_…` |
+| `templates/product.muto-nad-trust.json` | The page without the offer, for main and -2 after Black Friday |
 
 Add the asset and the sections first. A template that uses a section is rejected if the section isn't there yet.
 
@@ -60,14 +56,17 @@ With the Shopify CLI, from the unzipped folder:
 
     shopify theme push --theme 200736047451 --nodelete \
       --only "assets/muto-crea-trust.css" --only "sections/muto-crea-*.liquid" \
-      --only "templates/product.muto-nad-bf.json" --only "templates/product.muto-nad-trust.json"
+      --only "templates/product.muto-nad-bf.json" --only "templates/product.muto-bf-redirect.json" \
+      --only "templates/product.muto-nad-trust.json"
 
-Or in admin: Online Store → Themes → live theme → … → Edit code. Add a new asset, then each new section, then two new product templates named `muto-nad-bf` and `muto-nad-trust`, and paste each file in.
+Or in admin: Online Store → Themes → live theme → … → Edit code. Add a new asset, then each new section, then three new product templates (`muto-nad-bf`, `muto-bf-redirect`, `muto-nad-trust`), and paste each file in.
 
 All the other sections the page uses are already on live and unchanged: `muto-pdp-v2-buy`, `muto-section-nav`, `muto-benefit-cards`, `muto-home-board`, `muto-ingredient-library`, `muto-home-results`, `muto-chapter`, `muto-timeline`, `muto-crea-faq`, `custom-reviews`, `muto-test-results`, `custom-liquid`.
 
-# Step 2: the travel vial
+# Step 2: the cart
 
+
+## Travel vial
 
 A free **travel vial** now comes with the first order on the 3-month plan only, shown with **£10 crossed out**, like the other gifts.
 
@@ -76,16 +75,29 @@ A free **travel vial** now comes with the first order on the 3-month plan only, 
 - **Page: in the template.** The welcome kit shows a "Travel vial" tile (£10 struck through) and an itemised row on the quarterly plan only. The quarterly kit is now worth **£87** (was £77) in the plan's bullet and the bar above the plans.
 - **Also say £87** wherever else the quarterly kit is quoted at £77, e.g. the announcement bar's "£77 OF FREE GIFTS WITH EACH ORDER" if that's meant to be the quarterly figure.
 
-# Step 3: switch the product templates
+## The 3-month gifts on the BF product
 
-Do this **after** step 1, and once the prices at checkout match (see "Must be done before it goes live"). In Shopify admin, go to Products → product → Theme template.
+Your 30 Oct change to `custom.js` decides the gifts by SKU (`NAD-3M-Month1` / `NAD-1M-Month1`) rather than product ID. The BF product uses the same SKUs, so its orders get the welcome-kit gifts too. Once the vial is in the 3-month list, they get the vial as well, at checkout as well as in the cart, because the gifts are real £0 lines.
+
+## The saving line in the cart drawer
+
+The drawer says "You save £111 every 3 months, ongoing" under the BF product. That's wrong, because the BF price is for the first order only. Replace `snippets/cart-drawer.liquid` with the one in the zip (`snippets/cart-drawer.liquid`). It's the live file from 27 Oct with one change: for products whose handle contains `bf-` (or that are tagged `first-order-offer`), it says **"You save £111 on your first order"**. The main product keeps "every 3 months, ongoing". If you've edited the drawer since 27 Oct, copy the change across instead. It's the `mc_first_only` block above the "You save" line.
+
+# Step 3: point the main URL and -2 at the Black Friday product
+
+Do this **after** steps 1 and 2 and the "Must be done" list. In Shopify admin, go to Products → product → Theme template.
 
 | URL | Product | Template now | Black Friday | After Black Friday |
 |---|---|---|---|---|
-| `/products/muto-nad-cellular-complex` (main) | NAD+ Cellular Complex | `muto-nad-v2` | **`muto-nad-bf`** | `muto-nad-trust` |
-| `/products/muto-nad-cellular-complex-2` | NAD+ Cellular Complex 2 | `muto-nad-v2` | **`muto-nad-bf`** | `muto-nad-trust` |
+| `/products/bf-nad-cellular-complex` | BF NAD+ Cellular Complex | `muto-nad-bf` (already) | `muto-nad-bf` | set to **Draft** |
+| `/products/muto-nad-cellular-complex` (main) | NAD+ Cellular Complex | `muto-nad-v2` | **`muto-bf-redirect`** | `muto-nad-trust` |
+| `/products/muto-nad-cellular-complex-2` | NAD+ Cellular Complex 2 | `muto-nad-v2` | **`muto-bf-redirect`** | `muto-nad-trust` |
 
-Nothing is deleted. `muto-nad-v2` stays in the theme, so either page can be switched back in one click.
+- **How the redirect works:** `muto-bf-redirect` sends visitors straight to `/products/bf-nad-cellular-complex`, keeping the query string, so `utm_`, `gclid` and `fbclid` survive. A Shopify URL redirect can't do this, because those only apply to pages that don't exist.
+- **In the theme editor:** the redirect doesn't fire, so the main product can still be edited.
+- **Ads and emails:** they can also link to the BF product directly.
+
+Nothing is deleted. `muto-nad-v2` stays in the theme, so any product can be switched back in one click.
 
 # Step 4: the announcement bar
 
@@ -96,7 +108,7 @@ Nothing is deleted. `muto-nad-v2` stays in the theme, so either page can be swit
 
 **MUTO10 was ended on 28 October at 17:19.** It no longer works at checkout. The dark "BLACK FRIDAY PRE-SALE" box still says the code "is applied automatically at checkout", and its script still tries to apply MUTO10 on page load. It's on three live templates:
 
-- `product.muto-nad-v2` (main and -2 until step 3 is done; also the page they go back to after Black Friday)
+- `product.muto-nad-v2` (main and -2 until step 3 is done)
 - `product.muto-nad-performance` (-3)
 - `product.muto-nad-45` (no product uses it now)
 
@@ -108,7 +120,7 @@ In each one, open the `easy_read` Custom Liquid block and delete three things:
 
 The new `muto-nad-bf` and `muto-nad-trust` templates already have all three removed.
 
-**Quick stopgap** if step 3 can't be done straight away: Online Store → Customize → Theme settings → Custom CSS, add `.mc-bf:has(.mc-bf__clock){display:none !important}`. That hides the box on every page. The script still runs, but MUTO10 is ended, so nothing is applied.
+**Quick stopgap** if this can't be done straight away: Online Store → Customize → Theme settings → Custom CSS, add `.mc-bf:has(.mc-bf__clock){display:none !important}`. That hides the box on every page. The script still runs, but MUTO10 is ended, so nothing is applied.
 
 # The Black Friday additions
 
@@ -178,7 +190,7 @@ The template now does its part: the REVIEWS.io widget loads only when the reader
 
 # Check after publishing
 
-1. **Main URL and -2 on phone and desktop:**
+1. **Main URL and -2** land on `/products/bf-nad-cellular-complex`, with any `?utm_…` kept. **On the BF product, on phone and desktop:**
    - the black bar is at the very top, with the header fully visible under it and no blue bar
    - the page opens on the **Quarterly** plan
    - nothing jumps as it loads
@@ -186,9 +198,12 @@ The template now does its part: the REVIEWS.io widget loads only when the reader
    - Quarterly: first box £99
    - Monthly: first month £49.99
 
-   This is the "Must be done" item. Check every plan, one-time included.
+   **The main product's own plans no longer offer £99.**
 3. **Orders left:** the bar and the box both show the metafield value. Change it and both follow.
-4. **Travel vial:** add the 3-month plan to the cart. The gift list shows Travel Vial, ~~£10~~ Free. The monthly plan doesn't get it.
+4. **Cart, 3-month BF plan:**
+   - The saving line says "You save £111 on your first order".
+   - The gift list includes Travel Vial, ~~£10~~ Free, and so does the checkout.
+   - The monthly plan doesn't get the vial.
 5. **Only two plan cards** (Monthly, Quarterly) plus "Buy once". No empty "3-MONTH SUBSCRIPTION" card.
 6. **Clicks:**
    - The bar scrolls to the offer box.
@@ -196,4 +211,4 @@ The template now does its part: the REVIEWS.io widget loads only when the reader
    - "View third-party testing results" opens the certificate panel.
    - The stars scroll to the reviews widget.
 7. **Videos** play, and the **reviews** rotate. The REVIEWS.io widget at the bottom loads as you scroll near it.
-8. **After Black Friday:** switch both products to `muto-nad-trust` and check point 1 again. There should be no bar, no offer box and normal prices.
+8. **After Black Friday:** switch main and -2 to `muto-nad-trust`, and set the BF product to Draft. The main URL should show the page with no bar, no offer box and normal prices.

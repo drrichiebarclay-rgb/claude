@@ -231,6 +231,10 @@ def main():
     fs["image_alt"] = "Dr Richie Barclay speaking on stage at a MUTO event"
     fs["image_position"] = "50% 30%"
 
+    # The BF product (bf-nad-cellular-complex) has its own Skio plans, and 694836494683 is its 3-month plan:
+    # don't carry the main page's hide of that id onto this template.
+    d["sections"]["buy"]["settings"]["hidden_plans"] = ""
+
     # Black bar over the plans: "Black Friday offer" (the "✦ Best value" label stays on its left)
     d["sections"]["buy"]["settings"]["plans_banner"] = "Black Friday offer · Limited stock"
     # Ticks: the welcome-kit line first, on both plans
