@@ -76,6 +76,63 @@ html body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-head::after{c
 
 CSS = CSS.replace("%(m_day)s", M_DAY).replace("%(q_day)s", Q_DAY)
 
+# --- Sticky bar -------------------------------------------------------------------------------------
+BAR_H = 44
+BAR = """<style>
+.mc-bfbar-slot{height:%(h)dpx}
+.mc-bfbar{position:relative;z-index:60;display:flex;align-items:center;justify-content:center;gap:14px;height:%(h)dpx;padding:0 16px;
+  background:#242223;color:#fff;font-family:var(--mc-font,inherit);font-size:15px;line-height:1;text-decoration:none;white-space:nowrap;overflow:hidden}
+.mc-bfbar.is-fixed{position:fixed;top:0;left:0;right:0;box-shadow:0 1px 0 rgba(255,255,255,.08)}
+.mc-bfbar:hover,.mc-bfbar:focus-visible{color:#fff}
+.mc-bfbar:focus-visible{outline:2px solid #5efaff;outline-offset:-3px}
+.mc-bfbar__tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--mc-mono,monospace);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.mc-bfbar__dot{width:7px;height:7px;border-radius:50%%;background:#fff;animation:mcBfPulse 1.6s ease-in-out infinite}
+.mc-bfbar__msg b,.mc-bfbar__left b{font-weight:600}
+.mc-bfbar__left{font-variant-numeric:tabular-nums;opacity:.85}
+.mc-bfbar__cta{font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.mc-bfbar__sep{opacity:.4}
+@keyframes mcBfPulse{50%%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.mc-bfbar__dot{animation:none}}
+@media (max-width:749px){.mc-bfbar{gap:10px;font-size:13px}.mc-bfbar__more,.mc-bfbar__cta,.mc-bfbar__sep--cta{display:none}.mc-bfbar__tag{font-size:10.5px;letter-spacing:.1em}}
+@media (max-width:370px){.mc-bfbar__sep--left,.mc-bfbar__left{display:none}}
+</style>
+{%%- assign mc_left = shop.metafields.muto.bf_orders_left.value -%%}
+<div class="mc-bfbar-slot" id="mc-bfbar-slot">
+  <a class="mc-bfbar" href="#MainContent" aria-label="Black Friday offer: %(headline)s %(kit)s. See the offer.">
+    <span class="mc-bfbar__tag"><span class="mc-bfbar__dot" aria-hidden="true"></span>Black Friday</span>
+    <span class="mc-bfbar__msg"><b>%(short)s</b><span class="mc-bfbar__more"> %(kit)s</span></span>
+    {%%- if mc_left != blank and mc_left >= 0 -%%}
+      <span class="mc-bfbar__sep mc-bfbar__sep--left" aria-hidden="true">·</span>
+      <span class="mc-bfbar__left"><b>{{ mc_left }}</b>/%(total)d left</span>
+    {%%- endif -%%}
+    <span class="mc-bfbar__sep mc-bfbar__sep--cta" aria-hidden="true">·</span>
+    <span class="mc-bfbar__cta">Claim offer</span>
+  </a>
+</div>
+<script>
+(function () {
+  var slot = document.getElementById('mc-bfbar-slot');
+  if (!slot) return;
+  var bar = slot.firstElementChild, ticking = false;
+  function update() {
+    ticking = false;
+    bar.classList.toggle('is-fixed', slot.getBoundingClientRect().top <= 0);
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  update();
+  /* Tap: bring the offer box (or the plans) into view */
+  bar.addEventListener('click', function (e) {
+    var to = document.querySelector('.mc-bf') || document.querySelector('.mc__plans');
+    if (!to) return;
+    e.preventDefault();
+    var y = to.getBoundingClientRect().top + window.pageYOffset - %(h)d - 12;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  });
+})();
+</script>""" % {"h": BAR_H, "headline": HEADLINE, "kit": KIT, "short": "53% off your first order", "total": TOTAL}
+
 JS = """/* Black Friday: 53%% off the first order plus the welcome kit, limited to TOTAL orders.
    Orders left comes from the shop metafield muto.bf_orders_left (printed into #mc-bf-data by the
    template); it must be the real number left. Blank hides the count. CODE, once set, is applied
@@ -191,6 +248,13 @@ def main():
         kit = [i for i in items if "welcome kit" in i.lower()]
         assert len(kit) == 1, items
         plan["settings"]["detail"] = "<ul>" + "".join(kit + [i for i in items if i not in kit]) + "</ul>"
+
+    # Sticky Black Friday bar: black, white type, at the top of the page; locks to the top of the screen
+    # once scrolled past (its slot keeps the space, so nothing moves). The "On this page" menu pins under it.
+    d["sections"]["bf_bar"] = {"type": "custom-liquid", "settings": {
+        "custom_liquid": BAR, "color_scheme": "scheme-1", "padding_top": 0, "padding_bottom": 0}}
+    d["order"].insert(d["order"].index("buy"), "bf_bar")
+    d["sections"]["nav"]["settings"]["nav_top"] = BAR_H
 
     with open(OUT, "w") as fh:
         fh.write(head)
