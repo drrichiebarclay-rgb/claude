@@ -1,0 +1,92 @@
+{%- comment -%}
+  MUTO — Founder. Portrait on one side; on the other a heading, the story,
+  a pull quote in his words and a short list of credentials.
+
+  MOBILE: portrait first, copy under it.
+{%- endcomment -%}
+{{ 'muto-crea.css' | asset_url | stylesheet_tag }}
+{{ 'muto-crea-trust.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign spt = section.settings.space_top | default: 100 | times: 0.01
+  assign spb = section.settings.space_bottom | default: 100 | times: 0.01
+  assign heading_id = 'mc-fdr-' | append: section.id
+-%}
+<div class="mc mc--fdr" style="--mc-spt:{{ spt }};--mc-spb:{{ spb }}">
+  <div class="mc__wrap">
+    <section class="mc__fdr" aria-labelledby="{{ heading_id }}">
+      <div class="mc__fdr-media">
+        <div class="mc__fdr-frame">
+        {% render 'muto-image',
+          image: section.settings.image,
+          fallback: section.settings.image_fallback,
+          alt: section.settings.image_alt,
+          ratio: '4/5',
+          sizes: '(min-width: 990px) 560px, 92vw',
+          widths: '400,560,800,1120',
+          position: section.settings.image_position %}
+        </div>
+        {%- if section.settings.caption != blank -%}
+          <p class="mc__trust-label mc__fdr-caption">{{ section.settings.caption }}</p>
+        {%- endif -%}
+      </div>
+      <div class="mc__fdr-copy">
+        {%- if section.settings.eyebrow != blank -%}<p class="mc__trust-label mc__fdr-eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+        <h2 class="mc__h2 mc__fdr-head" id="{{ heading_id }}">{{ section.settings.heading | escape | newline_to_br }}</h2>
+        {%- if section.settings.text != blank -%}<div class="mc__rt mc__fdr-text">{{ section.settings.text }}</div>{%- endif -%}
+        {%- if section.settings.quote != blank -%}
+          <figure class="mc__fdr-quote">
+            <p class="mc__fdr-quote-text">“{{ section.settings.quote }}”</p>
+            {%- if section.settings.quote_by != blank -%}<figcaption class="mc__fdr-sign">{{ section.settings.quote_by }}</figcaption>{%- endif -%}
+          </figure>
+        {%- endif -%}
+        {%- if section.blocks.size > 0 -%}
+          <dl class="mc__fdr-facts">
+            {%- for block in section.blocks -%}
+              <div class="mc__fdr-fact" {{ block.shopify_attributes }}>
+                <dt class="mc__trust-label">{{ block.settings.label }}</dt>
+                <dd>{{ block.settings.value }}</dd>
+              </div>
+            {%- endfor -%}
+          </dl>
+        {%- endif -%}
+        {%- if section.settings.link_label != blank and section.settings.link != blank -%}
+          <a class="mc__trust-link" href="{{ section.settings.link }}">{{ section.settings.link_label }} <span aria-hidden="true">→</span></a>
+        {%- endif -%}
+      </div>
+    </section>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "MUTO — Founder",
+  "tag": "section",
+  "class": "mc-section",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Small label", "default": "Our founder" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Built by a scientist." },
+    { "type": "richtext", "id": "text", "label": "Story" },
+    { "type": "textarea", "id": "quote", "label": "Pull quote (his own words)" },
+    { "type": "text", "id": "quote_by", "label": "Quote attribution" },
+    { "type": "text", "id": "link_label", "label": "Link label" },
+    { "type": "url", "id": "link", "label": "Link" },
+    { "type": "header", "content": "Portrait" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "image_fallback", "label": "Fallback image URL" },
+    { "type": "text", "id": "image_alt", "label": "Alt text" },
+    { "type": "text", "id": "image_position", "label": "Image focus", "info": "CSS object-position, e.g. \"50% 20%\". Blank centres it." },
+    { "type": "text", "id": "caption", "label": "Caption under the portrait" },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 2, "unit": "%", "default": 100 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 2, "unit": "%", "default": 100 }
+  ],
+  "blocks": [
+    { "type": "fact", "name": "Credential", "settings": [
+      { "type": "text", "id": "label", "label": "Label", "default": "Training" },
+      { "type": "text", "id": "value", "label": "Value", "default": "PhD, cellular biology and nutrition" }
+    ] }
+  ],
+  "presets": [{ "name": "MUTO — Founder" }],
+  "enabled_on": { "templates": ["product", "page", "index"] }
+}
+{% endschema %}

@@ -1,0 +1,136 @@
+{%- comment -%}
+  MUTO — Rotating reviews. Up to 20 hand-picked written reviews, each with a
+  name and, ideally, an age. A rail of cards that moves on by one card every
+  few seconds, pauses while the reader hovers, focuses or touches it, and
+  doesn't move at all for anyone who has asked for reduced motion.
+
+  REAL WORDS ONLY: the quote must be the customer's own, copied from the
+  review. The topic line above it is ours.
+
+  AGE FILTER: a review whose age is below "Minimum age" is not shown. With
+  "Only reviews with an age" on, reviews with no age are not shown either.
+{%- endcomment -%}
+{{ 'muto-crea.css' | asset_url | stylesheet_tag }}
+{{ 'muto-crea-trust.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign spt = section.settings.space_top | default: 100 | times: 0.01
+  assign spb = section.settings.space_bottom | default: 100 | times: 0.01
+  assign heading_id = 'mc-rev-' | append: section.id
+  assign min_age = section.settings.min_age | default: 0
+-%}
+<div class="mc mc--rev" style="--mc-spt:{{ spt }};--mc-spb:{{ spb }}">
+  <div class="mc__wrap">
+    <section class="mc__rev" aria-labelledby="{{ heading_id }}" data-mc-rev data-interval="{{ section.settings.interval | default: 6 }}">
+      <div class="mc__trust-top">
+        <h2 class="mc__h2" id="{{ heading_id }}">{{ section.settings.heading | escape | newline_to_br }}</h2>
+        <div class="mc__rev-side">
+          {%- if section.settings.eyebrow != blank -%}<p class="mc__trust-note">{{ section.settings.eyebrow }}</p>{%- endif -%}
+          {%- if section.settings.summary != blank -%}
+            <p class="mc__rev-summary"><span class="mc__rev-stars" aria-hidden="true">★★★★★</span> {{ section.settings.summary }}</p>
+          {%- endif -%}
+          <div class="mc__rev-nav">
+            <button type="button" class="mc__rev-btn" data-mc-rev-prev aria-label="Previous review">←</button>
+            <p class="mc__trust-label mc__rev-count" aria-hidden="true"><span data-mc-rev-at>01</span> / <span data-mc-rev-of>01</span></p>
+            <button type="button" class="mc__rev-btn" data-mc-rev-next aria-label="Next review">→</button>
+          </div>
+        </div>
+      </div>
+
+      <ul class="mc__rev-rail mc__rail" data-mc-rev-rail tabindex="0" aria-label="{{ section.settings.heading | escape }}">
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign age = block.settings.age | plus: 0
+            assign show = true
+            if block.settings.quote == blank
+              assign show = false
+            endif
+            if age > 0 and age < min_age
+              assign show = false
+            endif
+            if age == 0 and section.settings.require_age
+              assign show = false
+            endif
+          -%}
+          {%- if show -%}
+            <li class="mc__rev-card" {{ block.shopify_attributes }}>
+              <p class="mc__rev-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              {%- if block.settings.topic != blank -%}<p class="mc__trust-tag mc__rev-topic"><span class="mc__trust-spark" aria-hidden="true"></span>{{ block.settings.topic }}</p>{%- endif -%}
+              <blockquote class="mc__rev-quote">“{{ block.settings.quote }}”</blockquote>
+              <p class="mc__rev-who">
+                <span class="mc__rev-name">{{ block.settings.name }}{% if age > 0 %}, {{ age }}{% endif %}</span>
+                {%- if block.settings.verified -%}<span class="mc__trust-label mc__rev-ver"><span aria-hidden="true">✓</span> Verified buyer</span>{%- endif -%}
+              </p>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+      {%- if section.settings.foot != blank -%}<p class="mc__rev-foot">{{ section.settings.foot }}</p>{%- endif -%}
+    </section>
+  </div>
+</div>
+<script>
+(function () {
+  var root = document.currentScript.previousElementSibling.querySelector('[data-mc-rev]');
+  if (!root || root.dataset.ready) return;
+  root.dataset.ready = '1';
+  var rail = root.querySelector('[data-mc-rev-rail]');
+  var cards = rail.children;
+  var at = root.querySelector('[data-mc-rev-at]');
+  root.querySelector('[data-mc-rev-of]').textContent = String(cards.length).padStart(2, '0');
+  if (cards.length < 2) { root.querySelector('.mc__rev-nav').hidden = true; return; }
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ms = Math.max(3, parseFloat(root.dataset.interval) || 6) * 1000;
+  var paused = false, timer;
+  function step() { return cards[0].getBoundingClientRect().width + parseFloat(getComputedStyle(rail).columnGap || 0); }
+  function index() { return Math.round(rail.scrollLeft / step()); }
+  function atEnd() { return rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 4; }
+  function go(i) {
+    var n = cards.length;
+    if (i < 0) i = n - 1;
+    if (i >= n || (i > index() && atEnd())) i = 0;
+    rail.scrollTo({ left: i * step(), behavior: still ? 'auto' : 'smooth' });
+  }
+  function show() { at.textContent = String(Math.min(index() + 1, cards.length)).padStart(2, '0'); }
+  rail.addEventListener('scroll', function () { window.requestAnimationFrame(show); }, { passive: true });
+  root.querySelector('[data-mc-rev-prev]').addEventListener('click', function () { go(index() - 1); });
+  root.querySelector('[data-mc-rev-next]').addEventListener('click', function () { go(index() + 1); });
+  ['mouseenter', 'focusin', 'touchstart'].forEach(function (e) { root.addEventListener(e, function () { paused = true; }, { passive: true }); });
+  ['mouseleave', 'focusout'].forEach(function (e) { root.addEventListener(e, function () { paused = false; }); });
+  if (!still) {
+    var seen = false;
+    new IntersectionObserver(function (es) { seen = es[0].isIntersecting; }).observe(root);
+    timer = setInterval(function () { if (seen && !paused && !document.hidden) go(index() + 1); }, ms);
+  }
+})();
+</script>
+{% schema %}
+{
+  "name": "MUTO — Rotating reviews",
+  "tag": "section",
+  "class": "mc-section",
+  "max_blocks": 20,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Note", "default": "Verified customers", "info": "Sits opposite the heading on desktop." },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "What customers\nreport." },
+    { "type": "text", "id": "summary", "label": "Rating summary", "info": "E.g. \"4.8 from 412 reviews\". Use the live figure from REVIEWS.io. Blank hides it." },
+    { "type": "range", "id": "interval", "label": "Seconds per review", "min": 3, "max": 12, "step": 1, "unit": "s", "default": 6 },
+    { "type": "number", "id": "min_age", "label": "Minimum age", "default": 30, "info": "Reviews with a lower age are hidden." },
+    { "type": "checkbox", "id": "require_age", "label": "Only reviews with an age", "default": false },
+    { "type": "text", "id": "foot", "label": "Small line below", "default": "Real reviews from verified customers. Everyone is different." },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 2, "unit": "%", "default": 100 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 2, "unit": "%", "default": 100 }
+  ],
+  "blocks": [
+    { "type": "review", "name": "Review", "settings": [
+      { "type": "text", "id": "topic", "label": "Topic (our words)", "info": "E.g. \"Afternoon energy\"." },
+      { "type": "textarea", "id": "quote", "label": "Customer quote (their exact words)" },
+      { "type": "text", "id": "name", "label": "Name", "info": "First name and initial, e.g. \"Holly P\"." },
+      { "type": "text", "id": "age", "label": "Age", "info": "Numbers only. Only with the customer's permission." },
+      { "type": "checkbox", "id": "verified", "label": "Verified buyer", "default": true }
+    ] }
+  ],
+  "presets": [{ "name": "MUTO — Rotating reviews" }],
+  "enabled_on": { "templates": ["product", "page", "index"] }
+}
+{% endschema %}
