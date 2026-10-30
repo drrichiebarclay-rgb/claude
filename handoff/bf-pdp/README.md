@@ -16,7 +16,7 @@ The page itself is the new main page (every live section plus the new trust bloc
 
 # The quick route: publish the Black Friday theme
 
-Everything below is already built into a copy of the live theme, **"Black Friday | dup of live 30-10" (ID 203930960219)**. It was duplicated from live at about 13:00 on 30 Oct, so it has your latest `custom.js` (with the NAD+-first ordering), cart drawer and settings, plus:
+Everything below is already built into a copy of the live theme, **"Black Friday | 30 Oct 2026 | dup of live" (ID 203930960219)**. It was duplicated from live at about 13:00 on 30 Oct, so it has your latest `custom.js` (with the NAD+-first ordering), cart drawer and settings, plus:
 
 | File | Change |
 |---|---|
