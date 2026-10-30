@@ -21,7 +21,10 @@ The page itself is the new main page (every live section plus the new trust bloc
 3. **Orders left.** The bar and the box read the shop metafield **`muto.bf_orders_left`** (now **481**). Nothing counts it down yet:
    - **To count it down:** use a Shopify Flow ("order created with the BF product → decrease `muto.bf_orders_left` by 1"), or have someone update it by hand (Settings → Custom data → Shop → `bf_orders_left`).
    - **At 0:** the box says "All 500 have gone."
-4. **The cart** (step 2): add the travel vial to the 3-month gift list, and update the cart drawer so the BF saving says "on your first order".
+4. **The cart** (step 2):
+   - set the two gift lists: vial, eBook and Forever Jar added, in display order
+   - change `custom.js` so checkout reads NAD+, creatine … Garmin
+   - update the cart drawer so the BF saving says "on your first order"
 
 # Before you start
 
@@ -78,6 +81,81 @@ A free **travel vial** now comes with the first order on the 3-month plan only, 
 ## The 3-month gifts on the BF product
 
 Your 30 Oct change to `custom.js` decides the gifts by SKU (`NAD-3M-Month1` / `NAD-1M-Month1`) rather than product ID. The BF product uses the same SKUs, so its orders get the welcome-kit gifts too. Once the vial is in the 3-month list, they get the vial as well, at checkout as well as in the cart, because the gifts are real £0 lines.
+
+## Gift lists: what's added, and in what order
+
+Two theme settings (Online Store → Customize → Theme settings → cart giveaway) decide which free products are added. Set them to exactly this, **in this order**, which is the order they'll show in the cart and at checkout under NAD+:
+
+| Setting | Products, in order |
+|---|---|
+| 3-month free products (`cart_free_product_3m`) | `muto-performance-creatine`, `muto-socks-free`, `muto-performance-water-bottle`, **`muto-travel-vial-free`**, **`muto-ebook`**, **`muto-forever-jar-free`**, `chance-to-win-garmin-watch` |
+| 1-month free products (`cart_free_product`) | `muto-performance-creatine`, `muto-socks-free`, **`muto-ebook`**, **`muto-forever-jar-free`**, `chance-to-win-garmin-watch` |
+
+- **Forever Jar is new:** "Forever Jar", `muto-forever-jar-free`, SKU `FOREVER-JAR`. It's £0 with a £10 compare-at, unlisted, stock not tracked, ships with the order, and has its photo.
+- **The 12-Week Protocol eBook** (`muto-ebook`, £0, compare-at £10, no shipping) already exists. It wasn't in the 3-month list.
+- **The cart drawer** already draws the eBook and the jar as listed-only extras when they aren't real lines. Once they are real lines it lists those instead, with no duplicates. They then also appear at checkout.
+- **Check with the warehouse:** the jar used to come in every kit without a cart line. Now it's a £0 line, so make sure each order still gets one jar, not two.
+
+## Order in the cart and at checkout: NAD+ first, creatine second, Garmin last
+
+Shopify lists the **newest** cart line first, in the cart and at checkout. The gift script adds the gifts after NAD+ is added, so they end up above it. Change `checkManualGiveAway` in `assets/custom.js` (your 30 Oct version) so that when it adds gifts it:
+1. re-adds them one at a time, in reverse of the settings order
+2. moves Garmin to the end, because `variantIds` puts `cart_giveaway_product` (Garmin) first
+3. re-adds the NAD+ line last, so it sits on top
+
+Replace:
+
+```js
+        // 3. Add desired giveaways that are missing
+        const missing = desiredIds.filter(
+            (id) => !items.some((item) => cusManualGiveawayIsMatch(item, id))
+        );
+        if (missing.length) await cusManualGwpAddToCart(missing);
+
+        await refreshCartUI();
+    };
+```
+
+with:
+
+```js
+        // 3. Add desired giveaways that are missing, then put the cart in display order.
+        //    Shopify shows the newest line first (cart and checkout): re-add every gift one at a
+        //    time in reverse of the settings order, Garmin last, then re-add NAD+ so it's on top.
+        const missing = desiredIds.filter(
+            (id) => !items.some((item) => cusManualGiveawayIsMatch(item, id))
+        );
+        if (missing.length) {
+            const garminId = String(window.cartGiveaway?.variantId || '');
+            const ordered = desiredIds.filter((id) => id !== garminId)
+                .concat(desiredIds.includes(garminId) ? [garminId] : []);
+            const present = items.filter((item) => ordered.some((id) => cusManualGiveawayIsMatch(item, id)));
+            if (present.length) await cusManualGiveawayRemoveFromCart(present.map((item) => item.key));
+            for (const id of ordered.slice().reverse()) await cusManualGwpAddToCart([id]);
+            await moveNadToTop();
+        }
+
+        await refreshCartUI();
+    };
+
+    // Re-add the NAD+ subscription line(s) so they're the newest, i.e. listed first.
+    const moveNadToTop = async () => {
+        const cart = await getCartJson();
+        const nad = (cart.items || []).filter((item) =>
+            /^NAD-/.test(getSku(item)) && !(item.properties || {})[CUS_MANUAL_Giveaway_PROP_KEY]);
+        for (const item of nad) {
+            await fetch('/cart/change.js', { ...fetchConfig(), body: JSON.stringify({ id: item.key, quantity: 0 }) });
+            const line = { id: item.variant_id, quantity: item.quantity, properties: item.properties || {} };
+            if (item.selling_plan_allocation) line.selling_plan = item.selling_plan_allocation.selling_plan.id;
+            await fetch('/cart/add.js', { ...fetchConfig(), body: JSON.stringify({ items: [line] }) });
+        }
+    };
+```
+
+It only reorders when gifts are being added, so changing a quantity doesn't trigger it. The loader overlay already covers the extra requests, about a second. Test on a real cart, because Shopify's line order has changed between API versions:
+- add 3-month NAD+
+- check the drawer and checkout read NAD+, creatine, socks, bottle, travel vial, eBook, Forever Jar, Garmin
+- try the monthly plan too
 
 ## The saving line in the cart drawer
 
@@ -200,7 +278,8 @@ The template now does its part: the REVIEWS.io widget loads only when the reader
 
    **The main product's own plans no longer offer £99.**
 3. **Orders left:** the bar and the box both show the metafield value. Change it and both follow.
-4. **Cart, 3-month BF plan:**
+4. **Cart and checkout, 3-month BF plan:**
+   - The lines read NAD+, creatine, socks, bottle, travel vial, eBook, Forever Jar, Garmin, in that order.
    - The saving line says "You save £111 on your first order".
    - The gift list includes Travel Vial, ~~£10~~ Free, and so does the checkout.
    - The monthly plan doesn't get the vial.
