@@ -109,7 +109,9 @@ JS = """/* Black Friday: 53%% off the first order plus the welcome kit, limited 
     box.innerHTML = html;
     plans.parentNode.insertBefore(box, plans);
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount); else mount();
+  /* Straight away: this runs right after the buy box, so the plans are already there */
+  mount();
+  if (!document.querySelector('.mc-bf')) document.addEventListener('DOMContentLoaded', mount);
 })();
 """ % {"code": json.dumps(CODE), "total": TOTAL, "headline": HEADLINE, "kit": KIT, "schedule": SCHEDULE}
 
@@ -132,11 +134,14 @@ def main():
     h = hs["custom_liquid"]
     k = h.index("/* -2 page only:")
     h = h[:k] + CSS + h[k:]
-    # 2. script, before the subhead script
-    k = t.index("/* Subhead under the title")
-    t = t[:k] + JS + "\n" + t[k:]
-    # 3. data: the orders-left count
-    t = DATA + "\n" + t
+    # 2+3. the box's script and its orders-left data run in the early block straight after the buy box
+    # (see make_trust.early_scripts), so the box is in place before first paint rather than pushing the
+    # plans down once the page has loaded
+    es = d["sections"]["early"]["settings"]
+    e = es["custom_liquid"]
+    k = e.index("/* Subhead under the title")
+    e = e[:k] + JS + "\n" + e[k:]
+    es["custom_liquid"] = DATA + "\n" + e
     # 4. quarterly card: per-month price drawn by the stylesheet, and the sticky bar's copy of it
     old_q = 'label.mc__plan:nth-of-type(2) .mc__plan-prices::before{content:"£50/mo"}'
     assert old_q in h

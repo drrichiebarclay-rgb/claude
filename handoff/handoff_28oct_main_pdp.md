@@ -114,7 +114,7 @@ Also changed from `muto-nad-v2`:
 
 ## How it's built
 
-- **Template-only** apart from the five new sections and their stylesheet. The page's own styles are in a Custom Liquid block called `head_styles` at the **top** of the template, so the buy box is styled from the first paint (with them at the bottom, the old design flashed on load). Its scripts stay in `easy_read` and `bands` at the bottom. The `bands` scripts (delivery line, rotating stats, collaboration line, video drag) run again after `shopify:section:load`, so they survive the theme editor re-drawing the buy box.
+- **Template-only** apart from the five new sections and their stylesheet. The page's own styles are in a Custom Liquid block called `head_styles` at the **top** of the template, so the buy box is styled from the first paint (with them at the bottom, the old design flashed on load). Its scripts stay in `easy_read` and `bands` at the bottom. A Custom Liquid block called `early`, straight after the buy box, opens the page on the Quarterly plan and adds the subhead, the testing-results button, the collaboration line, the rotating stats and the delivery line before the first paint, so nothing jumps on load (it used to flip from Monthly to Quarterly once the page had loaded). The same scripts at the bottom stay as a safety net. The `bands` scripts (delivery line, rotating stats, collaboration line, video drag) run again after `shopify:section:load`, so they survive the theme editor re-drawing the buy box.
 - **Source:** `shopify/pdp-trust/make_trust.py` builds the template. Change copy there and rebuild rather than editing by hand, or tell Richie about manual edits so they aren't lost on the next rebuild.
 
 # Check after publishing

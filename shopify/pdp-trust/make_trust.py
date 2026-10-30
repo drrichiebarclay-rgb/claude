@@ -510,6 +510,60 @@ def travel_vial(buy):
     buy["settings"]["plans_banner"] = buy["settings"]["plans_banner"].replace(KIT_Q_OLD, KIT_Q_NEW)
 
 
+# --- No jumping on load ----------------------------------------------------------------------------
+# Everything the page adds to the buy box used to run from the bottom of the page, so a phone painted
+# the buy box first and then shifted it: the plan flipped from Monthly to Quarterly after the whole page
+# had loaded, and the subhead, the testing button, the collaboration line, the stats and the delivery
+# line popped in. They now run from a block straight after the buy box, before the first paint. The
+# copies at the bottom stay as a safety net and do nothing once these have run (each is guarded).
+PRESELECT_JS = """<script>
+/* Open on the Quarterly plan (the second card) before first paint: the same switch muto-home.js makes
+   on a click, so its own start-up then announces Quarterly and nothing changes on screen. */
+(function () {
+  var cards = [].slice.call(document.querySelectorAll('.mc__plans > label.mc__plan'));
+  var q = cards[1];
+  if (!q || q.classList.contains('is-selected') || q.classList.contains('is-unavailable')) return;
+  var qi = q.querySelector('.mc__plan-input');
+  if (qi && qi.disabled) return;
+  cards.forEach(function (c) {
+    var on = c === q;
+    c.classList.toggle('is-selected', on);
+    var r = c.querySelector('input[type="radio"]');
+    if (r && !r.disabled) r.checked = on;
+  });
+  var idx = q.getAttribute('data-index');
+  [].forEach.call(document.querySelectorAll('[data-mc-plan-for]'), function (el) {
+    var list = (el.getAttribute('data-mc-plan-for') || '').split(/\\s+/);
+    el.classList.toggle('is-plan-off', list.indexOf(idx) === -1);
+  });
+  var price = q.getAttribute('data-price-full') || q.getAttribute('data-price') || '';
+  if (price) [].forEach.call(document.querySelectorAll('[data-mh-cta-price]'), function (s) { s.textContent = price; });
+  var v = q.getAttribute('data-variant');
+  if (v) {
+    var plan = q.getAttribute('data-plan') || '';
+    [].forEach.call(document.querySelectorAll('[data-mh-cart-id]'), function (f) { f.value = v; });
+    [].forEach.call(document.querySelectorAll('[data-mh-cart-plan]'), function (f) { f.value = plan; f.disabled = !plan; });
+  }
+})();
+</script>"""
+
+
+def early_scripts(d):
+    er = d["sections"]["easy_read"]["settings"]["custom_liquid"]
+    i = er.index("/* Subhead under the title")
+    j = er.index("})();", i) + len("})();")
+    sub = er[i:j]
+    # The testing button waited for the test-results panel (at the bottom) to exist; it only needs the
+    # panel when clicked, so it goes in now with everything else.
+    old = " && document.querySelector('[data-mtr]')"
+    assert old in sub
+    sub = sub.replace(old, "")
+    html = (PRESELECT_JS + "\n<script>\n" + sub + "\n</script>\n" + COLLAB_JS + "\n" + STATS_JS + "\n" + SHIP_JS)
+    d["sections"]["early"] = {"type": "custom-liquid", "settings": {
+        "custom_liquid": html, "color_scheme": "scheme-1", "padding_top": 0, "padding_bottom": 0}}
+    d["order"].insert(d["order"].index("buy") + 1, "early")
+
+
 def nav_links(d):
     """'On this page' menu: the live links plus the new bands, in page order (targets are section keys)."""
     nav = d["sections"]["nav"]
@@ -590,6 +644,7 @@ def main():
     d["sections"].pop("sticky", None)
     nav_links(d)
     hoist_styles(d)
+    early_scripts(d)
     assert sorted(d["order"]) == sorted(d["sections"]), set(d["order"]) ^ set(d["sections"])
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w") as fh:
