@@ -31,11 +31,10 @@ STATEMENT = {"type": "muto-crea-statement", "settings": {
 PROBLEM_STATS = [  # tag, figure, line, source. Updated 30 Oct.
     ("Energy", "~50%", "drop in your muscles’ energy-making capacity between your 40s and late 60s",
      "Conley et al., Journal of Physiology (2000)"),
-    # Moore: older men (~71) needed 0.40 g/kg protein in one meal to max out muscle protein synthesis,
-    # young men (~22) 0.24 g/kg, i.e. ~67% more. Proposed for the anabolic-resistance card; swap for
-    # Richie's own figure if he has one.
-    ("Recovery", "~65%", "more protein per meal needed to switch on muscle repair as you age",
-     "Moore et al., Journals of Gerontology Series A (2015)"),
+    # Van Cauter: deep (slow-wave) sleep fell from 18.9% of the night at 16-25 to 3.4% at 36-50 in healthy
+    # men (cross-sectional), an ~80% drop; deep sleep is when growth hormone is released and repair happens.
+    ("Recovery", "~80%", "less deep, restorative sleep by midlife than in your early 20s",
+     "Van Cauter et al., JAMA (2000)"),
     ("Longevity", "3–8%", "of muscle lost every decade after 30",
      "Volpi et al., Current Opinion in Clinical Nutrition and Metabolic Care (2004)"),
     ("Trust", "57%", "of supplements tested didn’t match their label",

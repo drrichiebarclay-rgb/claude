@@ -2005,8 +2005,8 @@
           "type": "stat",
           "settings": {
             "tag": "Recovery",
-            "figure": "~65%",
-            "text": "more protein per meal needed to switch on muscle repair as you age"
+            "figure": "~80%",
+            "text": "less deep, restorative sleep by midlife than in your early 20s"
           }
         },
         "p3": {
@@ -2035,7 +2035,7 @@
       "settings": {
         "label": "The problem",
         "heading": "Your biology shifts.\nMost supplements don’t.",
-        "sources": "<p>01. Conley et al., Journal of Physiology (2000). 02. Moore et al., Journals of Gerontology Series A (2015). 03. Volpi et al., Current Opinion in Clinical Nutrition and Metabolic Care (2004). 04. Crawford et al., JAMA Network Open (2022): 17 of 30 products.</p>",
+        "sources": "<p>01. Conley et al., Journal of Physiology (2000). 02. Van Cauter et al., JAMA (2000). 03. Volpi et al., Current Opinion in Clinical Nutrition and Metabolic Care (2004). 04. Crawford et al., JAMA Network Open (2022): 17 of 30 products.</p>",
         "space_top": 70,
         "space_bottom": 150
       }
