@@ -221,6 +221,7 @@
                   <tbody role="rowgroup">
                     {%- comment -%}
                       Cart order: NAD (and anything not listed) first, then the gifts — creatine,
+                      (the travel vial ranks with the bottle)
                       socks, bottle, ebook, jar — with the Garmin entry last. One pass per place;
                       item.index still names each line, so updates and removals are unaffected.
                     {%- endcomment -%}
@@ -235,7 +236,7 @@
                           assign mc_rank = 2
                         elsif mc_h contains 'socks'
                           assign mc_rank = 3
-                        elsif mc_h contains 'bottle'
+                        elsif mc_h contains 'bottle' or mc_h contains 'vial'
                           assign mc_rank = 4
                         elsif mc_h contains 'ebook'
                           assign mc_rank = 5
@@ -664,7 +665,7 @@
                               assign mc_rank = 2
                             elsif mc_h contains 'socks'
                               assign mc_rank = 3
-                            elsif mc_h contains 'bottle'
+                            elsif mc_h contains 'bottle' or mc_h contains 'vial'
                               assign mc_rank = 4
                             elsif mc_h contains 'ebook'
                               assign mc_rank = 5
