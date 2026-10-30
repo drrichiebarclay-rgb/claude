@@ -659,6 +659,9 @@ def main():
         if blk["type"] == "snippet":
             blk["disabled"] = True
     travel_vial(buy)
+    # A copy of the 3-month Skio plan ("copy-of-subscription-refills-3-month", selling plan 694836494683)
+    # was attached to the 90-day variants on 30 Oct and showed as a third, empty plan card. Hidden by id.
+    buy["settings"]["hidden_plans"] = "694836494683"
 
     d["sections"].update({
         "statement": STATEMENT,
