@@ -14,6 +14,29 @@ The page itself is the new main page (every live section plus the new trust bloc
 - **Offer box above the plans:** white, with a live count of orders left out of 500.
 - **Plan cards:** Black Friday pricing, with the daily cost in a lime pill.
 
+# The quick route: publish the Black Friday theme
+
+Everything below is already built into a copy of the live theme, **"Black Friday | dup of live 30-10" (ID 203930960219)**. It was duplicated from live at about 13:00 on 30 Oct, so it has your latest `custom.js` (with the NAD+-first ordering), cart drawer and settings, plus:
+
+| File | Change |
+|---|---|
+| `layout/theme.liquid` | Page speed: see "Page speed" below |
+| `snippets/cart-drawer.liquid` | Two changes: the BF product's saving reads "You save £111 on your first order", and the travel vial sorts with the bottle |
+| `config/settings_data.json` | Gift lists in display order. 3-month: creatine, socks, bottle, travel vial, eBook, Forever Jar, Garmin. Monthly: creatine, socks, eBook, Forever Jar, Garmin |
+| `templates/product.muto-nad-bf.json` | The Black Friday page |
+| `templates/product.muto-bf-redirect.json` | For main and -2: sends visitors to the BF product |
+| `templates/product.muto-nad-trust.json` | The page without the offer, for after Black Friday |
+
+Preview: <https://muto.co/products/bf-nad-cellular-complex?preview_theme_id=203930960219>
+
+To go live:
+1. **Port newer live changes.** Copy anything changed on live since 13:00 on 30 Oct into this theme.
+2. **Publish it.** Run the checks at the end first.
+3. **Switch the main URL and -2 to `muto-bf-redirect`** (step 3).
+4. **Do the "Must be done" items.**
+
+Steps 1, 2, 4 and 5 below are only needed if you'd rather copy the changes into the current live theme instead.
+
 # Must be done before it goes live
 
 1. **Take the Black Friday 3-month plan off the main product. Urgent: it affects the live site now.** The BF 3-month plan (Skio group `bf-subscription-refills-3-month`, selling plan **694836494683**, **£99** first order) is attached to the **main** product's 90-day variants as well as the BF product's. On today's live page it shows as an extra, unpriced "3-MONTH SUBSCRIPTION" card, and anyone who picks it pays the Black Friday price on the main product. In Skio, remove the main product's variants from that plan group. The new templates hide it on the main product (`muto-nad-trust`, "Hidden plans"). The BF template doesn't hide it, because there it's the real plan.
@@ -255,20 +278,32 @@ Also changed from `muto-nad-v2`:
 - **Template-only** apart from the five new sections and their stylesheet. The page's own styles are in a Custom Liquid block called `head_styles` at the **top** of the template, so the buy box is styled from the first paint (with them at the bottom, the old design flashed on load). Its scripts stay in `easy_read` and `bands` at the bottom. A Custom Liquid block called `early`, straight after the buy box, opens the page on the Quarterly plan and adds the subhead, the testing-results button, the collaboration line, the rotating stats and the delivery line before the first paint, so nothing jumps on load (it used to flip from Monthly to Quarterly once the page had loaded). The same scripts at the bottom stay as a safety net. The `bands` scripts (delivery line, rotating stats, collaboration line, video drag) run again after `shopify:section:load`, so they survive the theme editor re-drawing the buy box.
 - **Source:** `shopify/pdp-trust/make_trust.py` builds the template. Change copy there and rebuild rather than editing by hand, or tell Richie about manual edits so they aren't lost on the next rebuild.
 
-# Page speed (theme-wide, for you to do)
+# Page speed
 
-The template now does its part: the REVIEWS.io widget loads only when the reader nears it (or once the page is idle), the two Neue Haas weights are preloaded, and nothing in the buy box moves after first paint. What's left is in `layout/theme.liquid` and the app embeds, which every page shares, so it's yours to change and test:
+**Done in the Black Friday theme's `layout/theme.liquid`.** Every other page behaves as before:
 
-1. **Render-blocking scripts in `<head>`.** `jquery-min.js`, `slick-min.js` and `custom.js` load with no `defer`, so a phone downloads and runs ~130 KB of script before it can draw anything. Add `defer` to all three (they keep their order). First search the theme for inline scripts that call `$(` or `jQuery(` straight away rather than on `DOMContentLoaded`. Those would break, so wrap them first.
-2. **The OpenAI pixel** is initialised with `debug: true`. Set it to `false`.
-3. **The Usermaven script** sits before `<head>`. Move it inside `<head>` (it already loads deferred).
-4. **App embeds** (Online Store → Customize → App embeds). REVIEWS.io core and rating snippet, Klaviyo, Elevar, Triple Whale, Microsoft Clarity, Alia and Pandectes all load on every page. Turn off any that aren't used. Clarity and Alia are the usual candidates to load only on key pages.
-5. **Preload the page's stylesheets.** On product pages, add `<link rel="preload" as="style">` in `<head>` for `muto-crea.css` and `muto-home.css`. The buy box links them from the body, so the browser finds them late.
-6. **Measure before and after** with PageSpeed Insights (mobile) on the main URL. Watch LCP (the first product photo, already marked high priority) and Total Blocking Time.
+- **On the new product pages** (`muto-nad-bf`, `muto-nad-trust`, `muto-bf-redirect`):
+  - `jquery-min.js`, `slick-min.js` and `custom.js` load with `defer`, so they no longer block the first paint. Nothing on those pages uses jQuery inline. I checked every section and snippet, and only other pages' sections do, which is why it's limited to these templates. `defer` keeps their order, and `custom.js` still waits for jQuery's ready.
+  - `slick.css` and `slick-theme.css` aren't loaded. Nothing on those pages uses Slick.
+  - `muto-crea.css`, `muto-home.css` and the two Neue Haas weights are preloaded in `<head>`.
+- **The redirect from main and -2** fires at the very top of `<head>`, before anything else downloads.
+- **The OpenAI pixel** has `debug: false`.
+- **The Usermaven loader** has moved inside `<head>`. It was before it.
+
+**Already in the page itself:**
+- The REVIEWS.io widget loads only when the reader nears it, or once the page is idle.
+- Images below the first screen are lazy and sized. Videos load only when tapped.
+- The first product photo has high priority.
+- Nothing in the buy box moves after first paint.
+
+**Left for you:**
+- **App embeds:** REVIEWS.io core and rating snippet, Klaviyo, Elevar, Triple Whale, Clarity, Alia and Pandectes load on every page. Turn off any that aren't used.
+- **Measure:** run PageSpeed Insights (mobile) on the BF product before and after publishing.
 
 # Check after publishing
 
 1. **Main URL and -2** land on `/products/bf-nad-cellular-complex`, with any `?utm_…` kept. **On the BF product, on phone and desktop:**
+   - the menu row is never under the black bar while scrolling
    - the black bar is at the very top, with the header fully visible under it and no blue bar
    - the page opens on the **Quarterly** plan
    - nothing jumps as it loads
