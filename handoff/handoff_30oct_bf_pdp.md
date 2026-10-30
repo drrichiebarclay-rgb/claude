@@ -21,7 +21,7 @@ Everything below is already built into a copy of the live theme, **"Black Friday
 | File | Change |
 |---|---|
 | `layout/theme.liquid` | Page speed: see "Page speed" below |
-| `snippets/cart-drawer.liquid` | Two changes: the BF product's saving reads "You save £111 on your first order", and the travel vial sorts with the bottle |
+| `snippets/cart-drawer.liquid` | The BF product's saving reads "You save £111 on your first order" (no "ongoing" anywhere). The travel vial sorts with the bottle. The subtotal is anchored on the product's compare-at, ~~£210~~ £99 · Save £111, with "+ £87 of free gifts" in a lime pill underneath, where the gifts used to be added into the crossed-out total |
 | `config/settings_data.json` | Gift lists in display order. 3-month: creatine, socks, bottle, travel vial, eBook, Forever Jar, Garmin. Monthly: creatine, socks, eBook, Forever Jar, Garmin |
 | `templates/product.muto-nad-bf.json` | The Black Friday page |
 | `templates/product.muto-bf-redirect.json` | For main and -2: sends visitors to the BF product |
