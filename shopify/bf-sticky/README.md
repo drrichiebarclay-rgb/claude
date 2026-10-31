@@ -10,6 +10,8 @@ Preview: https://muto.co/products/muto-nad-cellular-complex?preview_theme_id=203
 - `assets/muto-bf-sticky.css` + `assets/muto-bf-sticky.js`: the sticky bar at the foot of the screen. It has the product image and name (desktop only), a plan picker and **Add to cart | £price**. The picker stays in step with the plan cards. The button submits the page's own cart form, the same way as the main button. The bar hides while the main Add to cart button is on screen.
 - `assets/muto-bf-compact.css`: phones only (≤749px). The buy box is smaller and tighter: title, BF box, plan cards, gifts, one-time line and button.
 
+- `assets/muto-bf-layout.css` + `assets/muto-bf-layout.js` (loaded by the bar snippet): Black Friday box at about half size, badges replaced by the testing-results button, image at the top on phones and tablets with arrows and swipe in place of thumbnails, no divider in the sticky button.
+
 `live-snapshot/` holds the live template, buy section and CSS these were built against.
 
 ## After Black Friday
