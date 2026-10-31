@@ -52,3 +52,38 @@ html body .mc .mc__gallery-main{position:relative}
   .mc-garrow--next{right:10px}
   .mc-garrow--prev{left:10px}
 }
+
+/* ---- Smaller again (loads before muto-bf-type.css, so these win on specificity) ---- */
+/* Sections below the buy box: a further step down */
+html body #MainContent > .shopify-section:not([id$="__buy"]){zoom:.86}
+@media (max-width:749px){html body #MainContent > .shopify-section:not([id$="__buy"]){zoom:.84}}
+/* Welcome kit heading: shorter, on one line */
+html body .mc .mc__kit-title{font-size:0!important;letter-spacing:0;white-space:nowrap}
+html body .mc .mc__kit-title::before{content:"Welcome kit with your first box";font-size:11px;letter-spacing:.1em}
+/* Under the button: delivery line, testing button, guarantee, doctors card */
+#MainContent [id$="__buy"] .mpb-x{gap:10px;margin-top:14px}
+#MainContent [id$="__buy"] .mpb-del{gap:8px;font-size:13.5px;line-height:1.3}
+#MainContent [id$="__buy"] .mpb-del .mc-ship__dot{flex-basis:8px;width:8px;height:8px}
+#MainContent [id$="__buy"] .mpb-del .mc-ship__rm img{width:26px}
+#MainContent [id$="__buy"] .mc-tests-btn{min-height:38px;font-size:13.5px}
+#MainContent [id$="__buy"] .mpb-pro{gap:10px;padding:12px 14px;border-radius:10px}
+#MainContent [id$="__buy"] .mpb-pro svg{flex-basis:22px;width:22px;height:22px}
+#MainContent [id$="__buy"] .mpb-pro b{font-size:15px}
+#MainContent [id$="__buy"] .mpb-pro span{margin-top:2px;font-size:13px;line-height:1.4}
+#MainContent [id$="__buy"] .mpb-doc{gap:12px;padding:12px 14px;border-radius:10px}
+#MainContent [id$="__buy"] .mpb-doc b{font-size:14px}
+#MainContent [id$="__buy"] .mpb-doc small{font-size:12.5px}
+#MainContent [id$="__buy"] .mpb-doc i{font-size:16px}
+#MainContent [id$="__buy"] .mpb-faces{grid-template-columns:repeat(2,28px)}
+#MainContent [id$="__buy"] .mpb-faces img{width:28px;height:28px}
+@media (max-width:749px){
+  html body .mc .mc__kit-title::before{font-size:10.5px;letter-spacing:.08em}
+  #MainContent [id$="__buy"] .mpb-del{font-size:12.5px}
+  #MainContent [id$="__buy"] .mc-tests-btn{font-size:13px}
+  #MainContent [id$="__buy"] .mpb-pro b{font-size:14px}
+  #MainContent [id$="__buy"] .mpb-pro span{font-size:12.5px}
+  #MainContent [id$="__buy"] .mpb-doc b{font-size:13.5px}
+  #MainContent [id$="__buy"] .mpb-doc small{font-size:12px}
+}
+/* 1-month plan: £49.99, no "/mo" */
+html body .mc .mc__plans > label.mc__plan:nth-of-type(1) .mc__plan-prices::before{content:"£49.99"}
