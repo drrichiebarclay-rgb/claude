@@ -5,6 +5,8 @@
     mission   Centred heading over a full-width photo (or video) with rounded corners.
     numbers   A row of figures on dotted rules (blocks: stat), then a founder photo beside a large quote
               (quote: the part before "|" is ink, the rest is grey), with name and role.
+    split     A photo (or video) on the left; the site's heading, a paragraph or two and an outlined
+              button on the right. MOBILE: photo first.
     team      Heading left, a note right, a dotted rule, a small label, then a grid of portraits
               (blocks: member) with name and role. MOBILE: two to a row.
 {%- endcomment -%}
@@ -33,19 +35,30 @@
 
   /* Numbers */
   #shopify-section-{{ sid }} .mst__stats{display:grid;grid-template-columns:repeat({{ section.blocks.size | at_least: 1 }},minmax(0,1fr));gap:36px;margin:0;padding:0;list-style:none}
-  #shopify-section-{{ sid }} .mst__fig{display:block;padding-bottom:22px;background:radial-gradient(circle,rgba(36,34,35,.4) .9px,transparent 1.2px) bottom left/6px 3px repeat-x;font-family:var(--mst-mono);font-weight:500;font-size:clamp(44px,4.4vw,68px);line-height:1;letter-spacing:-.03em;color:var(--mst-ink)}
+  #shopify-section-{{ sid }} .mst__fig{display:block;padding-bottom:22px;background:radial-gradient(circle,rgba(36,34,35,.4) .9px,transparent 1.2px) bottom left/6px 3px repeat-x;font-family:var(--mc-font,inherit);font-weight:500;font-size:clamp(48px,5vw,80px);line-height:.9;letter-spacing:-.03em;color:var(--mst-head)}
   #shopify-section-{{ sid }} .mst__fig sup{font-size:.42em;vertical-align:.9em;margin-left:2px}
   #shopify-section-{{ sid }} .mst__st{display:block;margin-top:20px;font-size:18px;font-weight:500;line-height:1.25}
   #shopify-section-{{ sid }} .mst__sx{display:block;margin-top:8px;font-size:15.5px;line-height:1.45;color:var(--mst-muted)}
   #shopify-section-{{ sid }} .mst__quote{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:72px;align-items:center;margin-top:96px}
   #shopify-section-{{ sid }} .mst__qimg{position:relative;aspect-ratio:1/1;border-radius:4px;overflow:hidden;background:var(--mst-tile)}
   #shopify-section-{{ sid }} .mst__qimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{ s.image_position | default: '50% 30%' }}}
-  #shopify-section-{{ sid }} .mst__q{margin:0;font-weight:400;font-size:clamp(26px,2.7vw,42px);line-height:1.18;letter-spacing:-.015em;color:var(--mst-ink);text-wrap:pretty}
-  #shopify-section-{{ sid }} .mst__q span{color:rgba(36,34,35,.38)}
+  #shopify-section-{{ sid }} .mst .mst__q{margin:0;padding:0;border:0;font-style:normal;font-weight:500;font-size:clamp(26px,2.7vw,42px);line-height:1.18;letter-spacing:-.015em;color:var(--mst-ink);text-wrap:pretty}
+  #shopify-section-{{ sid }} .mst .mst__q span{color:rgba(36,34,35,.38)}
+  #shopify-section-{{ sid }} .mst .mst__q::before,#shopify-section-{{ sid }} .mst .mst__q::after{display:none}
   #shopify-section-{{ sid }} .mst__who-n{margin:28px 0 0;font-size:17px;font-weight:500;line-height:1.3}
   #shopify-section-{{ sid }} .mst__who-r{display:block;font-weight:400;color:var(--mst-muted)}
   #shopify-section-{{ sid }} .mst__qlink{display:inline-flex;align-items:center;gap:10px;margin-top:28px;padding:15px 24px;border:1px solid var(--mst-ink);border-radius:6px;font-size:16px;font-weight:500;line-height:1;color:var(--mst-ink);text-decoration:none;transition:background .2s,color .2s}
   #shopify-section-{{ sid }} .mst__qlink:hover{background:var(--mst-ink);color:#fff}
+
+  /* Split */
+  #shopify-section-{{ sid }} .mst__split{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:72px;align-items:stretch}
+  #shopify-section-{{ sid }} .mst__smedia{position:relative;min-height:520px;border-radius:8px;overflow:hidden;background:var(--mst-tile)}
+  #shopify-section-{{ sid }} .mst__smedia img,#shopify-section-{{ sid }} .mst__smedia video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{ s.image_position | default: '50% 50%' }}}
+  #shopify-section-{{ sid }} .mst__scopy{display:flex;flex-direction:column;justify-content:space-between;gap:32px;padding:8px 0}
+  #shopify-section-{{ sid }} .mst__scopy .mst__h{max-width:14ch}
+  #shopify-section-{{ sid }} .mst__scopy .mst__eye{margin-bottom:20px}
+  #shopify-section-{{ sid }} .mst__stext p{margin:20px 0 0;font-size:clamp(17px,1.4vw,20px);line-height:1.45;color:var(--mst-ink)}
+  #shopify-section-{{ sid }} .mst__scopy .mst__qlink{align-self:flex-start;margin-top:0}
 
   /* Team */
   #shopify-section-{{ sid }} .mst__thead{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:48px;align-items:start}
@@ -63,6 +76,8 @@
     #shopify-section-{{ sid }} .mst__stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 24px}
     #shopify-section-{{ sid }} .mst__quote{grid-template-columns:1fr;gap:32px;margin-top:64px}
     #shopify-section-{{ sid }} .mst__thead{grid-template-columns:1fr;gap:20px}
+    #shopify-section-{{ sid }} .mst__split{grid-template-columns:1fr;gap:28px}
+    #shopify-section-{{ sid }} .mst__smedia{min-height:0;aspect-ratio:4/3}
     #shopify-section-{{ sid }} .mst__grid{grid-template-columns:repeat(3,minmax(0,1fr))}
   }
   @media (max-width:749px){
@@ -139,6 +154,30 @@
           </div>
         {%- endif -%}
 
+      {%- when 'split' -%}
+        <div class="mst__split">
+          <div class="mst__smedia">
+            {%- if s.video != blank -%}
+              {{ s.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, image_size: '1400x' }}
+            {%- elsif s.image != blank -%}
+              {{ s.image | image_url: width: 1600 | image_tag: loading: 'lazy', widths: '700,1000,1300,1600', sizes: '(min-width: 990px) 58vw, 100vw', alt: s.image_alt }}
+            {%- elsif s.image_url != blank -%}
+              <img src="{{ s.image_url }}" alt="{{ s.image_alt | escape }}" loading="lazy" width="1400" height="1000">
+            {%- endif -%}
+          </div>
+          <div class="mst__scopy">
+            <div>
+              {%- if s.eyebrow != blank -%}<p class="mst__eye">{{ s.eyebrow }}</p>{%- endif -%}
+              <h2 class="mst__h">{{ s.heading | escape | newline_to_br }}</h2>
+              <div class="mst__stext">
+                {%- if s.text != blank -%}<p>{{ s.text }}</p>{%- endif -%}
+                {%- if s.text_2 != blank -%}<p>{{ s.text_2 }}</p>{%- endif -%}
+              </div>
+            </div>
+            {%- if s.link_label != blank -%}<a class="mst__qlink" href="{{ s.link }}">{{ s.link_label }} <span aria-hidden="true">→</span></a>{%- endif -%}
+          </div>
+        </div>
+
       {%- when 'team' -%}
         <div class="mst__thead">
           <h2 class="mst__h">{{ s.heading | escape | newline_to_br }}</h2>
@@ -172,6 +211,7 @@
       { "value": "who", "label": "Who we are (large paragraphs)" },
       { "value": "mission", "label": "Mission (heading over a wide photo)" },
       { "value": "numbers", "label": "Numbers and founder quote" },
+      { "value": "split", "label": "Photo beside words" },
       { "value": "team", "label": "Team grid" }
     ] },
     { "type": "text", "id": "anchor", "label": "Anchor" },

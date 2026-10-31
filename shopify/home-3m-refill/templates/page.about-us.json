@@ -463,7 +463,8 @@
         "heading": "How it's made",
         "space_top": 100,
         "space_bottom": 100
-      }
+      },
+      "disabled": true
     },
     "custom_verified_data_showcase_3AGddY": {
       "type": "custom-verified-data-showcase",
@@ -813,8 +814,8 @@
         "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-founder.jpg?v=1790751995",
         "image_alt": "Dr Richie Barclay at home, holding a jar of MUTO NAD+ Cellular Complex",
         "image_position": "50% 30%",
-        "link_label": "Read the science",
-        "link": "/pages/science",
+        "link_label": "",
+        "link": "",
         "space_top": 72,
         "space_bottom": 96
       }
@@ -892,7 +893,8 @@
         "eyebrow": "Our Scientific Advisory Board",
         "space_top": 96,
         "space_bottom": 96
-      }
+      },
+      "disabled": true
     },
     "offer": {
       "type": "muto-sci",
@@ -925,20 +927,167 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
+    },
+    "board_v2": {
+      "type": "muto-home-board",
+      "blocks": {
+        "m1": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Dr_James_Cover_Final.png",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-board-3.jpg?v=1790751994",
+            "image_alt": "Dr Alka Patel being interviewed on the MUTO scientific board panel",
+            "image_position": "",
+            "video": "shopify://files/videos/Dr-James-Final4x5.mov",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "name": "Dr James Morehen",
+            "role": "PERFORMANCE NUTRITIONIST, INTERNATIONAL RUGBY",
+            "tag": "Performance"
+          }
+        },
+        "m2": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Dr_Alka_Cover_Final.png",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-board-1.jpg?v=1790751995",
+            "image_alt": "A MUTO scientific advisory board member being interviewed",
+            "image_position": "",
+            "video": "shopify://files/videos/Dr-Alka-Final4x5.mov",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "name": "Dr Alka Patel",
+            "role": "LONGEVITY DOCTOR & GLOBAL SPEAKER",
+            "tag": "Longevity"
+          }
+        },
+        "m3": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Dr_Richard_Cover_Final.png",
+            "image_fallback": "",
+            "image_alt": "A MUTO scientific advisory board member being interviewed",
+            "image_position": "",
+            "video": "shopify://files/videos/Dr-Richard4x5.mov",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "name": "Dr Richard Mackenzie",
+            "role": "LEADING METABOLISM RESEARCHER",
+            "tag": "Energy"
+          }
+        },
+        "m4": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Dr_Matt.png",
+            "image_fallback": "",
+            "image_alt": "A MUTO scientific advisory board member being interviewed",
+            "image_position": "",
+            "video": "shopify://files/videos/Dr-Macie-4x5.mov",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "name": "Dr Maciej Zatonski",
+            "role": "PERFORMANCE & SLEEP DOCTOR",
+            "tag": "Recovery"
+          }
+        },
+        "m5": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Dr-ash-cover-hq.webp",
+            "image_fallback": "",
+            "image_alt": "A MUTO scientific advisory board member being interviewed",
+            "image_position": "",
+            "video": "shopify://files/videos/Dr. ASH Intro.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "name": "Dr Ash Kapoor",
+            "role": "Longevity & Human Optimisation Doctor & Founder of Levitas One",
+            "tag": "Longevity"
+          }
+        },
+        "m6": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Jamie-Paweleck.jpg",
+            "image_fallback": "",
+            "image_alt": "A MUTO scientific advisory board member being interviewed",
+            "image_position": "",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "name": "Dr Jamie Paweleck",
+            "role": "Longevity doctor and medical educator",
+            "tag": "Longevity"
+          }
+        }
+      },
+      "block_order": [
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5",
+        "m6"
+      ],
+      "settings": {
+        "field": false,
+        "heading": "Six scientists put\ntheir name to MUTO.",
+        "note": "Our Scientific Advisory Board reviews the formula",
+        "compact": true,
+        "rail_gap": 40,
+        "fit": "nad",
+        "space_top": 60,
+        "space_bottom": 72
+      }
+    },
+    "board_anchor": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<style>[id$=\"__board_anchor\"]{height:0;overflow:hidden;margin:0!important;padding:0!important}[id$=\"__board\"] .mh{background:var(--mc-ground,#f9f9f9)}</style><span id=\"scientific-board\" style=\"display:block;position:relative;top:-80px\"></span>",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "research_v2": {
+      "type": "muto-story",
+      "settings": {
+        "layout": "split",
+        "eyebrow": "Our research",
+        "heading": "We aren’t just making supplements.",
+        "text": "We’re putting our formula under independent scrutiny. A clinical study with the University of Westminster starts in December 2026, and PhD programmes at Coventry University and Newcastle University began in 2026, with studies from spring 2027.",
+        "text_2": "There are no results yet. When there are, we’ll publish them, whatever they show.",
+        "link_label": "Read the science",
+        "link": "/pages/science",
+        "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-made-scientists.jpg?v=1790752123",
+        "image_alt": "Members of the MUTO Scientific Advisory Board in conversation",
+        "image_position": "50% 34%",
+        "space_top": 96,
+        "space_bottom": 96
+      }
     }
   },
   "order": [
     "schema",
-    "hero",
     "who",
     "mission_v2",
     "numbers",
-    "team",
-    "made",
+    "board_anchor",
+    "board_v2",
+    "research_v2",
     "marathon",
     "events",
     "offer",
     "custom_reviews_4ziABB",
+    "hero",
+    "team",
+    "made",
     "vision",
     "mission",
     "pillars",
