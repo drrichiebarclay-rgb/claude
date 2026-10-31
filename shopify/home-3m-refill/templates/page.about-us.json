@@ -753,11 +753,12 @@
         "layout": "mission",
         "eyebrow": "Our mission",
         "heading": "Biology sets limits.\nWe intend to move them.",
-        "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-trust-runners.jpg?v=1790751994",
-        "image_alt": "Two runners at dusk on a path above a city skyline",
-        "image_position": "50% 50%",
+        "image_url": "",
+        "image_alt": "A MUTO run club running together along a sunlit London street",
+        "image_position": "40% 45%",
         "space_top": 72,
-        "space_bottom": 72
+        "space_bottom": 72,
+        "image": "shopify://shop_images/muto-about-runclub.jpg"
       }
     },
     "numbers": {
