@@ -1,0 +1,45 @@
+/* ---- Sticky plan bar, fixed to the foot of the screen ----
+   Product picture and name on the left; the plan picker and Add to cart on the right. Phones: picker
+   and button only. It mirrors the plan cards on the page (choosing in one chooses in the other) and
+   its button submits the page's own cart form, so Skio gets the same id + selling_plan as the main
+   button. Hidden while the page's own Add to cart button is on screen, so there is never two. */
+body{padding-bottom:88px}
+.mc-sbar{position:fixed;left:0;right:0;bottom:0;z-index:55;background:#fff;color:#242223;font-family:var(--mc-font,inherit);
+  border-top:1px solid rgba(36,34,35,.12);box-shadow:0 -6px 24px rgba(36,34,35,.08);
+  transform:translateY(110%);visibility:hidden;transition:transform .3s cubic-bezier(.2,0,.2,1),visibility 0s linear .3s}
+.mc-sbar.is-visible{transform:none;visibility:visible;transition:transform .3s cubic-bezier(.2,0,.2,1),visibility 0s}
+.mc-sbar__in{display:flex;align-items:center;gap:16px;max-width:1440px;margin:0 auto;padding:12px 40px;padding-bottom:calc(12px + env(safe-area-inset-bottom))}
+.mc-sbar__prod{display:flex;align-items:center;gap:14px;min-width:0;margin-right:auto}
+.mc-sbar__img{flex:0 0 56px;width:56px;height:56px;border-radius:10px;object-fit:cover;background:#f3f3f1}
+.mc-sbar__name{margin:0;font-size:19px;font-weight:500;line-height:1.15;letter-spacing:-.005em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mc-sbar__offer{display:flex;align-items:center;gap:6px;margin:4px 0 0;font-family:var(--mc-mono,monospace);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(36,34,35,.7)}
+.mc-sbar__offer i{width:6px;height:6px;border-radius:50%;background:#242223}
+/* The picker: a styled box with the native select laid over it, so phones get their own picker */
+.mc-sbar__pick{position:relative;flex:0 1 340px;min-width:0;height:56px;padding:0 44px 0 18px;border:1.5px solid #242223;border-radius:12px;background:#fff;
+  display:flex;flex-direction:column;justify-content:center}
+.mc-sbar__pick:focus-within{outline:2px solid #7ee0f0;outline-offset:2px}
+.mc-sbar__pick-name{font-size:16px;font-weight:500;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mc-sbar__pick-sub{margin-top:2px;font-size:13px;line-height:1.2;color:rgba(36,34,35,.65);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mc-sbar__pick-sub b{font-weight:500;color:#242223}
+.mc-sbar__pick::after{content:"";position:absolute;right:18px;top:50%;margin-top:-3px;border:6px solid transparent;border-top:7px solid #242223;border-bottom:0}
+.mc-sbar__select{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;font-size:16px;-webkit-appearance:none;appearance:none}
+.mc-sbar__btn{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;min-width:220px;padding:0 28px;border:0;border-radius:12px;
+  background:#6bce7f;color:#242223;font:inherit;font-size:17px;font-weight:600;line-height:1;cursor:pointer;transition:filter .2s}
+.mc-sbar__btn:hover{filter:brightness(.95)}
+.mc-sbar__btn:focus-visible{outline:2px solid #242223;outline-offset:2px}
+.mc-sbar__btn-sep{width:1px;height:18px;background:rgba(36,34,35,.35)}
+.mc-sbar__btn-price:empty,.mc-sbar__btn-price:empty + .mc-sbar__btn-sep{display:none}
+@media (max-width:989px){.mc-sbar__in{padding-left:24px;padding-right:24px}.mc-sbar__offer{display:none}}
+@media (max-width:749px){
+  body{padding-bottom:74px}
+  .mc-sbar__in{gap:10px;padding:10px 12px;padding-bottom:calc(10px + env(safe-area-inset-bottom))}
+  .mc-sbar__prod{display:none}
+  .mc-sbar__pick{flex:1 1 auto;height:52px;padding:0 36px 0 14px;border-radius:10px}
+  .mc-sbar__pick::after{right:14px}
+  .mc-sbar__pick-name{font-size:15px}
+  .mc-sbar__pick-sub{font-size:12.5px}
+  .mc-sbar__btn{height:52px;min-width:0;padding:0 22px;border-radius:10px;font-size:16px}
+  .mc-sbar__btn-full,.mc-sbar__btn-sep,.mc-sbar__btn-price{display:none}
+}
+@media (min-width:750px){.mc-sbar__btn-short{display:none}}
+@media (prefers-reduced-motion:reduce){.mc-sbar,.mc-sbar.is-visible{transition:none}}

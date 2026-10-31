@@ -1,0 +1,33 @@
+/* Black Friday bar, fixed to the top of the screen. The theme pulls the page up under its see-through
+   header on product pages, so the whole page (announcement area, header, content) starts below it.
+   The blue announcement bar is hidden on this page.
+   "Claim offer" adds the Quarterly plan to the cart and goes straight to checkout (script below). */
+body{padding-top:44px}
+[id$="__muto-announce"]{display:none!important}
+[id$="__bf_bar"]{display:none!important}
+.mc-bfx{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:center;gap:14px;height:44px;padding:0 16px;
+  background:#242223;color:#fff;font-family:var(--mc-font,inherit);font-size:15px;line-height:1;text-decoration:none;white-space:nowrap;overflow:hidden;cursor:pointer}
+.mc-bfx:hover,.mc-bfx:focus-visible{color:#fff}
+.mc-bfx:focus-visible{outline:2px solid #7ee0f0;outline-offset:-3px}
+.mc-bfx__tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--mc-mono,monospace);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.mc-bfx__dot{width:7px;height:7px;border-radius:50%;background:#fff;animation:mcBfxPulse 1.6s ease-in-out infinite}
+.mc-bfx__msg b,.mc-bfx__left b{font-weight:600}
+.mc-bfx__left{font-variant-numeric:tabular-nums;opacity:.85}
+.mc-bfx__cta{display:inline-flex;align-items:center;gap:6px;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.mc-bfx__sep{opacity:.4}
+.mc-bfx__spin{display:none;width:12px;height:12px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:mcBfxSpin .7s linear infinite}
+.mc-bfx.is-busy{cursor:progress}
+.mc-bfx.is-busy .mc-bfx__spin{display:inline-block}
+@keyframes mcBfxPulse{50%{opacity:.25}}
+@keyframes mcBfxSpin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.mc-bfx__dot,.mc-bfx__spin{animation:none}}
+/* Phones: shorter bar, the offer in brief, and "Claim offer" as a small pill so it is an obvious tap */
+@media (max-width:749px){
+  body{padding-top:40px}
+  .mc-bfx{height:40px;gap:10px;padding:0 12px;font-size:13px;justify-content:space-between}
+  .mc-bfx__more,.mc-bfx__sep,.mc-bfx__left{display:none}
+  .mc-bfx__tag{font-size:10px;letter-spacing:.1em;gap:6px}
+  .mc-bfx__dot{width:6px;height:6px}
+  .mc-bfx__cta{flex:0 0 auto;height:26px;padding:0 11px;border-radius:13px;background:#6bce7f;color:#242223;text-decoration:none;font-size:12.5px}
+}
+@media (max-width:359px){.mc-bfx__first{display:none}}

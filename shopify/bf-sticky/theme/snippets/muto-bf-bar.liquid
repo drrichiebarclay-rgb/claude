@@ -1,0 +1,36 @@
+{%- liquid
+  assign mc_left = shop.metafields.muto.bf_orders_left.value
+  # The Quarterly plan, read off the product: the first variant that sells on a 3-month selling plan.
+  # Nothing typed, so the same code works on the main product and on -2 (different variant ids).
+  assign bf_q_variant = ''
+  assign bf_q_plan = ''
+  if product != blank
+    for pv in product.variants
+      if bf_q_variant != blank
+        break
+      endif
+      for alloc in pv.selling_plan_allocations
+        assign bf_n = alloc.selling_plan.name | downcase
+        if bf_n contains '3-month' or bf_n contains '3 month' or bf_n contains 'quarter'
+          if pv.available
+            assign bf_q_variant = pv.id
+            assign bf_q_plan = alloc.selling_plan.id
+            break
+          endif
+        endif
+      endfor
+    endfor
+  endif
+-%}
+<a class="mc-bfx" id="mc-bfx" href="#MainContent" role="button"
+  data-variant="{{ bf_q_variant }}" data-plan="{{ bf_q_plan }}"
+  aria-label="Black Friday: 53% off your first order plus a welcome kit worth £87. Claim offer: adds the Quarterly plan and goes to checkout.">
+  <span class="mc-bfx__tag"><span class="mc-bfx__dot" aria-hidden="true"></span>Black Friday</span>
+  <span class="mc-bfx__msg"><b>53% off</b><span class="mc-bfx__first"> your first order</span><span class="mc-bfx__more"> plus a welcome kit worth £87</span></span>
+  {%- if mc_left != blank and mc_left >= 0 -%}
+    <span class="mc-bfx__sep mc-bfx__sep--left" aria-hidden="true">·</span>
+    <span class="mc-bfx__left"><b>{{ mc_left }}</b>/500 left</span>
+  {%- endif -%}
+  <span class="mc-bfx__sep mc-bfx__sep--cta" aria-hidden="true">·</span>
+  <span class="mc-bfx__cta"><span class="mc-bfx__spin" aria-hidden="true"></span>Claim offer</span>
+</a>

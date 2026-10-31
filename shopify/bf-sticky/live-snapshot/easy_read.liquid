@@ -1,0 +1,125 @@
+<script>
+/* "Ingredients + nutritional information" opens the What's inside fold and scrolls to it */
+document.addEventListener('click', function (e) {
+  var a = e.target.closest && e.target.closest('a[href="#whats-inside"]');
+  if (!a) return;
+  var d = [].find.call(document.querySelectorAll('.mc__acc-item'), function (x) {
+    var s = x.querySelector('summary'); return s && /inside|ingredient/i.test(s.textContent);
+  });
+  if (!d) return;
+  e.preventDefault();
+  d.open = true;
+  d.scrollIntoView({ behavior: 'smooth', block: 'center' });
+});
+
+(function () {
+  var norm = function (t) { return (t || '').replace(/\s+/g, '').replace(/\/mo$/, ''); };
+  function cards() { return [].slice.call(document.querySelectorAll('.mc__plans > label.mc__plan')); }
+
+  /* The button shows the old price of whichever plan its price belongs to, struck through */
+  function syncWas() {
+    var price = document.querySelector('.mc__buy-cta [data-mh-cta-price]');
+    if (!price) return;
+    var now = norm(price.textContent);
+    var card = cards().find(function (c) {
+      var p = c.querySelector('.mc__plan-price'); return p && norm(p.textContent) === now;
+    }) || document.querySelector('.mc__plans > label.mc__plan.is-selected');
+    var was = card && card.querySelector('.mc__plan-was');
+    var s = price.parentNode.querySelector('.mc-art__cta-was');
+    if (!s) {
+      s = document.createElement('s');
+      s.className = 'mc-art__cta-was';
+      price.parentNode.insertBefore(s, price);
+    }
+    var t = was ? was.textContent.trim() : '';
+    if (s.textContent !== t) s.textContent = t;
+  }
+
+  /* Start on the quarterly plan (the second card in Skio's order) */
+  function selectQuarterly(tries) {
+    var c = cards()[1];
+    if (!c) return;
+    if (c.classList.contains('is-selected')) return;
+    var input = c.querySelector('.mc__plan-input');
+    if (input && input.disabled) return;
+    c.click();
+    if (input && !input.checked) { input.checked = true; input.dispatchEvent(new Event('change', { bubbles: true })); }
+    if (tries > 0) setTimeout(function () { selectQuarterly(tries - 1); }, 250);
+  }
+
+  function start() {
+    var price = document.querySelector('.mc__buy-cta [data-mh-cta-price]');
+    if (price && window.MutationObserver) {
+      new MutationObserver(syncWas).observe(price, { childList: true, characterData: true, subtree: true });
+    }
+    document.addEventListener('change', function () { setTimeout(syncWas, 0); });
+    document.addEventListener('click', function (e) {
+      if (e.target.closest && e.target.closest('.mc__plan')) setTimeout(syncWas, 0);
+    });
+    syncWas();
+    setTimeout(function () { selectQuarterly(4); setTimeout(syncWas, 50); }, 300);
+  }
+  if (document.readyState === 'complete') start(); else window.addEventListener('load', start);
+})();
+
+/* Clicking anywhere in a plan's gifts box selects that plan */
+document.addEventListener('click', function (e) {
+  var d = e.target.closest && e.target.closest('.mc__plans > .mc__plan-detail[data-mc-plan-for]');
+  if (!d || (e.target.closest && e.target.closest('a'))) return;
+  var n = parseInt(d.getAttribute('data-mc-plan-for'), 10);
+  var card = document.querySelectorAll('.mc__plans > label.mc__plan')[n - 1];
+  if (card && !card.classList.contains('is-selected')) card.click();
+});
+
+
+/* Subhead under the title, and the testing-results button under the images. The button opens the
+   page's test-results panel (the tests section listens for [data-mtr-open]). */
+(function () {
+  var SUBHEAD = 'Everything your body needs after 35 for energy, recovery, stress, immunity and longevity.';
+  var title = document.querySelector('.mc .mc__buy-title');
+  if (title && !document.querySelector('.mc-subhead')) {
+    var p = document.createElement('p');
+    p.className = 'mc-subhead';
+    p.textContent = SUBHEAD;
+    title.insertAdjacentElement('afterend', p);
+  }
+  var media = document.querySelector('.mc .mc__buy-media');
+  if (media && !media.querySelector('.mc-tests-btn') && document.querySelector('[data-mtr]')) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'mc-tests-btn';
+    b.setAttribute('data-mtr-open', '');
+    b.innerHTML = '<span class="mc-tests-btn__tick" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2 5 8.6l4.5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>View third-party testing results';
+    media.appendChild(b);
+  }
+})();
+
+/* Sticky bar: its button price follows the selected plan as Skio bills it (£150 / £60); show it per
+   month like the plan cards (plan-prices.css), old price struck through. Card 1 = monthly, 2 = quarterly. */
+(function () {
+  var PER_MONTH = { 1: ['£49.99/mo', '£70'], 2: ['£33/mo', '£70'] };
+  function update() {
+    var span = document.querySelector('.mh__sticky [data-mh-cta-price]');
+    if (!span) return;
+    var cards = [].slice.call(document.querySelectorAll('.mc__plans > label.mc__plan'));
+    var p = PER_MONTH[cards.findIndex(function (c) { return c.classList.contains('is-selected'); }) + 1];
+    if (!p) return;
+    var html = '<s class="mc-sticky-was">' + p[1] + '</s> ' + p[0];
+    if (span.innerHTML !== html) span.innerHTML = html;
+  }
+  function start() {
+    var span = document.querySelector('.mh__sticky [data-mh-cta-price]');
+    if (span && window.MutationObserver) {
+      new MutationObserver(update).observe(span, { childList: true, characterData: true, subtree: true });
+    }
+    document.addEventListener('click', function (e) {
+      if (e.target.closest && e.target.closest('.mc__plan')) { setTimeout(update, 0); setTimeout(update, 60); }
+    });
+    document.addEventListener('change', function () { setTimeout(update, 0); });
+    document.addEventListener('muto:home:plan', update); /* fired by muto-home.js after it paints the price */
+    update();
+    setTimeout(update, 400);
+  }
+  if (document.readyState === 'complete') start(); else window.addEventListener('load', start);
+})();
+</script>
