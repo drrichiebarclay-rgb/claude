@@ -35,6 +35,44 @@
 {{ 'muto-bf-layout.css' | asset_url | stylesheet_tag }}
 {{ 'muto-bf-type.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'muto-bf-layout.js' | asset_url }}" defer="defer"></script>
+<style>
+/* Buy box copy: left-aligned at every width; a short descriptor and a Black Friday line under the name
+   (they replace the collaboration line and the Black Friday box); no "Choose your plan" heading */
+html body .mc .mc__buy-copy > .mc__rating{justify-content:flex-start!important}
+html body .mc .mc__buy-copy > .mc__rating,html body .mc .mc__buy-copy > .mc__eyebrow,
+html body .mc .mc__buy-copy > .mc__buy-title,html body .mc .mc__buy-copy > .mc-subhead{text-align:left!important}
+html body .mc .mc-collab,html body .mc .mc-bf,html body .mc .mc__trust{display:none!important}
+html body .mc .mc__buy-copy > .mc-bfline{order:0}
+html body .mc .mc-bfline{display:inline-flex;align-items:center;flex-wrap:wrap;gap:4px 6px;width:fit-content;max-width:100%;margin:12px 0 4px;padding:8px 12px;
+  border-radius:8px;background:#c9ffb7;color:#242223;font-size:14px;font-weight:500;line-height:1.3}
+html body .mc .mc-bfline b{font-weight:600}
+@media (max-width:749px){html body .mc .mc-bfline{margin-top:10px;padding:7px 10px;font-size:13px}}
+/* 3-month plan: £99, £210 struck through */
+html body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-prices::before{content:"£99"}
+html body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-prices::after{content:"£210"}
+</style>
+<script>
+/* Descriptor, Black Friday line, and plan names ("3-Month Supply", "1-Month Supply") */
+(function () {
+  var sub = document.querySelector('.mc .mc-subhead');
+  if (sub) {
+    sub.textContent = 'Five supplements in one daily jar, built for your 40s and 50s.';
+    if (!document.querySelector('.mc .mc-bfline')) {
+      var p = document.createElement('p');
+      p.className = 'mc-bfline';
+      p.innerHTML = '<b>Black Friday:</b> 3 months for \u00a399 <span aria-hidden="true">\u00b7</span> Ends 30 Nov';
+      sub.insertAdjacentElement('afterend', p);
+    }
+  }
+  [].forEach.call(document.querySelectorAll('.mc .mc__plans > label.mc__plan'), function (c) {
+    var n = c.querySelector('.mc__plan-name');
+    if (!n) return;
+    var t = n.textContent;
+    var r = /quarter|3.?month/i.test(t) ? '3-Month Supply' : /month/i.test(t) ? '1-Month Supply' : '';
+    if (r) { n.textContent = r; c.setAttribute('data-name', r); }
+  });
+})();
+</script>
 <script>
 /* One-time purchase: plain text line, "One-Time Purchase - £70 (no gifts)", the price kept from the product */
 (function () {
