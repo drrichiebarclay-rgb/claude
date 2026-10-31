@@ -720,7 +720,7 @@
             "text": "Your body turns NR into NAD+, CoQ10 and PQQ support your mitochondria, and active B vitamins help release energy from food.",
             "ingredients": "Nicotinamide Riboside (NR) | 300 mg\nCoQ10 | 150 mg\nPQQ | 20 mg\nVitamin B12 (Methylcobalamin) | 100 mcg\nVitamin B6 (P5P) | 5 mg\nVitamin B2 (Riboflavin) | 5 mg",
             "image": "shopify://shop_images/Golden_Hour_Family_Beach_Walk.png",
-            "position": ""
+            "position": "object-position:50% 0%"
           }
         },
         "b2": {
@@ -733,7 +733,7 @@
             "text": "Vitamin D3 supports normal muscle function, CoQ10 and PQQ support the mitochondria that refill your energy, and riboflavin helps reduce tiredness.",
             "ingredients": "Vitamin D3 (Vegan) | 50 mcg\nCoQ10 | 150 mg\nPQQ | 20 mg\nVitamin B2 (Riboflavin) | 5 mg",
             "image": "shopify://shop_images/038A80BF-8A59-420A-8CC3-3C5DDFB275B6.png",
-            "position": ""
+            "position": "object-position:50% 20%"
           }
         },
         "b3": {
@@ -759,7 +759,7 @@
             "text": "300mg NR paired with TMG, plus trans-resveratrol and grape seed polyphenols, vitamin K2 for your bones and zinc to help protect your cells.",
             "ingredients": "Nicotinamide Riboside (NR) | 300 mg\nTMG (Trimethylglycine) | 450 mg\nTrans-Resveratrol | 50 mg\nGrape Seed Extract | 150 mg\nVitamin K2 (MK-7) | 100 mcg\nZinc (Bisglycinate) | 15 mg",
             "image": "shopify://shop_images/Golden_Hour_Ocean_Portrait.png",
-            "position": ""
+            "position": "object-position:50% 20%"
           }
         },
         "b5": {
