@@ -751,56 +751,71 @@
       }
     },
     "benefits": {
-      "type": "muto-benefit-cards",
+      "type": "muto-benefits",
       "blocks": {
         "b1": {
-          "type": "card",
+          "type": "benefit",
           "settings": {
-            "image": "shopify://shop_images/Golden_Hour_Family_Beach_Walk.png",
-            "image_fallback": "",
-            "position": "",
             "title": "Energy",
-            "text": "Your body turns NR into NAD+, CoQ10 and PQQ support your mitochondria, and active B vitamins help release energy from food."
+            "count": "12",
+            "outcome": "Afternoons that hold",
+            "doses": "NR 300mg · CoQ10 150mg · PQQ 20mg · B vitamins",
+            "text": "Your body turns NR into NAD+, CoQ10 and PQQ support your mitochondria, and active B vitamins help release energy from food.",
+            "ingredients": "Nicotinamide Riboside (NR) | 300 mg\nCoQ10 | 150 mg\nPQQ | 20 mg\nVitamin B12 (Methylcobalamin) | 100 mcg\nVitamin B6 (P5P) | 5 mg\nVitamin B2 (Riboflavin) | 5 mg",
+            "image": "shopify://shop_images/Golden_Hour_Family_Beach_Walk.png",
+            "position": ""
           }
         },
         "b2": {
-          "type": "card",
+          "type": "benefit",
           "settings": {
-            "image": "shopify://shop_images/038A80BF-8A59-420A-8CC3-3C5DDFB275B6.png",
-            "image_fallback": "",
-            "position": "",
             "title": "Recovery",
-            "text": "Vitamin D3 supports normal muscle function, CoQ10 and PQQ support the mitochondria that refill your energy, and riboflavin helps reduce tiredness."
+            "count": "4",
+            "outcome": "Bounce back from a busy week",
+            "doses": "Vitamin D3 50mcg · CoQ10 150mg · PQQ 20mg",
+            "text": "Vitamin D3 supports normal muscle function, CoQ10 and PQQ support the mitochondria that refill your energy, and riboflavin helps reduce tiredness.",
+            "ingredients": "Vitamin D3 (Vegan) | 50 mcg\nCoQ10 | 150 mg\nPQQ | 20 mg\nVitamin B2 (Riboflavin) | 5 mg",
+            "image": "shopify://shop_images/038A80BF-8A59-420A-8CC3-3C5DDFB275B6.png",
+            "position": ""
           }
         },
         "b3": {
-          "type": "card",
+          "type": "benefit",
           "settings": {
-            "image": "shopify://shop_images/3E3756BE-4955-4D85-81D7-30B61D5035B0.png",
-            "image_fallback": "",
-            "position": "",
             "title": "Stress",
-            "text": "Active B vitamins, with zinc, support normal psychological function and mental performance through a demanding week."
+            "count": "8",
+            "outcome": "A clearer head on demanding days",
+            "doses": "B6 5mg · B12 100mcg · Folate 400mcg · Zinc 15mg",
+            "text": "Active B vitamins, with zinc, support normal psychological function and mental performance through a demanding week.",
+            "ingredients": "Vitamin B6 (P5P) | 5 mg\nVitamin B12 (Methylcobalamin) | 100 mcg\nFolate (5-MTHF) | 400 mcg\nZinc (Bisglycinate) | 15 mg",
+            "image": "shopify://shop_images/3E3756BE-4955-4D85-81D7-30B61D5035B0.png",
+            "position": ""
           }
         },
         "b4": {
-          "type": "card",
+          "type": "benefit",
           "settings": {
-            "image": "shopify://shop_images/Golden_Hour_Ocean_Portrait.png",
-            "image_fallback": "",
-            "position": "",
             "title": "Longevity",
-            "text": "300mg NR paired with TMG, plus trans-resveratrol and grape seed polyphenols, vitamin K2 for your bones and zinc to help protect your cells."
+            "count": "8",
+            "outcome": "Support for your cells as you age",
+            "doses": "NR 300mg · TMG 450mg · Resveratrol 50mg",
+            "text": "300mg NR paired with TMG, plus trans-resveratrol and grape seed polyphenols, vitamin K2 for your bones and zinc to help protect your cells.",
+            "ingredients": "Nicotinamide Riboside (NR) | 300 mg\nTMG (Trimethylglycine) | 450 mg\nTrans-Resveratrol | 50 mg\nGrape Seed Extract | 150 mg\nVitamin K2 (MK-7) | 100 mcg\nZinc (Bisglycinate) | 15 mg",
+            "image": "shopify://shop_images/Golden_Hour_Ocean_Portrait.png",
+            "position": ""
           }
         },
         "b5": {
-          "type": "card",
+          "type": "benefit",
           "settings": {
-            "image": "shopify://shop_images/D9D67CEB-ADD5-421D-97BD-39141E88C5E9.png",
-            "image_fallback": "",
-            "position": "",
             "title": "Immunity",
-            "text": "Vitamin D3, zinc, copper, folate and vitamins B6 and B12 all support the normal function of your immune system."
+            "count": "6",
+            "outcome": "Stay well through winter",
+            "doses": "Vitamin D3 50mcg · Zinc 15mg · Copper 1mg",
+            "text": "Vitamin D3, zinc, copper, folate and vitamins B6 and B12 all support the normal function of your immune system.",
+            "ingredients": "Vitamin D3 (Vegan) | 50 mcg\nZinc (Bisglycinate) | 15 mg\nCopper (Bisglycinate) | 1 mg\nFolate (5-MTHF) | 400 mcg\nVitamin B6 (P5P) | 5 mg\nVitamin B12 (Methylcobalamin) | 100 mcg",
+            "image": "shopify://shop_images/D9D67CEB-ADD5-421D-97BD-39141E88C5E9.png",
+            "position": ""
           }
         }
       },
@@ -812,15 +827,12 @@
         "b5"
       ],
       "settings": {
-        "eyebrow": "Five jobs. One daily jar.",
-        "heading": "Benefits built on\npublished science.",
-        "lede": "What you need after 35. Your biology shifts. What you need evolves.",
-        "button_label": "View supplement facts",
-        "button_link": "",
-        "button_tab": "3",
-        "foot": "",
-        "anchor": "",
-        "band": "ground",
+        "anchor": "benefits",
+        "eyebrow": "Science-backed benefits",
+        "heading": "Five jobs.\nOne daily jar.",
+        "lede": "What you need after 35 is different. Here’s what each part of the formula does, and the dose behind it.",
+        "link_label": "See all 19 ingredients",
+        "link": "#library",
         "space_top": 96,
         "space_bottom": 96
       }
