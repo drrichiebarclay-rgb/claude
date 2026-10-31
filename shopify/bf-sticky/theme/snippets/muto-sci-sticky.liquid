@@ -67,7 +67,9 @@
     if (!bar) return;
     /* A page with its own sticky bar section keeps that one */
     document.addEventListener('DOMContentLoaded', function () {
-      if (document.querySelector('#MainContent [id$="__sticky"], #MainContent .mc-sbar')) bar.remove();
+      /* Step aside only for a different sticky bar on the page, never for this one */
+      var others = [].slice.call(document.querySelectorAll('#MainContent [id$="__sticky"], .mc-sbar')).filter(function (el) { return el !== bar && !el.contains(bar); });
+      if (others.length) bar.remove();
     });
     var sel = bar.querySelector('[data-sbar-select]'), btn = bar.querySelector('[data-sbar-add]');
     var nm = bar.querySelector('[data-sbar-name]'), sub = bar.querySelector('[data-sbar-sub]');
