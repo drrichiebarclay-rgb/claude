@@ -62,6 +62,12 @@ The Black Friday product page has been reworked on a duplicate of the live theme
   - Our column is dark, with the jar photo and lime ticks. Multivitamin, greens powder and buying separately are the other columns.
   - On phones it scrolls sideways, with the feature names pinned on the left.
 
+**Science page (`/pages/science`, template `page.science-simple`):**
+
+- Chapter 04's table is replaced by the same "MUTO vs the usual" comparison. The chapter menu's "Comparison" link still jumps to it.
+- Simplified: chapter 01's takeaway line (repeated in chapter 02), and chapter 03's "How the 19 ingredients work together" table and BioPerine line are hidden.
+- Done from `muto-bf-head.liquid` (its second `if` block). The science template itself is unchanged.
+
 **Site-wide (all pages, phones and tablets under 990px):** a shorter header bar.
 
 - About 44px instead of about 76px, with a smaller logo, caption and icons.
@@ -72,7 +78,7 @@ The Black Friday product page has been reworked on a duplicate of the live theme
 
 | File | What it does |
 |---|---|
-| `sections/muto-bf-head.liquid` | **Header group.** The compact mobile header (site-wide); on the BF template, loads all BF styles before the page is drawn, the button colour, and the top bar. |
+| `sections/muto-bf-head.liquid` | **Header group.** The compact mobile header (site-wide); the science page's comparison and simplifications; on the BF template, loads all BF styles before the page is drawn, the button colour, and the top bar. |
 | `sections/muto-bf-offer.liquid` | **Footer group.** The sticky add to cart bar; loads `muto-bf-layout.js` and `muto-bf-sticky.js`. |
 | `snippets/muto-bf-bar.liquid` | The top bar markup (finds the 3-month variant + selling plan in Liquid); loads `muto-bf-extra.css`; renders the comparison and swaps it in; new copy for the statement line and the two folds. |
 | `snippets/muto-bf-compare.liquid` | The comparison table. Edit rows here. |
@@ -117,6 +123,7 @@ The Black Friday product page has been reworked on a duplicate of the live theme
 - [ ] The comparison appears in place of the old table and scrolls sideways on phones.
 - [ ] **Site-wide compact header**: check the home page, other product pages and a content page on a phone, and that nothing is hidden under the header.
 - [ ] Doesn't collide with chat or popup widgets at the bottom of the screen.
+- [ ] Science page: the comparison shows in chapter 04, the "Comparison" chapter link jumps to it, and nothing else looks missing.
 
 # Hard-coded in the CSS and scripts (update if the offer changes)
 
@@ -135,4 +142,5 @@ The Black Friday product page has been reworked on a duplicate of the live theme
 
 - Delete "MUTO — Black Friday offer" from the footer group.
 - In `muto-bf-head.liquid`, delete the Black Friday part (the `{%- if template.suffix == 'muto-nad-bf' ... -%}` block). Keep the first `<style>` block if you want to keep the compact mobile header site-wide; otherwise delete the section.
+- The comparison's footnote ("Your first 3-Month Supply is £99…") also shows on the science page; update or remove it when the offer ends.
 - Switch the two products back to `muto-nad-trust`, as noted in `product.muto-bf-redirect.json`.
