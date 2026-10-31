@@ -42,3 +42,21 @@ html:root body .mc .mc__plans > label.mc__plan .mc__plan-head::after{margin-left
 html:root body .mc .mc__plans > label.mc__plan .mc__plan-note{margin-left:33px!important}
 /* No "Best value" pill */
 html:root body .mc .mc__plans-banner::before{display:none!important;content:none!important}
+/* Reviews row (stars and score) about 25% smaller */
+html:root body .mc .mc__stars{gap:3px!important}
+html:root body .mc .mc__stars > span{width:14px!important;height:13px!important}
+html:root body .mc .mc__rating-text{font-size:13px!important}
+/* Phones: the delivery line on one line ("Arrives by <date> | Royal Mail Tracked 24h") */
+@media (max-width:749px){
+  html:root body .mc .mc__stars > span{width:12px!important;height:11px!important}
+  html:root body .mc .mc__rating-text{font-size:12px!important}
+  #MainContent [id$="__buy"] .mpb-del{flex-wrap:nowrap!important;white-space:nowrap;gap:6px!important;font-size:12px!important}
+  #MainContent [id$="__buy"] .mpb-del .mc-ship__dot{flex:0 0 7px!important;width:7px!important;height:7px!important}
+  #MainContent [id$="__buy"] .mpb-del > span:not([class]){font-size:0!important}
+  #MainContent [id$="__buy"] .mpb-del > span:not([class])::before{content:"Arrives by ";font-size:12px}
+  #MainContent [id$="__buy"] .mpb-del > span:not([class]) b{font-size:12px}
+  #MainContent [id$="__buy"] .mpb-del .mc-ship__rm{flex-basis:auto!important;justify-content:flex-start!important;margin-left:2px!important;padding-left:8px!important;
+    border-left:1px solid rgba(36,34,35,.2)!important;gap:5px!important;font-size:0!important}
+  #MainContent [id$="__buy"] .mpb-del .mc-ship__rm img{width:22px!important}
+  #MainContent [id$="__buy"] .mpb-del .mc-ship__rm::after{content:"Tracked 24h";font-size:12px}
+}
