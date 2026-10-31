@@ -11,6 +11,11 @@
   {{ 'muto-bf-layout.css' | asset_url | stylesheet_tag }}
   {{ 'muto-bf-type.css' | asset_url | stylesheet_tag }}
   {{ 'muto-bf-copy.css' | asset_url | stylesheet_tag }}
+  <style>
+    /* The testing button is drawn under the image, then moved to where the badges were (muto-bf-layout.js):
+       hidden until it has moved, so its old place never shows */
+    html body .mc .mc__buy-media .mc-tests-btn{display:none!important}
+  </style>
   {%- render 'muto-bf-bar', product: product -%}
   <script src="{{ 'muto-bf-claim.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
