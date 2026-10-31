@@ -1,43 +1,44 @@
 /* Black Friday PDP copy, done in CSS so it is right on first paint (loaded in the header group) */
 /* Hidden: collaboration line, old offer box, "Choose your plan" */
-html body .mc .mc-collab,html body .mc .mc-bf,html body .mc .mc__trust{display:none!important}
+html:root body .mc .mc-collab,html:root body .mc .mc-bf,html:root body .mc .mc__trust{display:none!important}
 /* Stars, name and descriptor left-aligned */
-html body .mc .mc__buy-copy > .mc__rating{justify-content:flex-start!important}
-html body .mc .mc__buy-copy > .mc__rating,html body .mc .mc__buy-copy > .mc__eyebrow,
-html body .mc .mc__buy-copy > .mc__buy-title,html body .mc .mc__buy-copy > .mc-subhead{text-align:left!important}
+html:root body .mc .mc__buy-copy > .mc__rating{justify-content:flex-start!important}
+html:root body .mc .mc__buy-copy > .mc__rating,html:root body .mc .mc__buy-copy > .mc__eyebrow,
+html:root body .mc .mc__buy-copy > .mc__buy-title,html:root body .mc .mc__buy-copy > .mc-subhead{text-align:left!important}
 /* Descriptor, then the Black Friday line on a green ground */
-html body .mc .mc-subhead{font-size:0!important}
-html body .mc .mc-subhead::before{content:"Five supplements in one daily jar, built for life after 35.";display:block;font-size:15px;line-height:1.35}
-html body .mc .mc-subhead::after{content:"Black Friday: 3 months for £99  \00b7  Ends 30 Nov";display:block;width:fit-content;max-width:100%;margin:12px 0 4px;
+html:root body .mc .mc-subhead{font-size:0!important}
+html:root body .mc .mc-subhead::before{content:"Five supplements in one daily jar, built for life after 35.";display:block;font-size:15px;line-height:1.35}
+html:root body .mc .mc-subhead::after{content:"Black Friday: 3 months for £99  \00b7  Ends 30 Nov";display:block;width:fit-content;max-width:100%;margin:12px 0 4px;
   padding:8px 12px;border-radius:8px;background:#c9ffb7;color:#242223;font-size:14px;font-weight:600;line-height:1.3;white-space:pre-wrap}
 /* Plan names */
-html body .mc .mc__plans > label.mc__plan .mc__plan-name{font-size:0!important}
-html body .mc .mc__plans > label.mc__plan .mc__plan-name::before{font-size:16.5px;line-height:1.25}
-html body .mc .mc__plans > label.mc__plan:nth-of-type(1) .mc__plan-name::before{content:"1-Month Supply"}
-html body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-name::before{content:"3-Month Supply"}
+html:root body .mc .mc__plans > label.mc__plan .mc__plan-name{font-size:0!important}
+html:root body .mc .mc__plans > label.mc__plan .mc__plan-name::before{font-size:16.5px;line-height:1.25}
+html:root body .mc .mc__plans > label.mc__plan:nth-of-type(1) .mc__plan-name::before{content:"1-Month Supply"}
+html:root body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-name::before{content:"3-Month Supply"}
 /* Prices: £99 (was £210), £49.99 (was £70) */
-html body .mc .mc__plans > label.mc__plan:nth-of-type(1) .mc__plan-prices::before{content:"£49.99"}
-html body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-prices::before{content:"£99"}
-html body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-prices::after{content:"£210"}
+html:root body .mc .mc__plans > label.mc__plan:nth-of-type(1) .mc__plan-prices::before{content:"£49.99"}
+html:root body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-prices::before{content:"£99"}
+html:root body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-prices::after{content:"£210"}
+html:root body .mc .mc__plans > label.mc__plan:nth-of-type(1) .mc__plan-prices::after{content:"£70"}
 /* Welcome kit heading: short, tight letter spacing, one line */
-html body .mc .mc__kit-title{font-size:0!important;letter-spacing:0!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-html body .mc .mc__kit-title::before{content:"Welcome kit with your first box";font-size:11px;letter-spacing:.04em}
+html:root body .mc .mc__kit-title{font-size:0!important;letter-spacing:0!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+html:root body .mc .mc__kit-title::before{content:"Welcome kit with your first box";font-size:11px;letter-spacing:.04em}
 /* One-time purchase line */
-html body .mc .mc__onetime > span:first-child{font-size:0!important}
-html body .mc .mc__onetime > span:first-child::before{content:"One-Time Purchase - £70 (no gifts)";font-size:14px}
+html:root body .mc .mc__onetime > span:first-child{font-size:0!important}
+html:root body .mc .mc__onetime > span:first-child::before{content:"One-Time Purchase - £70 (no gifts)";font-size:14px}
 @media (max-width:749px){
-  html body .mc .mc-subhead::before{font-size:13.5px}
-  html body .mc .mc-subhead::after{margin-top:10px;padding:7px 10px;font-size:13px}
-  html body .mc .mc__plans > label.mc__plan .mc__plan-name::before{font-size:15.5px}
-  html body .mc .mc__kit-title::before{font-size:10.5px;letter-spacing:.03em}
-  html body .mc .mc__onetime > span:first-child::before{font-size:12.5px}
+  html:root body .mc .mc-subhead::before{font-size:13.5px}
+  html:root body .mc .mc-subhead::after{margin-top:10px;padding:7px 10px;font-size:13px}
+  html:root body .mc .mc__plans > label.mc__plan .mc__plan-name::before{font-size:15.5px}
+  html:root body .mc .mc__kit-title::before{font-size:10.5px;letter-spacing:.03em}
+  html:root body .mc .mc__onetime > span:first-child::before{font-size:12.5px}
 }
 /* "SAVE" tags: the same cyan as the "Best value" pill */
-html body .mc .mc__plan-save{background:#5efaff!important}
+html:root body .mc .mc__plan-save{background:#5efaff!important}
 /* Plan boxes: name, daily-cost pill and note all start at the same left edge (33px), the pill on its own line */
-html body .mc .mc__plans > label.mc__plan .mc__plan-head{flex-wrap:wrap!important;column-gap:12px!important;row-gap:5px!important}
-html body .mc .mc__plans > label.mc__plan .mc__plan-name{flex:1 1 calc(100% - 33px)!important;min-width:0}
-html body .mc .mc__plans > label.mc__plan .mc__plan-head::after{margin-left:33px!important}
-html body .mc .mc__plans > label.mc__plan .mc__plan-note{margin-left:33px!important}
+html:root body .mc .mc__plans > label.mc__plan .mc__plan-head{flex-wrap:wrap!important;column-gap:12px!important;row-gap:5px!important}
+html:root body .mc .mc__plans > label.mc__plan .mc__plan-name{flex:1 1 calc(100% - 33px)!important;min-width:0}
+html:root body .mc .mc__plans > label.mc__plan .mc__plan-head::after{margin-left:33px!important}
+html:root body .mc .mc__plans > label.mc__plan .mc__plan-note{margin-left:33px!important}
 /* No "Best value" pill */
-html body .mc .mc__plans-banner::before{display:none!important;content:none!important}
+html:root body .mc .mc__plans-banner::before{display:none!important;content:none!important}

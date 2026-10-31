@@ -5,10 +5,10 @@
 @media (max-width:749px){#MainContent > .shopify-section:not([id$="__buy"]){zoom:.88}}
 
 /* ---- Top bar ---- */
-@media (min-width:990px){body{padding-top:40px}.mc-bfx{height:40px;font-size:14px}}
+@media (min-width:990px){html:root body{padding-top:40px}.mc-bfx{height:40px;font-size:14px}}
 
 /* ---- Sticky add to cart ---- */
-body{padding-bottom:74px}
+html:root body{padding-bottom:74px}
 .mc-sbar__in{gap:12px;padding-top:9px;padding-bottom:calc(9px + env(safe-area-inset-bottom))}
 .mc-sbar__img{flex-basis:44px;width:44px;height:44px;border-radius:8px}
 .mc-sbar__name{font-size:16px}
@@ -19,7 +19,7 @@ body{padding-bottom:74px}
 .mc-sbar__pick-sub{font-size:12px;margin-top:1px}
 .mc-sbar__btn{height:48px;min-width:180px;padding:0 22px;border-radius:10px;font-size:15px}
 @media (max-width:749px){
-  body{padding-bottom:64px}
+  html:root body{padding-bottom:64px}
   .mc-sbar__in{gap:8px;padding:8px 10px;padding-bottom:calc(8px + env(safe-area-inset-bottom))}
   .mc-sbar__pick{height:46px;padding:0 32px 0 12px}
   .mc-sbar__pick::after{right:12px}
@@ -29,74 +29,74 @@ body{padding-bottom:74px}
 }
 
 /* ---- Buy box, all widths ---- */
-html body .mc .mc__rating-text{font-size:15px}
-html body .mc .mc__stars > span{width:15px;height:14px}
-html body .mc .mc__buy-title,html body .mc .mc__buy-copy > .mc__buy-title{font-size:clamp(26px,2.5vw,36px)}
-html body .mc .mc-subhead,html body .mc .mc__buy-copy > .mc-subhead{font-size:15px;line-height:1.35}
-html body .mc .mc-collab{font-size:14px;line-height:1.4}
-html body .mc .mc__buy-serving{font-size:12px}
-html body .mc .mc__buy-text{font-size:15px}
-html body .mc .mc__buy-text p:first-child{font-size:18px}
-html body .mc .mc__point{font-size:14px;padding:9px 0}
-html body .mc .mc__trust::after{font-size:17px}
-html body .mc .mc__plans-banner{font-size:12px;padding:10px 16px}
-html body .mc .mc__plans > label.mc__plan{padding:38px 16px 14px}
-html body .mc .mc__plan-save{height:24px;font-size:11px}
-html body .mc .mc__plan-name{font-size:16.5px}
-html body .mc .mc__plans > label.mc__plan .mc__plan-head::after{height:24px;padding:0 9px;font-size:13px}
-html body .mc .mc__plan-prices::before{font-size:19px}
-html body .mc .mc__plan-prices::after{font-size:13.5px}
-html body .mc .mc__plan-note{font-size:13px!important}
-html body .mc .mc__plans > .mc__plan-detail{font-size:14px;padding-left:16px;padding-right:16px}
-html body .mc .mc__plan-detail ul{gap:6px}
-html body .mc .mc__plans > .mc__kit{padding:14px 16px 16px}
-html body .mc .mc__kit-title{font-size:11px}
-html body .mc .mc__kit-list{grid-auto-columns:minmax(0,68px)}
-html body .mc .mc__kit-value,html body .mc .mc__kit-name{font-size:11.5px}
-html body .mc .mc__kit-month-n,html body .mc .mc__kit-month-v,html body .mc .mc__kit-month-t{font-size:12px}
-html body .mc .mc__kit-body{font-size:13px}
-html body .mc .mc__kit-sum{font-size:14px;min-height:42px}
-html body .mc .mc__btn{font-size:16px}
-html body .mc .mc__buy-cta{min-height:58px!important;padding-top:9px!important;padding-bottom:9px!important}
-html body .mc .mc__buy-cta::after{font-size:12.5px;margin-top:3px}
-html body .mc .mc-stats{padding:11px 14px}
-html body .mc .mc-stats__text{font-size:13px}
-html body .mc .mc-tests-btn{min-height:42px;font-size:14px}
-html body .mc .mpb-del{font-size:14px}
-html body .mc .mpb-pro b{font-size:16px}
-html body .mc .mpb-pro span{font-size:13.5px}
-html body .mc .mc__acc-sum{font-size:15px;min-height:48px}
-html body .mc .mc__acc-body{font-size:14px}
-html body .mc .mc__rev-q{font-size:15px}
-html body .mc .mc__rev-n{font-size:12px}
+html:root body .mc .mc__rating-text{font-size:15px}
+html:root body .mc .mc__stars > span{width:15px;height:14px}
+html:root body .mc .mc__buy-title,html:root body .mc .mc__buy-copy > .mc__buy-title{font-size:clamp(26px,2.5vw,36px)}
+html:root body .mc .mc-subhead,html:root body .mc .mc__buy-copy > .mc-subhead{font-size:15px;line-height:1.35}
+html:root body .mc .mc-collab{font-size:14px;line-height:1.4}
+html:root body .mc .mc__buy-serving{font-size:12px}
+html:root body .mc .mc__buy-text{font-size:15px}
+html:root body .mc .mc__buy-text p:first-child{font-size:18px}
+html:root body .mc .mc__point{font-size:14px;padding:9px 0}
+html:root body .mc .mc__trust::after{font-size:17px}
+html:root body .mc .mc__plans-banner{font-size:12px;padding:10px 16px}
+html:root body .mc .mc__plans > label.mc__plan{padding:38px 16px 14px}
+html:root body .mc .mc__plan-save{height:24px;font-size:11px}
+html:root body .mc .mc__plan-name{font-size:16.5px}
+html:root body .mc .mc__plans > label.mc__plan .mc__plan-head::after{height:24px;padding:0 9px;font-size:13px}
+html:root body .mc .mc__plan-prices::before{font-size:19px}
+html:root body .mc .mc__plan-prices::after{font-size:13.5px}
+html:root body .mc .mc__plan-note{font-size:13px!important}
+html:root body .mc .mc__plans > .mc__plan-detail{font-size:13.5px;line-height:1.4;padding-left:16px;padding-right:16px}
+html:root body .mc .mc__plan-detail ul{gap:6px}
+html:root body .mc .mc__plans > .mc__kit{padding:14px 16px 16px}
+html:root body .mc .mc__kit-title{font-size:11px}
+html:root body .mc .mc__kit-list{grid-auto-columns:minmax(0,68px)}
+html:root body .mc .mc__kit-value,html:root body .mc .mc__kit-name{font-size:11.5px}
+html:root body .mc .mc__kit-month-n,html:root body .mc .mc__kit-month-v,html:root body .mc .mc__kit-month-t{font-size:12px}
+html:root body .mc .mc__kit-body{font-size:13px}
+html:root body .mc .mc__kit-sum{font-size:14px;min-height:42px}
+html:root body .mc .mc__btn{font-size:16px}
+html:root body .mc .mc__buy-cta{min-height:58px!important;padding-top:9px!important;padding-bottom:9px!important}
+html:root body .mc .mc__buy-cta::after{font-size:12.5px;margin-top:3px}
+html:root body .mc .mc-stats{padding:11px 14px}
+html:root body .mc .mc-stats__text{font-size:13px}
+html:root body .mc .mc-tests-btn{min-height:42px;font-size:14px}
+html:root body .mc .mpb-del{font-size:14px}
+html:root body .mc .mpb-pro b{font-size:16px}
+html:root body .mc .mpb-pro span{font-size:13.5px}
+html:root body .mc .mc__acc-sum{font-size:15px;min-height:48px}
+html:root body .mc .mc__acc-body{font-size:14px}
+html:root body .mc .mc__rev-q{font-size:15px}
+html:root body .mc .mc__rev-n{font-size:12px}
 
 /* ---- Buy box, phones: one step smaller again ---- */
 @media (max-width:749px){
-  html body .mc .mc__rating-text{font-size:13.5px}
-  html body .mc .mc__buy-title,html body .mc .mc__buy-copy > .mc__buy-title{font-size:24px}
-  html body .mc .mc-subhead,html body .mc .mc__buy-copy > .mc-subhead{font-size:13.5px}
-  html body .mc .mc-collab{font-size:12px}
-  html body .mc .mc__trust::after{font-size:15px}
-  html body .mc .mc__plans-banner{font-size:11px;padding:8px 12px}
-  html body .mc .mc__plans > label.mc__plan{padding:32px 12px 11px}
-  html body .mc .mc__plan-save{height:22px;font-size:10.5px}
-  html body .mc .mc__plan-name{font-size:15.5px}
-  html body .mc .mc__plans > label.mc__plan .mc__plan-head::after{height:21px;padding:0 7px;font-size:12px}
-  html body .mc .mc__plan-prices::before{font-size:17px}
-  html body .mc .mc__plan-prices::after{font-size:12.5px}
-  html body .mc .mc__plan-note{font-size:11px!important}
-  html body .mc .mc__plans > .mc__plan-detail{font-size:13px;padding-left:12px;padding-right:12px}
-  html body .mc .mc__plans > .mc__kit{padding:10px 12px 12px}
-  html body .mc .mc__kit-list{grid-auto-columns:minmax(0,56px)}
-  html body .mc .mc__kit-value,html body .mc .mc__kit-name{font-size:10.5px}
-  html body .mc .mc__kit-sum{font-size:13px;min-height:36px}
-  html body .mc .mc__onetime{font-size:12.5px!important}
-  html body .mc .mc__btn{font-size:15px}
-  html body .mc .mc__buy-cta{min-height:52px!important;padding-top:7px!important;padding-bottom:7px!important}
-  html body .mc .mc__buy-cta::after{font-size:11.5px}
-  html body .mc .mc-stats__text{font-size:12px}
-  html body .mc .mc-tests-btn{min-height:38px;font-size:13px}
-  html body .mc .mpb-del{font-size:13px}
-  html body .mc .mc__acc-sum{font-size:14px;min-height:44px}
-  html body .mc .mc__acc-body{font-size:13.5px}
+  html:root body .mc .mc__rating-text{font-size:13.5px}
+  html:root body .mc .mc__buy-title,html:root body .mc .mc__buy-copy > .mc__buy-title{font-size:24px}
+  html:root body .mc .mc-subhead,html:root body .mc .mc__buy-copy > .mc-subhead{font-size:13.5px}
+  html:root body .mc .mc-collab{font-size:12px}
+  html:root body .mc .mc__trust::after{font-size:15px}
+  html:root body .mc .mc__plans-banner{font-size:11px;padding:8px 12px}
+  html:root body .mc .mc__plans > label.mc__plan{padding:32px 12px 11px}
+  html:root body .mc .mc__plan-save{height:22px;font-size:10.5px}
+  html:root body .mc .mc__plan-name{font-size:15.5px}
+  html:root body .mc .mc__plans > label.mc__plan .mc__plan-head::after{height:21px;padding:0 7px;font-size:12px}
+  html:root body .mc .mc__plan-prices::before{font-size:17px}
+  html:root body .mc .mc__plan-prices::after{font-size:12.5px}
+  html:root body .mc .mc__plan-note{font-size:11px!important}
+  html:root body .mc .mc__plans > .mc__plan-detail{font-size:12.5px;padding-left:12px;padding-right:12px}
+  html:root body .mc .mc__plans > .mc__kit{padding:10px 12px 12px}
+  html:root body .mc .mc__kit-list{grid-auto-columns:minmax(0,56px)}
+  html:root body .mc .mc__kit-value,html:root body .mc .mc__kit-name{font-size:10.5px}
+  html:root body .mc .mc__kit-sum{font-size:13px;min-height:36px}
+  html:root body .mc .mc__onetime{font-size:12.5px!important}
+  html:root body .mc .mc__btn{font-size:15px}
+  html:root body .mc .mc__buy-cta{min-height:52px!important;padding-top:7px!important;padding-bottom:7px!important}
+  html:root body .mc .mc__buy-cta::after{font-size:11.5px}
+  html:root body .mc .mc-stats__text{font-size:12px}
+  html:root body .mc .mc-tests-btn{min-height:38px;font-size:13px}
+  html:root body .mc .mpb-del{font-size:13px}
+  html:root body .mc .mc__acc-sum{font-size:14px;min-height:44px}
+  html:root body .mc .mc__acc-body{font-size:13.5px}
 }
