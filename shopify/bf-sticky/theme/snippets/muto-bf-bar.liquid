@@ -41,3 +41,15 @@ document.addEventListener('DOMContentLoaded', function () {
   if (t && s && !s.querySelector('.mc-cmp')) { s.innerHTML = ''; s.appendChild(t.content.cloneNode(true)); }
 });
 </script>
+<script>
+/* "Who it's for" fold: new copy */
+document.addEventListener('DOMContentLoaded', function () {
+  [].forEach.call(document.querySelectorAll('.mc details'), function (d) {
+    var s = d.querySelector('summary');
+    if (!s || !/who it/i.test(s.textContent)) return;
+    var b = d.querySelector('.mc__acc-body') || s.nextElementSibling;
+    if (b) b.innerHTML = '<p><strong>Made for adults over 35.</strong> That’s when your body starts to change, and when most of our customers start taking MUTO. You don’t need to be sporty or own a smartwatch.</p>' +
+      '<p>It’s for you if afternoons feel harder than they used to, you get less back from the same effort, or you want to keep up with work, family and the things you love for years to come.</p>';
+  });
+});
+</script>
