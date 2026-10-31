@@ -201,250 +201,6 @@
         "space_bottom": 100
       }
     },
-    "shop": {
-      "type": "muto-home-shop",
-      "blocks": {
-        "pn": {
-          "type": "panel",
-          "settings": {
-            "label": "NAD+",
-            "key": "nad",
-            "layout": "protocol",
-            "title": "NAD+ Cellular Complex",
-            "lede": "The 19-ingredient daily protocol for people who aren’t ready to slow down.",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-shop-nad-v2.jpg?v=1791288517",
-            "image_alt": "A jar of MUTO NAD+ Cellular Complex lit on a dark set",
-            "actives_label": "What’s inside",
-            "cta_label": "Start your 90 days",
-            "cta_link": "/products/muto-nad-cellular-complex"
-          }
-        },
-        "s1": {
-          "type": "step",
-          "settings": {
-            "panel": "nad",
-            "text": "<strong>Built for the slowdown.</strong> Afternoons that fade sooner. Sessions that take longer to leave your legs. A cupboard of supplements that isn’t fixing it. Beneath the surface, your cells use NAD+ to make energy and run their repair work, and supply falls as you get older. MUTO supports that system with 19 ingredients."
-          }
-        },
-        "s2": {
-          "type": "step",
-          "settings": {
-            "panel": "nad",
-            "text": "<strong>One routine. Nothing hidden.</strong> Two capsules with your first meal. Every dose on the label. No caffeine, no stimulants, no proprietary blends."
-          }
-        },
-        "s3": {
-          "type": "step",
-          "settings": {
-            "panel": "nad",
-            "text": "<strong>90 days to decide.</strong> Note how you feel before you start, then check in at day 30 and day 90: in your days, your training, or on your wearable if you have one. If it’s not for you, you’re covered."
-          }
-        },
-        "a1": {
-          "type": "active",
-          "settings": {
-            "panel": "nad",
-            "value": "300mg",
-            "caption": "Nicotinamide Riboside"
-          }
-        },
-        "a2": {
-          "type": "active",
-          "settings": {
-            "panel": "nad",
-            "value": "450mg",
-            "caption": "TMG"
-          }
-        },
-        "a3": {
-          "type": "active",
-          "settings": {
-            "panel": "nad",
-            "value": "150mg",
-            "caption": "CoQ10"
-          }
-        },
-        "a4": {
-          "type": "active",
-          "settings": {
-            "panel": "nad",
-            "value": "2000IU",
-            "caption": "Vitamin D3"
-          }
-        },
-        "a5": {
-          "type": "active",
-          "settings": {
-            "panel": "nad",
-            "value": "50mg",
-            "caption": "Trans-Resveratrol"
-          }
-        },
-        "a6": {
-          "type": "active",
-          "settings": {
-            "panel": "nad",
-            "value": "20mg",
-            "caption": "PQQ"
-          }
-        },
-        "a7": {
-          "type": "active",
-          "settings": {
-            "panel": "nad",
-            "value": "15mg",
-            "caption": "Zinc"
-          }
-        },
-        "a8": {
-          "type": "active",
-          "settings": {
-            "panel": "nad",
-            "value": "19",
-            "caption": "Ingredients"
-          }
-        },
-        "pc": {
-          "type": "panel",
-          "settings": {
-            "label": "Creatine",
-            "key": "creatine",
-            "layout": "protocol",
-            "title": "Ultrapure micronised\ncreatine monohydrate",
-            "lede": "The fast reserve beside the steady supply.",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-shop-creatine-v2.jpg?v=1791288517",
-            "image_alt": "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate lit on a dark set",
-            "actives_label": "Features:",
-            "cta_label": "Start Today",
-            "cta_link": ""
-          }
-        },
-        "cs1": {
-          "type": "step",
-          "settings": {
-            "panel": "creatine",
-            "text": "Ultrapure micronised creatine monohydrate. One ingredient, nothing else in the pouch (≥99.9% purity, every batch tested)."
-          }
-        },
-        "cs2": {
-          "type": "step",
-          "settings": {
-            "panel": "creatine",
-            "text": "Creatine increases physical performance in successive bursts of short-term, high-intensity exercise. The beneficial effect comes from 3g a day."
-          }
-        },
-        "cs3": {
-          "type": "step",
-          "settings": {
-            "panel": "creatine",
-            "text": "Built to sit alongside MUTO NAD+ Cellular Complex: one scoop with your first meal, in water or a smoothie. Track it where it shows, in your training log."
-          }
-        },
-        "ca1": {
-          "type": "active",
-          "settings": {
-            "panel": "creatine",
-            "value": "5g",
-            "caption": "Per daily dose"
-          }
-        },
-        "ca2": {
-          "type": "active",
-          "settings": {
-            "panel": "creatine",
-            "value": "Micronised",
-            "caption": "200 mesh"
-          }
-        },
-        "ca3": {
-          "type": "active",
-          "settings": {
-            "panel": "creatine",
-            "value": ">99.9%",
-            "caption": "Purity"
-          }
-        },
-        "ca4": {
-          "type": "active",
-          "settings": {
-            "panel": "creatine",
-            "value": "Tested",
-            "caption": "By third-party labs"
-          }
-        },
-        "pe": {
-          "type": "panel",
-          "settings": {
-            "label": "Essentials",
-            "key": "essentials",
-            "layout": "products",
-            "title": "NAD+ Cellular Complex",
-            "lede": "The daily longevity cellular protocol you can track.",
-            "image_fallback": "",
-            "image_alt": "",
-            "actives_label": "Key actives:",
-            "cta_label": "Start your 90 days",
-            "cta_link": ""
-          }
-        },
-        "e1": {
-          "type": "product",
-          "settings": {
-            "panel": "essentials",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-essentials-socks.jpg?v=1791037580",
-            "image_alt": "A pouch of MUTO Performance Socks, the white sock visible through the front",
-            "title": "Performance socks",
-            "text": "Premium nylon socks designed for activity, with shaping that holds its fit through every session. Light, breathable and built to move with you, from the first mile to the last rep. Made to the same standard as everything else in the protocol.",
-            "cta_label": "Buy Now",
-            "cta_link": ""
-          }
-        },
-        "e2": {
-          "type": "product",
-          "settings": {
-            "panel": "essentials",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-shop-bottle-v2.jpg?v=1791288517",
-            "image_alt": "A MUTO Performance Bottle in translucent blue, lit on a dark set",
-            "title": "Performance Bottle",
-            "text": "A BPA-free bottle built for training days and everything in between. Light enough to carry everywhere and easy to clean, with room for your morning scoop of MUTO Creatine. One bottle, from first meal to final session.",
-            "cta_label": "Buy Now",
-            "cta_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "pn",
-        "s1",
-        "s2",
-        "s3",
-        "a1",
-        "a2",
-        "a3",
-        "a4",
-        "a5",
-        "a6",
-        "a7",
-        "a8",
-        "pc",
-        "cs1",
-        "cs2",
-        "cs3",
-        "ca1",
-        "ca2",
-        "ca3",
-        "ca4",
-        "pe",
-        "e1",
-        "e2"
-      ],
-      "settings": {
-        "heading": "Shop the protocol",
-        "tablist_label": "Choose a product",
-        "field": true,
-        "space_top": 100,
-        "space_bottom": 100
-      }
-    },
     "sticky": {
       "type": "muto-home-sticky",
       "settings": {
@@ -456,12 +212,99 @@
         "sticky_sub": "One size · £2.99 next day",
         "schema_on": true
       }
+    },
+    "range": {
+      "type": "muto-range",
+      "blocks": {
+        "nad": {
+          "type": "product",
+          "settings": {
+            "tab": "NAD+ Cellular Complex",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-shop-nad-v2.jpg?v=1791288517",
+            "chip": "Two capsules a day",
+            "title": "NAD+ Cellular Complex",
+            "text": "A daily multi-nutrient with NAD⁺ support, built for 35+. Five supplements in one jar.",
+            "offer": "Black Friday: 3 months for £99 (was £210) · Ends 30 Nov",
+            "points": "Built for life after 35 | Afternoons that hold, quicker recovery from a busy week, and support for your cells as you age.\nEvery dose on the label | 19 ingredients, no proprietary blends, every batch third-party tested.\n90-day guarantee | Not for you? Get every subscription payment back.",
+            "actives": "300mg | Nicotinamide riboside\n150mg | CoQ10\n20mg | PQQ\n450mg | TMG\n50mg | Trans-resveratrol\n50mcg | Vitamin D3",
+            "button_label": "Shop NAD+ Cellular Complex",
+            "button_link": "/products/muto-nad-cellular-complex",
+            "link_label": "See all 19 ingredients",
+            "link": "/pages/ingredients"
+          }
+        },
+        "cre": {
+          "type": "product",
+          "settings": {
+            "tab": "Creatine",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-shop-creatine-v2.jpg?v=1791288517",
+            "chip": "One scoop a day",
+            "title": "Ultrapure Micronised Creatine",
+            "text": "The fast reserve beside the steady supply. One ingredient, nothing else in the pouch.",
+            "offer": "",
+            "points": "For the hardest efforts | Creatine increases physical performance in successive bursts of short-term, high-intensity exercise. The beneficial effect comes from 3g a day.\nNothing else in it | Ultrapure creatine monohydrate, ≥99.9% pure, every batch tested.\nBuilt to sit with NAD+ | One scoop with your first meal, in water or a smoothie.",
+            "actives": "5g | Per daily dose\n200 mesh | Micronised\n>99.9% | Purity\nTested | By third-party labs",
+            "button_label": "Shop creatine",
+            "button_link": "/products/muto-creatine",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "e0": {
+          "type": "product",
+          "settings": {
+            "tab": "Essentials",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-essentials-socks.jpg?v=1791037580",
+            "chip": "",
+            "title": "Performance socks",
+            "text": "Premium nylon socks designed for activity, with shaping that holds its fit through every session. Light, breathable and built to move with you, from the first mile to the last rep. Made to the same standard as everything else in the protocol.",
+            "offer": "",
+            "points": "",
+            "actives": "",
+            "button_label": "Shop the socks",
+            "button_link": "/products/socks",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "e1": {
+          "type": "product",
+          "settings": {
+            "tab": "Essentials",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-shop-bottle-v2.jpg?v=1791288517",
+            "chip": "",
+            "title": "Performance Bottle",
+            "text": "A BPA-free bottle built for training days and everything in between. Light enough to carry everywhere and easy to clean, with room for your morning scoop of MUTO Creatine. One bottle, from first meal to final session.",
+            "offer": "",
+            "points": "",
+            "actives": "",
+            "button_label": "Shop the bottle",
+            "button_link": "/products/muto-water-bottle",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "nad",
+        "cre",
+        "e0",
+        "e1"
+      ],
+      "settings": {
+        "anchor": "",
+        "eyebrow": "Shop the range",
+        "heading": "Complete the protocol.",
+        "lede": "Start with NAD+ Cellular Complex, the daily foundation. Add creatine for the hardest efforts.",
+        "space_top": 96,
+        "space_bottom": 96
+      }
     }
   },
   "order": [
     "buy",
     "gallery",
-    "shop",
+    "range",
     "sticky"
   ]
 }

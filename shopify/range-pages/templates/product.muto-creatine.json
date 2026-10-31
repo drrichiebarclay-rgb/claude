@@ -304,58 +304,6 @@
         "space_bottom": 100
       }
     },
-    "why": {
-      "type": "muto-home-why",
-      "blocks": {
-        "w1": {
-          "type": "card",
-          "settings": {
-            "title": "Built by a scientist.\nApproved by a board.",
-            "text": "Formulated by Richie Barclay, PhD in cellular biology and nutrition, and reviewed by a Scientific Advisory Board of seven scientists and clinicians in performance, metabolic health and cellular science.",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-why-scientists.jpg?v=1790767821",
-            "image_alt": "Four members of the MUTO scientific advisory board in conversation around a low table",
-            "image_position": "50% 30%"
-          }
-        },
-        "w2": {
-          "type": "card",
-          "settings": {
-            "title": "Nothing hidden.",
-            "text": "Nineteen ingredients, each on the label with its dose and the reason it's there. No proprietary blends. Made in the UK by a GMP-certified manufacturer.",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-why-manufacturing.jpg?v=1790767821",
-            "image_alt": "Capsules moving along a filling line at the UK manufacturer",
-            "image_position": ""
-          }
-        },
-        "w3": {
-          "type": "card",
-          "settings": {
-            "title": "Built to be checked.",
-            "text": "You already check the number on your wrist every morning. MUTO works one layer beneath it, on the cellular system your device reports on. Take a baseline, track the trend over 60 to 90 days, and make your own call.",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-why-wearable.jpg?v=1790767821",
-            "image_alt": "A wrist wearing a sports watch, seen underwater",
-            "image_position": ""
-          }
-        }
-      },
-      "block_order": [
-        "w1",
-        "w2",
-        "w3"
-      ],
-      "settings": {
-        "heading": "Why MUTO",
-        "heading_right": "",
-        "align": "center",
-        "ink": "teal",
-        "card_min": 455,
-        "head_gap": 80,
-        "field": false,
-        "fit": "home",
-        "space_top": 78,
-        "space_bottom": 100
-      }
-    },
     "board": {
       "type": "muto-home-board",
       "blocks": {
@@ -464,14 +412,14 @@
         "m6"
       ],
       "settings": {
-        "field": true,
-        "heading": "Meet our\nscientific board.",
-        "note": "Reviewed and approved by world-leading doctors.",
-        "compact": false,
-        "rail_gap": 64,
+        "field": false,
+        "heading": "Six scientists put\ntheir name to MUTO.",
+        "note": "Our Scientific Advisory Board reviews the formula",
+        "compact": true,
+        "rail_gap": 40,
         "fit": "nad",
-        "space_top": 104,
-        "space_bottom": 100
+        "space_top": 60,
+        "space_bottom": 72
       }
     },
     "superior": {
@@ -937,17 +885,114 @@
         "sticky_sub": "Cancel, pause or skip anytime",
         "schema_on": false
       }
+    },
+    "board_anchor": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<style>[id$=\"__board_anchor\"]{height:0;overflow:hidden;margin:0!important;padding:0!important}[id$=\"__board\"] .mh{background:var(--mc-ground,#f9f9f9)}</style><span id=\"scientific-board\" style=\"display:block;position:relative;top:-80px\"></span>",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "range": {
+      "type": "muto-range",
+      "blocks": {
+        "nad": {
+          "type": "product",
+          "settings": {
+            "tab": "NAD+ Cellular Complex",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-shop-nad-v2.jpg?v=1791288517",
+            "chip": "Two capsules a day",
+            "title": "NAD+ Cellular Complex",
+            "text": "A daily multi-nutrient with NAD⁺ support, built for 35+. Five supplements in one jar.",
+            "offer": "Black Friday: 3 months for £99 (was £210) · Ends 30 Nov",
+            "points": "Built for life after 35 | Afternoons that hold, quicker recovery from a busy week, and support for your cells as you age.\nEvery dose on the label | 19 ingredients, no proprietary blends, every batch third-party tested.\n90-day guarantee | Not for you? Get every subscription payment back.",
+            "actives": "300mg | Nicotinamide riboside\n150mg | CoQ10\n20mg | PQQ\n450mg | TMG\n50mg | Trans-resveratrol\n50mcg | Vitamin D3",
+            "button_label": "Shop NAD+ Cellular Complex",
+            "button_link": "/products/muto-nad-cellular-complex",
+            "link_label": "See all 19 ingredients",
+            "link": "/pages/ingredients"
+          }
+        },
+        "cre": {
+          "type": "product",
+          "settings": {
+            "tab": "Creatine",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-shop-creatine-v2.jpg?v=1791288517",
+            "chip": "One scoop a day",
+            "title": "Ultrapure Micronised Creatine",
+            "text": "The fast reserve beside the steady supply. One ingredient, nothing else in the pouch.",
+            "offer": "",
+            "points": "For the hardest efforts | Creatine increases physical performance in successive bursts of short-term, high-intensity exercise. The beneficial effect comes from 3g a day.\nNothing else in it | Ultrapure creatine monohydrate, ≥99.9% pure, every batch tested.\nBuilt to sit with NAD+ | One scoop with your first meal, in water or a smoothie.",
+            "actives": "5g | Per daily dose\n200 mesh | Micronised\n>99.9% | Purity\nTested | By third-party labs",
+            "button_label": "Shop creatine",
+            "button_link": "/products/muto-creatine",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "e0": {
+          "type": "product",
+          "settings": {
+            "tab": "Essentials",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-essentials-socks.jpg?v=1791037580",
+            "chip": "",
+            "title": "Performance socks",
+            "text": "Premium nylon socks designed for activity, with shaping that holds its fit through every session. Light, breathable and built to move with you, from the first mile to the last rep. Made to the same standard as everything else in the protocol.",
+            "offer": "",
+            "points": "",
+            "actives": "",
+            "button_label": "Shop the socks",
+            "button_link": "/products/socks",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "e1": {
+          "type": "product",
+          "settings": {
+            "tab": "Essentials",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-shop-bottle-v2.jpg?v=1791288517",
+            "chip": "",
+            "title": "Performance Bottle",
+            "text": "A BPA-free bottle built for training days and everything in between. Light enough to carry everywhere and easy to clean, with room for your morning scoop of MUTO Creatine. One bottle, from first meal to final session.",
+            "offer": "",
+            "points": "",
+            "actives": "",
+            "button_label": "Shop the bottle",
+            "button_link": "/products/muto-water-bottle",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "nad",
+        "cre",
+        "e0",
+        "e1"
+      ],
+      "settings": {
+        "anchor": "",
+        "eyebrow": "Shop the range",
+        "heading": "Complete the protocol.",
+        "lede": "Creatine for the hardest efforts. NAD+ Cellular Complex for the daily foundation.",
+        "space_top": 96,
+        "space_bottom": 96
+      }
     }
   },
   "order": [
     "buy",
-    "why",
+    "board_anchor",
     "board",
     "superior",
     "benefits",
     "steps",
     "compare",
     "onescoop",
+    "range",
     "faq",
     "sticky"
   ]
