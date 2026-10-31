@@ -78,6 +78,10 @@ The story is that what your body needs after 35 is different from what it needed
 8. **Black Friday:** an outlined box with "3 months for £99", a turquoise button.
 9. **Reviews:** unchanged.
 
+Also on the science page:
+- A "View third-party testing results" link under the numbers. It opens the same testing pop-up as the product page, with the same batch data and wording; the template carries a copy of the product page's `tests` section.
+- A sticky add to cart (`snippets/muto-sci-sticky.liquid`). It's the product page's bar with 3-Month Supply £99 or 1-Month Supply £49.99. It adds the chosen plan (variant and Skio selling plan, read from the product) and then opens the cart.
+
 In GitHub at `shopify/science-v2/`. After Black Friday, change the intro button and the offer box in Customize.
 
 **Home page (`templates/index.json`):** the "Still training. Still working. Not done yet." athletes block is replaced, in the same place, by the product page's "Don't take our word for it." customer results videos (all 8). Nothing else on the home page changed. The file is in the zip under `templates/` and in GitHub at `shopify/home-videos/theme/templates/index.json`. If the live home page has been edited since 31 October, re-make this change in Customize instead of copying the file.
@@ -92,6 +96,8 @@ In GitHub at `shopify/science-v2/`. After Black Friday, change the intro button 
 - hairline rules
 
 It applies everywhere the pop-up opens. In the zip under `sections/`, and in GitHub at `shopify/tests-v2/`.
+
+**Site-wide: lighter headings.** `muto-bf-head.liquid` sets the theme's heading weight to 500 (`--font-heading-weight`), and makes the "Customer reviews" heading and the reviews widget's score, sort and tabs weight 500 too.
 
 **Site-wide (all pages, phones and tablets under 990px):** a shorter header bar.
 
@@ -149,6 +155,8 @@ It applies everywhere the pop-up opens. In the zip under `sections/`, and in Git
 - [ ] **Site-wide compact header**: check the home page, other product pages and a content page on a phone, and that nothing is hidden under the header.
 - [ ] Doesn't collide with chat or popup widgets at the bottom of the screen.
 - [ ] Testing pop-up: open it from the product page and the ingredients page, then check all four tabs on a phone and on desktop.
+- [ ] Headings across the site look right at weight 500, including the reviews block.
+- [ ] Science page: the testing link opens the pop-up; the sticky bar appears after scrolling and adds both plans correctly.
 - [ ] Home page: the results videos play, and the athletes block is gone.
 - [ ] Science page: the new layout on phone and desktop, the comparison in place, and the board videos playing.
 
