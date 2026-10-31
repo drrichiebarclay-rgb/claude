@@ -32,6 +32,14 @@
     /* The testing button is drawn under the image, then moved to where the badges were (muto-bf-layout.js):
        hidden until it has moved, so its old place never shows */
     html body .mc .mc__buy-media .mc-tests-btn{display:none!important}
+    /* "Free from" and "Made with" lists under the button: smaller */
+    #MainContent [id$="__buy"] .mpb-lists{gap:16px;margin-top:18px}
+    #MainContent [id$="__buy"] .mpb-lists p{margin-bottom:8px;font-size:10.5px}
+    #MainContent [id$="__buy"] .mpb-lists ul{gap:4px;font-size:15px;line-height:1.3}
+    @media (max-width:749px){
+      #MainContent [id$="__buy"] .mpb-lists p{font-size:10px}
+      #MainContent [id$="__buy"] .mpb-lists ul{font-size:13.5px}
+    }
   </style>
   {%- render 'muto-bf-bar', product: product -%}
   <script src="{{ 'muto-bf-claim.js' | asset_url }}" defer="defer"></script>
