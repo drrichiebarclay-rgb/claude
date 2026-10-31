@@ -52,42 +52,62 @@
     var bar = nav.querySelector('.msn__bar');
     var links = [].slice.call(nav.querySelectorAll('[data-msn-link]'));
     var row = nav.querySelector('ol');
-    /* The section wrapper for a target: a template section key, or the section that holds an element id.
-       Wrappers sit directly in the page, so their positions are right even when the page zooms sections. */
+    /* Each chip's section wrapper: a template section key, or the section that holds an element id */
     function find(k) {
       var s = document.querySelector('[id^="shopify-section-"][id$="__' + k + '"]');
       if (s) return s;
       var el = document.getElementById(k);
-      if (!el) return null;
-      return el.closest('.shopify-section') || el;
+      return el ? (el.closest('.shopify-section') || el) : null;
     }
+    /* Looked up each time: the sections come after this bar in the page, so they don't exist yet when it loads */
+    function getTargets() { return links.map(function (a) { return find(a.dataset.msnLink); }); }
+    /* Where the bar ends on screen, measured by the browser (so page zoom can't skew it) */
+    function navBottom() { return Math.round(nav.getBoundingClientRect().bottom); }
     function pin() { nav.classList.toggle('is-fixed', root.getBoundingClientRect().top <= top); }
     function progress() {
       var max = document.documentElement.scrollHeight - window.innerHeight;
       bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, window.scrollY / max) : 0) + ')';
     }
-    var clickLock = 0;
-    function current() {
-      if (Date.now() - clickLock < 900) return;
-      var line = top + nav.offsetHeight + Math.round(window.innerHeight * 0.25), on = -1;
-      links.forEach(function (a, i) { var t = find(a.dataset.msnLink); if (t && t.getBoundingClientRect().top <= line) on = i; });
-      links.forEach(function (a, i) {
+    function setOn(i) {
+      links.forEach(function (a, n) {
         var was = a.classList.contains('is-on');
-        a.classList.toggle('is-on', i === on);
-        if (i === on && !was && row.scrollWidth > row.clientWidth) row.scrollTo({ left: Math.max(0, a.offsetLeft - 20), behavior: 'smooth' });
+        a.classList.toggle('is-on', n === i);
+        if (n === i && !was && row.scrollWidth > row.clientWidth) row.scrollTo({ left: Math.max(0, a.offsetLeft - 20), behavior: 'smooth' });
       });
     }
-    window.addEventListener('scroll', function () { pin(); progress(); current(); }, { passive: true });
+    /* The chip is the section sitting directly under the bar: the one crossing a line just below it */
+    var lock = 0;
+    function current() {
+      if (Date.now() - lock < 900) return;
+      var line = (nav.classList.contains('is-fixed') ? navBottom() : top + nav.offsetHeight) + 8;
+      var on = -1, targets = getTargets();
+      targets.forEach(function (t, i) {
+        if (!t) return;
+        var r = t.getBoundingClientRect();
+        if (r.top <= line && r.bottom > line) on = i;
+        else if (on === -1 && r.top <= line) on = i;
+      });
+      if (on === -1) { targets.forEach(function (t, i) { if (t && t.getBoundingClientRect().bottom <= line) on = i; }); }
+      setOn(on);
+    }
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (ticking) return; ticking = true;
+      requestAnimationFrame(function () { ticking = false; pin(); progress(); current(); });
+    }, { passive: true });
+    window.addEventListener('resize', current);
     pin(); progress(); current();
-    links.forEach(function (a) {
+    /* Tap: the browser scrolls the section to just under the bar (scroll-margin), exact at any zoom */
+    links.forEach(function (a, i) {
       a.addEventListener('click', function (e) {
-        var t = find(a.dataset.msnLink);
+        var targets = getTargets(), t = targets[i];
         if (!t) return;
         e.preventDefault();
-        links.forEach(function (x) { x.classList.toggle('is-on', x === a); });
-        clickLock = Date.now();
-        var y = t.getBoundingClientRect().top + window.scrollY - top - nav.offsetHeight + 1;
-        window.scrollTo({ top: y, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+        setOn(i); lock = Date.now();
+        var offset = top + (nav.classList.contains('is-fixed') ? nav.getBoundingClientRect().height : nav.offsetHeight);
+        targets.forEach(function (x) { if (x) x.style.scrollMarginTop = offset + 'px'; });
+        t.scrollIntoView({ block: 'start', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+        setTimeout(function () { lock = 0; current(); }, 1000);
       });
     });
   })();
