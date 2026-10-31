@@ -1861,7 +1861,7 @@
         "s2": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/Coffee_MUTO.jpg",
+            "image": "shopify://shop_images/muto-step-morning.jpg",
             "title": "Every morning",
             "detail": "Every day",
             "text": "<p>It works best as a daily habit. Keep the jar by the kettle so you don’t forget.</p>"
