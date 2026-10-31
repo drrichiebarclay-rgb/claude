@@ -814,8 +814,8 @@
             "stat": "300mg NR",
             "title": "Full, declared doses",
             "text": "<p>Nicotinamide riboside at 300mg, the maximum daily amount authorised in Great Britain. All 19 ingredients are on the label with their doses. No proprietary blends.</p>",
-            "link_label": "",
-            "link": "",
+            "link_label": "See every ingredient and dose",
+            "link": "/pages/ingredients",
             "no_link_note": ""
           }
         },
@@ -836,8 +836,8 @@
             "stat": "GMP · ISO",
             "title": "Made in the UK",
             "text": "<p>Manufactured in the UK to GMP standards, in an ISO-certified facility.</p>",
-            "link_label": "",
-            "link": "",
+            "link_label": "Read our quality standards",
+            "link": "/pages/standards",
             "no_link_note": ""
           }
         }
@@ -883,10 +883,94 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
+    },
+    "nav": {
+      "type": "muto-section-nav",
+      "blocks": {
+        "n1": {
+          "type": "link",
+          "settings": {
+            "label": "The problem",
+            "target": "hero"
+          }
+        },
+        "n2": {
+          "type": "link",
+          "settings": {
+            "label": "What changes",
+            "target": "shifts"
+          }
+        },
+        "n3": {
+          "type": "link",
+          "settings": {
+            "label": "Benefits",
+            "target": "benefits"
+          }
+        },
+        "n4": {
+          "type": "link",
+          "settings": {
+            "label": "Comparison",
+            "target": "compare"
+          }
+        },
+        "n5": {
+          "type": "link",
+          "settings": {
+            "label": "Scientists",
+            "target": "board"
+          }
+        },
+        "n6": {
+          "type": "link",
+          "settings": {
+            "label": "Standards",
+            "target": "standards"
+          }
+        },
+        "n7": {
+          "type": "link",
+          "settings": {
+            "label": "Founder",
+            "target": "founder"
+          }
+        },
+        "n8": {
+          "type": "link",
+          "settings": {
+            "label": "Research",
+            "target": "research"
+          }
+        },
+        "n9": {
+          "type": "link",
+          "settings": {
+            "label": "Reviews",
+            "target": "reviews"
+          }
+        }
+      },
+      "block_order": [
+        "n1",
+        "n2",
+        "n3",
+        "n4",
+        "n5",
+        "n6",
+        "n7",
+        "n8",
+        "n9"
+      ],
+      "settings": {
+        "label": "On this page",
+        "nav_top": 44
+      }
     }
   },
   "order": [
     "headline",
+    "nav",
     "hero",
     "shifts",
     "benefits",
