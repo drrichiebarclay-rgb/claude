@@ -14,10 +14,10 @@
 -%}
 <style>
   #shopify-section-{{ sid }}{--mst-ink:#242223;--mst-head:var(--mc-ink,#162f31);--mst-muted:#6b6a6a;--mst-rule:rgba(36,34,35,.14);--mst-tile:#f1f1ef;--mst-accent:#2f8fa0;--mst-mono:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace}
-  #shopify-section-{{ sid }} .mst,#shopify-section-{{ sid }} .mst h2,#shopify-section-{{ sid }} .mst h3,#shopify-section-{{ sid }} .mst p,#shopify-section-{{ sid }} .mst blockquote{font-family:var(--mc-font,"Neue Haas Grotesk Display Pro"),sans-serif;-webkit-font-smoothing:antialiased}
+  #shopify-section-{{ sid }} .mst,#shopify-section-{{ sid }} .mst h1,#shopify-section-{{ sid }} .mst h2,#shopify-section-{{ sid }} .mst h3,#shopify-section-{{ sid }} .mst p,#shopify-section-{{ sid }} .mst blockquote{font-family:var(--mc-font,"Neue Haas Grotesk Display Pro"),sans-serif;-webkit-font-smoothing:antialiased}
   #shopify-section-{{ sid }} .mst{background:#fff;color:var(--mst-ink)}
   #shopify-section-{{ sid }} .mst__wrap{max-width:1320px;margin:0 auto;padding:{{ s.space_top }}px 20px {{ s.space_bottom }}px}
-  #shopify-section-{{ sid }} .mst__eye{margin:0;font-family:var(--mst-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mst-muted)}
+  #shopify-section-{{ sid }} .mst .mst__eye{margin:0;font-weight:400;line-height:1.4;font-family:var(--mst-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mst-muted)}
   #shopify-section-{{ sid }} .mst .mst__h{margin:0;text-wrap:balance;color:var(--mst-head);font-weight:500;font-size:clamp(34px,4.444vw,64px);line-height:.906;letter-spacing:-.014em;text-transform:uppercase}
 
   /* Who we are */
@@ -89,7 +89,7 @@
     {%- case s.layout -%}
       {%- when 'who' -%}
         <div class="mst__who">
-          {%- if s.eyebrow != blank -%}<p class="mst__eye">{{ s.eyebrow }}</p>{%- endif -%}
+          {%- if s.eyebrow != blank -%}{%- if section.index <= 2 -%}<h1 class="mst__eye">{{ s.eyebrow }}</h1>{%- else -%}<p class="mst__eye">{{ s.eyebrow }}</p>{%- endif -%}{%- endif -%}
           <div>
             {%- if s.text != blank -%}<p class="mst__big">{{ s.text }}</p>{%- endif -%}
             {%- if s.text_2 != blank -%}<p class="mst__big">{{ s.text_2 }}</p>{%- endif -%}

@@ -46,7 +46,8 @@
         "schema_profiles": "",
         "space_top": 100,
         "space_bottom": 100
-      }
+      },
+      "disabled": true
     },
     "vision": {
       "type": "muto-about-statement",
@@ -738,7 +739,7 @@
       "type": "muto-story",
       "settings": {
         "layout": "who",
-        "eyebrow": "Who we are",
+        "eyebrow": "About MUTO",
         "text": "MUTO is a UK cellular longevity brand, founded by a PhD cell biologist and reviewed by a six-person Scientific Advisory Board. NAD+ Cellular Complex is built for what your body needs after 35: 19 ingredients in one daily jar, every dose on the label.",
         "text_2": "We’re not built on hype. Every batch is third-party tested, and our formula is under study with the University of Westminster, Coventry University and Newcastle University. We’ll publish what we find, whatever it shows.",
         "space_top": 120,
@@ -915,9 +916,19 @@
         "image_position": "62% 50%",
         "image_position_mobile": "70% 50%"
       }
+    },
+    "schema": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<script type=\"application/ld+json\">\n{\n \"@context\": \"https://schema.org\",\n \"@type\": \"AboutPage\",\n \"name\": \"About MUTO\",\n \"description\": \"MUTO is a UK precision cellular supplement company. Its NAD+ Cellular Complex declares every ingredient, form and dose on the label, is manufactured in the UK to GMP standards and third-party tested for heavy metals, microbes and purity, and is under study with the University of Westminster, Coventry University and Newcastle University.\",\n \"url\": \"{{ shop.url }}{{ page.url }}\",\n \"about\": {\n  \"@type\": \"Organization\",\n  \"name\": \"MUTO\",\n  \"url\": \"{{ shop.url }}\",\n  \"description\": \"MUTO is a UK precision cellular supplement company. Its NAD+ Cellular Complex declares every ingredient, form and dose on the label, is manufactured in the UK to GMP standards and third-party tested for heavy metals, microbes and purity, and is under study with the University of Westminster, Coventry University and Newcastle University.\",\n  \"areaServed\": \"GB\",\n  \"founder\": {\n   \"@type\": \"Person\",\n   \"name\": \"Dr Richie Barclay\",\n   \"jobTitle\": \"Founder\"\n  },\n  \"knowsAbout\": [\n   \"NAD+\",\n   \"cellular health\",\n   \"longevity supplements\",\n   \"heart rate variability\",\n   \"recovery\",\n   \"healthy ageing\"\n  ]\n }\n}\n</script>\n<style>[id$=\"__schema\"]{display:none}</style>",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
+    "schema",
     "hero",
     "who",
     "mission_v2",
