@@ -471,7 +471,8 @@
         "chip_word": "0",
         "space_top": 96,
         "space_bottom": 96
-      }
+      },
+      "disabled": true
     },
     "benefits": {
       "type": "muto-benefits",
@@ -537,8 +538,8 @@
       ],
       "settings": {
         "anchor": "benefits",
-        "eyebrow": "Benefits you’ll feel",
-        "heading": "Feel it before\nyou see it.",
+        "eyebrow": "Ultrapure micronised creatine",
+        "heading": "Science-backed benefits.",
         "lede": "What customers notice as creatine stores build over several weeks.",
         "link_label": "",
         "link": "",
