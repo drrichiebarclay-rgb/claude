@@ -126,3 +126,11 @@ html:root body #MainContent [id$="__buy"] .mc__point::before{content:""!importan
   html:root body #MainContent [id$="__buy"] .mc__buy-text p:first-child{font-size:15.5px!important}
   html:root body #MainContent [id$="__buy"] .mc__point{font-size:14px!important}
 }
+
+/* Plan boxes: white with an ink outline, like the NAD+ page */
+html:root body #MainContent [id$="__buy"] .mc__plans{background:none!important;box-shadow:none!important;gap:10px}
+html:root body #MainContent [id$="__buy"] .mc__plan{background:#fff!important;border:1.5px solid rgba(36,34,35,.2)!important;border-radius:12px!important;box-shadow:none!important;padding:16px 18px!important;min-height:0!important}
+html:root body #MainContent [id$="__buy"] .mc__plan.is-selected,html:root body #MainContent [id$="__buy"] .mc__plan:has(input:checked){border-color:#242223!important}
+html:root body #MainContent [id$="__buy"] .mc__plan-name{font-size:17px!important}
+html:root body #MainContent [id$="__buy"] .mc__plan-prices{font-size:19px!important}
+html:root body #MainContent [id$="__buy"] .mc__trust > *{background:#fff!important;border:1px solid rgba(36,34,35,.16)!important}
