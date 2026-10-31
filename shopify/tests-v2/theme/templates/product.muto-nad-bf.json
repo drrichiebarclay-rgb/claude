@@ -1027,170 +1027,92 @@
       }
     },
     "results": {
-      "type": "muto-home-results",
+      "type": "muto-loved",
       "blocks": {
-        "r7": {
-          "type": "result",
+        "v0": {
+          "type": "video",
           "settings": {
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/preview_images/ae14f3b1ff0f4ef09ae55be1fd8cfadd.thumbnail.0000000000.jpg?v=1773314771",
-            "image_alt": "A MUTO customer talking to camera",
-            "image_position": "",
             "video": "shopify://files/videos/kate v4.mp4",
-            "video_url": "",
-            "video_link": "",
-            "show_play": true,
-            "result": "",
-            "quote": "",
-            "name": "Kate Bright",
-            "tag": "",
-            "detail": ""
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/preview_images/ae14f3b1ff0f4ef09ae55be1fd8cfadd.thumbnail.0000000000.jpg?v=1773314771",
+            "handle": "Kate Bright"
           }
         },
-        "r8": {
-          "type": "result",
+        "v1": {
+          "type": "video",
           "settings": {
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/preview_images/cd1132a29bdc4f5081bfd9e6b008339b.thumbnail.0000000000.jpg?v=1793207168",
-            "image_alt": "A MUTO customer talking to camera",
-            "image_position": "",
             "video": "shopify://files/videos/✅Copy of David Chat.mp4",
-            "video_url": "",
-            "video_link": "",
-            "show_play": true,
-            "result": "",
-            "quote": "",
-            "name": "David Mercado",
-            "tag": "",
-            "detail": ""
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/preview_images/cd1132a29bdc4f5081bfd9e6b008339b.thumbnail.0000000000.jpg?v=1793207168",
+            "handle": "David Mercado"
           }
         },
-        "r9": {
-          "type": "result",
+        "v2": {
+          "type": "video",
           "settings": {
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/preview_images/3dcc774e01284c63ab3f6eaf40bc5fb7.thumbnail.0000000000.jpg?v=1766048998",
-            "image_alt": "A MUTO customer talking to camera",
-            "image_position": "",
             "video": "shopify://files/videos/Lucy Short.mp4",
-            "video_url": "",
-            "video_link": "",
-            "show_play": true,
-            "result": "",
-            "quote": "",
-            "name": "Lucy Halliday",
-            "tag": "",
-            "detail": ""
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/preview_images/3dcc774e01284c63ab3f6eaf40bc5fb7.thumbnail.0000000000.jpg?v=1766048998",
+            "handle": "Lucy Halliday"
           }
         },
-        "r1": {
-          "type": "result",
+        "v3": {
+          "type": "video",
           "settings": {
-            "image": "shopify://shop_images/about-pillar-stress-harry.jpg",
-            "image_fallback": "",
-            "image_alt": "A MUTO customer talking to camera about their 90 days",
-            "image_position": "",
             "video": "shopify://files/videos/Nothing Gets in on Trust_V01.mp4",
-            "video_url": "",
-            "video_link": "",
-            "show_play": true,
-            "result": "",
-            "quote": "",
-            "name": "Harry Insley",
-            "tag": "",
-            "detail": ""
+            "image_url": "",
+            "handle": "Harry Insley"
           }
         },
-        "r3": {
-          "type": "result",
+        "v4": {
+          "type": "video",
           "settings": {
-            "image": "shopify://shop_images/IMG_3566_JPG.jpg",
-            "image_fallback": "",
-            "image_alt": "A MUTO customer talking to camera about their 90 days",
-            "image_position": "",
             "video": "shopify://files/videos/clip 3.mp4",
-            "video_url": "",
-            "video_link": "",
-            "show_play": true,
-            "result": "",
-            "quote": "",
-            "name": "Adam Facey",
-            "tag": "",
-            "detail": ""
+            "image_url": "",
+            "handle": "Adam Facey"
           }
         },
-        "r5": {
-          "type": "result",
+        "v5": {
+          "type": "video",
           "settings": {
-            "image": "shopify://shop_images/max-richards.jpg",
-            "image_fallback": "",
-            "image_alt": "A MUTO customer talking to camera about their 90 days",
-            "image_position": "",
             "video": "shopify://files/videos/MUTO_Creator-Ad_Max-Richards_Script-B.mp4",
-            "video_url": "",
-            "video_link": "",
-            "show_play": true,
-            "result": "",
-            "quote": "",
-            "name": "Max Richards",
-            "tag": "",
-            "detail": ""
+            "image_url": "",
+            "handle": "Max Richards"
           }
         },
-        "result_NmUnkJ": {
-          "type": "result",
+        "v6": {
+          "type": "video",
           "settings": {
-            "image": "shopify://shop_images/IMG_1115_JPG.jpg",
-            "image_fallback": "",
-            "image_alt": "",
-            "image_position": "",
             "video": "shopify://files/videos/MU06_26_MUTO_VIDEO-1.mp4",
-            "video_url": "",
-            "video_link": "",
-            "show_play": true,
-            "result": "",
-            "quote": "",
-            "name": "Adam Hamilton",
-            "tag": "",
-            "detail": ""
+            "image_url": "",
+            "handle": "Adam Hamilton"
           }
         },
-        "r2": {
-          "type": "result",
+        "v7": {
+          "type": "video",
           "settings": {
-            "image": "shopify://shop_images/home-athlete-yolanda.jpg",
-            "image_fallback": "",
-            "image_alt": "A MUTO customer talking to camera about their 90 days",
-            "image_position": "",
             "video": "shopify://files/videos/The Baseline.mp4",
-            "video_url": "",
-            "video_link": "",
-            "show_play": true,
-            "result": "",
-            "quote": "",
-            "name": "Yolanda King",
-            "tag": "",
-            "detail": ""
+            "image_url": "",
+            "handle": "Yolanda King"
           }
         }
       },
       "block_order": [
-        "r7",
-        "r8",
-        "r9",
-        "r1",
-        "r3",
-        "r5",
-        "result_NmUnkJ",
-        "r2"
+        "v0",
+        "v1",
+        "v2",
+        "v3",
+        "v4",
+        "v5",
+        "v6",
+        "v7"
       ],
       "settings": {
-        "heading": "Don’t take\nour word for it.",
-        "note": "MUTO customers, in their own words",
-        "ratio": "9/16",
-        "field": false,
-        "fit": "nad",
-        "rail_gap": 48,
-        "foot": "",
-        "space_top": 70,
-        "space_bottom": 100
+        "anchor": "results",
+        "rating": "MUTO customers, in their own words",
+        "heading": "Don’t take our word for it.",
+        "link_label": "",
+        "link": "",
+        "space_top": 96,
+        "space_bottom": 72,
+        "hide_stars": true
       }
     },
     "quotes": {
