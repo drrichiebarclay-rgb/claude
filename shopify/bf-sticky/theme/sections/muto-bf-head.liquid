@@ -102,6 +102,9 @@
   html body:not(.template-index) .header__inline-menu .list-menu--inline > li > details > summary.header__menu-item,
   html body:not(.template-index) .header__inline-menu .list-menu--inline > li > a .header__active-menu-item{color:#242223!important}
   html body.template-index .header-wrapper{background-color:transparent!important}
+  /* The site menu sits above everything on the page, on a solid panel */
+  html body .section-header{z-index:30!important}
+  html body .menu-drawer{background:#2b2a2b!important}
   /* "On this page" links: hidden where they sit in the page; they appear pinned to the top once you scroll past */
   html:root body .msn{height:0!important;overflow:visible}
   html:root body .msn__nav:not(.is-fixed){visibility:hidden;opacity:0;pointer-events:none}
