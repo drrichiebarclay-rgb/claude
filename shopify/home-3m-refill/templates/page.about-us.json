@@ -624,11 +624,12 @@
         "text_2": "There are no results yet. When there are, we’ll publish them, whatever they show.",
         "link_label": "Read the science",
         "link": "/pages/science",
-        "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-made-scientists.jpg?v=1790752123",
-        "image_alt": "Members of the MUTO Scientific Advisory Board in conversation",
-        "image_position": "50% 34%",
+        "image_url": "",
+        "image_alt": "A laboratory microscope against a pale background",
+        "image_position": "50% 35%",
         "space_top": 96,
-        "space_bottom": 96
+        "space_bottom": 96,
+        "image": "shopify://shop_images/muto-about-microscope.jpg"
       }
     },
     "standards_v2": {
