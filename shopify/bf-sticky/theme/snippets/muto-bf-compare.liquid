@@ -1,0 +1,75 @@
+{%- comment -%}
+  MUTO vs the usual: the comparison on the Black Friday PDP. Rendered by muto-bf-offer (footer group)
+  inside a <template>; the script below swaps it into the page's "compare" section, which is well
+  below the fold, so the swap is done before anyone scrolls to it. Styles: assets/muto-bf-compare.css.
+  To edit a row, change the text below. Our column uses the store's jar photo; the others are drawings.
+{%- endcomment -%}
+{{ 'muto-bf-compare.css' | asset_url | stylesheet_tag }}
+<template id="mc-cmp-tpl">
+<div class="mc-cmp" id="compare">
+  <div class="mc-cmp__in">
+    <p class="mc-cmp__eyebrow">MUTO vs the usual</p>
+    <h2 class="mc-cmp__h">See the difference for yourself.</h2>
+    <p class="mc-cmp__intro">Most people over 35 take some mix of these. Here’s how they compare.</p>
+    <div class="mc-cmp__scroll" role="region" aria-label="Comparison table, scrolls sideways" tabindex="0">
+      <div class="mc-cmp__t">
+        <div class="c l h"></div>
+        <div class="c m h"><span class="p p--muto"><img src="https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-jar.jpg?v=1792524286&width=360" alt="The MUTO NAD+ Cellular Complex jar" width="180" height="121" loading="lazy"></span><span class="nm">MUTO</span></div>
+        <div class="c h"><span class="p"><img src="{{ 'muto-cmp-multivitamin.svg' | asset_url }}" alt="A multivitamin bottle" width="120" height="100" loading="lazy"></span><span class="nm">Multivitamin</span></div>
+        <div class="c h"><span class="p"><img src="{{ 'muto-cmp-greens.svg' | asset_url }}" alt="A tub of greens powder" width="120" height="100" loading="lazy"></span><span class="nm">Greens powder</span></div>
+        <div class="c h"><span class="p"><img src="{{ 'muto-cmp-separate.svg' | asset_url }}" alt="Several supplement pots" width="120" height="100" loading="lazy"></span><span class="nm">Buying separately</span></div>
+        <div class="c l">Built for life after 35</div>
+        <div class="c m"><i class="y" aria-label="Yes"></i></div>
+        <div class="c"><i class="n" aria-label="No"></i><span>The basics</span></div>
+        <div class="c"><i class="n" aria-label="No"></i><span>Gut and greens</span></div>
+        <div class="c"><i class="n" aria-label="No"></i><span>Guesswork</span></div>
+        <div class="c l">NR, CoQ10, PQQ, resveratrol</div>
+        <div class="c m"><i class="y" aria-label="Yes"></i><span>All in</span></div>
+        <div class="c"><i class="n" aria-label="No"></i></div>
+        <div class="c"><i class="n" aria-label="No"></i></div>
+        <div class="c"><span>4 extra pots</span></div>
+        <div class="c l">Active B vitamins</div>
+        <div class="c m"><i class="y" aria-label="Yes"></i></div>
+        <div class="c"><span>Often basic forms</span></div>
+        <div class="c"><span>Varies</span></div>
+        <div class="c"><span>Extra pot</span></div>
+        <div class="c l">No proprietary blends</div>
+        <div class="c m"><i class="y" aria-label="Yes"></i><span>All 19 doses</span></div>
+        <div class="c"><span>Usually listed</span></div>
+        <div class="c"><span>Blends common</span></div>
+        <div class="c"><span>Varies</span></div>
+        <div class="c l">Every batch tested</div>
+        <div class="c m"><i class="y" aria-label="Yes"></i><span>Published</span></div>
+        <div class="c"><span>Not required</span></div>
+        <div class="c"><span>Not required</span></div>
+        <div class="c"><span>Varies</span></div>
+        <div class="c l">Scientists and research</div>
+        <div class="c m"><i class="y" aria-label="Yes"></i><span>7 scientists, UK university studies</span></div>
+        <div class="c"><span>Varies</span></div>
+        <div class="c"><span>Varies</span></div>
+        <div class="c"><i class="n" aria-label="No"></i><span>You’re the scientist</span></div>
+        <div class="c l">Daily routine</div>
+        <div class="c m"><span><b>2 capsules</b></span></div>
+        <div class="c"><span>1 + others</span></div>
+        <div class="c"><span>Scoop + others</span></div>
+        <div class="c"><span>5 pots</span></div>
+        <div class="c l z">Per month</div>
+        <div class="c m z"><span><b>£33*</b></span></div>
+        <div class="c z"><span>£</span></div>
+        <div class="c z"><span>£</span></div>
+        <div class="c z"><span><b>£90+</b></span></div>
+      </div>
+    </div>
+    <p class="mc-cmp__note">*Your first 3-Month Supply is £99, about £33 a month. Comparisons are by category, not brand, and products vary.</p>
+  </div>
+</div>
+</template>
+<script>
+(function () {
+  var tpl = document.getElementById('mc-cmp-tpl');
+  var sec = document.querySelector('#MainContent [id$="__compare"]');
+  if (!tpl || !sec || sec.querySelector('.mc-cmp')) return;
+  sec.innerHTML = '';
+  sec.appendChild(tpl.content.cloneNode(true));
+})();
+</script>

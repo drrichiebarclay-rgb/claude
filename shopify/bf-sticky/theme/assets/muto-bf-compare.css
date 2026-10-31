@@ -1,0 +1,49 @@
+/* MUTO vs the usual (snippets/muto-bf-compare.liquid). The section it sits in is scaled by
+   muto-bf-layout.css (86%, 84% on phones), so sizes here are set a touch larger. */
+.mc-cmp{padding:72px 0;background:#f4f5f4;color:#242223;font-family:var(--mc-font,inherit)}
+.mc-cmp__in{max-width:1160px;margin:0 auto;padding:0 24px}
+.mc-cmp__eyebrow{margin:0;font-family:var(--mc-mono,monospace);font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(36,34,35,.6)}
+.mc-cmp__h{margin:10px 0 0;font-family:var(--mc-font,inherit);font-size:44px;font-weight:500;line-height:1.02;letter-spacing:-.02em}
+.mc-cmp__intro{margin:12px 0 0;font-size:18px;line-height:1.4;color:rgba(36,34,35,.8)}
+.mc-cmp__scroll{margin-top:32px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.mc-cmp__scroll:focus-visible{outline:2px solid #242223;outline-offset:4px}
+.mc-cmp__t{display:grid;grid-template-columns:minmax(170px,1.25fr) minmax(190px,1.3fr) repeat(3,minmax(140px,1fr));min-width:820px}
+.mc-cmp .c{display:flex;align-items:flex-start;gap:9px;padding:16px 16px;border-bottom:1px solid rgba(36,34,35,.1);font-size:17px;line-height:1.35}
+.mc-cmp .c.z{border-bottom:0}
+.mc-cmp .c b{font-weight:600;font-size:20px}
+.mc-cmp .l{position:sticky;left:0;z-index:1;background:#f4f5f4;font-weight:500}
+/* Header row: picture over the name */
+.mc-cmp .h{flex-direction:column;align-items:center;justify-content:flex-end;gap:10px;padding-top:18px;padding-bottom:16px;text-align:center;border-bottom:0}
+.mc-cmp .p{display:grid;place-items:center;width:120px;height:100px}
+.mc-cmp .p img{display:block;max-width:100%;max-height:100%;object-fit:contain}
+.mc-cmp .p--muto{width:150px;height:110px;border-radius:14px;overflow:hidden;background:#fff}
+.mc-cmp .p--muto img{width:100%;height:100%;max-width:none;max-height:none;object-fit:cover}
+.mc-cmp .nm{font-size:17px;font-weight:600;line-height:1.2}
+/* Our column: dark, lifted */
+.mc-cmp .m{background:#242223;color:#fff;border-bottom-color:rgba(255,255,255,.14);font-weight:500;box-shadow:0 0 0 0 transparent}
+.mc-cmp .m.h{border-radius:18px 18px 0 0}
+.mc-cmp .m.z{border-radius:0 0 18px 18px}
+.mc-cmp .m b{color:#c9ffb7}
+/* Ticks and crosses */
+.mc-cmp .y,.mc-cmp .n{flex:0 0 22px;display:grid;place-items:center;width:22px;height:22px;margin-top:-1px;border-radius:50%;font-style:normal;font-size:13px;font-weight:700;line-height:1}
+.mc-cmp .y{background:#c9ffb7;color:#242223}
+.mc-cmp .y::before{content:"\2713"}
+.mc-cmp .n{background:rgba(36,34,35,.08);color:rgba(36,34,35,.55)}
+.mc-cmp .n::before{content:"\2715";font-size:11px}
+.mc-cmp__note{margin:18px 0 0;font-size:14px;line-height:1.45;color:rgba(36,34,35,.65)}
+@media (max-width:749px){
+  .mc-cmp{padding:48px 0}
+  .mc-cmp__in{padding:0 16px}
+  .mc-cmp__h{font-size:34px}
+  .mc-cmp__intro{font-size:16px}
+  .mc-cmp__scroll{margin:24px -16px 0;padding:0 16px}
+  .mc-cmp__t{grid-template-columns:128px 150px repeat(3,118px);min-width:0;width:max-content}
+  .mc-cmp .c{padding:13px 11px;font-size:15.5px;gap:7px}
+  .mc-cmp .c b{font-size:17px}
+  .mc-cmp .l{box-shadow:6px 0 8px -6px rgba(36,34,35,.18)}
+  .mc-cmp .p{width:90px;height:76px}
+  .mc-cmp .p--muto{width:118px;height:86px}
+  .mc-cmp .nm{font-size:15px}
+  .mc-cmp .y,.mc-cmp .n{flex-basis:20px;width:20px;height:20px}
+  .mc-cmp__note{font-size:13px}
+}
