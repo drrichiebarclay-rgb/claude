@@ -282,7 +282,7 @@
       "settings": {
         "heading": "Shop the protocol",
         "tablist_label": "Choose a product",
-        "field": true,
+        "field": false,
         "space_top": 100,
         "space_bottom": 100
       }
@@ -1309,11 +1309,12 @@
       ],
       "settings": {
         "anchor": "reviews",
-        "heading": "Loved by our community",
+        "heading": "Loved by our community.",
         "link_label": "Read all reviews",
         "link": "/products/muto-nad-cellular-complex#ReviewsWidget",
         "space_top": 96,
-        "space_bottom": 96
+        "space_bottom": 96,
+        "rating": "4.8 from 103 reviews"
       }
     },
     "board_anchor": {
