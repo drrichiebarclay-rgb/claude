@@ -3,7 +3,7 @@
   On the Black Friday product template (product.muto-nad-bf) only: loads every Black Friday style before
   the page is drawn (this is the header group), so the old design never flashes, and draws the black
   top bar. The sticky plan bar is muto-bf-offer, in the footer group.
-  On the science page (page.science-simple): the comparison and a simpler page (second if block).
+  On the science page (page.science-simple): the comparison (second if block).
   After Black Friday: remove the Black Friday part (the if block) and keep the compact header styles.
 {%- endcomment -%}
 <style>
@@ -49,13 +49,11 @@
   <script src="{{ 'muto-bf-claim.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 {%- if template.suffix == 'science-simple' -%}
-  {%- comment -%} Science page: the Black Friday page's comparison replaces chapter 04's table, and the page is
-  simplified (no takeaway repeat in 01, no ingredient-team table or BioPerine line in 03) {%- endcomment -%}
-  <style>[id$="__c1"] .mch__take,[id$="__c3"] .mch__b--table,[id$="__c3"] .mch__line{display:none!important}</style>
+  {%- comment -%} Science page: the Black Friday page's comparison goes into the template's "compare" slot {%- endcomment -%}
   {%- render 'muto-bf-compare' -%}
   <script>
   document.addEventListener('DOMContentLoaded', function () {
-    var t = document.getElementById('mc-cmp-tpl'), s = document.querySelector('#MainContent [id$="__c4"]');
+    var t = document.getElementById('mc-cmp-tpl'), s = document.querySelector('#MainContent [id$="__compare"]');
     if (!t || !s || s.querySelector('.mc-cmp')) return;
     s.innerHTML = ''; s.appendChild(t.content.cloneNode(true));
     var r = s.querySelector('.mc-cmp'); if (r) r.id = 'muto-vs-the-usual';

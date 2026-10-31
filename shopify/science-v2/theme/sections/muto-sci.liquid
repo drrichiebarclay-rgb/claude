@@ -1,0 +1,238 @@
+{%- comment -%}
+  MUTO — Science (simple). One section type, several layouts, for a calm, white science page:
+    hero      Eyebrow, big heading, line, outline button on the left; grey stat cards on the right
+              (blocks: card). A wide first card, then two side by side.
+    quote     Photo left, a quote, name and role right.
+    standards Small eyebrow, a centred statement, then a row of numbers (blocks: stat).
+    story     Photo left, heading, text and an outline button right.
+    offer     A dark band with the current offer and a button.
+  Content lives in the template, so every word can be edited in Customize.
+{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign sid = section.id
+-%}
+<style>
+  #shopify-section-{{ sid }} .msc{background:{% if s.layout == 'offer' %}#242223{% else %}#fff{% endif %};color:#242223;font-family:var(--mc-font,inherit);padding:{{ s.space_top }}px 0 {{ s.space_bottom }}px}
+  #shopify-section-{{ sid }} .msc__in{max-width:1320px;margin:0 auto;padding:0 40px}
+  #shopify-section-{{ sid }} .msc__eye{margin:0;font-family:var(--mc-mono,monospace);font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#242223}
+  #shopify-section-{{ sid }} .msc__h{margin:14px 0 0;font-family:var(--mc-font,inherit);font-weight:500;font-size:clamp(34px,3.6vw,54px);line-height:1.04;letter-spacing:-.02em;color:#242223;text-transform:none}
+  #shopify-section-{{ sid }} .msc__p{margin:18px 0 0;max-width:560px;font-size:18px;line-height:1.5;color:rgba(36,34,35,.78)}
+  #shopify-section-{{ sid }} .msc__btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;margin-top:28px;padding:0 26px;border:1.5px solid #242223;border-radius:6px;
+    font-family:var(--mc-mono,monospace);font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#242223;text-decoration:none;transition:background .2s,color .2s}
+  #shopify-section-{{ sid }} .msc__btn:hover{background:#242223;color:#fff}
+  #shopify-section-{{ sid }} .msc__btn--fill{background:#5efaff;border-color:#5efaff}
+  #shopify-section-{{ sid }} .msc__btn--fill:hover{background:#3ef0f6;border-color:#3ef0f6;color:#242223}
+  #shopify-section-{{ sid }} .msc__small{margin:14px 0 0;font-size:12.5px;line-height:1.5;color:rgba(36,34,35,.6)}
+
+  /* Hero: copy left, cards right */
+  #shopify-section-{{ sid }} .msc__hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:start}
+  #shopify-section-{{ sid }} .msc__copy{position:sticky;top:120px}
+  #shopify-section-{{ sid }} .msc__cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  #shopify-section-{{ sid }} .msc__card{position:relative;display:flex;flex-direction:column;min-height:300px;padding:30px;border-radius:10px;background:#f2f3f2;overflow:hidden}
+  #shopify-section-{{ sid }} .msc__card--wide{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:36px;align-items:end}
+  #shopify-section-{{ sid }} .msc__card--img{color:#fff;background:#242223}
+  #shopify-section-{{ sid }} .msc__card--img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  #shopify-section-{{ sid }} .msc__card--img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,0) 35%,rgba(0,0,0,.55))}
+  #shopify-section-{{ sid }} .msc__card--img > *{position:relative;z-index:1}
+  #shopify-section-{{ sid }} .msc__ct{margin:0;font-size:24px;font-weight:500;line-height:1.1;letter-spacing:-.01em}
+  #shopify-section-{{ sid }} .msc__fig{margin:22px 0 0;font-size:clamp(56px,6vw,88px);font-weight:500;line-height:.9;letter-spacing:-.03em}
+  #shopify-section-{{ sid }} .msc__fig small{font-size:.45em;letter-spacing:0}
+  #shopify-section-{{ sid }} .msc__bars{margin-top:18px}
+  #shopify-section-{{ sid }} .msc__bar{display:block;height:6px;border-radius:3px;background:#242223}
+  #shopify-section-{{ sid }} .msc__bar--base{width:22%;margin-top:14px;background:rgba(36,34,35,.2)}
+  #shopify-section-{{ sid }} .msc__pill{display:inline-block;margin-top:8px;padding:4px 10px;border-radius:999px;background:#5efaff;font-family:var(--mc-mono,monospace);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+  #shopify-section-{{ sid }} .msc__base{display:block;margin-top:6px;font-size:13px;color:rgba(36,34,35,.6)}
+  #shopify-section-{{ sid }} .msc__ctext{margin:auto 0 0;padding-top:24px;font-size:17px;line-height:1.45}
+  #shopify-section-{{ sid }} .msc__card--wide .msc__ctext{margin:0;padding:0}
+  #shopify-section-{{ sid }} .msc__card--img .msc__ctext{color:#fff}
+  #shopify-section-{{ sid }} .msc__clink{display:inline-block;margin-top:14px;font-family:var(--mc-mono,monospace);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:inherit;text-decoration:underline;text-underline-offset:4px}
+
+  /* Quote and story: photo left, words right */
+  #shopify-section-{{ sid }} .msc__split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:72px;align-items:center}
+  #shopify-section-{{ sid }} .msc__photo{position:relative;aspect-ratio:1/1;border-radius:10px;overflow:hidden;background:#f2f3f2}
+  #shopify-section-{{ sid }} .msc--story .msc__split{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+  #shopify-section-{{ sid }} .msc--story .msc__photo{aspect-ratio:3/2}
+  #shopify-section-{{ sid }} .msc__photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{ s.image_position | default: '50% 30%' }}}
+  #shopify-section-{{ sid }} .msc__q{margin:0;font-size:clamp(24px,2.4vw,36px);font-weight:400;line-height:1.25;letter-spacing:-.01em}
+  #shopify-section-{{ sid }} .msc__who{margin:22px 0 0;font-size:16px;font-weight:500}
+  #shopify-section-{{ sid }} .msc__role{display:block;margin-top:4px;font-weight:400;color:rgba(36,34,35,.6)}
+
+  /* Standards: statement, then numbers on dotted rules */
+  #shopify-section-{{ sid }} .msc--standards{text-align:center}
+  #shopify-section-{{ sid }} .msc__state{max-width:900px;margin:18px auto 0;font-size:clamp(24px,2.5vw,36px);font-weight:400;line-height:1.3;letter-spacing:-.01em}
+  #shopify-section-{{ sid }} .msc__stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;margin-top:64px;text-align:left}
+  #shopify-section-{{ sid }} .msc__sv{display:block;padding-bottom:16px;border-bottom:1px dotted rgba(36,34,35,.35);font-size:clamp(40px,3.6vw,56px);font-weight:500;line-height:1;letter-spacing:-.02em}
+  #shopify-section-{{ sid }} .msc__sl{display:block;margin-top:16px;font-size:17px;font-weight:500}
+  #shopify-section-{{ sid }} .msc__sx{display:block;margin-top:8px;font-size:15px;line-height:1.45;color:rgba(36,34,35,.65)}
+
+  /* Offer band */
+  #shopify-section-{{ sid }} .msc--offer,#shopify-section-{{ sid }} .msc--offer .msc__h{color:#fff}
+  #shopify-section-{{ sid }} .msc--offer .msc__eye{color:#5efaff}
+  #shopify-section-{{ sid }} .msc--offer .msc__p,#shopify-section-{{ sid }} .msc--offer .msc__small{color:rgba(255,255,255,.75)}
+  #shopify-section-{{ sid }} .msc__offer{display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
+
+  @media (max-width:989px){
+    #shopify-section-{{ sid }} .msc__in{padding:0 20px}
+    #shopify-section-{{ sid }} .msc__hero,#shopify-section-{{ sid }} .msc__split,#shopify-section-{{ sid }} .msc--story .msc__split{grid-template-columns:1fr;gap:32px}
+    #shopify-section-{{ sid }} .msc__copy{position:static}
+    #shopify-section-{{ sid }} .msc__stats{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:40px}
+    #shopify-section-{{ sid }} .msc__offer{flex-direction:column;align-items:flex-start;gap:8px}
+  }
+  @media (max-width:749px){
+    #shopify-section-{{ sid }} .msc{padding:{{ s.space_top | times: 0.6 | round }}px 0 {{ s.space_bottom | times: 0.6 | round }}px}
+    #shopify-section-{{ sid }} .msc__in{padding:0 16px}
+    #shopify-section-{{ sid }} .msc__h{font-size:30px}
+    #shopify-section-{{ sid }} .msc__p{font-size:16px}
+    #shopify-section-{{ sid }} .msc__cards{grid-template-columns:1fr;gap:12px}
+    #shopify-section-{{ sid }} .msc__card{min-height:0;padding:22px}
+    #shopify-section-{{ sid }} .msc__card--wide{grid-template-columns:1fr}
+    #shopify-section-{{ sid }} .msc__card--wide .msc__ctext{margin-top:20px}
+    #shopify-section-{{ sid }} .msc__card--img{min-height:260px}
+    #shopify-section-{{ sid }} .msc__ct{font-size:20px}
+    #shopify-section-{{ sid }} .msc__fig{font-size:60px}
+    #shopify-section-{{ sid }} .msc__ctext{font-size:15px}
+    #shopify-section-{{ sid }} .msc__q{font-size:22px}
+    #shopify-section-{{ sid }} .msc__state{font-size:21px}
+    #shopify-section-{{ sid }} .msc__stats{margin-top:40px;gap:24px 16px}
+    #shopify-section-{{ sid }} .msc__sv{font-size:36px}
+    #shopify-section-{{ sid }} .msc__sl{font-size:15px}
+    #shopify-section-{{ sid }} .msc__sx{font-size:13.5px}
+  }
+</style>
+
+<div class="msc msc--{{ s.layout }}"{% if s.anchor != blank %} id="{{ s.anchor }}"{% endif %}>
+  <div class="msc__in">
+    {%- case s.layout -%}
+      {%- when 'hero' -%}
+        <div class="msc__hero">
+          <div class="msc__copy">
+            {%- if s.eyebrow != blank -%}<p class="msc__eye">{{ s.eyebrow }}</p>{%- endif -%}
+            <h1 class="msc__h">{{ s.heading | escape | newline_to_br }}</h1>
+            {%- if s.text != blank -%}<p class="msc__p">{{ s.text }}</p>{%- endif -%}
+            {%- if s.button_label != blank -%}<a class="msc__btn" href="{{ s.button_link }}">{{ s.button_label }}</a>{%- endif -%}
+          </div>
+          <div class="msc__cards">
+            {%- for b in section.blocks -%}
+              {%- assign bs = b.settings -%}
+              {%- liquid
+                assign cls = 'msc__card'
+                if forloop.first
+                  assign cls = cls | append: ' msc__card--wide'
+                endif
+                if bs.image != blank
+                  assign cls = cls | append: ' msc__card--img'
+                endif
+              -%}
+              <article class="{{ cls }}" {{ b.shopify_attributes }}>
+                {%- if bs.image != blank -%}{{ bs.image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '450,700,900', sizes: '(min-width: 990px) 30vw, 100vw', alt: '' }}{%- endif -%}
+                <div>
+                  <h2 class="msc__ct">{{ bs.title }}</h2>
+                  {%- if bs.figure != blank -%}<p class="msc__fig">{{ bs.figure }}{% if bs.unit != blank %}<small>{{ bs.unit }}</small>{% endif %}</p>{%- endif -%}
+                  {%- if bs.bar_label != blank -%}
+                    <div class="msc__bars" aria-hidden="true">
+                      <span class="msc__bar"></span><span class="msc__pill">{{ bs.bar_label }}</span>
+                      {%- if bs.base_label != blank -%}<span class="msc__bar msc__bar--base"></span><span class="msc__base">{{ bs.base_label }}</span>{%- endif -%}
+                    </div>
+                  {%- endif -%}
+                </div>
+                <div>
+                  {%- if bs.text != blank -%}<p class="msc__ctext">{{ bs.text }}</p>{%- endif -%}
+                  {%- if bs.link_label != blank -%}<a class="msc__clink" href="{{ bs.link }}">{{ bs.link_label }}</a>{%- endif -%}
+                </div>
+              </article>
+            {%- endfor -%}
+          </div>
+        </div>
+        {%- if s.small != blank -%}<p class="msc__small">{{ s.small }}</p>{%- endif -%}
+
+      {%- when 'quote' or 'story' -%}
+        <div class="msc__split">
+          <div class="msc__photo">
+            {%- if s.image != blank -%}{{ s.image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '600,900,1200', sizes: '(min-width: 990px) 50vw, 100vw', alt: s.image_alt }}
+            {%- elsif s.image_url != blank -%}<img src="{{ s.image_url }}" alt="{{ s.image_alt | escape }}" loading="lazy" width="1200" height="900">{%- endif -%}
+          </div>
+          <div>
+            {%- if s.layout == 'quote' -%}
+              <blockquote class="msc__q">{{ s.text }}</blockquote>
+              <p class="msc__who">{{ s.heading }}<span class="msc__role">{{ s.eyebrow }}</span></p>
+            {%- else -%}
+              {%- if s.eyebrow != blank -%}<p class="msc__eye">{{ s.eyebrow }}</p>{%- endif -%}
+              <h2 class="msc__h">{{ s.heading | escape | newline_to_br }}</h2>
+              {%- if s.text != blank -%}<p class="msc__p">{{ s.text }}</p>{%- endif -%}
+              {%- if s.button_label != blank -%}<a class="msc__btn" href="{{ s.button_link }}">{{ s.button_label }}</a>{%- endif -%}
+            {%- endif -%}
+          </div>
+        </div>
+
+      {%- when 'standards' -%}
+        {%- if s.eyebrow != blank -%}<p class="msc__eye">{{ s.eyebrow }}</p>{%- endif -%}
+        <p class="msc__state">{{ s.text }}</p>
+        <div class="msc__stats">
+          {%- for b in section.blocks -%}
+            <p {{ b.shopify_attributes }}><span class="msc__sv">{{ b.settings.figure }}</span><span class="msc__sl">{{ b.settings.title }}</span><span class="msc__sx">{{ b.settings.text }}</span></p>
+          {%- endfor -%}
+        </div>
+
+      {%- when 'offer' -%}
+        <div class="msc__offer">
+          <div>
+            {%- if s.eyebrow != blank -%}<p class="msc__eye">{{ s.eyebrow }}</p>{%- endif -%}
+            <h2 class="msc__h">{{ s.heading | escape | newline_to_br }}</h2>
+            {%- if s.text != blank -%}<p class="msc__p">{{ s.text }}</p>{%- endif -%}
+          </div>
+          {%- if s.button_label != blank -%}<a class="msc__btn msc__btn--fill" href="{{ s.button_link }}">{{ s.button_label }}</a>{%- endif -%}
+        </div>
+        {%- if s.small != blank -%}<p class="msc__small">{{ s.small }}</p>{%- endif -%}
+    {%- endcase -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO — Science (simple)",
+  "tag": "section",
+  "settings": [
+    { "type": "select", "id": "layout", "label": "Layout", "default": "hero", "options": [
+      { "value": "hero", "label": "Hero with stat cards" },
+      { "value": "quote", "label": "Photo and quote" },
+      { "value": "standards", "label": "Statement and numbers" },
+      { "value": "story", "label": "Photo and story" },
+      { "value": "offer", "label": "Offer band" }
+    ] },
+    { "type": "text", "id": "anchor", "label": "Anchor" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow (quote: role)" },
+    { "type": "textarea", "id": "heading", "label": "Heading (quote: name)" },
+    { "type": "textarea", "id": "text", "label": "Text (quote: the quote)" },
+    { "type": "text", "id": "button_label", "label": "Button" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "image_picker", "id": "image", "label": "Photo" },
+    { "type": "text", "id": "image_url", "label": "Photo URL (if no photo picked)" },
+    { "type": "text", "id": "image_alt", "label": "Photo description" },
+    { "type": "text", "id": "image_position", "label": "Photo focus", "info": "e.g. 50% 30%" },
+    { "type": "textarea", "id": "small", "label": "Small print" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 96 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 96 }
+  ],
+  "blocks": [
+    { "type": "card", "name": "Stat card (hero)", "settings": [
+      { "type": "text", "id": "title", "label": "Title" },
+      { "type": "text", "id": "figure", "label": "Big figure" },
+      { "type": "text", "id": "unit", "label": "Unit after the figure", "info": "e.g. %" },
+      { "type": "text", "id": "bar_label", "label": "Bar label", "info": "Shows a bar under the figure" },
+      { "type": "text", "id": "base_label", "label": "Comparison bar label", "info": "e.g. Baseline" },
+      { "type": "textarea", "id": "text", "label": "Text" },
+      { "type": "text", "id": "link_label", "label": "Link" },
+      { "type": "url", "id": "link", "label": "Link URL" },
+      { "type": "image_picker", "id": "image", "label": "Background photo" }
+    ] },
+    { "type": "stat", "name": "Number (standards)", "settings": [
+      { "type": "text", "id": "figure", "label": "Number" },
+      { "type": "text", "id": "title", "label": "Label" },
+      { "type": "textarea", "id": "text", "label": "Line under it" }
+    ] }
+  ],
+  "presets": [{ "name": "MUTO — Science (simple)" }],
+  "enabled_on": { "templates": ["page"] }
+}
+{% endschema %}
