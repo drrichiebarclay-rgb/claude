@@ -2,7 +2,7 @@
   MUTO vs the usual: the comparison on the Black Friday PDP. Rendered by muto-bf-offer (footer group)
   inside a <template>; the script below swaps it into the page's "compare" section, which is well
   below the fold, so the swap is done before anyone scrolls to it. Styles: assets/muto-bf-compare.css.
-  To edit a row, change the text below. Our column uses the store's jar photo; the others are drawings.
+  To edit a row, change the text below. Each column has a photo in an outlined tile (assets/muto-cmp-*.jpg; ours is the store's jar photo).
 {%- endcomment -%}
 {{ 'muto-bf-compare.css' | asset_url | stylesheet_tag }}
 <template id="mc-cmp-tpl">
@@ -14,10 +14,10 @@
     <div class="mc-cmp__scroll" role="region" aria-label="Comparison table, scrolls sideways" tabindex="0">
       <div class="mc-cmp__t">
         <div class="c l h"></div>
-        <div class="c m h"><span class="p p--muto"><img src="https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-jar.jpg?v=1792524286&width=360" alt="The MUTO NAD+ Cellular Complex jar" width="180" height="121" loading="lazy"></span><span class="nm">MUTO</span></div>
-        <div class="c h"><span class="p"><img src="{{ 'muto-cmp-multivitamin.svg' | asset_url }}" alt="A multivitamin bottle" width="120" height="100" loading="lazy"></span><span class="nm">Multivitamin</span></div>
-        <div class="c h"><span class="p"><img src="{{ 'muto-cmp-greens.svg' | asset_url }}" alt="A tub of greens powder" width="120" height="100" loading="lazy"></span><span class="nm">Greens powder</span></div>
-        <div class="c h"><span class="p"><img src="{{ 'muto-cmp-separate.svg' | asset_url }}" alt="Several supplement pots" width="120" height="100" loading="lazy"></span><span class="nm">Buying separately</span></div>
+        <div class="c m h"><span class="p p--muto"><img src="https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-jar.jpg?v=1792524286&width=360" alt="The MUTO NAD+ Cellular Complex jar" width="240" height="240" loading="lazy"></span><span class="nm">MUTO</span></div>
+        <div class="c h"><span class="p"><img src="{{ 'muto-cmp-multivitamin.jpg' | asset_url }}" alt="A multivitamin jar" width="240" height="240" loading="lazy"></span><span class="nm">Multivitamin</span></div>
+        <div class="c h"><span class="p"><img src="{{ 'muto-cmp-greens.jpg' | asset_url }}" alt="A tub of greens powder" width="240" height="240" loading="lazy"></span><span class="nm">Greens powder</span></div>
+        <div class="c h"><span class="p"><img src="{{ 'muto-cmp-separate.jpg' | asset_url }}" alt="Five separate supplement pots" width="240" height="240" loading="lazy"></span><span class="nm">Buying separately</span></div>
         <div class="c l">Built for life after 35</div>
         <div class="c m"><i class="y" aria-label="Yes"></i></div>
         <div class="c"><i class="n" aria-label="No"></i><span>The basics</span></div>
