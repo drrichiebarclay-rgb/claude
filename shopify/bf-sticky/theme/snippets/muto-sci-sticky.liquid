@@ -1,0 +1,95 @@
+{%- comment -%}
+  Sticky add to cart for the science page (rendered by muto-bf-head on page.science-simple). The same bar
+  as the Black Friday product page (assets/muto-bf-sticky.css), but self-contained: there are no plan cards
+  on this page, so the picker holds the two plans itself and the button adds the chosen one (variant +
+  Skio selling plan, read from the product) to the cart, then opens the cart.
+{%- endcomment -%}
+{%- liquid
+  assign p = all_products['muto-nad-cellular-complex']
+  assign q_v = ''
+  assign q_p = ''
+  assign m_v = ''
+  assign m_p = ''
+  if p != blank
+    for pv in p.variants
+      for alloc in pv.selling_plan_allocations
+        assign n = alloc.selling_plan.name | downcase
+        if q_v == blank and pv.available
+          if n contains '3-month' or n contains '3 month' or n contains 'quarter'
+            assign q_v = pv.id
+            assign q_p = alloc.selling_plan.id
+          endif
+        endif
+        if m_v == blank and pv.available
+          if n contains '1-month' or n contains '1 month' or n contains 'monthly'
+            assign m_v = pv.id
+            assign m_p = alloc.selling_plan.id
+          endif
+        endif
+      endfor
+    endfor
+  endif
+-%}
+{%- if q_v != blank -%}
+  {{ 'muto-bf-sticky.css' | asset_url | stylesheet_tag }}
+  <style>
+    .mc-sbar__btn-sep{display:none!important}
+    html:root body .mc-sbar .mc-sbar__btn{background:#5efaff!important;color:#242223!important}
+    html:root body .mc-sbar .mc-sbar__btn:hover{background:#3ef0f6!important;filter:none}
+    .mc-sbar__btn[aria-busy="true"]{opacity:.7;cursor:progress}
+  </style>
+  <div class="mc-sbar" id="mc-sbar" role="region" aria-label="Choose a plan and add to cart" aria-hidden="true">
+    <div class="mc-sbar__in">
+      <div class="mc-sbar__prod">
+        {%- if p.featured_image -%}<img class="mc-sbar__img" src="{{ p.featured_image | image_url: width: 112 }}" width="56" height="56" alt="" loading="lazy">{%- endif -%}
+        <div style="min-width:0">
+          <p class="mc-sbar__name">{{ p.title }}</p>
+          <p class="mc-sbar__offer"><i aria-hidden="true"></i>Black Friday · 3 months for £99</p>
+        </div>
+      </div>
+      <label class="mc-sbar__pick">
+        <span class="mc-sbar__pick-name" data-sbar-name>3-Month Supply (Save 53%)</span>
+        <span class="mc-sbar__pick-sub" data-sbar-sub><b>£1.10 a day</b> · £99</span>
+        <select class="mc-sbar__select" data-sbar-select aria-label="Plan">
+          <option value="q" data-id="{{ q_v }}" data-plan="{{ q_p }}" data-name="3-Month Supply (Save 53%)" data-sub="£1.10 a day · £99">3-Month Supply (Save 53%) – £1.10 a day · £99</option>
+          {%- if m_v != blank -%}<option value="m" data-id="{{ m_v }}" data-plan="{{ m_p }}" data-name="1-Month Supply (Save 28%)" data-sub="£1.79 a day · £49.99">1-Month Supply (Save 28%) – £1.79 a day · £49.99</option>{%- endif -%}
+        </select>
+      </label>
+      <button type="button" class="mc-sbar__btn" data-sbar-add>
+        <span class="mc-sbar__btn-full">Add to cart</span><span class="mc-sbar__btn-short">Add</span>
+      </button>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var bar = document.getElementById('mc-sbar');
+    if (!bar) return;
+    var sel = bar.querySelector('[data-sbar-select]'), btn = bar.querySelector('[data-sbar-add]');
+    var nm = bar.querySelector('[data-sbar-name]'), sub = bar.querySelector('[data-sbar-sub]');
+    sel.addEventListener('change', function () {
+      var o = sel.options[sel.selectedIndex], parts = o.getAttribute('data-sub').split(' · ');
+      nm.textContent = o.getAttribute('data-name');
+      sub.innerHTML = '<b>' + parts[0] + '</b> · ' + parts[1];
+    });
+    btn.addEventListener('click', function () {
+      var o = sel.options[sel.selectedIndex];
+      var item = { id: parseInt(o.getAttribute('data-id'), 10), quantity: 1 };
+      if (o.getAttribute('data-plan')) item.selling_plan = parseInt(o.getAttribute('data-plan'), 10);
+      btn.setAttribute('aria-busy', 'true');
+      var root = (window.Shopify && Shopify.routes && Shopify.routes.root) || '/';
+      fetch(root + 'cart/add.js', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify({ items: [item] }) })
+        .then(function (r) { window.location.href = r.ok ? root + 'cart' : '{{ p.url }}'; })
+        .catch(function () { window.location.href = '{{ p.url }}'; });
+    });
+    /* Shows once the intro has scrolled away */
+    function onScroll() {
+      var on = (window.pageYOffset || document.documentElement.scrollTop) > 500;
+      bar.classList.toggle('is-visible', on);
+      bar.setAttribute('aria-hidden', on ? 'false' : 'true');
+      if ('inert' in bar) bar.inert = !on;
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+  </script>
+{%- endif -%}

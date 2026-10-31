@@ -3,10 +3,16 @@
   On the Black Friday product template (product.muto-nad-bf) only: loads every Black Friday style before
   the page is drawn (this is the header group), so the old design never flashes, and draws the black
   top bar. The sticky plan bar is muto-bf-offer, in the footer group.
-  On the science page (page.science-simple): the comparison (second if block).
+  Site-wide too: headings at weight 500, reviews widget to match.
+  On the science page (page.science-simple): the comparison and the sticky add to cart (second if block).
   After Black Friday: remove the Black Friday part (the if block) and keep the compact header styles.
 {%- endcomment -%}
 <style>
+/* Site-wide: headings at the brand's 500 weight (the theme default was heavier), and the reviews widget to match */
+:root{--font-heading-weight:500}
+.custom-reviews-heading h1,.custom-reviews-heading h2,.custom-reviews-heading h3{font-weight:500!important;letter-spacing:-.014em}
+#ReviewsWidget,#ReviewsWidget *{--heading-text-font-weight:500!important;--pagination-tab-text-font-weight:500!important;--pagination-tab-active-text-font-weight:500!important;--sentiment-heading-text-font-weight:500!important;--sentiment-pagination-tab-text-font-weight:500!important;--sentiment-pagination-tab-active-text-font-weight:500!important}
+#ReviewsWidget button,#ReviewsWidget [class*="Heading"],#ReviewsWidget strong,#ReviewsWidget b{font-weight:500!important}
 /* Site-wide, phones and tablets: a shorter header bar (8px margin and padding instead of 24px and 16px,
    smaller logo, caption and icons); pages under the see-through header move up 44px instead of 76px */
 @media screen and (max-width:989.98px){
@@ -62,6 +68,7 @@
     [id$="__board"],[id$="__board"] .mh{background:#fff!important}
   </style>
   {%- render 'muto-bf-compare' -%}
+  {%- render 'muto-sci-sticky' -%}
   <script>
   document.addEventListener('DOMContentLoaded', function () {
     var t = document.getElementById('mc-cmp-tpl'), s = document.querySelector('#MainContent [id$="__compare"]');

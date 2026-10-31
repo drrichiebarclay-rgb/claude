@@ -150,6 +150,7 @@
           {%- endfor -%}
         </ol>
         {%- if s.small != blank -%}<p class="msc__small">{{ s.small }}</p>{%- endif -%}
+        {%- if s.link_label != blank -%}<p class="msc__small" style="margin-top:20px"><a class="msc__link" href="{{ s.link }}">{{ s.link_label }}</a></p>{%- endif -%}
 
       {%- when 'numbers' -%}
         <header class="msc__head">{{ head }}</header>
@@ -161,6 +162,7 @@
           {%- endfor -%}
         </div>
         {%- if s.small != blank -%}<p class="msc__small">{{ s.small }}</p>{%- endif -%}
+        {%- if s.link_label != blank -%}<p class="msc__small" style="margin-top:20px"><a class="msc__link" href="{{ s.link }}">{{ s.link_label }}</a></p>{%- endif -%}
 
       {%- when 'statement' -%}
         <div class="msc__head">
