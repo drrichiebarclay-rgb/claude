@@ -61,7 +61,7 @@
         <li class="mht__step" {{ b.shopify_attributes }}>
           <div class="mht__frame">
             {%- if bs.image != blank -%}{{ bs.image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '400,600,800,1000', sizes: '(min-width: 990px) 30vw, 78vw', alt: bs.title }}
-            {%- elsif bs.image_url != blank -%}<img src="{{ bs.image_url }}" alt="{{ bs.title | escape }}" loading="lazy" width="800" height="1000">{%- endif -%}
+            {%- elsif bs.image_url != blank -%}<img src="{{ bs.image_url }}{% if bs.image_url contains '?' %}&{% else %}?{% endif %}width=1000" srcset="{{ bs.image_url }}{% if bs.image_url contains '?' %}&{% else %}?{% endif %}width=400 400w, {{ bs.image_url }}{% if bs.image_url contains '?' %}&{% else %}?{% endif %}width=700 700w, {{ bs.image_url }}{% if bs.image_url contains '?' %}&{% else %}?{% endif %}width=1000 1000w" sizes="(min-width: 990px) 30vw, 78vw" alt="{{ bs.title | escape }}" loading="lazy" width="800" height="1000">{%- endif -%}
             <span class="mht__chip">{% if bs.chip != blank %}{{ bs.chip }}{% else %}{{ s.chip_word | default: 'Step' }} {{ forloop.index | prepend: '0' | slice: -2, 2 }}{% endif %}</span>
           </div>
           <h3 class="mht__t">{{ bs.title }}</h3>

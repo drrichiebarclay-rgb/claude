@@ -112,6 +112,26 @@
   footer h1,footer h2,footer h3,footer .h1,footer .h2,footer .h3,footer .h4,footer .footer-block__heading,footer .newsletter__heading,
   .footer h1,.footer h2,.footer h3,.footer .h1,.footer .h2,.footer .footer-block__heading,[id*="__footer"] h2,[id*="__footer"] .h1,[id*="__footer"] .h2{font-weight:500!important}
 </style>
+{%- comment -%} Structured data for search and answer engines: who MUTO is (home), and what the science page is {%- endcomment -%}
+{%- if template.name == 'index' -%}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"Organization","@id":"{{ shop.url }}/#org","name":"MUTO","url":"{{ shop.url }}","logo":"{{ 'Muto-White-Logo.svg' | file_url }}",
+  "description":"MUTO is a UK cellular longevity brand. Its NAD+ Cellular Complex is a daily multi-nutrient with NAD+ support for adults over 35: 19 ingredients with every dose on the label, made in the UK to GMP standards and third-party tested.",
+  "founder":{"@type":"Person","name":"Dr Richie Barclay","jobTitle":"Founder","description":"PhD in cellular biology and nutrition"},
+  "areaServed":"GB","email":"hello@mutolongevity.com"},
+ {"@type":"WebSite","@id":"{{ shop.url }}/#site","url":"{{ shop.url }}","name":"MUTO","publisher":{"@id":"{{ shop.url }}/#org"}}
+]}
+</script>
+{%- elsif template.suffix == 'science-simple' -%}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"What changes in your body after 35, and what NAD+ Cellular Complex does about it",
+ "description":"From your mid-30s your body makes less NAD+, gets less back from food and training, and your cells' maintenance slows. How MUTO NAD+ Cellular Complex is formulated for that stage of life, with every dose on the label.",
+ "url":"{{ shop.url }}{{ page.url }}","inLanguage":"en-GB","about":["NAD+","nicotinamide riboside","healthy ageing","mitochondria"],
+ "author":{"@type":"Person","name":"Dr Richie Barclay","jobTitle":"Founder, PhD in cellular biology and nutrition"},
+ "publisher":{"@type":"Organization","name":"MUTO","url":"{{ shop.url }}"}}
+</script>
+{%- endif -%}
 {%- comment -%} Sticky add to cart on every page. Not on product pages (they have their own buy box and bar),
 the home page (its own sticky section), the cart, accounts or the password page. {%- endcomment -%}
 {%- liquid

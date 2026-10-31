@@ -113,7 +113,7 @@
           {%- capture frame -%}
             <div class="mrg__frame">
               {%- if bs.image != blank -%}{{ bs.image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '500,800,1000,1200', sizes: '(min-width: 990px) 50vw, 100vw', alt: bs.title }}
-              {%- elsif bs.image_url != blank -%}<img src="{{ bs.image_url }}" alt="{{ bs.title | escape }}" loading="lazy" width="1000" height="1250">{%- endif -%}
+              {%- elsif bs.image_url != blank -%}<img src="{{ bs.image_url }}{% if bs.image_url contains '?' %}&{% else %}?{% endif %}width=1200" srcset="{{ bs.image_url }}{% if bs.image_url contains '?' %}&{% else %}?{% endif %}width=500 500w, {{ bs.image_url }}{% if bs.image_url contains '?' %}&{% else %}?{% endif %}width=800 800w, {{ bs.image_url }}{% if bs.image_url contains '?' %}&{% else %}?{% endif %}width=1200 1200w" sizes="(min-width: 990px) 50vw, 100vw" alt="{{ bs.title | escape }}" loading="lazy" width="1000" height="1250">{%- endif -%}
               {%- if bs.chip != blank -%}<span class="mrg__chip">{{ bs.chip }}</span>{%- endif -%}
             </div>
           {%- endcapture -%}

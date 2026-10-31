@@ -150,7 +150,7 @@
             {%- elsif s.image != blank -%}
               {{ s.image | image_url: width: 2000 | image_tag: loading: 'lazy', widths: '800,1200,1600,2000', sizes: '(min-width: 1320px) 1280px, 100vw', alt: s.image_alt }}
             {%- elsif s.image_url != blank -%}
-              <img src="{{ s.image_url }}" alt="{{ s.image_alt | escape }}" loading="lazy" width="1600" height="700">
+              <img src="{{ s.image_url }}{% if s.image_url contains '?' %}&{% else %}?{% endif %}width=2000" srcset="{{ s.image_url }}{% if s.image_url contains '?' %}&{% else %}?{% endif %}width=800 800w, {{ s.image_url }}{% if s.image_url contains '?' %}&{% else %}?{% endif %}width=1200 1200w, {{ s.image_url }}{% if s.image_url contains '?' %}&{% else %}?{% endif %}width=1600 1600w, {{ s.image_url }}{% if s.image_url contains '?' %}&{% else %}?{% endif %}width=2000 2000w" sizes="(min-width: 1320px) 1280px, 100vw" alt="{{ s.image_alt | escape }}" loading="lazy" width="1600" height="700">
             {%- endif -%}
           </div>
         </div>
@@ -188,7 +188,7 @@
               {%- if s.image != blank -%}
                 {{ s.image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '600,900,1200', sizes: '(min-width: 990px) 40vw, 100vw', alt: s.image_alt }}
               {%- elsif s.image_url != blank -%}
-                <img src="{{ s.image_url }}" alt="{{ s.image_alt | escape }}" loading="lazy" width="1200" height="1200">
+                <img src="{{ s.image_url }}{% if s.image_url contains '?' %}&{% else %}?{% endif %}width=1200" srcset="{{ s.image_url }}{% if s.image_url contains '?' %}&{% else %}?{% endif %}width=600 600w, {{ s.image_url }}{% if s.image_url contains '?' %}&{% else %}?{% endif %}width=900 900w, {{ s.image_url }}{% if s.image_url contains '?' %}&{% else %}?{% endif %}width=1200 1200w" sizes="(min-width: 990px) 40vw, 100vw" alt="{{ s.image_alt | escape }}" loading="lazy" width="1200" height="1200">
               {%- endif -%}
             </div>
             <div>
@@ -207,7 +207,7 @@
             {%- elsif s.image != blank -%}
               {{ s.image | image_url: width: 1600 | image_tag: loading: 'lazy', widths: '700,1000,1300,1600', sizes: '(min-width: 990px) 58vw, 100vw', alt: s.image_alt }}
             {%- elsif s.image_url != blank -%}
-              <img src="{{ s.image_url }}" alt="{{ s.image_alt | escape }}" loading="lazy" width="1400" height="1000">
+              <img src="{{ s.image_url }}{% if s.image_url contains '?' %}&{% else %}?{% endif %}width=1400" srcset="{{ s.image_url }}{% if s.image_url contains '?' %}&{% else %}?{% endif %}width=700 700w, {{ s.image_url }}{% if s.image_url contains '?' %}&{% else %}?{% endif %}width=1000 1000w, {{ s.image_url }}{% if s.image_url contains '?' %}&{% else %}?{% endif %}width=1400 1400w" sizes="(min-width: 990px) 58vw, 100vw" alt="{{ s.image_alt | escape }}" loading="lazy" width="1400" height="1000">
             {%- endif -%}
           </div>
           <div class="mst__scopy">
@@ -233,7 +233,7 @@
           {%- for b in section.blocks -%}
             <li class="mst__ph" {{ b.shopify_attributes }}>
               {%- if b.settings.image != blank -%}{{ b.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', widths: '400,600,800', sizes: '(min-width: 990px) 24vw, 72vw', alt: b.settings.alt }}
-              {%- elsif b.settings.image_url != blank -%}<img src="{{ b.settings.image_url }}" alt="{{ b.settings.alt | escape }}" loading="lazy" width="800" height="1000">{%- endif -%}
+              {%- elsif b.settings.image_url != blank -%}<img src="{{ b.settings.image_url }}{% if b.settings.image_url contains '?' %}&{% else %}?{% endif %}width=800" srcset="{{ b.settings.image_url }}{% if b.settings.image_url contains '?' %}&{% else %}?{% endif %}width=400 400w, {{ b.settings.image_url }}{% if b.settings.image_url contains '?' %}&{% else %}?{% endif %}width=600 600w, {{ b.settings.image_url }}{% if b.settings.image_url contains '?' %}&{% else %}?{% endif %}width=800 800w" sizes="(min-width: 990px) 24vw, 72vw" alt="{{ b.settings.alt | escape }}" loading="lazy" width="800" height="1000">{%- endif -%}
             </li>
           {%- endfor -%}
         </ul>

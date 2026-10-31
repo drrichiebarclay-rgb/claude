@@ -66,9 +66,9 @@
           <li class="mlv__card" {{ b.shopify_attributes }}>
             <div class="mlv__box">
               {%- if bs.video != blank -%}
-                {{ bs.video | video_tag: muted: true, loop: true, playsinline: true, controls: false, preload: 'metadata', image_size: '600x' }}
+                {{ bs.video | video_tag: muted: true, loop: true, playsinline: true, controls: false, preload: 'none', image_size: '600x' }}
               {%- elsif bs.image_url != blank -%}
-                <img src="{{ bs.image_url }}" alt="" loading="lazy" width="600" height="900">
+                <img src="{{ bs.image_url }}{% if bs.image_url contains '?' %}&{% else %}?{% endif %}width=700" srcset="{{ bs.image_url }}{% if bs.image_url contains '?' %}&{% else %}?{% endif %}width=400 400w, {{ bs.image_url }}{% if bs.image_url contains '?' %}&{% else %}?{% endif %}width=700 700w" sizes="(min-width: 990px) 22vw, 68vw" alt="" loading="lazy" width="600" height="900">
               {%- endif -%}
               {%- if bs.video != blank -%}<button type="button" class="mlv__play" aria-label="Play video"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M5 3.5v13l11-6.5z"/></svg></button>{%- endif -%}
             </div>

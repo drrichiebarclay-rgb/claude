@@ -66,9 +66,9 @@
         {{ s.image | image_url: width: 2400 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '800,1200,1600,2000,2400', sizes: '100vw', alt: s.image_alt }}
       {%- elsif s.image_url != blank -%}
         {%- if s.image_mobile_url != blank -%}
-          <picture><source media="(max-width:749px)" srcset="{{ s.image_mobile_url }}"><img src="{{ s.image_url }}" alt="{{ s.image_alt | escape }}" width="2400" height="1350" fetchpriority="high"></picture>
+          <picture><source media="(max-width:749px)" srcset="{{ s.image_mobile_url }}{% if s.image_mobile_url contains '?' %}&{% else %}?{% endif %}width=500 500w, {{ s.image_mobile_url }}{% if s.image_mobile_url contains '?' %}&{% else %}?{% endif %}width=800 800w, {{ s.image_mobile_url }}{% if s.image_mobile_url contains '?' %}&{% else %}?{% endif %}width=1100 1100w" sizes="100vw"><img src="{{ s.image_url }}{% if s.image_url contains '?' %}&{% else %}?{% endif %}width=1600" srcset="{{ s.image_url }}{% if s.image_url contains '?' %}&{% else %}?{% endif %}width=1000 1000w, {{ s.image_url }}{% if s.image_url contains '?' %}&{% else %}?{% endif %}width=1600 1600w, {{ s.image_url }}{% if s.image_url contains '?' %}&{% else %}?{% endif %}width=2200 2200w" sizes="100vw" alt="{{ s.image_alt | escape }}" width="2400" height="1350" fetchpriority="high" decoding="async"></picture>
         {%- else -%}
-          <img src="{{ s.image_url }}" alt="{{ s.image_alt | escape }}" width="2400" height="1350" fetchpriority="high">
+          <img src="{{ s.image_url }}{% if s.image_url contains '?' %}&{% else %}?{% endif %}width=1600" srcset="{{ s.image_url }}{% if s.image_url contains '?' %}&{% else %}?{% endif %}width=1000 1000w, {{ s.image_url }}{% if s.image_url contains '?' %}&{% else %}?{% endif %}width=1600 1600w, {{ s.image_url }}{% if s.image_url contains '?' %}&{% else %}?{% endif %}width=2200 2200w" sizes="100vw" alt="{{ s.image_alt | escape }}" width="2400" height="1350" fetchpriority="high" decoding="async">
         {%- endif -%}
       {%- endif -%}
     </div>
