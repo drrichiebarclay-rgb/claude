@@ -3,55 +3,72 @@
     "hero": {
       "type": "muto-sci",
       "blocks": {
-        "nad": {
-          "type": "card",
-          "settings": {
-            "title": "NAD+",
-            "figure": "+51",
-            "unit": "%",
-            "bar_label": "NR 300mg a day",
-            "base_label": "Before",
-            "text": "In a study of adults aged 40 to 60, 300mg of NR a day raised NAD+ by 51% in two weeks.*",
-            "link_label": "What NAD+ does",
-            "link": "#what-changes"
-          }
-        },
         "energy": {
           "type": "card",
           "settings": {
             "title": "Energy",
-            "image": "shopify://shop_images/0A78F8BD-1AAA-4A34-9F49-1706FABBB5DD.png",
-            "text": "Afternoons that hold. Vitamins B6 and B12 contribute to the reduction of tiredness and fatigue."
+            "figure": "~50%",
+            "wide": true,
+            "bar_label": "Your 40s",
+            "base_label": "Late 60s",
+            "base_pct": 50,
+            "text": "drop in your muscles’ energy-making capacity between your 40s and late 60s.¹",
+            "link_label": "How MUTO helps",
+            "link": "#what-changes"
           }
         },
         "recovery": {
           "type": "card",
           "settings": {
             "title": "Recovery",
-            "figure": "2,000",
-            "unit": " IU",
-            "text": "Vitamin D3 in every serve. Vitamin D contributes to normal muscle function, so you bounce back from a busy week."
+            "figure": "~80%",
+            "image": "shopify://shop_images/muto-science-bottle.jpg",
+            "text": "less deep, restorative sleep by midlife than in your early 20s.²"
+          }
+        },
+        "longevity": {
+          "type": "card",
+          "settings": {
+            "title": "Longevity",
+            "figure": "3–8%",
+            "text": "of muscle lost every decade after 30.³"
+          }
+        },
+        "trust": {
+          "type": "card",
+          "settings": {
+            "title": "Trust",
+            "figure": "57%",
+            "wide": true,
+            "dots_total": 30,
+            "dots_on": 17,
+            "dots_eye": "Did you know?",
+            "dots_text": "17 of 30 supplements tested didn’t match their label. Every MUTO batch is tested by an independent lab.",
+            "text": "of supplements tested didn’t match their label.⁴",
+            "link_label": "See our third-party test results",
+            "link": "#test-results"
           }
         }
       },
       "block_order": [
-        "nad",
         "energy",
-        "recovery"
+        "recovery",
+        "longevity",
+        "trust"
       ],
       "settings": {
         "layout": "hero",
         "anchor": "",
-        "eyebrow": "The science",
-        "heading": "What changes in your body after 35, and what to do about it.",
-        "text": "A daily multi-nutrient with NAD⁺ support, built for 35+. Five supplements in one jar.",
+        "eyebrow": "The problem",
+        "heading": "Your biology shifts.\nMost supplements don’t.",
+        "text": "From your mid-30s, your body makes less of what it runs on. You feel it in your energy, your sleep and your recovery.",
         "button_label": "See the Black Friday offer",
         "button_link": "/products/muto-nad-cellular-complex",
-        "small": "*That study tested NR on its own, not MUTO. MUTO has 300mg of NR in every serve.",
-        "space_top": 72,
-        "space_bottom": 72,
-        "link_label": "See all 19 ingredients",
-        "link": "/pages/ingredients"
+        "small": "¹ Conley et al., Journal of Physiology (2000). ² Van Cauter et al., JAMA (2000). ³ Volpi et al., Current Opinion in Clinical Nutrition and Metabolic Care (2004). ⁴ Crawford et al., JAMA Network Open (2022): 17 of 30 products.",
+        "space_top": 48,
+        "space_bottom": 96,
+        "link_label": "What changes after 35",
+        "link": "#what-changes"
       }
     },
     "intro": {
@@ -900,9 +917,19 @@
         "certificate": "",
         "scope": "on two production batches"
       }
+    },
+    "headline": {
+      "type": "muto-sci",
+      "settings": {
+        "layout": "headline",
+        "heading": "MUTO is the daily formula {image} built for your body after 35.",
+        "space_top": 120,
+        "space_bottom": 72
+      }
     }
   },
   "order": [
+    "headline",
     "hero",
     "intro",
     "shifts",
