@@ -63,7 +63,12 @@
     function getTargets() { return links.map(function (a) { return find(a.dataset.msnLink); }); }
     /* Where the bar ends on screen, measured by the browser (so page zoom can't skew it) */
     function navBottom() { return Math.round(nav.getBoundingClientRect().bottom); }
-    function pin() { nav.classList.toggle('is-fixed', root.getBoundingClientRect().top <= top); }
+    /* The bar appears (pinned to the top) once the first linked section reaches it */
+    function pin() {
+      var first = getTargets().filter(Boolean)[0];
+      var reached = first ? first.getBoundingClientRect().top <= top + nav.offsetHeight + 8 : root.getBoundingClientRect().top <= top;
+      nav.classList.toggle('is-fixed', reached && root.getBoundingClientRect().top <= top);
+    }
     function progress() {
       var max = document.documentElement.scrollHeight - window.innerHeight;
       bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, window.scrollY / max) : 0) + ')';
