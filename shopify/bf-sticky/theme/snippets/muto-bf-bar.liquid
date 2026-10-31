@@ -42,14 +42,24 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 <script>
-/* "Who it's for" fold: new copy */
+/* Folds under the button: new titles and copy ("Who it's for"; "What it does" becomes "Science-Backed Benefits") */
 document.addEventListener('DOMContentLoaded', function () {
+  var FOLDS = [
+    { match: /who it/i, body: '<p><strong>Made for adults over 35.</strong> That’s when your body starts to change, and when most of our customers start taking MUTO. You don’t need to be sporty or own a smartwatch.</p>' +
+      '<p>It’s for you if afternoons feel harder than they used to, you get less back from the same effort, or you want to keep up with work, family and the things you love for years to come.</p>' },
+    { match: /what it does/i, title: 'Science-Backed Benefits', body: '<ul><li><strong>Energy:</strong> afternoons that hold</li><li><strong>Recovery:</strong> bounce back from a busy week</li>' +
+      '<li><strong>Stress:</strong> a clearer head on demanding days</li><li><strong>Longevity:</strong> support for your cells as you age</li><li><strong>Immunity:</strong> stay well through winter</li></ul>' +
+      '<p>A comprehensive multi-nutrient with NAD+ support for over 35s. Alongside your free creatine, it’s the daily foundation your body runs on.</p>' }
+  ];
   [].forEach.call(document.querySelectorAll('.mc details'), function (d) {
-    var s = d.querySelector('summary');
-    if (!s || !/who it/i.test(s.textContent)) return;
-    var b = d.querySelector('.mc__acc-body') || s.nextElementSibling;
-    if (b) b.innerHTML = '<p><strong>Made for adults over 35.</strong> That’s when your body starts to change, and when most of our customers start taking MUTO. You don’t need to be sporty or own a smartwatch.</p>' +
-      '<p>It’s for you if afternoons feel harder than they used to, you get less back from the same effort, or you want to keep up with work, family and the things you love for years to come.</p>';
+    var s = d.querySelector('summary'), t = s && s.querySelector('span');
+    if (!s) return;
+    FOLDS.forEach(function (f) {
+      if (!f.match.test(s.textContent)) return;
+      var b = d.querySelector('.mc__acc-body') || s.nextElementSibling;
+      if (b) b.innerHTML = f.body;
+      if (f.title && t) t.textContent = f.title;
+    });
   });
 });
 </script>
