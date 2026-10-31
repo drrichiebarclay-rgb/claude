@@ -348,7 +348,8 @@
       "settings": {
         "cta_label": "Start your 90 days",
         "cta_link": "/products/muto-nad-cellular-complex",
-        "tests_label": "View third-party testing results"
+        "tests_label": "View third-party testing results",
+        "bg": "#ffffff"
       }
     },
     "tests": {
