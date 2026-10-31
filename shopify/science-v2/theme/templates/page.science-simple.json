@@ -22,7 +22,6 @@
           "settings": {
             "title": "Recovery",
             "figure": "~80%",
-            "image": "shopify://shop_images/muto-science-bottle.jpg",
             "text": "less deep, restorative sleep by midlife than in your early 20s.²"
           }
         },
@@ -201,160 +200,6 @@
         "space_bottom": 96
       }
     },
-    "jobs": {
-      "type": "muto-sci",
-      "blocks": {
-        "i1": {
-          "type": "item",
-          "settings": {
-            "title": "Energy",
-            "a": "NR 300mg · CoQ10 150mg · PQQ 20mg · B2, B6, B12",
-            "b": "",
-            "figure": "",
-            "unit": "",
-            "text": "Your body turns NR into NAD+. Vitamins B6 and B12 contribute to the reduction of tiredness and fatigue."
-          }
-        },
-        "i2": {
-          "type": "item",
-          "settings": {
-            "title": "Recovery",
-            "a": "D3 2,000 IU · CoQ10 150mg · PQQ 20mg",
-            "b": "",
-            "figure": "",
-            "unit": "",
-            "text": "Vitamin D contributes to normal muscle function, so a busy week takes less out of you."
-          }
-        },
-        "i3": {
-          "type": "item",
-          "settings": {
-            "title": "Stress",
-            "a": "B6 · B12 · Folate (5-MTHF) · Zinc 15mg",
-            "b": "",
-            "figure": "",
-            "unit": "",
-            "text": "Vitamins B6 and B12 and folate contribute to normal psychological function."
-          }
-        },
-        "i4": {
-          "type": "item",
-          "settings": {
-            "title": "Longevity",
-            "a": "NR 300mg · TMG 450mg · Resveratrol 50mg · K2 100µg",
-            "b": "",
-            "figure": "",
-            "unit": "",
-            "text": "Zinc contributes to the protection of cells from oxidative stress."
-          }
-        },
-        "i5": {
-          "type": "item",
-          "settings": {
-            "title": "Immunity",
-            "a": "D3 · Zinc 15mg · Copper 1mg · Folate · B6 · B12",
-            "b": "",
-            "figure": "",
-            "unit": "",
-            "text": "Vitamin D, zinc, copper, folate, B6 and B12 contribute to the normal function of the immune system."
-          }
-        }
-      },
-      "block_order": [
-        "i1",
-        "i2",
-        "i3",
-        "i4",
-        "i5"
-      ],
-      "settings": {
-        "layout": "jobs",
-        "anchor": "whats-in-it",
-        "eyebrow": "Formulated for this stage of life",
-        "heading": "Five jobs, one jar.",
-        "text": "19 ingredients in active forms, dosed for what your body needs after 35. Two capsules with breakfast.",
-        "button_label": "",
-        "button_link": "",
-        "link_label": "",
-        "link": "",
-        "col_a": "At 20",
-        "col_b": "After 35",
-        "small": "All 19 ingredients, with every dose, are on the ingredients page.",
-        "space_top": 96,
-        "space_bottom": 96
-      }
-    },
-    "numbers": {
-      "type": "muto-sci",
-      "blocks": {
-        "i1": {
-          "type": "item",
-          "settings": {
-            "title": "NAD+ in two weeks*",
-            "a": "",
-            "b": "",
-            "figure": "+51",
-            "unit": "%",
-            "text": "Adults aged 40 to 60 taking 300mg of NR a day."
-          }
-        },
-        "i2": {
-          "type": "item",
-          "settings": {
-            "title": "Ingredients",
-            "a": "",
-            "b": "",
-            "figure": "19",
-            "unit": "",
-            "text": "Every dose on the label."
-          }
-        },
-        "i3": {
-          "type": "item",
-          "settings": {
-            "title": "NR in every serve",
-            "a": "",
-            "b": "",
-            "figure": "300",
-            "unit": "mg",
-            "text": "The most allowed in Great Britain."
-          }
-        },
-        "i4": {
-          "type": "item",
-          "settings": {
-            "title": "Proprietary blends",
-            "a": "",
-            "b": "",
-            "figure": "0",
-            "unit": "",
-            "text": "No fillers, nothing hidden."
-          }
-        }
-      },
-      "block_order": [
-        "i1",
-        "i2",
-        "i3",
-        "i4"
-      ],
-      "settings": {
-        "layout": "numbers",
-        "anchor": "",
-        "eyebrow": "The evidence",
-        "heading": "The numbers behind the formula.",
-        "text": "",
-        "button_label": "",
-        "button_link": "",
-        "link_label": "View third-party testing results",
-        "link": "#test-results",
-        "col_a": "At 20",
-        "col_b": "After 35",
-        "small": "*That study tested NR on its own, not MUTO. MUTO has 300mg of NR in every serve.",
-        "space_top": 96,
-        "space_bottom": 96
-      }
-    },
     "compare": {
       "type": "custom-liquid",
       "settings": {
@@ -473,13 +318,13 @@
       ],
       "settings": {
         "field": false,
-        "heading": "The scientists behind\nthe formula.",
-        "note": "Our Scientific Advisory Board",
+        "heading": "Six scientists put\ntheir name to MUTO.",
+        "note": "Our Scientific Advisory Board reviews the formula",
         "compact": true,
         "rail_gap": 40,
         "fit": "nad",
-        "space_top": 96,
-        "space_bottom": 48
+        "space_top": 60,
+        "space_bottom": 72
       }
     },
     "research": {
@@ -926,6 +771,171 @@
         "space_top": 120,
         "space_bottom": 72
       }
+    },
+    "benefits": {
+      "type": "muto-benefit-cards",
+      "blocks": {
+        "b1": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Golden_Hour_Family_Beach_Walk.png",
+            "image_fallback": "",
+            "position": "",
+            "title": "Energy",
+            "text": "Your body turns NR into NAD+, CoQ10 and PQQ support your mitochondria, and active B vitamins help release energy from food."
+          }
+        },
+        "b2": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/038A80BF-8A59-420A-8CC3-3C5DDFB275B6.png",
+            "image_fallback": "",
+            "position": "",
+            "title": "Recovery",
+            "text": "Vitamin D3 supports normal muscle function, CoQ10 and PQQ support the mitochondria that refill your energy, and riboflavin helps reduce tiredness."
+          }
+        },
+        "b3": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/3E3756BE-4955-4D85-81D7-30B61D5035B0.png",
+            "image_fallback": "",
+            "position": "",
+            "title": "Stress",
+            "text": "Active B vitamins, with zinc, support normal psychological function and mental performance through a demanding week."
+          }
+        },
+        "b4": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Golden_Hour_Ocean_Portrait.png",
+            "image_fallback": "",
+            "position": "",
+            "title": "Longevity",
+            "text": "300mg NR paired with TMG, plus trans-resveratrol and grape seed polyphenols, vitamin K2 for your bones and zinc to help protect your cells."
+          }
+        },
+        "b5": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/D9D67CEB-ADD5-421D-97BD-39141E88C5E9.png",
+            "image_fallback": "",
+            "position": "",
+            "title": "Immunity",
+            "text": "Vitamin D3, zinc, copper, folate and vitamins B6 and B12 all support the normal function of your immune system."
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5"
+      ],
+      "settings": {
+        "eyebrow": "Five jobs. One daily jar.",
+        "heading": "Benefits built on\npublished science.",
+        "lede": "What you need after 35. Your biology shifts. What you need evolves.",
+        "button_label": "View supplement facts",
+        "button_link": "",
+        "button_tab": "3",
+        "foot": "",
+        "anchor": "",
+        "band": "ground",
+        "space_top": 96,
+        "space_bottom": 96
+      }
+    },
+    "standards": {
+      "type": "muto-crea-standards",
+      "blocks": {
+        "tested": {
+          "type": "standard",
+          "settings": {
+            "stat": "Every batch",
+            "title": "Third-party tested",
+            "text": "<p>Every batch is tested by an independent lab for identity, potency, heavy metals and microbes before it’s released.</p>",
+            "link_label": "View third-party testing results",
+            "link": "#test-results",
+            "no_link_note": "Certificates of analysis on request"
+          }
+        },
+        "dose": {
+          "type": "standard",
+          "settings": {
+            "stat": "300mg NR",
+            "title": "Full, declared doses",
+            "text": "<p>Nicotinamide riboside at 300mg, the maximum daily amount authorised in Great Britain. All 19 ingredients are on the label with their doses. No proprietary blends.</p>",
+            "link_label": "",
+            "link": "",
+            "no_link_note": ""
+          }
+        },
+        "board": {
+          "type": "standard",
+          "settings": {
+            "stat": "6 experts",
+            "title": "Scientific Advisory Board",
+            "text": "<p>Doctors and scientists in longevity, metabolism, sleep and performance nutrition review the formula.</p>",
+            "link_label": "",
+            "link": "",
+            "no_link_note": ""
+          }
+        },
+        "made": {
+          "type": "standard",
+          "settings": {
+            "stat": "GMP · ISO",
+            "title": "Made in the UK",
+            "text": "<p>Manufactured in the UK to GMP standards, in an ISO-certified facility.</p>",
+            "link_label": "",
+            "link": "",
+            "no_link_note": ""
+          }
+        }
+      },
+      "block_order": [
+        "tested",
+        "dose",
+        "board",
+        "made"
+      ],
+      "settings": {
+        "heading": "Checked, not\ntaken on trust.",
+        "lede": "The four things we hold every jar to",
+        "foot": "",
+        "space_top": 100,
+        "space_bottom": 100
+      }
+    },
+    "founder": {
+      "type": "muto-crea-founder",
+      "settings": {
+        "eyebrow": "Our founder",
+        "heading": "Built by a doctor\nwho wanted proof.",
+        "text": "<p>Richie Barclay is a cell biologist with a PhD in cellular biology and nutrition, a Harley Street nutritionist for the last 13 years, and a former cricketer and tennis player.</p><p>He started MUTO after years of watching supplements sell on claims nobody had checked, with the doses hidden in blends. So MUTO does it the other way: every dose is on the label, every batch goes to an outside lab, and six doctors and scientists review the formula.</p>",
+        "quote": "I built MUTO because I was tired of supplements that ask you to take them on trust.",
+        "quote_by": "Dr Richie Barclay, PhD, founder",
+        "link_label": "Got a question? Email Richie",
+        "link": "mailto:hello@mutolongevity.com",
+        "image": "shopify://shop_images/MutoxNSPCCEvent-38.jpg",
+        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/founder-bf-stage.jpg?v=1793283537",
+        "image_alt": "Dr Richie Barclay speaking on stage at a MUTO event",
+        "image_position": "50% 30%",
+        "caption": "",
+        "space_top": 100,
+        "space_bottom": 100
+      }
+    },
+    "board_anchor": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<style>[id$=\"__board_anchor\"]{height:0;overflow:hidden;margin:0!important;padding:0!important}[id$=\"__board\"] .mh{background:var(--mc-ground,#f9f9f9)}</style><span id=\"scientific-board\" style=\"display:block;position:relative;top:-80px\"></span>",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
@@ -933,10 +943,12 @@
     "hero",
     "intro",
     "shifts",
-    "jobs",
-    "numbers",
+    "benefits",
     "compare",
+    "board_anchor",
     "board",
+    "standards",
+    "founder",
     "research",
     "offer",
     "reviews",

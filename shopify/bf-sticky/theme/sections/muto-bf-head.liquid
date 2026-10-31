@@ -55,17 +55,13 @@
   <script src="{{ 'muto-bf-claim.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 {%- if template.suffix == 'science-simple' -%}
-  {%- comment -%} Science page: the Black Friday page's comparison goes into the template's "compare" slot,
-  on white with the site's section heading; the board band is white too {%- endcomment -%}
+  {%- comment -%} Science page: styled like the Black Friday product page. Its comparison goes into the
+  template's "compare" slot, and its sections use the product page's scale {%- endcomment -%}
   <style>
-    [id$="__compare"] .mc-cmp,[id$="__compare"] .mc-cmp .l{background:#fff!important}
-    [id$="__compare"] .mc-cmp__in{text-align:center}
-    [id$="__compare"] .mc-cmp__eyebrow{font-size:12px;font-weight:400;letter-spacing:.14em;color:#5c5a5b}
-    [id$="__compare"] .mc-cmp__h{margin:20px auto 0;max-width:22ch;font-weight:500;font-size:clamp(34px,4.444vw,64px);line-height:.906;letter-spacing:-.014em;text-transform:uppercase}
-    [id$="__compare"] .mc-cmp__intro{margin:20px auto 0;max-width:52ch;font-size:clamp(17px,1.4vw,20px);color:#242223}
-    [id$="__compare"] .mc-cmp__scroll,[id$="__compare"] .mc-cmp__note{text-align:left}
-    [id$="__compare"] .mc-cmp__note{text-align:center}
-    [id$="__board"],[id$="__board"] .mh{background:#fff!important}
+    /* Same scale as the Black Friday product page's sections */
+    html:root body #MainContent > .shopify-section{zoom:.86}
+    @media (min-width:990px){html:root body #MainContent > .shopify-section{zoom:.93}}
+    @media (max-width:749px){html:root body #MainContent > .shopify-section{zoom:.84}}
   </style>
   {%- render 'muto-bf-compare' -%}
   <script>

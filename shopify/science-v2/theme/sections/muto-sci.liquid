@@ -26,7 +26,7 @@
   #shopify-section-{{ sid }} .msc,#shopify-section-{{ sid }} .msc h1,#shopify-section-{{ sid }} .msc h2,#shopify-section-{{ sid }} .msc h3,#shopify-section-{{ sid }} .msc p{font-family:var(--mc-font,"Neue Haas Grotesk Display Pro"),sans-serif;-webkit-font-smoothing:antialiased}
   #shopify-section-{{ sid }} .msc b,#shopify-section-{{ sid }} .msc strong{font-weight:500}
   #shopify-section-{{ sid }} .msc{background:#fff;color:var(--msc-ink)}
-  #shopify-section-{{ sid }} .msc__in{max-width:1320px;margin:0 auto;padding:{{ s.space_top }}px 20px {{ s.space_bottom }}px}
+  #shopify-section-{{ sid }} .msc__in{max-width:var(--mc-max,1440px);margin:0 auto;padding:{{ s.space_top }}px var(--mc-gutter,24px) {{ s.space_bottom }}px}
   #shopify-section-{{ sid }} .msc__head{display:grid;justify-items:center;text-align:center;gap:20px}
   #shopify-section-{{ sid }} .msc__eye{margin:0;font-family:var(--msc-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--msc-muted)}
   #shopify-section-{{ sid }} .msc .msc__h{margin:0;max-width:22ch;text-wrap:balance;font-family:var(--mc-font);color:var(--msc-ink);font-weight:500;font-size:clamp(34px,4.444vw,64px);line-height:.906;letter-spacing:-.014em;text-transform:uppercase}
@@ -155,7 +155,7 @@
     #shopify-section-{{ sid }} .msc__ban{grid-template-columns:minmax(0,420px) 1fr;padding:40px}
   }
   @media (max-width:749px){
-    #shopify-section-{{ sid }} .msc__in{padding:{{ s.space_top | times: 0.66 | round }}px 16px {{ s.space_bottom | times: 0.66 | round }}px}
+    #shopify-section-{{ sid }} .msc__in{padding:{{ s.space_top | times: 0.66 | round }}px var(--mc-gutter,20px) {{ s.space_bottom | times: 0.66 | round }}px}
     #shopify-section-{{ sid }} .msc__vs{margin-top:40px}
     #shopify-section-{{ sid }} .msc__vs-row{grid-template-columns:1fr 1fr;gap:6px 16px;padding:16px 0}
     #shopify-section-{{ sid }} .msc__vs-t{grid-column:1/-1;font-size:17px}
