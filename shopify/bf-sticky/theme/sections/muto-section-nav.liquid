@@ -80,14 +80,9 @@
     function current() {
       if (Date.now() - lock < 900) return;
       var line = (nav.classList.contains('is-fixed') ? navBottom() : top + nav.offsetHeight) + 8;
+      /* The last chip whose section has reached the line: sections not in the bar count as part of the one before */
       var on = -1, targets = getTargets();
-      targets.forEach(function (t, i) {
-        if (!t) return;
-        var r = t.getBoundingClientRect();
-        if (r.top <= line && r.bottom > line) on = i;
-        else if (on === -1 && r.top <= line) on = i;
-      });
-      if (on === -1) { targets.forEach(function (t, i) { if (t && t.getBoundingClientRect().bottom <= line) on = i; }); }
+      targets.forEach(function (t, i) { if (t && t.getBoundingClientRect().top <= line) on = i; });
       setOn(on);
     }
     var ticking = false;
