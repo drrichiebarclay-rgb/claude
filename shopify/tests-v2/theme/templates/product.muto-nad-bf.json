@@ -1795,12 +1795,12 @@
       }
     },
     "timeline": {
-      "type": "muto-timeline",
+      "type": "muto-expect",
       "blocks": {
         "m1": {
           "type": "milestone",
           "settings": {
-            "pill": "Day 1",
+            "day": 1,
             "title": "Your baseline",
             "text": "<p>Score your afternoons, sleep and recovery out of 10, or note your wearable’s numbers. Then two capsules with breakfast.</p>"
           }
@@ -1808,7 +1808,7 @@
         "m2": {
           "type": "milestone",
           "settings": {
-            "pill": "Day 30",
+            "day": 30,
             "title": "Afternoons that hold",
             "text": "<p>Usually the first thing people notice. B vitamins help reduce tiredness and fatigue, and NR tops up the NAD+ your cells use to make energy. Less of a 3pm slump, and energy left for the evening.</p>"
           }
@@ -1816,7 +1816,7 @@
         "m3": {
           "type": "milestone",
           "settings": {
-            "pill": "Day 60",
+            "day": 60,
             "title": "Bouncing back sooner",
             "text": "<p>Vitamin D supports normal muscle function, and CoQ10 and PQQ support your mitochondria. A walk, a round of golf or a gym session stops hanging around for days.</p>"
           }
@@ -1824,7 +1824,7 @@
         "m4": {
           "type": "milestone",
           "settings": {
-            "pill": "Day 90",
+            "day": 90,
             "title": "Feeling like yourself",
             "text": "<p>Compare your scores with day 1. Many people say they hadn’t realised how flat they’d been feeling. Not for you? Get every subscription payment back.</p>"
           }
@@ -1837,30 +1837,24 @@
         "m4"
       ],
       "settings": {
-        "eyebrow": "",
-        "anchor": "",
+        "anchor": "what-to-expect",
+        "eyebrow": "What to expect",
         "heading": "What you can expect over time.",
         "lede": "What people tell us they notice, and roughly when. Everyone’s different, so score yourself on day 1 and compare.",
-        "image": "shopify://shop_images/B41838FF-C1C0-41C3-AF29-AE2348CE86A8.png",
-        "image_fallback": "",
-        "image_alt": "",
         "foot": "Based on what customers tell us, not a clinical study. Everyone’s different.",
-        "band": "ground",
-        "sticky_top": 120,
         "space_top": 96,
         "space_bottom": 96
       }
     },
     "howto": {
-      "type": "muto-chapter",
+      "type": "muto-howto",
       "blocks": {
         "s1": {
           "type": "step",
           "settings": {
             "image": "shopify://shop_images/nad-take-two.jpg",
-            "image_fallback": "",
-            "kicker": "Step 1",
             "title": "Two capsules with breakfast",
+            "detail": "2 capsules · with food",
             "text": "<p>CoQ10, vitamin D3 and K2 dissolve in fat, so your body takes them in best with food.</p>"
           }
         },
@@ -1868,9 +1862,8 @@
           "type": "step",
           "settings": {
             "image": "shopify://shop_images/Coffee_MUTO.jpg",
-            "image_fallback": "",
-            "kicker": "Step 2",
             "title": "Every morning",
+            "detail": "Every day",
             "text": "<p>It works best as a daily habit. Keep the jar by the kettle so you don’t forget.</p>"
           }
         },
@@ -1878,9 +1871,8 @@
           "type": "step",
           "settings": {
             "image": "shopify://shop_images/D2AA08A2-83BB-4249-AC48-A8261A413D04.png",
-            "image_fallback": "",
-            "kicker": "Step 3",
             "title": "Check in at day 30 and 90",
+            "detail": "Day 1 · Day 30 · Day 90",
             "text": "<p>Score your energy and sleep out of 10 on day 1, then compare. Not for you after 90 days? Get every subscription payment back.</p>"
           }
         }
@@ -1892,19 +1884,11 @@
       ],
       "settings": {
         "anchor": "how-to-take-it",
-        "number": "",
-        "label": "How to take it",
+        "eyebrow": "How to take it",
         "heading": "How to take it.",
-        "intro": "<p>Three steps. Two capsules. About ten seconds a day.</p>",
-        "art": "none",
-        "art_beside": false,
-        "takeaway": "",
-        "line": "",
-        "cta_label": "",
-        "cta_link": "",
-        "small": "",
-        "tint": false,
-        "band": "ground",
+        "lede": "Three steps. Two capsules. About ten seconds a day.",
+        "facts": "",
+        "foot": "",
         "space_top": 96,
         "space_bottom": 96
       }
