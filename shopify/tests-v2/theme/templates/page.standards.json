@@ -247,7 +247,7 @@
         "color_scheme": "scheme-1",
         "padding_top": 0,
         "padding_bottom": 0,
-        "custom_liquid": "<style>[id$=\"__board_css\"]{display:none}#MainContent,[id$=\"__board\"],[id$=\"__board\"] .mh,[id$=\"__standards\"] .ms,[id$=\"__founder\"] .mc{background:#fff!important}</style>"
+        "custom_liquid": "<style>[id$=\"__board_css\"]{display:none}#MainContent,[id$=\"__board\"],[id$=\"__board\"] .mh,[id$=\"__standards\"] .ms,[id$=\"__founder\"] .mc{background:#fff!important}[id$=\"__standards\"] .ms__head{max-width:none;display:grid;justify-items:center;text-align:center}[id$=\"__standards\"] .ms__head .mc__h2{max-width:20ch;color:#242223;text-wrap:balance}[id$=\"__standards\"] .ms__lede{margin-left:auto;margin-right:auto;max-width:52ch;text-wrap:balance}</style>"
       }
     },
     "reviews": {
