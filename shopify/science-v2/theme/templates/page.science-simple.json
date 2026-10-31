@@ -417,8 +417,8 @@
         "layout": "statement",
         "anchor": "",
         "eyebrow": "Our research",
-        "heading": "",
-        "text": "Our first human study starts in December 2026. There are no results yet, and we’ll publish them, whatever they show.",
+        "heading": "Tested properly. Published honestly.",
+        "text": "Our first human study starts in December 2026 at the University of Westminster. There are no results yet, and we’ll publish them, whatever they show.",
         "button_label": "",
         "button_link": "",
         "link_label": "Meet our founder",
@@ -471,13 +471,40 @@
     "tests": {
       "type": "muto-test-results",
       "blocks": {
+        "c01": {
+          "type": "cert",
+          "settings": {
+            "lab": "ALS Laboratories (UK) Ltd",
+            "number": "TRTH2761685-1",
+            "scope": "Microbiology, batch 0725021",
+            "date": "22 Jul 2025"
+          }
+        },
+        "c02": {
+          "type": "cert",
+          "settings": {
+            "lab": "ALS Laboratories (UK) Ltd",
+            "number": "TRTH2761684-1",
+            "scope": "Microbiology, batch 0725022",
+            "date": "22 Jul 2025"
+          }
+        },
+        "c03": {
+          "type": "cert",
+          "settings": {
+            "lab": "M S Laboratories Ltd",
+            "number": "CR60146",
+            "scope": "Heavy metals, batches 0725021 and 0725022",
+            "date": "14 Aug 2025"
+          }
+        },
         "t01": {
           "type": "test",
           "settings": {
             "group": "Heavy metals",
             "name": "Lead (Pb)",
-            "spec": "Under 3 ppm",
-            "result": "0.010 ppm",
+            "spec": "Under 3 mg/kg",
+            "result": "0.01 mg/kg",
             "note": "300× under the limit",
             "pass": true
           }
@@ -486,10 +513,10 @@
           "type": "test",
           "settings": {
             "group": "Heavy metals",
-            "name": "Cadmium (Cd)",
-            "spec": "Under 1 ppm",
-            "result": "0.013 ppm",
-            "note": "77× under the limit",
+            "name": "Arsenic (As)",
+            "spec": "No legal limit for supplements",
+            "result": "0.01 mg/kg",
+            "note": "",
             "pass": true
           }
         },
@@ -498,13 +525,24 @@
           "settings": {
             "group": "Heavy metals",
             "name": "Mercury (Hg)",
-            "spec": "Under 0.1 ppm",
-            "result": "0.010 ppm",
-            "note": "10× under the limit",
+            "spec": "Under 0.1 mg/kg",
+            "result": "Under 0.01 mg/kg",
+            "note": "Below what the lab can measure",
             "pass": true
           }
         },
         "t04": {
+          "type": "test",
+          "settings": {
+            "group": "Heavy metals",
+            "name": "Cadmium (Cd)",
+            "spec": "Under 1 mg/kg",
+            "result": "Under 0.01 mg/kg",
+            "note": "Below what the lab can measure",
+            "pass": true
+          }
+        },
+        "t05": {
           "type": "test",
           "settings": {
             "group": "Microbes",
@@ -515,7 +553,7 @@
             "pass": true
           }
         },
-        "t05": {
+        "t06": {
           "type": "test",
           "settings": {
             "group": "Microbes",
@@ -526,7 +564,7 @@
             "pass": true
           }
         },
-        "t06": {
+        "t07": {
           "type": "test",
           "settings": {
             "group": "Microbes",
@@ -537,24 +575,13 @@
             "pass": true
           }
         },
-        "t07": {
-          "type": "test",
-          "settings": {
-            "group": "Microbes",
-            "name": "Total plate count",
-            "spec": "Under 500,000 cfu/g",
-            "result": "Under 100 cfu/g",
-            "note": "",
-            "pass": true
-          }
-        },
         "t08": {
           "type": "test",
           "settings": {
             "group": "Microbes",
-            "name": "Yeasts",
-            "spec": "Under 10,000 cfu/g",
-            "result": "Under 100 cfu/g",
+            "name": "Total viable count",
+            "spec": "Under 500,000 cfu/g",
+            "result": "10 cfu/g",
             "note": "",
             "pass": true
           }
@@ -563,9 +590,9 @@
           "type": "test",
           "settings": {
             "group": "Microbes",
-            "name": "Mould",
+            "name": "Yeasts",
             "spec": "Under 10,000 cfu/g",
-            "result": "Under 100 cfu/g",
+            "result": "Under 20 cfu/g",
             "note": "",
             "pass": true
           }
@@ -573,22 +600,11 @@
         "t10": {
           "type": "test",
           "settings": {
-            "group": "Capsule quality",
-            "name": "Weight uniformity",
-            "spec": "Within ±7.5%",
-            "result": "Complies",
-            "note": "Every capsule holds the same dose",
-            "pass": true
-          }
-        },
-        "t11": {
-          "type": "test",
-          "settings": {
-            "group": "Capsule quality",
-            "name": "Disintegration",
-            "spec": "Under 30 minutes",
-            "result": "Complies",
-            "note": "Breaks down in time to be absorbed",
+            "group": "Microbes",
+            "name": "Moulds",
+            "spec": "Under 10,000 cfu/g",
+            "result": "Under 20 cfu/g",
+            "note": "",
             "pass": true
           }
         },
@@ -765,6 +781,9 @@
         }
       },
       "block_order": [
+        "c01",
+        "c02",
+        "c03",
         "t01",
         "t02",
         "t03",
@@ -775,7 +794,6 @@
         "t08",
         "t09",
         "t10",
-        "t11",
         "f01",
         "f02",
         "f03",
@@ -800,28 +818,29 @@
         "show_button": false,
         "button_label": "View third-party testing results",
         "product": "NAD+ Cellular Complex",
-        "batch": "2333",
-        "doc_label": "Certificate of analysis",
-        "made": "12 Oct 2026",
-        "bbe": "Oct 2028",
-        "issued": "15 Oct 2026",
+        "batch": "0725021 · 0725022",
+        "doc_label": "Certificates of analysis",
+        "made": "",
+        "bbe": "",
+        "issued": "Jul–Aug 2025",
         "group_order": "NR, for NAD+|Vitamins|Minerals|Other actives",
         "heading": "Every result came in within its limit.",
         "stat_value": "300×",
         "stat_label": "Under the lead limit",
         "chip": "No salmonella detected",
-        "note": "Results from the certificate of analysis for batch 2333, issued 15 Oct 2026. Ask us for the certificate for your batch: hello@mutolongevity.com",
+        "note": "Microbiology by ALS Laboratories (UK) Ltd, heavy metals by M S Laboratories Ltd, both independent UK labs. Where the two batches differed, the higher result is shown. Ask us for the certificates: hello@mutolongevity.com",
         "formula_sub": "What went into each capsule of this batch, per two-capsule serving, heaviest first. Vitamins are made with a small overage so the label dose holds right up to the best-before date.",
         "capsule": "Capsule: hypromellose (HPMC), made from plant cellulose. Allergen and intolerance free.",
         "why_1_h": "Heavy metals",
-        "why_1": "<p>Lead, cadmium and mercury can build up in the body over time, and they can come in through plant extracts and minerals. Every batch is checked against strict limits, and this one came in well under each: lead at 0.010 ppm against a limit of 3.</p>",
+        "why_1": "<p>Lead, arsenic, cadmium and mercury can build up in the body over time, and they can come in through plant extracts and minerals. Both batches were tested: lead came in at 0.01 mg/kg against a limit of 3, and mercury and cadmium were below what the lab can measure.</p>",
         "why_2_h": "Microbes",
-        "why_2": "<p>Bacteria, yeasts and moulds can grow in ingredients that are stored or handled badly. This batch was screened for six, including salmonella and E. coli, and every result was far inside its limit: no salmonella detected, and every other count under 100 per gram.</p>",
-        "why_3_h": "Capsule quality",
-        "why_3": "<p>Weight uniformity checks every capsule holds the same fill, so every serving gets the dose on the label. Disintegration checks the capsule breaks down within 30 minutes, so the ingredients are released in time to be absorbed.</p>",
+        "why_2": "<p>Bacteria, yeasts and moulds can grow in ingredients that are stored or handled badly. Both batches were screened for six, including salmonella and E. coli. No salmonella was detected, and every other count was 20 per gram or under.</p>",
+        "why_3_h": "Who tested it",
+        "why_3": "<p>Microbiology was tested by ALS Laboratories (UK) Ltd and heavy metals by M S Laboratories Ltd, both independent UK laboratories. Every result here is copied from their certificates, listed with their numbers on the overview.</p>",
         "why_4_h": "Every batch, not just the first",
         "why_4": "<p>A new batch gets a new certificate. We’ll update these results each time, and your batch number is on the jar.</p>",
-        "certificate": ""
+        "certificate": "",
+        "scope": "on two production batches"
       }
     }
   },

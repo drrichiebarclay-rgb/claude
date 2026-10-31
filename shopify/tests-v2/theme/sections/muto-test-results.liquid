@@ -21,6 +21,7 @@
   assign s = section.settings
   assign tests = section.blocks | where: 'type', 'test'
   assign items = section.blocks | where: 'type', 'item'
+  assign certs = section.blocks | where: 'type', 'cert'
   assign tgroups = ''
   assign passed = 0
   for b in tests
@@ -118,6 +119,10 @@
   .mtr__why div div{margin-top:8px;max-width:64ch;font-size:15.5px;line-height:1.6;color:var(--mtr-muted)}
   .mtr__why div div > * + *{margin-top:10px}
   .mtr__cert{display:inline-flex;align-items:center;gap:8px;margin-top:32px;font-family:var(--mtr-mono);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--mtr-ink);text-decoration:underline;text-underline-offset:4px}
+  .mtr__cert-row > span:first-child{display:grid;gap:4px}
+  .mtr__cert-row b{font-weight:500}
+  .mtr__cert-meta{font-family:var(--mtr-mono)!important;font-size:11.5px!important;letter-spacing:.06em!important;text-transform:none!important;color:var(--mtr-muted)!important}
+  .mtr__cert-row > span:last-child{font-family:var(--mtr-mono);font-size:13px;color:var(--mtr-ink)}
   html.mtr-lock{overflow:hidden}
   @media (max-width:749px){
     .mtr{width:100%;height:100%;max-height:100%;margin:0;border:0;border-radius:0}
@@ -173,7 +178,7 @@
         <span class="mtr__ok"><span class="mtr__dot">{{ tick }}</span>{{ passed }} of {{ tests.size }} tests passed</span>
         {%- if s.made != blank -%}<span>Made {{ s.made }}</span>{%- endif -%}
         {%- if s.bbe != blank -%}<span>Best before {{ s.bbe }}</span>{%- endif -%}
-        {%- if s.issued != blank -%}<span>Certificate {{ s.issued }}</span>{%- endif -%}
+        {%- if s.issued != blank -%}<span>Tested {{ s.issued }}</span>{%- endif -%}
       </div>
     </div>
 
@@ -181,7 +186,7 @@
       {%- comment -%} 1 Overview {%- endcomment -%}
       <section class="mtr__panel" role="tabpanel" id="mtr-p-{{ sid }}-1" aria-labelledby="mtr-tab-{{ sid }}-1">
         <h3 class="mtr__h">{{ s.heading }}</h3>
-        <p class="mtr__sub">{{ tests.size }} tests across {{ tgroups.size }} categories, on the batch in your jar.</p>
+        <p class="mtr__sub">{{ tests.size }} tests across {{ tgroups.size }} categories{% if s.scope != blank %}, {{ s.scope }}{% endif %}. Every result below is copied from the laboratory certificates.</p>
         <div class="mtr__stats">
           <p class="mtr__stat"><span class="mtr__sv">{{ tests.size }}</span><span class="mtr__sl">Tests run</span></p>
           <p class="mtr__stat"><span class="mtr__sv">{{ passed }}</span><span class="mtr__sl">Passed</span></p>
@@ -189,6 +194,14 @@
         </div>
         {%- if s.chip != blank -%}<span class="mtr__chip"><span class="mtr__dot">{{ tick }}</span>{{ s.chip }}</span>{%- endif -%}
 
+        {%- if certs.size > 0 -%}
+          <div class="mtr__list">
+            <p class="mtr__lh"><span>Laboratory certificates</span><span>Issued</span></p>
+            {%- for b in certs -%}
+              <p class="mtr__row mtr__cert-row" {{ b.shopify_attributes }}><span><b>{{ b.settings.lab }}</b><small class="mtr__cert-meta">{{ b.settings.number }} · {{ b.settings.scope }}</small></span><span>{{ b.settings.date }}</span></p>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
         <div class="mtr__list">
           <p class="mtr__lh"><span>What’s in it</span><span>Per serving</span></p>
           {%- for g in fgroups -%}
@@ -332,7 +345,8 @@
     { "type": "text", "id": "doc_label", "label": "Label beside the batch", "default": "Certificate of analysis" },
     { "type": "text", "id": "made", "label": "Made" },
     { "type": "text", "id": "bbe", "label": "Best before" },
-    { "type": "text", "id": "issued", "label": "Certificate date" },
+    { "type": "text", "id": "issued", "label": "Tested (dates)" },
+    { "type": "text", "id": "scope", "label": "What was tested", "info": "Shown after the test count, e.g. on two production batches" },
     { "type": "text", "id": "group_order", "label": "Formula categories, in order", "info": "Split with |. Any category not listed follows.", "default": "NR, for NAD+|Vitamins|Minerals|Other actives" },
     { "type": "text", "id": "heading", "label": "Overview heading", "default": "Every result came in within its limit." },
     { "type": "text", "id": "stat_value", "label": "Third number", "default": "300×" },
@@ -359,6 +373,12 @@
       { "type": "text", "id": "result", "label": "Result" },
       { "type": "text", "id": "note", "label": "Plain-English note" },
       { "type": "checkbox", "id": "pass", "label": "Within limit", "default": true }
+    ] },
+    { "type": "cert", "name": "Certificate", "settings": [
+      { "type": "text", "id": "lab", "label": "Laboratory" },
+      { "type": "text", "id": "number", "label": "Certificate number" },
+      { "type": "text", "id": "scope", "label": "What it covers", "info": "e.g. Microbiology, batch 0725021" },
+      { "type": "text", "id": "date", "label": "Date issued" }
     ] },
     { "type": "item", "name": "Formula item", "settings": [
       { "type": "text", "id": "group", "label": "Category", "info": "e.g. Vitamins" },
