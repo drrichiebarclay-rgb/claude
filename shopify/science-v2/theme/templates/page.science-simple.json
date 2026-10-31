@@ -1,93 +1,285 @@
 {
   "sections": {
-    "hero": {
+    "intro": {
       "type": "muto-sci",
       "blocks": {
-        "nad": {
-          "type": "card",
+        "i1": {
+          "type": "item",
           "settings": {
-            "title": "NAD+",
-            "figure": "+51",
-            "unit": "%",
-            "bar_label": "NR 300mg a day",
-            "base_label": "Before",
-            "text": "In a study of adults aged 40 to 60, 300mg of NR a day raised NAD+ by 51% in two weeks.*",
-            "link_label": "What NAD+ does",
-            "link": "#how-it-works"
+            "title": "NAD+, your cells’ energy courier",
+            "a": "Plenty, made every day",
+            "b": "Gradually falling",
+            "figure": "",
+            "unit": "",
+            "text": ""
           }
         },
-        "energy": {
-          "type": "card",
+        "i2": {
+          "type": "item",
           "settings": {
-            "title": "Energy",
-            "image": "shopify://shop_images/0A78F8BD-1AAA-4A34-9F49-1706FABBB5DD.png",
-            "text": "Afternoons that hold. Vitamins B6 and B12 contribute to the reduction of tiredness and fatigue."
+            "title": "What you get back from food and training",
+            "a": "The full return",
+            "b": "A smaller return, called anabolic resistance",
+            "figure": "",
+            "unit": "",
+            "text": ""
           }
         },
-        "recovery": {
-          "type": "card",
+        "i3": {
+          "type": "item",
           "settings": {
-            "title": "Recovery",
-            "figure": "2,000",
-            "unit": " IU",
-            "text": "Vitamin D3 in every serve. Vitamin D contributes to normal muscle function, so you bounce back from a busy week."
+            "title": "Your cells’ maintenance crews",
+            "a": "Keep up easily",
+            "b": "Compete for less NAD+",
+            "figure": "",
+            "unit": "",
+            "text": ""
+          }
+        },
+        "i4": {
+          "type": "item",
+          "settings": {
+            "title": "What your body needs",
+            "a": "The basics",
+            "b": "Targeted support for energy, recovery and repair",
+            "figure": "",
+            "unit": "",
+            "text": ""
           }
         }
       },
       "block_order": [
-        "nad",
-        "energy",
-        "recovery"
+        "i1",
+        "i2",
+        "i3",
+        "i4"
       ],
       "settings": {
-        "layout": "hero",
+        "layout": "intro",
         "anchor": "",
-        "eyebrow": "The science, made simple",
-        "heading": "What changes in your body after 35, and what to do about it.",
-        "text": "A daily multi-nutrient with NAD⁺ support, built for 35+. Five supplements in one jar.",
+        "eyebrow": "The science",
+        "heading": "Your body after 35 needs something different.",
+        "text": "What gave you energy and helped you recover at 20 isn’t enough at 40. Three things change inside your cells, and MUTO is formulated for exactly that stage of life.",
         "button_label": "See the Black Friday offer",
         "button_link": "/products/muto-nad-cellular-complex",
-        "image_url": "",
-        "image_alt": "",
-        "image_position": "",
-        "small": "*That study tested NR on its own, not MUTO. MUTO has 300mg of NR in every serve.",
+        "link_label": "See all 19 ingredients",
+        "link": "/pages/ingredients",
+        "col_a": "At 20",
+        "col_b": "After 35",
+        "small": "",
         "space_top": 72,
         "space_bottom": 96
       }
     },
-    "how": {
+    "shifts": {
       "type": "muto-sci",
+      "blocks": {
+        "i1": {
+          "type": "item",
+          "settings": {
+            "title": "You make less NAD+",
+            "a": "NAD+ · mitochondria",
+            "b": "",
+            "figure": "",
+            "unit": "",
+            "text": "Every cell makes its own energy in tiny power stations called mitochondria. NAD+ carries energy from your food to them. From your mid-30s your body makes less of it: fewer couriers, the same work."
+          }
+        },
+        "i2": {
+          "type": "item",
+          "settings": {
+            "title": "You get less back",
+            "a": "Anabolic resistance",
+            "b": "",
+            "figure": "",
+            "unit": "",
+            "text": "Your body responds less to the same food and the same training. Same effort, smaller return. It’s what our founder spent years studying in the lab."
+          }
+        },
+        "i3": {
+          "type": "item",
+          "settings": {
+            "title": "Your cells’ maintenance slows",
+            "a": "Sirtuins · NAD+",
+            "b": "",
+            "figure": "",
+            "unit": "",
+            "text": "The enzymes that clean up after energy production, called sirtuins, also run on NAD+. Less NAD+ means more competition for the same supply."
+          }
+        }
+      },
+      "block_order": [
+        "i1",
+        "i2",
+        "i3"
+      ],
       "settings": {
-        "layout": "story",
-        "anchor": "how-it-works",
-        "eyebrow": "Why you feel it",
-        "heading": "Your body makes less NAD+ as you get older.",
-        "text": "Every cell makes its own energy, and NAD+ is the courier that carries energy from your food into it. From your mid-30s your body makes less of it, and you feel it in your day: afternoons that fade, busy weeks that take longer to bounce back from. MUTO gives your cells NR, which they turn into NAD+, plus the vitamins, minerals and nutrients that help them use it.",
-        "button_label": "See all 19 ingredients",
-        "button_link": "/pages/ingredients",
-        "image_url": "",
-        "image_alt": "",
-        "image_position": "50% 40%",
-        "small": "",
-        "space_top": 96,
-        "space_bottom": 96,
-        "image": "shopify://shop_images/55EA0B34-E750-455E-A653-69C748D79E57.png"
-      }
-    },
-    "quote": {
-      "type": "muto-sci",
-      "settings": {
-        "layout": "quote",
-        "anchor": "",
-        "eyebrow": "Founder · PhD, cell biology and nutrition",
-        "heading": "Dr Richie Barclay, PhD",
-        "text": "I’m a scientist, so I built the opposite of a category that asks you to take it on trust: 19 ingredients, every dose on the label, and the reason each one is there.",
+        "layout": "shifts",
+        "anchor": "what-changes",
+        "eyebrow": "What changes after 35",
+        "heading": "Three quiet shifts inside your cells.",
+        "text": "Nothing happens overnight. They build through your 40s and 50s, and you feel them in your afternoons, your recovery and how you age.",
         "button_label": "",
         "button_link": "",
-        "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-founder.jpg?v=1790751995",
-        "image_alt": "Dr Richie Barclay holding a jar of MUTO NAD+ Cellular Complex",
-        "image_position": "50% 25%",
+        "link_label": "",
+        "link": "",
+        "col_a": "At 20",
+        "col_b": "After 35",
         "small": "",
+        "space_top": 96,
+        "space_bottom": 96
+      }
+    },
+    "jobs": {
+      "type": "muto-sci",
+      "blocks": {
+        "i1": {
+          "type": "item",
+          "settings": {
+            "title": "Energy",
+            "a": "NR 300mg · CoQ10 150mg · PQQ 20mg · B2, B6, B12",
+            "b": "",
+            "figure": "",
+            "unit": "",
+            "text": "Your body turns NR into NAD+. Vitamins B6 and B12 contribute to the reduction of tiredness and fatigue."
+          }
+        },
+        "i2": {
+          "type": "item",
+          "settings": {
+            "title": "Recovery",
+            "a": "D3 2,000 IU · CoQ10 150mg · PQQ 20mg",
+            "b": "",
+            "figure": "",
+            "unit": "",
+            "text": "Vitamin D contributes to normal muscle function, so a busy week takes less out of you."
+          }
+        },
+        "i3": {
+          "type": "item",
+          "settings": {
+            "title": "Stress",
+            "a": "B6 · B12 · Folate (5-MTHF) · Zinc 15mg",
+            "b": "",
+            "figure": "",
+            "unit": "",
+            "text": "Vitamins B6 and B12 and folate contribute to normal psychological function."
+          }
+        },
+        "i4": {
+          "type": "item",
+          "settings": {
+            "title": "Longevity",
+            "a": "NR 300mg · TMG 450mg · Resveratrol 50mg · K2 100µg",
+            "b": "",
+            "figure": "",
+            "unit": "",
+            "text": "Zinc contributes to the protection of cells from oxidative stress."
+          }
+        },
+        "i5": {
+          "type": "item",
+          "settings": {
+            "title": "Immunity",
+            "a": "D3 · Zinc 15mg · Copper 1mg · Folate · B6 · B12",
+            "b": "",
+            "figure": "",
+            "unit": "",
+            "text": "Vitamin D, zinc, copper, folate, B6 and B12 contribute to the normal function of the immune system."
+          }
+        }
+      },
+      "block_order": [
+        "i1",
+        "i2",
+        "i3",
+        "i4",
+        "i5"
+      ],
+      "settings": {
+        "layout": "jobs",
+        "anchor": "whats-in-it",
+        "eyebrow": "Formulated for this stage of life",
+        "heading": "Five jobs, one jar.",
+        "text": "19 ingredients in active forms, dosed for what your body needs after 35. Two capsules with breakfast.",
+        "button_label": "",
+        "button_link": "",
+        "link_label": "",
+        "link": "",
+        "col_a": "At 20",
+        "col_b": "After 35",
+        "small": "All 19 ingredients, with every dose, are on the ingredients page.",
+        "space_top": 96,
+        "space_bottom": 96
+      }
+    },
+    "numbers": {
+      "type": "muto-sci",
+      "blocks": {
+        "i1": {
+          "type": "item",
+          "settings": {
+            "title": "NAD+ in two weeks*",
+            "a": "",
+            "b": "",
+            "figure": "+51",
+            "unit": "%",
+            "text": "Adults aged 40 to 60 taking 300mg of NR a day."
+          }
+        },
+        "i2": {
+          "type": "item",
+          "settings": {
+            "title": "Ingredients",
+            "a": "",
+            "b": "",
+            "figure": "19",
+            "unit": "",
+            "text": "Every dose on the label."
+          }
+        },
+        "i3": {
+          "type": "item",
+          "settings": {
+            "title": "NR in every serve",
+            "a": "",
+            "b": "",
+            "figure": "300",
+            "unit": "mg",
+            "text": "The most allowed in Great Britain."
+          }
+        },
+        "i4": {
+          "type": "item",
+          "settings": {
+            "title": "Proprietary blends",
+            "a": "",
+            "b": "",
+            "figure": "0",
+            "unit": "",
+            "text": "No fillers, nothing hidden."
+          }
+        }
+      },
+      "block_order": [
+        "i1",
+        "i2",
+        "i3",
+        "i4"
+      ],
+      "settings": {
+        "layout": "numbers",
+        "anchor": "",
+        "eyebrow": "The evidence",
+        "heading": "The numbers behind the formula.",
+        "text": "",
+        "button_label": "",
+        "button_link": "",
+        "link_label": "",
+        "link": "",
+        "col_a": "At 20",
+        "col_b": "After 35",
+        "small": "*That study tested NR on its own, not MUTO. MUTO has 300mg of NR in every serve.",
         "space_top": 96,
         "space_bottom": 96
       }
@@ -99,64 +291,6 @@
         "color_scheme": "scheme-1",
         "padding_top": 0,
         "padding_bottom": 0
-      }
-    },
-    "standards": {
-      "type": "muto-sci",
-      "blocks": {
-        "s1": {
-          "type": "stat",
-          "settings": {
-            "figure": "19",
-            "title": "Ingredients",
-            "text": "Every dose on the label. No proprietary blends, no fillers."
-          }
-        },
-        "s2": {
-          "type": "stat",
-          "settings": {
-            "figure": "300mg",
-            "title": "NR in every serve",
-            "text": "The most allowed in Great Britain, for NAD+."
-          }
-        },
-        "s3": {
-          "type": "stat",
-          "settings": {
-            "figure": "7",
-            "title": "Scientists",
-            "text": "Our PhD founder and a six-member advisory board."
-          }
-        },
-        "s4": {
-          "type": "stat",
-          "settings": {
-            "figure": "4",
-            "title": "UK universities",
-            "text": "Westminster, King’s College London, Coventry and Newcastle."
-          }
-        }
-      },
-      "block_order": [
-        "s1",
-        "s2",
-        "s3",
-        "s4"
-      ],
-      "settings": {
-        "layout": "standards",
-        "anchor": "",
-        "eyebrow": "Made in the UK, tested every batch",
-        "heading": "",
-        "text": "Every dose is on the label and every batch is tested before release. Made in the UK to GMP standards, with only UK-authorised ingredients: that’s why we use NR, not NMN.",
-        "button_label": "",
-        "button_link": "",
-        "image_url": "",
-        "image_alt": "",
-        "image_position": "",
-        "small": "",
-        "space_top": 96,
-        "space_bottom": 96
       }
     },
     "board": {
@@ -280,17 +414,18 @@
     "research": {
       "type": "muto-sci",
       "settings": {
-        "layout": "story",
+        "layout": "statement",
         "anchor": "",
         "eyebrow": "Our research",
-        "heading": "Tested properly, published honestly.",
-        "text": "Our first human study starts in December 2026 at the University of Westminster, with work at King’s College London, Coventry and Newcastle to follow. There are no results yet, and we’ll never say there are. We’ll publish them, whatever they show.",
-        "button_label": "Meet our founder",
-        "button_link": "/pages/about-muto",
-        "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-why-manufacturing.jpg?v=1790767821",
-        "image_alt": "Capsules moving along a filling line at the UK manufacturer",
-        "image_position": "50% 50%",
-        "small": "Our advisory board guides our research and formulation. Its members don’t endorse products.",
+        "heading": "",
+        "text": "Our first human study starts in December 2026. There are no results yet, and we’ll publish them, whatever they show.",
+        "button_label": "",
+        "button_link": "",
+        "link_label": "Meet our founder",
+        "link": "/pages/about-muto",
+        "col_a": "At 20",
+        "col_b": "After 35",
+        "small": "University of Westminster · King’s College London · Coventry · Newcastle",
         "space_top": 96,
         "space_bottom": 96
       }
@@ -301,16 +436,17 @@
         "layout": "offer",
         "anchor": "",
         "eyebrow": "Black Friday · Ends 30 Nov",
-        "heading": "3 months for £99. Save 53%.",
-        "text": "Your first 3-Month Supply for £99 (was £210), plus a free welcome kit worth £87. Skip, pause or cancel online anytime, with a 90-day money-back guarantee.",
+        "heading": "3 months for £99",
+        "text": "Save 53% (was £210), plus a free welcome kit worth £87. Skip, pause or cancel online anytime, with a 90-day money-back guarantee.",
         "button_label": "Claim offer",
         "button_link": "/products/muto-nad-cellular-complex",
-        "image_url": "",
-        "image_alt": "",
-        "image_position": "",
+        "link_label": "",
+        "link": "",
+        "col_a": "At 20",
+        "col_b": "After 35",
         "small": "",
-        "space_top": 80,
-        "space_bottom": 80
+        "space_top": 48,
+        "space_bottom": 96
       }
     },
     "reviews": {
@@ -334,11 +470,11 @@
     }
   },
   "order": [
-    "hero",
-    "how",
-    "quote",
+    "intro",
+    "shifts",
+    "jobs",
+    "numbers",
     "compare",
-    "standards",
     "board",
     "research",
     "offer",
