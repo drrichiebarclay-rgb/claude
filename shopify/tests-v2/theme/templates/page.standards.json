@@ -232,7 +232,7 @@
       ],
       "settings": {
         "field": false,
-        "heading": "Meet our\nscientific board.",
+        "heading": "Meet the minds\nbehind MUTO.",
         "note": "Our Scientific Advisory Board",
         "rail_gap": 40,
         "fit": "nad",
@@ -663,10 +663,30 @@
         "image_position": "62% 50%",
         "image_position_mobile": "70% 50%"
       }
+    },
+    "founder": {
+      "type": "muto-crea-founder",
+      "settings": {
+        "eyebrow": "Our founder",
+        "heading": "Built by a doctor\nwho wanted proof.",
+        "text": "<p>Richie Barclay is a cell biologist with a PhD in cellular biology and nutrition, a Harley Street nutritionist for the last 13 years, and a former cricketer and tennis player.</p><p>He started MUTO after years of watching supplements sell on claims nobody had checked, with the doses hidden in blends. So MUTO does it the other way: every dose is on the label, every batch goes to an outside lab, and six doctors and scientists review the formula.</p>",
+        "quote": "I built MUTO because I was tired of supplements that ask you to take them on trust.",
+        "quote_by": "Dr Richie Barclay, PhD, founder",
+        "link_label": "Got a question? Email Richie",
+        "link": "mailto:hello@mutolongevity.com",
+        "image": "shopify://shop_images/MutoxNSPCCEvent-38.jpg",
+        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/founder-bf-stage.jpg?v=1793283537",
+        "image_alt": "Dr Richie Barclay speaking on stage at a MUTO event",
+        "image_position": "50% 30%",
+        "caption": "",
+        "space_top": 100,
+        "space_bottom": 100
+      }
     }
   },
   "order": [
     "standards",
+    "founder",
     "board",
     "offer",
     "board_css",
