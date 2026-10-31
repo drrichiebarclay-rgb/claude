@@ -146,6 +146,22 @@
   #shopify-section-{{ sid }} .msc .msc__know-t{margin:0;font-size:16px;line-height:1.4}
   #shopify-section-{{ sid }} .msc__card--wide .msc__cmain .msc__ctext{padding-top:16px}
 
+  /* Shifts as cards: the same grey cards as the problem section, with an At 20 / After 35 pair */
+  #shopify-section-{{ sid }} .msc__cols--cards{gap:20px}
+  #shopify-section-{{ sid }} .msc__cols--cards .msc__col{display:flex;flex-direction:column;padding:28px;border:0;border-radius:8px;background:#f2f3f2}
+  #shopify-section-{{ sid }} .msc__meta{display:flex;align-items:center;gap:10px}
+  #shopify-section-{{ sid }} .msc__tag{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border:1px solid var(--msc-rule);border-radius:999px;background:#fff;font-family:var(--msc-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--msc-ink)}
+  #shopify-section-{{ sid }} .msc__tag i{width:6px;height:6px;border-radius:50%;background:#5efaff;box-shadow:0 0 0 1px var(--msc-ink)}
+  #shopify-section-{{ sid }} .msc__cols--cards .msc__t{margin-top:20px;font-size:22px}
+  #shopify-section-{{ sid }} .msc__cols--cards .msc__x{margin-top:10px;font-size:16px;color:var(--msc-ink)}
+  #shopify-section-{{ sid }} .msc__ab{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:auto 0 0;padding-top:24px}
+  #shopify-section-{{ sid }} .msc__ab div{padding-top:12px;border-top:1px solid var(--msc-rule)}
+  #shopify-section-{{ sid }} .msc__ab-b{border-top-color:var(--msc-ink)!important}
+  #shopify-section-{{ sid }} .msc__ab dt{font-family:var(--msc-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--msc-muted)}
+  #shopify-section-{{ sid }} .msc__ab-b dt{color:var(--msc-pill-fg)}
+  #shopify-section-{{ sid }} .msc__ab dd{margin:6px 0 0;font-size:15px;line-height:1.35;color:var(--msc-muted)}
+  #shopify-section-{{ sid }} .msc__ab-b dd{color:var(--msc-ink)}
+
   @media (max-width:989px){
     #shopify-section-{{ sid }} .msc__cols{grid-template-columns:repeat(2,minmax(0,1fr))}
     #shopify-section-{{ sid }} .msc__nums{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -173,6 +189,13 @@
     #shopify-section-{{ sid }} .msc__copy{gap:16px}
     #shopify-section-{{ sid }} .msc .msc__big{font-size:34px}
     #shopify-section-{{ sid }} .msc__card--wide .msc__cside{margin-top:20px}
+    #shopify-section-{{ sid }} .msc__chart{display:none}
+    #shopify-section-{{ sid }} .msc__cols--cards{display:flex;gap:12px;margin:32px -16px 0;padding:0 16px 4px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 16px;scrollbar-width:none}
+    #shopify-section-{{ sid }} .msc__cols--cards::-webkit-scrollbar{display:none}
+    #shopify-section-{{ sid }} .msc__cols--cards .msc__col{flex:0 0 84%;padding:22px;scroll-snap-align:start}
+    #shopify-section-{{ sid }} .msc__cols--cards .msc__t{margin-top:16px;font-size:19px}
+    #shopify-section-{{ sid }} .msc__cols--cards .msc__x{font-size:15px}
+    #shopify-section-{{ sid }} .msc__ab dd{font-size:14px}
     #shopify-section-{{ sid }} .msc__cards{display:flex;gap:12px;margin:0 -16px;padding:0 16px 4px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 16px;scrollbar-width:none}
     #shopify-section-{{ sid }} .msc__cards::-webkit-scrollbar{display:none}
     #shopify-section-{{ sid }} .msc__card{flex:0 0 78%;min-height:300px;padding:22px;scroll-snap-align:start}
@@ -241,13 +264,25 @@
             </svg>
           </div>
         {%- endif -%}
-        <ol class="msc__cols" style="--n:{{ section.blocks.size }}">
+        <ol class="msc__cols{% if s.layout == 'shifts' %} msc__cols--cards{% endif %}" style="--n:{{ section.blocks.size }}">
           {%- for b in section.blocks -%}
             <li class="msc__col" {{ b.shopify_attributes }}>
-              <span class="msc__num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
-              <h3 class="msc__t">{{ b.settings.title }}</h3>
-              {%- if b.settings.a != blank -%}<p class="msc__mono">{{ b.settings.a }}</p>{%- endif -%}
-              {%- if b.settings.text != blank -%}<p class="msc__x">{{ b.settings.text }}</p>{%- endif -%}
+              {%- if s.layout == 'shifts' -%}
+                <div class="msc__meta"><span class="msc__num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>{%- if b.settings.a != blank -%}<span class="msc__tag"><i aria-hidden="true"></i>{{ b.settings.a }}</span>{%- endif -%}</div>
+                <h3 class="msc__t">{{ b.settings.title }}</h3>
+                {%- if b.settings.text != blank -%}<p class="msc__x">{{ b.settings.text }}</p>{%- endif -%}
+                {%- if b.settings.at20 != blank or b.settings.after35 != blank -%}
+                  <dl class="msc__ab">
+                    <div><dt>{{ s.col_a }}</dt><dd>{{ b.settings.at20 }}</dd></div>
+                    <div class="msc__ab-b"><dt>{{ s.col_b }}</dt><dd>{{ b.settings.after35 }}</dd></div>
+                  </dl>
+                {%- endif -%}
+              {%- else -%}
+                <span class="msc__num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+                <h3 class="msc__t">{{ b.settings.title }}</h3>
+                {%- if b.settings.a != blank -%}<p class="msc__mono">{{ b.settings.a }}</p>{%- endif -%}
+                {%- if b.settings.text != blank -%}<p class="msc__x">{{ b.settings.text }}</p>{%- endif -%}
+              {%- endif -%}
             </li>
           {%- endfor -%}
         </ol>
@@ -509,6 +544,8 @@
       { "type": "text", "id": "title", "label": "Title (table: row name)" },
       { "type": "text", "id": "a", "label": "Table: first column / columns: mono line" },
       { "type": "text", "id": "b", "label": "Table: second column" },
+      { "type": "text", "id": "at20", "label": "Cards: At 20" },
+      { "type": "text", "id": "after35", "label": "Cards: After 35" },
       { "type": "text", "id": "figure", "label": "Big number" },
       { "type": "text", "id": "unit", "label": "Unit after the number" },
       { "type": "textarea", "id": "text", "label": "Text" }

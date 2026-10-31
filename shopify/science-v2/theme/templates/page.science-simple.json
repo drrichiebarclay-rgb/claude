@@ -70,77 +70,6 @@
         "link": "#what-changes"
       }
     },
-    "intro": {
-      "type": "muto-sci",
-      "blocks": {
-        "i1": {
-          "type": "item",
-          "settings": {
-            "title": "NAD+, your cells’ energy courier",
-            "a": "Plenty, made every day",
-            "b": "Gradually falling",
-            "figure": "",
-            "unit": "",
-            "text": ""
-          }
-        },
-        "i2": {
-          "type": "item",
-          "settings": {
-            "title": "What you get back from food and training",
-            "a": "The full return",
-            "b": "A smaller return, called anabolic resistance",
-            "figure": "",
-            "unit": "",
-            "text": ""
-          }
-        },
-        "i3": {
-          "type": "item",
-          "settings": {
-            "title": "Your cells’ maintenance crews",
-            "a": "Keep up easily",
-            "b": "Compete for less NAD+",
-            "figure": "",
-            "unit": "",
-            "text": ""
-          }
-        },
-        "i4": {
-          "type": "item",
-          "settings": {
-            "title": "What your body needs",
-            "a": "The basics",
-            "b": "Targeted support for energy, recovery and repair",
-            "figure": "",
-            "unit": "",
-            "text": ""
-          }
-        }
-      },
-      "block_order": [
-        "i1",
-        "i2",
-        "i3",
-        "i4"
-      ],
-      "settings": {
-        "layout": "intro",
-        "anchor": "",
-        "eyebrow": "At 20 vs after 35",
-        "heading": "Your body after 35 needs something different.",
-        "text": "What gave you energy and helped you recover at 20 isn’t enough at 40. Three things change inside your cells, and MUTO is formulated for exactly that stage of life.",
-        "button_label": "",
-        "button_link": "/products/muto-nad-cellular-complex",
-        "link_label": "",
-        "link": "/pages/ingredients",
-        "col_a": "At 20",
-        "col_b": "After 35",
-        "small": "",
-        "space_top": 72,
-        "space_bottom": 96
-      }
-    },
     "shifts": {
       "type": "muto-sci",
       "blocks": {
@@ -152,7 +81,9 @@
             "b": "",
             "figure": "",
             "unit": "",
-            "text": "Every cell makes its own energy in tiny power stations called mitochondria. NAD+ carries energy from your food to them. From your mid-30s your body makes less of it: fewer couriers, the same work."
+            "text": "Every cell makes its own energy in tiny power stations called mitochondria. NAD+ carries energy from your food to them. From your mid-30s your body makes less of it: fewer couriers, the same work.",
+            "at20": "Plenty, made every day",
+            "after35": "Gradually falling"
           }
         },
         "i2": {
@@ -163,7 +94,9 @@
             "b": "",
             "figure": "",
             "unit": "",
-            "text": "Your body responds less to the same food and the same training. Same effort, smaller return. It’s what our founder spent years studying in the lab."
+            "text": "Your body responds less to the same food and the same training: same effort, smaller return. Scientists call it anabolic resistance.",
+            "at20": "The full return",
+            "after35": "A smaller return"
           }
         },
         "i3": {
@@ -174,7 +107,9 @@
             "b": "",
             "figure": "",
             "unit": "",
-            "text": "The enzymes that clean up after energy production, called sirtuins, also run on NAD+. Less NAD+ means more competition for the same supply."
+            "text": "The enzymes that clean up after energy production, called sirtuins, also run on NAD+. Less NAD+ means more competition for the same supply.",
+            "at20": "Keep up easily",
+            "after35": "Compete for less NAD+"
           }
         }
       },
@@ -187,8 +122,8 @@
         "layout": "shifts",
         "anchor": "what-changes",
         "eyebrow": "What changes after 35",
-        "heading": "Three quiet shifts inside your cells.",
-        "text": "Nothing happens overnight. They build through your 40s and 50s, and you feel them in your afternoons, your recovery and how you age.",
+        "heading": "Your body after 35 needs something different.",
+        "text": "Three quiet shifts build inside your cells through your 40s and 50s. You feel them in your afternoons, your recovery and how you age.",
         "button_label": "",
         "button_link": "",
         "link_label": "",
@@ -196,7 +131,7 @@
         "col_a": "At 20",
         "col_b": "After 35",
         "small": "",
-        "space_top": 96,
+        "space_top": 72,
         "space_bottom": 96
       }
     },
@@ -941,7 +876,6 @@
   "order": [
     "headline",
     "hero",
-    "intro",
     "shifts",
     "benefits",
     "compare",
