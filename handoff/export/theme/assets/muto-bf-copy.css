@@ -1,0 +1,66 @@
+/* Black Friday PDP copy, done in CSS so it is right on first paint (loaded in the header group) */
+/* Hidden: collaboration line, old offer box, "Choose your plan" */
+html:root body .mc .mc-collab,html:root body .mc .mc-bf,html:root body .mc .mc__trust{display:none!important}
+/* Stars, name and descriptor left-aligned */
+html:root body .mc .mc__buy-copy > .mc__rating{justify-content:flex-start!important}
+html:root body .mc .mc__buy-copy > .mc__rating,html:root body .mc .mc__buy-copy > .mc__eyebrow,
+html:root body .mc .mc__buy-copy > .mc__buy-title,html:root body .mc .mc__buy-copy > .mc-subhead{text-align:left!important}
+/* Descriptor, then the Black Friday line on a green ground */
+html:root body .mc .mc-subhead{font-size:0!important}
+html:root body .mc .mc-subhead::before{content:"A daily multi-nutrient with NAD⁺ support, built for 35+. Five supplements in one jar.";display:block;font-size:15px;line-height:1.35}
+html:root body .mc .mc-subhead::after{content:"Black Friday: 3 months for £99  \00b7  Ends 30 Nov";display:block;width:fit-content;max-width:100%;margin:12px 0 4px;
+  padding:8px 12px;border-radius:8px;background:#c9ffb7;color:#242223;font-size:14px;font-weight:600;line-height:1.3;white-space:pre-wrap}
+/* Plan names */
+html:root body .mc .mc__plans > label.mc__plan .mc__plan-name{font-size:0!important}
+html:root body .mc .mc__plans > label.mc__plan .mc__plan-name::before{font-size:16.5px;line-height:1.25}
+html:root body .mc .mc__plans > label.mc__plan:nth-of-type(1) .mc__plan-name::before{content:"1-Month Supply"}
+html:root body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-name::before{content:"3-Month Supply"}
+/* Prices: £99 (was £210), £49.99 (was £70) */
+html:root body .mc .mc__plans > label.mc__plan:nth-of-type(1) .mc__plan-prices::before{content:"£49.99"}
+html:root body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-prices::before{content:"£99"}
+html:root body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-prices::after{content:"£210"}
+html:root body .mc .mc__plans > label.mc__plan:nth-of-type(1) .mc__plan-prices::after{content:"£70"}
+/* Welcome kit heading: short, tight letter spacing, one line */
+html:root body .mc .mc__kit-title{font-size:0!important;letter-spacing:0!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+html:root body .mc .mc__kit-title::before{content:"Welcome kit with your first box";font-size:11px;letter-spacing:.04em}
+/* One-time purchase line */
+html:root body .mc .mc__onetime > span:first-child{font-size:0!important}
+html:root body .mc .mc__onetime > span:first-child::before{content:"One-Time Purchase - £70 (no gifts)";font-size:14px}
+@media (max-width:749px){
+  html:root body .mc .mc-subhead::before{font-size:13.5px}
+  html:root body .mc .mc-subhead::after{margin-top:10px;padding:7px 10px;font-size:13px}
+  html:root body .mc .mc__plans > label.mc__plan .mc__plan-name::before{font-size:15.5px}
+  html:root body .mc .mc__kit-title::before{font-size:10.5px;letter-spacing:.03em}
+  html:root body .mc .mc__onetime > span:first-child::before{font-size:12.5px}
+}
+/* "SAVE" tags: the same cyan as the "Best value" pill */
+html:root body .mc .mc__plan-save{background:#5efaff!important}
+/* Plan boxes: name, daily-cost pill and note all start at the same left edge (33px), the pill on its own line */
+html:root body .mc .mc__plans > label.mc__plan .mc__plan-head{flex-wrap:wrap!important;column-gap:12px!important;row-gap:5px!important}
+html:root body .mc .mc__plans > label.mc__plan .mc__plan-name{flex:1 1 calc(100% - 33px)!important;min-width:0}
+html:root body .mc .mc__plans > label.mc__plan .mc__plan-head::after{margin-left:33px!important}
+html:root body .mc .mc__plans > label.mc__plan .mc__plan-note{margin-left:33px!important}
+/* No "Best value" pill */
+html:root body .mc .mc__plans-banner::before{display:none!important;content:none!important}
+/* Reviews row (stars and score) about 25% smaller */
+html:root body .mc .mc__stars{gap:3px!important}
+html:root body .mc .mc__stars > span{width:14px!important;height:13px!important}
+html:root body .mc .mc__rating-text{font-size:13px!important}
+/* Phones: the delivery line on one line ("Arrives by <date> | Royal Mail Tracked 24h") */
+@media (max-width:749px){
+  html:root body .mc .mc__stars > span{width:12px!important;height:11px!important}
+  html:root body .mc .mc__rating-text{font-size:12px!important}
+  #MainContent [id$="__buy"] .mpb-del{flex-wrap:nowrap!important;white-space:nowrap;gap:6px!important;font-size:12px!important}
+  #MainContent [id$="__buy"] .mpb-del .mc-ship__dot{flex:0 0 7px!important;width:7px!important;height:7px!important}
+  #MainContent [id$="__buy"] .mpb-del > span:not([class]){font-size:0!important}
+  #MainContent [id$="__buy"] .mpb-del > span:not([class])::before{content:"Arrives by ";font-size:12px}
+  #MainContent [id$="__buy"] .mpb-del > span:not([class]) b{font-size:12px}
+  #MainContent [id$="__buy"] .mpb-del .mc-ship__rm{flex-basis:auto!important;justify-content:flex-start!important;margin-left:2px!important;padding-left:8px!important;
+    border-left:1px solid rgba(36,34,35,.2)!important;gap:5px!important;font-size:0!important}
+  #MainContent [id$="__buy"] .mpb-del .mc-ship__rm img{width:22px!important}
+  #MainContent [id$="__buy"] .mpb-del .mc-ship__rm::after{content:"Tracked 24h";font-size:12px}
+}
+/* No grey guarantee box under the button */
+#MainContent [id$="__buy"] .mpb-pro{display:none!important}
+/* Phones and tablets: the image starts right under the (now shorter) header, no gap */
+@media (max-width:989px){html:root body .mc.mc--buy[allow-transparent-header]{padding-top:46px!important}}

@@ -1,0 +1,67 @@
+{%- liquid
+  # The Quarterly plan, read off the product: the first variant that sells on a 3-month selling plan.
+  # Nothing typed, so the same code works on the main product and on -2 (different variant ids).
+  assign bf_q_variant = ''
+  assign bf_q_plan = ''
+  if product != blank
+    for pv in product.variants
+      if bf_q_variant != blank
+        break
+      endif
+      for alloc in pv.selling_plan_allocations
+        assign bf_n = alloc.selling_plan.name | downcase
+        if bf_n contains '3-month' or bf_n contains '3 month' or bf_n contains 'quarter'
+          if pv.available
+            assign bf_q_variant = pv.id
+            assign bf_q_plan = alloc.selling_plan.id
+            break
+          endif
+        endif
+      endfor
+    endfor
+  endif
+-%}
+<a class="mc-bfx" id="mc-bfx" href="#MainContent" role="button"
+  data-variant="{{ bf_q_variant }}" data-plan="{{ bf_q_plan }}"
+  aria-label="Black Friday: 3 months for £99, save 53%, plus a welcome kit worth £87. Ends 30 November. Claim: adds the 3-month plan and goes to checkout.">
+  <span class="mc-bfx__dot" aria-hidden="true"></span>
+  <span class="mc-bfx__d"><b>Black Friday:</b> 3 months for £99 (save 53%) + welcome kit worth £87</span>
+  <span class="mc-bfx__d mc-bfx__sep" aria-hidden="true">·</span>
+  <span class="mc-bfx__d">Ends 30 Nov</span>
+  <span class="mc-bfx__m"><b>3 months for £99</b> · Save 53%</span>
+  <span class="mc-bfx__sep mc-bfx__sep--cta" aria-hidden="true">·</span>
+  <span class="mc-bfx__cta"><span class="mc-bfx__spin" aria-hidden="true"></span>Claim&nbsp;&rarr;</span>
+</a>
+{{ 'muto-bf-extra.css' | asset_url | stylesheet_tag }}
+{%- render 'muto-bf-compare' -%}
+<script>
+/* Swap the new comparison into the page's "compare" section once the page is parsed */
+document.addEventListener('DOMContentLoaded', function () {
+  var t = document.getElementById('mc-cmp-tpl'), s = document.querySelector('#MainContent [id$="__compare"]');
+  if (t && s && !s.querySelector('.mc-cmp')) { s.innerHTML = ''; s.appendChild(t.content.cloneNode(true)); }
+});
+</script>
+<script>
+/* Statement line ("The best is still ahead.") and the folds under the button: new titles and copy ("Who it's for"; "What it does" becomes "Science-Backed Benefits") */
+document.addEventListener('DOMContentLoaded', function () {
+  var FOLDS = [
+    { match: /who it/i, body: '<p><strong>Made for adults over 35.</strong> That’s when your body starts to change, and when most of our customers start taking MUTO. You don’t need to be sporty or own a smartwatch.</p>' +
+      '<p>It’s for you if afternoons feel harder than they used to, you get less back from the same effort, or you want to keep up with work, family and the things you love for years to come.</p>' },
+    { match: /what it does/i, title: 'Science-Backed Benefits', body: '<ul><li><strong>Energy:</strong> afternoons that hold</li><li><strong>Recovery:</strong> bounce back from a busy week</li>' +
+      '<li><strong>Stress:</strong> a clearer head on demanding days</li><li><strong>Longevity:</strong> support for your cells as you age</li><li><strong>Immunity:</strong> stay well through winter</li></ul>' +
+      '<p>A comprehensive multi-nutrient with NAD+ support for over 35s. Alongside your free creatine, it’s the daily foundation your body runs on.</p>' }
+  ];
+  var stm = document.querySelector('.mc .mc__stm-sub');
+  if (stm) stm.textContent = 'Your body changes in mid-life, and NAD+ Cellular Complex is the daily foundation built for it.';
+  [].forEach.call(document.querySelectorAll('.mc details'), function (d) {
+    var s = d.querySelector('summary'), t = s && s.querySelector('span');
+    if (!s) return;
+    FOLDS.forEach(function (f) {
+      if (!f.match.test(s.textContent)) return;
+      var b = d.querySelector('.mc__acc-body') || s.nextElementSibling;
+      if (b) b.innerHTML = f.body;
+      if (f.title && t) t.textContent = f.title;
+    });
+  });
+});
+</script>

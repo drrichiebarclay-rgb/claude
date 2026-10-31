@@ -1,0 +1,112 @@
+{%- comment -%}
+  MUTO — What to expect. In the style of the PDP's ingredients and benefits sections: a centred mono
+  eyebrow, the site's uppercase heading and a short line, then a timeline. Desktop: one hairline across
+  the page with a dot at each milestone, each milestone's day in
+  the teal mono, a title and a sentence or two underneath. MOBILE: the same timeline running down the
+  left edge.
+{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign sid = section.id
+-%}
+<style>
+  #shopify-section-{{ sid }}{--mex-ink:#242223;--mex-head:#242223;--mex-muted:#5c5a5b;--mex-rule:rgba(36,34,35,.14);--mex-accent:#2f8fa0;--mex-mono:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace}
+  #shopify-section-{{ sid }} .mex,#shopify-section-{{ sid }} .mex h2,#shopify-section-{{ sid }} .mex h3,#shopify-section-{{ sid }} .mex p{font-family:var(--mc-font,"Neue Haas Grotesk Display Pro"),sans-serif;-webkit-font-smoothing:antialiased}
+  #shopify-section-{{ sid }} .mex{background:#fff;color:var(--mex-ink)}
+  #shopify-section-{{ sid }} .mex__wrap{max-width:1320px;margin:0 auto;padding:{{ s.space_top }}px 20px {{ s.space_bottom }}px}
+  #shopify-section-{{ sid }} .mex__head{display:grid;justify-items:center;text-align:center;gap:20px}
+  #shopify-section-{{ sid }} .mex__eye{margin:0;font-family:var(--mex-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mex-muted)}
+  #shopify-section-{{ sid }} .mex .mex__h{margin:0;text-wrap:balance;color:var(--mex-head);font-weight:500;font-size:clamp(34px,4.444vw,64px);line-height:.906;letter-spacing:-.014em;text-transform:uppercase}
+  #shopify-section-{{ sid }} .mex__lede{margin:0;max-width:48ch;font-size:clamp(17px,1.4vw,20px);line-height:1.4;text-wrap:balance}
+
+  /* Desktop: a track across the page, a dot per milestone placed by its day */
+  #shopify-section-{{ sid }} .mex__line{position:relative;margin:72px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat({{ section.blocks.size | at_least: 1 }},minmax(0,1fr));gap:28px}
+  #shopify-section-{{ sid }} .mex__line::before{content:"";position:absolute;left:0;right:0;top:7px;height:1px;background:var(--mex-ink)}
+  #shopify-section-{{ sid }} .mex__line::after{content:"";position:absolute;left:0;top:6px;height:3px;width:var(--mex-fill,0%);background:#5efaff;transition:width 1.4s cubic-bezier(.2,0,.2,1)}
+  #shopify-section-{{ sid }} .mex__ms{position:relative;display:grid;align-content:start;gap:12px;margin:0;padding-top:40px}
+  #shopify-section-{{ sid }} .mex__ms::before{content:"";position:absolute;left:0;top:0;width:15px;height:15px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 1.5px var(--mex-ink);z-index:1}
+  #shopify-section-{{ sid }} .mex__ms:first-child::before{background:#5efaff}
+  #shopify-section-{{ sid }} .mex.is-in .mex__ms::before{background:#5efaff;transition:background .3s ease calc(var(--i) * .35s)}
+  #shopify-section-{{ sid }} .mex__day{margin:0;font-family:var(--mex-mono);font-size:14px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--mex-accent)}
+  #shopify-section-{{ sid }} .mex .mex__t{margin:0;font-weight:500;font-size:21px;line-height:1.2;letter-spacing:-.01em;color:var(--mex-ink)}
+  #shopify-section-{{ sid }} .mex__x{max-width:34ch;font-size:16px;line-height:1.5;color:var(--mex-ink)}
+  #shopify-section-{{ sid }} .mex__x p{margin:0}
+  #shopify-section-{{ sid }} .mex__foot{margin:56px auto 0;max-width:62ch;text-align:center;font-size:14px;line-height:1.5;color:var(--mex-muted)}
+  #shopify-section-{{ sid }} .mex__foot a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+
+  /* Mobile: down the left edge */
+  @media (max-width:749px){
+    #shopify-section-{{ sid }} .mex__wrap{padding:{{ s.space_top | times: 0.66 | round }}px 16px {{ s.space_bottom | times: 0.66 | round }}px}
+    #shopify-section-{{ sid }} .mex__head{gap:16px}
+    #shopify-section-{{ sid }} .mex__line{display:grid;grid-template-columns:1fr;gap:28px;margin-top:40px;padding-left:32px}
+    #shopify-section-{{ sid }} .mex__line::before{left:7px;right:auto;top:8px;bottom:8px;width:1px;height:auto}
+    #shopify-section-{{ sid }} .mex__line::after{left:6px;top:8px;width:3px;height:var(--mex-fill,0%)}
+    #shopify-section-{{ sid }} .mex__ms{padding-top:0;gap:8px}
+    #shopify-section-{{ sid }} .mex__ms::before{left:-32px;top:2px}
+    #shopify-section-{{ sid }} .mex__day{font-size:13px}
+    #shopify-section-{{ sid }} .mex .mex__t{font-size:18px}
+    #shopify-section-{{ sid }} .mex__x{max-width:none;font-size:15px}
+    #shopify-section-{{ sid }} .mex__foot{margin-top:32px;font-size:13px}
+  }
+  @media (prefers-reduced-motion:reduce){#shopify-section-{{ sid }} .mex__line::after,#shopify-section-{{ sid }} .mex__ms::before{transition:none!important}}
+</style>
+
+<div class="mex"{% if s.anchor != blank %} id="{{ s.anchor }}"{% endif %} data-mex>
+  <div class="mex__wrap">
+    <header class="mex__head">
+      {%- if s.eyebrow != blank -%}<p class="mex__eye">{{ s.eyebrow }}</p>{%- endif -%}
+      {%- if s.heading != blank -%}<h2 class="mex__h">{{ s.heading | escape | newline_to_br }}</h2>{%- endif -%}
+      {%- if s.lede != blank -%}<p class="mex__lede">{{ s.lede }}</p>{%- endif -%}
+    </header>
+    <ol class="mex__line">
+      {%- for b in section.blocks -%}
+        {%- assign bs = b.settings -%}
+        <li class="mex__ms" style="--i:{{ forloop.index0 }}" {{ b.shopify_attributes }}>
+          <p class="mex__day">{% if bs.label != blank %}{{ bs.label }}{% else %}Day {{ bs.day }}{% endif %}</p>
+          <h3 class="mex__t">{{ bs.title }}</h3>
+          {%- if bs.text != blank -%}<div class="mex__x">{{ bs.text }}</div>{%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ol>
+    {%- if s.foot != blank -%}<p class="mex__foot">{{ s.foot }}</p>{%- endif -%}
+  </div>
+</div>
+<script>
+  (function () {
+    var root = document.querySelector('#shopify-section-{{ sid }} [data-mex]');
+    if (!root) return;
+    var line = root.querySelector('.mex__line');
+    /* The turquoise line fills to Day 90 when the timeline comes into view */
+    function go() { root.classList.add('is-in'); line.style.setProperty('--mex-fill', '100%'); }
+    if (!('IntersectionObserver' in window)) return go();
+    var io = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { go(); io.disconnect(); } }, { threshold: .35 });
+    io.observe(line);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "MUTO — What to expect",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "Anchor" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "What to expect" },
+    { "type": "textarea", "id": "heading", "label": "Heading" },
+    { "type": "textarea", "id": "lede", "label": "Intro" },
+    { "type": "text", "id": "foot", "label": "Small line below" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 96 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 96 }
+  ],
+  "blocks": [
+    { "type": "milestone", "name": "Milestone", "settings": [
+      { "type": "number", "id": "day", "label": "Day", "default": 30 },
+      { "type": "text", "id": "label", "label": "Label instead of the day", "info": "e.g. Weeks 2–4" },
+      { "type": "text", "id": "title", "label": "Title" },
+      { "type": "richtext", "id": "text", "label": "Text" }
+    ] }
+  ],
+  "max_blocks": 6,
+  "presets": [{ "name": "MUTO — What to expect" }],
+  "enabled_on": { "templates": ["product", "page"] }
+}
+{% endschema %}

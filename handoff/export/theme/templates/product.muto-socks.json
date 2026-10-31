@@ -1,0 +1,331 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "buy": {
+      "type": "muto-crea-buy",
+      "blocks": {
+        "s1": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/socks-hero.jpg",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/socks-hero.jpg?v=1791033004",
+            "image_alt": "A pouch of MUTO Performance Socks, the white sock visible through the front"
+          }
+        },
+        "p1": {
+          "type": "point",
+          "settings": {
+            "text": "Premium nylon, shaped to hold its fit"
+          }
+        },
+        "p2": {
+          "type": "point",
+          "settings": {
+            "text": "Light and breathable"
+          }
+        },
+        "p3": {
+          "type": "point",
+          "settings": {
+            "text": "Built to move, first mile to last rep"
+          }
+        },
+        "t1": {
+          "type": "trust",
+          "settings": {
+            "text": "One size"
+          }
+        },
+        "t2": {
+          "type": "trust",
+          "settings": {
+            "text": "£2.99 next day delivery"
+          }
+        },
+        "pl1": {
+          "type": "plan",
+          "settings": {
+            "name": "One size",
+            "price": "£19.99",
+            "price_suffix": "",
+            "was": "",
+            "save": "",
+            "note": "UK 6–11",
+            "detail": ""
+          }
+        },
+        "f1": {
+          "type": "fold",
+          "settings": {
+            "title": "Product care",
+            "text": "<p>Machine wash at 30°, inside out, with like colours. No fabric conditioner and no tumble dryer — both flatten the shaping that holds the fit.</p>"
+          }
+        },
+        "f2": {
+          "type": "fold",
+          "settings": {
+            "title": "Shipping",
+            "text": "<p>£2.99 next day delivery to the UK.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "p1",
+        "p2",
+        "p3",
+        "t1",
+        "t2",
+        "pl1",
+        "f1",
+        "f2"
+      ],
+      "settings": {
+        "allow_transparent_header": true,
+        "rating_score": "",
+        "rating_count": "",
+        "rating_stars": 5,
+        "eyebrow": "MUTO",
+        "heading": "Performance\nSocks",
+        "serving": "Premium nylon | One size, UK 6–11",
+        "text": "<p>Premium nylon socks designed for activity, with shaping that holds its fit through every session. Light, breathable and built to move with you, from the first mile to the last rep. Made to the same standard as everything else in the protocol.</p>",
+        "image_fallback": "",
+        "image_alt": "A pouch of MUTO Performance Socks, the white sock visible through the front",
+        "gallery_from_product": true,
+        "gallery_position": "",
+        "note_title": "",
+        "note_text": "",
+        "plans_banner": "",
+        "plans_label": "Choose an option",
+        "hidden_plans": "",
+        "kit_title": "",
+        "kit_itemised": false,
+        "kit_main": "",
+        "kit_main_note": "Included",
+        "kit_foot_1": "",
+        "kit_foot_1_pop_title": "",
+        "kit_foot_1_pop": "",
+        "kit_foot_2": "",
+        "kit_foot_3": "",
+        "kit_foot_3_pop_title": "",
+        "kit_foot_3_pop": "",
+        "kit_foot_4": "",
+        "kit_foot_4_pop_title": "",
+        "kit_foot_4_pop": "",
+        "gifts_label": "",
+        "gifts_text": "",
+        "onetime_label": "",
+        "onetime_link": "",
+        "cta_label": "Add to Cart",
+        "show_quantity": true,
+        "qty_label": "Quantity",
+        "cta_price": true,
+        "cta_link": "",
+        "research_title": "",
+        "refs": "",
+        "who_title": "",
+        "schema_on": true,
+        "fit": "crea",
+        "space_top": 0,
+        "space_bottom": 100
+      }
+    },
+    "gallery": {
+      "type": "muto-home-ugc",
+      "blocks": {
+        "g1": {
+          "type": "post",
+          "settings": {
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/socks-bike.jpg?v=1791033404",
+            "image_alt": "A rider standing over a road bike in MUTO socks, the MUTO bottle in the cage",
+            "name": ""
+          }
+        },
+        "g2": {
+          "type": "post",
+          "settings": {
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/socks-cage.jpg?v=1791033405",
+            "image_alt": "A cyclist riding in MUTO socks, the MUTO bottle in the frame cage",
+            "name": ""
+          }
+        },
+        "g3": {
+          "type": "post",
+          "settings": {
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/socks-squat.jpg?v=1791033404",
+            "image_alt": "A lifter at the bottom of a back squat in MUTO socks",
+            "name": ""
+          }
+        },
+        "g4": {
+          "type": "post",
+          "settings": {
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/socks-run.jpg?v=1791033404",
+            "image_alt": "A runner seen from behind in MUTO socks, on dry grass in autumn",
+            "name": ""
+          }
+        },
+        "g5": {
+          "type": "post",
+          "settings": {
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/socks-group.jpg?v=1791033404",
+            "image_alt": "Three pairs of legs in MUTO socks, gathered after a session",
+            "name": ""
+          }
+        }
+      },
+      "block_order": [
+        "g1",
+        "g2",
+        "g3",
+        "g4",
+        "g5"
+      ],
+      "settings": {
+        "heading": "On every\nkind of session.",
+        "note": "",
+        "handle": "",
+        "handle_link": "",
+        "field": false,
+        "fit": "home",
+        "head_gap": 38,
+        "space_top": 100,
+        "space_bottom": 100
+      }
+    },
+    "range": {
+      "type": "muto-range",
+      "blocks": {
+        "nad": {
+          "type": "product",
+          "settings": {
+            "tab": "NAD+ Cellular Complex",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-shop-nad-v2.jpg?v=1791288517",
+            "chip": "Two capsules a day",
+            "title": "NAD+ Cellular Complex",
+            "text": "A daily multi-nutrient with NAD⁺ support, built for 35+. Five supplements in one jar.",
+            "offer": "Black Friday: 3 months for £99 (was £210) · Ends 30 Nov",
+            "points": "Built for life after 35 | Afternoons that hold, quicker recovery from a busy week, and support for your cells as you age.\nEvery dose on the label | 19 ingredients, no proprietary blends, every batch third-party tested.\n90-day guarantee | Not for you? Get every subscription payment back.",
+            "actives": "300mg | Nicotinamide riboside\n150mg | CoQ10\n20mg | PQQ\n450mg | TMG\n50mg | Trans-resveratrol\n50mcg | Vitamin D3",
+            "button_label": "Shop NAD+ Cellular Complex",
+            "button_link": "/products/muto-nad-cellular-complex",
+            "link_label": "See all 19 ingredients",
+            "link": "/pages/ingredients"
+          }
+        },
+        "cre": {
+          "type": "product",
+          "settings": {
+            "tab": "Creatine",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-shop-creatine-v2.jpg?v=1791288517",
+            "chip": "One scoop a day",
+            "title": "Ultrapure Micronised Creatine",
+            "text": "The fast reserve beside the steady supply. One ingredient, nothing else in the pouch.",
+            "offer": "",
+            "points": "For the hardest efforts | Creatine increases physical performance in successive bursts of short-term, high-intensity exercise. The beneficial effect comes from 3g a day.\nNothing else in it | Ultrapure creatine monohydrate, ≥99.9% pure, every batch tested.\nBuilt to sit with NAD+ | One scoop with your first meal, in water or a smoothie.",
+            "actives": "5g | Per daily dose\n200 mesh | Micronised\n>99.9% | Purity\nTested | By third-party labs",
+            "button_label": "Shop creatine",
+            "button_link": "/products/muto-creatine",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "e0": {
+          "type": "product",
+          "settings": {
+            "tab": "Essentials",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-essentials-socks.jpg?v=1791037580",
+            "chip": "",
+            "title": "Performance socks",
+            "text": "Premium nylon socks designed for activity, with shaping that holds its fit through every session. Light, breathable and built to move with you, from the first mile to the last rep. Made to the same standard as everything else in the protocol.",
+            "offer": "",
+            "points": "",
+            "actives": "",
+            "button_label": "Shop the socks",
+            "button_link": "/products/socks",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "e1": {
+          "type": "product",
+          "settings": {
+            "tab": "Essentials",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-shop-bottle-v2.jpg?v=1791288517",
+            "chip": "",
+            "title": "Performance Bottle",
+            "text": "A BPA-free bottle built for training days and everything in between. Light enough to carry everywhere and easy to clean, with room for your morning scoop of MUTO Creatine. One bottle, from first meal to final session.",
+            "offer": "",
+            "points": "",
+            "actives": "",
+            "button_label": "Shop the bottle",
+            "button_link": "/products/muto-water-bottle",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "nad",
+        "cre",
+        "e0",
+        "e1"
+      ],
+      "settings": {
+        "anchor": "",
+        "eyebrow": "Shop the range",
+        "heading": "Complete the protocol.",
+        "lede": "Start with NAD+ Cellular Complex, the daily foundation. Add creatine for the hardest efforts.",
+        "space_top": 96,
+        "space_bottom": 96
+      }
+    },
+    "sbar": {
+      "type": "muto-sbar",
+      "settings": {
+        "label": "Performance Socks",
+        "sub": "£2.99 next day delivery",
+        "button": "Add to cart",
+        "schema_on": true
+      }
+    },
+    "offer": {
+      "type": "muto-sci",
+      "settings": {
+        "layout": "banner",
+        "anchor": "",
+        "eyebrow": "Black Friday · Ends 30 Nov",
+        "heading": "3 months for £99",
+        "text": "Save 53% (was £210), plus a free welcome kit worth £87.",
+        "button_label": "Add to cart",
+        "button_link": "/products/muto-nad-cellular-complex",
+        "link_label": "One-Time Purchase - £70 (no gifts)",
+        "link": "/products/muto-nad-cellular-complex",
+        "col_a": "At 20",
+        "col_b": "After 35",
+        "small": "Skip, pause or cancel online anytime · 90-day guarantee",
+        "space_top": 48,
+        "space_bottom": 96,
+        "image": "shopify://shop_images/muto-science-ride.jpg",
+        "image_alt": "A cyclist riding along a waterfront under a blue sky",
+        "image_position": "62% 50%",
+        "image_position_mobile": "70% 50%"
+      }
+    }
+  },
+  "order": [
+    "buy",
+    "gallery",
+    "range",
+    "offer",
+    "sbar"
+  ]
+}

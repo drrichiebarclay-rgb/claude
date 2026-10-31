@@ -1,0 +1,71 @@
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "link_list_aVJRMi": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Product",
+            "menu": "footer-product-menu"
+          }
+        },
+        "link_list_JPbQYK": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Company",
+            "menu": "footer-company-menu"
+          }
+        },
+        "link_list_PnRMkW": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Certified",
+            "menu": "footer-certified-menu"
+          }
+        },
+        "link_list_whmR8Q": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Follow Us",
+            "menu": "footer-follow-us-menu"
+          }
+        }
+      },
+      "block_order": [
+        "link_list_aVJRMi",
+        "link_list_JPbQYK",
+        "link_list_PnRMkW",
+        "link_list_whmR8Q"
+      ],
+      "settings": {
+        "color_scheme": "scheme-3",
+        "background_image": "shopify://shop_images/footer-bg.jpg",
+        "image": "shopify://shop_images/Muto-White-Logo.svg",
+        "image_caption": "Precision cellular supplement company.",
+        "newsletter_enable": true,
+        "newsletter_heading": "Sign up today. Above the standard starts here",
+        "enable_follow_on_shop": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "payment_enable": true,
+        "show_policy": true,
+        "bottom_info_content": "<p>*The Statements on this website have not been evaluated by the European Food and Safety Administration or FDA. This product is not intended to diagnose, treat, cure or prevent any disease. Individual results may vary. References and information on this site or statements based on properties of ingredients are provided for informational purposes only and do not constitute health claims. It is not meant to substitute for medical advice from your physician or other medical professional. You should not use the information contained herein for diagnosing or treating a health problem or disease, or prescribing any medication. Carefully read all product documentation. Always consult your health professional before taking any supplements.</p>",
+        "policies_menu": "policies-menu",
+        "margin_top": 0,
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    },
+    "bf_offer": {
+      "type": "muto-bf-offer",
+      "settings": {}
+    }
+  },
+  "order": [
+    "footer",
+    "bf_offer"
+  ]
+}

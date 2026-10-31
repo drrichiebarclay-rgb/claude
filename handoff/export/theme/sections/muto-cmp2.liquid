@@ -1,0 +1,73 @@
+{%- comment -%}
+  MUTO — Two-way comparison. The same look as "MUTO vs the usual" on the NAD+ product page
+  (assets/muto-bf-compare.css), with one other column: MUTO against one alternative.
+  BLOCKS: row (claim; for each column a mark, yes / no / blank, and a short line under it).
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+{{ 'muto-bf-compare.css' | asset_url | stylesheet_tag }}
+<style>
+  #shopify-section-{{ section.id }} .mc-cmp__t{grid-template-columns:minmax(220px,1.6fr) minmax(170px,1fr) minmax(170px,1fr);min-width:0;max-width:900px;margin:0 auto}
+  #shopify-section-{{ section.id }} .mc-cmp .p--blank{display:grid;place-items:center;background:#f1f1ef;font-family:var(--mc-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6b6a6a}
+  @media (max-width:749px){#shopify-section-{{ section.id }} .mc-cmp__t{grid-template-columns:1.3fr 1fr 1fr;width:100%}}
+</style>
+<div class="mc-cmp"{% if s.anchor != blank %} id="{{ s.anchor }}"{% endif %}>
+  <div class="mc-cmp__in">
+    {%- if s.eyebrow != blank -%}<p class="mc-cmp__eyebrow">{{ s.eyebrow }}</p>{%- endif -%}
+    <h2 class="mc-cmp__h">{{ s.heading | escape | newline_to_br }}</h2>
+    {%- if s.intro != blank -%}<p class="mc-cmp__intro">{{ s.intro }}</p>{%- endif -%}
+    <div class="mc-cmp__scroll">
+      <div class="mc-cmp__t">
+        <div class="c l h"></div>
+        <div class="c m h">
+          <span class="p p--muto">
+            {%- if s.image_a != blank -%}{{ s.image_a | image_url: width: 240 | image_tag: loading: 'lazy', alt: s.col_a }}
+            {%- elsif product.featured_image -%}{{ product.featured_image | image_url: width: 240 | image_tag: loading: 'lazy', alt: s.col_a }}{%- endif -%}
+          </span>
+          <span class="nm">{{ s.col_a }}</span>
+        </div>
+        <div class="c h">
+          {%- if s.image_b != blank -%}<span class="p">{{ s.image_b | image_url: width: 240 | image_tag: loading: 'lazy', alt: s.col_b }}</span>
+          {%- else -%}<span class="p p--blank" aria-hidden="true">{{ s.blank_label }}</span>{%- endif -%}
+          <span class="nm">{{ s.col_b }}</span>
+        </div>
+        {%- for b in section.blocks -%}
+          {%- assign bs = b.settings -%}
+          {%- assign z = '' -%}{%- if forloop.last -%}{%- assign z = ' z' -%}{%- endif -%}
+          <div class="c l{{ z }}" {{ b.shopify_attributes }}>{{ bs.claim }}</div>
+          <div class="c m{{ z }}">{%- if bs.a == 'yes' -%}<i class="y" aria-label="Yes"></i>{%- elsif bs.a == 'no' -%}<i class="n" aria-label="No"></i>{%- endif -%}{%- if bs.a_text != blank -%}<span>{{ bs.a_text }}</span>{%- endif -%}</div>
+          <div class="c{{ z }}">{%- if bs.b == 'yes' -%}<i class="y" aria-label="Yes"></i>{%- elsif bs.b == 'no' -%}<i class="n" aria-label="No"></i>{%- endif -%}{%- if bs.b_text != blank -%}<span>{{ bs.b_text }}</span>{%- endif -%}</div>
+        {%- endfor -%}
+      </div>
+    </div>
+    {%- if s.note != blank -%}<p class="mc-cmp__note">{{ s.note }}</p>{%- endif -%}
+  </div>
+</div>
+{% schema %}
+{
+  "name": "MUTO — Two-way comparison",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "Anchor" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "textarea", "id": "heading", "label": "Heading" },
+    { "type": "textarea", "id": "intro", "label": "Intro" },
+    { "type": "text", "id": "col_a", "label": "Our column", "default": "MUTO" },
+    { "type": "image_picker", "id": "image_a", "label": "Our photo (blank: the product's)" },
+    { "type": "text", "id": "col_b", "label": "Other column" },
+    { "type": "image_picker", "id": "image_b", "label": "Other photo" },
+    { "type": "text", "id": "blank_label", "label": "Word in the circle when there is no other photo", "default": "Typical" },
+    { "type": "text", "id": "note", "label": "Small print" }
+  ],
+  "blocks": [
+    { "type": "row", "name": "Row", "settings": [
+      { "type": "text", "id": "claim", "label": "Row" },
+      { "type": "select", "id": "a", "label": "Our mark", "default": "yes", "options": [{ "value": "yes", "label": "Tick" }, { "value": "no", "label": "No" }, { "value": "", "label": "None" }] },
+      { "type": "text", "id": "a_text", "label": "Our line" },
+      { "type": "select", "id": "b", "label": "Other mark", "default": "", "options": [{ "value": "yes", "label": "Tick" }, { "value": "no", "label": "No" }, { "value": "", "label": "None" }] },
+      { "type": "text", "id": "b_text", "label": "Other line" }
+    ] }
+  ],
+  "presets": [{ "name": "MUTO — Two-way comparison" }],
+  "enabled_on": { "templates": ["product", "page", "index"] }
+}
+{% endschema %}

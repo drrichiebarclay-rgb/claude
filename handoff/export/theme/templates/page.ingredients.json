@@ -1,0 +1,756 @@
+{
+  "sections": {
+    "library": {
+      "type": "muto-ingredient-library",
+      "blocks": {
+        "cat1": {
+          "type": "category",
+          "settings": {
+            "name": "All",
+            "text": "MUTO puts 19 ingredients in two capsules: NR to raise NAD+, CoQ10 and PQQ for your mitochondria, a full B complex in active forms, vitamins D3 and K2, zinc and copper, and plant polyphenols. Every dose is on the label.",
+            "supports": "Daily energy\nCellular health\nImmune function\nHealthy ageing"
+          }
+        },
+        "cat2": {
+          "type": "category",
+          "settings": {
+            "name": "Energy",
+            "text": "MUTO’s energy ingredients work where energy is made: inside your cells. Your body turns NR into NAD+, CoQ10 and PQQ support the mitochondria, and the active B vitamins help release energy from food.",
+            "supports": "Steady energy through the day\nLess tiredness and fatigue\nCellular energy production"
+          }
+        },
+        "cat3": {
+          "type": "category",
+          "settings": {
+            "name": "Recovery",
+            "text": "Recovery starts at the cellular level. Vitamin D3 supports normal muscle function, CoQ10 and PQQ support the mitochondria that refill your energy stores, and riboflavin helps reduce tiredness.",
+            "supports": "Bouncing back after activity\nNormal muscle function\nLess tiredness and fatigue"
+          }
+        },
+        "cat4": {
+          "type": "category",
+          "settings": {
+            "name": "Stress",
+            "text": "A demanding week uses up the nutrients your nervous system relies on. MUTO’s B vitamins in their active forms, with zinc, support normal psychological function and mental performance.",
+            "supports": "Normal psychological function\nMental performance\nFocus through the day"
+          }
+        },
+        "cat5": {
+          "type": "category",
+          "settings": {
+            "name": "Longevity",
+            "text": "NAD+ falls as we get older. MUTO pairs 300mg NR with TMG, then adds trans-resveratrol and grape seed polyphenols, vitamin K2 for your bones and zinc to help protect cells from oxidative stress.",
+            "supports": "Healthy ageing\nNAD+ levels\nNormal bones\nProtecting your cells"
+          }
+        },
+        "cat6": {
+          "type": "category",
+          "settings": {
+            "name": "Immunity",
+            "text": "Vitamin D3, zinc, copper, folate and vitamins B6 and B12 all contribute to the normal function of the immune system, so one jar covers what most people take separately through the winter.",
+            "supports": "Immune function\nWinter wellbeing\nDaily nutrient intake"
+          }
+        },
+        "ing01": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Nicotinamide Riboside (NR)",
+            "dose": "300 mg",
+            "tags": "Energy, Longevity",
+            "colour": "#f8f8f6",
+            "pattern": "ring",
+            "description": "The main ingredient. A form of vitamin B3 your body turns into NAD+, the molecule your cells use to make energy. NAD+ levels fall as we age.",
+            "supports": "Energy, NAD+ levels",
+            "why": "Nicotinamide riboside reaches NAD+ in fewer steps than other forms of vitamin B3. 300mg a day is the most the UK allows in a food supplement for adults, so MUTO uses the full amount.",
+            "refs": "Trammell SAJ, et al. Nicotinamide riboside is uniquely and orally bioavailable in mice and humans. Nat Commun. 2016.\nMartens CR, et al. Chronic nicotinamide riboside supplementation is well-tolerated and elevates NAD+ in healthy middle-aged and older adults. Nat Commun. 2018.\nConze D, et al. Safety and metabolism of long-term administration of NIAGEN (nicotinamide riboside chloride) in a randomized, double-blind, placebo-controlled clinical trial of healthy overweight adults. Sci Rep. 2019.\nEFSA NDA Panel. Safety of nicotinamide riboside chloride as a novel food. EFSA J. 2019."
+          }
+        },
+        "ing02": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Vitamin B12 (Methylcobalamin)",
+            "dose": "100 mcg",
+            "tags": "Energy, Immunity, Stress",
+            "colour": "#b01830",
+            "pattern": "streak",
+            "description": "Contributes to normal energy-yielding metabolism, normal immune function, normal psychological function and the reduction of tiredness and fatigue.",
+            "supports": "Energy, immune function, psychological function",
+            "why": "Methylcobalamin is a form of B12 your body can use as it is. Absorbing B12 from food tends to get harder with age, so 100mcg is well above the 2.5mcg daily reference intake.",
+            "refs": "Baik HW, Russell RM. Vitamin B12 deficiency in the elderly. Annu Rev Nutr. 1999.\nStabler SP. Vitamin B12 deficiency. N Engl J Med. 2013.\nEFSA NDA Panel. Scientific opinion on dietary reference values for cobalamin (vitamin B12). EFSA J. 2015.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
+          }
+        },
+        "ing03": {
+          "type": "ingredient",
+          "settings": {
+            "name": "CoQ10",
+            "dose": "150 mg",
+            "tags": "Energy, Recovery",
+            "colour": "#ec8c1e",
+            "pattern": "pile",
+            "description": "Found in every cell, where it’s part of how your mitochondria make energy. Your body makes less CoQ10 as you get older.",
+            "supports": "Cellular energy",
+            "why": "150mg sits in the middle of the range most supplements use. CoQ10 is fat-soluble, which is why we say take MUTO with breakfast: food helps your body absorb it.",
+            "refs": "Kalén A, Appelkvist EL, Dallner G. Age-related changes in the lipid compositions of rat and human tissues. Lipids. 1989.\nBhagavan HN, Chopra RK. Coenzyme Q10: absorption, tissue uptake, metabolism and pharmacokinetics. Free Radic Res. 2006.\nHidaka T, et al. Safety assessment of coenzyme Q10 (CoQ10). Biofactors. 2008."
+          }
+        },
+        "ing04": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Vitamin D3 (Vegan)",
+            "dose": "50 mcg",
+            "tags": "Immunity, Recovery, Longevity",
+            "colour": "#dec496",
+            "pattern": "pile",
+            "description": "Contributes to normal immune function, normal muscle function and the maintenance of normal bones. Most of us in the UK get too little sun from October to March.",
+            "supports": "Immune function, muscles, bones",
+            "why": "D3 (cholecalciferol) is the form your skin makes from sunlight, and it raises blood vitamin D levels more effectively than D2 (ergocalciferol). 50mcg (2,000 IU) is half the UK safe upper limit of 100mcg a day. The NHS advises everyone to consider vitamin D in autumn and winter.",
+            "refs": "Tripkovic L, et al. Comparison of vitamin D2 and vitamin D3 supplementation in raising serum 25-hydroxyvitamin D status: a systematic review and meta-analysis. Am J Clin Nutr. 2012.\nMartineau AR, et al. Vitamin D supplementation to prevent acute respiratory tract infections: systematic review and meta-analysis of individual participant data. BMJ. 2017.\nHolick MF. Vitamin D deficiency. N Engl J Med. 2007.\nScientific Advisory Committee on Nutrition (SACN). Vitamin D and Health. 2016.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
+          }
+        },
+        "ing05": {
+          "type": "ingredient",
+          "settings": {
+            "name": "TMG (Trimethylglycine)",
+            "dose": "450 mg",
+            "tags": "Longevity",
+            "colour": "#f4f4f0",
+            "pattern": "burst",
+            "description": "Also called betaine, and found naturally in beetroot. Works alongside NR, supporting the body’s natural methylation processes.",
+            "supports": "Methylation",
+            "why": "Making and clearing NAD+ uses up methyl groups, and TMG donates them. That’s why it’s often paired with NAD+ precursors like NR.",
+            "refs": "Craig SA. Betaine in human nutrition. Am J Clin Nutr. 2004.\nOlthof MR, et al. Low dose betaine supplementation leads to immediate and long term lowering of plasma homocysteine in healthy men and women. J Nutr. 2003."
+          }
+        },
+        "ing06": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Vitamin B2 (Riboflavin)",
+            "dose": "5 mg",
+            "tags": "Energy, Recovery, Longevity",
+            "colour": "#f0aa14",
+            "pattern": "streak",
+            "description": "Contributes to the reduction of tiredness and fatigue and to the protection of cells from oxidative stress.",
+            "supports": "Energy, protecting cells",
+            "why": "Riboflavin is part of the enzymes that release energy from food. 5mg is well above the 1.4mg daily reference intake. It’s also why your urine may look brighter yellow: that’s normal.",
+            "refs": "Powers HJ. Riboflavin (vitamin B-2) and health. Am J Clin Nutr. 2003.\nEFSA NDA Panel. Dietary reference values for riboflavin. EFSA J. 2017.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
+          }
+        },
+        "ing07": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Vitamin K2 (MK-7)",
+            "dose": "100 mcg",
+            "tags": "Longevity",
+            "colour": "#eedea0",
+            "pattern": "mound",
+            "description": "Contributes to the maintenance of normal bones. Paired with vitamin D3.",
+            "supports": "Bones",
+            "why": "MK-7 is the longest-lasting form of vitamin K2 in the body, so once a day is enough. Vitamin D helps your body absorb calcium, and K2 works alongside it.",
+            "refs": "Schurgers LJ, et al. Vitamin K-containing dietary supplements: comparison of synthetic vitamin K1 and natto-derived menaquinone-7. Blood. 2007.\nKnapen MHJ, et al. Three-year low-dose menaquinone-7 supplementation helps decrease bone loss in healthy postmenopausal women. Osteoporos Int. 2013.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
+          }
+        },
+        "ing08": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Zinc (Bisglycinate)",
+            "dose": "15 mg",
+            "tags": "Immunity, Longevity, Stress",
+            "colour": "#ececea",
+            "pattern": "burst",
+            "description": "Contributes to normal immune function, normal cognitive function and the protection of cells from oxidative stress.",
+            "supports": "Immune function, cognitive function, cells",
+            "why": "Zinc bisglycinate is zinc bound to glycine, an amino acid, a form that is well absorbed and gentle on the stomach. 15mg is 150% of the daily reference intake and within the UK safe level of 25mg a day. It’s paired with copper, because taking zinc long-term can lower copper levels.",
+            "refs": "Gandia P, et al. A bioavailability study comparing two oral formulations containing zinc (Zn bis-glycinate vs. Zn gluconate) after a single administration to twelve healthy female volunteers. Int J Vitam Nutr Res. 2007.\nPrasad AS. Zinc in human health: effect of zinc on immune cells. Mol Med. 2008.\nFosmire GJ. Zinc toxicity. Am J Clin Nutr. 1990.\nExpert Group on Vitamins and Minerals. Safe Upper Levels for Vitamins and Minerals. Food Standards Agency. 2003.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
+          }
+        },
+        "ing09": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Folate (5-MTHF)",
+            "dose": "400 mcg",
+            "tags": "Immunity, Energy, Stress",
+            "colour": "#e8a028",
+            "pattern": "mound",
+            "description": "Contributes to normal immune function, normal psychological function and the reduction of tiredness and fatigue.",
+            "supports": "Immune function, energy, psychological function",
+            "why": "5-MTHF is the active form of folate. Many people carry a common gene variant (MTHFR) that makes converting ordinary folic acid less efficient, so we skip that step. 400mcg is 200% of the daily reference intake.",
+            "refs": "Pietrzik K, Bailey L, Shane B. Folic acid and L-5-methyltetrahydrofolate: comparison of clinical pharmacokinetics and pharmacodynamics. Clin Pharmacokinet. 2010.\nFrosst P, et al. A candidate genetic risk factor for vascular disease: a common mutation in methylenetetrahydrofolate reductase. Nat Genet. 1995.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
+          }
+        },
+        "ing10": {
+          "type": "ingredient",
+          "settings": {
+            "name": "PQQ",
+            "dose": "20 mg",
+            "tags": "Energy, Recovery",
+            "colour": "#963428",
+            "pattern": "ring",
+            "description": "Pyrroloquinoline quinone. Found in small amounts in foods like kiwi, parsley and green tea, and studied for its role in the mitochondria, where cells make energy.",
+            "supports": "Cellular energy",
+            "why": "20mg a day is the amount most often used in human studies of PQQ.",
+            "refs": "Harris CB, et al. Dietary pyrroloquinoline quinone (PQQ) alters indicators of inflammation and mitochondrial-related metabolism in human subjects. J Nutr Biochem. 2013.\nEFSA NDA Panel. Safety of pyrroloquinoline quinone disodium salt as a novel food. EFSA J. 2017."
+          }
+        },
+        "ing11": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Trans-Resveratrol",
+            "dose": "50 mg",
+            "tags": "Longevity",
+            "colour": "#e2dacc",
+            "pattern": "streak",
+            "description": "A plant compound found in grape skins, widely studied in healthy-ageing research.",
+            "supports": "Plant polyphenols",
+            "why": "Trans-resveratrol is the stable, active form of resveratrol. It’s fat-soluble, so it’s best taken with food, like the rest of MUTO.",
+            "refs": "Baur JA, Sinclair DA. Therapeutic potential of resveratrol: the in vivo evidence. Nat Rev Drug Discov. 2006.\nWalle T. Bioavailability of resveratrol. Ann N Y Acad Sci. 2011."
+          }
+        },
+        "ing12": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Grape Seed Extract",
+            "dose": "150 mg",
+            "tags": "Longevity",
+            "colour": "#60222e",
+            "pattern": "mound",
+            "description": "Plant polyphenols from grape seeds. Paired with trans-resveratrol.",
+            "supports": "Plant polyphenols",
+            "why": "Standardised to 95% polyphenols, so every batch has the same amount: about 142mg of polyphenols per serve.",
+            "refs": "Bagchi D, et al. Free radicals and grape seed proanthocyanidin extract: importance in human health and disease prevention. Toxicology. 2000.\nFeringa HH, et al. The effect of grape seed extract on cardiovascular risk markers: a meta-analysis of randomized controlled trials. J Am Diet Assoc. 2011."
+          }
+        },
+        "ing13": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Vitamin B6 (P5P)",
+            "dose": "5 mg",
+            "tags": "Energy, Immunity, Stress",
+            "colour": "#f4e8be",
+            "pattern": "pile",
+            "description": "Contributes to normal psychological function, normal immune function, the regulation of hormonal activity and the reduction of tiredness and fatigue.",
+            "supports": "Immune function, psychological function, hormones",
+            "why": "P5P (pyridoxal-5-phosphate) is the active form of B6, ready to use. 5mg is half the UK safe upper level of 10mg a day.",
+            "refs": "EFSA NDA Panel. Dietary reference values for vitamin B6. EFSA J. 2016.\nExpert Group on Vitamins and Minerals. Safe Upper Levels for Vitamins and Minerals. Food Standards Agency. 2003.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
+          }
+        },
+        "ing14": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Vitamin B1 (Thiamine)",
+            "dose": "5 mg",
+            "tags": "Energy, Stress",
+            "colour": "#f6f6f2",
+            "pattern": "mound",
+            "description": "Contributes to normal energy-yielding metabolism and normal psychological function.",
+            "supports": "Energy, psychological function",
+            "why": "5mg is well above the 1.1mg daily reference intake. Thiamine dissolves in water and your body stores very little, so a daily dose keeps levels steady.",
+            "refs": "Lonsdale D. A review of the biochemistry, metabolism and clinical benefits of thiamin(e) and its derivatives. Evid Based Complement Alternat Med. 2006.\nEFSA NDA Panel. Dietary reference values for thiamin. EFSA J. 2016.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
+          }
+        },
+        "ing15": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Vitamin B3 (Niacin)",
+            "dose": "16 mg NE",
+            "tags": "Energy, Stress",
+            "colour": "#f8f8f4",
+            "pattern": "burst",
+            "description": "Contributes to normal psychological function and the reduction of tiredness and fatigue.",
+            "supports": "Energy, psychological function",
+            "why": "16mg niacin equivalents is 100% of the daily reference intake. It’s on top of the NR, which is also a form of vitamin B3.",
+            "refs": "Bogan KL, Brenner C. Nicotinic acid, nicotinamide, and nicotinamide riboside: a molecular evaluation of NAD+ precursor vitamins in human nutrition. Annu Rev Nutr. 2008.\nEFSA NDA Panel. Scientific opinion on dietary reference values for niacin. EFSA J. 2014.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
+          }
+        },
+        "ing16": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Vitamin B5 (Pantothenic Acid)",
+            "dose": "10 mg",
+            "tags": "Energy, Stress",
+            "colour": "#f4f0e2",
+            "pattern": "ring",
+            "description": "Contributes to normal mental performance and the reduction of tiredness and fatigue.",
+            "supports": "Mental performance, energy",
+            "why": "10mg is about 167% of the 6mg daily reference intake.",
+            "refs": "EFSA NDA Panel. Scientific opinion on dietary reference values for pantothenic acid. EFSA J. 2014.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
+          }
+        },
+        "ing17": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Biotin",
+            "dose": "300 mcg",
+            "tags": "Energy, Stress",
+            "colour": "#f8f8f8",
+            "pattern": "streak",
+            "description": "Contributes to normal energy-yielding metabolism and normal psychological function.",
+            "supports": "Energy, psychological function",
+            "why": "300mcg is six times the 50mcg daily reference intake and well within safe levels. Biotin can affect some blood test results, so tell your doctor you take it before a blood test.",
+            "refs": "Li D, et al. Association of biotin ingestion with performance of hormone and nonhormone assays in healthy adults. JAMA. 2017.\nUS Food and Drug Administration. The FDA warns that biotin may interfere with lab tests. Safety communication. 2017, updated 2019.\nEFSA NDA Panel. Scientific opinion on dietary reference values for biotin. EFSA J. 2014.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
+          }
+        },
+        "ing18": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Copper (Bisglycinate)",
+            "dose": "1 mg",
+            "tags": "Immunity, Energy",
+            "colour": "#2882aa",
+            "pattern": "burst",
+            "description": "Contributes to normal immune function and normal energy-yielding metabolism.",
+            "supports": "Immune function, energy",
+            "why": "Copper bisglycinate is bound to glycine, like the zinc, so it’s well absorbed. 1mg is 100% of the daily reference intake. It’s there to keep the 15mg of zinc in balance, since zinc taken long-term can lower copper levels.",
+            "refs": "Fosmire GJ. Zinc toxicity. Am J Clin Nutr. 1990.\nEFSA NDA Panel. Scientific opinion on dietary reference values for copper. EFSA J. 2015.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
+          }
+        },
+        "ing19": {
+          "type": "ingredient",
+          "settings": {
+            "name": "BioPerine® (Black Pepper)",
+            "dose": "5 mg",
+            "tags": "Absorption",
+            "colour": "#c4a060",
+            "pattern": "pile",
+            "description": "Black pepper extract. Added to help your body take in the other ingredients.",
+            "supports": "Absorption",
+            "why": "BioPerine is a branded black pepper extract standardised for piperine. Only a small amount is needed, and it adds no taste or heat to the capsules.",
+            "refs": "Shoba G, et al. Influence of piperine on the pharmacokinetics of curcumin in animals and human volunteers. Planta Med. 1998.\nBadmaev V, Majeed M, Prakash L. Piperine derived from black pepper increases the plasma levels of coenzyme Q10 following oral supplementation. J Nutr Biochem. 2000."
+          }
+        }
+      },
+      "block_order": [
+        "cat1",
+        "cat2",
+        "cat3",
+        "cat4",
+        "cat5",
+        "cat6",
+        "ing01",
+        "ing02",
+        "ing03",
+        "ing04",
+        "ing05",
+        "ing06",
+        "ing07",
+        "ing08",
+        "ing09",
+        "ing10",
+        "ing11",
+        "ing12",
+        "ing13",
+        "ing14",
+        "ing15",
+        "ing16",
+        "ing17",
+        "ing18",
+        "ing19"
+      ],
+      "settings": {
+        "cta_label": "Start your 90 days",
+        "cta_link": "/products/muto-nad-cellular-complex",
+        "tests_label": "View third-party testing results",
+        "bg": "#ffffff"
+      }
+    },
+    "tests": {
+      "type": "muto-test-results",
+      "blocks": {
+        "c01": {
+          "type": "cert",
+          "settings": {
+            "lab": "ALS Laboratories (UK) Ltd",
+            "number": "TRTH2761685-1",
+            "scope": "Microbiology, batch 0725021",
+            "date": "22 Jul 2025"
+          }
+        },
+        "c02": {
+          "type": "cert",
+          "settings": {
+            "lab": "ALS Laboratories (UK) Ltd",
+            "number": "TRTH2761684-1",
+            "scope": "Microbiology, batch 0725022",
+            "date": "22 Jul 2025"
+          }
+        },
+        "c03": {
+          "type": "cert",
+          "settings": {
+            "lab": "M S Laboratories Ltd",
+            "number": "CR60146",
+            "scope": "Heavy metals, batches 0725021 and 0725022",
+            "date": "14 Aug 2025"
+          }
+        },
+        "t01": {
+          "type": "test",
+          "settings": {
+            "group": "Heavy metals",
+            "name": "Lead (Pb)",
+            "spec": "Under 3 mg/kg",
+            "result": "0.01 mg/kg",
+            "note": "300× under the limit",
+            "pass": true
+          }
+        },
+        "t02": {
+          "type": "test",
+          "settings": {
+            "group": "Heavy metals",
+            "name": "Arsenic (As)",
+            "spec": "No legal limit for supplements",
+            "result": "0.01 mg/kg",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t03": {
+          "type": "test",
+          "settings": {
+            "group": "Heavy metals",
+            "name": "Mercury (Hg)",
+            "spec": "Under 0.1 mg/kg",
+            "result": "Under 0.01 mg/kg",
+            "note": "Below what the lab can measure",
+            "pass": true
+          }
+        },
+        "t04": {
+          "type": "test",
+          "settings": {
+            "group": "Heavy metals",
+            "name": "Cadmium (Cd)",
+            "spec": "Under 1 mg/kg",
+            "result": "Under 0.01 mg/kg",
+            "note": "Below what the lab can measure",
+            "pass": true
+          }
+        },
+        "t05": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "Salmonella",
+            "spec": "Not detected in 25g",
+            "result": "Not detected",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t06": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "E. coli",
+            "spec": "Under 10 cfu/g",
+            "result": "Under 10 cfu/g",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t07": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "Enterobacteria",
+            "spec": "Under 10,000 cfu/g",
+            "result": "Under 10 cfu/g",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t08": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "Total viable count",
+            "spec": "Under 500,000 cfu/g",
+            "result": "10 cfu/g",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t09": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "Yeasts",
+            "spec": "Under 10,000 cfu/g",
+            "result": "Under 20 cfu/g",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t10": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "Moulds",
+            "spec": "Under 10,000 cfu/g",
+            "result": "Under 20 cfu/g",
+            "note": "",
+            "pass": true
+          }
+        },
+        "f01": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "TMG (trimethylglycine)",
+            "form": "Trimethylglycine",
+            "amount": "450mg"
+          }
+        },
+        "f02": {
+          "type": "item",
+          "settings": {
+            "group": "NR, for NAD+",
+            "name": "NR (nicotinamide riboside)",
+            "form": "Nicotinamide riboside",
+            "amount": "300mg"
+          }
+        },
+        "f03": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "Grape seed extract",
+            "form": "120:1 extract, 95% polyphenols (142.5mg)",
+            "amount": "150mg"
+          }
+        },
+        "f04": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "CoQ10",
+            "form": "Ubiquinone",
+            "amount": "150mg"
+          }
+        },
+        "f05": {
+          "type": "item",
+          "settings": {
+            "group": "Minerals",
+            "name": "Zinc",
+            "form": "Zinc bisglycinate",
+            "amount": "15mg"
+          }
+        },
+        "f06": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "Trans-resveratrol",
+            "form": "From Japanese knotweed root, 95%",
+            "amount": "50mg"
+          }
+        },
+        "f07": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin D3",
+            "form": "Cholecalciferol, from algae",
+            "amount": "50mcg (2,000 IU)"
+          }
+        },
+        "f08": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "PQQ",
+            "form": "Pyrroloquinoline quinone",
+            "amount": "20mg"
+          }
+        },
+        "f09": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B3",
+            "form": "Nicotinamide (no flush)",
+            "amount": "16mg"
+          }
+        },
+        "f10": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B12",
+            "form": "Methylcobalamin",
+            "amount": "100mcg"
+          }
+        },
+        "f11": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B5",
+            "form": "Calcium D-pantothenate",
+            "amount": "10mg"
+          }
+        },
+        "f12": {
+          "type": "item",
+          "settings": {
+            "group": "Minerals",
+            "name": "Copper",
+            "form": "Copper bisglycinate",
+            "amount": "1mg"
+          }
+        },
+        "f13": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin K2",
+            "form": "Menaquinone-7 (MK-7)",
+            "amount": "100mcg"
+          }
+        },
+        "f14": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B6",
+            "form": "Pyridoxal-5′-phosphate (P5P)",
+            "amount": "5mg"
+          }
+        },
+        "f15": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B2",
+            "form": "Riboflavin-5′-phosphate",
+            "amount": "5mg"
+          }
+        },
+        "f16": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B1",
+            "form": "Thiamine hydrochloride",
+            "amount": "5mg"
+          }
+        },
+        "f17": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "BioPerine® black pepper extract",
+            "form": "95% piperine (4.75mg)",
+            "amount": "5mg"
+          }
+        },
+        "f18": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Folate",
+            "form": "L-5-methyltetrahydrofolate (5-MTHF)",
+            "amount": "400mcg"
+          }
+        },
+        "f19": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Biotin",
+            "form": "D-biotin",
+            "amount": "300mcg"
+          }
+        }
+      },
+      "block_order": [
+        "c01",
+        "c02",
+        "c03",
+        "t01",
+        "t02",
+        "t03",
+        "t04",
+        "t05",
+        "t06",
+        "t07",
+        "t08",
+        "t09",
+        "t10",
+        "f01",
+        "f02",
+        "f03",
+        "f04",
+        "f05",
+        "f06",
+        "f07",
+        "f08",
+        "f09",
+        "f10",
+        "f11",
+        "f12",
+        "f13",
+        "f14",
+        "f15",
+        "f16",
+        "f17",
+        "f18",
+        "f19"
+      ],
+      "settings": {
+        "show_button": false,
+        "product": "NAD+ Cellular Complex",
+        "batch": "0725021 · 0725022",
+        "doc_label": "Certificates of analysis",
+        "made": "",
+        "bbe": "",
+        "issued": "Jul–Aug 2025",
+        "heading": "Every result came in within its limit.",
+        "stat_value": "300×",
+        "stat_label": "Under the lead limit",
+        "chip": "No salmonella detected",
+        "note": "Microbiology by ALS Laboratories (UK) Ltd, heavy metals by M S Laboratories Ltd, both independent UK labs. Where the two batches differed, the higher result is shown. Ask us for the certificates: hello@mutolongevity.com",
+        "formula_sub": "What went into each capsule of this batch, per two-capsule serving, heaviest first. Vitamins are made with a small overage so the label dose holds right up to the best-before date.",
+        "capsule": "Capsule: hypromellose (HPMC), made from plant cellulose. Allergen and intolerance free.",
+        "why_1_h": "Heavy metals",
+        "why_1": "<p>Lead, arsenic, cadmium and mercury can build up in the body over time, and they can come in through plant extracts and minerals. Both batches were tested: lead came in at 0.01 mg/kg against a limit of 3, and mercury and cadmium were below what the lab can measure.</p>",
+        "why_2_h": "Microbes",
+        "why_2": "<p>Bacteria, yeasts and moulds can grow in ingredients that are stored or handled badly. Both batches were screened for six, including salmonella and E. coli. No salmonella was detected, and every other count was 20 per gram or under.</p>",
+        "why_3_h": "Who tested it",
+        "why_3": "<p>Microbiology was tested by ALS Laboratories (UK) Ltd and heavy metals by M S Laboratories Ltd, both independent UK laboratories. Every result here is copied from their certificates, listed with their numbers on the overview.</p>",
+        "why_4_h": "Every batch, not just the first",
+        "why_4": "<p>A new batch gets a new certificate. We’ll update these results each time, and your batch number is on the jar.</p>",
+        "scope": "on two production batches"
+      }
+    },
+    "offer": {
+      "type": "muto-sci",
+      "settings": {
+        "layout": "banner",
+        "anchor": "",
+        "eyebrow": "Black Friday · Ends 30 Nov",
+        "heading": "3 months for £99",
+        "text": "Save 53% (was £210), plus a free welcome kit worth £87.",
+        "button_label": "Add to cart",
+        "button_link": "/products/muto-nad-cellular-complex",
+        "link_label": "One-Time Purchase - £70 (no gifts)",
+        "link": "/products/muto-nad-cellular-complex",
+        "col_a": "At 20",
+        "col_b": "After 35",
+        "small": "Skip, pause or cancel online anytime · 90-day guarantee",
+        "space_top": 48,
+        "space_bottom": 96,
+        "image": "shopify://shop_images/muto-science-ride.jpg",
+        "image_alt": "A cyclist riding along a waterfront under a blue sky",
+        "image_position": "62% 50%",
+        "image_position_mobile": "70% 50%"
+      }
+    }
+  },
+  "order": [
+    "library",
+    "offer",
+    "tests"
+  ]
+}

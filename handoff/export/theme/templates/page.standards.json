@@ -1,0 +1,696 @@
+{
+  "sections": {
+    "standards": {
+      "type": "muto-standards",
+      "settings": {
+        "heading": "The standards\nthat set us apart",
+        "lede": "Supplements don’t have to prove much to go on sale in the UK. So we built MUTO to a higher bar, and we show you all of it: every dose on the label, every batch tested, made in the UK.",
+        "list_label": "Our standards",
+        "sticky_top": 120,
+        "space_top": 120,
+        "space_bottom": 100
+      },
+      "blocks": {
+        "s1": {
+          "type": "standard",
+          "settings": {
+            "title": "Every dose on the label",
+            "text": "<p>No proprietary blends. Every one of the 19 ingredients is listed with its exact dose and form, so you know exactly what you’re taking.</p>",
+            "check": "<p>Read the full label on our <a href=\"/pages/ingredients\">ingredients page</a>, or turn the jar round.</p>",
+            "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-made-declared.jpg?v=1790752124",
+            "image_1": "shopify://shop_images/MUTO0266.png"
+          }
+        },
+        "s2": {
+          "type": "standard",
+          "settings": {
+            "title": "Doses chosen for a reason",
+            "text": "<p>NR at 300mg, the most allowed in Great Britain. Vitamin D3 at 2,000 IU. B vitamins in their active, methylated forms. Zinc and copper dosed as a pair, because they compete for absorption. Nothing added just to make the list longer.</p>",
+            "check": "<p>Every dose and form is in the ingredient table.</p>",
+            "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-gift-guide-v2.jpg?v=1791392560",
+            "image_1": "shopify://shop_images/MUTO0296.png"
+          }
+        },
+        "s3": {
+          "type": "standard",
+          "settings": {
+            "title": "Only UK-authorised ingredients",
+            "text": "<p>Every ingredient in MUTO is authorised for use in UK food supplements. That’s why we use NR rather than NMN, which is still under assessment.</p>",
+            "check": "<p>Ask us about any ingredient’s status: <a href=\"mailto:hello@mutolongevity.com\">hello@mutolongevity.com</a></p>",
+            "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-gallery-1.jpg?v=1790879783",
+            "image_1": "shopify://shop_images/nad-jar.jpg"
+          }
+        },
+        "s4": {
+          "type": "standard",
+          "settings": {
+            "title": "Every batch third-party tested",
+            "text": "<p>Not just the first batch. Every batch is tested by an independent lab before it’s released.</p>",
+            "check": "<p>See every test and result for the current batch below, or ask us for your batch’s certificate: <a href=\"mailto:hello@mutolongevity.com\">hello@mutolongevity.com</a></p>",
+            "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-made-tested.jpg?v=1790752123",
+            "tests_button": "View third-party testing results"
+          }
+        },
+        "s5": {
+          "type": "standard",
+          "settings": {
+            "title": "Made in the UK, to GMP",
+            "text": "<p>Manufactured in the UK to GMP (Good Manufacturing Practice) standards, in an ISO-certified facility.</p>",
+            "check": "<p>Ask us for our manufacturing standards.</p>",
+            "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-why-manufacturing.jpg?v=1790767821"
+          }
+        },
+        "s6": {
+          "type": "standard",
+          "settings": {
+            "title": "Nothing you don’t need",
+            "text": "<p>Vegan capsules made from plant cellulose (HPMC). Vitamin D3 from algae. No major allergens, no fillers, no caffeine and no stimulants.</p>",
+            "check": "<p>It’s all on the label.</p>",
+            "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-made-tested.jpg?v=1790752123",
+            "image_1": "shopify://shop_images/nad-guarantee-runner.jpg"
+          }
+        },
+        "s7": {
+          "type": "standard",
+          "settings": {
+            "title": "Scientists with names",
+            "text": "<p>Formulated by Dr Richie Barclay, PhD in cell biology and nutrition, with a six-member scientific advisory board. The board meets every quarter to guide our research and every new formula. It doesn’t endorse products.</p>",
+            "check": "<p>Meet the board on our <a href=\"/pages/about\">About page</a>.</p>",
+            "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-made-scientists.jpg?v=1790752123"
+          }
+        },
+        "s8": {
+          "type": "standard",
+          "settings": {
+            "title": "Research we’ll publish",
+            "text": "<p>A University of Westminster study starts in December 2026, with work at Coventry University and Newcastle University to follow.</p>",
+            "check": "<p>We’ll share every update on this page.</p>",
+            "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-board-3.jpg?v=1790751994",
+            "image_1": "shopify://shop_images/about-founder.jpg"
+          }
+        },
+        "s9": {
+          "type": "standard",
+          "settings": {
+            "title": "Honest claims only",
+            "text": "<p>We only make the health claims UK law authorises, worded exactly. We’ll tell you what MUTO won’t do as clearly as what it will. Every review is genuine, and every creator we work with is disclosed.</p>",
+            "check": "<p>Every claim on our site carries its authorised wording.</p>",
+            "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-made-declared.jpg?v=1790752124"
+          },
+          "disabled": true
+        },
+        "s10": {
+          "type": "standard",
+          "settings": {
+            "title": "Built to be checked",
+            "text": "<p>Note how you feel today. Give it 90 days. If you don’t feel the difference, you get every subscription payment back. Skip, pause or cancel online anytime, with a reminder five days before every payment.</p>",
+            "check": "<p>Guarantee terms are in our <a href=\"/pages/faqs#guarantee\">FAQs</a>.</p>",
+            "image_1_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-step-checkin-close.jpg?v=1791021630",
+            "image_1": "shopify://shop_images/nad-step-baseline.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s6",
+        "s7",
+        "s8",
+        "s9",
+        "s10"
+      ]
+    },
+    "board": {
+      "type": "muto-home-board",
+      "blocks": {
+        "m1": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Dr_James_Cover_Final.png",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-board-3.jpg?v=1790751994",
+            "image_alt": "Dr Alka Patel being interviewed on the MUTO scientific board panel",
+            "image_position": "",
+            "video": "shopify://files/videos/Dr-James-Final4x5.mov",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "name": "Dr James Morehen",
+            "role": "PERFORMANCE NUTRITIONIST, INTERNATIONAL RUGBY",
+            "tag": "Performance"
+          }
+        },
+        "m2": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Dr_Alka_Cover_Final.png",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-board-1.jpg?v=1790751995",
+            "image_alt": "A MUTO scientific advisory board member being interviewed",
+            "image_position": "",
+            "video": "shopify://files/videos/Dr-Alka-Final4x5.mov",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "name": "Dr Alka Patel",
+            "role": "LONGEVITY DOCTOR & GLOBAL SPEAKER",
+            "tag": "Longevity"
+          }
+        },
+        "m3": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Dr_Richard_Cover_Final.png",
+            "image_fallback": "",
+            "image_alt": "A MUTO scientific advisory board member being interviewed",
+            "image_position": "",
+            "video": "shopify://files/videos/Dr-Richard4x5.mov",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "name": "Dr Richard Mackenzie",
+            "role": "LEADING METABOLISM RESEARCHER",
+            "tag": "Energy"
+          }
+        },
+        "m4": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Dr_Matt.png",
+            "image_fallback": "",
+            "image_alt": "A MUTO scientific advisory board member being interviewed",
+            "image_position": "",
+            "video": "shopify://files/videos/Dr-Macie-4x5.mov",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "name": "Dr Maciej Zatonski",
+            "role": "PERFORMANCE & SLEEP DOCTOR",
+            "tag": "Recovery"
+          }
+        },
+        "m5": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Dr-ash-cover-hq.webp",
+            "image_fallback": "",
+            "image_alt": "A MUTO scientific advisory board member being interviewed",
+            "image_position": "",
+            "video": "shopify://files/videos/Dr. ASH Intro.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "name": "Dr Ash Kapoor",
+            "role": "Longevity & Human Optimisation Doctor & Founder of Levitas One",
+            "tag": "Longevity"
+          }
+        },
+        "m6": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Jamie-Paweleck.jpg",
+            "image_fallback": "",
+            "image_alt": "A MUTO scientific advisory board member being interviewed",
+            "image_position": "",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "name": "Dr Jamie Paweleck",
+            "role": "Longevity doctor and medical educator",
+            "tag": "Longevity"
+          }
+        }
+      },
+      "block_order": [
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5",
+        "m6"
+      ],
+      "settings": {
+        "field": false,
+        "heading": "Meet the minds\nbehind MUTO.",
+        "note": "Our Scientific Advisory Board",
+        "rail_gap": 40,
+        "fit": "nad",
+        "space_top": 48,
+        "space_bottom": 100,
+        "compact": true
+      }
+    },
+    "board_css": {
+      "type": "custom-liquid",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_liquid": "<style>[id$=\"__board_css\"]{display:none}#MainContent,[id$=\"__board\"],[id$=\"__board\"] .mh,[id$=\"__standards\"] .ms,[id$=\"__founder\"] .mc{background:#fff!important}[id$=\"__standards\"] .ms__head{max-width:none;display:grid;justify-items:center;text-align:center}[id$=\"__standards\"] .ms__head .mc__h2{max-width:20ch;color:#242223;text-wrap:balance}[id$=\"__standards\"] .ms__lede{margin-left:auto;margin-right:auto;max-width:52ch;text-wrap:balance}</style>"
+      }
+    },
+    "reviews": {
+      "type": "custom-reviews",
+      "name": "Custom Reviews",
+      "settings": {
+        "bg_color": "#fafafa",
+        "padding_top": 110,
+        "padding_bottom": 50,
+        "custom_class": "",
+        "heading": "<p>Customer reviews</p>",
+        "heading_tag": "h2",
+        "heading_color": "#242223",
+        "show_review_bar": false,
+        "review_content": "<script src=\"https://widget.reviews.io/polaris/build.js\"></script>\n<div id=\"ReviewsWidget\"></div>\n<script>\nnew ReviewsWidget('#ReviewsWidget', {\n//Your REVIEWS.io Store ID and widget type:\nstore: 'mutolongevity.com',\nwidget: 'polaris',\n\n//Content settings (store_review,product_review,third_party_review,questions). Choose what to display in this widget:\noptions: {\n    types: 'product_review',\n    enable_sentiment_analysis: true,\n    lang: 'en',\n    //Possible layout options: bordered, large and reverse.\n    layout: '',\n    //How many reviews & questions to show per page?\n    per_page: 15,\n    store_review:{\n      hide_if_no_results: true,\n    },\n    third_party_review:{\n      hide_if_no_results: true,\n    },\n    product_review: {\n      sku: \"MR-OTP;MRS-1M;MRS-3M;52975220851035;52975220883803;52975220916571;10478822981979;muto-nad-cellular-complex;CREATINE-POUCH-OTP;CREATINE-POUCH-1M;CREATINE-POUCH-1.5M;WATER-BOTTLE;WHITE-SOCKS;NAD-1M-Month1;NAD-1M-Month2;NAD-1M-Month3;NAD-1M-Month4;NAD-1M-Month5;NAD-1M-Month6;NAD-3M-Month1;NAD-3M-Month4;NAD-3M-Month7andOn;NAD-1M-Month7andOn\",\n      enable_rich_snippets: true,\n\n      /* Your custom Structured Data */\n      structured_data: {\n\n        name: {{ product.title | strip_html | json }},\n        category: \"\",\n        {% capture gtin_length %}{{ product.variants.first.barcode | size }}{% endcapture %}\n\n\n        {% if gtin_length == \"14\" %}\n           gtin14:\"{{product.variants.first.barcode}}\",\n        {% elsif gtin_length == \"13\" %}\n           gtin13:\"{{product.variants.first.barcode}}\",\n        {% elsif gtin_length == \"12\" %}\n           gtin12:\"{{product.variants.first.barcode}}\",\n        {% endif %}\n\n        url: \"{{ shop.url }}{{ product.url }}\",\n\n        {%- if product.featured_image -%}\n          image: \"https:{{ product.featured_image | image_url: 'grande' }}\",\n        {%- endif -%}\n\n        {% if variant.image %}\n          {% assign variant_image_size = variant.image.width | append: 'x' %}\n          image: \"http:{{ variant.image.src | image_url: variant_image_size }}\",\n        {% endif %}\n\n        description: \"{{ product.description | strip_html | strip_newlines | escape }}\",\n        {% assign ruk_current_variant = product.selected_or_first_available_variant %}\n        {% assign ruk_variant_count = product.variants | size %}\n        {% assign ruk_count = 0 %}\n\n        {% if product.variants %}\n          {% assign ruk_count = ruk_count | plus: 1 %}\n\n          offers: [{\n              type: \"Offer\",\n              priceCurrency: \"{{ cart.currency.iso_code }}\",\n              price: \"{{ ruk_current_variant.price | money_without_currency }}\",\n              itemCondition: \"http://schema.org/NewCondition\",\n              availability: \"http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}\",\n              url: \"{{ shop.url }}{{ ruk_current_variant.url }}\",\n\n              {% if ruk_current_variant.image %}\n                  {% assign variant_image_size = ruk_current_variant.image.width | append: 'x' %}\n                  image: \"https:{{ ruk_current_variant.image.src | image_url: variant_image_size }}\",\n              {% else %}\n                  image: \"https:{{ product.featured_image.src | image_url: 'grande' }}\",\n              {% endif %}\n\n              {% if ruk_current_variant.title != 'Default Title' %}\n                  name: \"{{ product.title | strip_html | escape }} - {{ fa_current_variant.title | escape }}\",\n              {% else %}\n                  name: \"{{ product.title | strip_html | escape }}\",\n              {% endif %}\n\n              {% if ruk_current_variant.barcode.size == 12 %}\n                  gtin12: \"{{ ruk_current_variant.barcode }}\",\n              {% endif %}\n\n              {% if ruk_current_variant.barcode.size == 13 %}\n                  gtin13: \"{{ ruk_current_variant.barcode }}\",\n              {% endif %}\n\n              {% if ruk_current_variant.barcode.size == 14 %}\n                  gtin14: \"{{ ruk_current_variant.barcode }}\",\n              {% endif %}\n\n              {% if ruk_current_variant.sku != blank %}\n                  sku: \"{{ ruk_current_variant.sku }}\",\n              {% else %}\n                  sku: \"{{ ruk_current_variant.id }}\",\n              {% endif %}\n\n              {% if product.description != blank %}\n                  description: \"{{ product.description | strip_html | escape | strip_newlines }}\",\n              {% endif %}\n\n              priceValidUntil: \"{{ 'now' | date: '%s' | plus: 31536000 | date: '%Y-%m-%d' | replace:' ','%20' }}\"\n          }],\n        {% endif %}\n\n        brand: {\n          type: 'Brand',\n          name: '{{ product.vendor | escape }}',\n        },\n      },\n    },\n\n    /* Toggle Options */\n    questions:{\n          hide_if_no_results:false,\n          enable_ask_question:true,\n          show_dates:true,\n          grouping:\"{{ product.variants | map: 'sku' | join: ';' }};{{ product.variants | map: 'id' | join: ';' }}\"\n    },\n\n    //Header settings:\n    header:{\n        enable_summary: true, //Show overall rating & review count\n        enable_ratings: true,\n        enable_attributes: false,\n        enable_image_gallery: false, //Show photo & video gallery\n        enable_percent_recommended: false, //Show what percentage of reviewers recommend it\n        enable_write_review: true, //Show \"Write Review\" button\n        enable_ask_question: false, //Show \"Ask Question\" button\n        enable_sub_header: true, //Show subheader\n        rating_decimal_places: 2,\n        use_write_review_button:  true, //Show \"be the first to leave a review\" text as a button\n        enable_if_no_results:  true, //Show header when there are no results\n        show_review_title_field:  true, //Show review title field in write review form\n    },\n\n    //AI summary settings\n    sentiment:{\n        badge_text: 'Our Customers Say'\n    },\n\n    //Filtering settings:\n    filtering:{\n        enable: true, //Show filtering options\n        enable_text_search: true, //Show search field\n        enable_sorting: true, //Show sorting options (most recent, most popular)\n        enable_product_filter: false, //Show product options filter\n        enable_media_filter: false, //Show reviews with images/video/media options\n        enable_overall_rating_filter: false, //Show overall rating breakdown filter\n        enable_language_filter: false, // Filter by review language\n        enable_language_filter_language_change: false, // Update widget language based on language selected\n        enable_ratings_filters: false, //Show product attributes filter\n        enable_attributes_filters: false, //Show author attributes filter\n        enable_expanded_filters: false, //Show filters as a section instead of dropdown\n    },\n\n    //Review settings:\n    reviews:{\n        enable_avatar: false, //Show author avatar\n        enable_reviewer_name:  true, //Show author name\n        enable_reviewer_address:  true, //Show author location\n        reviewer_address_format: 'city, country', //Author location display format\n        enable_verified_badge: false, //Show \"Verified Customer\" badge\n        enable_subscriber_badge: false, //Show \"Verified Subscriber\" badge\n        review_content_filter: 'undefined', //Filter content\n        enable_reviewer_recommends: false, //Show \"I recommend it\" badge\n        enable_attributes: false, //Show author attributes\n        enable_product_name: false, //Show display product name\n        enable_link_product: false, //Link review to product page\n        enable_review_title: undefined, //Show review title\n        enable_replies: false, //Show review replies\n        enable_images: false, //Show display review photos\n        enable_ratings: false, //Show product attributes (additional ratings)\n        enable_share: false, //Show share buttons\n        enable_helpful_vote: false, //Show \"was this helpful?\" section\n        enable_helpful_display: false, //Show how many times times review upvoted\n        enable_report: false, //Show report button\n        enable_date: false, //Show when review was published\n        date_format: 'undefined', ////Review date format (undefined, 'DD/MM/YYYY', 'MM/DD/YYYY', 'YYYY/MM/DD')\n        date_location: 'undefined', //Review date location (undefined, 'top-right')\n        enable_third_party_source: true, //Show third party source\n        enable_duplicate_reviews: undefined, //Show multiple reviews from the same user\n        combine_title_stars: true, //Combine review title and star rating in a single line\n        show_untranslated: false, //Show untranslated reviews\n\n    },\n},\n//Translation settings\ntranslations: {\n    'Verified Customer': 'Verified Customer'\n},\n//Style settings:\nstyles: {\n    //Base font size is a reference size for all text elements. When base value gets changed, all TextHeading and TexBody elements get proportionally adjusted.\n    '--base-font-size': '16px',\n\n    //Button styles (shared between buttons):\n    '--common-button-font-family': 'inherit',\n    '--common-button-font-size':'16px',\n    '--common-button-font-weight':'500',\n    '--common-button-letter-spacing':'0',\n    '--common-button-text-transform':'none',\n    '--common-button-vertical-padding':'10px',\n    '--common-button-horizontal-padding':'20px',\n    '--common-button-border-width':'2px',\n    '--common-button-border-radius':'0px',\n\n    //Primary button styles:\n    '--primary-button-bg-color': '#0E1311',\n    '--primary-button-border-color': '#0E1311',\n    '--primary-button-text-color': '#ffffff',\n\n    //Secondary button styles:\n    '--secondary-button-bg-color': 'transparent',\n    '--secondary-button-border-color': '#0E1311',\n    '--secondary-button-text-color': '#0E1311',\n\n    //Star styles:\n    '--common-star-color': '#0E1311',\n    '--common-star-disabled-color': 'rgba(0,0,0,0.25)',\n    '--medium-star-size': '22px',\n    '--small-star-size': '19px',\n\n    //Heading styles:\n    '--heading-text-color': '#0E1311',\n    '--heading-text-font-weight': '600',\n    '--heading-text-font-family': 'inherit',\n    '--heading-text-line-height': '1.4',\n    '--heading-text-letter-spacing': '0',\n    '--heading-text-transform': 'none',\n\n    //Body text styles:\n    '--body-text-color': '#0E1311',\n    '--body-text-font-weight': '400',\n    '--body-text-font-family': 'inherit',\n    '--body-text-line-height': '1.4',\n    '--body-text-letter-spacing': '0',\n    '--body-text-transform': 'none',\n\n    //Input field styles:\n    '--inputfield-text-font-family': 'inherit',\n    '--input-text-font-size': '14px',\n    '--inputfield-text-font-weight': '400',\n    '--inputfield-text-color': '#0E1311',\n    '--inputfield-border-color': 'rgba(0,0,0,0.2)',\n    '--inputfield-background-color': 'transparent',\n    '--inputfield-border-width': '1px',\n    '--inputfield-border-radius': '0px',\n\n    '--common-border-color': 'rgba(0,0,0,0.15)',\n    '--common-border-width': '1px',\n    '--common-sidebar-width': '190px',\n\n    //Filters panel styles:\n    '--filters-panel-bg-color': 'transparent',\n    '--filters-panel-font-size': '16px',\n    '--filters-panel-text-color': '16px',\n    '--filters-panel-horizontal-padding': '0',\n    '--filters-panel-vertical-padding': '0',\n\n    //Slider indicator (for attributes) styles:\n    '--slider-indicator-bg-color': 'rgba(0,0,0,0.1)',\n    '--slider-indicator-button-color': '#0E1311',\n    '--slider-indicator-width': '190px',\n\n    //Badge styles:\n    '--badge-icon-color': '#0E1311',\n    '--badge-icon-font-size': 'inherit',\n    '--badge-text-color': '#0E1311',\n    '--badge-text-font-size': 'inherit',\n    '--badge-text-letter-spacing': 'inherit',\n    '--badge-text-transform': 'inherit',\n\n    //Author styles:\n    '--author-font-size': 'inherit',\n    '--author-text-transform': 'none',\n\n    //Author avatar styles:\n    '--avatar-thumbnail-size': '60px',\n    '--avatar-thumbnail-border-radius': '100px',\n    '--avatar-thumbnail-text-color': '#0E1311',\n    '--avatar-thumbnail-bg-color': 'rgba(0,0,0,0.1)',\n\n    //Product photo or review photo styles:\n    '--photo-video-thumbnail-size': '80px',\n    '--photo-video-thumbnail-border-radius': '0px',\n\n    //Media (photo & video) slider styles:\n    '--mediaslider-scroll-button-icon-color': '#0E1311',\n    '--mediaslider-scroll-button-bg-color': 'rgba(255, 255, 255, 0.85)',\n    '--mediaslider-overlay-text-color': '#ffffff',\n    '--mediaslider-overlay-bg-color': 'rgba(0, 0, 0, 0.8))',\n    '--mediaslider-item-size': '110px',\n\n    //Pagination & tabs styles (normal):\n    '--pagination-tab-text-color': '#0E1311',\n    '--pagination-tab-text-transform': 'none',\n    '--pagination-tab-text-letter-spacing': '0',\n    '--pagination-tab-text-font-size': '16px',\n    '--pagination-tab-text-font-weight': '600',\n\n    //Pagination & tabs styles (active):\n    '--pagination-tab-active-text-color': '#0E1311',\n    '--pagination-tab-active-text-font-weight': '600',\n    '--pagination-tab-active-border-color': '#0E1311',\n    '--pagination-tab-border-width': '3px',\n\n    //AI summary styles\n    '--sentiment-base-font-size': '15px',\n    '--sentiment-panel-bg-color': 'transparent',\n    '--sentiment-panel-border-size': '1px',\n    '--sentiment-panel-border-color': 'rgba(0, 0, 0, 0.1)',\n    '--sentiment-panel-border-radius': '0px',\n    '--sentiment-panel-shadow-size': '0px',\n    '--sentiment-panel-shadow-color': 'rgba(0, 0, 0, 0.1)',\n    '--sentiment-heading-text-color': '#0E1311',\n    '--sentiment-heading-text-font-weight': '600',\n    '--sentiment-heading-text-font-family': 'inherit',\n    '--sentiment-heading-text-line-height': '1.4',\n    '--sentiment-heading-text-letter-spacing': '0',\n    '--sentiment-heading-text-transform': 'none',\n    '--sentiment-body-text-color': '#0E1311',\n    '--sentiment-body-text-font-weight': '400',\n    '--sentiment-body-text-font-family': 'inherit',\n    '--sentiment-body-text-line-height': '1.4',\n    '--sentiment-body-text-letter-spacing': '0',\n    '--sentiment-body-text-transform': 'none',\n    '--sentiment-panel-vertical-padding': '25px',\n    '--sentiment-panel-horizontal-padding': '20px',\n    '--sentiment-header-text-color': 'inherit',\n    '--sentiment-header-text-font-size': '12px',\n    '--sentiment-header-text-font-weight': 'inherit',\n    '--sentiment-header-bg-color': 'rgba(0, 0, 0, 0.04)',\n    '--sentiment-header-border-radius': '50px',\n    '--sentiment-header-shadow-size': '0px',\n    '--sentiment-header-shadow-color': 'rgba(0, 0, 0, 0.1)',\n    '--sentiment-header-vertical-padding': '7px',\n    '--sentiment-header-horizontal-padding': '10px',\n    '--sentiment-pagination-tab-text-font-size': '13px',\n    '--sentiment-pagination-tab-text-font-weight': '600',\n    '--sentiment-pagination-tab-text-color': '#0E1311',\n    '--sentiment-pagination-tab-text-transform': 'none',\n    '--sentiment-pagination-tab-text-letter-spacing': '0',\n    '--sentiment-pagination-tab-active-text-color': '#0E1311',\n    '--sentiment-pagination-tab-active-text-font-weight': '600',\n    '--sentiment-pagination-tab-active-border-color': '#0E1311',\n    '--sentiment-pagination-tab-border-width': '3px',\n},\n});\n</script>",
+        "show_button": true,
+        "button_label": "Load more reviews",
+        "button_link": "#",
+        "button_style": "gradient-secondary"
+      }
+    },
+    "tests": {
+      "type": "muto-test-results",
+      "blocks": {
+        "c01": {
+          "type": "cert",
+          "settings": {
+            "lab": "ALS Laboratories (UK) Ltd",
+            "number": "TRTH2761685-1",
+            "scope": "Microbiology, batch 0725021",
+            "date": "22 Jul 2025"
+          }
+        },
+        "c02": {
+          "type": "cert",
+          "settings": {
+            "lab": "ALS Laboratories (UK) Ltd",
+            "number": "TRTH2761684-1",
+            "scope": "Microbiology, batch 0725022",
+            "date": "22 Jul 2025"
+          }
+        },
+        "c03": {
+          "type": "cert",
+          "settings": {
+            "lab": "M S Laboratories Ltd",
+            "number": "CR60146",
+            "scope": "Heavy metals, batches 0725021 and 0725022",
+            "date": "14 Aug 2025"
+          }
+        },
+        "t01": {
+          "type": "test",
+          "settings": {
+            "group": "Heavy metals",
+            "name": "Lead (Pb)",
+            "spec": "Under 3 mg/kg",
+            "result": "0.01 mg/kg",
+            "note": "300× under the limit",
+            "pass": true
+          }
+        },
+        "t02": {
+          "type": "test",
+          "settings": {
+            "group": "Heavy metals",
+            "name": "Arsenic (As)",
+            "spec": "No legal limit for supplements",
+            "result": "0.01 mg/kg",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t03": {
+          "type": "test",
+          "settings": {
+            "group": "Heavy metals",
+            "name": "Mercury (Hg)",
+            "spec": "Under 0.1 mg/kg",
+            "result": "Under 0.01 mg/kg",
+            "note": "Below what the lab can measure",
+            "pass": true
+          }
+        },
+        "t04": {
+          "type": "test",
+          "settings": {
+            "group": "Heavy metals",
+            "name": "Cadmium (Cd)",
+            "spec": "Under 1 mg/kg",
+            "result": "Under 0.01 mg/kg",
+            "note": "Below what the lab can measure",
+            "pass": true
+          }
+        },
+        "t05": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "Salmonella",
+            "spec": "Not detected in 25g",
+            "result": "Not detected",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t06": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "E. coli",
+            "spec": "Under 10 cfu/g",
+            "result": "Under 10 cfu/g",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t07": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "Enterobacteria",
+            "spec": "Under 10,000 cfu/g",
+            "result": "Under 10 cfu/g",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t08": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "Total viable count",
+            "spec": "Under 500,000 cfu/g",
+            "result": "10 cfu/g",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t09": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "Yeasts",
+            "spec": "Under 10,000 cfu/g",
+            "result": "Under 20 cfu/g",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t10": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "Moulds",
+            "spec": "Under 10,000 cfu/g",
+            "result": "Under 20 cfu/g",
+            "note": "",
+            "pass": true
+          }
+        },
+        "f01": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "TMG (trimethylglycine)",
+            "form": "Trimethylglycine",
+            "amount": "450mg"
+          }
+        },
+        "f02": {
+          "type": "item",
+          "settings": {
+            "group": "NR, for NAD+",
+            "name": "NR (nicotinamide riboside)",
+            "form": "Nicotinamide riboside",
+            "amount": "300mg"
+          }
+        },
+        "f03": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "Grape seed extract",
+            "form": "120:1 extract, 95% polyphenols (142.5mg)",
+            "amount": "150mg"
+          }
+        },
+        "f04": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "CoQ10",
+            "form": "Ubiquinone",
+            "amount": "150mg"
+          }
+        },
+        "f05": {
+          "type": "item",
+          "settings": {
+            "group": "Minerals",
+            "name": "Zinc",
+            "form": "Zinc bisglycinate",
+            "amount": "15mg"
+          }
+        },
+        "f06": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "Trans-resveratrol",
+            "form": "From Japanese knotweed root, 95%",
+            "amount": "50mg"
+          }
+        },
+        "f07": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin D3",
+            "form": "Cholecalciferol, from algae",
+            "amount": "50mcg (2,000 IU)"
+          }
+        },
+        "f08": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "PQQ",
+            "form": "Pyrroloquinoline quinone",
+            "amount": "20mg"
+          }
+        },
+        "f09": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B3",
+            "form": "Nicotinamide (no flush)",
+            "amount": "16mg"
+          }
+        },
+        "f10": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B12",
+            "form": "Methylcobalamin",
+            "amount": "100mcg"
+          }
+        },
+        "f11": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B5",
+            "form": "Calcium D-pantothenate",
+            "amount": "10mg"
+          }
+        },
+        "f12": {
+          "type": "item",
+          "settings": {
+            "group": "Minerals",
+            "name": "Copper",
+            "form": "Copper bisglycinate",
+            "amount": "1mg"
+          }
+        },
+        "f13": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin K2",
+            "form": "Menaquinone-7 (MK-7)",
+            "amount": "100mcg"
+          }
+        },
+        "f14": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B6",
+            "form": "Pyridoxal-5′-phosphate (P5P)",
+            "amount": "5mg"
+          }
+        },
+        "f15": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B2",
+            "form": "Riboflavin-5′-phosphate",
+            "amount": "5mg"
+          }
+        },
+        "f16": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B1",
+            "form": "Thiamine hydrochloride",
+            "amount": "5mg"
+          }
+        },
+        "f17": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "BioPerine® black pepper extract",
+            "form": "95% piperine (4.75mg)",
+            "amount": "5mg"
+          }
+        },
+        "f18": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Folate",
+            "form": "L-5-methyltetrahydrofolate (5-MTHF)",
+            "amount": "400mcg"
+          }
+        },
+        "f19": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Biotin",
+            "form": "D-biotin",
+            "amount": "300mcg"
+          }
+        }
+      },
+      "block_order": [
+        "c01",
+        "c02",
+        "c03",
+        "t01",
+        "t02",
+        "t03",
+        "t04",
+        "t05",
+        "t06",
+        "t07",
+        "t08",
+        "t09",
+        "t10",
+        "f01",
+        "f02",
+        "f03",
+        "f04",
+        "f05",
+        "f06",
+        "f07",
+        "f08",
+        "f09",
+        "f10",
+        "f11",
+        "f12",
+        "f13",
+        "f14",
+        "f15",
+        "f16",
+        "f17",
+        "f18",
+        "f19"
+      ],
+      "settings": {
+        "show_button": false,
+        "product": "NAD+ Cellular Complex",
+        "batch": "0725021 · 0725022",
+        "doc_label": "Certificates of analysis",
+        "made": "",
+        "bbe": "",
+        "issued": "Jul–Aug 2025",
+        "heading": "Every result came in within its limit.",
+        "stat_value": "300×",
+        "stat_label": "Under the lead limit",
+        "chip": "No salmonella detected",
+        "note": "Microbiology by ALS Laboratories (UK) Ltd, heavy metals by M S Laboratories Ltd, both independent UK labs. Where the two batches differed, the higher result is shown. Ask us for the certificates: hello@mutolongevity.com",
+        "formula_sub": "What went into each capsule of this batch, per two-capsule serving, heaviest first. Vitamins are made with a small overage so the label dose holds right up to the best-before date.",
+        "capsule": "Capsule: hypromellose (HPMC), made from plant cellulose. Allergen and intolerance free.",
+        "why_1_h": "Heavy metals",
+        "why_1": "<p>Lead, arsenic, cadmium and mercury can build up in the body over time, and they can come in through plant extracts and minerals. Both batches were tested: lead came in at 0.01 mg/kg against a limit of 3, and mercury and cadmium were below what the lab can measure.</p>",
+        "why_2_h": "Microbes",
+        "why_2": "<p>Bacteria, yeasts and moulds can grow in ingredients that are stored or handled badly. Both batches were screened for six, including salmonella and E. coli. No salmonella was detected, and every other count was 20 per gram or under.</p>",
+        "why_3_h": "Who tested it",
+        "why_3": "<p>Microbiology was tested by ALS Laboratories (UK) Ltd and heavy metals by M S Laboratories Ltd, both independent UK laboratories. Every result here is copied from their certificates, listed with their numbers on the overview.</p>",
+        "why_4_h": "Every batch, not just the first",
+        "why_4": "<p>A new batch gets a new certificate. We’ll update these results each time, and your batch number is on the jar.</p>",
+        "scope": "on two production batches"
+      }
+    },
+    "offer": {
+      "type": "muto-sci",
+      "settings": {
+        "layout": "banner",
+        "anchor": "",
+        "eyebrow": "Black Friday · Ends 30 Nov",
+        "heading": "3 months for £99",
+        "text": "Save 53% (was £210), plus a free welcome kit worth £87.",
+        "button_label": "Add to cart",
+        "button_link": "/products/muto-nad-cellular-complex",
+        "link_label": "One-Time Purchase - £70 (no gifts)",
+        "link": "/products/muto-nad-cellular-complex",
+        "col_a": "At 20",
+        "col_b": "After 35",
+        "small": "Skip, pause or cancel online anytime · 90-day guarantee",
+        "space_top": 48,
+        "space_bottom": 96,
+        "image": "shopify://shop_images/muto-science-ride.jpg",
+        "image_alt": "A cyclist riding along a waterfront under a blue sky",
+        "image_position": "62% 50%",
+        "image_position_mobile": "70% 50%"
+      }
+    },
+    "founder": {
+      "type": "muto-crea-founder",
+      "settings": {
+        "eyebrow": "Our founder",
+        "heading": "Built by a doctor\nwho wanted proof.",
+        "text": "<p>Richie Barclay is a cell biologist with a PhD in cellular biology and nutrition, a Harley Street nutritionist for the last 13 years, and a former cricketer and tennis player.</p><p>He started MUTO after years of watching supplements sell on claims nobody had checked, with the doses hidden in blends. So MUTO does it the other way: every dose is on the label, every batch goes to an outside lab, and six doctors and scientists review the formula.</p>",
+        "quote": "I built MUTO because I was tired of supplements that ask you to take them on trust.",
+        "quote_by": "Dr Richie Barclay, PhD, founder",
+        "link_label": "Got a question? Email Richie",
+        "link": "mailto:hello@mutolongevity.com",
+        "image": "shopify://shop_images/MutoxNSPCCEvent-38.jpg",
+        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/founder-bf-stage.jpg?v=1793283537",
+        "image_alt": "Dr Richie Barclay speaking on stage at a MUTO event",
+        "image_position": "50% 30%",
+        "caption": "",
+        "space_top": 100,
+        "space_bottom": 100
+      }
+    }
+  },
+  "order": [
+    "standards",
+    "founder",
+    "board",
+    "offer",
+    "board_css",
+    "reviews",
+    "tests"
+  ]
+}

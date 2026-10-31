@@ -1,0 +1,947 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "buy": {
+      "type": "muto-crea-buy",
+      "blocks": {
+        "g1": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Frame2147230125.png",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/crea-set.jpg?v=1790866924",
+            "image_alt": "The MUTO creatine pouch photographed with the NAD+ Cellular Complex jar, bottle and sachets on a dark background"
+          }
+        },
+        "g2": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Frame2147230126.png",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/crea-thumb-1.jpg?v=1790866924",
+            "image_alt": "A cyclist in a helmet catching her breath, water running down her face"
+          }
+        },
+        "g3": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147230137.png",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/crea-thumb-2.jpg?v=1790866924",
+            "image_alt": "A cyclist at speed, shot with motion blur"
+          }
+        },
+        "g4": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Frame2147230128.png",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/crea-thumb-3.jpg?v=1790866923",
+            "image_alt": "Athletes celebrating together against a clear blue sky"
+          }
+        },
+        "b1": {
+          "type": "point",
+          "settings": {
+            "text": "Repeat hard efforts with less drop-off"
+          }
+        },
+        "b2": {
+          "type": "point",
+          "settings": {
+            "text": "Nothing in the pouch but ultrapure micronised creatine"
+          }
+        },
+        "b3": {
+          "type": "point",
+          "settings": {
+            "text": "Micronised, independently tested, made in the UK"
+          }
+        },
+        "b4": {
+          "type": "point",
+          "settings": {
+            "text": "One scoop with your first meal; up to 10 g on demanding days"
+          }
+        },
+        "t1": {
+          "type": "trust",
+          "settings": {
+            "text": "90-day guarantee"
+          }
+        },
+        "t2": {
+          "type": "trust",
+          "settings": {
+            "text": "Skip, pause or cancel online"
+          }
+        },
+        "t3": {
+          "type": "trust",
+          "settings": {
+            "text": "Third-party tested"
+          }
+        },
+        "p1": {
+          "type": "plan",
+          "settings": {
+            "name": "30 Day Protocol",
+            "price": "£19.99",
+            "price_suffix": "/mo",
+            "was": "£29.99",
+            "save": "Save 31%",
+            "note": "Billed £19.99 every 4 weeks, 66p/day.",
+            "detail": ""
+          }
+        },
+        "p2": {
+          "type": "plan",
+          "settings": {
+            "name": "45 Day Protocol",
+            "price": "£19.99",
+            "price_suffix": "/6wk",
+            "was": "£29.99",
+            "save": "Save 31%",
+            "note": "Billed £19.99 every 6 weeks.",
+            "detail": ""
+          }
+        },
+        "tm1": {
+          "type": "term",
+          "settings": {
+            "text": "90-Day money back guarantee",
+            "plans": ""
+          }
+        },
+        "tm2": {
+          "type": "term",
+          "settings": {
+            "text": "Cancel, skip or pause anytime",
+            "plans": ""
+          }
+        },
+        "a1": {
+          "type": "fold",
+          "settings": {
+            "title": "Ingredients",
+            "text": "<p>Ultrapure micronised creatine monohydrate (250 g). Nothing else: no fillers, flavourings, sweeteners or flow agents.</p>"
+          }
+        },
+        "a2": {
+          "type": "fold",
+          "settings": {
+            "title": "Testing & Manufacturing",
+            "text": "<p>Every batch is independently tested before release and screened for creatinine, DCD and heavy metals. Made in the UK by a GMP-certified manufacturer.</p>"
+          }
+        },
+        "a3": {
+          "type": "fold",
+          "settings": {
+            "title": "How To Enjoy",
+            "text": "<p>One 5 g scoop a day, stirred into water, coffee or a shake, alongside your NAD+ capsules. No loading phase, no cycling, no rest days.</p>"
+          }
+        },
+        "a4": {
+          "type": "fold",
+          "settings": {
+            "title": "Delivery, Skips & Cancelling",
+            "text": "<p>Next day delivery in the UK - £2.99 for orders under £30, free delivery when you spend over £30. Skip, pause or cancel online at any time from your account.</p>"
+          }
+        },
+        "a5": {
+          "type": "fold",
+          "settings": {
+            "title": "90-Day Money Back Guarantee",
+            "text": "<p>If you're not happy with your purchase, or there's any issue with your order, tell us and we'll refund you. You have 90 days.</p>"
+          }
+        },
+        "s1": {
+          "type": "stat",
+          "settings": {
+            "value": "+15%",
+            "text": "More work done across repeated sprints¹"
+          }
+        },
+        "s2": {
+          "type": "stat",
+          "settings": {
+            "value": "+8%",
+            "text": "strength gain, alongside resistance training²"
+          }
+        },
+        "s3": {
+          "type": "stat",
+          "settings": {
+            "value": "+1.37kg",
+            "text": "Lean mass vs placebo in adults over 50 who train³"
+          }
+        },
+        "s4": {
+          "type": "stat",
+          "settings": {
+            "value": "6 RCTs",
+            "text": "Linked creatine to better short-term memory⁴"
+          }
+        },
+        "w1": {
+          "type": "athlete",
+          "settings": {
+            "name": "Harry Insley",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-athlete-harry.jpg?v=1791021221",
+            "image_alt": "Harry Insley running across open parkland in a black vest",
+            "image_position": "50% 6%"
+          }
+        },
+        "w2": {
+          "type": "athlete",
+          "settings": {
+            "name": "Yolanda King",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-athlete-yolanda.jpg?v=1791021221",
+            "image_alt": "Yolanda King standing with her arms folded in front of a row of treadmills",
+            "image_position": "50% 32%"
+          }
+        },
+        "w3": {
+          "type": "athlete",
+          "settings": {
+            "name": "Kaisa Larkas",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-athlete-kaisa.jpg?v=1791025477",
+            "image_alt": "Kaisa Larkas running between stations at a HYROX event",
+            "image_position": "50% 27%"
+          }
+        },
+        "w4": {
+          "type": "athlete",
+          "settings": {
+            "name": "Sam Ekstrom",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-athlete-cyclist.jpg?v=1790767821",
+            "image_alt": "Sam Ekstrom on the drops during a Team GB time trial",
+            "image_position": "50% 30%"
+          }
+        }
+      },
+      "block_order": [
+        "g1",
+        "g2",
+        "g3",
+        "g4",
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "t1",
+        "t2",
+        "t3",
+        "p1",
+        "p2",
+        "tm1",
+        "tm2",
+        "a1",
+        "a2",
+        "a3",
+        "a4",
+        "a5",
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "w1",
+        "w2",
+        "w3",
+        "w4"
+      ],
+      "settings": {
+        "allow_transparent_header": true,
+        "rating_score": "",
+        "rating_count": "",
+        "rating_stars": 5,
+        "eyebrow": "MUTO",
+        "heading": "Ultrapure\nmicronised\ncreatine\nmonohydrate",
+        "serving": "250g | 5–10g per serving",
+        "text": "<p>The fast reserve your muscles draw on when effort spikes. Pure creatine monohydrate, micronised to mix cleanly, independently tested, and taken alongside your NAD+ Cellular Complex as one daily routine.</p><p>Selected by Richie Barclay, PhD in cellular biology and nutrition, and reviewed by a Scientific Advisory Board of seven scientists and clinicians.</p>",
+        "image_fallback": "",
+        "image_alt": "The MUTO creatine pouch photographed with the NAD+ Cellular Complex set",
+        "gallery_from_product": true,
+        "gallery_position": "100% 50%",
+        "note_title": "Why this?",
+        "note_text": "<p>Monohydrate is monohydrate, and we won't pretend otherwise. What's different is the standard: micronised to 200 mesh so it mixes cleanly, nothing added, every batch tested, and it fits the routine you already have. Your NAD+ looks after the steady supply; creatine looks after the fast reserve.</p>",
+        "plans_banner": "",
+        "plans_label": "Choose a plan",
+        "hidden_plans": "",
+        "kit_title": "",
+        "kit_itemised": false,
+        "kit_main": "",
+        "kit_main_note": "Included",
+        "kit_foot_1": "",
+        "kit_foot_1_pop_title": "",
+        "kit_foot_1_pop": "",
+        "kit_foot_2": "",
+        "kit_foot_3": "",
+        "kit_foot_3_pop_title": "",
+        "kit_foot_3_pop": "",
+        "kit_foot_4": "",
+        "kit_foot_4_pop_title": "",
+        "kit_foot_4_pop": "",
+        "gifts_label": "",
+        "gifts_text": "<p>Add what arrives in the months after the first.</p>",
+        "onetime_label": "Prefer to buy one? One-time purchase – [price]",
+        "onetime_link": "",
+        "cta_label": "Add to Cart",
+        "show_quantity": false,
+        "qty_label": "Quantity",
+        "cta_price": true,
+        "cta_link": "",
+        "research_title": "What The Research Shows",
+        "refs": "<p>¹Kreider, R. B. (2003). Mol Cell Biochem, 244, 89–94. ²Rawson, E. S., & Volek, J. S. (2003). J Strength Cond Res, 17(4), 822–831.</p><p>³Chilibeck, P. D., et al. (2017). Open Access J Sports Med, 8, 213–226. ⁴Avgerinos, K. I., et al. (2018). Exp Gerontol, 108, 166–173.</p>",
+        "who_title": "Who Takes It",
+        "schema_on": true,
+        "fit": "crea",
+        "space_top": 0,
+        "space_bottom": 100
+      }
+    },
+    "board": {
+      "type": "muto-home-board",
+      "blocks": {
+        "m1": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Dr_James_Cover_Final.png",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-board-3.jpg?v=1790751994",
+            "image_alt": "Dr Alka Patel being interviewed on the MUTO scientific board panel",
+            "image_position": "",
+            "video": "shopify://files/videos/Dr-James-Final4x5.mov",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "name": "Dr James Morehen",
+            "role": "PERFORMANCE NUTRITIONIST, INTERNATIONAL RUGBY",
+            "tag": "Performance"
+          }
+        },
+        "m2": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Dr_Alka_Cover_Final.png",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-board-1.jpg?v=1790751995",
+            "image_alt": "A MUTO scientific advisory board member being interviewed",
+            "image_position": "",
+            "video": "shopify://files/videos/Dr-Alka-Final4x5.mov",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "name": "Dr Alka Patel",
+            "role": "LONGEVITY DOCTOR & GLOBAL SPEAKER",
+            "tag": "Longevity"
+          }
+        },
+        "m3": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Dr_Richard_Cover_Final.png",
+            "image_fallback": "",
+            "image_alt": "A MUTO scientific advisory board member being interviewed",
+            "image_position": "",
+            "video": "shopify://files/videos/Dr-Richard4x5.mov",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "name": "Dr Richard Mackenzie",
+            "role": "LEADING METABOLISM RESEARCHER",
+            "tag": "Energy"
+          }
+        },
+        "m4": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Dr_Matt.png",
+            "image_fallback": "",
+            "image_alt": "A MUTO scientific advisory board member being interviewed",
+            "image_position": "",
+            "video": "shopify://files/videos/Dr-Macie-4x5.mov",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "name": "Dr Maciej Zatonski",
+            "role": "PERFORMANCE & SLEEP DOCTOR",
+            "tag": "Recovery"
+          }
+        },
+        "m5": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Dr-ash-cover-hq.webp",
+            "image_fallback": "",
+            "image_alt": "A MUTO scientific advisory board member being interviewed",
+            "image_position": "",
+            "video": "shopify://files/videos/Dr. ASH Intro.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "name": "Dr Ash Kapoor",
+            "role": "Longevity & Human Optimisation Doctor & Founder of Levitas One",
+            "tag": "Longevity"
+          }
+        },
+        "m6": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Jamie-Paweleck.jpg",
+            "image_fallback": "",
+            "image_alt": "A MUTO scientific advisory board member being interviewed",
+            "image_position": "",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "name": "Dr Jamie Paweleck",
+            "role": "Longevity doctor and medical educator",
+            "tag": "Longevity"
+          }
+        }
+      },
+      "block_order": [
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5",
+        "m6"
+      ],
+      "settings": {
+        "field": false,
+        "heading": "Meet the minds\nbehind MUTO.",
+        "note": "Our Scientific Advisory Board reviews the formula",
+        "compact": true,
+        "rail_gap": 40,
+        "fit": "nad",
+        "space_top": 60,
+        "space_bottom": 72
+      }
+    },
+    "superior": {
+      "type": "muto-howto",
+      "blocks": {
+        "c1": {
+          "type": "step",
+          "settings": {
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-why-scientists.jpg?v=1790767821",
+            "chip": "01",
+            "title": "Ultrapure",
+            "detail": "≥99.9% pure",
+            "text": "<p>≥99.9% pure creatine monohydrate, and nothing else: no fillers, flavourings or flow agents. Every batch is screened for the impurities and by-products cheaper creatine can carry — creatinine, DCD and heavy metals.</p>"
+          }
+        },
+        "c2": {
+          "type": "step",
+          "settings": {
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-why-manufacturing.jpg?v=1790767821",
+            "chip": "02",
+            "title": "Micronised to mix, not clump.",
+            "detail": "200 mesh",
+            "text": "<p>Milled to a fine powder (200 mesh) so it dissolves cleanly in water, coffee or a shake, with no gritty layer at the bottom of the glass. One scoop, stirred in, gone.</p>"
+          }
+        },
+        "c3": {
+          "type": "step",
+          "settings": {
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-why-wearable.jpg?v=1790767821",
+            "chip": "03",
+            "title": "Independently tested. Made in the UK.",
+            "detail": "Every batch",
+            "text": "<p>Every batch is tested before it's released, and produced in the UK.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3"
+      ],
+      "settings": {
+        "anchor": "",
+        "eyebrow": "Why this creatine",
+        "heading": "The superior\ncreatine choice.",
+        "lede": "Same molecule. Higher standard.",
+        "facts": "",
+        "foot": "",
+        "chip_word": "0",
+        "space_top": 96,
+        "space_bottom": 96
+      },
+      "disabled": true
+    },
+    "benefits": {
+      "type": "muto-benefits",
+      "blocks": {
+        "b0": {
+          "type": "benefit",
+          "settings": {
+            "title": "Performance",
+            "count": "",
+            "outcome": "The last station, not just the first",
+            "doses": "Creatine monohydrate · 5g a day",
+            "text": "Creatine refills the phosphocreatine your muscles spend in the first seconds of a hard effort, so the fast reserve is there again for the next one. Across repeated sprints and stations that shows up as less drop-off from the first to the last.",
+            "ingredients": "",
+            "image": "shopify://shop_images/crea-benefits-feel-run.jpg",
+            "position": ""
+          }
+        },
+        "b1": {
+          "type": "benefit",
+          "settings": {
+            "title": "Strength",
+            "count": "",
+            "outcome": "Built session after session",
+            "doses": "Creatine monohydrate · 5g a day",
+            "text": "More work completed per session is more stimulus to adapt to. Taken daily alongside resistance training, creatine supports the strength you are already working for rather than replacing the work.",
+            "ingredients": "",
+            "image": "shopify://shop_images/crea-step-treadmill.jpg",
+            "position": ""
+          }
+        },
+        "b2": {
+          "type": "benefit",
+          "settings": {
+            "title": "Cognition",
+            "count": "",
+            "outcome": "Fast energy for a busy brain",
+            "doses": "Creatine monohydrate · 5g a day",
+            "text": "Your brain stores creatine for the same reason your muscles do: fast energy when demand spikes. Research is exploring its role in mental performance, with the clearest signals on short sleep and long days.",
+            "ingredients": "",
+            "image": "shopify://shop_images/crea-step-cyclist-blur.jpg",
+            "position": ""
+          }
+        },
+        "b3": {
+          "type": "benefit",
+          "settings": {
+            "title": "Healthy Ageing",
+            "count": "",
+            "outcome": "Strength for years, not seasons",
+            "doses": "Creatine monohydrate · 5g a day",
+            "text": "Strength is part of ageing well. With regular training, a daily scoop helps you keep building it — the trial evidence in adults over 50 is about lean mass kept, not just gained.",
+            "ingredients": "",
+            "image": "shopify://shop_images/crea-step-pulldown.jpg",
+            "position": ""
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3"
+      ],
+      "settings": {
+        "anchor": "benefits",
+        "eyebrow": "Ultrapure micronised creatine",
+        "heading": "Science-backed benefits.",
+        "lede": "What customers notice as creatine stores build over several weeks.",
+        "link_label": "",
+        "link": "",
+        "space_top": 96,
+        "space_bottom": 72
+      }
+    },
+    "steps": {
+      "type": "muto-expect",
+      "blocks": {
+        "s1": {
+          "type": "milestone",
+          "settings": {
+            "day": 0,
+            "label": "Week 1",
+            "title": "Stores begin building.",
+            "text": "<p>One scoop a day begins topping up the creatine your muscles and brain hold in reserve. Nothing to feel yet; this is the foundation.</p>"
+          }
+        },
+        "s2": {
+          "type": "milestone",
+          "settings": {
+            "day": 0,
+            "label": "Weeks 2–4",
+            "title": "Repeat efforts hold up.",
+            "text": "<p>As stores fill, the fast reserve is there when effort spikes: the sprint, the heavy set, the last station. Later intervals start to look more like your first.</p>"
+          }
+        },
+        "s3": {
+          "type": "milestone",
+          "settings": {
+            "day": 0,
+            "label": "Weeks 4–8",
+            "title": "Strength builds.",
+            "text": "<p>With stores full and training consistent, the reserve supports the strength you're working for. Long days and short nights are where you may notice your head staying clearer too.</p>"
+          }
+        },
+        "s4": {
+          "type": "milestone",
+          "settings": {
+            "day": 0,
+            "label": "Weeks 8–12",
+            "title": "Stronger for longer.",
+            "text": "<p>Twelve weeks of training on a full reserve. Strength is part of ageing well, and this is what keeps building it, for years, not just this season.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
+      "settings": {
+        "anchor": "what-to-expect",
+        "eyebrow": "What to expect",
+        "heading": "What you can expect over time.",
+        "lede": "Creatine works by building stores, so the effect grows with consistency.",
+        "foot": "",
+        "space_top": 96,
+        "space_bottom": 96
+      }
+    },
+    "compare": {
+      "type": "muto-cmp2",
+      "blocks": {
+        "r0": {
+          "type": "row",
+          "settings": {
+            "claim": "Pure creatine monohydrate, nothing else",
+            "a": "yes",
+            "a_text": "",
+            "b": "yes",
+            "b_text": ""
+          }
+        },
+        "r1": {
+          "type": "row",
+          "settings": {
+            "claim": "Micronised to mix cleanly",
+            "a": "yes",
+            "a_text": "200 mesh",
+            "b": "",
+            "b_text": "Often not"
+          }
+        },
+        "r2": {
+          "type": "row",
+          "settings": {
+            "claim": "Every batch independently tested",
+            "a": "yes",
+            "a_text": "",
+            "b": "no",
+            "b_text": "Rarely published"
+          }
+        },
+        "r3": {
+          "type": "row",
+          "settings": {
+            "claim": "No fillers, flavours or sweeteners",
+            "a": "yes",
+            "a_text": "",
+            "b": "",
+            "b_text": "Varies"
+          }
+        },
+        "r4": {
+          "type": "row",
+          "settings": {
+            "claim": "No stimulants",
+            "a": "yes",
+            "a_text": "",
+            "b": "yes",
+            "b_text": ""
+          }
+        },
+        "r5": {
+          "type": "row",
+          "settings": {
+            "claim": "Made in the UK",
+            "a": "yes",
+            "a_text": "",
+            "b": "",
+            "b_text": "Rarely"
+          }
+        },
+        "r6": {
+          "type": "row",
+          "settings": {
+            "claim": "Per daily dose",
+            "a": "",
+            "a_text": "5g",
+            "b": "",
+            "b_text": "3–5g"
+          }
+        }
+      },
+      "block_order": [
+        "r0",
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5",
+        "r6"
+      ],
+      "settings": {
+        "anchor": "compare",
+        "eyebrow": "MUTO vs standard creatine",
+        "heading": "Same molecule.\nHigher standard.",
+        "intro": "Creatine monohydrate is creatine monohydrate. What changes is how pure it is, how fine it is, and whether anyone checks.",
+        "col_a": "MUTO",
+        "col_b": "Standard creatine",
+        "blank_label": "Typical",
+        "note": "Comparisons are by category, not brand, and products vary."
+      }
+    },
+    "onescoop": {
+      "type": "muto-howto",
+      "blocks": {
+        "o1": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/muto-creatine-scoop.jpg",
+            "chip": "",
+            "title": "One scoop, with your first meal",
+            "detail": "5g · with food",
+            "text": "<p>5 g a day, stirred into water, coffee or a shake, alongside your NAD+ capsules. No loading phase, no cycling, no rest days. Stores build steadily over the first few weeks, so consistency matters more than timing.</p>"
+          }
+        },
+        "o2": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/bottle-in-use.jpg",
+            "chip": "",
+            "title": "Up to 10 g for your head",
+            "detail": "Up to 10g a day",
+            "text": "<p>For optimal cognitive effects, you can take up to 10 g a day. Add a second scoop later in the day rather than taking both at once; it sits easier on the stomach. Most useful on short sleep and long days.</p>"
+          }
+        },
+        "o3": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/muto-cyclist-phone-check.jpg",
+            "chip": "",
+            "title": "Check it where it shows",
+            "detail": "Weeks 4 · 8 · 12",
+            "text": "<p>Note your reps, splits and how sharp long days feel before your first scoop. Check in at weeks 4, 8 and 12, alongside your NAD+ check-in.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "o1",
+        "o2",
+        "o3"
+      ],
+      "settings": {
+        "anchor": "how-to-take-it",
+        "eyebrow": "How to take it",
+        "heading": "One scoop.\nEvery day.",
+        "lede": "No loading phase, no cycling, no rest days.",
+        "facts": "",
+        "foot": "",
+        "chip_word": "Step",
+        "space_top": 96,
+        "space_bottom": 96
+      }
+    },
+    "faq": {
+      "type": "muto-crea-faq",
+      "blocks": {
+        "q1": {
+          "type": "q",
+          "settings": {
+            "title": "Is MUTO creatine different from cheaper creatine?",
+            "text": "<p>The molecule is the same — creatine monohydrate — and we won't pretend otherwise. The standard is what differs: ≥99.9% pure, micronised to 200 mesh so it dissolves without a gritty layer, nothing added, every batch screened for creatinine, DCD and heavy metals before release, and made in the UK by a GMP-certified manufacturer.</p>"
+          }
+        },
+        "q2": {
+          "type": "q",
+          "settings": {
+            "title": "How much should I take, and when?",
+            "text": "<p>One 5 g scoop a day, stirred into water, coffee or a shake, alongside your NAD+ capsules. There is no loading phase, no cycling and no rest days — stores build steadily over the first few weeks, so consistency matters more than timing. On demanding days, or for cognitive effects, you can take up to 10 g; add the second scoop later in the day rather than both at once.</p>"
+          }
+        },
+        "q3": {
+          "type": "q",
+          "settings": {
+            "title": "Will it make me bloated or put on weight?",
+            "text": "<p>Creatine draws a little water into the muscle, which can read as a small increase on the scales in the first weeks. That is intracellular water, not fat, and it is not the same as bloating. Taking 5 g rather than a 20 g loading dose, and splitting a 10 g day into two scoops, is what keeps it comfortable.</p>"
+          }
+        },
+        "q4": {
+          "type": "q",
+          "settings": {
+            "title": "Is it safe to take with MUTO NAD+ and my other supplements?",
+            "text": "<p>Yes — they are designed as one daily routine: NAD+ looks after the steady supply, creatine after the fast reserve. Creatine monohydrate is one of the most studied supplements there is. If you are pregnant, breastfeeding, taking prescription medication or managing a kidney condition, speak to your doctor before starting anything new.</p>"
+          }
+        },
+        "q5": {
+          "type": "q",
+          "settings": {
+            "title": "Can I stop the creatine without cancelling my NAD+ subscription?",
+            "text": "<p>Yes. Each product is its own subscription, so you can skip, pause or cancel the creatine from your account without touching your NAD+ protocol, and restart it whenever you want.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5"
+      ],
+      "settings": {
+        "heading": "FAQs",
+        "schema_on": true,
+        "space_top": 100,
+        "space_bottom": 100
+      }
+    },
+    "board_anchor": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<style>[id$=\"__board_anchor\"]{height:0;overflow:hidden;margin:0!important;padding:0!important}[id$=\"__board\"] .mh{background:var(--mc-ground,#f9f9f9)}</style><span id=\"scientific-board\" style=\"display:block;position:relative;top:-80px\"></span>",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "range": {
+      "type": "muto-range",
+      "blocks": {
+        "nad": {
+          "type": "product",
+          "settings": {
+            "tab": "NAD+ Cellular Complex",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-shop-nad-v2.jpg?v=1791288517",
+            "chip": "Two capsules a day",
+            "title": "NAD+ Cellular Complex",
+            "text": "A daily multi-nutrient with NAD⁺ support, built for 35+. Five supplements in one jar.",
+            "offer": "Black Friday: 3 months for £99 (was £210) · Ends 30 Nov",
+            "points": "Built for life after 35 | Afternoons that hold, quicker recovery from a busy week, and support for your cells as you age.\nEvery dose on the label | 19 ingredients, no proprietary blends, every batch third-party tested.\n90-day guarantee | Not for you? Get every subscription payment back.",
+            "actives": "300mg | Nicotinamide riboside\n150mg | CoQ10\n20mg | PQQ\n450mg | TMG\n50mg | Trans-resveratrol\n50mcg | Vitamin D3",
+            "button_label": "Shop NAD+ Cellular Complex",
+            "button_link": "/products/muto-nad-cellular-complex",
+            "link_label": "See all 19 ingredients",
+            "link": "/pages/ingredients"
+          }
+        },
+        "cre": {
+          "type": "product",
+          "settings": {
+            "tab": "Creatine",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-shop-creatine-v2.jpg?v=1791288517",
+            "chip": "One scoop a day",
+            "title": "Ultrapure Micronised Creatine",
+            "text": "The fast reserve beside the steady supply. One ingredient, nothing else in the pouch.",
+            "offer": "",
+            "points": "For the hardest efforts | Creatine increases physical performance in successive bursts of short-term, high-intensity exercise. The beneficial effect comes from 3g a day.\nNothing else in it | Ultrapure creatine monohydrate, ≥99.9% pure, every batch tested.\nBuilt to sit with NAD+ | One scoop with your first meal, in water or a smoothie.",
+            "actives": "5g | Per daily dose\n200 mesh | Micronised\n>99.9% | Purity\nTested | By third-party labs",
+            "button_label": "Shop creatine",
+            "button_link": "/products/muto-creatine",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "e0": {
+          "type": "product",
+          "settings": {
+            "tab": "Essentials",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-essentials-socks.jpg?v=1791037580",
+            "chip": "",
+            "title": "Performance socks",
+            "text": "Premium nylon socks designed for activity, with shaping that holds its fit through every session. Light, breathable and built to move with you, from the first mile to the last rep. Made to the same standard as everything else in the protocol.",
+            "offer": "",
+            "points": "",
+            "actives": "",
+            "button_label": "Shop the socks",
+            "button_link": "/products/socks",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "e1": {
+          "type": "product",
+          "settings": {
+            "tab": "Essentials",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-shop-bottle-v2.jpg?v=1791288517",
+            "chip": "",
+            "title": "Performance Bottle",
+            "text": "A BPA-free bottle built for training days and everything in between. Light enough to carry everywhere and easy to clean, with room for your morning scoop of MUTO Creatine. One bottle, from first meal to final session.",
+            "offer": "",
+            "points": "",
+            "actives": "",
+            "button_label": "Shop the bottle",
+            "button_link": "/products/muto-water-bottle",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "nad",
+        "cre",
+        "e0",
+        "e1"
+      ],
+      "settings": {
+        "anchor": "",
+        "eyebrow": "Shop the range",
+        "heading": "Complete the protocol.",
+        "lede": "Creatine for the hardest efforts. NAD+ Cellular Complex for the daily foundation.",
+        "space_top": 96,
+        "space_bottom": 96
+      }
+    },
+    "sbar": {
+      "type": "muto-sbar",
+      "settings": {
+        "label": "Ultrapure Micronised Creatine",
+        "sub": "Cancel, pause or skip anytime",
+        "button": "Add to cart",
+        "schema_on": false
+      }
+    },
+    "offer": {
+      "type": "muto-sci",
+      "settings": {
+        "layout": "banner",
+        "anchor": "",
+        "eyebrow": "Black Friday · Ends 30 Nov",
+        "heading": "3 months for £99",
+        "text": "Save 53% (was £210), plus a free welcome kit worth £87.",
+        "button_label": "Add to cart",
+        "button_link": "/products/muto-nad-cellular-complex",
+        "link_label": "One-Time Purchase - £70 (no gifts)",
+        "link": "/products/muto-nad-cellular-complex",
+        "col_a": "At 20",
+        "col_b": "After 35",
+        "small": "Skip, pause or cancel online anytime · 90-day guarantee",
+        "space_top": 48,
+        "space_bottom": 96,
+        "image": "shopify://shop_images/muto-science-ride.jpg",
+        "image_alt": "A cyclist riding along a waterfront under a blue sky",
+        "image_position": "62% 50%",
+        "image_position_mobile": "70% 50%"
+      }
+    }
+  },
+  "order": [
+    "buy",
+    "board_anchor",
+    "board",
+    "superior",
+    "benefits",
+    "steps",
+    "onescoop",
+    "compare",
+    "range",
+    "faq",
+    "offer",
+    "sbar"
+  ]
+}

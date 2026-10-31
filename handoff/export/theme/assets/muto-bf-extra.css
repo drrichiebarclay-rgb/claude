@@ -1,0 +1,57 @@
+/* Black Friday PDP, latest tweaks (loaded last, from snippets/muto-bf-bar.liquid) */
+/* No stats bar ("92% reported improved energy") */
+html:root body .mc .mc-stats{display:none!important}
+/* One-time purchase under the Add to cart button, a bit bolder */
+html:root body .mc .mc__buy-copy > *{order:4}
+html:root body .mc .mc__buy-copy > .mc__rating,html:root body .mc .mc__buy-copy > .mc__eyebrow,
+html:root body .mc .mc__buy-copy > .mc__buy-title,html:root body .mc .mc__buy-copy > .mc-subhead{order:0}
+html:root body .mc .mc__buy-copy > .mc__trust,html:root body .mc .mc__buy-copy > .mc__plans,
+html:root body .mc .mc__buy-copy > .mc__pf > *,html:root body .mc .mc__buy-copy > .mc__buy-cta,
+html:root body .mc .mc__buy-copy > .mc__buy-actions{order:2}
+html:root body .mc .mc__buy-copy > .mc__pf > .mc__onetime,html:root body .mc .mc__buy-copy > .mpb-x{order:3}
+html:root body .mc .mc__onetime{margin-top:12px!important;color:#242223!important;font-weight:600!important}
+html:root body .mc .mc__onetime > span:first-child::before{font-size:15px;font-weight:600}
+@media (max-width:749px){html:root body .mc .mc__onetime > span:first-child::before{font-size:14px}}
+/* "Thank-you gifts in later boxes" reads "Future monthly gifts" */
+html:root body .mc .mc__kit-sum > span:first-child{font-size:0!important}
+html:root body .mc .mc__kit-sum > span:first-child::before{content:"Future monthly gifts";font-size:14px}
+@media (max-width:749px){html:root body .mc .mc__kit-sum > span:first-child::before{font-size:13px}}
+/* ---- Desktop (990px+): between the compact sizes and the site's usual ones. Phones unchanged. ---- */
+@media (min-width:990px){
+  html:root body #MainContent > .shopify-section:not([id$="__buy"]){zoom:.93}
+  .mc-bfx{font-size:14.5px}
+  .mc-sbar__name{font-size:17px}
+  .mc-sbar__pick-name{font-size:14.5px}
+  .mc-sbar__pick-sub{font-size:12.5px}
+  .mc-sbar__btn{font-size:15.5px}
+  html:root body .mc .mc__stars > span{width:15px!important;height:14px!important}
+  html:root body .mc .mc__rating-text{font-size:14px!important}
+  html:root body .mc .mc__buy-title,html:root body .mc .mc__buy-copy > .mc__buy-title{font-size:clamp(29px,2.7vw,39px)}
+  html:root body .mc .mc-subhead::before{font-size:16px}
+  html:root body .mc .mc-subhead::after{font-size:14.5px}
+  html:root body .mc .mc__plans-banner{font-size:12.5px}
+  html:root body .mc .mc__plan-save{font-size:11.5px}
+  html:root body .mc .mc__plans > label.mc__plan .mc__plan-name::before{font-size:17.5px}
+  html:root body .mc .mc__plans > label.mc__plan .mc__plan-head::after{font-size:13.5px;height:25px}
+  html:root body .mc .mc__plan-prices::before{font-size:20.5px}
+  html:root body .mc .mc__plan-prices::after{font-size:14px}
+  html:root body .mc .mc__plan-note{font-size:13.5px!important}
+  html:root body .mc .mc__plans > .mc__plan-detail{font-size:14px}
+  html:root body .mc .mc__kit-title::before{font-size:11.5px}
+  html:root body .mc .mc__kit-value,html:root body .mc .mc__kit-name{font-size:12px}
+  html:root body .mc .mc__kit-sum > span:first-child::before{font-size:14.5px}
+  html:root body .mc .mc__btn{font-size:16.5px}
+  html:root body .mc .mc__buy-cta{min-height:60px!important}
+  html:root body .mc .mc__buy-cta::after{font-size:13px}
+  html:root body .mc .mc__onetime > span:first-child::before{font-size:15.5px}
+  #MainContent [id$="__buy"] .mpb-del{font-size:14px}
+  #MainContent [id$="__buy"] .mc-tests-btn{font-size:14px;min-height:41px}
+  #MainContent [id$="__buy"] .mpb-doc b{font-size:15px}
+  #MainContent [id$="__buy"] .mpb-doc small{font-size:13px}
+  #MainContent [id$="__buy"] .mpb-lists ul{font-size:15.5px}
+  #MainContent [id$="__buy"] .mpb-lists p{font-size:11px}
+  html:root body .mc .mc__acc-sum{font-size:16px}
+  html:root body .mc .mc__acc-body{font-size:15px}
+}
+/* "The problem" stat figures (~50%, ~80%...): same weight as the section headings */
+html:root body .mc .mc__prb-fig{font-weight:500!important}

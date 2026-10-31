@@ -1,0 +1,557 @@
+{%- comment -%}
+  MUTO — Science (simple). A calm, all-white science page in the same type system as the ingredients
+  page (muto-ingredient-library): the site's uppercase section heading, mono eyebrows, hairline rules,
+  21px item titles, doses in the teal mono. One section type, several layouts:
+    intro      Centred eyebrow, heading, lede, buttons; then an "At 20 / After 35" table (blocks: item:
+               title = row, a = at 20, b = after 35).
+    shifts     Centred heading and lede, the NAD+ decline chart, then numbered columns (blocks: item).
+    jobs       Centred heading and lede, then columns with a mono dose line (blocks: item: title, a = doses, text).
+    numbers    Big figures on hairlines (blocks: item: figure, title, text) and small print.
+    statement  Centred eyebrow, a large statement, a mono line under it.
+    offer      An outlined box: eyebrow, heading, text, button.
+    hero       Copy on the left (eyebrow, h1, line, button), photo and stat cards on the right (blocks: card).
+               On mobile the cards become a sideways-scrolling row.
+    headline   One big centred line with a photo set inside it, where the heading has {image}.
+    banner     A full-width photo with the eyebrow, heading and line over it, and a buy box (3-Month /
+               1-Month plan, add to cart) on top of the photo.
+  Every word is a setting or a block, so it can all be edited in Customize.
+{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign sid = section.id
+-%}
+<style>
+  #shopify-section-{{ sid }}{--msc-ink:#242223;--msc-muted:#5c5a5b;--msc-rule:rgba(36,34,35,.14);--msc-accent:#2f8fa0;--msc-pill:#e3f4f6;--msc-pill-fg:#1f6f7c;--msc-mono:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace}
+  /* Brand faces throughout; the theme's own heading fonts and bold weights don't apply (as on the ingredients page) */
+  #shopify-section-{{ sid }} .msc,#shopify-section-{{ sid }} .msc h1,#shopify-section-{{ sid }} .msc h2,#shopify-section-{{ sid }} .msc h3,#shopify-section-{{ sid }} .msc p{font-family:var(--mc-font,"Neue Haas Grotesk Display Pro"),sans-serif;-webkit-font-smoothing:antialiased}
+  #shopify-section-{{ sid }} .msc b,#shopify-section-{{ sid }} .msc strong{font-weight:500}
+  #shopify-section-{{ sid }} .msc{background:#fff;color:var(--msc-ink)}
+  #shopify-section-{{ sid }} .msc__in{max-width:var(--mc-max,1440px);margin:0 auto;padding:{{ s.space_top }}px var(--mc-gutter,24px) {{ s.space_bottom }}px}
+  #shopify-section-{{ sid }} .msc__head{display:grid;justify-items:center;text-align:center;gap:20px}
+  #shopify-section-{{ sid }} .msc__eye{margin:0;font-family:var(--msc-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--msc-muted)}
+  #shopify-section-{{ sid }} .msc .msc__h{margin:0;max-width:22ch;text-wrap:balance;font-family:var(--mc-font);color:#242223;font-weight:500;font-size:clamp(34px,4.444vw,64px);line-height:.906;letter-spacing:-.014em;text-transform:uppercase}
+  #shopify-section-{{ sid }} .msc__lede{margin:0;max-width:52ch;font-size:clamp(17px,1.4vw,20px);line-height:1.4;text-wrap:balance;color:var(--msc-ink)}
+  #shopify-section-{{ sid }} .msc__btns{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px 24px;margin-top:8px}
+  #shopify-section-{{ sid }} .msc__btn{display:inline-flex;align-items:center;justify-content:center;min-height:60px;padding:0 32px;border-radius:8px;background:#5efaff;color:var(--msc-ink);font-size:16px;font-weight:500;letter-spacing:0;text-decoration:none;transition:background .2s}
+  #shopify-section-{{ sid }} .msc__btn:hover{background:#3ef0f6}
+  #shopify-section-{{ sid }} .msc__link{font-size:16px;font-weight:400;color:var(--msc-ink);text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+  /* The product page's "View third-party testing results" button */
+  #shopify-section-{{ sid }} .msc__tbtn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:10px 24px;border:1.5px solid var(--msc-ink);border-radius:999px;background:none;color:var(--msc-ink);font-size:16px;font-weight:500;text-decoration:none;transition:background .2s,color .2s}
+  #shopify-section-{{ sid }} .msc__tbtn:hover{background:var(--msc-ink);color:#fff}
+  #shopify-section-{{ sid }} .msc__tbtn i{flex:0 0 20px;display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--msc-pill);color:var(--msc-pill-fg);font-style:normal;font-size:11px;font-weight:700}
+  #shopify-section-{{ sid }} .msc__tbtn i::before{content:"\2713"}
+  #shopify-section-{{ sid }} .msc__small{margin:28px auto 0;max-width:72ch;text-align:center;font-size:14px;line-height:1.5;color:var(--msc-muted)}
+  #shopify-section-{{ sid }} .msc__mono{font-family:var(--msc-mono);font-size:14px;font-weight:500;line-height:1.4;color:var(--msc-accent)}
+
+  /* Intro: At 20 / After 35 */
+  #shopify-section-{{ sid }} .msc__vs{max-width:980px;margin:56px auto 0;border-top:1px solid var(--msc-ink)}
+  #shopify-section-{{ sid }} .msc__vs-row{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:24px;padding:20px 0;border-bottom:1px solid var(--msc-rule);align-items:baseline}
+  #shopify-section-{{ sid }} .msc__vs-row--head{padding:16px 0}
+  #shopify-section-{{ sid }} .msc__vs-row--head span{font-family:var(--msc-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--msc-muted)}
+  #shopify-section-{{ sid }} .msc__vs-row--head span:last-child{color:var(--msc-pill-fg)}
+  #shopify-section-{{ sid }} .msc__vs-t{font-size:19px;font-weight:500;line-height:1.25}
+  #shopify-section-{{ sid }} .msc__vs-a{font-size:17px;line-height:1.4;color:var(--msc-muted)}
+  #shopify-section-{{ sid }} .msc__vs-b{font-size:17px;line-height:1.4;font-weight:500}
+
+  /* Shifts: chart, then numbered columns */
+  #shopify-section-{{ sid }} .msc__chart{max-width:980px;margin:48px auto 0;color:var(--msc-ink)}
+  #shopify-section-{{ sid }} .msc__chart svg{display:block;width:100%;height:auto}
+  #shopify-section-{{ sid }} .msc__cols{display:grid;grid-template-columns:repeat(var(--n,3),minmax(0,1fr));gap:40px 28px;margin-top:56px;padding:0;list-style:none}
+  #shopify-section-{{ sid }} .msc__col{margin:0;padding-top:20px;border-top:1px solid var(--msc-ink)}
+  #shopify-section-{{ sid }} .msc__num{font-family:var(--msc-mono);font-size:13px;letter-spacing:.08em;color:var(--msc-muted)}
+  #shopify-section-{{ sid }} .msc__t{margin:12px 0 0;font-size:21px;font-weight:500;line-height:1.2;letter-spacing:-.01em}
+  #shopify-section-{{ sid }} .msc__col .msc__mono{margin:10px 0 0}
+  #shopify-section-{{ sid }} .msc__x{margin:12px 0 0;font-size:16px;line-height:1.5;color:var(--msc-muted)}
+
+  /* Numbers */
+  #shopify-section-{{ sid }} .msc__nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:40px 28px;margin-top:56px}
+  #shopify-section-{{ sid }} .msc__fig{display:block;padding-bottom:18px;border-bottom:1px solid var(--msc-ink);font-size:clamp(48px,5vw,80px);font-weight:500;line-height:.9;letter-spacing:-.03em}
+  #shopify-section-{{ sid }} .msc__fig small{font-size:.5em;letter-spacing:-.01em}
+
+  /* Statement */
+  #shopify-section-{{ sid }} .msc__state{margin:0;max-width:30ch;text-align:center;font-weight:500;font-size:clamp(24px,2.6vw,40px);line-height:1.15;letter-spacing:-.015em;text-wrap:balance}
+  #shopify-section-{{ sid }} .msc__eye--list{margin-top:4px;color:var(--msc-ink);line-height:1.8}
+
+  /* Offer */
+  #shopify-section-{{ sid }} .msc__offer{display:flex;align-items:center;justify-content:space-between;gap:40px;padding:48px;border:1px solid var(--msc-ink);border-radius:8px}
+  #shopify-section-{{ sid }} .msc__offer .msc__h{max-width:none;font-size:clamp(30px,3.4vw,52px)}
+  #shopify-section-{{ sid }} .msc__offer .msc__eye{color:var(--msc-pill-fg)}
+  #shopify-section-{{ sid }} .msc__offer .msc__lede{margin-top:16px}
+
+  /* Hero: copy left, cards right (cards scroll sideways on mobile) */
+  #shopify-section-{{ sid }} .msc__hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:start}
+  #shopify-section-{{ sid }} .msc__copy{position:sticky;top:120px;display:grid;justify-items:start;gap:20px}
+  #shopify-section-{{ sid }} .msc__copy .msc__h{max-width:none;font-size:clamp(34px,3.8vw,56px)}
+  #shopify-section-{{ sid }} .msc__copy .msc__lede{text-wrap:pretty}
+  #shopify-section-{{ sid }} .msc__cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  #shopify-section-{{ sid }} .msc__card{position:relative;display:flex;flex-direction:column;min-height:300px;padding:30px;border-radius:8px;background:#f2f3f2;overflow:hidden}
+  #shopify-section-{{ sid }} .msc__card--wide{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:36px;align-items:end}
+  #shopify-section-{{ sid }} .msc__card--img{color:#fff;background:#242223}
+  #shopify-section-{{ sid }} .msc__card--img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 30%}
+  #shopify-section-{{ sid }} .msc__card--img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.1) 45%,rgba(0,0,0,.65))}
+  #shopify-section-{{ sid }} .msc__card--img > *{position:relative;z-index:1}
+  #shopify-section-{{ sid }} .msc .msc__ct{margin:0;font-size:24px;font-weight:500;line-height:1.1;letter-spacing:-.01em;color:inherit}
+  #shopify-section-{{ sid }} .msc__card .msc__fig{margin:22px 0 0;padding:0;border:0;font-size:clamp(56px,6vw,88px)}
+  #shopify-section-{{ sid }} .msc__card .msc__fig small{font-size:.45em;letter-spacing:0}
+  #shopify-section-{{ sid }} .msc__bars{margin-top:18px}
+  #shopify-section-{{ sid }} .msc__bar{display:block;height:6px;border-radius:3px;background:#242223}
+  #shopify-section-{{ sid }} .msc__bar--base{width:22%;margin-top:14px;background:rgba(36,34,35,.2)}
+  #shopify-section-{{ sid }} .msc__pill{display:inline-block;margin-top:8px;padding:4px 10px;border-radius:999px;background:#5efaff;font-family:var(--msc-mono);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase}
+  #shopify-section-{{ sid }} .msc__base{display:block;margin-top:6px;font-size:13px;color:var(--msc-muted)}
+  #shopify-section-{{ sid }} .msc .msc__ctext{margin:auto 0 0;padding-top:24px;font-size:16px;line-height:1.45;color:inherit}
+  #shopify-section-{{ sid }} .msc__card--wide .msc__ctext{margin:0;padding:0}
+  #shopify-section-{{ sid }} .msc__clink{display:inline-block;margin-top:14px;font-family:var(--msc-mono);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:inherit;text-decoration:underline;text-underline-offset:4px}
+  #shopify-section-{{ sid }} .msc__hero + .msc__small{text-align:left;margin-left:0}
+
+  /* Banner: photo, words over it, buy box */
+  #shopify-section-{{ sid }} .msc__ban{position:relative;display:grid;grid-template-columns:minmax(0,460px) 1fr;align-content:space-between;gap:32px;min-height:720px;padding:56px;border-radius:8px;overflow:hidden;background:#8fb8e0}
+  #shopify-section-{{ sid }} .msc__ban-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{ s.image_position | default: '60% 50%' }}}
+  #shopify-section-{{ sid }} .msc__ban::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(20,24,30,.38),rgba(20,24,30,.08) 55%,rgba(20,24,30,0))}
+  #shopify-section-{{ sid }} .msc__ban-copy,#shopify-section-{{ sid }} .msc__buy{position:relative;z-index:2;grid-column:1}
+  #shopify-section-{{ sid }} .msc__ban-copy{display:grid;gap:16px}
+  #shopify-section-{{ sid }} .msc__ban .msc__eye{color:#fff}
+  #shopify-section-{{ sid }} .msc__ban .msc__h{max-width:12ch;color:#fff;font-size:clamp(34px,4vw,60px)}
+  #shopify-section-{{ sid }} .msc__ban .msc__lede{max-width:34ch;color:#fff;text-wrap:pretty}
+  #shopify-section-{{ sid }} .msc__buy{display:grid;gap:10px;padding:20px;border-radius:8px;background:#fff;color:var(--msc-ink);box-shadow:0 12px 40px rgba(20,24,30,.18)}
+  #shopify-section-{{ sid }} .msc__plan{position:relative;display:grid;grid-template-columns:20px 1fr auto;align-items:center;gap:12px;padding:14px 16px;border:1.5px solid var(--msc-rule);border-radius:8px;cursor:pointer;transition:border-color .2s}
+  #shopify-section-{{ sid }} .msc__plan:has(input:checked){border-color:var(--msc-ink)}
+  #shopify-section-{{ sid }} .msc__plan input{position:absolute;opacity:0;pointer-events:none}
+  #shopify-section-{{ sid }} .msc__dot{width:20px;height:20px;border:1.5px solid var(--msc-ink);border-radius:50%}
+  #shopify-section-{{ sid }} .msc__plan input:checked + .msc__dot{background:radial-gradient(circle,var(--msc-ink) 0 5px,#fff 5.5px)}
+  #shopify-section-{{ sid }} .msc__plan input:focus-visible + .msc__dot{outline:2px solid var(--msc-accent);outline-offset:2px}
+  #shopify-section-{{ sid }} .msc__pn{display:block;font-size:16px;font-weight:500;line-height:1.2;letter-spacing:-.005em}
+  #shopify-section-{{ sid }} .msc__ps{display:block;margin-top:3px;font-size:13px;line-height:1.3;color:var(--msc-muted)}
+  #shopify-section-{{ sid }} .msc__pp{text-align:right;font-size:16px;font-weight:500;line-height:1.2;white-space:nowrap}
+  #shopify-section-{{ sid }} .msc__pp s{display:block;font-size:13px;font-weight:400;color:var(--msc-muted)}
+  #shopify-section-{{ sid }} .msc__save{display:inline-block;margin-left:6px;padding:2px 7px;border-radius:4px;background:#5efaff;font-family:var(--msc-mono);font-size:10.5px;font-weight:500;letter-spacing:.06em;vertical-align:2px}
+  #shopify-section-{{ sid }} .msc__buy .msc__btn{width:100%;margin-top:4px;border:0;cursor:pointer;font-family:inherit}
+  #shopify-section-{{ sid }} .msc__buy .msc__btn[aria-busy="true"]{opacity:.7;cursor:progress}
+  #shopify-section-{{ sid }} .msc__note{margin:2px 0 0;text-align:center;font-size:13px;line-height:1.4;color:var(--msc-muted)}
+  #shopify-section-{{ sid }} .msc__once{text-align:center;font-size:14px;font-weight:600;color:var(--msc-ink);text-decoration:underline;text-underline-offset:3px}
+
+  /* Headline: one big line with a photo inside it */
+  #shopify-section-{{ sid }} .msc__big-wrap{display:grid;justify-items:center;gap:28px;text-align:center}
+  #shopify-section-{{ sid }} .msc .msc__big{margin:0;max-width:24ch;font-weight:500;font-size:clamp(34px,4.444vw,64px);line-height:.906;letter-spacing:-.014em;text-transform:uppercase;text-wrap:balance;color:#242223}
+  #shopify-section-{{ sid }} .msc__inl{display:inline-block;width:1.5em;height:.82em;margin:0 .06em;vertical-align:-.06em;border-radius:999px;overflow:hidden;background:#f2f3f2}
+  #shopify-section-{{ sid }} .msc__inl img{display:block;width:100%;height:100%;object-fit:cover}
+
+  /* Cards: side column, "did you know" dots */
+  #shopify-section-{{ sid }} .msc__card--wide .msc__cside{align-self:end}
+  #shopify-section-{{ sid }} .msc__card--wide:has(.msc__know) .msc__cside{align-self:center}
+  #shopify-section-{{ sid }} .msc__know{display:grid;gap:12px;padding:24px;border-radius:8px;background:#fff}
+  #shopify-section-{{ sid }} .msc__dots{display:grid;grid-template-columns:repeat(10,10px);gap:9px}
+  #shopify-section-{{ sid }} .msc__dots i{width:10px;height:10px;border-radius:50%;background:#c9f3f5}
+  #shopify-section-{{ sid }} .msc__dots i.on{background:var(--msc-ink)}
+  #shopify-section-{{ sid }} .msc__know .msc__eye{margin-top:8px;color:var(--msc-ink)}
+  #shopify-section-{{ sid }} .msc .msc__know-t{margin:0;font-size:16px;line-height:1.4}
+  #shopify-section-{{ sid }} .msc__card--wide .msc__cmain .msc__ctext{padding-top:16px}
+
+  /* Shifts as cards: the same grey cards as the problem section, with an At 20 / After 35 pair */
+  #shopify-section-{{ sid }} .msc__cols--cards{gap:20px}
+  #shopify-section-{{ sid }} .msc__cols--cards .msc__col{display:flex;flex-direction:column;padding:28px;border:0;border-radius:8px;background:#f2f3f2}
+  #shopify-section-{{ sid }} .msc__meta{display:flex;align-items:center;gap:10px}
+  #shopify-section-{{ sid }} .msc__tag{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border:1px solid var(--msc-rule);border-radius:999px;background:#fff;font-family:var(--msc-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--msc-ink)}
+  #shopify-section-{{ sid }} .msc__tag i{width:6px;height:6px;border-radius:50%;background:#5efaff;box-shadow:0 0 0 1px var(--msc-ink)}
+  #shopify-section-{{ sid }} .msc__cols--cards .msc__t{margin-top:20px;font-size:22px}
+  #shopify-section-{{ sid }} .msc__cols--cards .msc__x{margin-top:10px;font-size:16px;color:var(--msc-ink)}
+  #shopify-section-{{ sid }} .msc__ab{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:auto 0 0;padding-top:24px}
+  #shopify-section-{{ sid }} .msc__ab div{padding-top:12px;border-top:1px solid var(--msc-rule)}
+  #shopify-section-{{ sid }} .msc__ab-b{border-top-color:var(--msc-ink)!important}
+  #shopify-section-{{ sid }} .msc__ab dt{font-family:var(--msc-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--msc-muted)}
+  #shopify-section-{{ sid }} .msc__ab-b dt{color:var(--msc-pill-fg)}
+  #shopify-section-{{ sid }} .msc__ab dd{margin:6px 0 0;font-size:15px;line-height:1.35;color:var(--msc-muted)}
+  #shopify-section-{{ sid }} .msc__ab-b dd{color:var(--msc-ink)}
+
+  @media (max-width:989px){
+    #shopify-section-{{ sid }} .msc__cols{grid-template-columns:repeat(2,minmax(0,1fr))}
+    #shopify-section-{{ sid }} .msc__nums{grid-template-columns:repeat(2,minmax(0,1fr))}
+    #shopify-section-{{ sid }} .msc__offer{flex-direction:column;align-items:flex-start;gap:24px;padding:32px}
+    #shopify-section-{{ sid }} .msc__hero{grid-template-columns:1fr;gap:32px}
+    #shopify-section-{{ sid }} .msc__copy{position:static}
+    #shopify-section-{{ sid }} .msc__ban{grid-template-columns:minmax(0,420px) 1fr;padding:40px}
+  }
+  @media (max-width:749px){
+    #shopify-section-{{ sid }} .msc__in{padding:{{ s.space_top | times: 0.66 | round }}px var(--mc-gutter,20px) {{ s.space_bottom | times: 0.66 | round }}px}
+    #shopify-section-{{ sid }} .msc__vs{margin-top:40px}
+    #shopify-section-{{ sid }} .msc__vs-row{grid-template-columns:1fr 1fr;gap:6px 16px;padding:16px 0}
+    #shopify-section-{{ sid }} .msc__vs-t{grid-column:1/-1;font-size:17px}
+    #shopify-section-{{ sid }} .msc__vs-row--head span:first-child{display:none}
+    #shopify-section-{{ sid }} .msc__vs-a,#shopify-section-{{ sid }} .msc__vs-b{font-size:15px}
+    #shopify-section-{{ sid }} .msc__chart{margin-top:32px}
+    #shopify-section-{{ sid }} .msc__cols{grid-template-columns:1fr;gap:28px;margin-top:40px}
+    #shopify-section-{{ sid }} .msc__t{font-size:18px}
+    #shopify-section-{{ sid }} .msc__x{font-size:15px}
+    #shopify-section-{{ sid }} .msc__nums{gap:32px 16px;margin-top:40px}
+    #shopify-section-{{ sid }} .msc__fig{font-size:44px}
+    #shopify-section-{{ sid }} .msc__offer{padding:24px}
+    #shopify-section-{{ sid }} .msc__btn{min-height:56px;width:100%}
+    #shopify-section-{{ sid }} .msc__tbtn{width:100%}
+    #shopify-section-{{ sid }} .msc__copy{gap:16px}
+    #shopify-section-{{ sid }} .msc .msc__big{font-size:34px}
+    #shopify-section-{{ sid }} .msc__card--wide .msc__cside{margin-top:20px}
+    #shopify-section-{{ sid }} .msc__chart{display:none}
+    #shopify-section-{{ sid }} .msc__cols--cards{display:flex;gap:12px;margin:32px -16px 0;padding:0 16px 4px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 16px;scrollbar-width:none}
+    #shopify-section-{{ sid }} .msc__cols--cards::-webkit-scrollbar{display:none}
+    #shopify-section-{{ sid }} .msc__cols--cards .msc__col{flex:0 0 84%;padding:22px;scroll-snap-align:start}
+    #shopify-section-{{ sid }} .msc__cols--cards .msc__t{margin-top:16px;font-size:19px}
+    #shopify-section-{{ sid }} .msc__cols--cards .msc__x{font-size:15px}
+    #shopify-section-{{ sid }} .msc__ab dd{font-size:14px}
+    #shopify-section-{{ sid }} .msc__cards{display:flex;gap:12px;margin:0 -16px;padding:0 16px 4px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 16px;scrollbar-width:none}
+    #shopify-section-{{ sid }} .msc__cards::-webkit-scrollbar{display:none}
+    #shopify-section-{{ sid }} .msc__card{flex:0 0 78%;min-height:300px;padding:22px;scroll-snap-align:start}
+    #shopify-section-{{ sid }} .msc__card--wide{flex-basis:86%;display:flex;align-items:stretch}
+    #shopify-section-{{ sid }} .msc__card--wide .msc__ctext{margin-top:auto;padding-top:20px}
+    #shopify-section-{{ sid }} .msc__ban{display:block;min-height:0;padding:0;border-radius:0;margin:0 -16px;background:none;overflow:visible}
+    #shopify-section-{{ sid }} .msc__ban::before{display:none}
+    #shopify-section-{{ sid }} .msc__ban-media{position:relative;min-height:420px;padding:32px 16px;overflow:hidden;display:flex;align-items:flex-start}
+    #shopify-section-{{ sid }} .msc__ban-media::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(20,24,30,.42),rgba(20,24,30,.05) 60%)}
+    #shopify-section-{{ sid }} .msc__ban-img{object-position:{{ s.image_position_mobile | default: '72% 50%' }}}
+    #shopify-section-{{ sid }} .msc__ban-copy{position:relative;z-index:2}
+    #shopify-section-{{ sid }} .msc__ban .msc__h{font-size:34px}
+    #shopify-section-{{ sid }} .msc__buy{margin:-56px 16px 0;padding:16px}
+    #shopify-section-{{ sid }} .msc__plan{padding:12px 14px}
+  }
+  @media (min-width:750px){
+    #shopify-section-{{ sid }} .msc__ban-media{display:contents}
+  }
+</style>
+
+<div class="msc"{% if s.anchor != blank %} id="{{ s.anchor }}"{% endif %}>
+  <div class="msc__in">
+    {%- capture head -%}
+      {%- if s.eyebrow != blank -%}<p class="msc__eye">{{ s.eyebrow }}</p>{%- endif -%}
+      {%- if s.heading != blank -%}{%- if s.layout == 'intro' and section.index == 1 -%}<h1 class="msc__h">{{ s.heading }}</h1>{%- else -%}<h2 class="msc__h">{{ s.heading }}</h2>{%- endif -%}{%- endif -%}
+      {%- if s.text != blank -%}<p class="msc__lede">{{ s.text }}</p>{%- endif -%}
+    {%- endcapture -%}
+
+    {%- case s.layout -%}
+      {%- when 'intro' -%}
+        <header class="msc__head">
+          {{ head }}
+          {%- if s.button_label != blank or s.link_label != blank -%}
+            <div class="msc__btns">
+              {%- if s.button_label != blank -%}<a class="msc__btn" href="{{ s.button_link }}">{{ s.button_label }}</a>{%- endif -%}
+              {%- if s.link_label != blank -%}<a class="msc__link" href="{{ s.link }}">{{ s.link_label }}</a>{%- endif -%}
+            </div>
+          {%- endif -%}
+        </header>
+        {%- if section.blocks.size > 0 -%}
+          <div class="msc__vs" role="table" aria-label="{{ s.heading | escape }}">
+            <div class="msc__vs-row msc__vs-row--head" role="row"><span role="columnheader"></span><span role="columnheader">{{ s.col_a }}</span><span role="columnheader">{{ s.col_b }}</span></div>
+            {%- for b in section.blocks -%}
+              <div class="msc__vs-row" role="row" {{ b.shopify_attributes }}>
+                <span class="msc__vs-t" role="rowheader">{{ b.settings.title }}</span>
+                <span class="msc__vs-a" role="cell">{{ b.settings.a }}</span>
+                <span class="msc__vs-b" role="cell">{{ b.settings.b }}</span>
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+      {%- when 'shifts' or 'jobs' -%}
+        <header class="msc__head">{{ head }}</header>
+        {%- if s.layout == 'shifts' -%}
+          <div class="msc__chart" aria-hidden="true">
+            <svg viewBox="0 0 980 300" fill="none">
+              <text x="0" y="16" fill="#5c5a5b" font-family="Sometype Mono, monospace" font-size="13" letter-spacing="1.8">NAD+ IN YOUR CELLS</text>
+              <path d="M0 270H980" stroke="#242223" stroke-opacity=".25"/>
+              <path d="M12 64 C 200 66, 300 70, 380 88 S 700 200, 968 236" stroke="#242223" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M380 88V270" stroke="#242223" stroke-opacity=".5" stroke-dasharray="3 6"/>
+              <circle cx="380" cy="88" r="8" fill="#5efaff" stroke="#242223" stroke-width="2"/>
+              <text x="380" y="292" text-anchor="middle" fill="#242223" font-family="Sometype Mono, monospace" font-size="15">35</text>
+              <text x="12" y="292" fill="#5c5a5b" font-family="Sometype Mono, monospace" font-size="13" letter-spacing="1.8">20</text>
+              <text x="968" y="292" text-anchor="end" fill="#5c5a5b" font-family="Sometype Mono, monospace" font-size="13" letter-spacing="1.8">AGE →</text>
+            </svg>
+          </div>
+        {%- endif -%}
+        <ol class="msc__cols{% if s.layout == 'shifts' %} msc__cols--cards{% endif %}" style="--n:{{ section.blocks.size }}">
+          {%- for b in section.blocks -%}
+            <li class="msc__col" {{ b.shopify_attributes }}>
+              {%- if s.layout == 'shifts' -%}
+                <div class="msc__meta"><span class="msc__num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>{%- if b.settings.a != blank -%}<span class="msc__tag"><i aria-hidden="true"></i>{{ b.settings.a }}</span>{%- endif -%}</div>
+                <h3 class="msc__t">{{ b.settings.title }}</h3>
+                {%- if b.settings.text != blank -%}<p class="msc__x">{{ b.settings.text }}</p>{%- endif -%}
+                {%- if b.settings.at20 != blank or b.settings.after35 != blank -%}
+                  <dl class="msc__ab">
+                    <div><dt>{{ s.col_a }}</dt><dd>{{ b.settings.at20 }}</dd></div>
+                    <div class="msc__ab-b"><dt>{{ s.col_b }}</dt><dd>{{ b.settings.after35 }}</dd></div>
+                  </dl>
+                {%- endif -%}
+              {%- else -%}
+                <span class="msc__num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+                <h3 class="msc__t">{{ b.settings.title }}</h3>
+                {%- if b.settings.a != blank -%}<p class="msc__mono">{{ b.settings.a }}</p>{%- endif -%}
+                {%- if b.settings.text != blank -%}<p class="msc__x">{{ b.settings.text }}</p>{%- endif -%}
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ol>
+        {%- if s.small != blank -%}<p class="msc__small">{{ s.small }}</p>{%- endif -%}
+        {%- if s.link_label != blank -%}<p class="msc__small" style="margin-top:28px">{%- if s.link contains 'test-results' -%}<a class="msc__tbtn" href="{{ s.link }}"><i aria-hidden="true"></i>{{ s.link_label }}</a>{%- else -%}<a class="msc__link" href="{{ s.link }}">{{ s.link_label }}</a>{%- endif -%}</p>{%- endif -%}
+
+      {%- when 'numbers' -%}
+        <header class="msc__head">{{ head }}</header>
+        <div class="msc__nums">
+          {%- for b in section.blocks -%}
+            <p {{ b.shopify_attributes }} style="margin:0"><span class="msc__fig">{{ b.settings.figure }}{% if b.settings.unit != blank %}<small>{{ b.settings.unit }}</small>{% endif %}</span>
+              <span class="msc__t" style="display:block;margin-top:16px">{{ b.settings.title }}</span>
+              {%- if b.settings.text != blank -%}<span class="msc__x" style="display:block">{{ b.settings.text }}</span>{%- endif -%}</p>
+          {%- endfor -%}
+        </div>
+        {%- if s.small != blank -%}<p class="msc__small">{{ s.small }}</p>{%- endif -%}
+        {%- if s.link_label != blank -%}<p class="msc__small" style="margin-top:28px">{%- if s.link contains 'test-results' -%}<a class="msc__tbtn" href="{{ s.link }}"><i aria-hidden="true"></i>{{ s.link_label }}</a>{%- else -%}<a class="msc__link" href="{{ s.link }}">{{ s.link_label }}</a>{%- endif -%}</p>{%- endif -%}
+
+      {%- when 'statement' -%}
+        <div class="msc__head">
+          {{ head }}
+          {%- if s.small != blank -%}<p class="msc__eye msc__eye--list">{{ s.small }}</p>{%- endif -%}
+          {%- if s.link_label != blank -%}<a class="msc__link" href="{{ s.link }}">{{ s.link_label }}</a>{%- endif -%}
+        </div>
+
+      {%- when 'headline' -%}
+        {%- liquid
+          assign pic = s.image
+          if pic == blank
+            assign hp = all_products['muto-nad-cellular-complex']
+            if hp != blank
+              assign pic = hp.featured_image
+            endif
+          endif
+          capture inl
+            if pic != blank
+              echo '<span class="msc__inl" aria-hidden="true">'
+              echo pic | image_url: width: 480 | image_tag: loading: 'eager', alt: '', widths: '240,480', sizes: '220px'
+              echo '</span>'
+            endif
+          endcapture
+          assign hl = s.heading | escape | replace: '{image}', inl
+        -%}
+        <div class="msc__big-wrap">
+          {%- if section.index == 1 -%}<h1 class="msc__big">{{ hl }}</h1>{%- else -%}<h2 class="msc__big">{{ hl }}</h2>{%- endif -%}
+          {%- if s.text != blank -%}<p class="msc__lede">{{ s.text }}</p>{%- endif -%}
+        </div>
+
+      {%- when 'hero' -%}
+        <div class="msc__hero">
+          <div class="msc__copy">
+            {%- if s.eyebrow != blank -%}<p class="msc__eye">{{ s.eyebrow }}</p>{%- endif -%}
+            {%- if section.index == 1 -%}<h1 class="msc__h">{{ s.heading | newline_to_br }}</h1>{%- else -%}<h2 class="msc__h">{{ s.heading | newline_to_br }}</h2>{%- endif -%}
+            {%- if s.text != blank -%}<p class="msc__lede">{{ s.text }}</p>{%- endif -%}
+            {%- if s.button_label != blank -%}<a class="msc__btn" href="{{ s.button_link }}">{{ s.button_label }}</a>{%- endif -%}
+            {%- if s.link_label != blank -%}<a class="msc__link" href="{{ s.link }}">{{ s.link_label }}</a>{%- endif -%}
+          </div>
+          <div class="msc__cards">
+            {%- for b in section.blocks -%}
+              {%- assign bs = b.settings -%}
+              {%- liquid
+                assign cls = 'msc__card'
+                if bs.wide
+                  assign cls = cls | append: ' msc__card--wide'
+                endif
+                if bs.image != blank
+                  assign cls = cls | append: ' msc__card--img'
+                endif
+                assign dots_on = bs.dots_on | plus: 0
+                assign dots_total = bs.dots_total | plus: 0
+              -%}
+              <article class="{{ cls }}" {{ b.shopify_attributes }}>
+                {%- if bs.image != blank -%}{{ bs.image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '450,700,900', sizes: '(min-width: 990px) 30vw, 80vw', alt: '' }}{%- endif -%}
+                <div class="msc__cmain">
+                  <h3 class="msc__ct">{{ bs.title }}</h3>
+                  {%- if bs.figure != blank -%}<p class="msc__fig">{{ bs.figure }}{% if bs.unit != blank %}<small>{{ bs.unit }}</small>{% endif %}</p>{%- endif -%}
+                  {%- if bs.bar_label != blank -%}
+                    <div class="msc__bars" aria-hidden="true">
+                      <span class="msc__bar"></span><span class="msc__pill">{{ bs.bar_label }}</span>
+                      {%- if bs.base_label != blank -%}<span class="msc__bar msc__bar--base" style="width:{{ bs.base_pct | default: 22 }}%"></span><span class="msc__base">{{ bs.base_label }}</span>{%- endif -%}
+                    </div>
+                  {%- endif -%}
+                  {%- if dots_total > 0 -%}
+                    {%- if bs.text != blank -%}<p class="msc__ctext">{{ bs.text }}</p>{%- endif -%}
+                    {%- if bs.link_label != blank -%}<a class="msc__clink" href="{{ bs.link }}">{{ bs.link_label }}</a>{%- endif -%}
+                  {%- endif -%}
+                </div>
+                <div class="msc__cside">
+                  {%- if dots_total > 0 -%}
+                    <div class="msc__know">
+                      <div class="msc__dots" aria-hidden="true">
+                        {%- for i in (1..dots_total) -%}
+                          {%- assign k = i | times: 7 | modulo: dots_total -%}
+                          <i{% if k < dots_on %} class="on"{% endif %}></i>
+                        {%- endfor -%}
+                      </div>
+                      {%- if bs.dots_eye != blank -%}<p class="msc__eye">{{ bs.dots_eye }}</p>{%- endif -%}
+                      {%- if bs.dots_text != blank -%}<p class="msc__know-t">{{ bs.dots_text }}</p>{%- endif -%}
+                    </div>
+                  {%- else -%}
+                    {%- if bs.text != blank -%}<p class="msc__ctext">{{ bs.text }}</p>{%- endif -%}
+                    {%- if bs.link_label != blank -%}<a class="msc__clink" href="{{ bs.link }}">{{ bs.link_label }}</a>{%- endif -%}
+                  {%- endif -%}
+                </div>
+              </article>
+            {%- endfor -%}
+          </div>
+        </div>
+        {%- if s.small != blank -%}<p class="msc__small">{{ s.small }}</p>{%- endif -%}
+
+      {%- when 'banner' -%}
+        {%- liquid
+          assign p = all_products['muto-nad-cellular-complex']
+          assign q_v = ''
+          assign q_p = ''
+          assign m_v = ''
+          assign m_p = ''
+          if p != blank
+            for pv in p.variants
+              for alloc in pv.selling_plan_allocations
+                assign n = alloc.selling_plan.name | downcase
+                if q_v == blank and pv.available
+                  if n contains '3-month' or n contains '3 month' or n contains 'quarter'
+                    assign q_v = pv.id
+                    assign q_p = alloc.selling_plan.id
+                  endif
+                endif
+                if m_v == blank and pv.available
+                  if n contains '1-month' or n contains '1 month' or n contains 'monthly'
+                    assign m_v = pv.id
+                    assign m_p = alloc.selling_plan.id
+                  endif
+                endif
+              endfor
+            endfor
+          endif
+          assign purl = '/products/muto-nad-cellular-complex'
+          if p != blank
+            assign purl = p.url
+          endif
+        -%}
+        <div class="msc__ban">
+          <div class="msc__ban-media">
+            {%- if s.image != blank -%}{{ s.image | image_url: width: 2000 | image_tag: class: 'msc__ban-img', loading: 'lazy', widths: '750,1100,1500,2000', sizes: '(min-width: 1320px) 1280px, 100vw', alt: s.image_alt }}{%- endif -%}
+            <div class="msc__ban-copy">
+              {%- if s.eyebrow != blank -%}<p class="msc__eye">{{ s.eyebrow }}</p>{%- endif -%}
+              <h2 class="msc__h">{{ s.heading }}</h2>
+              {%- if s.text != blank -%}<p class="msc__lede">{{ s.text }}</p>{%- endif -%}
+            </div>
+          </div>
+          <form class="msc__buy" data-msc-buy action="{{ purl }}" method="get">
+            {%- if q_v != blank -%}
+              <label class="msc__plan">
+                <input type="radio" name="msc-plan-{{ sid }}" value="{{ q_v }}" data-plan="{{ q_p }}" checked>
+                <span class="msc__dot" aria-hidden="true"></span>
+                <span><span class="msc__pn">3-Month Supply<span class="msc__save">SAVE 53%</span></span><span class="msc__ps">£1.10 a day · free welcome kit worth £87</span></span>
+                <span class="msc__pp">£99<s>£210</s></span>
+              </label>
+            {%- endif -%}
+            {%- if m_v != blank -%}
+              <label class="msc__plan">
+                <input type="radio" name="msc-plan-{{ sid }}" value="{{ m_v }}" data-plan="{{ m_p }}"{% if q_v == blank %} checked{% endif %}>
+                <span class="msc__dot" aria-hidden="true"></span>
+                <span><span class="msc__pn">1-Month Supply<span class="msc__save">SAVE 28%</span></span><span class="msc__ps">£1.79 a day</span></span>
+                <span class="msc__pp">£49.99<s>£70</s></span>
+              </label>
+            {%- endif -%}
+            <button type="submit" class="msc__btn">{{ s.button_label | default: 'Add to cart' }}</button>
+            {%- if s.small != blank -%}<p class="msc__note">{{ s.small }}</p>{%- endif -%}
+            {%- if s.link_label != blank -%}<a class="msc__once" href="{{ s.link | default: purl }}">{{ s.link_label }}</a>{%- endif -%}
+          </form>
+        </div>
+        <script>
+          (function () {
+            var f = document.querySelector('#shopify-section-{{ sid }} [data-msc-buy]');
+            if (!f) return;
+            f.addEventListener('submit', function (e) {
+              var r = f.querySelector('input[type=radio]:checked');
+              if (!r) return;
+              e.preventDefault();
+              var btn = f.querySelector('button'), item = { id: parseInt(r.value, 10), quantity: 1 };
+              if (r.getAttribute('data-plan')) item.selling_plan = parseInt(r.getAttribute('data-plan'), 10);
+              btn.setAttribute('aria-busy', 'true');
+              var root = (window.Shopify && Shopify.routes && Shopify.routes.root) || '/';
+              fetch(root + 'cart/add.js', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify({ items: [item] }) })
+                .then(function (res) { window.location.href = res.ok ? root + 'cart' : f.action; })
+                .catch(function () { window.location.href = f.action; });
+            });
+          })();
+        </script>
+
+      {%- when 'offer' -%}
+        <div class="msc__offer">
+          <div>
+            {%- if s.eyebrow != blank -%}<p class="msc__eye">{{ s.eyebrow }}</p>{%- endif -%}
+            <h2 class="msc__h" style="margin-top:14px">{{ s.heading }}</h2>
+            {%- if s.text != blank -%}<p class="msc__lede">{{ s.text }}</p>{%- endif -%}
+          </div>
+          {%- if s.button_label != blank -%}<a class="msc__btn" href="{{ s.button_link }}">{{ s.button_label }}</a>{%- endif -%}
+        </div>
+        {%- if s.small != blank -%}<p class="msc__small">{{ s.small }}</p>{%- endif -%}
+    {%- endcase -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO — Science (simple)",
+  "tag": "section",
+  "settings": [
+    { "type": "select", "id": "layout", "label": "Layout", "default": "intro", "options": [
+      { "value": "intro", "label": "Intro with At 20 / After 35 table" },
+      { "value": "shifts", "label": "Chart and numbered columns" },
+      { "value": "jobs", "label": "Columns with doses" },
+      { "value": "numbers", "label": "Big numbers" },
+      { "value": "statement", "label": "Statement" },
+      { "value": "offer", "label": "Offer box" },
+      { "value": "hero", "label": "Hero with photo and stat cards" },
+      { "value": "banner", "label": "Photo banner with buy box" },
+      { "value": "headline", "label": "Big headline with a photo inside" }
+    ] },
+    { "type": "text", "id": "anchor", "label": "Anchor" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "info": "Big headline: put {image} where the photo goes" },
+    { "type": "textarea", "id": "text", "label": "Text (statement: the statement)" },
+    { "type": "text", "id": "button_label", "label": "Button" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "text", "id": "link_label", "label": "Text link" },
+    { "type": "url", "id": "link", "label": "Text link URL" },
+    { "type": "text", "id": "col_a", "label": "Table: first column", "default": "At 20" },
+    { "type": "text", "id": "col_b", "label": "Table: second column", "default": "After 35" },
+    { "type": "image_picker", "id": "image", "label": "Photo (banner)" },
+    { "type": "text", "id": "image_alt", "label": "Photo description" },
+    { "type": "text", "id": "image_position", "label": "Photo focus, desktop", "info": "e.g. 60% 50%" },
+    { "type": "text", "id": "image_position_mobile", "label": "Photo focus, mobile", "info": "e.g. 72% 50%" },
+    { "type": "textarea", "id": "small", "label": "Small print (statement: mono line)" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 96 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 96 }
+  ],
+  "blocks": [
+    { "type": "card", "name": "Stat card (hero)", "settings": [
+      { "type": "text", "id": "title", "label": "Title" },
+      { "type": "text", "id": "figure", "label": "Big figure" },
+      { "type": "text", "id": "unit", "label": "Unit after the figure" },
+      { "type": "text", "id": "bar_label", "label": "Bar label" },
+      { "type": "text", "id": "base_label", "label": "Comparison bar label" },
+      { "type": "textarea", "id": "text", "label": "Text" },
+      { "type": "text", "id": "link_label", "label": "Link" },
+      { "type": "url", "id": "link", "label": "Link URL" },
+      { "type": "image_picker", "id": "image", "label": "Background photo" },
+      { "type": "checkbox", "id": "wide", "label": "Full width", "default": false },
+      { "type": "range", "id": "base_pct", "label": "Comparison bar length", "min": 4, "max": 100, "step": 2, "unit": "%", "default": 22 },
+      { "type": "number", "id": "dots_total", "label": "Dots: how many" },
+      { "type": "number", "id": "dots_on", "label": "Dots: how many dark" },
+      { "type": "text", "id": "dots_eye", "label": "Dots: label" },
+      { "type": "textarea", "id": "dots_text", "label": "Dots: text" }
+    ] },
+    { "type": "item", "name": "Item", "settings": [
+      { "type": "text", "id": "title", "label": "Title (table: row name)" },
+      { "type": "text", "id": "a", "label": "Table: first column / columns: mono line" },
+      { "type": "text", "id": "b", "label": "Table: second column" },
+      { "type": "text", "id": "at20", "label": "Cards: At 20" },
+      { "type": "text", "id": "after35", "label": "Cards: After 35" },
+      { "type": "text", "id": "figure", "label": "Big number" },
+      { "type": "text", "id": "unit", "label": "Unit after the number" },
+      { "type": "textarea", "id": "text", "label": "Text" }
+    ] }
+  ],
+  "presets": [{ "name": "MUTO — Science (simple)" }],
+  "enabled_on": { "templates": ["page", "index", "product"] }
+}
+{% endschema %}

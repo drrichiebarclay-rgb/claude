@@ -1,0 +1,168 @@
+{%- comment -%}
+  MUTO — Black Friday head (muto-bf-head). On every page: a compact mobile header (first style block).
+  On the Black Friday product template (product.muto-nad-bf) only: loads every Black Friday style before
+  the page is drawn (this is the header group), so the old design never flashes, and draws the black
+  top bar. The sticky plan bar is muto-bf-offer, in the footer group.
+  Site-wide too: headings at weight 500, reviews widget to match.
+  On the science page (page.science-simple): the comparison and the sticky add to cart (second if block).
+  After Black Friday: remove the Black Friday part (the if block) and keep the compact header styles.
+{%- endcomment -%}
+<style>
+/* Site-wide: headings at the brand's 500 weight (the theme default was heavier), and the reviews widget to match */
+:root{--font-heading-weight:500}
+.custom-reviews-heading h1,.custom-reviews-heading h2,.custom-reviews-heading h3{font-weight:500!important;letter-spacing:-.014em}
+#ReviewsWidget,#ReviewsWidget *{--heading-text-font-weight:500!important;--pagination-tab-text-font-weight:500!important;--pagination-tab-active-text-font-weight:500!important;--sentiment-heading-text-font-weight:500!important;--sentiment-pagination-tab-text-font-weight:500!important;--sentiment-pagination-tab-active-text-font-weight:500!important}
+#ReviewsWidget button,#ReviewsWidget [class*="Heading"],#ReviewsWidget strong,#ReviewsWidget b{font-weight:500!important}
+/* Site-wide, phones and tablets: a shorter header bar (8px margin and padding instead of 24px and 16px,
+   smaller logo, caption and icons); pages under the see-through header move up 44px instead of 76px */
+@media screen and (max-width:989.98px){
+  header.header{margin:8px 10px 0!important;padding-top:8px!important;padding-bottom:8px!important}
+  .header.page-width{padding-left:12px!important;padding-right:12px!important}
+  .header__heading-logo-wrapper{gap:6px!important}
+  .header__heading-logo{width:36px!important;height:auto!important}
+  .header-logo-caption{font-size:6.5px!important;line-height:6px!important;letter-spacing:.4px!important}
+  .header__icon,.header__icon .icon,.header__icon .svg-wrapper{width:18px!important;height:18px!important}
+  .header__icon--cart{margin-left:10px!important}
+  main:has([allow-transparent-header]){margin-top:-44px!important}
+  .template-muto-nad .header-wrapper,.template-muto-bottle .header-wrapper,
+  .template-muto-socks .header-wrapper,.template-muto-creatine .header-wrapper{padding-top:6px!important;padding-bottom:6px!important}
+}
+</style>
+{%- if template.suffix == 'muto-nad-bf' and product != blank -%}
+  {{ 'muto-bf-bar.css' | asset_url | stylesheet_tag }}
+  {{ 'muto-bf-sticky.css' | asset_url | stylesheet_tag }}
+  {{ 'muto-bf-compact.css' | asset_url | stylesheet_tag }}
+  {{ 'muto-bf-layout.css' | asset_url | stylesheet_tag }}
+  {{ 'muto-bf-type.css' | asset_url | stylesheet_tag }}
+  {{ 'muto-bf-copy.css' | asset_url | stylesheet_tag }}
+  <style>
+    /* The testing button is drawn under the image, then moved to where the badges were (muto-bf-layout.js):
+       hidden until it has moved, so its old place never shows */
+    html body .mc .mc__buy-media .mc-tests-btn{display:none!important}
+    /* Add to cart buttons (page and sticky bar): the brand turquoise */
+    html:root body .mc .mc__buy-cta,html:root body .mc-sbar .mc-sbar__btn{background:#5efaff!important;color:#242223!important}
+    html:root body .mc .mc__buy-cta:hover,html:root body .mc-sbar .mc-sbar__btn:hover{background:#3ef0f6!important;filter:none}
+    /* "Free from" and "Made with" lists under the button: smaller */
+    #MainContent [id$="__buy"] .mpb-lists{gap:16px;margin-top:18px}
+    #MainContent [id$="__buy"] .mpb-lists p{margin-bottom:8px;font-size:10.5px}
+    #MainContent [id$="__buy"] .mpb-lists ul{gap:4px;font-size:15px;line-height:1.3}
+    @media (max-width:749px){
+      #MainContent [id$="__buy"] .mpb-lists p{font-size:10px}
+      #MainContent [id$="__buy"] .mpb-lists ul{font-size:13.5px}
+    }
+  </style>
+  {%- render 'muto-bf-bar', product: product -%}
+  <script src="{{ 'muto-bf-claim.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+{%- if template.suffix == 'muto-creatine' or template.suffix == 'muto-socks' or template.suffix == 'muto-bottle' -%}
+  {{ 'muto-range-buy.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+{%- if template.suffix == 'science-simple' -%}
+  {%- comment -%} Science page: styled like the Black Friday product page. Its comparison goes into the
+  template's "compare" slot, and its sections use the product page's scale {%- endcomment -%}
+  <style>
+    /* Same scale as the Black Friday product page's sections */
+    html:root body #MainContent > .shopify-section{zoom:.86}
+    @media (min-width:990px){html:root body #MainContent > .shopify-section{zoom:.93}}
+    @media (max-width:749px){html:root body #MainContent > .shopify-section{zoom:.84}}
+  </style>
+  {%- render 'muto-bf-compare' -%}
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var t = document.getElementById('mc-cmp-tpl'), s = document.querySelector('#MainContent [id$="__compare"]');
+    if (!t || !s || s.querySelector('.mc-cmp')) return;
+    s.innerHTML = ''; s.appendChild(t.content.cloneNode(true));
+    var r = s.querySelector('.mc-cmp'); if (r) r.id = 'muto-vs-the-usual';
+  });
+  </script>
+{%- endif -%}
+<style>
+  /* MUTO type on every page: Neue Haas Grotesk Display for text, Sometype Mono for labels */
+  @font-face{font-family:"Neue Haas Grotesk Display Pro";src:url("https://cdn.shopify.com/s/files/1/0976/2724/2843/files/NeueHaasDisplay-Roman.woff2?v=1788216240") format("woff2");font-weight:400 450;font-style:normal;font-display:swap}
+  @font-face{font-family:"Neue Haas Grotesk Display Pro";src:url("https://cdn.shopify.com/s/files/1/0976/2724/2843/files/NeueHaasDisplay-Mediu.woff2?v=1788216243") format("woff2");font-weight:500 550;font-style:normal;font-display:swap}
+  @font-face{font-family:"Neue Haas Grotesk Display Pro";src:url("https://cdn.shopify.com/s/files/1/0976/2724/2843/files/NeueHaasDisplay-Bold.woff2?v=1788216239") format("woff2");font-weight:600 700;font-style:normal;font-display:swap}
+  @font-face{font-family:"Sometype Mono";src:url("https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gempages_SometypeMono-VariableFont_wght.ttf?v=1788157466") format("truetype-variations");font-weight:400 700;font-style:normal;font-display:swap}
+  :root{--mc-font:"Neue Haas Grotesk Display Pro",-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;--mc-mono:"Sometype Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+  /* A superscript (the + in NAD+) never makes its line taller, so buttons and tabs stay one height */
+  html body sup{line-height:0;vertical-align:.6em;font-size:.6em}
+  /* Sometype Mono is always set in capitals */
+  html body .mrg__acts b,html body .mbp__doses,html body .mbp__list span,html body .msc__mono,html body .mht__d,html body .mex__day,
+  html body .mil__dose,html body .mil-d__dose,html body .mlv__who,html body .mc-cmp .c.z b,html body .mst__eye,html body .msc__eye,html body .msc__num,
+  html body .mbp__num,html body .mbp__eye,html body .mht__eye,html body .mex__eye,html body .mrg__eye,html body .mrg__chip,html body .mht__chip,html body .mbp__chip,
+  html body .mtop__eye,html body .mtop__q,html body .mtop__rate,html body .mlv__rate,html body .msn__nav b,
+  html body .mtr__t td,html body .mtr__row small,html body .mtr__doc,html body .mtr__batch,html body .mtr__tab b,html body .mtr__cert-meta,html body .mtr__cert-row > span:last-child,
+  html body .mil__filter .n,html body .mil__dose,html body .mil__tag,html body .mil__cat-label,html body .mil__eyebrow{text-transform:uppercase!important;letter-spacing:.06em}
+  html body .mtr__t td:first-child{text-transform:none!important;letter-spacing:0}
+  /* One button style: turquoise, 8px corners, as the add to cart */
+  html body .mil__cat-btn,html body .mtr .mtr__cta{display:inline-flex!important;align-items:center;justify-content:center;min-height:56px!important;padding:0 32px!important;border-radius:8px!important;background:#5efaff!important;color:#242223!important;font-family:var(--mc-font)!important;font-size:16px!important;font-weight:500!important;text-decoration:none!important}
+  html body .mil__cat-btn:hover{background:#3ef0f6!important;opacity:1!important}
+  /* Header: plain everywhere. No navy band and no glass pills; black logo, nav and icons. On the home page
+     it sits over the opening photo, so it stays white there. The mobile menu drawer is untouched. */
+  html body header.header,html body .header__heading-link,html body .header__wrapper{background:transparent!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+  html body:not(.template-index) .header-wrapper{background-color:#fff!important}
+  html body:not(.template-index):has([allow-transparent-header]) .header-wrapper{background-color:transparent!important}
+  html body:not(.template-index) .header__heading-logo{filter:invert(100%)!important}
+  html body:not(.template-index) .header-logo-caption{color:#242223!important}
+  html body:not(.template-index) .header__icon,html body:not(.template-index) .header__icon .svg-wrapper{color:#242223!important}
+  html body:not(.template-index) .header__inline-menu .list-menu--inline > li > a.header__menu-item,
+  html body:not(.template-index) .header__inline-menu .list-menu--inline > li > details > summary.header__menu-item,
+  html body:not(.template-index) .header__inline-menu .list-menu--inline > li > a .header__active-menu-item{color:#242223!important}
+  html body.template-index .header-wrapper{background-color:transparent!important}
+  /* The site menu sits above everything on the page, on a solid panel */
+  html body .section-header{z-index:30!important}
+  html body .menu-drawer{background:#2b2a2b!important}
+  /* "On this page" links: hidden where they sit in the page; they appear pinned to the top once you scroll past */
+  html:root body .msn{height:0!important;overflow:visible}
+  html:root body .msn__nav:not(.is-fixed){visibility:hidden;opacity:0;pointer-events:none}
+  html:root body .msn__nav.is-fixed{animation:msnIn .25s ease both}
+  @keyframes msnIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){html:root body .msn__nav.is-fixed{animation:none}}
+  /* Footer headings at the site's heading weight */
+  footer h1,footer h2,footer h3,footer .h1,footer .h2,footer .h3,footer .h4,footer .footer-block__heading,footer .newsletter__heading,
+  .footer h1,.footer h2,.footer h3,.footer .h1,.footer .h2,.footer .footer-block__heading,[id*="__footer"] h2,[id*="__footer"] .h1,[id*="__footer"] .h2{font-weight:500!important}
+</style>
+{%- comment -%} Structured data for search and answer engines: who MUTO is (home), and what the science page is {%- endcomment -%}
+{%- if template.name == 'index' -%}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"Organization","@id":"{{ shop.url }}/#org","name":"MUTO","url":"{{ shop.url }}","logo":"{{ 'Muto-White-Logo.svg' | file_url }}",
+  "description":"MUTO is a UK cellular longevity brand. Its NAD+ Cellular Complex is a daily multi-nutrient with NAD+ support for adults over 35: 19 ingredients with every dose on the label, made in the UK to GMP standards and third-party tested.",
+  "founder":{"@type":"Person","name":"Dr Richie Barclay","jobTitle":"Founder","description":"PhD in cellular biology and nutrition"},
+  "areaServed":"GB","email":"hello@mutolongevity.com"},
+ {"@type":"WebSite","@id":"{{ shop.url }}/#site","url":"{{ shop.url }}","name":"MUTO","publisher":{"@id":"{{ shop.url }}/#org"}}
+]}
+</script>
+{%- elsif template.suffix == 'science-simple' -%}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"What changes in your body after 35, and what NAD+ Cellular Complex does about it",
+ "description":"From your mid-30s your body makes less NAD+, gets less back from food and training, and your cells' maintenance slows. How MUTO NAD+ Cellular Complex is formulated for that stage of life, with every dose on the label.",
+ "url":"{{ shop.url }}{{ page.url }}","inLanguage":"en-GB","about":["NAD+","nicotinamide riboside","healthy ageing","mitochondria"],
+ "author":{"@type":"Person","name":"Dr Richie Barclay","jobTitle":"Founder, PhD in cellular biology and nutrition"},
+ "publisher":{"@type":"Organization","name":"MUTO","url":"{{ shop.url }}"}}
+</script>
+{%- endif -%}
+{%- comment -%} Sticky add to cart on every page. Not on product pages (they have their own buy box and bar),
+the home page (its own sticky section), the cart, accounts or the password page. {%- endcomment -%}
+{%- liquid
+  assign no_sticky = "product,index,cart,password,gift_card,404,search" | split: ","
+  assign tname = template.name | default: ''
+  assign show_sticky = true
+  if no_sticky contains tname or template.directory == 'customers'
+    assign show_sticky = false
+  endif
+  if show_sticky
+    render 'muto-sci-sticky'
+  endif
+-%}
+
+{% schema %}
+{
+  "name": "MUTO — Black Friday head",
+  "tag": "div",
+  "class": "muto-bf-head",
+  "settings": [
+    { "type": "paragraph", "content": "Only on the Black Friday product template (muto-nad-bf): loads the Black Friday styles before the page is drawn, and the top bar with Claim (3-month plan straight to checkout)." }
+  ],
+  "presets": [{ "name": "MUTO — Black Friday head" }]
+}
+{% endschema %}
