@@ -59,7 +59,8 @@
         "body": "",
         "space_top": 100,
         "space_bottom": 100
-      }
+      },
+      "disabled": true
     },
     "mission": {
       "type": "muto-about-statement",
@@ -72,7 +73,8 @@
         "body": "Every dose on the label. Every claim substantiated. A way to see the difference in your own data. And university research that puts our formula under scrutiny, results and all.",
         "space_top": 100,
         "space_bottom": 100
-      }
+      },
+      "disabled": true
     },
     "pillars": {
       "type": "muto-about-pillars",
@@ -128,7 +130,8 @@
         "open_first": true,
         "space_top": 100,
         "space_bottom": 100
-      }
+      },
+      "disabled": true
     },
     "proof": {
       "type": "muto-about-proof",
@@ -188,7 +191,8 @@
         "line_b": "We'd rather\nyou check.",
         "space_top": 100,
         "space_bottom": 100
-      }
+      },
+      "disabled": true
     },
     "founder": {
       "type": "muto-about-founder",
@@ -233,7 +237,8 @@
         "cta_link": "/products/muto-nad-cellular-complex",
         "space_top": 100,
         "space_bottom": 100
-      }
+      },
+      "disabled": true
     },
     "board": {
       "type": "muto-home-board",
@@ -368,7 +373,8 @@
         "fit": "nad",
         "space_top": 104,
         "space_bottom": 100
-      }
+      },
+      "disabled": true
     },
     "research": {
       "type": "muto-about-research",
@@ -397,7 +403,8 @@
         "heading": "Research in\nprogress",
         "space_top": 100,
         "space_bottom": 100
-      }
+      },
+      "disabled": true
     },
     "banner": {
       "type": "muto-about-banner",
@@ -409,7 +416,8 @@
         "cta_link": "/products/muto-nad-cellular-complex",
         "space_top": 100,
         "space_bottom": 100
-      }
+      },
+      "disabled": true
     },
     "made": {
       "type": "muto-about-made",
@@ -540,7 +548,8 @@
         "heading_tag": "h2",
         "heading_color": "#242223",
         "sub_heading": ""
-      }
+      },
+      "disabled": true
     },
     "marathon": {
       "type": "muto-about-marathon",
@@ -722,11 +731,203 @@
         "heading_tag": "h2",
         "heading_color": "#000000",
         "sub_heading": "<p>Trusted by world-leading clinicians</p>"
+      },
+      "disabled": true
+    },
+    "who": {
+      "type": "muto-story",
+      "settings": {
+        "layout": "who",
+        "eyebrow": "Who we are",
+        "text": "MUTO is a UK cellular longevity brand, founded by a PhD cell biologist and reviewed by a six-person Scientific Advisory Board. NAD+ Cellular Complex is built for what your body needs after 35: 19 ingredients in one daily jar, every dose on the label.",
+        "text_2": "We’re not built on hype. Every batch is third-party tested, and our formula is under study with the University of Westminster, Coventry University and Newcastle University. We’ll publish what we find, whatever it shows.",
+        "space_top": 120,
+        "space_bottom": 72
+      }
+    },
+    "mission_v2": {
+      "type": "muto-story",
+      "settings": {
+        "layout": "mission",
+        "eyebrow": "Our mission",
+        "heading": "Biology sets limits.\nWe intend to move them.",
+        "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-trust-runners.jpg?v=1790751994",
+        "image_alt": "Two runners at dusk on a path above a city skyline",
+        "image_position": "50% 50%",
+        "space_top": 72,
+        "space_bottom": 72
+      }
+    },
+    "numbers": {
+      "type": "muto-story",
+      "blocks": {
+        "n1": {
+          "type": "stat",
+          "settings": {
+            "figure": "19",
+            "unit": "",
+            "title": "Ingredients",
+            "text": "Every one on the label, with its dose and the reason it’s there."
+          }
+        },
+        "n2": {
+          "type": "stat",
+          "settings": {
+            "figure": "6",
+            "unit": "",
+            "title": "Scientific advisers",
+            "text": "Doctors and scientists who review the formula."
+          }
+        },
+        "n3": {
+          "type": "stat",
+          "settings": {
+            "figure": "3",
+            "unit": "",
+            "title": "UK universities",
+            "text": "Research programmes with Westminster, Coventry and Newcastle."
+          }
+        },
+        "n4": {
+          "type": "stat",
+          "settings": {
+            "figure": "90",
+            "unit": "",
+            "title": "Day money-back guarantee",
+            "text": "Not for you? Get every subscription payment back."
+          }
+        }
+      },
+      "block_order": [
+        "n1",
+        "n2",
+        "n3",
+        "n4"
+      ],
+      "settings": {
+        "layout": "numbers",
+        "quote": "I built MUTO because I was tired of supplements | that ask you to take them on trust.",
+        "heading": "Dr Richie Barclay, PhD",
+        "text": "Founder",
+        "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-founder.jpg?v=1790751995",
+        "image_alt": "Dr Richie Barclay at home, holding a jar of MUTO NAD+ Cellular Complex",
+        "image_position": "50% 30%",
+        "link_label": "Read the science",
+        "link": "/pages/science",
+        "space_top": 72,
+        "space_bottom": 96
+      }
+    },
+    "team": {
+      "type": "muto-story",
+      "blocks": {
+        "m3": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Dr_Richie_Cover_Final.png",
+            "name": "Dr Richie Barclay",
+            "role": "Founder · Molecular biologist, nutritionist, Harley St consultant",
+            "tag": "Performance"
+          }
+        },
+        "m1": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Dr_James_Cover_Final.png",
+            "name": "Dr James Morehen",
+            "role": "Performance nutritionist, international rugby",
+            "tag": "Performance"
+          }
+        },
+        "m2": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Dr_Alka_Cover_Final.png",
+            "name": "Dr Alka Patel",
+            "role": "Longevity doctor and global speaker",
+            "tag": "Longevity"
+          }
+        },
+        "m4": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Dr_Richard_Cover_Final.png",
+            "name": "Dr Richard Mackenzie",
+            "role": "Leading metabolism researcher",
+            "tag": "Energy"
+          }
+        },
+        "m5": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Dr_Matt_Zatonski.png",
+            "name": "Dr Maciej Zatonski",
+            "role": "Performance and sleep doctor",
+            "tag": "Recovery"
+          }
+        },
+        "m6": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Dr-ash-cover-hq.webp",
+            "name": "Dr Ash Kapoor",
+            "role": "Longevity and human optimisation doctor, founder of Levitas One",
+            "tag": "Longevity"
+          }
+        }
+      },
+      "block_order": [
+        "m3",
+        "m1",
+        "m2",
+        "m4",
+        "m5",
+        "m6"
+      ],
+      "settings": {
+        "layout": "team",
+        "heading": "The minds behind\nthe formula.",
+        "text": "Our Scientific Advisory Board reviews the formula: doctors and scientists in longevity, metabolism, sleep and performance nutrition.",
+        "eyebrow": "Our Scientific Advisory Board",
+        "space_top": 96,
+        "space_bottom": 96
+      }
+    },
+    "offer": {
+      "type": "muto-sci",
+      "settings": {
+        "layout": "banner",
+        "anchor": "",
+        "eyebrow": "Black Friday · Ends 30 Nov",
+        "heading": "3 months for £99",
+        "text": "Save 53% (was £210), plus a free welcome kit worth £87.",
+        "button_label": "Add to cart",
+        "button_link": "/products/muto-nad-cellular-complex",
+        "link_label": "One-Time Purchase - £70 (no gifts)",
+        "link": "/products/muto-nad-cellular-complex",
+        "col_a": "At 20",
+        "col_b": "After 35",
+        "small": "Skip, pause or cancel online anytime · 90-day guarantee",
+        "space_top": 48,
+        "space_bottom": 96,
+        "image": "shopify://shop_images/muto-science-ride.jpg",
+        "image_alt": "A cyclist riding along a waterfront under a blue sky",
+        "image_position": "62% 50%",
+        "image_position_mobile": "70% 50%"
       }
     }
   },
   "order": [
     "hero",
+    "who",
+    "mission_v2",
+    "numbers",
+    "team",
+    "made",
+    "marathon",
+    "events",
+    "offer",
+    "custom_reviews_4ziABB",
     "vision",
     "mission",
     "pillars",
@@ -735,11 +936,7 @@
     "board",
     "research",
     "banner",
-    "made",
     "custom_verified_data_showcase_3AGddY",
-    "marathon",
-    "events",
-    "custom_reviews_4ziABB",
     "custom_experts_showcase_FjAJKJ"
   ]
 }

@@ -1,0 +1,210 @@
+{%- comment -%}
+  MUTO — About story. The About page in the style of the science and ingredients pages: white,
+  the site's uppercase heading in --mc-ink, mono eyebrows and numbers, hairline rules. Layouts:
+    who       Centred mono eyebrow over one or two large paragraphs (text, text_2).
+    mission   Centred heading over a full-width photo (or video) with rounded corners.
+    numbers   A row of figures on dotted rules (blocks: stat), then a founder photo beside a large quote
+              (quote: the part before "|" is ink, the rest is grey), with name and role.
+    team      Heading left, a note right, a dotted rule, a small label, then a grid of portraits
+              (blocks: member) with name and role. MOBILE: two to a row.
+{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign sid = section.id
+-%}
+<style>
+  #shopify-section-{{ sid }}{--mst-ink:#242223;--mst-head:var(--mc-ink,#162f31);--mst-muted:#6b6a6a;--mst-rule:rgba(36,34,35,.14);--mst-tile:#f1f1ef;--mst-accent:#2f8fa0;--mst-mono:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace}
+  #shopify-section-{{ sid }} .mst,#shopify-section-{{ sid }} .mst h2,#shopify-section-{{ sid }} .mst h3,#shopify-section-{{ sid }} .mst p,#shopify-section-{{ sid }} .mst blockquote{font-family:var(--mc-font,"Neue Haas Grotesk Display Pro"),sans-serif;-webkit-font-smoothing:antialiased}
+  #shopify-section-{{ sid }} .mst{background:#fff;color:var(--mst-ink)}
+  #shopify-section-{{ sid }} .mst__wrap{max-width:1320px;margin:0 auto;padding:{{ s.space_top }}px 20px {{ s.space_bottom }}px}
+  #shopify-section-{{ sid }} .mst__eye{margin:0;font-family:var(--mst-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mst-muted)}
+  #shopify-section-{{ sid }} .mst .mst__h{margin:0;text-wrap:balance;color:var(--mst-head);font-weight:500;font-size:clamp(34px,4.444vw,64px);line-height:.906;letter-spacing:-.014em;text-transform:uppercase}
+
+  /* Who we are */
+  #shopify-section-{{ sid }} .mst__who{display:grid;justify-items:center;gap:28px;text-align:center}
+  #shopify-section-{{ sid }} .mst__who p.mst__big{margin:0 auto;max-width:40ch;font-weight:400;font-size:clamp(24px,2.5vw,38px);line-height:1.22;letter-spacing:-.012em;color:var(--mst-ink);text-wrap:balance}
+  #shopify-section-{{ sid }} .mst__who p.mst__big + p.mst__big{margin-top:32px}
+
+  /* Mission */
+  #shopify-section-{{ sid }} .mst__mis{display:grid;justify-items:center;gap:20px;text-align:center}
+  #shopify-section-{{ sid }} .mst__mis .mst__h{max-width:16ch}
+  #shopify-section-{{ sid }} .mst__media{position:relative;width:100%;margin-top:36px;aspect-ratio:16/7;border-radius:8px;overflow:hidden;background:var(--mst-tile)}
+  #shopify-section-{{ sid }} .mst__media img,#shopify-section-{{ sid }} .mst__media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{ s.image_position | default: '50% 50%' }}}
+
+  /* Numbers */
+  #shopify-section-{{ sid }} .mst__stats{display:grid;grid-template-columns:repeat({{ section.blocks.size | at_least: 1 }},minmax(0,1fr));gap:36px;margin:0;padding:0;list-style:none}
+  #shopify-section-{{ sid }} .mst__fig{display:block;padding-bottom:22px;background:radial-gradient(circle,rgba(36,34,35,.4) .9px,transparent 1.2px) bottom left/6px 3px repeat-x;font-family:var(--mst-mono);font-weight:500;font-size:clamp(44px,4.4vw,68px);line-height:1;letter-spacing:-.03em;color:var(--mst-ink)}
+  #shopify-section-{{ sid }} .mst__fig sup{font-size:.42em;vertical-align:.9em;margin-left:2px}
+  #shopify-section-{{ sid }} .mst__st{display:block;margin-top:20px;font-size:18px;font-weight:500;line-height:1.25}
+  #shopify-section-{{ sid }} .mst__sx{display:block;margin-top:8px;font-size:15.5px;line-height:1.45;color:var(--mst-muted)}
+  #shopify-section-{{ sid }} .mst__quote{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:72px;align-items:center;margin-top:96px}
+  #shopify-section-{{ sid }} .mst__qimg{position:relative;aspect-ratio:1/1;border-radius:4px;overflow:hidden;background:var(--mst-tile)}
+  #shopify-section-{{ sid }} .mst__qimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{ s.image_position | default: '50% 30%' }}}
+  #shopify-section-{{ sid }} .mst__q{margin:0;font-weight:400;font-size:clamp(26px,2.7vw,42px);line-height:1.18;letter-spacing:-.015em;color:var(--mst-ink);text-wrap:pretty}
+  #shopify-section-{{ sid }} .mst__q span{color:rgba(36,34,35,.38)}
+  #shopify-section-{{ sid }} .mst__who-n{margin:28px 0 0;font-size:17px;font-weight:500;line-height:1.3}
+  #shopify-section-{{ sid }} .mst__who-r{display:block;font-weight:400;color:var(--mst-muted)}
+  #shopify-section-{{ sid }} .mst__qlink{display:inline-flex;align-items:center;gap:10px;margin-top:28px;padding:15px 24px;border:1px solid var(--mst-ink);border-radius:6px;font-size:16px;font-weight:500;line-height:1;color:var(--mst-ink);text-decoration:none;transition:background .2s,color .2s}
+  #shopify-section-{{ sid }} .mst__qlink:hover{background:var(--mst-ink);color:#fff}
+
+  /* Team */
+  #shopify-section-{{ sid }} .mst__thead{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:48px;align-items:start}
+  #shopify-section-{{ sid }} .mst__note{margin:4px 0 0;font-size:clamp(17px,1.4vw,20px);line-height:1.45;color:var(--mst-ink)}
+  #shopify-section-{{ sid }} .mst__rule{height:3px;margin:56px 0 22px;background:radial-gradient(circle,rgba(36,34,35,.4) .9px,transparent 1.2px) left center/6px 3px repeat-x}
+  #shopify-section-{{ sid }} .mst__grid{display:grid;grid-template-columns:repeat({{ section.blocks.size | at_least: 1 | at_most: 6 }},minmax(0,1fr));gap:40px 24px;margin:28px 0 0;padding:0;list-style:none}
+  #shopify-section-{{ sid }} .mst__m{display:grid;align-content:start;gap:6px;margin:0}
+  #shopify-section-{{ sid }} .mst__portrait{position:relative;aspect-ratio:4/5;margin-bottom:12px;border-radius:4px;overflow:hidden;background:var(--mst-tile)}
+  #shopify-section-{{ sid }} .mst__portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+  #shopify-section-{{ sid }} .mst__tag{position:absolute;left:12px;top:12px;font-family:var(--mst-mono);font-size:11px;line-height:1;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:8px 10px;border-radius:4px;background:rgba(255,255,255,.92);color:var(--mst-ink)}
+  #shopify-section-{{ sid }} .mst__mn{font-size:18px;font-weight:500;line-height:1.25}
+  #shopify-section-{{ sid }} .mst__mr{font-size:15px;line-height:1.4;color:var(--mst-muted)}
+
+  @media (max-width:989px){
+    #shopify-section-{{ sid }} .mst__stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 24px}
+    #shopify-section-{{ sid }} .mst__quote{grid-template-columns:1fr;gap:32px;margin-top:64px}
+    #shopify-section-{{ sid }} .mst__thead{grid-template-columns:1fr;gap:20px}
+    #shopify-section-{{ sid }} .mst__grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  }
+  @media (max-width:749px){
+    #shopify-section-{{ sid }} .mst__wrap{padding:{{ s.space_top | times: 0.66 | round }}px 16px {{ s.space_bottom | times: 0.66 | round }}px}
+    #shopify-section-{{ sid }} .mst__who{gap:20px}
+    #shopify-section-{{ sid }} .mst__who p.mst__big{font-size:22px}
+    #shopify-section-{{ sid }} .mst__media{margin-top:24px;aspect-ratio:4/3;border-radius:6px}
+    #shopify-section-{{ sid }} .mst__stats{gap:32px 16px}
+    #shopify-section-{{ sid }} .mst__fig{font-size:40px;padding-bottom:16px}
+    #shopify-section-{{ sid }} .mst__st{margin-top:14px;font-size:16px}
+    #shopify-section-{{ sid }} .mst__sx{font-size:14px}
+    #shopify-section-{{ sid }} .mst__q{font-size:24px}
+    #shopify-section-{{ sid }} .mst__qlink{width:100%;justify-content:center}
+    #shopify-section-{{ sid }} .mst__rule{margin:32px 0 16px}
+    #shopify-section-{{ sid }} .mst__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 12px;margin-top:20px}
+    #shopify-section-{{ sid }} .mst__mn{font-size:15.5px}
+    #shopify-section-{{ sid }} .mst__mr{font-size:13px}
+    #shopify-section-{{ sid }} .mst__tag{left:8px;top:8px;font-size:9.5px;padding:6px 8px}
+  }
+</style>
+
+<div class="mst"{% if s.anchor != blank %} id="{{ s.anchor }}"{% endif %}>
+  <div class="mst__wrap">
+    {%- case s.layout -%}
+      {%- when 'who' -%}
+        <div class="mst__who">
+          {%- if s.eyebrow != blank -%}<p class="mst__eye">{{ s.eyebrow }}</p>{%- endif -%}
+          <div>
+            {%- if s.text != blank -%}<p class="mst__big">{{ s.text }}</p>{%- endif -%}
+            {%- if s.text_2 != blank -%}<p class="mst__big">{{ s.text_2 }}</p>{%- endif -%}
+          </div>
+        </div>
+
+      {%- when 'mission' -%}
+        <div class="mst__mis">
+          {%- if s.eyebrow != blank -%}<p class="mst__eye">{{ s.eyebrow }}</p>{%- endif -%}
+          {%- if s.heading != blank -%}<h2 class="mst__h">{{ s.heading | escape | newline_to_br }}</h2>{%- endif -%}
+          <div class="mst__media">
+            {%- if s.video != blank -%}
+              {{ s.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, image_size: '1600x' }}
+            {%- elsif s.image != blank -%}
+              {{ s.image | image_url: width: 2000 | image_tag: loading: 'lazy', widths: '800,1200,1600,2000', sizes: '(min-width: 1320px) 1280px, 100vw', alt: s.image_alt }}
+            {%- elsif s.image_url != blank -%}
+              <img src="{{ s.image_url }}" alt="{{ s.image_alt | escape }}" loading="lazy" width="1600" height="700">
+            {%- endif -%}
+          </div>
+        </div>
+
+      {%- when 'numbers' -%}
+        <ul class="mst__stats">
+          {%- for b in section.blocks -%}
+            <li {{ b.shopify_attributes }}>
+              <span class="mst__fig">{{ b.settings.figure }}{% if b.settings.unit != blank %}<sup>{{ b.settings.unit }}</sup>{% endif %}</span>
+              <span class="mst__st">{{ b.settings.title }}</span>
+              {%- if b.settings.text != blank -%}<span class="mst__sx">{{ b.settings.text }}</span>{%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+        {%- if s.quote != blank -%}
+          {%- assign qp = s.quote | split: '|' -%}
+          <div class="mst__quote">
+            <div class="mst__qimg">
+              {%- if s.image != blank -%}
+                {{ s.image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '600,900,1200', sizes: '(min-width: 990px) 40vw, 100vw', alt: s.image_alt }}
+              {%- elsif s.image_url != blank -%}
+                <img src="{{ s.image_url }}" alt="{{ s.image_alt | escape }}" loading="lazy" width="1200" height="1200">
+              {%- endif -%}
+            </div>
+            <div>
+              <blockquote class="mst__q">“{{ qp[0] | strip }}{% if qp.size > 1 %} <span>{{ qp[1] | strip }}</span>{% endif %}”</blockquote>
+              {%- if s.heading != blank -%}<p class="mst__who-n">{{ s.heading }}<span class="mst__who-r">{{ s.text }}</span></p>{%- endif -%}
+              {%- if s.link_label != blank -%}<a class="mst__qlink" href="{{ s.link }}">{{ s.link_label }} <span aria-hidden="true">→</span></a>{%- endif -%}
+            </div>
+          </div>
+        {%- endif -%}
+
+      {%- when 'team' -%}
+        <div class="mst__thead">
+          <h2 class="mst__h">{{ s.heading | escape | newline_to_br }}</h2>
+          {%- if s.text != blank -%}<p class="mst__note">{{ s.text }}</p>{%- endif -%}
+        </div>
+        <div class="mst__rule" aria-hidden="true"></div>
+        {%- if s.eyebrow != blank -%}<p class="mst__eye">{{ s.eyebrow }}</p>{%- endif -%}
+        <ul class="mst__grid">
+          {%- for b in section.blocks -%}
+            {%- assign bs = b.settings -%}
+            <li class="mst__m" {{ b.shopify_attributes }}>
+              <div class="mst__portrait">
+                {%- if bs.image != blank -%}{{ bs.image | image_url: width: 700 | image_tag: loading: 'lazy', widths: '350,500,700', sizes: '(min-width: 990px) 16vw, 45vw', alt: bs.name }}{%- endif -%}
+                {%- if bs.tag != blank -%}<span class="mst__tag">{{ bs.tag }}</span>{%- endif -%}
+              </div>
+              <span class="mst__mn">{{ bs.name }}</span>
+              {%- if bs.role != blank -%}<span class="mst__mr">{{ bs.role }}</span>{%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+    {%- endcase -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO — About story",
+  "tag": "section",
+  "settings": [
+    { "type": "select", "id": "layout", "label": "Layout", "default": "who", "options": [
+      { "value": "who", "label": "Who we are (large paragraphs)" },
+      { "value": "mission", "label": "Mission (heading over a wide photo)" },
+      { "value": "numbers", "label": "Numbers and founder quote" },
+      { "value": "team", "label": "Team grid" }
+    ] },
+    { "type": "text", "id": "anchor", "label": "Anchor" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "textarea", "id": "heading", "label": "Heading (numbers: the quote's name)" },
+    { "type": "textarea", "id": "text", "label": "Text (team: note; numbers: role)" },
+    { "type": "textarea", "id": "text_2", "label": "Second paragraph (who we are)" },
+    { "type": "textarea", "id": "quote", "label": "Quote", "info": "Words after | are shown in grey" },
+    { "type": "text", "id": "link_label", "label": "Link under the quote" },
+    { "type": "url", "id": "link", "label": "Link URL" },
+    { "type": "image_picker", "id": "image", "label": "Photo" },
+    { "type": "text", "id": "image_url", "label": "Photo URL (if no photo picked)" },
+    { "type": "text", "id": "image_alt", "label": "Photo description" },
+    { "type": "text", "id": "image_position", "label": "Photo focus", "info": "e.g. 50% 30%" },
+    { "type": "video", "id": "video", "label": "Video (mission, instead of the photo)" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 96 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 96 }
+  ],
+  "blocks": [
+    { "type": "stat", "name": "Number", "settings": [
+      { "type": "text", "id": "figure", "label": "Figure" },
+      { "type": "text", "id": "unit", "label": "Small mark after it", "info": "e.g. + or mg" },
+      { "type": "text", "id": "title", "label": "Label" },
+      { "type": "textarea", "id": "text", "label": "Line under it" }
+    ] },
+    { "type": "member", "name": "Person", "settings": [
+      { "type": "image_picker", "id": "image", "label": "Portrait" },
+      { "type": "text", "id": "name", "label": "Name" },
+      { "type": "text", "id": "role", "label": "Role" },
+      { "type": "text", "id": "tag", "label": "Tag on the photo" }
+    ] }
+  ],
+  "presets": [{ "name": "MUTO — About story" }],
+  "enabled_on": { "templates": ["page"] }
+}
+{% endschema %}
