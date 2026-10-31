@@ -62,24 +62,23 @@ The Black Friday product page has been reworked on a duplicate of the live theme
   - Our column is dark, with the jar photo and lime ticks. Multivitamin, greens powder and buying separately are the other columns.
   - On phones it scrolls sideways, with the feature names pinned on the left.
 
-**Science page (`/pages/science`, template `page.science-simple`), redesigned and simpler**
+**Science page (`/pages/science`, template `page.science-simple`), redesigned: all white, science-led**
 
-The template is replaced (`templates/page.science-simple.json`) and uses a new section, `sections/muto-sci.liquid` ("MUTO — Science (simple)"). Top to bottom:
+The template is replaced (`templates/page.science-simple.json`) and uses a new section, `sections/muto-sci.liquid` ("MUTO — Science (simple)"). It uses the same type system as the ingredients page: the site's uppercase weight-500 heading, mono eyebrows, hairline rules, 21px item titles and doses in the teal mono. There are no dark or grey panels.
 
-1. **Hero:** "What changes in your body after 35, and what to do about it.", the Black Friday descriptor and a "See the Black Friday offer" button. Three grey cards on the right:
-   - **NAD+ +51%:** the NR study, with a footnote saying it tested NR on its own, not MUTO.
-   - **Energy:** a photo, with the authorised B6/B12 claim.
-   - **Recovery:** 2,000 IU, with the vitamin D claim.
-2. **Why you feel it:** a photo and the NAD+ story.
-3. **Founder quote:** Richie's photo.
-4. **The same "MUTO vs the usual" comparison** as the product page. It's swapped into the empty `compare` slot by `muto-bf-head.liquid`.
-5. **Standards:** a statement, then 19 ingredients, 300mg NR, 7 scientists and 4 UK universities.
-6. **The scientific board:** the existing section, unchanged.
-7. **Research:** "Tested properly, published honestly", with the "no results yet" wording.
-8. **Black Friday band:** "3 months for £99. Save 53%", with a Claim offer button.
-9. **Reviews:** the existing section, unchanged.
+The story is that what your body needs after 35 is different from what it needed at 20, and MUTO is formulated for that stage. Top to bottom:
 
-Removed: chapters 01–03, the 90-day timeline and the "Start your 90 days" box, which had the old £60 price. In GitHub at `shopify/science-v2/`. After Black Friday, change the hero button, the offer band and the comparison footnote in Customize.
+1. **Intro:** "Your body after 35 needs something different." with an "At 20 / After 35" table, a turquoise "See the Black Friday offer" button and a link to the ingredients.
+2. **Three shifts:** the NAD+ decline chart, marked at 35, then three numbered shifts: less NAD+, anabolic resistance, slower cell maintenance.
+3. **Five jobs, one jar:** Energy, Recovery, Stress, Longevity and Immunity, each with its key doses in mono and the authorised claim.
+4. **The numbers:** +51% NAD+ (footnoted as the NR study), 19 ingredients, 300mg NR, 0 proprietary blends.
+5. **The same comparison** as the product page, on white with the site's heading. It's swapped into the empty `compare` slot by `muto-bf-head.liquid`.
+6. **The scientific board:** the existing section, on white.
+7. **Our research:** a statement and the four universities.
+8. **Black Friday:** an outlined box with "3 months for £99", a turquoise button.
+9. **Reviews:** unchanged.
+
+In GitHub at `shopify/science-v2/`. After Black Friday, change the intro button and the offer box in Customize.
 
 **Home page (`templates/index.json`):** the "Still training. Still working. Not done yet." athletes block is replaced, in the same place, by the product page's "Don't take our word for it." customer results videos (all 8). Nothing else on the home page changed. The file is in the zip under `templates/` and in GitHub at `shopify/home-videos/theme/templates/index.json`. If the live home page has been edited since 31 October, re-make this change in Customize instead of copying the file.
 
@@ -139,7 +138,7 @@ Removed: chapters 01–03, the 90-day timeline and the "Start your 90 days" box,
 - [ ] **Site-wide compact header**: check the home page, other product pages and a content page on a phone, and that nothing is hidden under the header.
 - [ ] Doesn't collide with chat or popup widgets at the bottom of the screen.
 - [ ] Home page: the results videos play, and the athletes block is gone.
-- [ ] Science page: the new layout on phone and desktop, the Energy photo, the comparison in place, and the board videos playing.
+- [ ] Science page: the new layout on phone and desktop, the comparison in place, and the board videos playing.
 
 # Hard-coded in the CSS and scripts (update if the offer changes)
 
