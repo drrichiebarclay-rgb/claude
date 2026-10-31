@@ -241,78 +241,6 @@
         "compact": true
       }
     },
-    "start": {
-      "type": "muto-get-started",
-      "settings": {
-        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-lp-kit-hero.jpg?v=1791969959",
-        "image_position": "55% 62%",
-        "image": "shopify://shop_images/Minimalist_MUTO_Fitness_Product_Lineup.png",
-        "image_alt": "The MUTO first order: NAD+ Cellular Complex jar and refill pouches, Ultrapure Creatine, the bottle and the presentation box",
-        "image_fit": 54,
-        "image_focus_x": 50.6,
-        "image_focus_y": 63,
-        "image_focus_at": 50,
-        "image_ratio": "1.3333",
-        "image_fill": "linear-gradient(90deg,#16171b,#292b32 50%,#141419)",
-        "heading": "Start your\n90 days",
-        "product_name": "NAD+ Cellular Complex (30 days)",
-        "product_price": "£60",
-        "product_sub": "£2 a day on the monthly plan",
-        "includes_label": "First order includes:",
-        "total_label": "Total",
-        "total_was": "£122",
-        "total_now": "£60",
-        "cta_label": "Start your 90 days",
-        "cta_link": "/products/muto-nad-cellular-complex",
-        "ticks": "Free next-day delivery\nSkip, pause or cancel online\n90-day money-back guarantee",
-        "space_top": 40,
-        "space_bottom": 100
-      },
-      "blocks": {
-        "i1": {
-          "type": "item",
-          "settings": {
-            "name": "Ultrapure Creatine",
-            "desc": "A 250g pouch of micronised creatine",
-            "was": "£30",
-            "now": "free"
-          }
-        },
-        "i2": {
-          "type": "item",
-          "settings": {
-            "name": "Forever Jar",
-            "desc": "A glass jar to keep",
-            "was": "£10",
-            "now": "free"
-          }
-        },
-        "i3": {
-          "type": "item",
-          "settings": {
-            "name": "12-week guide",
-            "desc": "How to run your 90 days and check it yourself",
-            "was": "£10",
-            "now": "free"
-          }
-        },
-        "i4": {
-          "type": "item",
-          "settings": {
-            "name": "Socks",
-            "desc": "Size UK 6–11",
-            "was": "£12",
-            "now": "free"
-          }
-        }
-      },
-      "block_order": [
-        "i1",
-        "i2",
-        "i3",
-        "i4"
-      ]
-    },
     "board_css": {
       "type": "custom-liquid",
       "settings": {
@@ -712,12 +640,35 @@
         "why_4": "<p>A new batch gets a new certificate. We’ll update these results each time, and your batch number is on the jar.</p>",
         "scope": "on two production batches"
       }
+    },
+    "offer": {
+      "type": "muto-sci",
+      "settings": {
+        "layout": "banner",
+        "anchor": "",
+        "eyebrow": "Black Friday · Ends 30 Nov",
+        "heading": "3 months for £99",
+        "text": "Save 53% (was £210), plus a free welcome kit worth £87.",
+        "button_label": "Add to cart",
+        "button_link": "/products/muto-nad-cellular-complex",
+        "link_label": "One-Time Purchase - £70 (no gifts)",
+        "link": "/products/muto-nad-cellular-complex",
+        "col_a": "At 20",
+        "col_b": "After 35",
+        "small": "Skip, pause or cancel online anytime · 90-day guarantee",
+        "space_top": 48,
+        "space_bottom": 96,
+        "image": "shopify://shop_images/muto-science-ride.jpg",
+        "image_alt": "A cyclist riding along a waterfront under a blue sky",
+        "image_position": "62% 50%",
+        "image_position_mobile": "70% 50%"
+      }
     }
   },
   "order": [
     "standards",
     "board",
-    "start",
+    "offer",
     "board_css",
     "reviews",
     "tests"
