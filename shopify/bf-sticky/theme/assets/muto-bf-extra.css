@@ -1,0 +1,18 @@
+/* Black Friday PDP, latest tweaks (loaded last, from snippets/muto-bf-bar.liquid) */
+/* No stats bar ("92% reported improved energy") */
+html:root body .mc .mc-stats{display:none!important}
+/* One-time purchase under the Add to cart button, a bit bolder */
+html:root body .mc .mc__buy-copy > *{order:4}
+html:root body .mc .mc__buy-copy > .mc__rating,html:root body .mc .mc__buy-copy > .mc__eyebrow,
+html:root body .mc .mc__buy-copy > .mc__buy-title,html:root body .mc .mc__buy-copy > .mc-subhead{order:0}
+html:root body .mc .mc__buy-copy > .mc__trust,html:root body .mc .mc__buy-copy > .mc__plans,
+html:root body .mc .mc__buy-copy > .mc__pf > *,html:root body .mc .mc__buy-copy > .mc__buy-cta,
+html:root body .mc .mc__buy-copy > .mc__buy-actions{order:2}
+html:root body .mc .mc__buy-copy > .mc__pf > .mc__onetime,html:root body .mc .mc__buy-copy > .mpb-x{order:3}
+html:root body .mc .mc__onetime{margin-top:12px!important;color:#242223!important;font-weight:600!important}
+html:root body .mc .mc__onetime > span:first-child::before{font-size:15px;font-weight:600}
+@media (max-width:749px){html:root body .mc .mc__onetime > span:first-child::before{font-size:14px}}
+/* "Thank-you gifts in later boxes" reads "Future monthly gifts" */
+html:root body .mc .mc__kit-sum > span:first-child{font-size:0!important}
+html:root body .mc .mc__kit-sum > span:first-child::before{content:"Future monthly gifts";font-size:14px}
+@media (max-width:749px){html:root body .mc .mc__kit-sum > span:first-child::before{font-size:13px}}

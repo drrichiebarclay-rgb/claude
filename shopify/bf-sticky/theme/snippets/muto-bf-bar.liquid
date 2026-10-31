@@ -32,3 +32,12 @@
   <span class="mc-bfx__sep mc-bfx__sep--cta" aria-hidden="true">·</span>
   <span class="mc-bfx__cta"><span class="mc-bfx__spin" aria-hidden="true"></span>Claim&nbsp;&rarr;</span>
 </a>
+{{ 'muto-bf-extra.css' | asset_url | stylesheet_tag }}
+{%- render 'muto-bf-compare' -%}
+<script>
+/* Swap the new comparison into the page's "compare" section once the page is parsed */
+document.addEventListener('DOMContentLoaded', function () {
+  var t = document.getElementById('mc-cmp-tpl'), s = document.querySelector('#MainContent [id$="__compare"]');
+  if (t && s && !s.querySelector('.mc-cmp')) { s.innerHTML = ''; s.appendChild(t.content.cloneNode(true)); }
+});
+</script>
