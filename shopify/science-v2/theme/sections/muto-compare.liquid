@@ -1,10 +1,11 @@
 {%- comment -%}
   MUTO — Comparison. Shows "MUTO vs the usual" (snippets/muto-bf-compare.liquid, the same table as the
-  Black Friday product page and the science page) wherever this section is added. Name the section
-  "compare" in the template: the snippet fills the section whose id ends in __compare.
+  Black Friday product page and the science page). Here the table is written straight into the page:
+  the snippet's <template> wrapper and its swap script are stripped, so nothing depends on JavaScript.
 {%- endcomment -%}
-<div class="muto-compare-slot"></div>
-{%- render 'muto-bf-compare' -%}
+{%- capture cmp -%}{%- render 'muto-bf-compare' -%}{%- endcapture -%}
+{%- assign cmp = cmp | split: '<script>' | first | remove: '<template id="mc-cmp-tpl">' | remove: '</template>' -%}
+{{ cmp }}
 {% schema %}
 {
   "name": "MUTO — Comparison",

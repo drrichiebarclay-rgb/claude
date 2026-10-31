@@ -1,0 +1,216 @@
+{%- comment -%}
+  MUTO — Shop the range. In the style of the benefits picker and the ingredients page: centred mono
+  eyebrow, the site's uppercase heading and a line, the ingredients page's filter buttons as tabs, then
+  the chosen tab. A tab with one product shows it large: a photo tile with a mono label, the product
+  name, the PDP's line, an offer line, three numbered points, the key doses in the teal mono on dotted
+  rules, a turquoise button and a text link. A tab with several products shows them as cards.
+  BLOCKS: product (tab = the button it sits under). MOBILE: tabs swipe, the photo sits above the words.
+{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign sid = section.id
+  assign tabs = ''
+  for b in section.blocks
+    assign t = b.settings.tab | strip
+    assign tt = '|' | append: t | append: '|'
+    unless tabs contains tt
+      assign tabs = tabs | append: tt
+    endunless
+  endfor
+  assign tab_list = tabs | remove_first: '|' | split: '||'
+-%}
+<style>
+  #shopify-section-{{ sid }}{--mrg-ink:#242223;--mrg-muted:#5c5a5b;--mrg-rule:rgba(36,34,35,.14);--mrg-tile:#f1f1ef;--mrg-accent:#2f8fa0;--mrg-mono:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace;--mrg-dots:radial-gradient(circle,rgba(36,34,35,.38) .9px,transparent 1.2px)}
+  #shopify-section-{{ sid }} .mrg,#shopify-section-{{ sid }} .mrg h2,#shopify-section-{{ sid }} .mrg h3,#shopify-section-{{ sid }} .mrg p,#shopify-section-{{ sid }} .mrg button,#shopify-section-{{ sid }} .mrg a{font-family:var(--mc-font,"Neue Haas Grotesk Display Pro"),sans-serif;-webkit-font-smoothing:antialiased}
+  #shopify-section-{{ sid }} .mrg{background:#fff;color:var(--mrg-ink)}
+  #shopify-section-{{ sid }} .mrg__wrap{max-width:1320px;margin:0 auto;padding:{{ s.space_top }}px 20px {{ s.space_bottom }}px}
+  #shopify-section-{{ sid }} .mrg__head{display:grid;justify-items:center;text-align:center;gap:20px}
+  #shopify-section-{{ sid }} .mrg__eye{margin:0;font-family:var(--mrg-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mrg-muted)}
+  #shopify-section-{{ sid }} .mrg .mrg__h{margin:0;text-wrap:balance;color:var(--mrg-ink);font-weight:500;font-size:clamp(34px,4.444vw,64px);line-height:.906;letter-spacing:-.014em;text-transform:uppercase}
+  #shopify-section-{{ sid }} .mrg__lede{margin:0;max-width:44ch;font-size:clamp(17px,1.4vw,20px);line-height:1.4;text-wrap:balance}
+  #shopify-section-{{ sid }} .mrg__tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:40px 0 48px;padding:0;list-style:none}
+  #shopify-section-{{ sid }} .mrg__tab{font:inherit;font-size:16px;font-weight:500;line-height:1;padding:15px 24px;border-radius:6px;border:1px solid var(--mrg-rule);background:#fff;color:var(--mrg-ink);cursor:pointer;white-space:nowrap;transition:background .2s,color .2s,border-color .2s}
+  #shopify-section-{{ sid }} .mrg__tab:hover{border-color:var(--mrg-ink)}
+  #shopify-section-{{ sid }} .mrg__tab[aria-selected="true"]{background:var(--mrg-ink);color:#fff;border-color:var(--mrg-ink)}
+  #shopify-section-{{ sid }} .mrg__tab:focus-visible{outline:2px solid var(--mrg-accent);outline-offset:3px}
+  #shopify-section-{{ sid }} .mrg__panel[hidden]{display:none}
+
+  /* One product: photo and words */
+  #shopify-section-{{ sid }} .mrg__one{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}
+  #shopify-section-{{ sid }} .mrg__frame{position:relative;aspect-ratio:4/5;border-radius:4px;overflow:hidden;background:var(--mrg-tile)}
+  #shopify-section-{{ sid }} .mrg__frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  #shopify-section-{{ sid }} .mrg__chip{position:absolute;left:14px;top:14px;z-index:2;font-family:var(--mrg-mono);font-size:11.5px;line-height:1;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:9px 12px;border-radius:4px;background:rgba(255,255,255,.92);color:var(--mrg-ink)}
+  #shopify-section-{{ sid }} .mrg__copy{display:grid;justify-items:start;gap:16px;max-width:560px}
+  #shopify-section-{{ sid }} .mrg .mrg__name{margin:0;font-weight:500;font-size:clamp(28px,3vw,44px);line-height:.95;letter-spacing:-.014em;text-transform:uppercase;color:var(--mrg-ink);text-wrap:balance}
+  #shopify-section-{{ sid }} .mrg__text{margin:0;font-size:18px;line-height:1.45}
+  #shopify-section-{{ sid }} .mrg__offer{margin:0;padding:8px 12px;border-radius:6px;background:#c9ffb7;font-size:15px;font-weight:500;line-height:1.3}
+  #shopify-section-{{ sid }} .mrg__pts{width:100%;margin:8px 0 0;padding:0;list-style:none;counter-reset:mrg}
+  #shopify-section-{{ sid }} .mrg__pts li{display:grid;grid-template-columns:28px 1fr;gap:4px 12px;padding:14px 0;border-top:1px solid var(--mrg-rule);counter-increment:mrg}
+  #shopify-section-{{ sid }} .mrg__pts li::before{content:counter(mrg,decimal-leading-zero);grid-row:span 2;padding-top:3px;font-family:var(--mrg-mono);font-size:12px;color:var(--mrg-muted)}
+  #shopify-section-{{ sid }} .mrg__pts b{font-size:17px;font-weight:500;line-height:1.3}
+  #shopify-section-{{ sid }} .mrg__pts span{font-size:15.5px;line-height:1.45;color:var(--mrg-muted)}
+  #shopify-section-{{ sid }} .mrg__acts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px 20px;width:100%;margin:6px 0 4px;padding:0;list-style:none}
+  #shopify-section-{{ sid }} .mrg__acts li{padding-bottom:10px;background:var(--mrg-dots) left bottom/6px 3px repeat-x}
+  #shopify-section-{{ sid }} .mrg__acts b{display:block;font-family:var(--mrg-mono);font-size:17px;font-weight:500;color:var(--mrg-accent)}
+  #shopify-section-{{ sid }} .mrg__acts span{display:block;margin-top:4px;font-size:13.5px;line-height:1.3;color:var(--mrg-muted)}
+  #shopify-section-{{ sid }} .mrg__btns{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;margin-top:8px}
+  #shopify-section-{{ sid }} .mrg__btn{display:inline-flex;align-items:center;justify-content:center;min-height:60px;padding:0 32px;border-radius:8px;background:#5efaff;color:var(--mrg-ink);font-size:16px;font-weight:500;text-decoration:none;transition:background .2s}
+  #shopify-section-{{ sid }} .mrg__btn:hover{background:#3ef0f6}
+  #shopify-section-{{ sid }} .mrg__link{font-size:16px;color:var(--mrg-ink);text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+
+  /* Several products: cards */
+  #shopify-section-{{ sid }} .mrg__cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px 28px}
+  #shopify-section-{{ sid }} .mrg__card{display:grid;align-content:start;gap:14px}
+  #shopify-section-{{ sid }} .mrg__card .mrg__frame{aspect-ratio:4/3}
+  #shopify-section-{{ sid }} .mrg__card .mrg__name{font-size:clamp(22px,2vw,28px)}
+  #shopify-section-{{ sid }} .mrg__card .mrg__text{font-size:16px;color:var(--mrg-muted)}
+  #shopify-section-{{ sid }} .mrg__card .mrg__btn{justify-self:start;min-height:52px}
+
+  @media (max-width:749px){
+    #shopify-section-{{ sid }} .mrg__wrap{padding:{{ s.space_top | times: 0.66 | round }}px 16px {{ s.space_bottom | times: 0.66 | round }}px}
+    #shopify-section-{{ sid }} .mrg__tabs{flex-wrap:nowrap;justify-content:flex-start;gap:8px;margin:28px -16px 24px;padding:0 16px 2px;overflow-x:auto;scrollbar-width:none}
+    #shopify-section-{{ sid }} .mrg__tabs::-webkit-scrollbar{display:none}
+    #shopify-section-{{ sid }} .mrg__tabs li{flex:0 0 auto}
+    #shopify-section-{{ sid }} .mrg__tab{padding:12px 16px;font-size:15px}
+    #shopify-section-{{ sid }} .mrg__one{grid-template-columns:1fr;gap:20px}
+    #shopify-section-{{ sid }} .mrg__frame{aspect-ratio:1/1}
+    #shopify-section-{{ sid }} .mrg .mrg__name{font-size:26px}
+    #shopify-section-{{ sid }} .mrg__text{font-size:16px}
+    #shopify-section-{{ sid }} .mrg__acts{grid-template-columns:repeat(2,minmax(0,1fr))}
+    #shopify-section-{{ sid }} .mrg__btns{width:100%}
+    #shopify-section-{{ sid }} .mrg__btn{width:100%;min-height:56px}
+    #shopify-section-{{ sid }} .mrg__card .mrg__btn{width:100%}
+  }
+</style>
+
+<div class="mrg"{% if s.anchor != blank %} id="{{ s.anchor }}"{% endif %} data-mrg>
+  <div class="mrg__wrap">
+    <header class="mrg__head">
+      {%- if s.eyebrow != blank -%}<p class="mrg__eye">{{ s.eyebrow }}</p>{%- endif -%}
+      {%- if s.heading != blank -%}<h2 class="mrg__h">{{ s.heading | escape | newline_to_br }}</h2>{%- endif -%}
+      {%- if s.lede != blank -%}<p class="mrg__lede">{{ s.lede }}</p>{%- endif -%}
+    </header>
+
+    {%- if tab_list.size > 1 -%}
+      <ul class="mrg__tabs" role="tablist" aria-label="Choose a product">
+        {%- for t in tab_list -%}
+          {%- assign tn = t | remove: '|' -%}
+          <li role="presentation"><button type="button" class="mrg__tab" role="tab" id="mrg-{{ sid }}-t{{ forloop.index }}" aria-controls="mrg-{{ sid }}-p{{ forloop.index }}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"{% unless forloop.first %} tabindex="-1"{% endunless %}>{{ tn }}</button></li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    {%- for t in tab_list -%}
+      {%- assign tn = t | remove: '|' -%}
+      {%- assign n = 0 -%}
+      {%- for b in section.blocks -%}{%- assign bt = b.settings.tab | strip -%}{%- if bt == tn -%}{%- assign n = n | plus: 1 -%}{%- endif -%}{%- endfor -%}
+      <div class="mrg__panel" role="tabpanel" id="mrg-{{ sid }}-p{{ forloop.index }}" aria-labelledby="mrg-{{ sid }}-t{{ forloop.index }}" data-mrg-panel{% unless forloop.first %} hidden{% endunless %}>
+        {%- if n > 1 -%}<div class="mrg__cards">{%- endif -%}
+        {%- for b in section.blocks -%}
+          {%- assign bt = b.settings.tab | strip -%}
+          {%- if bt != tn -%}{%- continue -%}{%- endif -%}
+          {%- assign bs = b.settings -%}
+          {%- capture frame -%}
+            <div class="mrg__frame">
+              {%- if bs.image != blank -%}{{ bs.image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '500,800,1000,1200', sizes: '(min-width: 990px) 50vw, 100vw', alt: bs.title }}
+              {%- elsif bs.image_url != blank -%}<img src="{{ bs.image_url }}" alt="{{ bs.title | escape }}" loading="lazy" width="1000" height="1250">{%- endif -%}
+              {%- if bs.chip != blank -%}<span class="mrg__chip">{{ bs.chip }}</span>{%- endif -%}
+            </div>
+          {%- endcapture -%}
+          {%- if n > 1 -%}
+            <article class="mrg__card" {{ b.shopify_attributes }}>
+              {{ frame }}
+              <h3 class="mrg__name">{{ bs.title }}</h3>
+              {%- if bs.text != blank -%}<p class="mrg__text">{{ bs.text }}</p>{%- endif -%}
+              {%- if bs.button_label != blank -%}<a class="mrg__btn" href="{{ bs.button_link }}">{{ bs.button_label }}</a>{%- endif -%}
+            </article>
+          {%- else -%}
+            <div class="mrg__one" {{ b.shopify_attributes }}>
+              {{ frame }}
+              <div class="mrg__copy">
+                <h3 class="mrg__name">{{ bs.title }}</h3>
+                {%- if bs.text != blank -%}<p class="mrg__text">{{ bs.text }}</p>{%- endif -%}
+                {%- if bs.offer != blank -%}<p class="mrg__offer">{{ bs.offer }}</p>{%- endif -%}
+                {%- if bs.points != blank -%}
+                  {%- assign pts = bs.points | newline_to_br | split: '<br />' -%}
+                  <ol class="mrg__pts">
+                    {%- for l in pts -%}{%- assign pp = l | split: '|' -%}{%- assign pt = pp[0] | strip -%}{%- if pt != blank -%}<li><b>{{ pt }}</b><span>{{ pp[1] | strip }}</span></li>{%- endif -%}{%- endfor -%}
+                  </ol>
+                {%- endif -%}
+                {%- if bs.actives != blank -%}
+                  {%- assign acts = bs.actives | newline_to_br | split: '<br />' -%}
+                  <ul class="mrg__acts">
+                    {%- for l in acts -%}{%- assign pp = l | split: '|' -%}{%- assign av = pp[0] | strip -%}{%- if av != blank -%}<li><b>{{ av }}</b><span>{{ pp[1] | strip }}</span></li>{%- endif -%}{%- endfor -%}
+                  </ul>
+                {%- endif -%}
+                <div class="mrg__btns">
+                  {%- if bs.button_label != blank -%}<a class="mrg__btn" href="{{ bs.button_link }}">{{ bs.button_label }}</a>{%- endif -%}
+                  {%- if bs.link_label != blank -%}<a class="mrg__link" href="{{ bs.link }}">{{ bs.link_label }}</a>{%- endif -%}
+                </div>
+              </div>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+        {%- if n > 1 -%}</div>{%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+<script>
+  (function () {
+    var root = document.querySelector('#shopify-section-{{ sid }} [data-mrg]');
+    if (!root) return;
+    var tabs = [].slice.call(root.querySelectorAll('.mrg__tab'));
+    var panels = [].slice.call(root.querySelectorAll('[data-mrg-panel]'));
+    function show(i, focus) {
+      tabs.forEach(function (t, n) { var on = n === i; t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1; panels[n].hidden = !on; });
+      if (focus) tabs[i].focus();
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { show(i); });
+      t.addEventListener('keydown', function (e) {
+        var n = null;
+        if (e.key === 'ArrowRight') n = (i + 1) % tabs.length;
+        if (e.key === 'ArrowLeft') n = (i - 1 + tabs.length) % tabs.length;
+        if (n !== null) { e.preventDefault(); show(n, true); }
+      });
+    });
+    document.addEventListener('shopify:block:select', function (e) {
+      panels.forEach(function (p, i) { if (p.contains(e.target)) show(i); });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "MUTO — Shop the range",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "Anchor" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "textarea", "id": "heading", "label": "Heading" },
+    { "type": "textarea", "id": "lede", "label": "Intro" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 96 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 96 }
+  ],
+  "blocks": [
+    { "type": "product", "name": "Product", "settings": [
+      { "type": "text", "id": "tab", "label": "Tab", "info": "Products with the same tab show together as cards" },
+      { "type": "image_picker", "id": "image", "label": "Photo" },
+      { "type": "text", "id": "image_url", "label": "Photo URL (if no photo picked)" },
+      { "type": "text", "id": "chip", "label": "Label on the photo" },
+      { "type": "text", "id": "title", "label": "Name" },
+      { "type": "textarea", "id": "text", "label": "Line" },
+      { "type": "text", "id": "offer", "label": "Offer line" },
+      { "type": "textarea", "id": "points", "label": "Points", "info": "One per line: Title | text" },
+      { "type": "textarea", "id": "actives", "label": "Key doses", "info": "One per line: 300mg | Nicotinamide riboside" },
+      { "type": "text", "id": "button_label", "label": "Button" },
+      { "type": "url", "id": "button_link", "label": "Button link" },
+      { "type": "text", "id": "link_label", "label": "Text link" },
+      { "type": "url", "id": "link", "label": "Text link URL" }
+    ] }
+  ],
+  "presets": [{ "name": "MUTO — Shop the range" }],
+  "enabled_on": { "templates": ["index", "page"] }
+}
+{% endschema %}

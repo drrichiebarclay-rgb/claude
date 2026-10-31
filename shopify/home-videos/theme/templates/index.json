@@ -285,7 +285,8 @@
         "field": false,
         "space_top": 100,
         "space_bottom": 100
-      }
+      },
+      "disabled": true
     },
     "why": {
       "type": "muto-home-why",
@@ -678,7 +679,8 @@
         "foot": "",
         "space_top": 70,
         "space_bottom": 100
-      }
+      },
+      "disabled": true
     },
     "benefits": {
       "type": "muto-home-benefits",
@@ -1325,6 +1327,182 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
+    },
+    "range": {
+      "type": "muto-range",
+      "blocks": {
+        "nad": {
+          "type": "product",
+          "settings": {
+            "tab": "NAD+ Cellular Complex",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-shop-nad-v2.jpg?v=1791288517",
+            "chip": "Two capsules a day",
+            "title": "NAD+ Cellular Complex",
+            "text": "A daily multi-nutrient with NAD⁺ support, built for 35+. Five supplements in one jar.",
+            "offer": "Black Friday: 3 months for £99 (was £210) · Ends 30 Nov",
+            "points": "Built for life after 35 | Afternoons that hold, quicker recovery from a busy week, and support for your cells as you age.\nEvery dose on the label | 19 ingredients, no proprietary blends, every batch third-party tested.\n90-day guarantee | Not for you? Get every subscription payment back.",
+            "actives": "300mg | Nicotinamide riboside\n150mg | CoQ10\n20mg | PQQ\n450mg | TMG\n50mg | Trans-resveratrol\n50mcg | Vitamin D3",
+            "button_label": "Shop NAD+ Cellular Complex",
+            "button_link": "/products/muto-nad-cellular-complex",
+            "link_label": "See all 19 ingredients",
+            "link": "/pages/ingredients"
+          }
+        },
+        "cre": {
+          "type": "product",
+          "settings": {
+            "tab": "Creatine",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-shop-creatine-v2.jpg?v=1791288517",
+            "chip": "One scoop a day",
+            "title": "Ultrapure Micronised Creatine",
+            "text": "The fast reserve beside the steady supply. One ingredient, nothing else in the pouch.",
+            "offer": "",
+            "points": "For the hardest efforts | Creatine increases physical performance in successive bursts of short-term, high-intensity exercise. The beneficial effect comes from 3g a day.\nNothing else in it | Ultrapure creatine monohydrate, ≥99.9% pure, every batch tested.\nBuilt to sit with NAD+ | One scoop with your first meal, in water or a smoothie.",
+            "actives": "5g | Per daily dose\n200 mesh | Micronised\n>99.9% | Purity\nTested | By third-party labs",
+            "button_label": "Shop creatine",
+            "button_link": "/products/muto-creatine",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "e0": {
+          "type": "product",
+          "settings": {
+            "tab": "Essentials",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-essentials-socks.jpg?v=1791037580",
+            "chip": "",
+            "title": "Performance socks",
+            "text": "Premium nylon socks designed for activity, with shaping that holds its fit through every session. Light, breathable and built to move with you, from the first mile to the last rep. Made to the same standard as everything else in the protocol.",
+            "offer": "",
+            "points": "",
+            "actives": "",
+            "button_label": "Shop the socks",
+            "button_link": "/products/socks",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "e1": {
+          "type": "product",
+          "settings": {
+            "tab": "Essentials",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-shop-bottle-v2.jpg?v=1791288517",
+            "chip": "",
+            "title": "Performance Bottle",
+            "text": "A BPA-free bottle built for training days and everything in between. Light enough to carry everywhere and easy to clean, with room for your morning scoop of MUTO Creatine. One bottle, from first meal to final session.",
+            "offer": "",
+            "points": "",
+            "actives": "",
+            "button_label": "Shop the bottle",
+            "button_link": "/products/muto-water-bottle",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "nad",
+        "cre",
+        "e0",
+        "e1"
+      ],
+      "settings": {
+        "anchor": "shop",
+        "eyebrow": "Shop the range",
+        "heading": "Shop the protocol.",
+        "lede": "Start with NAD+ Cellular Complex, the daily foundation. Add creatine for the hardest efforts.",
+        "space_top": 96,
+        "space_bottom": 96
+      }
+    },
+    "videos": {
+      "type": "muto-loved",
+      "blocks": {
+        "v0": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/kate v4.mp4",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/preview_images/ae14f3b1ff0f4ef09ae55be1fd8cfadd.thumbnail.0000000000.jpg?v=1773314771",
+            "handle": "Kate Bright"
+          }
+        },
+        "v1": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/✅Copy of David Chat.mp4",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/preview_images/cd1132a29bdc4f5081bfd9e6b008339b.thumbnail.0000000000.jpg?v=1793207168",
+            "handle": "David Mercado"
+          }
+        },
+        "v2": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/Lucy Short.mp4",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/preview_images/3dcc774e01284c63ab3f6eaf40bc5fb7.thumbnail.0000000000.jpg?v=1766048998",
+            "handle": "Lucy Halliday"
+          }
+        },
+        "v3": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/Nothing Gets in on Trust_V01.mp4",
+            "image_url": "",
+            "handle": "Harry Insley"
+          }
+        },
+        "v4": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/clip 3.mp4",
+            "image_url": "",
+            "handle": "Adam Facey"
+          }
+        },
+        "v5": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/MUTO_Creator-Ad_Max-Richards_Script-B.mp4",
+            "image_url": "",
+            "handle": "Max Richards"
+          }
+        },
+        "v6": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/MU06_26_MUTO_VIDEO-1.mp4",
+            "image_url": "",
+            "handle": "Adam Hamilton"
+          }
+        },
+        "v7": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/The Baseline.mp4",
+            "image_url": "",
+            "handle": "Yolanda King"
+          }
+        }
+      },
+      "block_order": [
+        "v0",
+        "v1",
+        "v2",
+        "v3",
+        "v4",
+        "v5",
+        "v6",
+        "v7"
+      ],
+      "settings": {
+        "anchor": "",
+        "rating": "MUTO customers, in their own words",
+        "heading": "Don’t take our word for it.",
+        "link_label": "",
+        "link": "",
+        "space_top": 96,
+        "space_bottom": 72,
+        "hide_stars": true
+      }
     }
   },
   "order": [
@@ -1332,8 +1510,8 @@
     "custom_liquid_nYMKd9",
     "value",
     "founder_v2",
-    "shop",
-    "results",
+    "range",
+    "videos",
     "compare",
     "loved",
     "board_anchor",
@@ -1347,6 +1525,8 @@
     "banner",
     "science_nad",
     "science_creatine",
-    "stats"
+    "stats",
+    "shop",
+    "results"
   ]
 }

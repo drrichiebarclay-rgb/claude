@@ -55,7 +55,7 @@
 
 <div class="mlv"{% if s.anchor != blank %} id="{{ s.anchor }}"{% endif %} data-mlv>
   <div class="mlv__head">
-    {%- if s.rating != blank -%}<p class="mlv__rate"><span class="mlv__stars" aria-hidden="true">★★★★★</span>{{ s.rating }}</p>{%- endif -%}
+    {%- if s.rating != blank -%}<p class="mlv__rate">{% unless s.hide_stars %}<span class="mlv__stars" aria-hidden="true">★★★★★</span>{% endunless %}{{ s.rating }}</p>{%- endif -%}
     <h2 class="mlv__h">{{ s.heading }}</h2>
   </div>
   <div class="mlv__wrap">
@@ -120,6 +120,7 @@
   "settings": [
     { "type": "text", "id": "anchor", "label": "Anchor", "default": "reviews" },
     { "type": "text", "id": "rating", "label": "Rating line", "default": "4.8 from 103 reviews" },
+    { "type": "checkbox", "id": "hide_stars", "label": "Hide the stars on the rating line", "default": false },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Loved by our community." },
     { "type": "text", "id": "link_label", "label": "Button", "default": "Read all reviews" },
     { "type": "url", "id": "link", "label": "Button link" },
