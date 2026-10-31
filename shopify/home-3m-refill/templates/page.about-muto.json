@@ -65,7 +65,7 @@
         "sticky_sub": "Cancel, pause or skip anytime",
         "schema_on": true,
         "schema_title": "About MUTO",
-        "schema_summary": "MUTO is a UK precision cellular supplement company. Its NAD+ Cellular Complex declares every ingredient, form and dose on the label, is manufactured in the UK to GMP standards and third-party tested for heavy metals, microbes and purity, and is under study with the University of Westminster, King's College London, Coventry and Newcastle.",
+        "schema_summary": "MUTO is a UK precision cellular supplement company. Its NAD+ Cellular Complex declares every ingredient, form and dose on the label, is manufactured in the UK to GMP standards and third-party tested for heavy metals, microbes and purity, and is under study with the University of Westminster, Coventry University and Newcastle University.",
         "schema_org": "MUTO",
         "schema_logo": "",
         "schema_founder": "Dr Richie Barclay",
@@ -237,7 +237,7 @@
         "p3": {
           "type": "para",
           "settings": {
-            "text": "Then I wanted it tested properly. We're running research programmes with the University of Westminster, King's College London, Coventry and Newcastle, and we'll publish what we find, whatever it shows."
+            "text": "Then I wanted it tested properly. We're running research programmes with the University of Westminster, Coventry University and Newcastle University, and we'll publish what we find, whatever it shows."
           }
         },
         "p4": {
@@ -391,24 +391,16 @@
             "note": "Clinical study starting December 2026."
           }
         },
-        "i2": {
-          "type": "item",
-          "settings": {
-            "name": "King's College\nLondon:",
-            "note": "Preliminary data collection under way."
-          }
-        },
         "i3": {
           "type": "item",
           "settings": {
-            "name": "Coventry and\nNewcastle:",
+            "name": "Coventry University and\nNewcastle University:",
             "note": "PhD programmes started in 2026; studies from spring 2027."
           }
         }
       },
       "block_order": [
         "i1",
-        "i2",
         "i3"
       ],
       "settings": {
