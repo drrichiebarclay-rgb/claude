@@ -68,6 +68,8 @@ The Black Friday product page has been reworked on a duplicate of the live theme
 - Simplified: chapter 01's takeaway line (repeated in chapter 02), and chapter 03's "How the 19 ingredients work together" table and BioPerine line are hidden.
 - Done from `muto-bf-head.liquid` (its second `if` block). The science template itself is unchanged.
 
+**Home page (`templates/index.json`):** the "Still training. Still working. Not done yet." athletes block is replaced, in the same place, by the product page's "Don't take our word for it." customer results videos (all 8). Nothing else on the home page changed. The file is in the zip under `templates/` and in GitHub at `shopify/home-videos/theme/templates/index.json`. If the live home page has been edited since 31 October, re-make this change in Customize instead of copying the file.
+
 **Site-wide (all pages, phones and tablets under 990px):** a shorter header bar.
 
 - About 44px instead of about 76px, with a smaller logo, caption and icons.
@@ -123,6 +125,7 @@ The Black Friday product page has been reworked on a duplicate of the live theme
 - [ ] The comparison appears in place of the old table and scrolls sideways on phones.
 - [ ] **Site-wide compact header**: check the home page, other product pages and a content page on a phone, and that nothing is hidden under the header.
 - [ ] Doesn't collide with chat or popup widgets at the bottom of the screen.
+- [ ] Home page: the results videos play, and the athletes block is gone.
 - [ ] Science page: the comparison shows in chapter 04, the "Comparison" chapter link jumps to it, and nothing else looks missing.
 
 # Hard-coded in the CSS and scripts (update if the offer changes)
