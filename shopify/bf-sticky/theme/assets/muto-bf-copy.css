@@ -7,7 +7,7 @@ html:root body .mc .mc__buy-copy > .mc__rating,html:root body .mc .mc__buy-copy 
 html:root body .mc .mc__buy-copy > .mc__buy-title,html:root body .mc .mc__buy-copy > .mc-subhead{text-align:left!important}
 /* Descriptor, then the Black Friday line on a green ground */
 html:root body .mc .mc-subhead{font-size:0!important}
-html:root body .mc .mc-subhead::before{content:"Five supplements in one daily jar, built for life after 35.";display:block;font-size:15px;line-height:1.35}
+html:root body .mc .mc-subhead::before{content:"A daily multi-nutrient with NAD⁺ support, built for 35+. Five supplements in one jar.";display:block;font-size:15px;line-height:1.35}
 html:root body .mc .mc-subhead::after{content:"Black Friday: 3 months for £99  \00b7  Ends 30 Nov";display:block;width:fit-content;max-width:100%;margin:12px 0 4px;
   padding:8px 12px;border-radius:8px;background:#c9ffb7;color:#242223;font-size:14px;font-weight:600;line-height:1.3;white-space:pre-wrap}
 /* Plan names */
@@ -62,3 +62,5 @@ html:root body .mc .mc__rating-text{font-size:13px!important}
 }
 /* No grey guarantee box under the button */
 #MainContent [id$="__buy"] .mpb-pro{display:none!important}
+/* Phones and tablets: the image starts right under the (now shorter) header, no gap */
+@media (max-width:989px){html:root body .mc.mc--buy[allow-transparent-header]{padding-top:46px!important}}
