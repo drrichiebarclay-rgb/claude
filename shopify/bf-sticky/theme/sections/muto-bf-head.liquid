@@ -54,6 +54,9 @@
   {%- render 'muto-bf-bar', product: product -%}
   <script src="{{ 'muto-bf-claim.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
+{%- if template.suffix == 'muto-creatine' or template.suffix == 'muto-socks' or template.suffix == 'muto-bottle' -%}
+  {{ 'muto-range-buy.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
 {%- if template.suffix == 'science-simple' -%}
   {%- comment -%} Science page: styled like the Black Friday product page. Its comparison goes into the
   template's "compare" slot, and its sections use the product page's scale {%- endcomment -%}
