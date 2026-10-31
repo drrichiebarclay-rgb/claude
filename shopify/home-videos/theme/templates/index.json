@@ -1022,55 +1022,6 @@
       },
       "disabled": true
     },
-    "sticky": {
-      "type": "muto-home-sticky",
-      "blocks": {
-        "p1": {
-          "type": "plan",
-          "settings": {
-            "variant_title": "30-Day Plan",
-            "name": "1-month subscription",
-            "price_suffix": "/mo",
-            "note": "Billed monthly",
-            "use_selling_plan": true
-          }
-        },
-        "p2": {
-          "type": "plan",
-          "settings": {
-            "variant_title": "90-Day Plan",
-            "name": "3-month subscription",
-            "price_suffix": "/mo",
-            "note": "Billed quarterly",
-            "use_selling_plan": true
-          }
-        },
-        "p3": {
-          "type": "plan",
-          "settings": {
-            "variant_title": "One time purchase",
-            "name": "One-time purchase",
-            "price_suffix": "",
-            "note": "One payment",
-            "use_selling_plan": false
-          }
-        }
-      },
-      "block_order": [
-        "p1",
-        "p2",
-        "p3"
-      ],
-      "settings": {
-        "product": "muto-nad-cellular-complex",
-        "sticky_cta_label": "Start the protocol",
-        "sticky_label": "",
-        "plan_cta_label": "Start the protocol",
-        "cta_link": "/products/muto-nad-cellular-complex",
-        "sticky_sub": "Cancel, pause or skip anytime",
-        "schema_on": true
-      }
-    },
     "top": {
       "type": "muto-home-top",
       "blocks": {
@@ -1529,6 +1480,16 @@
         "image_position": "62% 50%",
         "image_position_mobile": "70% 50%"
       }
+    },
+    "sbar": {
+      "type": "muto-sbar",
+      "settings": {
+        "product": "muto-nad-cellular-complex",
+        "label": "",
+        "sub": "",
+        "button": "Add to cart",
+        "schema_on": true
+      }
     }
   },
   "order": [
@@ -1543,7 +1504,7 @@
     "board_anchor",
     "board",
     "offer",
-    "sticky",
+    "sbar",
     "hero",
     "why",
     "founder",
