@@ -617,7 +617,7 @@
           "type": "link",
           "settings": {
             "label": "What people say",
-            "target": "results"
+            "target": "quotes"
           }
         },
         "n6": {
@@ -1026,7 +1026,7 @@
         "space_bottom": 100
       }
     },
-    "results": {
+    "quotes": {
       "type": "muto-loved",
       "blocks": {
         "v0": {
@@ -1037,87 +1037,6 @@
             "handle": "Kate Bright"
           }
         },
-        "v1": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/✅Copy of David Chat.mp4",
-            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/preview_images/cd1132a29bdc4f5081bfd9e6b008339b.thumbnail.0000000000.jpg?v=1793207168",
-            "handle": "David Mercado"
-          }
-        },
-        "v2": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/Lucy Short.mp4",
-            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/preview_images/3dcc774e01284c63ab3f6eaf40bc5fb7.thumbnail.0000000000.jpg?v=1766048998",
-            "handle": "Lucy Halliday"
-          }
-        },
-        "v3": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/Nothing Gets in on Trust_V01.mp4",
-            "image_url": "",
-            "handle": "Harry Insley"
-          }
-        },
-        "v4": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/clip 3.mp4",
-            "image_url": "",
-            "handle": "Adam Facey"
-          }
-        },
-        "v5": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/MUTO_Creator-Ad_Max-Richards_Script-B.mp4",
-            "image_url": "",
-            "handle": "Max Richards"
-          }
-        },
-        "v6": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/MU06_26_MUTO_VIDEO-1.mp4",
-            "image_url": "",
-            "handle": "Adam Hamilton"
-          }
-        },
-        "v7": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/The Baseline.mp4",
-            "image_url": "",
-            "handle": "Yolanda King"
-          }
-        }
-      },
-      "block_order": [
-        "v0",
-        "v1",
-        "v2",
-        "v3",
-        "v4",
-        "v5",
-        "v6",
-        "v7"
-      ],
-      "settings": {
-        "anchor": "results",
-        "rating": "MUTO customers, in their own words",
-        "heading": "Don’t take our word for it.",
-        "link_label": "",
-        "link": "",
-        "space_top": 96,
-        "space_bottom": 72,
-        "hide_stars": true
-      }
-    },
-    "quotes": {
-      "type": "muto-loved",
-      "blocks": {
         "q0": {
           "type": "quote",
           "settings": {
@@ -1128,60 +1047,120 @@
         "q1": {
           "type": "quote",
           "settings": {
-            "quote": "I have sustained energy, I sleep better, perform better in workouts, and don’t crash anymore.",
-            "name": "Danny S"
+            "quote": "No afternoon slump and in general feeling great",
+            "name": "Lynda"
+          }
+        },
+        "v1": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/✅Copy of David Chat.mp4",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/preview_images/cd1132a29bdc4f5081bfd9e6b008339b.thumbnail.0000000000.jpg?v=1793207168",
+            "handle": "David Mercado"
           }
         },
         "q2": {
-          "type": "quote",
-          "settings": {
-            "quote": "I track the effectiveness of my supplements using my Oura ring, and all my key biometrics are improving: recovery, sleep, HRV and RHR",
-            "name": "Hugh K"
-          }
-        },
-        "q3": {
           "type": "quote",
           "settings": {
             "quote": "I didn't realise how flat I'd been feeling until this helped lift me out of it",
             "name": "Holly P"
           }
         },
+        "q3": {
+          "type": "quote",
+          "settings": {
+            "quote": "I have sustained energy, I sleep better, perform better in workouts, and don’t crash anymore.",
+            "name": "Danny S"
+          }
+        },
+        "v2": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/Lucy Short.mp4",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/preview_images/3dcc774e01284c63ab3f6eaf40bc5fb7.thumbnail.0000000000.jpg?v=1766048998",
+            "handle": "Lucy Halliday"
+          }
+        },
         "q4": {
+          "type": "quote",
+          "settings": {
+            "quote": "Bought it to support healthy ageing and have been genuinely surprised at how quickly I felt a difference. My recovery and sleep have noticeably improved.",
+            "name": "K R"
+          }
+        },
+        "v3": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/MU06_26_MUTO_VIDEO-1.mp4",
+            "image_url": "",
+            "handle": "Adam Hamilton"
+          }
+        },
+        "q5": {
+          "type": "quote",
+          "settings": {
+            "quote": "I am usually sceptical to new supplements but this has been highly recommended by my friend so gave it a shot. It has exceeded my expectations, which is not easy as I am well-versed in nutrition and supplements.",
+            "name": "Aleks"
+          }
+        },
+        "v4": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/Nothing Gets in on Trust_V01.mp4",
+            "image_url": "",
+            "handle": "Harry Insley"
+          }
+        },
+        "q6": {
           "type": "quote",
           "settings": {
             "quote": "As a keen runner, I’ve noticed how Muto has helped me recover faster meaning I can train harder, more often.",
             "name": "Ayo P"
           }
         },
-        "q5": {
-          "type": "quote",
+        "v5": {
+          "type": "video",
           "settings": {
-            "quote": "Started using muto because I felt like my body couldn’t keep up with the amount of exercise I wanted to do. After taking muto, I felt more energised and ready for my next session!",
-            "name": "Brendan"
+            "video": "shopify://files/videos/clip 3.mp4",
+            "image_url": "",
+            "handle": "Adam Facey"
           }
         },
-        "v0": {
+        "q7": {
+          "type": "quote",
+          "settings": {
+            "quote": "The cellular energy boost it gives you really enables me to power through my day.",
+            "name": "Max"
+          }
+        },
+        "v6": {
           "type": "video",
           "settings": {
             "video": "shopify://files/videos/MUTO_Creator-Ad_Max-Richards_Script-B.mp4",
             "image_url": "",
-            "handle": ""
+            "handle": "Max Richards"
           }
         },
-        "v1": {
-          "type": "video",
+        "q8": {
+          "type": "quote",
           "settings": {
-            "video": "shopify://files/videos/MU06_26_MUTO_VIDEO-1.mp4",
-            "image_url": "",
-            "handle": ""
+            "quote": "Richie from the team gave me a call just to chat about my background and goals",
+            "name": "Mathew H"
           }
         },
-        "v2": {
+        "v7": {
           "type": "video",
           "settings": {
-            "video": "shopify://files/videos/kate v4.mp4",
+            "video": "shopify://files/videos/The Baseline.mp4",
             "image_url": "",
-            "handle": ""
+            "handle": "Yolanda King"
+          }
+        },
+        "q9": {
+          "type": "quote",
+          "settings": {
+            "quote": "I love that this replaces multiple products",
+            "name": "Amy C"
           }
         }
       },
@@ -1194,10 +1173,19 @@
         "q3",
         "v2",
         "q4",
-        "q5"
+        "v3",
+        "q5",
+        "v4",
+        "q6",
+        "v5",
+        "q7",
+        "v6",
+        "q8",
+        "v7",
+        "q9"
       ],
       "settings": {
-        "anchor": "",
+        "anchor": "results",
         "heading": "Loved by our community.",
         "link_label": "Read all reviews",
         "link": "#ReviewsWidget",
@@ -2186,7 +2174,6 @@
     "board_anchor",
     "board",
     "standards",
-    "results",
     "quotes",
     "library",
     "founder",
