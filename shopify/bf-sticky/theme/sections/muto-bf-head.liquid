@@ -74,6 +74,18 @@
   </script>
 {%- endif -%}
 <style>
+  /* Header: plain everywhere. No navy band and no glass pills; black logo, nav and icons. On the home page
+     it sits over the opening photo, so it stays white there. The mobile menu drawer is untouched. */
+  html body header.header,html body .header__heading-link,html body .header__wrapper{background:transparent!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+  html body:not(.template-index) .header-wrapper{background-color:#fff!important}
+  html body:not(.template-index):has([allow-transparent-header]) .header-wrapper{background-color:transparent!important}
+  html body:not(.template-index) .header__heading-logo{filter:invert(100%)!important}
+  html body:not(.template-index) .header-logo-caption{color:#242223!important}
+  html body:not(.template-index) .header__icon,html body:not(.template-index) .header__icon .svg-wrapper{color:#242223!important}
+  html body:not(.template-index) .header__inline-menu .list-menu--inline > li > a.header__menu-item,
+  html body:not(.template-index) .header__inline-menu .list-menu--inline > li > details > summary.header__menu-item,
+  html body:not(.template-index) .header__inline-menu .list-menu--inline > li > a .header__active-menu-item{color:#242223!important}
+  html body.template-index .header-wrapper{background-color:transparent!important}
   /* "On this page" links: hidden where they sit in the page; they appear pinned to the top once you scroll past */
   html:root body .msn{height:0!important;overflow:visible}
   html:root body .msn__nav:not(.is-fixed){visibility:hidden;opacity:0;pointer-events:none}

@@ -1147,7 +1147,8 @@
         "badge_text": "Doctors and scientists\nreview the formula",
         "rating": "4.8 from 103 reviews",
         "rating_link": "#reviews",
-        "space_top": 12
+        "space_top": 0,
+        "allow_transparent_header": true
       }
     },
     "value": {
