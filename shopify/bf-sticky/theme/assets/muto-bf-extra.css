@@ -53,3 +53,5 @@ html:root body .mc .mc__kit-sum > span:first-child::before{content:"Future month
   html:root body .mc .mc__acc-sum{font-size:16px}
   html:root body .mc .mc__acc-body{font-size:15px}
 }
+/* "The problem" stat figures (~50%, ~80%...): same weight as the section headings */
+html:root body .mc .mc__prb-fig{font-weight:500!important}
