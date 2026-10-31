@@ -1,0 +1,18 @@
+{%- comment -%}
+  MUTO — Comparison. Shows "MUTO vs the usual" (snippets/muto-bf-compare.liquid, the same table as the
+  Black Friday product page and the science page) wherever this section is added. Name the section
+  "compare" in the template: the snippet fills the section whose id ends in __compare.
+{%- endcomment -%}
+<div class="muto-compare-slot"></div>
+{%- render 'muto-bf-compare' -%}
+{% schema %}
+{
+  "name": "MUTO — Comparison",
+  "tag": "section",
+  "settings": [
+    { "type": "paragraph", "content": "The MUTO vs the usual table. Edit its rows in snippets/muto-bf-compare.liquid." }
+  ],
+  "presets": [{ "name": "MUTO — Comparison" }],
+  "enabled_on": { "templates": ["index", "page"] }
+}
+{% endschema %}

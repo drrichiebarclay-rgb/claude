@@ -1,0 +1,125 @@
+{%- comment -%}
+  MUTO — Home header. A large rounded photo with the words over it (eyebrow, the site's heading in
+  sentence case, a line, a white button) and a small white badge in the corner; under it, a strip with
+  the star rating and a row of short customer quotes that scrolls by on its own (pauses on hover).
+  BLOCKS: quote (text, name). MOBILE: the photo is taller, the badge sits under the button.
+{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign sid = section.id
+-%}
+<style>
+  #shopify-section-{{ sid }}{--mht2-ink:#242223;--mht2-muted:#6b6a6a;--mht2-mono:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace}
+  #shopify-section-{{ sid }} .mtop,#shopify-section-{{ sid }} .mtop h1,#shopify-section-{{ sid }} .mtop p,#shopify-section-{{ sid }} .mtop a{font-family:var(--mc-font,"Neue Haas Grotesk Display Pro"),sans-serif;-webkit-font-smoothing:antialiased}
+  #shopify-section-{{ sid }} .mtop{background:#fff;color:var(--mht2-ink);padding:{{ s.space_top }}px 12px 0}
+  #shopify-section-{{ sid }} .mtop__hero{position:relative;display:flex;align-items:center;min-height:min(78vh,760px);padding:64px;border-radius:10px;overflow:hidden;background:#1d2a2c;color:#fff}
+  #shopify-section-{{ sid }} .mtop__media img,#shopify-section-{{ sid }} .mtop__media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{ s.image_position | default: '50% 50%' }}}
+  #shopify-section-{{ sid }} .mtop__hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,14,16,{{ s.overlay | divided_by: 100.0 }}),rgba(10,14,16,0) 70%);pointer-events:none}
+  #shopify-section-{{ sid }} .mtop__copy{position:relative;z-index:2;display:grid;justify-items:start;gap:20px;max-width:640px}
+  #shopify-section-{{ sid }} .mtop__eye{margin:0;font-family:var(--mht2-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#fff}
+  #shopify-section-{{ sid }} .mtop .mtop__h{margin:0;font-weight:500;font-size:clamp(40px,5vw,76px);line-height:.95;letter-spacing:-.02em;color:#fff;text-wrap:balance}
+  #shopify-section-{{ sid }} .mtop__sub{margin:0;max-width:44ch;font-size:clamp(17px,1.4vw,20px);line-height:1.4;color:rgba(255,255,255,.92)}
+  #shopify-section-{{ sid }} .mtop__btn{display:inline-flex;align-items:center;justify-content:center;min-height:60px;margin-top:8px;padding:0 32px;border-radius:8px;background:#5efaff;color:var(--mht2-ink);font-size:16px;font-weight:500;text-decoration:none;transition:background .2s}
+  #shopify-section-{{ sid }} .mtop__btn:hover{background:#3ef0f6}
+  #shopify-section-{{ sid }} .mtop__badge{position:absolute;right:32px;bottom:32px;z-index:2;display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:8px;background:#fff;color:var(--mht2-ink)}
+  #shopify-section-{{ sid }} .mtop__badge b{font-size:28px;font-weight:500;line-height:1;letter-spacing:-.02em;color:#1f6f7c}
+  #shopify-section-{{ sid }} .mtop__badge span{padding-left:14px;border-left:1px solid rgba(36,34,35,.16);font-family:var(--mht2-mono);font-size:11.5px;line-height:1.5;letter-spacing:.1em;text-transform:uppercase}
+
+  /* The strip under the photo */
+  #shopify-section-{{ sid }} .mtop__strip{display:flex;align-items:center;gap:40px;padding:22px 52px;overflow:hidden}
+  #shopify-section-{{ sid }} .mtop__rate{flex:0 0 auto;display:flex;align-items:center;gap:12px;font-family:var(--mht2-mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mht2-ink);text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px}
+  #shopify-section-{{ sid }} .mtop__stars{letter-spacing:2px;font-size:15px;text-decoration:none}
+  #shopify-section-{{ sid }} .mtop__tick{position:relative;flex:1;min-width:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+  #shopify-section-{{ sid }} .mtop__run{display:flex;width:max-content;animation:mtop-run {{ section.blocks.size | times: 7 | at_least: 20 }}s linear infinite}
+  #shopify-section-{{ sid }} .mtop__tick:hover .mtop__run{animation-play-state:paused}
+  #shopify-section-{{ sid }} .mtop__q{flex:0 0 auto;margin:0 36px 0 0;white-space:nowrap;font-family:var(--mht2-mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mht2-ink)}
+  #shopify-section-{{ sid }} .mtop__q span{color:var(--mht2-muted)}
+  @keyframes mtop-run{to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){#shopify-section-{{ sid }} .mtop__run{animation:none}}
+
+  @media (max-width:749px){
+    #shopify-section-{{ sid }} .mtop{padding:{{ s.space_top | times: 0.5 | round }}px 8px 0}
+    #shopify-section-{{ sid }} .mtop__hero{flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:16px;min-height:min(82vh,640px);padding:28px 20px}
+    #shopify-section-{{ sid }} .mtop__hero::after{background:linear-gradient(0deg,rgba(10,14,16,{{ s.overlay | divided_by: 100.0 }}),rgba(10,14,16,0) 75%)}
+    #shopify-section-{{ sid }} .mtop__copy{gap:14px}
+    #shopify-section-{{ sid }} .mtop .mtop__h{font-size:38px}
+    #shopify-section-{{ sid }} .mtop__sub{font-size:16px}
+    #shopify-section-{{ sid }} .mtop__btn{width:100%;min-height:56px}
+    #shopify-section-{{ sid }} .mtop__badge{position:static;margin-top:4px;padding:10px 14px}
+    #shopify-section-{{ sid }} .mtop__badge b{font-size:22px}
+    #shopify-section-{{ sid }} .mtop__strip{flex-direction:column;align-items:stretch;gap:14px;padding:18px 8px}
+    #shopify-section-{{ sid }} .mtop__rate{justify-content:center;font-size:11.5px}
+    #shopify-section-{{ sid }} .mtop__q{font-size:11.5px;margin-right:28px}
+  }
+</style>
+
+<div class="mtop">
+  <div class="mtop__hero">
+    <div class="mtop__media" aria-hidden="{% if s.image_alt == blank %}true{% else %}false{% endif %}">
+      {%- if s.video != blank -%}
+        {{ s.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, image_size: '1800x' }}
+      {%- elsif s.image != blank -%}
+        {{ s.image | image_url: width: 2400 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '800,1200,1600,2000,2400', sizes: '100vw', alt: s.image_alt }}
+      {%- elsif s.image_url != blank -%}
+        <img src="{{ s.image_url }}" alt="{{ s.image_alt | escape }}" width="2400" height="1350" fetchpriority="high">
+      {%- endif -%}
+    </div>
+    <div class="mtop__copy">
+      {%- if s.eyebrow != blank -%}<p class="mtop__eye">{{ s.eyebrow }}</p>{%- endif -%}
+      <h1 class="mtop__h">{{ s.heading | escape | newline_to_br }}</h1>
+      {%- if s.text != blank -%}<p class="mtop__sub">{{ s.text }}</p>{%- endif -%}
+      {%- if s.button_label != blank -%}<a class="mtop__btn" href="{{ s.button_link }}">{{ s.button_label }}</a>{%- endif -%}
+    </div>
+    {%- if s.badge_big != blank -%}<p class="mtop__badge"><b>{{ s.badge_big }}</b><span>{{ s.badge_text | newline_to_br }}</span></p>{%- endif -%}
+  </div>
+
+  <div class="mtop__strip">
+    {%- if s.rating != blank -%}
+      <a class="mtop__rate" href="{{ s.rating_link | default: '#reviews' }}"><span class="mtop__stars" aria-hidden="true">★★★★★</span>{{ s.rating }}</a>
+    {%- endif -%}
+    {%- if section.blocks.size > 0 -%}
+      <div class="mtop__tick" aria-label="What customers say">
+        <div class="mtop__run">
+          {%- for n in (1..2) -%}
+            {%- for b in section.blocks -%}
+              <p class="mtop__q"{% if n == 2 %} aria-hidden="true"{% endif %} {% if n == 1 %}{{ b.shopify_attributes }}{% endif %}>“{{ b.settings.text }}” <span>· {{ b.settings.name }}</span></p>
+            {%- endfor -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO — Home header",
+  "tag": "section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Photo" },
+    { "type": "text", "id": "image_url", "label": "Photo URL (if no photo picked)" },
+    { "type": "text", "id": "image_alt", "label": "Photo description" },
+    { "type": "text", "id": "image_position", "label": "Photo focus", "info": "e.g. 50% 50%" },
+    { "type": "video", "id": "video", "label": "Video (instead of the photo)" },
+    { "type": "range", "id": "overlay", "label": "Shade behind the words", "min": 0, "max": 80, "step": 5, "unit": "%", "default": 45 },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "textarea", "id": "heading", "label": "Heading" },
+    { "type": "textarea", "id": "text", "label": "Line under it" },
+    { "type": "text", "id": "button_label", "label": "Button" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "text", "id": "badge_big", "label": "Badge: big figure" },
+    { "type": "textarea", "id": "badge_text", "label": "Badge: words" },
+    { "type": "text", "id": "rating", "label": "Rating line", "default": "4.8 from 103 reviews" },
+    { "type": "text", "id": "rating_link", "label": "Rating link", "default": "#reviews" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 12 }
+  ],
+  "blocks": [
+    { "type": "quote", "name": "Quote", "settings": [
+      { "type": "text", "id": "text", "label": "Quote" },
+      { "type": "text", "id": "name", "label": "Name" }
+    ] }
+  ],
+  "presets": [{ "name": "MUTO — Home header" }],
+  "enabled_on": { "templates": ["index", "page"] }
+}
+{% endschema %}

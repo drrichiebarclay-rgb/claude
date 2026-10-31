@@ -30,7 +30,8 @@
         "schema_profiles": "",
         "space_top": 100,
         "space_bottom": 100
-      }
+      },
+      "disabled": true
     },
     "custom_liquid_nYMKd9": {
       "type": "custom-liquid",
@@ -337,7 +338,8 @@
         "fit": "home",
         "space_top": 100,
         "space_bottom": 100
-      }
+      },
+      "disabled": true
     },
     "founder": {
       "type": "muto-home-founder",
@@ -390,7 +392,8 @@
         "field": true,
         "space_top": 100,
         "space_bottom": 100
-      }
+      },
+      "disabled": true
     },
     "board": {
       "type": "muto-home-board",
@@ -500,14 +503,14 @@
         "m6"
       ],
       "settings": {
-        "field": true,
-        "heading": "Meet the experts\nbehind MUTO.",
-        "note": "Our Scientific Advisory Board",
+        "field": false,
+        "heading": "Meet the minds\nbehind MUTO.",
+        "note": "Our Scientific Advisory Board reviews the formula",
         "compact": true,
         "rail_gap": 40,
         "fit": "nad",
-        "space_top": 104,
-        "space_bottom": 100
+        "space_top": 60,
+        "space_bottom": 72
       }
     },
     "results": {
@@ -807,7 +810,8 @@
         "field": true,
         "space_top": 100,
         "space_bottom": 100
-      }
+      },
+      "disabled": true
     },
     "benefits_css": {
       "type": "custom-liquid",
@@ -816,7 +820,8 @@
         "color_scheme": "scheme-1",
         "padding_top": 0,
         "padding_bottom": 0
-      }
+      },
+      "disabled": true
     },
     "banner": {
       "type": "muto-home-banner",
@@ -826,7 +831,8 @@
         "cutout_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-cutout.png?v=1790751995",
         "space_top": 100,
         "space_bottom": 100
-      }
+      },
+      "disabled": true
     },
     "science_nad": {
       "type": "muto-home-science",
@@ -898,7 +904,8 @@
         "image_alt": "Two jars of MUTO NAD+ Cellular Complex, one tipped against the other, lit on a dark set",
         "space_top": 100,
         "space_bottom": 100
-      }
+      },
+      "disabled": true
     },
     "science_creatine": {
       "type": "muto-home-science",
@@ -970,7 +977,8 @@
         "image_alt": "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate lit on a dark set",
         "space_top": 100,
         "space_bottom": 100
-      }
+      },
+      "disabled": true
     },
     "stats": {
       "type": "muto-home-stats",
@@ -1009,7 +1017,8 @@
         "heading": "The numbers behind MUTO",
         "space_top": 100,
         "space_bottom": 100
-      }
+      },
+      "disabled": true
     },
     "sticky": {
       "type": "muto-home-sticky",
@@ -1059,22 +1068,284 @@
         "sticky_sub": "Cancel, pause or skip anytime",
         "schema_on": true
       }
+    },
+    "top": {
+      "type": "muto-home-top",
+      "blocks": {
+        "q1": {
+          "type": "quote",
+          "settings": {
+            "text": "No afternoon slump and in general feeling great",
+            "name": "Lynda"
+          }
+        },
+        "q2": {
+          "type": "quote",
+          "settings": {
+            "text": "Has actually changed my recovery",
+            "name": "Adam H"
+          }
+        },
+        "q3": {
+          "type": "quote",
+          "settings": {
+            "text": "Energy is up and staying consistent.",
+            "name": "Jack"
+          }
+        },
+        "q4": {
+          "type": "quote",
+          "settings": {
+            "text": "I love that this replaces multiple products",
+            "name": "Amy C"
+          }
+        },
+        "q5": {
+          "type": "quote",
+          "settings": {
+            "text": "I feel like I have more energy and a clearer mind.",
+            "name": "Sam"
+          }
+        },
+        "q6": {
+          "type": "quote",
+          "settings": {
+            "text": "It has exceeded my expectations",
+            "name": "Aleks"
+          }
+        },
+        "q7": {
+          "type": "quote",
+          "settings": {
+            "text": "I sleep better, perform better in workouts, and don’t crash anymore.",
+            "name": "Danny S"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7"
+      ],
+      "settings": {
+        "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-home-hero-spill-16x9.jpg?v=1791292252",
+        "image_alt": "A jar of MUTO NAD+ Cellular Complex on its side with its lid off, capsules spilled in front, lit against a dark set",
+        "image_position": "100% 50%",
+        "overlay": 45,
+        "eyebrow": "NAD+ Cellular Complex",
+        "heading": "Built for your body after 35.",
+        "text": "A daily multi-nutrient with NAD⁺ support. Five supplements in one jar, every dose on the label.",
+        "button_label": "Shop now",
+        "button_link": "/products/muto-nad-cellular-complex",
+        "badge_big": "6",
+        "badge_text": "Doctors and scientists\nreview the formula",
+        "rating": "4.8 from 103 reviews",
+        "rating_link": "#reviews",
+        "space_top": 12
+      }
+    },
+    "value": {
+      "type": "muto-story",
+      "blocks": {
+        "v1": {
+          "type": "stat",
+          "settings": {
+            "figure": "19",
+            "unit": "",
+            "title": "Ingredients",
+            "text": "Every one on the label, with its dose and the reason it’s there."
+          }
+        },
+        "v2": {
+          "type": "stat",
+          "settings": {
+            "figure": "300",
+            "unit": "mg",
+            "title": "Nicotinamide riboside",
+            "text": "The maximum daily amount authorised in Great Britain."
+          }
+        },
+        "v3": {
+          "type": "stat",
+          "settings": {
+            "figure": "6",
+            "unit": "",
+            "title": "Scientific advisers",
+            "text": "Doctors and scientists who review the formula."
+          }
+        },
+        "v4": {
+          "type": "stat",
+          "settings": {
+            "figure": "90",
+            "unit": "",
+            "title": "Day money-back guarantee",
+            "text": "Not for you? Get every subscription payment back."
+          }
+        }
+      },
+      "block_order": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "settings": {
+        "layout": "value",
+        "text": "What your body needs after 35 is different. NAD+ Cellular Complex puts 19 ingredients in one daily jar, with every dose on the label and every batch tested by an independent lab.",
+        "link_label": "Discover our science",
+        "link": "/pages/science",
+        "space_top": 96,
+        "space_bottom": 96
+      }
+    },
+    "founder_v2": {
+      "type": "muto-crea-founder",
+      "settings": {
+        "eyebrow": "Our founder",
+        "heading": "Built by a doctor\nwho wanted proof.",
+        "text": "<p>Richie Barclay is a cell biologist with a PhD in cellular biology and nutrition, a Harley Street nutritionist for the last 13 years, and a former cricketer and tennis player.</p><p>He started MUTO after years of watching supplements sell on claims nobody had checked, with the doses hidden in blends. So MUTO does it the other way: every dose is on the label, every batch goes to an outside lab, and six doctors and scientists review the formula.</p>",
+        "quote": "I built MUTO because I was tired of supplements that ask you to take them on trust.",
+        "quote_by": "Dr Richie Barclay, PhD, founder",
+        "link_label": "Got a question? Email Richie",
+        "link": "mailto:hello@mutolongevity.com",
+        "image": "shopify://shop_images/MutoxNSPCCEvent-38.jpg",
+        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/founder-bf-stage.jpg?v=1793283537",
+        "image_alt": "Dr Richie Barclay speaking on stage at a MUTO event",
+        "image_position": "50% 30%",
+        "caption": "",
+        "space_top": 100,
+        "space_bottom": 100
+      }
+    },
+    "compare": {
+      "type": "muto-compare",
+      "settings": {}
+    },
+    "loved": {
+      "type": "muto-loved",
+      "blocks": {
+        "q0": {
+          "type": "quote",
+          "settings": {
+            "quote": "Being in my mid 30s, everything has started to slow down. Muto is providing me with a sense of vitality which I haven’t experienced since my mid 20s",
+            "name": "Jonathon R"
+          }
+        },
+        "q1": {
+          "type": "quote",
+          "settings": {
+            "quote": "I have sustained energy, I sleep better, perform better in workouts, and don’t crash anymore.",
+            "name": "Danny S"
+          }
+        },
+        "q2": {
+          "type": "quote",
+          "settings": {
+            "quote": "I track the effectiveness of my supplements using my Oura ring, and all my key biometrics are improving: recovery, sleep, HRV and RHR",
+            "name": "Hugh K"
+          }
+        },
+        "q3": {
+          "type": "quote",
+          "settings": {
+            "quote": "I didn't realise how flat I'd been feeling until this helped lift me out of it",
+            "name": "Holly P"
+          }
+        },
+        "q4": {
+          "type": "quote",
+          "settings": {
+            "quote": "As a keen runner, I’ve noticed how Muto has helped me recover faster meaning I can train harder, more often.",
+            "name": "Ayo P"
+          }
+        },
+        "q5": {
+          "type": "quote",
+          "settings": {
+            "quote": "Started using muto because I felt like my body couldn’t keep up with the amount of exercise I wanted to do. After taking muto, I felt more energised and ready for my next session!",
+            "name": "Brendan"
+          }
+        },
+        "v0": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/MUTO_Creator-Ad_Max-Richards_Script-B.mp4",
+            "image_url": "",
+            "handle": ""
+          }
+        },
+        "v1": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/MU06_26_MUTO_VIDEO-1.mp4",
+            "image_url": "",
+            "handle": ""
+          }
+        },
+        "v2": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/The Baseline.mp4",
+            "image_url": "",
+            "handle": ""
+          }
+        }
+      },
+      "block_order": [
+        "v0",
+        "q0",
+        "q1",
+        "v1",
+        "q2",
+        "q3",
+        "v2",
+        "q4",
+        "q5"
+      ],
+      "settings": {
+        "anchor": "reviews",
+        "heading": "Loved by our community",
+        "link_label": "Read all reviews",
+        "link": "/products/muto-nad-cellular-complex#ReviewsWidget",
+        "space_top": 96,
+        "space_bottom": 96
+      }
+    },
+    "board_anchor": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<style>[id$=\"__board_anchor\"]{height:0;overflow:hidden;margin:0!important;padding:0!important}[id$=\"__board\"] .mh{background:var(--mc-ground,#f9f9f9)}</style><span id=\"scientific-board\" style=\"display:block;position:relative;top:-80px\"></span>",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
-    "hero",
+    "top",
     "custom_liquid_nYMKd9",
+    "value",
+    "founder_v2",
     "shop",
+    "results",
+    "compare",
+    "loved",
+    "board_anchor",
+    "board",
+    "sticky",
+    "hero",
     "why",
     "founder",
-    "board",
-    "results",
     "benefits",
     "benefits_css",
     "banner",
     "science_nad",
     "science_creatine",
-    "stats",
-    "sticky"
+    "stats"
   ]
 }

@@ -7,6 +7,8 @@
               (quote: the part before "|" is ink, the rest is grey), with name and role.
     split     A photo (or video) on the left; the site's heading, a paragraph or two and an outlined
               button on the right. MOBILE: photo first.
+    value     A large left-aligned statement, an outlined button, then a row of figures on dotted rules
+              (blocks: stat).
     gallery   Centred eyebrow, heading and line, then a row of photo tiles you swipe (blocks: photo), and a
               small mono note under them.
     team      Heading left, a note right, a dotted rule, a small label, then a grid of portraits
@@ -62,6 +64,11 @@
   #shopify-section-{{ sid }} .mst__stext p{margin:20px 0 0;font-size:clamp(17px,1.4vw,20px);line-height:1.45;color:var(--mst-ink)}
   #shopify-section-{{ sid }} .mst__scopy .mst__qlink{align-self:flex-start;margin-top:0}
 
+  /* Value */
+  #shopify-section-{{ sid }} .mst__val{display:grid;justify-items:start;gap:32px;margin-bottom:72px}
+  #shopify-section-{{ sid }} .mst__val p.mst__big{margin:0;max-width:34ch;font-weight:400;font-size:clamp(26px,2.9vw,44px);line-height:1.18;letter-spacing:-.015em;color:var(--mst-ink);text-wrap:pretty}
+  #shopify-section-{{ sid }} .mst__val .mst__qlink{margin-top:0}
+
   /* Gallery */
   #shopify-section-{{ sid }} .mst__ghead{display:grid;justify-items:center;gap:20px;text-align:center}
   #shopify-section-{{ sid }} .mst__ghead .mst__lede{margin:0;max-width:52ch;font-size:clamp(17px,1.4vw,20px);line-height:1.45;text-wrap:balance}
@@ -105,6 +112,9 @@
     #shopify-section-{{ sid }} .mst__st{margin-top:14px;font-size:16px}
     #shopify-section-{{ sid }} .mst__sx{font-size:14px}
     #shopify-section-{{ sid }} .mst__q{font-size:24px}
+    #shopify-section-{{ sid }} .mst__val{gap:22px;margin-bottom:44px}
+    #shopify-section-{{ sid }} .mst__val p.mst__big{font-size:24px}
+    #shopify-section-{{ sid }} .mst__val .mst__qlink{width:100%;justify-content:center}
     #shopify-section-{{ sid }} .mst__qlink{width:100%;justify-content:center}
     #shopify-section-{{ sid }} .mst__rule{margin:32px 0 16px}
     #shopify-section-{{ sid }} .mst__rail{gap:10px;margin:32px -16px 0;padding:0 16px 4px;scroll-padding:0 16px}
@@ -144,6 +154,22 @@
             {%- endif -%}
           </div>
         </div>
+
+      {%- when 'value' -%}
+        <div class="mst__val">
+          {%- if s.eyebrow != blank -%}<p class="mst__eye">{{ s.eyebrow }}</p>{%- endif -%}
+          {%- if s.text != blank -%}<p class="mst__big">{{ s.text }}</p>{%- endif -%}
+          {%- if s.link_label != blank -%}<a class="mst__qlink" href="{{ s.link }}">{{ s.link_label }} <span aria-hidden="true">→</span></a>{%- endif -%}
+        </div>
+        <ul class="mst__stats">
+          {%- for b in section.blocks -%}
+            <li {{ b.shopify_attributes }}>
+              <span class="mst__fig">{{ b.settings.figure }}{% if b.settings.unit != blank %}<sup>{{ b.settings.unit }}</sup>{% endif %}</span>
+              <span class="mst__st">{{ b.settings.title }}</span>
+              {%- if b.settings.text != blank -%}<span class="mst__sx">{{ b.settings.text }}</span>{%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
 
       {%- when 'numbers' -%}
         <ul class="mst__stats">
@@ -264,6 +290,7 @@
       { "value": "numbers", "label": "Numbers and founder quote" },
       { "value": "split", "label": "Photo beside words" },
       { "value": "gallery", "label": "Photo row" },
+      { "value": "value", "label": "Statement, button and figures" },
       { "value": "team", "label": "Team grid" }
     ] },
     { "type": "text", "id": "anchor", "label": "Anchor" },
@@ -302,6 +329,6 @@
     ] }
   ],
   "presets": [{ "name": "MUTO — About story" }],
-  "enabled_on": { "templates": ["page"] }
+  "enabled_on": { "templates": ["page", "index"] }
 }
 {% endschema %}
