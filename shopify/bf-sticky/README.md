@@ -1,5 +1,7 @@
 # Black Friday: Claim offer + sticky plan bar + compact phone layout
 
+**Dev handoff:** `handoff/handoff_31oct_bf_pdp.md` (also `handoff/MUTO_Dev_Handoff_BF_PDP_31Oct2026.docx` and the zip `handoff/MUTO_BF_PDP_31Oct.zip`). It is the up-to-date description; the notes below are the earlier build log.
+
 On theme **"Black Friday | Claim offer + sticky bar | 31 Oct 2026"** (ID 203974869339), a duplicate of the live theme taken 31 Oct.
 
 Preview: https://muto.co/products/muto-nad-cellular-complex?preview_theme_id=203974869339
