@@ -74,6 +74,12 @@
   </script>
 {%- endif -%}
 <style>
+  /* "On this page" links: hidden where they sit in the page; they appear pinned to the top once you scroll past */
+  html:root body .msn{height:0!important;overflow:visible}
+  html:root body .msn__nav:not(.is-fixed){visibility:hidden;opacity:0;pointer-events:none}
+  html:root body .msn__nav.is-fixed{animation:msnIn .25s ease both}
+  @keyframes msnIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){html:root body .msn__nav.is-fixed{animation:none}}
   /* Footer headings at the site's heading weight */
   footer h1,footer h2,footer h3,footer .h1,footer .h2,footer .h3,footer .h4,footer .footer-block__heading,footer .newsletter__heading,
   .footer h1,.footer h2,.footer h3,.footer .h1,.footer .h2,.footer .footer-block__heading,[id*="__footer"] h2,[id*="__footer"] .h1,[id*="__footer"] .h2{font-weight:500!important}
