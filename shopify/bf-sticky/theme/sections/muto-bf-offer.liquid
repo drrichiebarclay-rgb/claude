@@ -1,19 +1,12 @@
 {%- comment -%}
-  MUTO — Black Friday offer (muto-bf-offer). Lives in the footer group but only renders on the
-  Black Friday product template (product.muto-nad-bf):
-    1. The black bar fixed to the top. "Claim offer" adds the Quarterly plan (the product's 3-month
-       Skio selling plan) to the cart and goes straight to checkout (assets/muto-bf-claim.js).
-       It replaces the template's own bf_bar section, which is hidden while this one is on the page.
-    2. A sticky plan bar fixed to the foot of the screen: plan picker + Add to cart, in step with the
-       plan cards on the page, submitting the page's own cart form (assets/muto-bf-sticky.js).
-    3. Phones: the buy box made smaller and tighter (assets/muto-bf-compact.css).
-  After Black Friday: delete this section from the footer in Customize.
+  MUTO — Black Friday offer (muto-bf-offer). In the footer group; only on the Black Friday product
+  template (product.muto-nad-bf). The sticky plan bar at the foot of the screen: plan picker + Add to
+  cart, in step with the plan cards, submitting the page's own cart form (assets/muto-bf-sticky.js).
+  Also loads assets/muto-bf-layout.js (plan names for the picker, gallery arrows, testing button).
+  The styles and the top bar are in muto-bf-head, in the header group.
+  After Black Friday: delete this section from the footer, and muto-bf-head from the header.
 {%- endcomment -%}
 {%- if template.suffix == 'muto-nad-bf' and product != blank -%}
-  {{ 'muto-bf-bar.css' | asset_url | stylesheet_tag }}
-  {{ 'muto-bf-sticky.css' | asset_url | stylesheet_tag }}
-  {{ 'muto-bf-compact.css' | asset_url | stylesheet_tag }}
-  {%- render 'muto-bf-bar', product: product -%}
   <div class="mc-sbar" id="mc-sbar" role="region" aria-label="Choose a plan and add to cart" aria-hidden="true">
     <div class="mc-sbar__in">
       <div class="mc-sbar__prod">
@@ -26,7 +19,7 @@
         </div>
       </div>
       <label class="mc-sbar__pick">
-        <span class="mc-sbar__pick-name" data-sbar-name>Quarterly plan</span>
+        <span class="mc-sbar__pick-name" data-sbar-name>3-Month Supply</span>
         <span class="mc-sbar__pick-sub" data-sbar-sub></span>
         <select class="mc-sbar__select" data-sbar-select aria-label="Plan"></select>
       </label>
@@ -37,7 +30,7 @@
       </button>
     </div>
   </div>
-  <script src="{{ 'muto-bf-claim.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'muto-bf-layout.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'muto-bf-sticky.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
@@ -47,7 +40,7 @@
   "tag": "div",
   "class": "muto-bf-offer",
   "settings": [
-    { "type": "paragraph", "content": "Only shows on the Black Friday product template (muto-nad-bf): top bar with Claim offer (Quarterly plan straight to checkout), the sticky plan bar, and the compact phone layout." }
+    { "type": "paragraph", "content": "Only on the Black Friday product template (muto-nad-bf): the sticky plan bar at the foot of the screen. The styles and top bar are in MUTO — Black Friday head, in the header." }
   ],
   "presets": [{ "name": "MUTO — Black Friday offer" }]
 }

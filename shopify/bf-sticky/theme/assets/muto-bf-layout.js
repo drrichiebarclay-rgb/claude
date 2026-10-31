@@ -53,7 +53,18 @@
     if (bad && btn && btn.nextElementSibling !== bad) bad.parentNode.insertBefore(btn, bad);
   }
 
-  function run() { gallery(); tests(); }
+  /* The cards show their new names in CSS; the text itself is renamed too, for the sticky bar's picker */
+  function names() {
+    [].forEach.call(document.querySelectorAll('.mc .mc__plans > label.mc__plan'), function (c) {
+      var n = c.querySelector('.mc__plan-name');
+      if (!n) return;
+      var t = n.textContent;
+      var r = /quarter|3.?month/i.test(t) ? '3-Month Supply' : /month/i.test(t) ? '1-Month Supply' : '';
+      if (r && t !== r) { n.textContent = r; c.setAttribute('data-name', r); }
+    });
+  }
+
+  function run() { names(); gallery(); tests(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
   document.addEventListener('shopify:section:load', function () { setTimeout(run, 60); });
 })();

@@ -1,0 +1,28 @@
+{%- comment -%}
+  MUTO — Black Friday head (muto-bf-head). In the header group, so on the Black Friday product template
+  (product.muto-nad-bf) every Black Friday style is in place before the page is drawn: no flash of the
+  old design. Also draws the black top bar. The sticky plan bar is muto-bf-offer, in the footer group.
+  After Black Friday: delete this section from the header in Customize.
+{%- endcomment -%}
+{%- if template.suffix == 'muto-nad-bf' and product != blank -%}
+  {{ 'muto-bf-bar.css' | asset_url | stylesheet_tag }}
+  {{ 'muto-bf-sticky.css' | asset_url | stylesheet_tag }}
+  {{ 'muto-bf-compact.css' | asset_url | stylesheet_tag }}
+  {{ 'muto-bf-layout.css' | asset_url | stylesheet_tag }}
+  {{ 'muto-bf-type.css' | asset_url | stylesheet_tag }}
+  {{ 'muto-bf-copy.css' | asset_url | stylesheet_tag }}
+  {%- render 'muto-bf-bar', product: product -%}
+  <script src="{{ 'muto-bf-claim.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "MUTO — Black Friday head",
+  "tag": "div",
+  "class": "muto-bf-head",
+  "settings": [
+    { "type": "paragraph", "content": "Only on the Black Friday product template (muto-nad-bf): loads the Black Friday styles before the page is drawn, and the top bar with Claim (3-month plan straight to checkout)." }
+  ],
+  "presets": [{ "name": "MUTO — Black Friday head" }]
+}
+{% endschema %}
