@@ -32,6 +32,9 @@
     /* The testing button is drawn under the image, then moved to where the badges were (muto-bf-layout.js):
        hidden until it has moved, so its old place never shows */
     html body .mc .mc__buy-media .mc-tests-btn{display:none!important}
+    /* Add to cart buttons (page and sticky bar): the pill green */
+    html:root body .mc .mc__buy-cta,html:root body .mc-sbar .mc-sbar__btn{background:#c9ffb7!important;color:#242223!important}
+    html:root body .mc .mc__buy-cta:hover,html:root body .mc-sbar .mc-sbar__btn:hover{background:#b8f5a3!important;filter:none}
     /* "Free from" and "Made with" lists under the button: smaller */
     #MainContent [id$="__buy"] .mpb-lists{gap:16px;margin-top:18px}
     #MainContent [id$="__buy"] .mpb-lists p{margin-bottom:8px;font-size:10.5px}
