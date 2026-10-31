@@ -1,9 +1,26 @@
 {%- comment -%}
-  MUTO — Black Friday head (muto-bf-head). In the header group, so on the Black Friday product template
-  (product.muto-nad-bf) every Black Friday style is in place before the page is drawn: no flash of the
-  old design. Also draws the black top bar. The sticky plan bar is muto-bf-offer, in the footer group.
-  After Black Friday: delete this section from the header in Customize.
+  MUTO — Black Friday head (muto-bf-head). On every page: a compact mobile header (first style block).
+  On the Black Friday product template (product.muto-nad-bf) only: loads every Black Friday style before
+  the page is drawn (this is the header group), so the old design never flashes, and draws the black
+  top bar. The sticky plan bar is muto-bf-offer, in the footer group.
+  After Black Friday: remove the Black Friday part (the if block) and keep the compact header styles.
 {%- endcomment -%}
+<style>
+/* Site-wide, phones and tablets: a shorter header bar (8px margin and padding instead of 24px and 16px,
+   smaller logo, caption and icons); pages under the see-through header move up 44px instead of 76px */
+@media screen and (max-width:989.98px){
+  header.header{margin:8px 10px 0!important;padding-top:8px!important;padding-bottom:8px!important}
+  .header.page-width{padding-left:12px!important;padding-right:12px!important}
+  .header__heading-logo-wrapper{gap:6px!important}
+  .header__heading-logo{width:36px!important;height:auto!important}
+  .header-logo-caption{font-size:6.5px!important;line-height:6px!important;letter-spacing:.4px!important}
+  .header__icon,.header__icon .icon,.header__icon .svg-wrapper{width:18px!important;height:18px!important}
+  .header__icon--cart{margin-left:10px!important}
+  main:has([allow-transparent-header]){margin-top:-44px!important}
+  .template-muto-nad .header-wrapper,.template-muto-bottle .header-wrapper,
+  .template-muto-socks .header-wrapper,.template-muto-creatine .header-wrapper{padding-top:6px!important;padding-bottom:6px!important}
+}
+</style>
 {%- if template.suffix == 'muto-nad-bf' and product != blank -%}
   {{ 'muto-bf-bar.css' | asset_url | stylesheet_tag }}
   {{ 'muto-bf-sticky.css' | asset_url | stylesheet_tag }}

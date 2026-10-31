@@ -34,3 +34,10 @@ html body .mc .mc__onetime > span:first-child::before{content:"One-Time Purchase
 }
 /* "SAVE" tags: the same cyan as the "Best value" pill */
 html body .mc .mc__plan-save{background:#5efaff!important}
+/* Plan boxes: name, daily-cost pill and note all start at the same left edge (33px), the pill on its own line */
+html body .mc .mc__plans > label.mc__plan .mc__plan-head{flex-wrap:wrap!important;column-gap:12px!important;row-gap:5px!important}
+html body .mc .mc__plans > label.mc__plan .mc__plan-name{flex:1 1 calc(100% - 33px)!important;min-width:0}
+html body .mc .mc__plans > label.mc__plan .mc__plan-head::after{margin-left:33px!important}
+html body .mc .mc__plans > label.mc__plan .mc__plan-note{margin-left:33px!important}
+/* No "Best value" pill */
+html body .mc .mc__plans-banner::before{display:none!important;content:none!important}
