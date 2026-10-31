@@ -60,3 +60,5 @@ html:root body .mc .mc__rating-text{font-size:13px!important}
   #MainContent [id$="__buy"] .mpb-del .mc-ship__rm img{width:22px!important}
   #MainContent [id$="__buy"] .mpb-del .mc-ship__rm::after{content:"Tracked 24h";font-size:12px}
 }
+/* No grey guarantee box under the button */
+#MainContent [id$="__buy"] .mpb-pro{display:none!important}

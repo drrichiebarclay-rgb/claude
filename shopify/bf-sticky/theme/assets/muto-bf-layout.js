@@ -64,7 +64,20 @@
     });
   }
 
-  function run() { names(); gallery(); tests(); }
+  /* Wording on the page: "money-back promise" reads "money-back guarantee", "Major allergens" reads "Allergens" */
+  function words() {
+    var main = document.getElementById('MainContent');
+    if (!main || !document.createTreeWalker) return;
+    var w = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, null), n, t;
+    while ((n = w.nextNode())) {
+      t = n.nodeValue;
+      if (!/promise|allergens/i.test(t)) continue;
+      t = t.replace(/money-back promise/gi, 'money-back guarantee').replace(/\bmajor allergens\b/gi, 'Allergens');
+      if (t !== n.nodeValue) n.nodeValue = t;
+    }
+  }
+
+  function run() { names(); words(); gallery(); tests(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
   document.addEventListener('shopify:section:load', function () { setTimeout(run, 60); });
 })();
