@@ -423,36 +423,36 @@
       }
     },
     "superior": {
-      "type": "muto-home-why",
+      "type": "muto-howto",
       "blocks": {
         "c1": {
-          "type": "card",
+          "type": "step",
           "settings": {
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-why-scientists.jpg?v=1790767821",
+            "chip": "01",
             "title": "Ultrapure",
-            "text": "≥99.9% pure creatine monohydrate, and nothing else: no fillers, flavourings or flow agents. Every batch is screened for the impurities and by-products cheaper creatine can carry — creatinine, DCD and heavy metals.",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-why-scientists.jpg?v=1790767821",
-            "image_alt": "Four members of the MUTO scientific advisory board in conversation around a low table",
-            "image_position": "50% 30%"
+            "detail": "≥99.9% pure",
+            "text": "<p>≥99.9% pure creatine monohydrate, and nothing else: no fillers, flavourings or flow agents. Every batch is screened for the impurities and by-products cheaper creatine can carry — creatinine, DCD and heavy metals.</p>"
           }
         },
         "c2": {
-          "type": "card",
+          "type": "step",
           "settings": {
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-why-manufacturing.jpg?v=1790767821",
+            "chip": "02",
             "title": "Micronised to mix, not clump.",
-            "text": "Milled to a fine powder (200 mesh) so it dissolves cleanly in water, coffee or a shake, with no gritty layer at the bottom of the glass. One scoop, stirred in, gone.",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-why-manufacturing.jpg?v=1790767821",
-            "image_alt": "Capsules moving along a filling line at the UK manufacturer",
-            "image_position": ""
+            "detail": "200 mesh",
+            "text": "<p>Milled to a fine powder (200 mesh) so it dissolves cleanly in water, coffee or a shake, with no gritty layer at the bottom of the glass. One scoop, stirred in, gone.</p>"
           }
         },
         "c3": {
-          "type": "card",
+          "type": "step",
           "settings": {
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-why-wearable.jpg?v=1790767821",
+            "chip": "03",
             "title": "Independently tested. Made in the UK.",
-            "text": "Every batch is tested before it's released, and produced in the UK.",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-why-wearable.jpg?v=1790767821",
-            "image_alt": "A wrist wearing a sports watch, seen underwater",
-            "image_position": ""
+            "detail": "Every batch",
+            "text": "<p>Every batch is tested before it's released, and produced in the UK.</p>"
           }
         }
       },
@@ -462,192 +462,127 @@
         "c3"
       ],
       "settings": {
-        "heading": "Why this is the superior\ncreatine choice",
-        "heading_right": "",
-        "align": "left",
-        "ink": "teal",
-        "card_min": 429,
-        "head_gap": 64,
-        "field": false,
-        "fit": "home",
-        "space_top": 116,
-        "space_bottom": 100
+        "anchor": "",
+        "eyebrow": "Why this creatine",
+        "heading": "The superior\ncreatine choice.",
+        "lede": "Same molecule. Higher standard.",
+        "facts": "",
+        "foot": "",
+        "chip_word": "0",
+        "space_top": 96,
+        "space_bottom": 96
       }
     },
     "benefits": {
-      "type": "muto-crea-benefits",
+      "type": "muto-benefits",
       "blocks": {
-        "pf": {
-          "type": "panel",
-          "settings": {
-            "label": "Benefits you'll feel",
-            "key": "feel",
-            "heading": "Feel it before\nyou see it",
-            "lede": "What customers notice as creatine stores build over several weeks. Open any of them for the mechanism.",
-            "image": "shopify://shop_images/crea-benefits-feel-run.jpg",
-            "image_fallback": "",
-            "image_alt": "",
-            "image_position": "",
-            "cta_label": "Start your 90 days",
-            "cta_link": ""
-          }
-        },
-        "f1": {
+        "b0": {
           "type": "benefit",
           "settings": {
-            "panel": "feel",
             "title": "Performance",
-            "sub": "The last station, not just the first",
-            "text": "<p>Creatine refills the phosphocreatine your muscles spend in the first seconds of a hard effort, so the fast reserve is there again for the next one. Across repeated sprints and stations that shows up as less drop-off from the first to the last.</p>"
+            "count": "",
+            "outcome": "The last station, not just the first",
+            "doses": "Creatine monohydrate · 5g a day",
+            "text": "Creatine refills the phosphocreatine your muscles spend in the first seconds of a hard effort, so the fast reserve is there again for the next one. Across repeated sprints and stations that shows up as less drop-off from the first to the last.",
+            "ingredients": "",
+            "image": "shopify://shop_images/crea-benefits-feel-run.jpg",
+            "position": ""
           }
         },
-        "f2": {
+        "b1": {
           "type": "benefit",
           "settings": {
-            "panel": "feel",
             "title": "Strength",
-            "sub": "Built session after session",
-            "text": "<p>More work completed per session is more stimulus to adapt to. Taken daily alongside resistance training, creatine supports the strength you are already working for rather than replacing the work.</p>"
+            "count": "",
+            "outcome": "Built session after session",
+            "doses": "Creatine monohydrate · 5g a day",
+            "text": "More work completed per session is more stimulus to adapt to. Taken daily alongside resistance training, creatine supports the strength you are already working for rather than replacing the work.",
+            "ingredients": "",
+            "image": "shopify://shop_images/crea-step-treadmill.jpg",
+            "position": ""
           }
         },
-        "f3": {
+        "b2": {
           "type": "benefit",
           "settings": {
-            "panel": "feel",
             "title": "Cognition",
-            "sub": "Fast energy for a busy brain",
-            "text": "<p>Your brain stores creatine for the same reason your muscles do: fast energy when demand spikes. Research is exploring its role in mental performance, with the clearest signals on short sleep and long days.</p>"
+            "count": "",
+            "outcome": "Fast energy for a busy brain",
+            "doses": "Creatine monohydrate · 5g a day",
+            "text": "Your brain stores creatine for the same reason your muscles do: fast energy when demand spikes. Research is exploring its role in mental performance, with the clearest signals on short sleep and long days.",
+            "ingredients": "",
+            "image": "shopify://shop_images/crea-step-cyclist-blur.jpg",
+            "position": ""
           }
         },
-        "f4": {
+        "b3": {
           "type": "benefit",
           "settings": {
-            "panel": "feel",
             "title": "Healthy Ageing",
-            "sub": "Strength for years, not seasons",
-            "text": "<p>Strength is part of ageing well. With regular training, a daily scoop helps you keep building it — the trial evidence in adults over 50 is about lean mass kept, not just gained.</p>"
-          }
-        },
-        "pt": {
-          "type": "panel",
-          "settings": {
-            "label": "Benefits you can track",
-            "key": "track",
-            "heading": "Then check it in\nyour own log",
-            "lede": "Same programme, same routine, noted before your first scoop. Check in at weeks 4 and 8, alongside your NAD+ check-in.",
-            "image": "shopify://shop_images/crea-benefits-track-bike.jpg",
-            "image_fallback": "",
-            "image_alt": "",
-            "image_position": "",
-            "cta_label": "Start your 90 days",
-            "cta_link": ""
-          }
-        },
-        "t1": {
-          "type": "benefit",
-          "settings": {
-            "panel": "track",
-            "title": "Interval Splits",
-            "sub": "Repeat efforts, timed",
-            "text": "<p>Pick one repeatable session and time every effort in it. The number to watch is not the first split but the spread between the first and the last.</p>"
-          }
-        },
-        "t2": {
-          "type": "benefit",
-          "settings": {
-            "panel": "track",
-            "title": "Repetitions",
-            "sub": "Your cleanest strength signal",
-            "text": "<p>Same lift, same load, same rest. Reps completed at a fixed weight is the least noisy strength measure you can take without a lab.</p>"
-          }
-        },
-        "t3": {
-          "type": "benefit",
-          "settings": {
-            "panel": "track",
-            "title": "Sharpness on Long Days",
-            "sub": "Rated 1–10, on short sleep",
-            "text": "<p>Rate how sharp you felt out of ten, and note the hours you slept beside it. The effect to look for is on the short nights, not the good ones.</p>"
-          }
-        },
-        "t4": {
-          "type": "benefit",
-          "settings": {
-            "panel": "track",
-            "title": "Session Consistency",
-            "sub": "Training you can keep up",
-            "text": "<p>Count the sessions you actually completed each week. Consistency is what turns any of the above into a trend rather than a good day.</p>"
+            "count": "",
+            "outcome": "Strength for years, not seasons",
+            "doses": "Creatine monohydrate · 5g a day",
+            "text": "Strength is part of ageing well. With regular training, a daily scoop helps you keep building it — the trial evidence in adults over 50 is about lean mass kept, not just gained.",
+            "ingredients": "",
+            "image": "shopify://shop_images/crea-step-pulldown.jpg",
+            "position": ""
           }
         }
       },
       "block_order": [
-        "pf",
-        "f1",
-        "f2",
-        "f3",
-        "f4",
-        "pt",
-        "t1",
-        "t2",
-        "t3",
-        "t4"
+        "b0",
+        "b1",
+        "b2",
+        "b3"
       ],
       "settings": {
-        "eyebrow": "Benefits",
-        "tablist_label": "Choose a view",
-        "space_top": 100,
-        "space_bottom": 100
+        "anchor": "benefits",
+        "eyebrow": "Benefits you’ll feel",
+        "heading": "Feel it before\nyou see it.",
+        "lede": "What customers notice as creatine stores build over several weeks.",
+        "link_label": "",
+        "link": "",
+        "space_top": 96,
+        "space_bottom": 72
       }
     },
     "steps": {
-      "type": "muto-crea-steps",
+      "type": "muto-expect",
       "blocks": {
         "s1": {
-          "type": "step",
+          "type": "milestone",
           "settings": {
-            "chip": "Week 1",
+            "day": 0,
+            "label": "Week 1",
             "title": "Stores begin building.",
-            "text": "One scoop a day begins topping up the creatine your muscles and brain hold in reserve. Nothing to feel yet; this is the foundation.",
-            "image": "shopify://shop_images/crea-step-label-macro.jpg",
-            "image_fallback": "",
-            "image_alt": "Week one of the creatine protocol",
-            "image_position": ""
+            "text": "<p>One scoop a day begins topping up the creatine your muscles and brain hold in reserve. Nothing to feel yet; this is the foundation.</p>"
           }
         },
         "s2": {
-          "type": "step",
+          "type": "milestone",
           "settings": {
-            "chip": "Weeks 2–4",
+            "day": 0,
+            "label": "Weeks 2–4",
             "title": "Repeat efforts hold up.",
-            "text": "As stores fill, the fast reserve is there when effort spikes: the sprint, the heavy set, the last station. Later intervals start to look more like your first.",
-            "image": "shopify://shop_images/crea-step-cyclist-blur.jpg",
-            "image_fallback": "",
-            "image_alt": "Weeks two to four of the creatine protocol",
-            "image_position": ""
+            "text": "<p>As stores fill, the fast reserve is there when effort spikes: the sprint, the heavy set, the last station. Later intervals start to look more like your first.</p>"
           }
         },
         "s3": {
-          "type": "step",
+          "type": "milestone",
           "settings": {
-            "chip": "Weeks 4–8",
+            "day": 0,
+            "label": "Weeks 4–8",
             "title": "Strength builds.",
-            "text": "With stores full and training consistent, the reserve supports the strength you're working for. Long days and short nights are where you may notice your head staying clearer too.",
-            "image": "shopify://shop_images/crea-step-treadmill.jpg",
-            "image_fallback": "",
-            "image_alt": "Weeks four to eight of the creatine protocol",
-            "image_position": ""
+            "text": "<p>With stores full and training consistent, the reserve supports the strength you're working for. Long days and short nights are where you may notice your head staying clearer too.</p>"
           }
         },
         "s4": {
-          "type": "step",
+          "type": "milestone",
           "settings": {
-            "chip": "Weeks 8–12",
+            "day": 0,
+            "label": "Weeks 8–12",
             "title": "Stronger for longer.",
-            "text": "Twelve weeks of training on a full reserve. Strength is part of ageing well, and this is what keeps building it, for years, not just this season.",
-            "image": "shopify://shop_images/crea-step-pulldown.jpg",
-            "image_fallback": "",
-            "image_alt": "Weeks eight to twelve of the creatine protocol",
-            "image_position": ""
+            "text": "<p>Twelve weeks of training on a full reserve. Strength is part of ageing well, and this is what keeps building it, for years, not just this season.</p>"
           }
         }
       },
@@ -658,11 +593,13 @@
         "s4"
       ],
       "settings": {
-        "heading": "What to\nexpect",
-        "heading_right": "",
-        "fit": "crea",
-        "space_top": 100,
-        "space_bottom": 100
+        "anchor": "what-to-expect",
+        "eyebrow": "What to expect",
+        "heading": "What you can expect over time.",
+        "lede": "Creatine works by building stores, so the effect grows with consistency.",
+        "foot": "",
+        "space_top": 96,
+        "space_bottom": 96
       }
     },
     "compare": {
@@ -767,39 +704,36 @@
       }
     },
     "onescoop": {
-      "type": "muto-home-why",
+      "type": "muto-howto",
       "blocks": {
         "o1": {
-          "type": "card",
+          "type": "step",
           "settings": {
-            "title": "One scoop, with your first meal",
-            "text": "5 g a day, stirred into water, coffee or a shake, alongside your NAD+ capsules. No loading phase, no cycling, no rest days. Stores build steadily over the first few weeks, so consistency matters more than timing.",
             "image": "shopify://shop_images/muto-cyclist-bottle-creatine.jpg",
-            "image_fallback": "",
-            "image_alt": "A scoop of creatine being stirred into a glass of water",
-            "image_position": ""
+            "chip": "",
+            "title": "One scoop, with your first meal",
+            "detail": "5g · with food",
+            "text": "<p>5 g a day, stirred into water, coffee or a shake, alongside your NAD+ capsules. No loading phase, no cycling, no rest days. Stores build steadily over the first few weeks, so consistency matters more than timing.</p>"
           }
         },
         "o2": {
-          "type": "card",
+          "type": "step",
           "settings": {
-            "title": "Up to 10 g for your head",
-            "text": "For optimal cognitive effects, you can take up to 10 g a day. Add a second scoop later in the day rather than taking both at once; it sits easier on the stomach. Most useful on short sleep and long days.",
             "image": "shopify://shop_images/muto-ice-bath-recovery.jpg",
-            "image_fallback": "",
-            "image_alt": "Someone working late at a desk with a drink beside them",
-            "image_position": ""
+            "chip": "",
+            "title": "Up to 10 g for your head",
+            "detail": "Up to 10g a day",
+            "text": "<p>For optimal cognitive effects, you can take up to 10 g a day. Add a second scoop later in the day rather than taking both at once; it sits easier on the stomach. Most useful on short sleep and long days.</p>"
           }
         },
         "o3": {
-          "type": "card",
+          "type": "step",
           "settings": {
-            "title": "Check it where it shows",
-            "text": "Note your reps, splits and how sharp long days feel before your first scoop. Check in at weeks 4, 8 and 12, alongside your NAD+ check-in.",
             "image": "shopify://shop_images/muto-cyclist-phone-check.jpg",
-            "image_fallback": "",
-            "image_alt": "A training log open beside a sports watch",
-            "image_position": ""
+            "chip": "",
+            "title": "Check it where it shows",
+            "detail": "Weeks 4 · 8 · 12",
+            "text": "<p>Note your reps, splits and how sharp long days feel before your first scoop. Check in at weeks 4, 8 and 12, alongside your NAD+ check-in.</p>"
           }
         }
       },
@@ -809,16 +743,15 @@
         "o3"
       ],
       "settings": {
-        "heading": "One scoop.",
-        "heading_right": "Every day.",
-        "align": "left",
-        "ink": "alt",
-        "card_min": 429,
-        "head_gap": 64,
-        "field": false,
-        "fit": "home",
-        "space_top": 108,
-        "space_bottom": 100
+        "anchor": "how-to-take-it",
+        "eyebrow": "How to take it",
+        "heading": "One scoop.\nEvery day.",
+        "lede": "No loading phase, no cycling, no rest days.",
+        "facts": "",
+        "foot": "",
+        "chip_word": "Step",
+        "space_top": 96,
+        "space_bottom": 96
       }
     },
     "faq": {
@@ -872,18 +805,6 @@
         "schema_on": true,
         "space_top": 100,
         "space_bottom": 100
-      }
-    },
-    "sticky": {
-      "type": "muto-home-sticky",
-      "settings": {
-        "product": "",
-        "sticky_cta_label": "Add to cart",
-        "sticky_label": "Ultrapure micronised creatine monohydrate",
-        "plan_cta_label": "",
-        "cta_link": "",
-        "sticky_sub": "Cancel, pause or skip anytime",
-        "schema_on": false
       }
     },
     "board_anchor": {
@@ -981,6 +902,84 @@
         "space_top": 96,
         "space_bottom": 96
       }
+    },
+    "sbar": {
+      "type": "muto-sbar",
+      "settings": {
+        "label": "Ultrapure Micronised Creatine",
+        "sub": "Cancel, pause or skip anytime",
+        "button": "Add to cart",
+        "schema_on": false
+      }
+    },
+    "track": {
+      "type": "muto-sci",
+      "blocks": {
+        "t0": {
+          "type": "item",
+          "settings": {
+            "title": "Interval Splits",
+            "a": "Repeat efforts, timed",
+            "b": "",
+            "figure": "",
+            "unit": "",
+            "text": "Pick one repeatable session and time every effort in it. The number to watch is not the first split but the spread between the first and the last."
+          }
+        },
+        "t1": {
+          "type": "item",
+          "settings": {
+            "title": "Repetitions",
+            "a": "Your cleanest strength signal",
+            "b": "",
+            "figure": "",
+            "unit": "",
+            "text": "Same lift, same load, same rest. Reps completed at a fixed weight is the least noisy strength measure you can take without a lab."
+          }
+        },
+        "t2": {
+          "type": "item",
+          "settings": {
+            "title": "Sharpness on Long Days",
+            "a": "Rated 1–10, on short sleep",
+            "b": "",
+            "figure": "",
+            "unit": "",
+            "text": "Rate how sharp you felt out of ten, and note the hours you slept beside it. The effect to look for is on the short nights, not the good ones."
+          }
+        },
+        "t3": {
+          "type": "item",
+          "settings": {
+            "title": "Session Consistency",
+            "a": "Training you can keep up",
+            "b": "",
+            "figure": "",
+            "unit": "",
+            "text": "Count the sessions you actually completed each week. Consistency is what turns any of the above into a trend rather than a good day."
+          }
+        }
+      },
+      "block_order": [
+        "t0",
+        "t1",
+        "t2",
+        "t3"
+      ],
+      "settings": {
+        "layout": "jobs",
+        "anchor": "",
+        "eyebrow": "Benefits you can track",
+        "heading": "Then check it in\nyour own log.",
+        "text": "Same programme, same routine, noted before your first scoop. Check in at weeks 4 and 8, alongside your NAD+ check-in.",
+        "button_label": "",
+        "button_link": "",
+        "link_label": "",
+        "link": "",
+        "small": "",
+        "space_top": 72,
+        "space_bottom": 96
+      }
     }
   },
   "order": [
@@ -989,11 +988,12 @@
     "board",
     "superior",
     "benefits",
+    "track",
     "steps",
-    "compare",
     "onescoop",
+    "compare",
     "range",
     "faq",
-    "sticky"
+    "sbar"
   ]
 }

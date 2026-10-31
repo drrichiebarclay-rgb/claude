@@ -47,7 +47,7 @@
         "t2": {
           "type": "trust",
           "settings": {
-            "text": "£2.99 next day"
+            "text": "£2.99 next day delivery"
           }
         },
         "pl1": {
@@ -201,18 +201,6 @@
         "space_bottom": 100
       }
     },
-    "sticky": {
-      "type": "muto-home-sticky",
-      "settings": {
-        "product": "",
-        "sticky_cta_label": "Add to cart",
-        "sticky_label": "Performance Socks",
-        "plan_cta_label": "",
-        "cta_link": "/products/muto-socks",
-        "sticky_sub": "One size · £2.99 next day",
-        "schema_on": true
-      }
-    },
     "range": {
       "type": "muto-range",
       "blocks": {
@@ -299,12 +287,21 @@
         "space_top": 96,
         "space_bottom": 96
       }
+    },
+    "sbar": {
+      "type": "muto-sbar",
+      "settings": {
+        "label": "Performance Socks",
+        "sub": "£2.99 next day delivery",
+        "button": "Add to cart",
+        "schema_on": true
+      }
     }
   },
   "order": [
     "buy",
     "gallery",
     "range",
-    "sticky"
+    "sbar"
   ]
 }

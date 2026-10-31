@@ -1,0 +1,134 @@
+{%- comment -%}
+  MUTO — Sticky add to cart. The same bar as the Black Friday product page and the rest of the site
+  (assets/muto-bf-sticky.css): product photo and name with a short line, an option picker, and the
+  turquoise button, which adds the chosen option to the cart and opens the cart. Shows once the page has
+  scrolled 500px.
+  On a product page it sells that product: one option per available variant (a variant that can only be
+  bought on subscription uses its first plan). With no product in scope (the home page) it shows the
+  NAD+ Cellular Complex bar (snippets/muto-sci-sticky.liquid).
+  Name this section anything but "sticky" in the template (the site-wide bar steps aside for "__sticky").
+{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign p = product
+  if p == blank and s.product != blank
+    assign p = s.product
+  endif
+-%}
+{%- if product == blank -%}
+  {%- render 'muto-sci-sticky' -%}
+{%- elsif p != blank -%}
+  {{ 'muto-bf-sticky.css' | asset_url | stylesheet_tag }}
+  <style>
+    .mc-sbar__btn-sep{display:none!important}
+    html:root body .mc-sbar .mc-sbar__btn{background:#5efaff!important;color:#242223!important}
+    html:root body .mc-sbar .mc-sbar__btn:hover{background:#3ef0f6!important;filter:none}
+    .mc-sbar__btn[aria-busy="true"]{opacity:.7;cursor:progress}
+    .mc-sbar__pick--one{pointer-events:none}
+    .mc-sbar__pick--one::after{display:none}
+  </style>
+  {%- liquid
+    assign opts = ''
+    assign count = 0
+    assign first_name = ''
+    assign first_sub = ''
+    for v in p.variants
+      unless v.available
+        continue
+      endunless
+      assign price = v.price
+      assign plan = ''
+      if v.requires_selling_plan and v.selling_plan_allocations.size > 0
+        assign al = v.selling_plan_allocations | first
+        assign price = al.price
+        assign plan = al.selling_plan.id
+      endif
+      assign vname = v.title
+      if vname == 'Default Title'
+        assign vname = p.title
+      endif
+      assign price_s = price | money | strip_html
+      assign vname_e = vname | escape
+      assign count = count | plus: 1
+      if count == 1
+        assign first_name = vname
+        assign first_sub = price_s
+      endif
+      capture o
+        echo '<option value="' | append: v.id | append: '" data-plan="' | append: plan | append: '" data-name="' | append: vname_e | append: '" data-sub="' | append: price_s | append: '">' | append: vname_e | append: ' – ' | append: price_s | append: '</option>'
+      endcapture
+      assign opts = opts | append: o
+    endfor
+  -%}
+  {%- if count > 0 -%}
+    <div class="mc-sbar" id="mc-sbar" role="region" aria-label="Add to cart" aria-hidden="true">
+      <div class="mc-sbar__in">
+        <div class="mc-sbar__prod">
+          {%- if p.featured_image -%}<img class="mc-sbar__img" src="{{ p.featured_image | image_url: width: 112 }}" width="56" height="56" alt="" loading="lazy">{%- endif -%}
+          <div style="min-width:0">
+            <p class="mc-sbar__name">{{ s.label | default: p.title }}</p>
+            {%- if s.sub != blank -%}<p class="mc-sbar__offer"><i aria-hidden="true"></i>{{ s.sub }}</p>{%- endif -%}
+          </div>
+        </div>
+        <label class="mc-sbar__pick{% if count == 1 %} mc-sbar__pick--one{% endif %}">
+          <span class="mc-sbar__pick-name" data-sbar-name>{{ first_name }}</span>
+          <span class="mc-sbar__pick-sub" data-sbar-sub><b>{{ first_sub }}</b></span>
+          <select class="mc-sbar__select" data-sbar-select aria-label="Option"{% if count == 1 %} tabindex="-1"{% endif %}>{{ opts }}</select>
+        </label>
+        <button type="button" class="mc-sbar__btn" data-sbar-add>
+          <span class="mc-sbar__btn-full">{{ s.button | default: 'Add to cart' }}</span><span class="mc-sbar__btn-short">Add</span>
+        </button>
+      </div>
+    </div>
+    <script>
+    (function () {
+      var bar = document.getElementById('mc-sbar');
+      if (!bar) return;
+      var sel = bar.querySelector('[data-sbar-select]'), btn = bar.querySelector('[data-sbar-add]');
+      var nm = bar.querySelector('[data-sbar-name]'), sub = bar.querySelector('[data-sbar-sub]');
+      sel.addEventListener('change', function () {
+        var o = sel.options[sel.selectedIndex];
+        nm.textContent = o.getAttribute('data-name');
+        sub.innerHTML = '<b>' + o.getAttribute('data-sub') + '</b>';
+      });
+      btn.addEventListener('click', function () {
+        var o = sel.options[sel.selectedIndex];
+        var item = { id: parseInt(o.value, 10), quantity: 1 };
+        if (o.getAttribute('data-plan')) item.selling_plan = parseInt(o.getAttribute('data-plan'), 10);
+        btn.setAttribute('aria-busy', 'true');
+        var root = (window.Shopify && Shopify.routes && Shopify.routes.root) || '/';
+        fetch(root + 'cart/add.js', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify({ items: [item] }) })
+          .then(function (r) { window.location.href = r.ok ? root + 'cart' : '{{ p.url }}'; })
+          .catch(function () { window.location.href = '{{ p.url }}'; });
+      });
+      function onScroll() {
+        var on = (window.pageYOffset || document.documentElement.scrollTop) > 500;
+        bar.classList.toggle('is-visible', on);
+        bar.setAttribute('aria-hidden', on ? 'false' : 'true');
+        if ('inert' in bar) bar.inert = !on;
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+    </script>
+  {%- endif -%}
+{%- endif -%}
+{%- if s.schema_on and p != blank -%}
+  {% render 'muto-home-product-schema', product: p %}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "MUTO — Sticky add to cart",
+  "tag": "section",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Product (for structured data on the home page)" },
+    { "type": "text", "id": "label", "label": "Name on the bar", "info": "Blank uses the product's title" },
+    { "type": "text", "id": "sub", "label": "Line under the name" },
+    { "type": "text", "id": "button", "label": "Button", "default": "Add to cart" },
+    { "type": "checkbox", "id": "schema_on", "label": "Emit product structured data", "default": true }
+  ],
+  "presets": [{ "name": "MUTO — Sticky add to cart" }],
+  "enabled_on": { "templates": ["index", "product", "page"] }
+}
+{% endschema %}

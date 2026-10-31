@@ -62,7 +62,7 @@
       {%- for b in section.blocks -%}
         {%- assign bs = b.settings -%}
         <li class="mex__ms" style="--i:{{ forloop.index0 }}" {{ b.shopify_attributes }}>
-          <p class="mex__day">Day {{ bs.day }}</p>
+          <p class="mex__day">{% if bs.label != blank %}{{ bs.label }}{% else %}Day {{ bs.day }}{% endif %}</p>
           <h3 class="mex__t">{{ bs.title }}</h3>
           {%- if bs.text != blank -%}<div class="mex__x">{{ bs.text }}</div>{%- endif -%}
         </li>
@@ -100,6 +100,7 @@
   "blocks": [
     { "type": "milestone", "name": "Milestone", "settings": [
       { "type": "number", "id": "day", "label": "Day", "default": 30 },
+      { "type": "text", "id": "label", "label": "Label instead of the day", "info": "e.g. Weeks 2–4" },
       { "type": "text", "id": "title", "label": "Title" },
       { "type": "richtext", "id": "text", "label": "Text" }
     ] }
