@@ -4,8 +4,8 @@ All work is on the unpublished preview theme **"Black Friday | Claim offer + sti
 (`gid://shopify/OnlineStoreTheme/203974869339`). Preview: https://muto.co/?preview_theme_id=203974869339
 
 Nothing has been published. `theme/` in this folder holds every file that differs from the live theme,
-in the theme's own folder layout, and each one matches the preview theme byte for byte (checked against
-Shopify's checksums on 31 Oct). Simplest route to go live: **publish the preview theme**. If you merge
+in the theme's own folder layout, and each one matches the preview theme byte for byte (all 61 checked against
+Shopify's checksums at handover, 31 Oct). Simplest route to go live: **publish the preview theme**. If you merge
 into another theme instead, copy `theme/` over it and see "Files in the Files area" below.
 
 ## Pages changed
@@ -50,12 +50,13 @@ One section, loaded on every page before the page is drawn. It holds:
 | `muto-sci` | Science, Ingredients, Standards, About, FAQ, Home, range pages | Layouts incl. hero cards, shifts cards, statement, **banner (photo + Black Friday buy box)** |
 | `muto-benefits` | PDP, Science, Creatine | Benefit tabs with photo, doses, claim, ingredient list |
 | `muto-range` | Home, Socks, Bottle, Creatine | Shop the range: tabs, product, points, key doses |
-| `muto-loved` | Home, PDP | Video + quote carousel ("Loved by our community", "Don't take our word for it") |
+| `muto-loved` | Home, PDP | "Loved by our community": 8 customer videos (Kate, David, Lucy, Adam Hamilton, Harry, Adam Facey, Max, Yolanda) between 10 written reviews; "Read all reviews" goes to the reviews section |
 | `muto-howto` | PDP, Creatine | Step cards with photo |
 | `muto-expect` | PDP, Creatine | Timeline (Day 1 → 90 / Week labels) |
 | `muto-compare` | Home | Renders the "MUTO vs the usual" table straight into the page |
 | `muto-cmp2` | Creatine | Two-way comparison (MUTO vs standard creatine), same look |
 | `muto-sbar` | Home, Creatine, Socks, Bottle | Sticky add to cart: product's own variants, or NAD+ on home |
+| `muto-section-nav` | PDP, Science | "On this page" chips: appear when the first linked section reaches the top, light up the section on screen |
 | `muto-test-results` | PDP, Science, Ingredients, Standards, About | Certificates pop-up (real certificate data) |
 
 The comparison table markup lives in `snippets/muto-bf-compare.liquid`, styles in `assets/muto-bf-compare.css`.
