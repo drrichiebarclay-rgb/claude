@@ -1,0 +1,75 @@
+{%- comment -%}
+  MUTO About — research in progress.
+  Named institutions with honest status lines. These are commitments, not
+  results: keep the wording as cautious as the source.
+{%- endcomment -%}
+
+{{ 'muto-about.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign ma_spt = section.settings.space_top | default: 100 | times: 0.01
+  assign ma_spb = section.settings.space_bottom | default: 100 | times: 0.01
+-%}
+
+<div class="ma{% if section.settings.field %} ma--field{% endif %}" style="--ma-spt:{{ ma_spt }};--ma-spb:{{ ma_spb }}">
+  <div class="ma__wrap">
+    {%- assign heading_id = 'ma-research-' | append: section.id -%}
+    <section class="ma__research" aria-labelledby="{{ heading_id }}">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="ma__h2" id="{{ heading_id }}">{{ section.settings.heading | escape | newline_to_br }}</h2>
+      {%- endif -%}
+      <ul class="ma__research-list">
+        {%- for block in section.blocks -%}
+          <li class="ma__research-item" {{ block.shopify_attributes }}>
+            <h3 class="ma__research-name">{{ block.settings.name | escape | newline_to_br }}</h3>
+            <p class="ma__research-note">{{ block.settings.note }}</p>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </section>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO About — Research",
+  "tag": "section",
+  "class": "ma-section",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "checkbox", "id": "field", "label": "Mint gradient background", "default": true },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Research in\nprogress" },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 5, "unit": "%", "default": 100 }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Institution",
+      "settings": [
+        { "type": "textarea", "id": "name", "label": "Institution", "default": "University of\nWestminster:" },
+        { "type": "textarea", "id": "note", "label": "Status", "default": "Clinical study starting December 2026." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MUTO About — Research",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": { "name": "University of\nWestminster:", "note": "Clinical study starting December 2026." }
+        },
+        {
+          "type": "item",
+          "settings": { "name": "Coventry University and\nNewcastle University:", "note": "PhD programmes started in 2026; studies from spring 2027." }
+        }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": ["page"]
+  }
+}
+{% endschema %}
