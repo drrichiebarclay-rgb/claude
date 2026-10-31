@@ -68,7 +68,6 @@
     [id$="__board"],[id$="__board"] .mh{background:#fff!important}
   </style>
   {%- render 'muto-bf-compare' -%}
-  {%- render 'muto-sci-sticky' -%}
   <script>
   document.addEventListener('DOMContentLoaded', function () {
     var t = document.getElementById('mc-cmp-tpl'), s = document.querySelector('#MainContent [id$="__compare"]');
@@ -78,6 +77,19 @@
   });
   </script>
 {%- endif -%}
+{%- comment -%} Sticky add to cart on every page. Not on product pages (they have their own buy box and bar),
+the home page (its own sticky section), the cart, accounts or the password page. {%- endcomment -%}
+{%- liquid
+  assign no_sticky = "product,index,cart,password,gift_card,404,search" | split: ","
+  assign tname = template.name | default: ''
+  assign show_sticky = true
+  if no_sticky contains tname or template.directory == 'customers'
+    assign show_sticky = false
+  endif
+  if show_sticky
+    render 'muto-sci-sticky'
+  endif
+-%}
 
 {% schema %}
 {

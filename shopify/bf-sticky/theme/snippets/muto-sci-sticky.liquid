@@ -1,5 +1,6 @@
 {%- comment -%}
-  Sticky add to cart for the science page (rendered by muto-bf-head on page.science-simple). The same bar
+  Site-wide sticky add to cart (rendered by muto-bf-head on every page except product pages, home, cart,
+  accounts and password). Steps aside if the page has its own sticky section. The same bar
   as the Black Friday product page (assets/muto-bf-sticky.css), but self-contained: there are no plan cards
   on this page, so the picker holds the two plans itself and the button adds the chosen one (variant +
   Skio selling plan, read from the product) to the cart, then opens the cart.
@@ -64,6 +65,10 @@
   (function () {
     var bar = document.getElementById('mc-sbar');
     if (!bar) return;
+    /* A page with its own sticky bar section keeps that one */
+    document.addEventListener('DOMContentLoaded', function () {
+      if (document.querySelector('#MainContent [id$="__sticky"], #MainContent .mc-sbar')) bar.remove();
+    });
     var sel = bar.querySelector('[data-sbar-select]'), btn = bar.querySelector('[data-sbar-add]');
     var nm = bar.querySelector('[data-sbar-name]'), sub = bar.querySelector('[data-sbar-sub]');
     sel.addEventListener('change', function () {
