@@ -82,6 +82,17 @@ In GitHub at `shopify/science-v2/`. After Black Friday, change the intro button 
 
 **Home page (`templates/index.json`):** the "Still training. Still working. Not done yet." athletes block is replaced, in the same place, by the product page's "Don't take our word for it." customer results videos (all 8). Nothing else on the home page changed. The file is in the zip under `templates/` and in GitHub at `shopify/home-videos/theme/templates/index.json`. If the live home page has been edited since 31 October, re-make this change in Customize instead of copying the file.
 
+**Third-party testing pop-up (`sections/muto-test-results.liquid`), restyled to look clinical.** The markup, content and behaviour are the same; only the styles changed:
+
+- a mono "Certificate of analysis" label and the batch as a mono reference
+- a white side menu with a thin bar on the open tab
+- normal-case headings
+- results in tabular mono
+- PASS as small teal badges
+- hairline rules
+
+It applies everywhere the pop-up opens. In the zip under `sections/`, and in GitHub at `shopify/tests-v2/`.
+
 **Site-wide (all pages, phones and tablets under 990px):** a shorter header bar.
 
 - About 44px instead of about 76px, with a smaller logo, caption and icons.
@@ -137,6 +148,7 @@ In GitHub at `shopify/science-v2/`. After Black Friday, change the intro button 
 - [ ] The comparison appears in place of the old table and scrolls sideways on phones.
 - [ ] **Site-wide compact header**: check the home page, other product pages and a content page on a phone, and that nothing is hidden under the header.
 - [ ] Doesn't collide with chat or popup widgets at the bottom of the screen.
+- [ ] Testing pop-up: open it from the product page and the ingredients page, then check all four tabs on a phone and on desktop.
 - [ ] Home page: the results videos play, and the athletes block is gone.
 - [ ] Science page: the new layout on phone and desktop, the comparison in place, and the board videos playing.
 
