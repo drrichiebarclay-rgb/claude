@@ -603,104 +603,97 @@
       }
     },
     "compare": {
-      "type": "muto-crea-compare",
+      "type": "muto-cmp2",
       "blocks": {
-        "r1": {
+        "r0": {
           "type": "row",
           "settings": {
             "claim": "Pure creatine monohydrate, nothing else",
-            "m1": "yes",
-            "m2": "yes",
-            "m3": "yes",
-            "m4": "no"
+            "a": "yes",
+            "a_text": "",
+            "b": "yes",
+            "b_text": ""
+          }
+        },
+        "r1": {
+          "type": "row",
+          "settings": {
+            "claim": "Micronised to mix cleanly",
+            "a": "yes",
+            "a_text": "200 mesh",
+            "b": "",
+            "b_text": "Often not"
           }
         },
         "r2": {
           "type": "row",
           "settings": {
-            "claim": "Micronised to mix cleanly",
-            "m1": "yes",
-            "m2": "dash",
-            "m3": "yes",
-            "m4": "dash"
+            "claim": "Every batch independently tested",
+            "a": "yes",
+            "a_text": "",
+            "b": "no",
+            "b_text": "Rarely published"
           }
         },
         "r3": {
           "type": "row",
           "settings": {
-            "claim": "Every batch independently tested",
-            "m1": "yes",
-            "m2": "no",
-            "m3": "dash",
-            "m4": "dash"
+            "claim": "No fillers, flavours or sweeteners",
+            "a": "yes",
+            "a_text": "",
+            "b": "",
+            "b_text": "Varies"
           }
         },
         "r4": {
           "type": "row",
           "settings": {
-            "claim": "No fillers, flavours or sweeteners",
-            "m1": "yes",
-            "m2": "dash",
-            "m3": "dash",
-            "m4": "no"
+            "claim": "No stimulants",
+            "a": "yes",
+            "a_text": "",
+            "b": "yes",
+            "b_text": ""
           }
         },
         "r5": {
           "type": "row",
           "settings": {
-            "claim": "No stimulants",
-            "m1": "yes",
-            "m2": "yes",
-            "m3": "yes",
-            "m4": "no"
+            "claim": "Made in the UK",
+            "a": "yes",
+            "a_text": "",
+            "b": "",
+            "b_text": "Rarely"
           }
         },
         "r6": {
           "type": "row",
           "settings": {
-            "claim": "Made in the UK",
-            "m1": "yes",
-            "m2": "dash",
-            "m3": "dash",
-            "m4": "dash"
-          }
-        },
-        "r7": {
-          "type": "row",
-          "settings": {
-            "claim": "Lowest price per gram",
-            "m1": "no",
-            "m2": "yes",
-            "m3": "dash",
-            "m4": "no"
+            "claim": "Per daily dose",
+            "a": "",
+            "a_text": "5g",
+            "b": "",
+            "b_text": "3–5g"
           }
         }
       },
       "block_order": [
+        "r0",
         "r1",
         "r2",
         "r3",
         "r4",
         "r5",
-        "r6",
-        "r7"
+        "r6"
       ],
       "settings": {
+        "anchor": "compare",
+        "eyebrow": "MUTO vs standard creatine",
         "heading": "Same molecule.\nHigher standard.",
-        "table_caption": "How MUTO creatine compares with other creatine on sale",
-        "claim_label": "What we compare",
-        "head_gap": 85,
-        "claim_width": 457,
-        "col_pitch": 243,
-        "panel_width": 169,
-        "col_1": "MUTO",
-        "col_1_logo": true,
-        "col_2": "Budget tubs",
-        "col_3": "Gym brands",
-        "col_4": "Preworkouts & blends",
-        "fit": "crea",
-        "space_top": 100,
-        "space_bottom": 100
+        "intro": "Creatine monohydrate is creatine monohydrate. What changes is how pure it is, how fine it is, and whether anyone checks.",
+        "col_a": "MUTO",
+        "col_b": "Standard creatine",
+        "blank_label": "Typical",
+        "note": "Comparisons are by category, not brand, and products vary."
       }
     },
     "onescoop": {
@@ -709,7 +702,7 @@
         "o1": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/muto-cyclist-bottle-creatine.jpg",
+            "image": "shopify://shop_images/muto-creatine-scoop.jpg",
             "chip": "",
             "title": "One scoop, with your first meal",
             "detail": "5g · with food",
@@ -911,75 +904,6 @@
         "button": "Add to cart",
         "schema_on": false
       }
-    },
-    "track": {
-      "type": "muto-sci",
-      "blocks": {
-        "t0": {
-          "type": "item",
-          "settings": {
-            "title": "Interval Splits",
-            "a": "Repeat efforts, timed",
-            "b": "",
-            "figure": "",
-            "unit": "",
-            "text": "Pick one repeatable session and time every effort in it. The number to watch is not the first split but the spread between the first and the last."
-          }
-        },
-        "t1": {
-          "type": "item",
-          "settings": {
-            "title": "Repetitions",
-            "a": "Your cleanest strength signal",
-            "b": "",
-            "figure": "",
-            "unit": "",
-            "text": "Same lift, same load, same rest. Reps completed at a fixed weight is the least noisy strength measure you can take without a lab."
-          }
-        },
-        "t2": {
-          "type": "item",
-          "settings": {
-            "title": "Sharpness on Long Days",
-            "a": "Rated 1–10, on short sleep",
-            "b": "",
-            "figure": "",
-            "unit": "",
-            "text": "Rate how sharp you felt out of ten, and note the hours you slept beside it. The effect to look for is on the short nights, not the good ones."
-          }
-        },
-        "t3": {
-          "type": "item",
-          "settings": {
-            "title": "Session Consistency",
-            "a": "Training you can keep up",
-            "b": "",
-            "figure": "",
-            "unit": "",
-            "text": "Count the sessions you actually completed each week. Consistency is what turns any of the above into a trend rather than a good day."
-          }
-        }
-      },
-      "block_order": [
-        "t0",
-        "t1",
-        "t2",
-        "t3"
-      ],
-      "settings": {
-        "layout": "jobs",
-        "anchor": "",
-        "eyebrow": "Benefits you can track",
-        "heading": "Then check it in\nyour own log.",
-        "text": "Same programme, same routine, noted before your first scoop. Check in at weeks 4 and 8, alongside your NAD+ check-in.",
-        "button_label": "",
-        "button_link": "",
-        "link_label": "",
-        "link": "",
-        "small": "",
-        "space_top": 72,
-        "space_bottom": 96
-      }
     }
   },
   "order": [
@@ -988,7 +912,6 @@
     "board",
     "superior",
     "benefits",
-    "track",
     "steps",
     "onescoop",
     "compare",
