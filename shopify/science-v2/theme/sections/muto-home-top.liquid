@@ -39,17 +39,18 @@
 
   @media (max-width:749px){
     #shopify-section-{{ sid }} .mtop{padding:{{ s.space_top | times: 0.5 | round }}px 8px 0}
-    #shopify-section-{{ sid }} .mtop__hero{flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:16px;min-height:min(82vh,640px);padding:28px 20px}
-    #shopify-section-{{ sid }} .mtop__hero::after{background:linear-gradient(0deg,rgba(10,14,16,{{ s.overlay | divided_by: 100.0 }}),rgba(10,14,16,0) 75%)}
-    #shopify-section-{{ sid }} .mtop__copy{gap:14px}
-    #shopify-section-{{ sid }} .mtop .mtop__h{font-size:40px}
-    #shopify-section-{{ sid }} .mtop__sub{font-size:16px}
-    #shopify-section-{{ sid }} .mtop__btn{width:100%;min-height:56px}
-    #shopify-section-{{ sid }} .mtop__badge{position:static;margin-top:4px;padding:10px 14px}
-    #shopify-section-{{ sid }} .mtop__badge b{font-size:22px}
-    #shopify-section-{{ sid }} .mtop__strip{flex-direction:column;align-items:stretch;gap:14px;padding:18px 8px}
-    #shopify-section-{{ sid }} .mtop__rate{justify-content:center;font-size:11.5px}
-    #shopify-section-{{ sid }} .mtop__q{font-size:11.5px;margin-right:28px}
+    #shopify-section-{{ sid }} .mtop__hero{flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:0;min-height:0;aspect-ratio:4/5;padding:22px 18px;border-radius:8px}
+    #shopify-section-{{ sid }} .mtop__media img,#shopify-section-{{ sid }} .mtop__media video{object-position:{{ s.image_position_mobile | default: '50% 75%' }}}
+    #shopify-section-{{ sid }} .mtop__hero::after{background:linear-gradient(0deg,rgba(10,14,16,.7),rgba(10,14,16,0) 70%)}
+    #shopify-section-{{ sid }} .mtop__copy{gap:10px}
+    #shopify-section-{{ sid }} .mtop__eye{font-size:11px}
+    #shopify-section-{{ sid }} .mtop .mtop__h{font-size:34px}
+    #shopify-section-{{ sid }} .mtop__sub{font-size:15px;line-height:1.35}
+    #shopify-section-{{ sid }} .mtop__btn{width:100%;min-height:52px;margin-top:4px;font-size:16px}
+    #shopify-section-{{ sid }} .mtop__badge{display:none}
+    #shopify-section-{{ sid }} .mtop__strip{flex-direction:column;align-items:stretch;gap:12px;padding:16px 8px}
+    #shopify-section-{{ sid }} .mtop__rate{justify-content:center;font-size:11px}
+    #shopify-section-{{ sid }} .mtop__q{font-size:11px;margin-right:28px}
   }
 </style>
 
@@ -100,6 +101,7 @@
     { "type": "text", "id": "image_url", "label": "Photo URL (if no photo picked)" },
     { "type": "text", "id": "image_alt", "label": "Photo description" },
     { "type": "text", "id": "image_position", "label": "Photo focus", "info": "e.g. 50% 50%" },
+    { "type": "text", "id": "image_position_mobile", "label": "Photo focus on mobile", "info": "e.g. 50% 75%" },
     { "type": "video", "id": "video", "label": "Video (instead of the photo)" },
     { "type": "range", "id": "overlay", "label": "Shade behind the words", "min": 0, "max": 80, "step": 5, "unit": "%", "default": 45 },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow" },

@@ -73,6 +73,11 @@
   });
   </script>
 {%- endif -%}
+<style>
+  /* Footer headings at the site's heading weight */
+  footer h1,footer h2,footer h3,footer .h1,footer .h2,footer .h3,footer .h4,footer .footer-block__heading,footer .newsletter__heading,
+  .footer h1,.footer h2,.footer h3,.footer .h1,.footer .h2,.footer .footer-block__heading,[id*="__footer"] h2,[id*="__footer"] .h1,[id*="__footer"] .h2{font-weight:500!important}
+</style>
 {%- comment -%} Sticky add to cart on every page. Not on product pages (they have their own buy box and bar),
 the home page (its own sticky section), the cart, accounts or the password page. {%- endcomment -%}
 {%- liquid
