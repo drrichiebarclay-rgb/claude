@@ -1116,241 +1116,94 @@
       }
     },
     "quotes": {
-      "type": "muto-crea-reviews",
+      "type": "muto-loved",
       "blocks": {
-        "rv1": {
-          "type": "review",
+        "q0": {
+          "type": "quote",
           "settings": {
-            "topic": "Mid-30s",
             "quote": "Being in my mid 30s, everything has started to slow down. Muto is providing me with a sense of vitality which I haven’t experienced since my mid 20s",
-            "name": "Jonathon R",
-            "age": "",
-            "verified": true
+            "name": "Jonathon R"
           }
         },
-        "rv2": {
-          "type": "review",
+        "q1": {
+          "type": "quote",
           "settings": {
-            "topic": "Healthy ageing",
-            "quote": "bought it to support healthy ageing and have been genuinely surprised at how quickly I felt a difference. My recovery and sleep have noticeably improved.",
-            "name": "K R",
-            "age": "",
-            "verified": true
-          }
-        },
-        "rv3": {
-          "type": "review",
-          "settings": {
-            "topic": "Afternoon energy",
-            "quote": "No afternoon slump and in general feeling great",
-            "name": "Lynda",
-            "age": "",
-            "verified": true
-          }
-        },
-        "rv4": {
-          "type": "review",
-          "settings": {
-            "topic": "Feeling like yourself",
-            "quote": "I didn't realise how flat I'd been feeling until this helped lift me out of it",
-            "name": "Holly P",
-            "age": "",
-            "verified": true
-          }
-        },
-        "rv5": {
-          "type": "review",
-          "settings": {
-            "topic": "A month in",
-            "quote": "I have been using for almost a month and can honestly say I have felt such a difference",
-            "name": "Michelle F",
-            "age": "",
-            "verified": true
-          }
-        },
-        "rv6": {
-          "type": "review",
-          "settings": {
-            "topic": "From a sceptic",
-            "quote": "I am usually sceptical to new supplements but this has been highly recommended by my friend so gave it a shot. It has exceeded my expectations, which is not easy as I am well-versed in nutrition and supplements.",
-            "name": "Aleks",
-            "age": "",
-            "verified": true
-          }
-        },
-        "rv7": {
-          "type": "review",
-          "settings": {
-            "topic": "Sustained energy",
             "quote": "I have sustained energy, I sleep better, perform better in workouts, and don’t crash anymore.",
-            "name": "Danny S",
-            "age": "",
-            "verified": true
+            "name": "Danny S"
           }
         },
-        "rv8": {
-          "type": "review",
+        "q2": {
+          "type": "quote",
           "settings": {
-            "topic": "Tracked on Oura",
             "quote": "I track the effectiveness of my supplements using my Oura ring, and all my key biometrics are improving: recovery, sleep, HRV and RHR",
-            "name": "Hugh K",
-            "age": "",
-            "verified": true
+            "name": "Hugh K"
           }
         },
-        "rv9": {
-          "type": "review",
+        "q3": {
+          "type": "quote",
           "settings": {
-            "topic": "Mornings",
-            "quote": "I predominantly struggle with mornings but already feel myself finding these easier",
-            "name": "Becca",
-            "age": "",
-            "verified": true
+            "quote": "I didn't realise how flat I'd been feeling until this helped lift me out of it",
+            "name": "Holly P"
           }
         },
-        "rv10": {
-          "type": "review",
+        "q4": {
+          "type": "quote",
           "settings": {
-            "topic": "Recovery",
-            "quote": "Has actually changed my recovery",
-            "name": "Adam H",
-            "age": "",
-            "verified": true
-          }
-        },
-        "rv11": {
-          "type": "review",
-          "settings": {
-            "topic": "All-day energy",
-            "quote": "The cellular energy boost it gives you really enables me to power through my day.",
-            "name": "Max",
-            "age": "",
-            "verified": true
-          }
-        },
-        "rv12": {
-          "type": "review",
-          "settings": {
-            "topic": "Energy and sleep",
-            "quote": "Since starting taking Muto my energy levels and my sleep has improved drastically (even within the first month)",
-            "name": "Matteo M",
-            "age": "",
-            "verified": true
-          }
-        },
-        "rv13": {
-          "type": "review",
-          "settings": {
-            "topic": "Fewer pots",
-            "quote": "I love that this replaces multiple products",
-            "name": "Amy C",
-            "age": "",
-            "verified": true
-          }
-        },
-        "rv14": {
-          "type": "review",
-          "settings": {
-            "topic": "Keeping up",
-            "quote": "Started using muto because I felt like my body couldn’t keep up with the amount of exercise I wanted to do. After taking muto, I felt more energised and ready for my next session!",
-            "name": "Brendan",
-            "age": "",
-            "verified": true
-          }
-        },
-        "rv15": {
-          "type": "review",
-          "settings": {
-            "topic": "Marathon training",
-            "quote": "I started taking Muto for my Boston Marathon training hoping to have better recovery; and it did not disappoint",
-            "name": "Rebeca",
-            "age": "",
-            "verified": true
-          }
-        },
-        "rv16": {
-          "type": "review",
-          "settings": {
-            "topic": "Training more often",
             "quote": "As a keen runner, I’ve noticed how Muto has helped me recover faster meaning I can train harder, more often.",
-            "name": "Ayo P",
-            "age": "",
-            "verified": true
+            "name": "Ayo P"
           }
         },
-        "rv17": {
-          "type": "review",
+        "q5": {
+          "type": "quote",
           "settings": {
-            "topic": "Focus",
-            "quote": "I’ve been taking MUTO every day for just under 2 months now and definitely feel more focused during the day",
-            "name": "Alexandra",
-            "age": "",
-            "verified": true
+            "quote": "Started using muto because I felt like my body couldn’t keep up with the amount of exercise I wanted to do. After taking muto, I felt more energised and ready for my next session!",
+            "name": "Brendan"
           }
         },
-        "rv18": {
-          "type": "review",
+        "v0": {
+          "type": "video",
           "settings": {
-            "topic": "Consistent energy",
-            "quote": "Energy is up and staying consistent.",
-            "name": "Jack",
-            "age": "",
-            "verified": true
+            "video": "shopify://files/videos/MUTO_Creator-Ad_Max-Richards_Script-B.mp4",
+            "image_url": "",
+            "handle": ""
           }
         },
-        "rv19": {
-          "type": "review",
+        "v1": {
+          "type": "video",
           "settings": {
-            "topic": "Clearer mind",
-            "quote": "I feel like I have more energy and a clearer mind.",
-            "name": "Sam",
-            "age": "",
-            "verified": true
+            "video": "shopify://files/videos/MU06_26_MUTO_VIDEO-1.mp4",
+            "image_url": "",
+            "handle": ""
           }
         },
-        "rv20": {
-          "type": "review",
+        "v2": {
+          "type": "video",
           "settings": {
-            "topic": "A scientist who picks up the phone",
-            "quote": "Richie from the team gave me a call just to chat about my background and goals",
-            "name": "Mathew H",
-            "age": "",
-            "verified": true
+            "video": "shopify://files/videos/The Baseline.mp4",
+            "image_url": "",
+            "handle": ""
           }
         }
       },
       "block_order": [
-        "rv1",
-        "rv2",
-        "rv3",
-        "rv4",
-        "rv5",
-        "rv6",
-        "rv7",
-        "rv8",
-        "rv9",
-        "rv10",
-        "rv11",
-        "rv12",
-        "rv13",
-        "rv14",
-        "rv15",
-        "rv16",
-        "rv17",
-        "rv18",
-        "rv19",
-        "rv20"
+        "v0",
+        "q0",
+        "q1",
+        "v1",
+        "q2",
+        "q3",
+        "v2",
+        "q4",
+        "q5"
       ],
       "settings": {
-        "eyebrow": "Verified customers",
-        "heading": "What our\ncommunity say.",
-        "summary": "4.8 from 103 reviews",
-        "interval": 6,
-        "min_age": 30,
-        "require_age": false,
-        "foot": "Real reviews from verified customers, in their own words. Everyone is different.",
-        "space_top": 100,
-        "space_bottom": 100
+        "anchor": "",
+        "heading": "Loved by our community.",
+        "link_label": "Read all reviews",
+        "link": "#ReviewsWidget",
+        "space_top": 96,
+        "space_bottom": 96,
+        "rating": "4.8 from 103 reviews"
       }
     },
     "library": {
