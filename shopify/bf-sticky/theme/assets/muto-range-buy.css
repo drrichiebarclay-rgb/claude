@@ -111,3 +111,18 @@ html:root body .mc .mc__rev-n{font-size:12px}
 }
 /* "The problem" stat figures (~50%, ~80%...): same weight as the section headings */
 html:root body .mc .mc__prb-fig{font-weight:500!important}
+
+/* Fixes: the theme's own buy-box sizes are scoped tighter, so these are forced */
+html:root body #MainContent [id$="__buy"] .mc__buy-title{font-size:clamp(29px,2.7vw,39px)!important;line-height:.95!important}
+html:root body #MainContent [id$="__buy"] .mc__eyebrow{font-size:13px!important;letter-spacing:.12em}
+html:root body #MainContent [id$="__buy"] .mc__buy-serving{font-size:12px!important;margin-top:12px!important}
+html:root body #MainContent [id$="__buy"] .mc__buy-text{font-size:15px!important;line-height:1.5!important}
+html:root body #MainContent [id$="__buy"] .mc__buy-text p:first-child{font-size:17px!important;line-height:1.4!important}
+html:root body #MainContent [id$="__buy"] .mc__point{position:relative!important;padding:6px 0 6px 24px!important;font-size:15px!important;font-weight:500!important;line-height:1.35!important}
+html:root body #MainContent [id$="__buy"] .mc__point + .mc__point{margin-top:2px!important}
+html:root body #MainContent [id$="__buy"] .mc__point::before{content:""!important;display:block!important;position:absolute!important;left:0!important;top:50%!important;width:10px!important;height:10px!important;margin:0!important;border-radius:50%!important;transform:translateY(-50%)!important;background:#5efaff!important;box-shadow:none!important}
+@media (max-width:749px){
+  html:root body #MainContent [id$="__buy"] .mc__buy-title{font-size:26px!important}
+  html:root body #MainContent [id$="__buy"] .mc__buy-text p:first-child{font-size:15.5px!important}
+  html:root body #MainContent [id$="__buy"] .mc__point{font-size:14px!important}
+}
