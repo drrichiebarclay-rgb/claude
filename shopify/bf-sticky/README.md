@@ -12,6 +12,8 @@ Preview: https://muto.co/products/muto-nad-cellular-complex?preview_theme_id=203
 
 - `assets/muto-bf-layout.css` + `assets/muto-bf-layout.js` (loaded by the bar snippet): Black Friday box at about half size, badges replaced by the testing-results button, image at the top on phones and tablets with arrows and swipe in place of thumbnails, no divider in the sticky button.
 
+- `assets/muto-bf-type.css` (loaded last): smaller, tighter type in the buy box and both bars; every section below the buy box scaled to 90% (88% on phones) with CSS zoom.
+
 `live-snapshot/` holds the live template, buy section and CSS these were built against.
 
 ## After Black Friday
