@@ -565,7 +565,8 @@
         "cta_link": "https://www.justgiving.com/team/muto",
         "space_top": 100,
         "space_bottom": 100
-      }
+      },
+      "disabled": true
     },
     "events": {
       "type": "muto-about-events",
@@ -643,7 +644,8 @@
         "note": "MUTO subscribers get priority access to every event.",
         "space_top": 100,
         "space_bottom": 100
-      }
+      },
+      "disabled": true
     },
     "custom_reviews_4ziABB": {
       "type": "custom-reviews",
@@ -819,7 +821,8 @@
         "link": "",
         "space_top": 72,
         "space_bottom": 96
-      }
+      },
+      "disabled": true
     },
     "team": {
       "type": "muto-story",
@@ -1038,7 +1041,7 @@
       ],
       "settings": {
         "field": false,
-        "heading": "Six scientists put\ntheir name to MUTO.",
+        "heading": "Meet the minds\nbehind MUTO.",
         "note": "Our Scientific Advisory Board reviews the formula",
         "compact": true,
         "rail_gap": 40,
@@ -1072,20 +1075,184 @@
         "space_top": 96,
         "space_bottom": 96
       }
+    },
+    "standards_v2": {
+      "type": "muto-crea-standards",
+      "blocks": {
+        "tested": {
+          "type": "standard",
+          "settings": {
+            "stat": "Every batch",
+            "title": "Third-party tested",
+            "text": "<p>Every batch is tested by an independent lab for identity, potency, heavy metals and microbes before it’s released.</p>",
+            "link_label": "View third-party testing results",
+            "link": "#test-results",
+            "no_link_note": "Certificates of analysis on request"
+          }
+        },
+        "dose": {
+          "type": "standard",
+          "settings": {
+            "stat": "300mg NR",
+            "title": "Full, declared doses",
+            "text": "<p>Nicotinamide riboside at 300mg, the maximum daily amount authorised in Great Britain. All 19 ingredients are on the label with their doses. No proprietary blends.</p>",
+            "link_label": "",
+            "link": "",
+            "no_link_note": ""
+          }
+        },
+        "board": {
+          "type": "standard",
+          "settings": {
+            "stat": "6 experts",
+            "title": "Scientific Advisory Board",
+            "text": "<p>Doctors and scientists in longevity, metabolism, sleep and performance nutrition review the formula.</p>",
+            "link_label": "",
+            "link": "",
+            "no_link_note": ""
+          }
+        },
+        "made": {
+          "type": "standard",
+          "settings": {
+            "stat": "GMP · ISO",
+            "title": "Made in the UK",
+            "text": "<p>Manufactured in the UK to GMP standards, in an ISO-certified facility.</p>",
+            "link_label": "",
+            "link": "",
+            "no_link_note": ""
+          }
+        }
+      },
+      "block_order": [
+        "tested",
+        "dose",
+        "board",
+        "made"
+      ],
+      "settings": {
+        "heading": "Checked, not\ntaken on trust.",
+        "lede": "The four things we hold every jar to",
+        "foot": "",
+        "space_top": 100,
+        "space_bottom": 100
+      }
+    },
+    "founder_v2": {
+      "type": "muto-crea-founder",
+      "settings": {
+        "eyebrow": "Our founder",
+        "heading": "Built by a doctor\nwho wanted proof.",
+        "text": "<p>Richie Barclay is a cell biologist with a PhD in cellular biology and nutrition, a Harley Street nutritionist for the last 13 years, and a former cricketer and tennis player.</p><p>He started MUTO after years of watching supplements sell on claims nobody had checked, with the doses hidden in blends. So MUTO does it the other way: every dose is on the label, every batch goes to an outside lab, and six doctors and scientists review the formula.</p>",
+        "quote": "I built MUTO because I was tired of supplements that ask you to take them on trust.",
+        "quote_by": "Dr Richie Barclay, PhD, founder",
+        "link_label": "Got a question? Email Richie",
+        "link": "mailto:hello@mutolongevity.com",
+        "image": "shopify://shop_images/MutoxNSPCCEvent-38.jpg",
+        "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/founder-bf-stage.jpg?v=1793283537",
+        "image_alt": "Dr Richie Barclay speaking on stage at a MUTO event",
+        "image_position": "50% 30%",
+        "caption": "",
+        "space_top": 100,
+        "space_bottom": 100
+      }
+    },
+    "events_v2": {
+      "type": "muto-story",
+      "blocks": {
+        "e1": {
+          "type": "photo",
+          "settings": {
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-event-4.jpg?v=1790752124",
+            "alt": "Runners setting off from a MUTO run club, one grinning at the camera"
+          }
+        },
+        "e2": {
+          "type": "photo",
+          "settings": {
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-event-2.jpg?v=1790752124",
+            "alt": "An athlete with arms raised at the end of a MUTO training session"
+          }
+        },
+        "e3": {
+          "type": "photo",
+          "settings": {
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-event-3.jpg?v=1790752124",
+            "alt": "A MUTO run club crossing a London junction in a pack"
+          }
+        },
+        "e4": {
+          "type": "photo",
+          "settings": {
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-event-1.jpg?v=1790752124",
+            "alt": "A MUTO run club gathering outside a cafe on a London street"
+          }
+        },
+        "e5": {
+          "type": "photo",
+          "settings": {
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-event-5-run-club-street.jpg?v=1790757912",
+            "alt": "A MUTO run club setting off through east London, one runner turning to the camera"
+          }
+        },
+        "e6": {
+          "type": "photo",
+          "settings": {
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-event-6-post-run-social.jpg?v=1790757912",
+            "alt": "Runners eating and talking together in a cafe after a MUTO run club session"
+          }
+        },
+        "e7": {
+          "type": "photo",
+          "settings": {
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-event-7-strength-session.jpg?v=1790757912",
+            "alt": "A coach watching a line of athletes barbell back squatting at a MUTO strength session"
+          }
+        },
+        "e8": {
+          "type": "photo",
+          "settings": {
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-event-8-recovery-class.jpg?v=1790757912",
+            "alt": "A led recovery and mobility class at a MUTO event, participants lying on mats"
+          }
+        }
+      },
+      "block_order": [
+        "e1",
+        "e2",
+        "e3",
+        "e4",
+        "e5",
+        "e6",
+        "e7",
+        "e8"
+      ],
+      "settings": {
+        "layout": "gallery",
+        "eyebrow": "Community",
+        "heading": "Expert-led events.",
+        "text": "Run clubs, recovery sessions and talks, led by the people behind MUTO: our scientists, coaches and training partners. Come to train, ask the questions you'd normally have to Google, and meet others doing the work.",
+        "text_2": "MUTO subscribers get priority access to every event.",
+        "space_top": 96,
+        "space_bottom": 96
+      }
     }
   },
   "order": [
     "schema",
     "who",
     "mission_v2",
-    "numbers",
+    "standards_v2",
+    "founder_v2",
     "board_anchor",
     "board_v2",
     "research_v2",
-    "marathon",
-    "events",
+    "events_v2",
     "offer",
     "custom_reviews_4ziABB",
+    "numbers",
+    "marathon",
+    "events",
     "hero",
     "team",
     "made",

@@ -2,7 +2,7 @@
    Premium and precise: white ground, horizontal hairlines only, products shown large without boxes,
    and our column as a raised deep-ink panel with turquoise marks. The section is scaled by the page
    (zoom .93 / .84), so sizes here are set a touch larger. */
-.mc-cmp{--cmp-ink:#242223;--cmp-deep:var(--mc-ink,#162f31);--cmp-head:var(--mc-ink,#162f31);--cmp-muted:#6b6a6a;--cmp-rule:rgba(36,34,35,.12);--cmp-mono:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace;
+.mc-cmp{--cmp-ink:#242223;--cmp-deep:var(--mc-ink,#162f31);--cmp-head:#242223;--cmp-muted:#6b6a6a;--cmp-rule:rgba(36,34,35,.12);--cmp-mono:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace;
   padding:96px 0;background:#fff;color:var(--cmp-ink);font-family:var(--mc-font,inherit);-webkit-font-smoothing:antialiased}
 .mc-cmp__in{max-width:1160px;margin:0 auto;padding:0 24px;text-align:center}
 .mc-cmp__eyebrow{margin:0;font-family:var(--cmp-mono);font-size:12px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--cmp-muted)}

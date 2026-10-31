@@ -7,6 +7,8 @@
               (quote: the part before "|" is ink, the rest is grey), with name and role.
     split     A photo (or video) on the left; the site's heading, a paragraph or two and an outlined
               button on the right. MOBILE: photo first.
+    gallery   Centred eyebrow, heading and line, then a row of photo tiles you swipe (blocks: photo), and a
+              small mono note under them.
     team      Heading left, a note right, a dotted rule, a small label, then a grid of portraits
               (blocks: member) with name and role. MOBILE: two to a row.
 {%- endcomment -%}
@@ -15,7 +17,7 @@
   assign sid = section.id
 -%}
 <style>
-  #shopify-section-{{ sid }}{--mst-ink:#242223;--mst-head:var(--mc-ink,#162f31);--mst-muted:#6b6a6a;--mst-rule:rgba(36,34,35,.14);--mst-tile:#f1f1ef;--mst-accent:#2f8fa0;--mst-mono:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace}
+  #shopify-section-{{ sid }}{--mst-ink:#242223;--mst-head:#242223;--mst-muted:#6b6a6a;--mst-rule:rgba(36,34,35,.14);--mst-tile:#f1f1ef;--mst-accent:#2f8fa0;--mst-mono:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace}
   #shopify-section-{{ sid }} .mst,#shopify-section-{{ sid }} .mst h1,#shopify-section-{{ sid }} .mst h2,#shopify-section-{{ sid }} .mst h3,#shopify-section-{{ sid }} .mst p,#shopify-section-{{ sid }} .mst blockquote{font-family:var(--mc-font,"Neue Haas Grotesk Display Pro"),sans-serif;-webkit-font-smoothing:antialiased}
   #shopify-section-{{ sid }} .mst{background:#fff;color:var(--mst-ink)}
   #shopify-section-{{ sid }} .mst__wrap{max-width:1320px;margin:0 auto;padding:{{ s.space_top }}px 20px {{ s.space_bottom }}px}
@@ -60,6 +62,19 @@
   #shopify-section-{{ sid }} .mst__stext p{margin:20px 0 0;font-size:clamp(17px,1.4vw,20px);line-height:1.45;color:var(--mst-ink)}
   #shopify-section-{{ sid }} .mst__scopy .mst__qlink{align-self:flex-start;margin-top:0}
 
+  /* Gallery */
+  #shopify-section-{{ sid }} .mst__ghead{display:grid;justify-items:center;gap:20px;text-align:center}
+  #shopify-section-{{ sid }} .mst__ghead .mst__lede{margin:0;max-width:52ch;font-size:clamp(17px,1.4vw,20px);line-height:1.45;text-wrap:balance}
+  #shopify-section-{{ sid }} .mst__rail{display:flex;gap:16px;margin:48px -20px 0;padding:0 20px 6px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 20px;scrollbar-width:none;list-style:none}
+  #shopify-section-{{ sid }} .mst__rail::-webkit-scrollbar{display:none}
+  #shopify-section-{{ sid }} .mst__ph{position:relative;flex:0 0 clamp(240px,24vw,340px);aspect-ratio:4/5;margin:0;border-radius:4px;overflow:hidden;background:var(--mst-tile);scroll-snap-align:start}
+  #shopify-section-{{ sid }} .mst__ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  #shopify-section-{{ sid }} .mst__gfoot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;margin-top:28px}
+  #shopify-section-{{ sid }} .mst__gnote{margin:0;font-family:var(--mst-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mst-ink)}
+  #shopify-section-{{ sid }} .mst__arrows{display:flex;gap:8px}
+  #shopify-section-{{ sid }} .mst__arrows button{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--mst-rule);border-radius:6px;background:#fff;color:var(--mst-ink);font-size:18px;cursor:pointer;transition:border-color .2s}
+  #shopify-section-{{ sid }} .mst__arrows button:hover{border-color:var(--mst-ink)}
+
   /* Team */
   #shopify-section-{{ sid }} .mst__thead{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:48px;align-items:start}
   #shopify-section-{{ sid }} .mst__note{margin:4px 0 0;font-size:clamp(17px,1.4vw,20px);line-height:1.45;color:var(--mst-ink)}
@@ -92,6 +107,10 @@
     #shopify-section-{{ sid }} .mst__q{font-size:24px}
     #shopify-section-{{ sid }} .mst__qlink{width:100%;justify-content:center}
     #shopify-section-{{ sid }} .mst__rule{margin:32px 0 16px}
+    #shopify-section-{{ sid }} .mst__rail{gap:10px;margin:32px -16px 0;padding:0 16px 4px;scroll-padding:0 16px}
+    #shopify-section-{{ sid }} .mst__ph{flex-basis:72%}
+    #shopify-section-{{ sid }} .mst__arrows{display:none}
+    #shopify-section-{{ sid }} .mst__gfoot{justify-content:center;margin-top:20px}
     #shopify-section-{{ sid }} .mst__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 12px;margin-top:20px}
     #shopify-section-{{ sid }} .mst__mn{font-size:15.5px}
     #shopify-section-{{ sid }} .mst__mr{font-size:13px}
@@ -178,6 +197,38 @@
           </div>
         </div>
 
+      {%- when 'gallery' -%}
+        <div class="mst__ghead">
+          {%- if s.eyebrow != blank -%}<p class="mst__eye">{{ s.eyebrow }}</p>{%- endif -%}
+          {%- if s.heading != blank -%}<h2 class="mst__h">{{ s.heading | escape | newline_to_br }}</h2>{%- endif -%}
+          {%- if s.text != blank -%}<p class="mst__lede">{{ s.text }}</p>{%- endif -%}
+        </div>
+        <ul class="mst__rail" data-mst-rail>
+          {%- for b in section.blocks -%}
+            <li class="mst__ph" {{ b.shopify_attributes }}>
+              {%- if b.settings.image != blank -%}{{ b.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', widths: '400,600,800', sizes: '(min-width: 990px) 24vw, 72vw', alt: b.settings.alt }}
+              {%- elsif b.settings.image_url != blank -%}<img src="{{ b.settings.image_url }}" alt="{{ b.settings.alt | escape }}" loading="lazy" width="800" height="1000">{%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+        <div class="mst__gfoot">
+          {%- if s.text_2 != blank -%}<p class="mst__gnote">{{ s.text_2 }}</p>{%- endif -%}
+          <div class="mst__arrows">
+            <button type="button" aria-label="Previous photos" data-mst-dir="-1">←</button>
+            <button type="button" aria-label="Next photos" data-mst-dir="1">→</button>
+          </div>
+        </div>
+        <script>
+          (function () {
+            var sec = document.getElementById('shopify-section-{{ sid }}');
+            var rail = sec && sec.querySelector('[data-mst-rail]');
+            if (!rail) return;
+            sec.querySelectorAll('[data-mst-dir]').forEach(function (b) {
+              b.addEventListener('click', function () { rail.scrollBy({ left: +b.getAttribute('data-mst-dir') * rail.clientWidth * .8, behavior: 'smooth' }); });
+            });
+          })();
+        </script>
+
       {%- when 'team' -%}
         <div class="mst__thead">
           <h2 class="mst__h">{{ s.heading | escape | newline_to_br }}</h2>
@@ -212,6 +263,7 @@
       { "value": "mission", "label": "Mission (heading over a wide photo)" },
       { "value": "numbers", "label": "Numbers and founder quote" },
       { "value": "split", "label": "Photo beside words" },
+      { "value": "gallery", "label": "Photo row" },
       { "value": "team", "label": "Team grid" }
     ] },
     { "type": "text", "id": "anchor", "label": "Anchor" },
@@ -236,6 +288,11 @@
       { "type": "text", "id": "unit", "label": "Small mark after it", "info": "e.g. + or mg" },
       { "type": "text", "id": "title", "label": "Label" },
       { "type": "textarea", "id": "text", "label": "Line under it" }
+    ] },
+    { "type": "photo", "name": "Photo", "settings": [
+      { "type": "image_picker", "id": "image", "label": "Photo" },
+      { "type": "text", "id": "image_url", "label": "Photo URL (if no photo picked)" },
+      { "type": "text", "id": "alt", "label": "Description" }
     ] },
     { "type": "member", "name": "Person", "settings": [
       { "type": "image_picker", "id": "image", "label": "Portrait" },
