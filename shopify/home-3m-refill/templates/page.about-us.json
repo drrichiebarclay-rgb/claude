@@ -626,7 +626,7 @@
         "link": "/pages/science",
         "image_url": "",
         "image_alt": "A laboratory microscope against a pale background",
-        "image_position": "50% 35%",
+        "image_position": "50% 0%",
         "space_top": 96,
         "space_bottom": 96,
         "image": "shopify://shop_images/muto-about-microscope.jpg"
@@ -687,7 +687,7 @@
         "made"
       ],
       "settings": {
-        "heading": "Checked, not\ntaken on trust.",
+        "heading": "We do things\ndifferently.",
         "lede": "The four things we hold every jar to",
         "foot": "",
         "space_top": 100,
