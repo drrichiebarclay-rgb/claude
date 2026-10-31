@@ -1148,7 +1148,9 @@
         "rating": "4.8 from 103 reviews",
         "rating_link": "#reviews",
         "space_top": 0,
-        "allow_transparent_header": true
+        "allow_transparent_header": true,
+        "image_mobile_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-hero-mobile-nad-v4.jpg?v=1791449687",
+        "image_position_mobile": "50% 50%"
       }
     },
     "value": {

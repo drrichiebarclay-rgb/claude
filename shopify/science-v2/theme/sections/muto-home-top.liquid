@@ -65,7 +65,11 @@
       {%- elsif s.image != blank -%}
         {{ s.image | image_url: width: 2400 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '800,1200,1600,2000,2400', sizes: '100vw', alt: s.image_alt }}
       {%- elsif s.image_url != blank -%}
-        <img src="{{ s.image_url }}" alt="{{ s.image_alt | escape }}" width="2400" height="1350" fetchpriority="high">
+        {%- if s.image_mobile_url != blank -%}
+          <picture><source media="(max-width:749px)" srcset="{{ s.image_mobile_url }}"><img src="{{ s.image_url }}" alt="{{ s.image_alt | escape }}" width="2400" height="1350" fetchpriority="high"></picture>
+        {%- else -%}
+          <img src="{{ s.image_url }}" alt="{{ s.image_alt | escape }}" width="2400" height="1350" fetchpriority="high">
+        {%- endif -%}
       {%- endif -%}
     </div>
     <div class="mtop__copy">
@@ -103,6 +107,7 @@
     { "type": "checkbox", "id": "allow_transparent_header", "label": "Site header over the photo", "default": true },
     { "type": "image_picker", "id": "image", "label": "Photo" },
     { "type": "text", "id": "image_url", "label": "Photo URL (if no photo picked)" },
+    { "type": "text", "id": "image_mobile_url", "label": "Mobile photo URL (portrait)" },
     { "type": "text", "id": "image_alt", "label": "Photo description" },
     { "type": "text", "id": "image_position", "label": "Photo focus", "info": "e.g. 50% 50%" },
     { "type": "text", "id": "image_position_mobile", "label": "Photo focus on mobile", "info": "e.g. 50% 75%" },
