@@ -10,6 +10,8 @@
 .mc-cmp__t{display:grid;grid-template-columns:minmax(170px,1.25fr) minmax(190px,1.3fr) repeat(3,minmax(140px,1fr));min-width:820px}
 .mc-cmp .c{display:flex;align-items:flex-start;gap:9px;padding:16px 16px;border-bottom:1px solid rgba(36,34,35,.1);font-size:17px;line-height:1.35}
 .mc-cmp .c.z{border-bottom:0}
+/* Product columns centred (text and ticks); the feature names stay left */
+.mc-cmp .c:not(.l){justify-content:center;text-align:center}
 .mc-cmp .c b{font-weight:600;font-size:20px}
 .mc-cmp .l{position:sticky;left:0;z-index:1;background:#f4f5f4;font-weight:500}
 /* Header row: picture over the name */
