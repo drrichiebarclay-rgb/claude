@@ -292,3 +292,13 @@ html:root body .mrg__btn:hover,html:root body .msc__btn:hover{background:#000!im
 }
 html:root body .mc .mc__inc-main .mc__inc-name::before{font-size:16.5px}
 @media (max-width:749px){html:root body .mc .mc__inc-main .mc__inc-name::before{font-size:14.5px}}
+
+/* ---- Mobile: body copy a touch larger below the buy box (headings unchanged) ---- */
+@media (max-width:749px){
+  html:root body #MainContent > .shopify-section:not([id$="__buy"]) :is(
+    .mc__stm-sub,.mc__prb-text,.mc__trust-note,.mc__std-text p,.mc__fdr-text p,.mc__fdr-quote-text,.mc__rt > p,.mc__rt li,
+    .mbp__lede,.mbp__claim,.mbp__list li,.mht__lede,.mht__x p,.mex__lede,.mex__x p,.mrg__lede,.mrg__text,.mrg__pts span,
+    .mc-cmp__intro,.mc-cmp .c,.mc-cmp__note,.mlv .mlv__q,.mh__note,.mh__body,.msc__lede,.msc__x,.mst__stext p,
+    .mc__acc-body p,.mc__acc-body li,[class*="faq"] p
+  ){font-size:calc(1em + 1.5px)!important;line-height:1.5!important}
+}
