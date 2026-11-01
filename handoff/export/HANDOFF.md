@@ -56,6 +56,7 @@ One section, loaded on every page before the page is drawn. It holds:
 | `muto-compare` | Home | Renders the "MUTO vs the usual" table straight into the page |
 | `muto-cmp2` | Creatine | Two-way comparison (MUTO vs standard creatine), same look |
 | `muto-sbar` | Home, Creatine, Socks, Bottle | Sticky add to cart: product's own variants, or NAD+ on home |
+| `muto-ticker` | Black Friday PDPs (both) | Rotating row of 20 short customer quotes under the buy box, mono caps, pauses on hover |
 | `muto-section-nav` | PDP, Science | "On this page" chips: appear when the first linked section reaches the top, light up the section on screen |
 | `muto-test-results` | PDP, Science, Ingredients, Standards, About | Certificates pop-up (real certificate data) |
 

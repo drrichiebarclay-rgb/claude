@@ -1,0 +1,54 @@
+{%- comment -%}
+  MUTO — Reviews ticker. A single row of short customer quotes that scrolls by on its own (pauses on
+  hover, stops for reduced motion), in Sometype Mono capitals with the name in grey, like the strip under
+  the home page photo. Edges fade out. BLOCKS: quote (text, name).
+{%- endcomment -%}
+{%- assign sid = section.id -%}
+<style>
+  #shopify-section-{{ sid }}{background:#fff}
+  #shopify-section-{{ sid }} .mtk{padding:{{ section.settings.space_top }}px 0 {{ section.settings.space_bottom }}px;background:#fff;
+    --mtk-ink:#242223;--mtk-muted:#8a8889;--mtk-mono:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace}
+  #shopify-section-{{ sid }} .mtk__tick{position:relative;overflow:hidden;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+  #shopify-section-{{ sid }} .mtk__run{display:flex;width:max-content;animation:mtk-run {{ section.blocks.size | times: 6 | at_least: 30 }}s linear infinite}
+  #shopify-section-{{ sid }} .mtk__tick:hover .mtk__run{animation-play-state:paused}
+  #shopify-section-{{ sid }} .mtk__q{flex:0 0 auto;margin:0 44px 0 0;white-space:nowrap;font-family:var(--mtk-mono);font-size:13px;font-weight:400;line-height:1.4;letter-spacing:.1em;text-transform:uppercase;color:var(--mtk-ink)}
+  #shopify-section-{{ sid }} .mtk__q span{margin-left:10px;color:var(--mtk-muted)}
+  @keyframes mtk-run{to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){#shopify-section-{{ sid }} .mtk__run{animation:none}#shopify-section-{{ sid }} .mtk__tick{overflow-x:auto}}
+  @media (max-width:749px){
+    #shopify-section-{{ sid }} .mtk{padding:{{ section.settings.space_top | times: 0.6 | round }}px 0 {{ section.settings.space_bottom | times: 0.6 | round }}px}
+    #shopify-section-{{ sid }} .mtk__q{font-size:11.5px;margin-right:32px;letter-spacing:.08em}
+  }
+</style>
+{%- if section.blocks.size > 0 -%}
+<div class="mtk">
+  <div class="mtk__tick" role="region" aria-label="What customers say">
+    <div class="mtk__run">
+      {%- for n in (1..2) -%}
+        {%- for b in section.blocks -%}
+          <p class="mtk__q"{% if n == 2 %} aria-hidden="true"{% else %} {{ b.shopify_attributes }}{% endif %}>“{{ b.settings.text }}”<span>· {{ b.settings.name }}</span></p>
+        {%- endfor -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "MUTO — Reviews ticker",
+  "tag": "section",
+  "settings": [
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 36 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 36 }
+  ],
+  "blocks": [
+    { "type": "quote", "name": "Quote", "settings": [
+      { "type": "text", "id": "text", "label": "Quote (short)" },
+      { "type": "text", "id": "name", "label": "Name" }
+    ] }
+  ],
+  "presets": [{ "name": "MUTO — Reviews ticker" }]
+}
+{% endschema %}
