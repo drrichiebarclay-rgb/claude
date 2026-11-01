@@ -161,3 +161,5 @@ cart-items .title--primary{font-size:clamp(30px,3.4vw,48px)!important}
 @media (max-width:749px){cart-drawer .drawer__inner{padding:0 20px!important}}
 /* No selling plan name ("3-Month Subscription") under the product */
 :is(cart-items,cart-drawer) .cart-item__details > p.product-option{display:none!important}
+/* Delivery promise under the checkout button */
+:is(#main-cart-footer,cart-drawer) .cart__ctas::after{content:"Order before 9pm and receive it next day.";display:block;width:100%;margin-top:14px;text-align:center;font-family:var(--mc-font);font-size:14px;line-height:1.4;color:#242223}
