@@ -110,3 +110,6 @@ html:root body .mc .mc__plans:has(> label.mc__plan:nth-of-type(1).is-selected) .
     white-space:pre-line!important;font-size:15px!important;line-height:1.5!important;color:#242223!important}
   html:root body .mc .mc-subhead::after{margin-top:14px!important}
 }
+/* "Built for life after 35." under the headline: smaller, italic, one line */
+html:root body .mc .mc__buy-title::after{content:"Built for life after 35.";display:block;margin-top:10px;font-size:.5em;font-style:italic;font-weight:400;line-height:1.2;letter-spacing:-.005em;text-transform:none;white-space:nowrap}
+@media (max-width:749px){html:root body .mc .mc__buy-title::after{font-size:20px;margin-top:8px}}
