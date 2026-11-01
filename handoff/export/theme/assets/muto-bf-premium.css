@@ -286,8 +286,9 @@ html:root body .mrg__btn:hover,html:root body .msc__btn:hover{background:#000!im
   html:root body .mc .mc__inc-row{padding:5px 0!important;font-size:14.5px!important}
   html:root body .mc .mc__inc::after{font-size:12px!important;padding-top:10px!important}
   html:root body .mc .mc__inc-foot{display:grid!important;grid-template-columns:1fr 1fr!important;gap:10px 12px!important;font-size:12.5px!important}
-  /* Extras out of the box */
-  html:root body .mc .mc__kit-more{display:none!important}
+  /* Future monthly gifts: kept, as a slim text row */
+  html:root body .mc .mc__kit-more{display:block!important;margin-top:8px!important}
+  html:root body .mc .mc__kit-sum{min-height:40px!important;font-size:14px!important}
 }
 html:root body .mc .mc__inc-main .mc__inc-name::before{font-size:16.5px}
 @media (max-width:749px){html:root body .mc .mc__inc-main .mc__inc-name::before{font-size:14.5px}}
