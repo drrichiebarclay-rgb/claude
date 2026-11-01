@@ -263,3 +263,29 @@ html:root body .mbp__chip,html:root body .mht__chip{background:rgba(255,255,255,
 /* Buttons below the buy box: black, matching */
 html:root body .mrg__btn,html:root body .msc__btn{background:#242223!important;color:#fff!important;border-radius:6px!important}
 html:root body .mrg__btn:hover,html:root body .msc__btn:hover{background:#000!important}
+
+/* =========================================================================================
+   Mobile: calmer buy box (after Reformed). Per plan: name, one grey line, price.
+   The unselected plan collapses to a single row. Fewer extras inside the box.
+   ========================================================================================= */
+@media (max-width:749px){
+  /* Plan detail: plain grey text, not teal mono */
+  html:root body .mc .mc__plans > label.mc__plan .mc__plan-note::before{font-family:var(--mc-font)!important;font-size:14px!important;font-weight:400!important;letter-spacing:0!important;text-transform:none!important;color:#5c5a5b!important;margin-bottom:2px!important}
+  html:root body .mc .mc__plan-note{font-size:12.5px!important;line-height:1.4!important;color:#8a8889!important}
+  /* Unselected plan: one row only */
+  html:root body .mc .mc__plans > label.mc__plan:not(.is-selected) .mc__plan-note{display:none!important}
+  html:root body .mc .mc__plans > label.mc__plan:not(.is-selected){padding-top:16px!important;padding-bottom:16px!important}
+  html:root body .mc .mc__plans > label.mc__plan:nth-of-type(2):not(.is-selected){padding-top:52px!important}
+  /* Best-value band: slimmer */
+  html:root body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-save{height:32px!important}
+  html:root body .mc .mc__plans > label.mc__plan:nth-of-type(2).is-selected{padding-top:48px!important}
+  html:root body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-save::before{font-size:9.5px!important;letter-spacing:.05em!important}
+  /* Includes: tighter rows, footer in two neat columns */
+  html:root body .mc .mc__kit-title::before{font-size:17px!important}
+  html:root body .mc .mc__inc{margin-top:6px!important}
+  html:root body .mc .mc__inc-row{padding:5px 0!important;font-size:14.5px!important}
+  html:root body .mc .mc__inc::after{font-size:12px!important;padding-top:10px!important}
+  html:root body .mc .mc__inc-foot{display:grid!important;grid-template-columns:1fr 1fr!important;gap:10px 12px!important;font-size:12.5px!important}
+  /* Extras out of the box */
+  html:root body .mc .mc__kit-more{display:none!important}
+}
