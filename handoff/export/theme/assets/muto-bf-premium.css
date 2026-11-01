@@ -186,3 +186,5 @@ html:root body .mc .mc__buy-cta,html:root body .mc .mc__buy-cta *{font-family:va
 html:root body #MainContent .mc .mc__buy-cta,html:root body .mc-sbar.mc-sbar .mc-sbar__btn{background:#242223!important;color:#fff!important;border-color:#242223!important}
 html:root body #MainContent .mc .mc__buy-cta *,html:root body .mc-sbar.mc-sbar .mc-sbar__btn *{color:#fff!important}
 html:root body #MainContent .mc .mc__buy-cta:hover,html:root body .mc-sbar.mc-sbar .mc-sbar__btn:hover{background:#000!important;filter:none}
+/* No label above the plans */
+html:root body #MainContent .mc .mc__plans-banner{display:none!important}
