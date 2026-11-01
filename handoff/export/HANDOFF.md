@@ -92,6 +92,7 @@ Settings live in `templates/product.muto-nad-bf.json` → section `buy` (type `m
 
 - `snippets/cart-drawer.liquid`: the only Liquid change is the saving line, now "You save £X" (no "every month" /
   "every 3 months" / "on your first order").
+- Supply line: `snippets/cart-drawer.liquid` and `sections/main-cart-items.liquid` print `<p class="mc-supply">` under the NAD+ product name: "3-month supply" when the selling plan name contains "3-MONTH", otherwise "1-month supply" (styled in `muto-cart.css`). `main-cart-items.liquid` is the stock Dawn file plus that one block.
 `assets/muto-cart.css`, loaded site-wide by `muto-bf-head`, restyles `/cart` (main-cart-items / main-cart-footer) and the cart drawer (`snippets/cart-drawer.liquid`) with CSS: white, hairline dividers, brand fonts, black checkout button. Hidden for a calmer cart: the per-day line,
 the selling plan name, the subscription promise box, payment and trust icons, the order note, the tax note and the gifts
 line in the totals. A line under checkout reads "Free UK delivery on subscriptions · 90-day money-back guarantee /
