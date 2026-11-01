@@ -33,6 +33,7 @@
   <span class="mc-bfx__cta"><span class="mc-bfx__spin" aria-hidden="true"></span>Claim&nbsp;&rarr;</span>
 </a>
 {{ 'muto-bf-extra.css' | asset_url | stylesheet_tag }}
+{%- if template.suffix == 'muto-nad-bf-premium' -%}{{ 'muto-bf-premium.css' | asset_url | stylesheet_tag }}{%- endif -%}
 {%- render 'muto-bf-compare' -%}
 <script>
 /* Swap the new comparison into the page's "compare" section once the page is parsed */

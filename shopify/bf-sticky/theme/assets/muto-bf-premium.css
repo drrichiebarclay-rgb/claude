@@ -1,0 +1,63 @@
+/* Black Friday PDP, premium version (template product.muto-nad-bf-premium). Loaded after every other BF style.
+   Quieter and more exact: hairline rules, mono labels in place of coloured pills, one accent (turquoise) used once,
+   weights 400/500 only, more space. Same content and same buttons as the standard version. */
+
+/* ---- Top bar: black, fine, no pulsing dot ---- */
+.mc-bfx{background:#0f0f0f!important;font-family:var(--mc-mono)!important;font-size:11.5px!important;letter-spacing:.14em!important;text-transform:uppercase!important;gap:14px!important}
+.mc-bfx b,.mc-bfx strong{font-weight:400!important}
+.mc-bfx__dot,.mc-bfx__spin{display:none!important}
+.mc-bfx__cta{font-weight:400!important;text-decoration:none!important;border-bottom:1px solid currentColor;padding-bottom:1px}
+@media (min-width:990px){.mc-bfx{font-size:12px!important}}
+
+/* ---- Title block ---- */
+html:root body .mc .mc__buy-copy > .mc__eyebrow{font-size:11.5px!important;letter-spacing:.16em!important;color:#6b6a6a!important}
+html:root body .mc .mc__buy-copy > .mc__buy-title{margin-top:14px!important;letter-spacing:-.02em!important}
+html:root body .mc .mc__buy-title::after{margin-top:14px!important;font-size:.42em!important;color:#5c5a5b!important}
+html:root body .mc .mc__buy-copy > .mc__rating{margin-top:22px!important;padding-top:16px!important;border-top:1px solid rgba(36,34,35,.12)}
+html:root body .mc .mc__stars > span{width:12px!important;height:12px!important}
+html:root body .mc .mc__rating-text{font-family:var(--mc-mono)!important;font-size:11.5px!important;font-weight:400!important;letter-spacing:.12em!important;text-transform:uppercase!important;color:#5c5a5b!important}
+html:root body .mc .mc-subhead::before{color:#3d3b3c!important;font-size:15px!important;line-height:1.55!important}
+/* Black Friday line: a quiet mono line with a short rule instead of the lime pill */
+html:root body .mc .mc-subhead::after{margin:18px 0 0!important;padding:0 0 0 22px!important;border-radius:0!important;background:linear-gradient(#242223,#242223) left center/14px 1px no-repeat!important;
+  font-family:var(--mc-mono)!important;font-size:11.5px!important;font-weight:400!important;letter-spacing:.14em!important;text-transform:uppercase!important;color:#242223!important}
+
+/* ---- Plans ---- */
+html:root body .mc .mc__plans{margin-top:22px!important}
+/* Banner: from a heavy black header to a thin mono line */
+html:root body .mc .mc__plans-banner{padding:0 0 10px!important;border-radius:0!important;background:none!important;color:#6b6a6a!important;
+  font-family:var(--mc-mono)!important;font-size:11px!important;font-weight:400!important;letter-spacing:.16em!important;text-transform:uppercase!important}
+html:root body .mc .mc__plans-banner::before{display:none!important}
+/* Plan cards: hairline, square-ish, selected = ink hairline on warm white */
+html:root body .mc .mc__plans > label.mc__plan{padding:20px 20px 18px!important;border:1px solid rgba(36,34,35,.18)!important;border-radius:6px!important;background:#fff!important;box-shadow:none!important}
+html:root body .mc .mc__plans > label.mc__plan + label.mc__plan{margin-top:10px!important}
+html:root body .mc .mc__plans > label.mc__plan.is-selected{border-color:#242223!important;border-bottom-color:transparent!important;border-radius:6px 6px 0 0!important;background:#fbfbf9!important;box-shadow:none!important}
+html:root body .mc .mc__plans > .mc__kit{border:1px solid #242223!important;border-top:0!important;border-radius:0 0 6px 6px!important;background:#fbfbf9!important;box-shadow:none!important}
+/* Save: small mono text by the price, not a turquoise tab */
+html:root body .mc .mc__plan-save{position:static!important;display:inline-block!important;height:auto!important;margin:0 0 6px!important;padding:0!important;border-radius:0!important;background:none!important;
+  color:#1f6f7c!important;font-family:var(--mc-mono)!important;font-size:11px!important;font-weight:400!important;letter-spacing:.14em!important}
+/* Per day: plain muted text, not a lime pill */
+html:root body .mc .mc__plans > label.mc__plan .mc__plan-head::after{height:auto!important;padding:0!important;border-radius:0!important;background:none!important;color:#5c5a5b!important;
+  font-family:var(--mc-mono)!important;font-size:11.5px!important;font-weight:400!important;letter-spacing:.1em!important;text-transform:uppercase!important}
+html:root body .mc .mc__plans > label.mc__plan .mc__plan-name::before,html:root body .mc .mc__plan-name{font-weight:500!important;letter-spacing:-.01em!important}
+html:root body .mc .mc__plan-prices::before{font-weight:500!important;letter-spacing:-.02em!important}
+html:root body .mc .mc__plan-prices::after{font-size:13px!important;color:#8a8889!important}
+html:root body .mc .mc__plan-note{color:#5c5a5b!important}
+/* Includes list: finer */
+html:root body .mc .mc__plans > .mc__kit::before{background:rgba(36,34,35,.14)!important}
+html:root body .mc .mc__kit-title::before{content:"Included"!important;font-family:var(--mc-mono)!important;font-size:11px!important;font-weight:400!important;letter-spacing:.16em!important;text-transform:uppercase!important;color:#6b6a6a!important}
+html:root body .mc .mc__inc-row{font-size:14.5px!important;color:#242223!important}
+html:root body .mc .mc__inc-free{font-weight:400!important}
+html:root body .mc .mc__inc::after{font-family:var(--mc-mono)!important;font-size:11.5px!important;font-weight:400!important;letter-spacing:.14em!important;text-transform:uppercase!important}
+html:root body .mc .mc__inc-foot{border-top-color:rgba(36,34,35,.14)!important;font-size:12.5px!important;color:#3d3b3c!important}
+/* Later gifts: a plain text toggle, not a grey capsule */
+html:root body .mc .mc__kit-sum{justify-content:space-between!important;min-height:44px!important;padding:0!important;border-radius:0!important;background:none!important;border-top:1px solid rgba(36,34,35,.14)!important;font-size:14px!important;font-weight:400!important}
+
+/* ---- Button: flat, exact ---- */
+html:root body .mc .mc__buy-cta,html:root body .mc .mc__btn{border-radius:6px!important;box-shadow:none!important;font-weight:500!important;letter-spacing:0!important}
+html:root body .mc .mc__buy-cta::after{font-family:var(--mc-mono)!important;font-size:11px!important;letter-spacing:.12em!important;text-transform:uppercase!important;font-weight:400!important}
+html:root body .mc .mc__onetime,html:root body .mc .mc__onetime > span:first-child::before{font-weight:400!important}
+
+@media (max-width:749px){
+  html:root body .mc .mc__plans > label.mc__plan{padding:16px 14px 14px!important}
+  html:root body .mc .mc-subhead::after{font-size:10.5px!important}
+}

@@ -28,7 +28,7 @@
   .template-muto-socks .header-wrapper,.template-muto-creatine .header-wrapper{padding-top:6px!important;padding-bottom:6px!important}
 }
 </style>
-{%- if template.suffix == 'muto-nad-bf' and product != blank -%}
+{%- if template.suffix contains 'muto-nad-bf' and product != blank -%}
   {{ 'muto-bf-bar.css' | asset_url | stylesheet_tag }}
   {{ 'muto-bf-sticky.css' | asset_url | stylesheet_tag }}
   {{ 'muto-bf-compact.css' | asset_url | stylesheet_tag }}
