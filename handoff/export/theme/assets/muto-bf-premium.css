@@ -209,3 +209,10 @@ html:root body #MainContent .mc .mc__buy-cta::after{width:100%;text-align:center
   html:root body .mc .mc__buy-title::after{margin-top:12px!important}
   html:root body .mc .mc-subhead{margin-top:20px!important}
 }
+/* Drop-downs: 2px smaller text, slimmer boxes */
+html:root body .mc .mc__acc-sum{min-height:50px!important;font-size:14.5px!important;padding:0 14px 0 18px!important}
+html:root body .mc .mc__acc-mark{width:24px!important;height:24px!important}
+html:root body .mc .mc__acc-mark::before{width:11px!important}
+html:root body .mc .mc__acc-mark::after{height:11px!important}
+html:root body .mc .mc__acc{gap:10px!important}
+html:root body .mc .mc__acc-body{font-size:14.5px!important;padding:0 18px 16px!important}
