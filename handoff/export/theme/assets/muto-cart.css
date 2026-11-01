@@ -163,3 +163,7 @@ cart-items .title--primary{font-size:clamp(30px,3.4vw,48px)!important}
 :is(cart-items,cart-drawer) .cart-item__details > p.product-option{display:none!important}
 /* Delivery promise under the checkout button */
 :is(#main-cart-footer,cart-drawer) .cart__ctas::after{content:"Free UK delivery on subscriptions  \00b7  90-day money-back guarantee\AOrder before 9pm and receive it next day.";white-space:pre-line;display:block;width:100%;margin-top:14px;text-align:center;font-family:var(--mc-font);font-size:14px;line-height:1.4;color:#242223}
+
+/* ---- Supply line under the product name: "3-month supply" / "1-month supply" (mono capitals) ---- */
+:is(cart-items,cart-drawer) .mc-supply{display:block!important;margin:6px 0 4px!important;font-family:var(--mc-mono)!important;font-size:12px!important;font-weight:500!important;letter-spacing:.1em!important;text-transform:uppercase!important;color:#242223!important}
+@media (max-width:749px){:is(cart-items,cart-drawer) .mc-supply{font-size:11px!important;letter-spacing:.08em!important}}

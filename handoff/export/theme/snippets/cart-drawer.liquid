@@ -300,6 +300,8 @@
                           </a>
 
                           {%- if item.product.handle contains 'nad-cellular-complex' -%}
+                            {%- assign mc_pn = item.selling_plan_allocation.selling_plan.name | downcase -%}
+                            <p class="mc-supply">{% if mc_pn contains '3-month' %}3-month supply{% elsif mc_pn contains '6-month' %}6-month supply{% else %}1-month supply{% endif %}</p>
                             {%- liquid
                               assign mc_alloc = item.selling_plan_allocation
                               assign mc_plan = mc_alloc.selling_plan.name | downcase
