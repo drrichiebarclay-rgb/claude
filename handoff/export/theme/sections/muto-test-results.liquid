@@ -153,6 +153,73 @@
     .mtr__pass{padding:3px 6px}
     .mtr__why div div{font-size:14.5px}
   }
+  /* ---- Premium pass: quieter, editorial. Ink and greys only (no teal fills), the site's uppercase
+     heading, lighter figures, hairline outlines, no dated certificate list or batch dates. ---- */
+  .mtr,.mtr-btn{--mtr-accent:#242223;--mtr-pill:transparent;--mtr-muted:#6b6a6a;--mtr-rule:rgba(36,34,35,.1)}
+  .mtr{border-radius:4px;box-shadow:0 30px 80px rgba(36,34,35,.14)}
+  .mtr::backdrop{background:rgba(255,255,255,.72)}
+  .mtr__top{padding:22px 28px 22px 40px}
+  .mtr__doc{color:var(--mtr-muted);font-size:11px;letter-spacing:.16em}
+  .mtr__title{font-size:16px;font-weight:500;letter-spacing:.02em;text-transform:uppercase}
+  .mtr__batch{display:none}
+  .mtr .mtr__title{margin-right:auto}
+  .mtr__tab{font-weight:400;color:#8a8889}
+  .mtr__ok{white-space:nowrap;font-size:10.5px;letter-spacing:.06em}
+  .mtr__meta{margin-right:20px}
+  @media (min-width:750px){
+    .mtr__body{grid-template-columns:220px minmax(0,1fr)}
+    .mtr__side{padding:36px 0 32px}
+    .mtr__tab{padding:11px 36px 11px 38px;border-left-width:1px;font-size:15px}
+  }
+  .mtr__x{flex-basis:36px;width:36px;height:36px;border-color:transparent}
+  .mtr__x:hover{border-color:var(--mtr-rule)}
+  .mtr__tab[aria-selected="true"]{font-weight:500}
+  .mtr__tab b{font-size:10.5px;color:#8a8889}
+  .mtr__meta{margin:auto 36px 0 38px;border-top:0;padding-top:0}
+  .mtr__meta > span:not(.mtr__ok){display:none}
+  .mtr__ok{font-family:var(--mtr-mono);font-size:11px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--mtr-muted)}
+  .mtr__main{padding:64px 72px 72px}
+  .mtr .mtr__h{max-width:16ch;font-size:clamp(30px,3.2vw,46px);font-weight:500;line-height:.95;letter-spacing:-.014em;text-transform:uppercase}
+  .mtr__sub{margin-top:20px;font-size:16.5px;color:var(--mtr-muted)}
+  .mtr__stats{margin:52px 0 0;border-top:1px solid var(--mtr-rule);border-bottom:1px solid var(--mtr-rule)}
+  .mtr__stat{padding:28px 0 26px}
+  .mtr__stat + .mtr__stat{padding-left:32px}
+  .mtr__sv{font-size:clamp(40px,3.6vw,52px);font-weight:400;letter-spacing:-.035em}
+  .mtr__sl{margin-top:14px;font-size:10.5px;letter-spacing:.16em}
+  .mtr__dot{width:14px;height:14px;background:none;border:1px solid var(--mtr-ink)}
+  .mtr__dot svg{width:8px;height:8px}
+  .mtr__dot svg path{stroke:var(--mtr-ink)}
+  .mtr__chip{margin-top:28px;padding:9px 16px 9px 12px;border:1px solid var(--mtr-rule);border-radius:999px;background:none;font-size:11px;font-weight:400;letter-spacing:.12em;color:var(--mtr-ink)}
+  .mtr__chip .mtr__dot{background:none}
+  .mtr__pass{padding:0;background:none;font-size:10.5px;font-weight:400;letter-spacing:.14em;color:var(--mtr-ink)}
+  .mtr__pass .mtr__dot{width:14px;height:14px}
+  .mtr__list{margin-top:56px}
+  .mtr__lh{padding-bottom:14px;border-bottom-color:var(--mtr-rule);font-size:10.5px;letter-spacing:.16em}
+  .mtr__row{padding:18px 0;font-size:15.5px}
+  .mtr__row small{font-size:10.5px;letter-spacing:.12em;color:var(--mtr-muted)}
+  .mtr .mtr__gh{margin-top:48px;font-size:11px;font-weight:400;letter-spacing:.16em;color:var(--mtr-muted)}
+  .mtr__t thead th{border-bottom-color:var(--mtr-rule);font-size:10.5px;letter-spacing:.16em}
+  .mtr__t td{font-size:13px}
+  .mtr__t tbody th{font-weight:400}
+  .mtr__why{border-top-color:var(--mtr-rule)}
+  .mtr .mtr__why h3{font-size:17px}
+  html body .mc .mc-tests-btn .mc-tests-btn__tick{background:none!important;border:1px solid #242223;color:#242223!important}
+  .mtr-btn__tick{background:none;border:1px solid var(--mtr-ink)}
+  .mtr-btn__tick svg path{stroke:var(--mtr-ink)}
+  @media (max-width:749px){
+    .mtr{border-radius:0}
+    .mtr__top{padding:16px 60px 16px 16px}
+    .mtr__title{font-size:14px}
+    .mtr__tab{padding:14px 12px 12px;border-bottom-width:1px}
+    .mtr__main{padding:36px 16px 48px}
+    .mtr .mtr__h{font-size:30px}
+    .mtr__stats{margin-top:36px}
+    .mtr__stat{padding:20px 0 18px}
+    .mtr__stat + .mtr__stat{padding-left:14px}
+    .mtr__sv{font-size:34px}
+    .mtr__sl{font-size:9.5px;letter-spacing:.1em}
+    .mtr__list{margin-top:40px}
+  }
 </style>
 
 {%- capture tick -%}<svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6.2 5 8.6l4.5-5" stroke="#1f6f7c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>{%- endcapture -%}
@@ -186,7 +253,7 @@
       {%- comment -%} 1 Overview {%- endcomment -%}
       <section class="mtr__panel" role="tabpanel" id="mtr-p-{{ sid }}-1" aria-labelledby="mtr-tab-{{ sid }}-1">
         <h3 class="mtr__h">{{ s.heading }}</h3>
-        <p class="mtr__sub">{{ tests.size }} tests across {{ tgroups.size }} categories{% if s.scope != blank %}, {{ s.scope }}{% endif %}. Every result below is copied from the laboratory certificates.</p>
+        <p class="mtr__sub">{{ tests.size }} tests across {{ tgroups.size }} categories{% if s.scope != blank %}, {{ s.scope }}{% endif %}. Every result is copied from independent UK laboratory certificates.</p>
         <div class="mtr__stats">
           <p class="mtr__stat"><span class="mtr__sv">{{ tests.size }}</span><span class="mtr__sl">Tests run</span></p>
           <p class="mtr__stat"><span class="mtr__sv">{{ passed }}</span><span class="mtr__sl">Passed</span></p>
@@ -194,14 +261,7 @@
         </div>
         {%- if s.chip != blank -%}<span class="mtr__chip"><span class="mtr__dot">{{ tick }}</span>{{ s.chip }}</span>{%- endif -%}
 
-        {%- if certs.size > 0 -%}
-          <div class="mtr__list">
-            <p class="mtr__lh"><span>Laboratory certificates</span><span>Issued</span></p>
-            {%- for b in certs -%}
-              <p class="mtr__row mtr__cert-row" {{ b.shopify_attributes }}><span><b>{{ b.settings.lab }}</b><small class="mtr__cert-meta">{{ b.settings.number }} · {{ b.settings.scope }}</small></span><span>{{ b.settings.date }}</span></p>
-            {%- endfor -%}
-          </div>
-        {%- endif -%}
+        {%- comment -%} Certificate list removed (dated); cert blocks stay in the schema for reference. {%- endcomment -%}
         <div class="mtr__list">
           <p class="mtr__lh"><span>What’s in it</span><span>Per serving</span></p>
           {%- for g in fgroups -%}
