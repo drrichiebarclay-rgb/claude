@@ -83,8 +83,9 @@ html:root body .mc .mc__buy-copy > .mc__buy-title{order:-2!important;margin-top:
 html:root body .mc .mc__buy-copy > .mc__rating{order:-1!important;margin-top:16px!important}
 html:root body .mc .mc__rating-text{font-size:14px!important;font-weight:500!important}
 html:root body .mc .mc-subhead{margin-top:12px!important}
-html:root body .mc .mc-subhead::before{font-weight:400!important;color:#3d3b3c!important;line-height:1.45!important;max-width:44ch}
+html:root body .mc .mc-subhead::before{font-weight:400!important;color:#3d3b3c!important;line-height:1.45!important;max-width:none!important}
 @media (max-width:749px){
   html:root body .mc .mc__buy-copy > .mc__buy-title{font-size:28px!important}
   html:root body .mc .mc__buy-copy > .mc__rating{margin-top:12px!important}
 }
+@media (min-width:990px){html:root body .mc .mc-subhead::before{font-size:15.5px!important}}
