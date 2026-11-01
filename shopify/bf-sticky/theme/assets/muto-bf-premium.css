@@ -86,3 +86,12 @@ html:root body .mc .mc__buy-cta::after{font-size:12px!important;letter-spacing:.
   html:root body .mc .mc-subhead::after{font-size:11.5px!important;letter-spacing:.06em!important}
   html:root body .mc .mc__inc-row{font-size:14px!important}
 }
+
+/* ---- Plan layout: name, then one aligned line "£1.10 A DAY · SAVE 53%", then the price schedule ---- */
+html:root body .mc .mc__plan-save{display:none!important}
+html:root body .mc .mc__plans > label.mc__plan .mc__plan-head::after{display:none!important}
+html:root body .mc .mc__plans > label.mc__plan .mc__plan-note::before{display:block;margin:0 0 6px;font-family:var(--mc-mono);font-size:12.5px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#1f6f7c}
+html:root body .mc .mc__plans > label.mc__plan:nth-of-type(1) .mc__plan-note::before{content:"£1.79 a day  \00b7  Save 28%"}
+html:root body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-note::before{content:"£1.10 a day  \00b7  Save 53%"}
+html:root body .mc .mc__plans > label.mc__plan .mc__plan-note{margin-top:8px!important;line-height:1.45!important}
+@media (max-width:749px){html:root body .mc .mc__plans > label.mc__plan .mc__plan-note::before{font-size:11.5px}}
