@@ -216,3 +216,15 @@ html:root body .mc .mc__acc-mark::before{width:11px!important}
 html:root body .mc .mc__acc-mark::after{height:11px!important}
 html:root body .mc .mc__acc{gap:10px!important}
 html:root body .mc .mc__acc-body{font-size:14.5px!important;padding:0 18px 16px!important}
+
+/* ---- 3-Month Supply: black banner across the top of the card ---- */
+html:root body .mc .mc__plans > label.mc__plan{position:relative!important}
+html:root body .mc .mc__plans > label.mc__plan:nth-of-type(2){padding-top:62px!important}
+html:root body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-save{display:flex!important;position:absolute!important;top:-1px!important;left:-1px!important;right:-1px!important;height:40px!important;margin:0!important;padding:0 20px!important;
+  align-items:center!important;justify-content:center!important;border-radius:10px 10px 0 0!important;background:#242223!important;font-size:0!important;letter-spacing:0!important;color:#fff!important}
+html:root body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-save::before{content:"Best value \00b7  Save 53% + free gifts worth £87";font-family:var(--mc-mono);font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#fff;white-space:nowrap}
+@media (max-width:749px){
+  html:root body .mc .mc__plans > label.mc__plan:nth-of-type(2){padding-top:54px!important}
+  html:root body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-save{height:36px!important;padding:0 10px!important}
+  html:root body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-save::before{font-size:10px;letter-spacing:.06em}
+}
