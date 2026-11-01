@@ -142,7 +142,7 @@ html:root body .mc .mc__kit-sum{font-size:15px!important}
 html:root body .mc .mc__buy-cta{border-radius:4px!important;min-height:62px!important;text-transform:uppercase!important;letter-spacing:.04em!important}
 html:root body .mc .mc__btn{font-size:17px!important}
 /* Delivery line as a highlighted date, like Reformed's */
-#MainContent [id$="__buy"] .mpb-del b,#MainContent [id$="__buy"] .mpb-del strong{padding:3px 8px;border-radius:4px;background:#242223;color:#fff;font-weight:500}
+#MainContent [id$="__buy"] .mpb-del b,#MainContent [id$="__buy"] .mpb-del strong{font-weight:500}
 /* Accordions: outlined boxes */
 html:root body .mc .mc__acc-sum{min-height:58px!important;padding:0 18px!important;border:1px solid #242223!important;border-radius:8px!important;font-size:16px!important;font-weight:500!important}
 @media (max-width:749px){
