@@ -159,3 +159,5 @@ cart-drawer .drawer__footer{padding:22px 0 28px!important;border-top-color:rgba(
 :is(#main-cart-footer,cart-drawer) .cart__checkout-button{min-height:58px!important;margin-top:18px!important;font-size:14px!important;letter-spacing:.14em!important}
 cart-items .title--primary{font-size:clamp(30px,3.4vw,48px)!important}
 @media (max-width:749px){cart-drawer .drawer__inner{padding:0 20px!important}}
+/* No selling plan name ("3-Month Subscription") under the product */
+:is(cart-items,cart-drawer) .cart-item__details > p.product-option{display:none!important}
