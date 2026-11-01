@@ -76,7 +76,9 @@ html:root body .mc .mc__inc-foot{margin-top:12px!important;padding-top:12px!impo
   html:root body .mc .mc__inc-foot{font-size:12px!important;gap:8px 12px!important}
 }
 /* A rule between the plan and "Includes:", as in the screenshot */
-html:root body .mc .mc__plans > .mc__kit{border-top:1px solid #242223!important;margin-top:4px!important;padding-top:16px!important}
+html:root body .mc .mc__plans > .mc__kit{position:relative;margin-top:0!important;border-top:0!important;padding-top:18px!important}
+html:root body .mc .mc__plans > .mc__kit::before{content:"";position:absolute;top:0;left:18px;right:18px;height:1px;background:#242223}
+@media (max-width:749px){html:root body .mc .mc__plans > .mc__kit::before{left:12px;right:12px}}
 /* Title block order: label, headline (three lines), five-star rating, description, Black Friday line */
 html:root body .mc .mc__buy-copy > .mc__eyebrow{order:-3!important;margin-top:0!important}
 html:root body .mc .mc__buy-copy > .mc__buy-title{order:-2!important;margin-top:10px!important;line-height:.95!important}
