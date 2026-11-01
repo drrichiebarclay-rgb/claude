@@ -69,3 +69,41 @@ cart-drawer .mc-totals__save{border-radius:0!important;background:none!important
 cart-drawer .mc-totals__gifts span{border-radius:0!important;background:none!important;padding:0!important;font-family:var(--mc-mono)!important;font-size:11.5px!important;letter-spacing:.08em;text-transform:uppercase;color:#242223!important}
 cart-drawer .mc-cart-trust{font-size:12.5px!important}
 cart-drawer select.subscription-plan-select{border:1px solid #242223!important;border-radius:8px!important;min-height:40px;font-family:var(--mc-font)!important;font-size:14px!important;background-color:#fff}
+
+/* =========================================================================================
+   Reformed-inspired pass: each line on a soft warm-grey card, plain sentence-case detail lines,
+   black (not teal) text, a borderless grey stepper, gifts as an "Includes" card.
+   ========================================================================================= */
+:is(cart-items,cart-drawer) .cart-item{background:#f3f2ef!important;border:0!important;border-radius:10px!important}
+cart-drawer .cart-item{margin-bottom:10px!important;padding:16px!important}
+cart-drawer .cart-items{border-collapse:separate!important;border-spacing:0 10px!important}
+cart-items tbody .cart-item > td:first-child{padding-left:16px!important;border-radius:10px 0 0 10px}
+cart-items tbody .cart-item > td:last-child{padding-right:16px!important;border-radius:0 10px 10px 0}
+cart-items .cart-items{border-collapse:separate!important;border-spacing:0 10px!important}
+:is(cart-items,cart-drawer) .cart-item__image{border:0!important;border-radius:6px!important;background:#fff}
+:is(cart-items,cart-drawer) .cart-item__name{font-size:17px!important;font-weight:500!important}
+/* Detail lines: plain, sentence case, black / grey */
+:is(cart-items,cart-drawer) .product-option,
+cart-drawer .mc-cart-line--per-day,cart-drawer .mc-cart-line--save{font-family:var(--mc-font)!important;font-size:14px!important;letter-spacing:0!important;text-transform:none!important;font-weight:400!important}
+:is(cart-items,cart-drawer) .product-option,cart-drawer .mc-cart-line--per-day{color:#5c5a5b!important}
+cart-drawer .mc-cart-line--save{color:#242223!important;font-weight:500!important}
+cart-drawer .mc-cart-line--save svg{color:#242223!important;stroke:#242223!important}
+/* Price */
+:is(cart-items,cart-drawer) .price,:is(cart-items,cart-drawer) .cart-item__final-price{font-size:17px!important;font-weight:400!important}
+/* Stepper: borderless grey */
+:is(cart-items,cart-drawer) quantity-input.quantity{border:0!important;border-radius:6px!important;background:#e6e5e1!important;min-height:40px!important}
+:is(cart-items,cart-drawer) .quantity__button{background:none!important;background-image:none!important;border:0!important;box-shadow:none!important;color:#242223!important}
+:is(cart-items,cart-drawer) .quantity__input{background:none!important;font-weight:400!important}
+/* Gifts: an "Includes" card */
+cart-drawer .mc-cart-gifts{border:0!important;border-radius:10px!important;background:#f3f2ef!important;padding:16px!important}
+cart-drawer .mc-cart-gifts__title{font-size:15px!important;font-weight:400!important;padding-bottom:10px;border-bottom:1px solid rgba(36,34,35,.14)}
+cart-drawer .mc-cart-gift{padding:8px 0!important}
+cart-drawer .mc-cart-gift__img{background:#fff}
+cart-drawer .mc-cart-gift__free{font-family:var(--mc-font)!important;font-size:15px!important;letter-spacing:0!important;text-transform:none!important;font-weight:400!important}
+/* Totals and promise box: black text, no teal */
+cart-drawer .mc-totals__save{font-family:var(--mc-font)!important;font-size:14px!important;letter-spacing:0!important;text-transform:none!important;color:#242223!important;font-weight:500!important}
+cart-drawer .mc-totals__gifts span{font-family:var(--mc-font)!important;font-size:14px!important;letter-spacing:0!important;text-transform:none!important}
+cart-drawer .mc-cart-sub{border:0!important;background:#f3f2ef!important}
+:is(#main-cart-footer,cart-drawer) .totals__total{font-size:17px!important;font-weight:400!important}
+:is(#main-cart-footer,cart-drawer) .totals__total-value,cart-drawer .mc-totals__now{font-size:22px!important;font-weight:400!important}
+:is(#main-cart-footer,cart-drawer) .cart__checkout-button{border-radius:2px!important;letter-spacing:.08em!important;font-weight:400!important}
