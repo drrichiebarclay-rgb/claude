@@ -289,3 +289,5 @@ html:root body .mrg__btn:hover,html:root body .msc__btn:hover{background:#000!im
   /* Extras out of the box */
   html:root body .mc .mc__kit-more{display:none!important}
 }
+html:root body .mc .mc__inc-main .mc__inc-name::before{font-size:16.5px}
+@media (max-width:749px){html:root body .mc .mc__inc-main .mc__inc-name::before{font-size:14.5px}}
