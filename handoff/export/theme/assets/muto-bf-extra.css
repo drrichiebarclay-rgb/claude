@@ -55,3 +55,24 @@ html:root body .mc .mc__kit-sum > span:first-child::before{content:"Future month
 }
 /* "The problem" stat figures (~50%, ~80%...): same weight as the section headings */
 html:root body .mc .mc__prb-fig{font-weight:500!important}
+/* ---- Title block: ★ 4.8 from 103 reviews · NAD+ CELLULAR COMPLEX · headline · one line ---- */
+html:root body .mc .mc__stars > *:nth-child(n+2){display:none!important}
+html:root body .mc .mc__buy-copy > .mc__eyebrow,html:root body .mc .mc__eyebrow{margin-top:12px!important;font-family:var(--mc-mono)!important;font-size:12px!important;font-weight:400!important;letter-spacing:.12em!important;text-transform:uppercase!important;color:#5c5a5b!important}
+html:root body .mc .mc__buy-title,html:root body .mc .mc__buy-copy > .mc__buy-title{margin-top:8px!important;text-wrap:balance}
+html:root body .mc .mc-subhead::before{content:"Five supplements in one daily jar for energy, recovery and healthy ageing. Every dose on the label."!important}
+/* ---- Plans: an "Includes" list with the gifts, then guarantee / delivery / cancel ---- */
+html:root body .mc .mc__plans > .mc__plan-detail{display:none!important}
+html:root body .mc .mc__kit-list{display:none!important}
+html:root body .mc .mc__kit-title{font-size:0!important}
+html:root body .mc .mc__kit-title::before{content:"Includes:"!important;font-family:var(--mc-font)!important;font-size:17px!important;font-weight:500!important;letter-spacing:0!important;text-transform:none!important;color:#242223}
+html:root body .mc .mc__inc{margin-top:8px!important}
+html:root body .mc .mc__inc-row{padding:6px 0!important;font-size:15px!important}
+html:root body .mc .mc__inc-was{color:rgba(36,34,35,.45)!important}
+html:root body .mc .mc__inc-free{font-weight:500!important}
+html:root body .mc .mc__inc-main .mc__inc-free{font-weight:400!important;color:#5c5a5b!important}
+html:root body .mc .mc__inc-foot{margin-top:12px!important;padding-top:12px!important;font-size:13px!important}
+@media (max-width:749px){
+  html:root body .mc .mc__kit-title::before{font-size:15px!important}
+  html:root body .mc .mc__inc-row{font-size:14px!important;padding:5px 0!important}
+  html:root body .mc .mc__inc-foot{font-size:12px!important;gap:8px 12px!important}
+}
