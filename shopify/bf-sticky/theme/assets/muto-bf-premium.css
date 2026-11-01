@@ -144,7 +144,16 @@ html:root body .mc .mc__btn{font-size:17px!important}
 /* Delivery line as a highlighted date, like Reformed's */
 #MainContent [id$="__buy"] .mpb-del b,#MainContent [id$="__buy"] .mpb-del strong{font-weight:500}
 /* Accordions: outlined boxes */
-html:root body .mc .mc__acc-sum{min-height:58px!important;padding:0 18px!important;border:1px solid #242223!important;border-radius:8px!important;font-size:16px!important;font-weight:500!important}
+html:root body .mc .mc__acc{display:grid!important;gap:12px!important;border-top:0!important}
+html:root body .mc .mc__acc-item{border:1px solid #242223!important;border-radius:8px!important;background:#fff!important;overflow:hidden}
+html:root body .mc .mc__acc-sum{display:flex!important;align-items:center!important;justify-content:space-between!important;min-height:60px!important;padding:0 18px 0 20px!important;border:0!important;font-size:16.5px!important;font-weight:500!important;cursor:pointer}
+/* Filled ink circle with a white plus / minus */
+html:root body .mc .mc__acc-mark{width:26px!important;height:26px!important;border-radius:50%!important;background:#242223!important}
+html:root body .mc .mc__acc-mark::before,html:root body .mc .mc__acc-mark::after{content:""!important;position:absolute!important;left:50%!important;top:50%!important;background:#fff!important;transform:translate(-50%,-50%)!important}
+html:root body .mc .mc__acc-mark::before{width:12px!important;height:1.6px!important}
+html:root body .mc .mc__acc-mark::after{width:1.6px!important;height:12px!important}
+html:root body .mc .mc__acc-body{padding:2px 20px 20px!important;font-size:15.5px!important;line-height:1.6!important;color:#3d3b3c!important}
+html:root body .mc .mc__acc-body strong,html:root body .mc .mc__acc-body b{color:#242223;font-weight:500}
 @media (max-width:749px){
   html:root body .mc .mc__buy-copy > .mc__buy-title{font-size:32px!important}
   html:root body .mc .mc-subhead::before{font-size:15.5px!important;line-height:1.95!important}
