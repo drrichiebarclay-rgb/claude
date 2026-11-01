@@ -91,3 +91,8 @@ html:root body .mc .mc-subhead::before{font-weight:400!important;color:#3d3b3c!i
   html:root body .mc .mc__buy-copy > .mc__rating{margin-top:12px!important}
 }
 @media (min-width:990px){html:root body .mc .mc-subhead::before{font-size:15.5px!important}}
+/* What the gifts are worth, for the plan that's selected (3-Month: £87 incl. the bottle; 1-Month: £72) */
+html:root body .mc .mc__inc::after{display:flex;justify-content:space-between;margin-top:6px;padding-top:10px;border-top:1px solid rgba(36,34,35,.16);font-size:15px;font-weight:500;color:#242223;white-space:pre}
+html:root body .mc .mc__plans:has(> label.mc__plan:nth-of-type(2).is-selected) .mc__inc::after{content:"Free gifts worth £87"}
+html:root body .mc .mc__plans:has(> label.mc__plan:nth-of-type(1).is-selected) .mc__inc::after{content:"Free gifts worth £72"}
+@media (max-width:749px){html:root body .mc .mc__inc::after{font-size:14px}}
