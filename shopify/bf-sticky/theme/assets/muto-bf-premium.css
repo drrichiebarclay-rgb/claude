@@ -197,3 +197,15 @@ html:root body #MainContent .mc .mc__buy-cta *,html:root body .mc-sbar.mc-sbar .
 html:root body #MainContent .mc .mc__buy-cta:hover,html:root body .mc-sbar.mc-sbar .mc-sbar__btn:hover{background:#000!important;filter:none}
 /* No label above the plans */
 html:root body #MainContent .mc .mc__plans-banner{display:none!important}
+
+/* ---- Mobile fixes: offer on one line, centred button, room under the photo ---- */
+html:root body #MainContent .mc .mc__buy-cta{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;text-align:center!important}
+html:root body #MainContent .mc .mc__buy-cta > *{text-align:center!important;width:100%}
+html:root body #MainContent .mc .mc__buy-cta::after{width:100%;text-align:center!important}
+@media (max-width:749px){
+  html:root body .mc .mc-subhead::after{content:"Black Friday: 3 months for £99 \00b7  While stock lasts"!important;white-space:nowrap!important;font-size:10.5px!important;letter-spacing:.03em!important}
+  html:root body .mc .mc__buy-copy > .mc__rating{margin-top:22px!important}
+  html:root body .mc .mc__buy-copy > .mc__buy-title{margin-top:16px!important}
+  html:root body .mc .mc__buy-title::after{margin-top:12px!important}
+  html:root body .mc .mc-subhead{margin-top:20px!important}
+}
