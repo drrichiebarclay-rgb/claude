@@ -294,7 +294,7 @@
           "type": "faq",
           "settings": {
             "heading": "How much does MUTO cost?",
-            "content": "<p>MUTO is £60 a month on a monthly subscription, £150 every three months on the three-month plan (about £1.67 a day), or £70 as a one-time purchase. For Black Friday, until 30 November, your first 3-Month Supply is £99 (about £1.10 a day) with a free welcome kit worth £87. Every subscription includes free UK next-day delivery and the 90-day money-back guarantee.</p>"
+            "content": "<p>MUTO is £60 a month on a monthly subscription, £150 every three months on the three-month plan (about £1.67 a day), or £70 as a one-time purchase. For Black Friday, while stock lasts, your first 3-Month Supply is £99 (about £1.10 a day) with a free welcome kit worth £87. Every subscription includes free UK next-day delivery and the 90-day money-back guarantee.</p>"
           }
         },
         "faq_q22": {
@@ -315,7 +315,7 @@
           "type": "faq",
           "settings": {
             "heading": "What’s in the welcome kit and gifts?",
-            "content": "<p>With your first subscription order you get performance socks, a Forever Jar, our 12-week protocol guide and entry into our quarterly draw to win a Garmin watch. Subscribers also get a thank-you gift with later orders. Gifts are while stocks last. <a href=\"/pages/better-baseline-giveaway\">Competition terms apply.</a></p>"
+            "content": "<p>With your first subscription order you get performance socks, a Forever Jar, our 12-week protocol guide and entry into our quarterly draw to win a Garmin watch. Subscribers also get a thank-you gift with later orders. Gifts are while stock lasts. <a href=\"/pages/better-baseline-giveaway\">Competition terms apply.</a></p>"
           }
         },
         "faq_q25": {
@@ -658,7 +658,7 @@
       "settings": {
         "layout": "banner",
         "anchor": "",
-        "eyebrow": "Black Friday · Ends 30 Nov",
+        "eyebrow": "Black Friday · While stock lasts",
         "heading": "3 months for £99",
         "text": "Save 53% (was £210), plus a free welcome kit worth £87.",
         "button_label": "Add to cart",

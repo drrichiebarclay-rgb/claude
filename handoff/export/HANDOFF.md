@@ -94,7 +94,7 @@ Settings live in `templates/product.muto-nad-bf.json` → section `buy` (type `m
 1. **Selling plans**: the BF buy box, sticky bars and offer banners find the Skio plans by name
    (`3-month` / `1-month` in the plan name). Currently 3-MONTH SUBSCRIPTION (694836494683) and
    1-MONTH SUBSCRIPTION (694836461915). Test add to cart on each page.
-2. **Black Friday copy to remove after 30 Nov**: top bar, "Black Friday: 3 months for £99" lines, offer banner
+2. **One urgency message: "while stock lasts"** (the 500-order countdown and "Ends 30 Nov" are removed). **Black Friday copy to remove when the offer ends**: top bar, "Black Friday: 3 months for £99" lines, offer banner
    (`muto-sci` banner sections), the FAQ price answer (faq_q21) and `faq-schema.liquid`.
 3. **Open copy questions for the owner**: six vs seven advisers; welcome kit contents; monthly price
    (£60 in FAQ vs £49.99 on PDP); "no major allergens".
