@@ -107,3 +107,32 @@ cart-drawer .mc-cart-sub{border:0!important;background:#f3f2ef!important}
 :is(#main-cart-footer,cart-drawer) .totals__total{font-size:17px!important;font-weight:400!important}
 :is(#main-cart-footer,cart-drawer) .totals__total-value,cart-drawer .mc-totals__now{font-size:22px!important;font-weight:400!important}
 :is(#main-cart-footer,cart-drawer) .cart__checkout-button{border-radius:2px!important;letter-spacing:.08em!important;font-weight:400!important}
+
+/* =========================================================================================
+   Simplify pass: white throughout (brand), no grey cards, hairline dividers, fewer lines.
+   Shown: product, plan, saving, quantity, gifts (names + Free), total, checkout.
+   ========================================================================================= */
+cart-drawer .drawer__inner,cart-items,#main-cart-footer{background:#fff!important}
+:is(cart-items,cart-drawer) .cart-item{background:none!important;border-radius:0!important;border-bottom:1px solid rgba(36,34,35,.12)!important;margin-bottom:0!important}
+cart-drawer .cart-item{padding:18px 0!important}
+:is(cart-items,cart-drawer) .cart-items{border-spacing:0!important}
+cart-items tbody .cart-item > td{border-radius:0!important}
+:is(cart-items,cart-drawer) .cart-item__image{border:1px solid rgba(36,34,35,.1)!important}
+/* Fewer lines */
+cart-drawer .mc-cart-line--per-day,
+cart-drawer .mc-cart-sub,
+cart-drawer .cart-payment-details,
+cart-drawer .mc-cart-trust,
+cart-drawer #Details-CartDrawer,
+cart-drawer .mc-totals__gifts,
+cart-drawer .tax-note,
+#main-cart-footer .tax-note{display:none!important}
+/* Stepper: thin outline on white */
+:is(cart-items,cart-drawer) quantity-input.quantity{background:#fff!important;border:1px solid rgba(36,34,35,.25)!important}
+/* Gifts: a short list, no pictures */
+cart-drawer .mc-cart-gifts{background:none!important;border-radius:0!important;padding:16px 0 4px!important;margin-top:0!important}
+cart-drawer .mc-cart-gifts__title{border-bottom:0!important;padding-bottom:4px!important;font-size:14px!important;color:#5c5a5b!important}
+cart-drawer .mc-cart-gift__img{display:none!important}
+cart-drawer .mc-cart-gift{padding:3px 0!important;font-size:14px}
+cart-drawer .mc-cart-gift__name,cart-drawer .mc-cart-gift__free{font-size:14px!important}
+cart-drawer .drawer__footer{border-top:1px solid rgba(36,34,35,.12)!important}
