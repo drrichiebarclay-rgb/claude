@@ -1,0 +1,106 @@
+{%- comment -%}
+  MUTO — How to take it. In the style of the PDP's ingredients and benefits sections: a centred
+  mono eyebrow, the site's uppercase heading and a short line, then one card per step: a photo tile
+  with a mono "Step 01" label, the step, a teal mono detail line and one or two sentences.
+  MOBILE: the steps become a row you swipe.
+{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign sid = section.id
+-%}
+<style>
+  #shopify-section-{{ sid }}{--mht-ink:#242223;--mht-head:#242223;--mht-muted:#5c5a5b;--mht-rule:rgba(36,34,35,.14);--mht-tile:#f1f1ef;--mht-accent:#2f8fa0;--mht-mono:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace}
+  #shopify-section-{{ sid }} .mht,#shopify-section-{{ sid }} .mht h2,#shopify-section-{{ sid }} .mht h3,#shopify-section-{{ sid }} .mht p{font-family:var(--mc-font,"Neue Haas Grotesk Display Pro"),sans-serif;-webkit-font-smoothing:antialiased}
+  #shopify-section-{{ sid }} .mht{background:#fff;color:var(--mht-ink)}
+  #shopify-section-{{ sid }} .mht__wrap{max-width:1320px;margin:0 auto;padding:{{ s.space_top }}px 20px {{ s.space_bottom }}px}
+  #shopify-section-{{ sid }} .mht__head{display:grid;justify-items:center;text-align:center;gap:20px}
+  #shopify-section-{{ sid }} .mht__eye{margin:0;font-family:var(--mht-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mht-muted)}
+  #shopify-section-{{ sid }} .mht .mht__h{margin:0;text-wrap:balance;color:var(--mht-head);font-weight:500;font-size:clamp(34px,4.444vw,64px);line-height:.906;letter-spacing:-.014em;text-transform:uppercase}
+  #shopify-section-{{ sid }} .mht__lede{margin:0;max-width:44ch;font-size:clamp(17px,1.4vw,20px);line-height:1.4;text-wrap:balance}
+  #shopify-section-{{ sid }} .mht__facts{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:8px 0 0;padding:0;list-style:none}
+  #shopify-section-{{ sid }} .mht__facts li{padding:9px 14px;border:1px solid var(--mht-rule);border-radius:6px;font-family:var(--mht-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mht-ink)}
+  #shopify-section-{{ sid }} .mht__steps{display:grid;grid-template-columns:repeat({{ section.blocks.size | at_least: 1 }},minmax(0,1fr));gap:40px 28px;margin:56px 0 0;padding:0;list-style:none}
+  #shopify-section-{{ sid }} .mht__step{display:grid;align-content:start;gap:14px;margin:0}
+  #shopify-section-{{ sid }} .mht__frame{position:relative;aspect-ratio:4/5;border-radius:4px;overflow:hidden;background:var(--mht-tile)}
+  #shopify-section-{{ sid }} .mht__frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  #shopify-section-{{ sid }} .mht__chip{position:absolute;left:14px;top:14px;z-index:2;font-family:var(--mht-mono);font-size:11.5px;line-height:1;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:9px 12px;border-radius:4px;background:rgba(255,255,255,.92);color:var(--mht-ink)}
+  #shopify-section-{{ sid }} .mht .mht__t{margin:6px 0 0;font-weight:500;font-size:21px;line-height:1.2;letter-spacing:-.01em;color:var(--mht-ink)}
+  #shopify-section-{{ sid }} .mht__d{margin:-4px 0 0;font-family:var(--mht-mono);font-size:14px;font-weight:500;line-height:1.3;color:var(--mht-accent)}
+  #shopify-section-{{ sid }} .mht__x{font-size:16px;line-height:1.5;color:var(--mht-ink)}
+  #shopify-section-{{ sid }} .mht__x p{margin:0}
+  #shopify-section-{{ sid }} .mht__foot{margin:48px auto 0;max-width:62ch;text-align:center;font-size:14px;line-height:1.5;color:var(--mht-muted)}
+  @media (max-width:749px){
+    #shopify-section-{{ sid }} .mht__wrap{padding:{{ s.space_top | times: 0.66 | round }}px 16px {{ s.space_bottom | times: 0.66 | round }}px}
+    #shopify-section-{{ sid }} .mht__head{gap:16px}
+    #shopify-section-{{ sid }} .mht__facts li{padding:8px 11px;font-size:10.5px}
+    #shopify-section-{{ sid }} .mht__steps{display:flex;gap:12px;margin:32px -16px 0;padding:0 16px 4px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 16px;scrollbar-width:none}
+    #shopify-section-{{ sid }} .mht__steps::-webkit-scrollbar{display:none}
+    #shopify-section-{{ sid }} .mht__step{flex:0 0 78%;scroll-snap-align:start;gap:10px}
+    #shopify-section-{{ sid }} .mht__frame{aspect-ratio:1/1}
+    #shopify-section-{{ sid }} .mht .mht__t{font-size:18px}
+    #shopify-section-{{ sid }} .mht__d{font-size:13px}
+    #shopify-section-{{ sid }} .mht__x{font-size:15px}
+    #shopify-section-{{ sid }} .mht__foot{margin-top:28px;font-size:13px}
+  }
+</style>
+
+<div class="mht"{% if s.anchor != blank %} id="{{ s.anchor }}"{% endif %}>
+  <div class="mht__wrap">
+    <header class="mht__head">
+      {%- if s.eyebrow != blank -%}<p class="mht__eye">{{ s.eyebrow }}</p>{%- endif -%}
+      {%- if s.heading != blank -%}<h2 class="mht__h">{{ s.heading | escape | newline_to_br }}</h2>{%- endif -%}
+      {%- if s.lede != blank -%}<p class="mht__lede">{{ s.lede }}</p>{%- endif -%}
+      {%- if s.facts != blank -%}
+        {%- assign facts = s.facts | split: '·' -%}
+        <ul class="mht__facts">{%- for f in facts -%}{%- assign fs = f | strip -%}{%- if fs != blank -%}<li>{{ fs }}</li>{%- endif -%}{%- endfor -%}</ul>
+      {%- endif -%}
+    </header>
+    <ol class="mht__steps">
+      {%- for b in section.blocks -%}
+        {%- assign bs = b.settings -%}
+        <li class="mht__step" {{ b.shopify_attributes }}>
+          <div class="mht__frame">
+            {%- if bs.image != blank -%}{{ bs.image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '400,600,800,1000', sizes: '(min-width: 990px) 30vw, 78vw', alt: bs.title }}
+            {%- elsif bs.image_url != blank -%}<img src="{{ bs.image_url }}{% if bs.image_url contains '?' %}&{% else %}?{% endif %}width=1000" srcset="{{ bs.image_url }}{% if bs.image_url contains '?' %}&{% else %}?{% endif %}width=400 400w, {{ bs.image_url }}{% if bs.image_url contains '?' %}&{% else %}?{% endif %}width=700 700w, {{ bs.image_url }}{% if bs.image_url contains '?' %}&{% else %}?{% endif %}width=1000 1000w" sizes="(min-width: 990px) 30vw, 78vw" alt="{{ bs.title | escape }}" loading="lazy" width="800" height="1000">{%- endif -%}
+            <span class="mht__chip">{% if bs.chip != blank %}{{ bs.chip }}{% else %}{{ s.chip_word | default: 'Step' }} {{ forloop.index | prepend: '0' | slice: -2, 2 }}{% endif %}</span>
+          </div>
+          <h3 class="mht__t">{{ bs.title }}</h3>
+          {%- if bs.detail != blank -%}<p class="mht__d">{{ bs.detail }}</p>{%- endif -%}
+          {%- if bs.text != blank -%}<div class="mht__x">{{ bs.text }}</div>{%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ol>
+    {%- if s.foot != blank -%}<p class="mht__foot">{{ s.foot }}</p>{%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO — How to take it",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "Anchor" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "How to take it" },
+    { "type": "textarea", "id": "heading", "label": "Heading" },
+    { "type": "textarea", "id": "lede", "label": "Intro" },
+    { "type": "text", "id": "facts", "label": "Small labels under the intro", "info": "Separated by ·" },
+    { "type": "text", "id": "foot", "label": "Small line below" },
+    { "type": "text", "id": "chip_word", "label": "Word on the photo label", "default": "Step" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 96 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 96 }
+  ],
+  "blocks": [
+    { "type": "step", "name": "Step", "settings": [
+      { "type": "image_picker", "id": "image", "label": "Photo" },
+      { "type": "text", "id": "image_url", "label": "Photo URL (if no photo picked)" },
+      { "type": "text", "id": "chip", "label": "Label on the photo (blank: Step 01)" },
+      { "type": "text", "id": "title", "label": "Step" },
+      { "type": "text", "id": "detail", "label": "Detail (teal mono line)" },
+      { "type": "richtext", "id": "text", "label": "Text" }
+    ] }
+  ],
+  "max_blocks": 6,
+  "presets": [{ "name": "MUTO — How to take it" }],
+  "enabled_on": { "templates": ["product", "page"] }
+}
+{% endschema %}

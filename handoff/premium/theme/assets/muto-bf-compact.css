@@ -1,0 +1,66 @@
+/* ---- Phones: the buy box smaller and tighter, so the plans and the button are a short scroll ---- */
+@media (max-width:749px){
+  html:root body .mc .mc__buy{padding-top:12px!important}
+  html:root body .mc .mc__buy-copy > .mc__rating{margin-top:10px}
+  html:root body .mc .mc__stars > span{width:15px;height:14px}
+  html:root body .mc .mc__rating-text{font-size:14px}
+  html:root body .mc .mc__buy-title,html:root body .mc .mc__buy-copy > .mc__buy-title{font-size:27px;margin-top:8px}
+  html:root body .mc .mc-subhead,html:root body .mc .mc__buy-copy > .mc-subhead{margin-top:6px;font-size:14.5px;line-height:1.35}
+  html:root body .mc .mc-collab{margin-top:6px;font-size:13px;line-height:1.35;color:rgba(36,34,35,.75)}
+  html:root body .mc .mc__buy-media{margin:14px 0 12px}
+  html:root body .mc .mc__thumb{width:44px}
+  html:root body .mc .mc-tests-btn{min-height:40px;margin-top:10px;padding:6px 14px;font-size:14px;gap:8px}
+  html:root body .mc .mc-tests-btn__tick{flex-basis:16px;width:16px;height:16px}
+  /* Black Friday box */
+  html:root body .mc .mc__buy-copy > .mc-bf,html:root body .mc .mc-bf{margin-top:12px;padding:12px 14px;gap:2px 12px;border-radius:10px}
+  html:root body .mc .mc-bf__tag{font-size:10.5px;margin-bottom:2px}
+  html:root body .mc .mc-bf__offer{font-size:22px}
+  html:root body .mc .mc-bf__kit{font-size:14px;margin-top:2px}
+  html:root body .mc .mc-bf__sched{font-size:12.5px;margin-top:4px}
+  html:root body .mc .mc-bf__count{margin-top:6px}
+  html:root body .mc .mc-bf__count b{font-size:22px}
+  html:root body .mc .mc-bf__count small{font-size:14px}
+  html:root body .mc .mc-bf__foot{margin-top:6px;gap:8px}
+  html:root body .mc .mc-bf__note{font-size:11px}
+  /* "Choose your plan" heading */
+  html:root body .mc .mc__trust,html:root body .mc .mc__buy-copy > .mc__trust{margin-top:4px}
+  html:root body .mc .mc__trust::after{font-size:16px;margin-top:10px;background-size:calc(50% - 80px) 1.5px,calc(50% - 80px) 1.5px}
+  /* Plan cards */
+  html:root body .mc .mc__plans{margin-top:10px}
+  html:root body .mc .mc__plans-banner{padding:9px 14px;font-size:12px}
+  html:root body .mc .mc__plans-banner::before{font-size:11px}
+  html:root body .mc .mc__plans > label.mc__plan{padding:34px 14px 12px}
+  html:root body .mc .mc__plans > label.mc__plan:nth-of-type(1){margin-top:10px}
+  html:root body .mc .mc__plan-save{height:24px;padding:0 10px;font-size:11px}
+  html:root body .mc .mc__plan-head{gap:8px}
+  html:root body .mc .mc__plan-name{font-size:16.5px}
+  html:root body .mc .mc__plans > label.mc__plan .mc__plan-head::after{height:22px;padding:0 8px;font-size:12.5px}
+  html:root body .mc .mc__plan-prices::before{font-size:18px}
+  html:root body .mc .mc__plan-prices::after{font-size:13px;margin-top:2px}
+  html:root body .mc .mc__plan-note{margin-top:4px;font-size:11.5px!important}
+  html:root body .mc .mc__plans > .mc__plan-detail{padding:0 14px 2px;font-size:13.5px}
+  html:root body .mc .mc__plan-detail ul{padding-top:10px;gap:5px}
+  html:root body .mc .mc__plan-detail li{padding-left:20px}
+  html:root body .mc .mc__plan-detail li::before{width:11px;height:8px}
+  html:root body .mc .mc__plans > .mc__kit{padding:12px 14px 14px}
+  html:root body .mc .mc__kit-title{font-size:11px}
+  html:root body .mc .mc__kit-list{grid-auto-columns:minmax(0,60px);gap:8px!important;margin-top:8px}
+  html:root body .mc .mc__kit-value,html:root body .mc .mc__kit-name{font-size:11px}
+  html:root body .mc .mc__kit-more{margin-top:10px}
+  html:root body .mc .mc__kit-sum{min-height:38px;font-size:14px}
+  /* One-time line, the button, and what sits under it */
+  html:root body .mc .mc__onetime{margin-top:10px;padding:12px 14px;font-size:14px;border-radius:10px}
+  html:root body .mc .mc__buy-cta{margin-top:12px;min-height:56px!important;padding-top:9px!important;padding-bottom:9px!important;border-radius:10px}
+  html:root body .mc .mc__btn{font-size:16px}
+  html:root body .mc .mc__buy-cta::after{margin-top:3px;font-size:12px}
+  html:root body .mc .mc-stats{margin-top:10px;padding:10px 14px;gap:12px;border-radius:10px}
+  html:root body .mc .mc-stats__text{font-size:13px}
+  html:root body .mc .mpb-x{gap:10px;margin-top:14px}
+  html:root body .mc .mpb-del{font-size:14px}
+  html:root body .mc .mpb-pro{padding:12px 14px}
+  html:root body .mc .mpb-pro b{font-size:16px}
+  html:root body .mc .mpb-pro span{font-size:13.5px}
+  html:root body .mc .mc__buy-copy > .mc__buy-serving{margin-top:20px}
+  html:root body .mc .mc__acc-sum{font-size:15px;min-height:48px}
+  html:root body .mc .mc__acc-body{font-size:14.5px}
+}

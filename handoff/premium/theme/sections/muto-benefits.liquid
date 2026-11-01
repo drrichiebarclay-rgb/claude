@@ -1,0 +1,195 @@
+{%- comment -%}
+  MUTO — Benefits picker. Used on the Black Friday product page and the science page, in the ingredients
+  page's style (muto-ingredient-library): centred heading, the same filter buttons, mono labels, doses in
+  the teal mono.
+
+  The benefits sit in a row of filter buttons (with how many ingredients support each). The selected one
+  shows underneath: an uppercase outcome line, the key ingredients and doses in the teal mono, the claim in
+  plain words, the ingredient list with doses, a link to every ingredient, and a large photo.
+  MOBILE: the buttons become a row of chips you swipe; the photo sits above the words.
+
+  BLOCKS, one per benefit. "Ingredients" is one per line as Name | dose.
+  A link of #library scrolls to this page's ingredient library section when there is one.
+{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign sid = section.id
+-%}
+<style>
+  #shopify-section-{{ sid }}{--mbp-ink:#242223;--mbp-head:#242223;--mbp-muted:#5c5a5b;--mbp-rule:rgba(36,34,35,.14);--mbp-tile:#f1f1ef;--mbp-accent:#2f8fa0;--mbp-mono:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace}
+  #shopify-section-{{ sid }} .mbp,#shopify-section-{{ sid }} .mbp h2,#shopify-section-{{ sid }} .mbp h3,#shopify-section-{{ sid }} .mbp p,#shopify-section-{{ sid }} .mbp button{font-family:var(--mc-font,"Neue Haas Grotesk Display Pro"),sans-serif;-webkit-font-smoothing:antialiased}
+  #shopify-section-{{ sid }} .mbp{background:#fff;color:var(--mbp-ink)}
+  #shopify-section-{{ sid }} .mbp__wrap{max-width:1320px;margin:0 auto;padding:{{ s.space_top }}px 20px {{ s.space_bottom }}px}
+  #shopify-section-{{ sid }} .mbp__head{display:grid;justify-items:center;text-align:center;gap:20px}
+  #shopify-section-{{ sid }} .mbp__eye{margin:0;font-family:var(--mbp-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mbp-muted)}
+  #shopify-section-{{ sid }} .mbp .mbp__h{margin:0;text-wrap:balance;color:var(--mbp-head);font-weight:500;font-size:clamp(34px,4.444vw,64px);line-height:.906;letter-spacing:-.014em;text-transform:uppercase}
+  #shopify-section-{{ sid }} .mbp__lede{margin:0;max-width:44ch;font-size:clamp(17px,1.4vw,20px);line-height:1.4;text-wrap:balance}
+
+  /* The ingredients page's filter buttons */
+  #shopify-section-{{ sid }} .mbp__tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:40px 0 48px;padding:0;list-style:none}
+  #shopify-section-{{ sid }} .mbp__tab{font:inherit;font-size:16px;font-weight:500;line-height:1;padding:15px 24px;border-radius:6px;border:1px solid var(--mbp-rule);background:#fff;color:var(--mbp-ink);cursor:pointer;display:inline-flex;gap:10px;align-items:center;white-space:nowrap;transition:background .2s,color .2s,border-color .2s}
+  #shopify-section-{{ sid }} .mbp__tab:hover{border-color:var(--mbp-ink)}
+  #shopify-section-{{ sid }} .mbp__tab[aria-selected="true"]{background:var(--mbp-ink);color:#fff;border-color:var(--mbp-ink)}
+  #shopify-section-{{ sid }} .mbp__tab .n{font-family:var(--mbp-mono);font-size:12px;opacity:.6}
+  #shopify-section-{{ sid }} .mbp__tab:focus-visible{outline:2px solid var(--mbp-accent);outline-offset:3px}
+
+  /* The selected benefit */
+  #shopify-section-{{ sid }} .mbp__panel{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}
+  #shopify-section-{{ sid }} .mbp__panel[hidden]{display:none}
+  #shopify-section-{{ sid }} .mbp__copy{display:grid;justify-items:start;gap:18px;max-width:560px}
+  #shopify-section-{{ sid }} .mbp__num{font-family:var(--mbp-mono);font-size:13px;letter-spacing:.08em;color:var(--mbp-muted)}
+  #shopify-section-{{ sid }} .mbp .mbp__out{margin:0;font-weight:500;font-size:clamp(28px,3vw,44px);line-height:.95;letter-spacing:-.014em;text-transform:uppercase;color:var(--mbp-head);text-wrap:balance}
+  #shopify-section-{{ sid }} .mbp__doses{margin:0;font-family:var(--mbp-mono);font-size:15px;font-weight:500;line-height:1.4;color:var(--mbp-accent)}
+  #shopify-section-{{ sid }} .mbp__claim{margin:0;font-size:18px;line-height:1.45}
+  #shopify-section-{{ sid }} .mbp__list{width:100%;margin:6px 0 0;padding:0;list-style:none;border-top:1px solid var(--mbp-ink)}
+  #shopify-section-{{ sid }} .mbp__list li{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--mbp-rule);font-size:16px;line-height:1.3}
+  #shopify-section-{{ sid }} .mbp__list span{font-family:var(--mbp-mono);font-size:14px;font-weight:500;color:var(--mbp-accent);white-space:nowrap}
+  #shopify-section-{{ sid }} .mbp__all{display:inline-flex;align-items:center;gap:10px;margin-top:10px;padding:15px 24px;border:1px solid var(--mbp-ink);border-radius:6px;font-size:16px;font-weight:500;line-height:1;color:var(--mbp-ink);text-decoration:none;transition:background .2s,color .2s}
+  #shopify-section-{{ sid }} .mbp__all:hover{background:var(--mbp-ink);color:#fff}
+  #shopify-section-{{ sid }} .mbp__media{position:relative;aspect-ratio:1/1;border-radius:4px;overflow:hidden;background:var(--mbp-tile)}
+  #shopify-section-{{ sid }} .mbp__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  #shopify-section-{{ sid }} .mbp__chip{position:absolute;left:14px;top:14px;z-index:2;font-family:var(--mbp-mono);font-size:11.5px;line-height:1;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:9px 12px;border-radius:4px;background:rgba(255,255,255,.92);color:var(--mbp-ink)}
+
+  @media (max-width:989px){
+    #shopify-section-{{ sid }} .mbp__panel{gap:40px}
+  }
+  @media (max-width:749px){
+    #shopify-section-{{ sid }} .mbp__wrap{padding:{{ s.space_top | times: 0.66 | round }}px 16px {{ s.space_bottom | times: 0.66 | round }}px}
+    #shopify-section-{{ sid }} .mbp__tabs{flex-wrap:nowrap;justify-content:flex-start;gap:8px;margin:28px -16px 24px;padding:0 16px 2px;overflow-x:auto;scroll-snap-type:x proximity;scroll-padding:0 16px;scrollbar-width:none}
+    #shopify-section-{{ sid }} .mbp__tabs::-webkit-scrollbar{display:none}
+    #shopify-section-{{ sid }} .mbp__tabs li{flex:0 0 auto;scroll-snap-align:start}
+    #shopify-section-{{ sid }} .mbp__tab{padding:12px 16px;font-size:15px}
+    #shopify-section-{{ sid }} .mbp__panel{grid-template-columns:1fr;gap:20px}
+    #shopify-section-{{ sid }} .mbp__media{order:-1;aspect-ratio:4/3}
+    #shopify-section-{{ sid }} .mbp__copy{gap:12px}
+    #shopify-section-{{ sid }} .mbp .mbp__out{font-size:26px}
+    #shopify-section-{{ sid }} .mbp__doses{font-size:13.5px}
+    #shopify-section-{{ sid }} .mbp__claim{font-size:16px}
+    #shopify-section-{{ sid }} .mbp__list li{padding:10px 0;font-size:15px}
+    #shopify-section-{{ sid }} .mbp__list span{font-size:13px}
+    #shopify-section-{{ sid }} .mbp__all{width:100%;justify-content:center}
+  }
+</style>
+
+<div class="mbp"{% if s.anchor != blank %} id="{{ s.anchor }}"{% endif %} data-mbp>
+  <div class="mbp__wrap">
+    <header class="mbp__head">
+      {%- if s.eyebrow != blank -%}<p class="mbp__eye">{{ s.eyebrow }}</p>{%- endif -%}
+      {%- if s.heading != blank -%}<h2 class="mbp__h">{{ s.heading | escape | newline_to_br }}</h2>{%- endif -%}
+      {%- if s.lede != blank -%}<p class="mbp__lede">{{ s.lede }}</p>{%- endif -%}
+    </header>
+
+    <ul class="mbp__tabs" role="tablist" aria-label="{{ s.heading | escape }}">
+      {%- for b in section.blocks -%}
+        <li role="presentation">
+          <button type="button" class="mbp__tab" role="tab" id="mbp-tab-{{ b.id }}" aria-controls="mbp-panel-{{ b.id }}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"{% unless forloop.first %} tabindex="-1"{% endunless %}>{{ b.settings.title }}{% if b.settings.count != blank %}<span class="n">{{ b.settings.count }}</span>{% endif %}</button>
+        </li>
+      {%- endfor -%}
+    </ul>
+
+    {%- for b in section.blocks -%}
+      {%- assign bs = b.settings -%}
+      <div class="mbp__panel" role="tabpanel" id="mbp-panel-{{ b.id }}" aria-labelledby="mbp-tab-{{ b.id }}" data-mbp-panel{% unless forloop.first %} hidden{% endunless %} {{ b.shopify_attributes }}>
+        <div class="mbp__copy">
+          <span class="mbp__num">{{ forloop.index | prepend: '0' | slice: -2, 2 }} / {{ forloop.length | prepend: '0' | slice: -2, 2 }}</span>
+          <h3 class="mbp__out">{{ bs.outcome }}</h3>
+          {%- if bs.doses != blank -%}<p class="mbp__doses">{{ bs.doses }}</p>{%- endif -%}
+          {%- if bs.text != blank -%}<p class="mbp__claim">{{ bs.text }}</p>{%- endif -%}
+          {%- if bs.ingredients != blank -%}
+            {%- assign lines = bs.ingredients | newline_to_br | split: '<br />' -%}
+            <ul class="mbp__list">
+              {%- for l in lines -%}
+                {%- assign parts = l | split: '|' -%}
+                {%- assign nm = parts[0] | strip -%}
+                {%- if nm != blank -%}<li>{{ nm }}<span>{{ parts[1] | strip }}</span></li>{%- endif -%}
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+          {%- if s.link_label != blank -%}<a class="mbp__all" href="{{ s.link | default: '/pages/ingredients' }}">{{ s.link_label }} <span aria-hidden="true">→</span></a>{%- endif -%}
+        </div>
+        <div class="mbp__media">
+          {%- if bs.image != blank -%}{{ bs.image | image_url: width: 1400 | image_tag: loading: 'lazy', widths: '600,900,1200,1400', sizes: '(min-width: 990px) 50vw, 100vw', alt: '', style: bs.position }}{%- endif -%}
+          <span class="mbp__chip">{{ bs.title }}</span>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+<script>
+  (function () {
+    var root = document.querySelector('#shopify-section-{{ sid }} [data-mbp]');
+    if (!root) return;
+    var tabs = [].slice.call(root.querySelectorAll('.mbp__tab'));
+    var panels = [].slice.call(root.querySelectorAll('[data-mbp-panel]'));
+    var row = root.querySelector('.mbp__tabs');
+    function show(i, focus) {
+      tabs.forEach(function (t, n) {
+        var on = n === i;
+        t.setAttribute('aria-selected', on);
+        t.tabIndex = on ? 0 : -1;
+        panels[n].hidden = !on;
+      });
+      if (focus) tabs[i].focus();
+      /* Keep the chosen chip in view in the mobile row, without moving the page */
+      if (row.scrollWidth > row.clientWidth) {
+        var t = tabs[i].parentNode;
+        row.scrollTo({ left: Math.max(0, t.offsetLeft - row.offsetLeft - 16), behavior: 'smooth' });
+      }
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { show(i); });
+      t.addEventListener('keydown', function (e) {
+        var n = null;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') n = (i + 1) % tabs.length;
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') n = (i - 1 + tabs.length) % tabs.length;
+        if (n !== null) { e.preventDefault(); show(n, true); }
+      });
+    });
+    /* "#library" goes to this page's ingredient library */
+    root.addEventListener('click', function (e) {
+      var a = e.target.closest('a[href="#library"]');
+      if (!a) return;
+      var lib = document.querySelector('#MainContent [id$="__library"]');
+      if (!lib) return;
+      e.preventDefault();
+      lib.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    document.addEventListener('shopify:block:select', function (e) {
+      var i = panels.indexOf(e.target);
+      if (i > -1) show(i);
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "MUTO — Benefits picker",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "Anchor" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "textarea", "id": "heading", "label": "Heading" },
+    { "type": "textarea", "id": "lede", "label": "Intro" },
+    { "type": "text", "id": "link_label", "label": "Link to all ingredients", "default": "See all 19 ingredients" },
+    { "type": "text", "id": "link", "label": "Link", "info": "A page URL, or #library to scroll to the ingredient library on this page", "default": "/pages/ingredients" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 96 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 96 }
+  ],
+  "blocks": [
+    { "type": "benefit", "name": "Benefit", "settings": [
+      { "type": "text", "id": "title", "label": "Name (button)", "default": "Energy" },
+      { "type": "text", "id": "count", "label": "Number on the button", "info": "How many ingredients support it" },
+      { "type": "text", "id": "outcome", "label": "Outcome line", "default": "Afternoons that hold" },
+      { "type": "text", "id": "doses", "label": "Key ingredients and doses (teal line)" },
+      { "type": "textarea", "id": "text", "label": "Claim" },
+      { "type": "textarea", "id": "ingredients", "label": "Ingredients", "info": "One per line: Name | dose" },
+      { "type": "image_picker", "id": "image", "label": "Photo" },
+      { "type": "text", "id": "position", "label": "Photo focus", "info": "e.g. object-position:50% 30%" }
+    ] }
+  ],
+  "max_blocks": 8,
+  "presets": [{ "name": "MUTO — Benefits picker" }],
+  "enabled_on": { "templates": ["product", "page", "index"] }
+}
+{% endschema %}

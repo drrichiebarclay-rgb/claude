@@ -105,7 +105,7 @@ Order before 9pm and receive it next day." (`.cart__ctas::after`). It targets st
 "Best value" band on the 3-Month plan, Includes list, black add to cart, outlined drop-downs) and a light-touch pass on
 the rest of the page (white backgrounds, hairline cards, mono tags). Mobile is simplified further (unselected plan
 collapses, two-column footer, slightly larger body copy). Preview it with
-`?view=muto-nad-bf-premium`. To make it the default, assign the product to that template, or move the CSS into
+`?view=muto-nad-bf-premium`. Full premium handover: `handoff/premium/PREMIUM_HANDOFF.md` (and `MUTO_premium_PDP_handover_1Nov.zip`). To make it the default, assign the product to that template, or move the CSS into
 the standard template's load (`snippets/muto-bf-bar.liquid`).
 
 ## Things to check before going live

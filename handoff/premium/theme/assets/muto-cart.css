@@ -1,0 +1,169 @@
+/* MUTO cart, page (/cart) and drawer, in the buy box style: white, 1px ink outlines, Neue Haas text,
+   Sometype Mono capitals for labels, a black checkout button. Loaded site-wide by sections/muto-bf-head.liquid.
+   Targets only stable classes and custom elements (the JS replaces the contents of .js-contents / .drawer__inner). */
+
+/* ---- Shared ---- */
+:is(cart-items,#main-cart-footer,cart-drawer) :where(*){font-family:var(--mc-font)!important}
+:is(cart-items,#main-cart-footer,cart-drawer) .cart-items th,
+:is(cart-items,cart-drawer) .product-option,
+#main-cart-footer .tax-note,cart-drawer .tax-note{font-family:var(--mc-mono)!important}
+:is(cart-items,cart-drawer) .cart-items th{font-size:11.5px!important;font-weight:400!important;letter-spacing:.12em!important;text-transform:uppercase;opacity:1!important;color:#5c5a5b!important}
+:is(cart-items,cart-drawer) .cart-item__name{font-size:17px!important;font-weight:500!important;letter-spacing:-.01em;color:#242223!important;text-decoration:none!important}
+:is(cart-items,cart-drawer) .product-option{font-size:12px!important;letter-spacing:.08em;text-transform:uppercase;color:#5c5a5b!important}
+:is(cart-items,cart-drawer) .cart-item__image{border-radius:8px;border:1px solid rgba(36,34,35,.12)}
+:is(cart-items,cart-drawer) .price,:is(cart-items,cart-drawer) .cart-item__final-price{font-size:16px!important;font-weight:500!important;color:#242223!important}
+:is(cart-items,cart-drawer) .cart-item__old-price{color:#8a8889!important;opacity:1!important;font-weight:400!important}
+/* Quantity: an outlined pill */
+:is(cart-items,cart-drawer) quantity-input.quantity{min-height:42px!important;border:1px solid #242223!important;border-radius:8px!important;background:#fff}
+:is(cart-items,cart-drawer) quantity-input.quantity::before,:is(cart-items,cart-drawer) quantity-input.quantity::after{display:none!important}
+:is(cart-items,cart-drawer) .quantity__input{font-size:15px!important;font-weight:500!important}
+:is(cart-items,cart-drawer) cart-remove-button .button{min-width:42px!important;min-height:42px!important}
+/* Checkout: black, full width, uppercase */
+:is(#main-cart-footer,cart-drawer) .cart__checkout-button{min-height:60px!important;border:0!important;border-radius:6px!important;background:#242223!important;color:#fff!important;
+  font-size:16px!important;font-weight:500!important;letter-spacing:.04em!important;text-transform:uppercase!important;box-shadow:none!important}
+:is(#main-cart-footer,cart-drawer) .cart__checkout-button::before,:is(#main-cart-footer,cart-drawer) .cart__checkout-button::after{display:none!important}
+:is(#main-cart-footer,cart-drawer) .cart__checkout-button:hover{background:#000!important}
+:is(#main-cart-footer,cart-drawer) .cart__checkout-button svg path{fill:#fff!important}
+/* Totals */
+:is(#main-cart-footer,cart-drawer) .totals__total{font-size:15px!important;font-weight:500!important;letter-spacing:0!important}
+:is(#main-cart-footer,cart-drawer) .totals__total-value,cart-drawer .mc-totals__now{font-size:22px!important;font-weight:500!important;letter-spacing:-.01em;color:#242223!important}
+:is(#main-cart-footer,cart-drawer) .tax-note{font-size:11px!important;letter-spacing:.08em;text-transform:uppercase;color:#5c5a5b!important}
+
+/* ---- Cart page ---- */
+cart-items .title--primary{font-weight:500!important;font-size:clamp(34px,4.444vw,64px)!important;line-height:.906!important;letter-spacing:-.014em!important;text-transform:uppercase!important;color:#242223!important}
+cart-items .underlined-link{font-size:15px!important;color:#242223!important;text-underline-offset:4px}
+cart-items .cart__items{border-bottom:0!important}
+cart-items .cart-items thead th{border-bottom:1px solid #242223!important;padding-bottom:12px!important}
+cart-items tbody .cart-item{border-bottom:1px solid rgba(36,34,35,.14)}
+cart-items tbody .cart-item > td{padding-top:20px!important;padding-bottom:20px!important}
+#main-cart-footer .cart__footer{padding-top:24px!important}
+@media (min-width:750px){
+  #main-cart-footer .cart__blocks{padding:24px;border:1px solid #242223;border-radius:10px;background:#fff}
+  #main-cart-footer .cart__footer > *{width:40rem!important}
+}
+#main-cart-footer .cart__ctas{margin-top:16px!important}
+#main-cart-footer .cart__checkout-button{max-width:none!important}
+#main-cart-footer .cart__note .field__input{border:1px solid rgba(36,34,35,.3)!important;border-radius:8px!important}
+cart-items .cart__empty-text{font-weight:500!important;text-transform:uppercase;letter-spacing:-.014em}
+cart-items .cart__warnings .button{border-radius:6px!important;background:#242223!important;color:#fff!important;text-transform:uppercase;letter-spacing:.04em}
+
+/* ---- Drawer ---- */
+cart-drawer .drawer__inner{background:#fff!important;border-left:1px solid rgba(36,34,35,.14)!important}
+cart-drawer .drawer__heading{font-weight:500!important;font-size:26px!important;text-transform:uppercase;letter-spacing:-.014em}
+cart-drawer .cart-items thead{display:none}
+cart-drawer .cart-item{padding:16px 0!important;border-bottom:1px solid rgba(36,34,35,.14)}
+/* Subscription promise: an outlined box, not a grey wash */
+cart-drawer .mc-cart-sub{background:#fff!important;border:1px solid #242223!important;border-radius:10px!important}
+cart-drawer .mc-cart-line--per-day,cart-drawer .mc-cart-line--save{font-family:var(--mc-mono)!important;font-size:11.5px!important;letter-spacing:.08em;text-transform:uppercase}
+cart-drawer .mc-cart-line--save{color:#1f6f7c!important}
+/* Gifts: the buy box's "Includes" list */
+cart-drawer .mc-cart-gifts{margin-top:12px;padding:16px!important;border:1px solid #242223!important;border-radius:10px!important}
+cart-drawer .mc-cart-gifts__title{font-size:17px!important;font-weight:500!important}
+cart-drawer .mc-cart-gift{padding:6px 0!important;border-radius:0!important;background:none!important}
+cart-drawer .mc-cart-gift__img{border-radius:6px}
+cart-drawer .mc-cart-gift__name{font-size:15px!important}
+cart-drawer .mc-cart-gift__was{color:#8a8889!important}
+cart-drawer .mc-cart-gift__free{font-family:var(--mc-mono)!important;font-size:11.5px!important;letter-spacing:.1em!important;font-weight:500!important}
+/* Totals: saving as mono text, gifts line without the lime pill */
+cart-drawer .mc-totals__save{border-radius:0!important;background:none!important;color:#1f6f7c!important;font-family:var(--mc-mono)!important;font-size:11.5px!important;letter-spacing:.08em;text-transform:uppercase;padding:0!important}
+cart-drawer .mc-totals__gifts span{border-radius:0!important;background:none!important;padding:0!important;font-family:var(--mc-mono)!important;font-size:11.5px!important;letter-spacing:.08em;text-transform:uppercase;color:#242223!important}
+cart-drawer .mc-cart-trust{font-size:12.5px!important}
+cart-drawer select.subscription-plan-select{border:1px solid #242223!important;border-radius:8px!important;min-height:40px;font-family:var(--mc-font)!important;font-size:14px!important;background-color:#fff}
+
+/* =========================================================================================
+   Reformed-inspired pass: each line on a soft warm-grey card, plain sentence-case detail lines,
+   black (not teal) text, a borderless grey stepper, gifts as an "Includes" card.
+   ========================================================================================= */
+:is(cart-items,cart-drawer) .cart-item{background:#f3f2ef!important;border:0!important;border-radius:10px!important}
+cart-drawer .cart-item{margin-bottom:10px!important;padding:16px!important}
+cart-drawer .cart-items{border-collapse:separate!important;border-spacing:0 10px!important}
+cart-items tbody .cart-item > td:first-child{padding-left:16px!important;border-radius:10px 0 0 10px}
+cart-items tbody .cart-item > td:last-child{padding-right:16px!important;border-radius:0 10px 10px 0}
+cart-items .cart-items{border-collapse:separate!important;border-spacing:0 10px!important}
+:is(cart-items,cart-drawer) .cart-item__image{border:0!important;border-radius:6px!important;background:#fff}
+:is(cart-items,cart-drawer) .cart-item__name{font-size:17px!important;font-weight:500!important}
+/* Detail lines: plain, sentence case, black / grey */
+:is(cart-items,cart-drawer) .product-option,
+cart-drawer .mc-cart-line--per-day,cart-drawer .mc-cart-line--save{font-family:var(--mc-font)!important;font-size:14px!important;letter-spacing:0!important;text-transform:none!important;font-weight:400!important}
+:is(cart-items,cart-drawer) .product-option,cart-drawer .mc-cart-line--per-day{color:#5c5a5b!important}
+cart-drawer .mc-cart-line--save{color:#242223!important;font-weight:500!important}
+cart-drawer .mc-cart-line--save svg{color:#242223!important;stroke:#242223!important}
+/* Price */
+:is(cart-items,cart-drawer) .price,:is(cart-items,cart-drawer) .cart-item__final-price{font-size:17px!important;font-weight:400!important}
+/* Stepper: borderless grey */
+:is(cart-items,cart-drawer) quantity-input.quantity{border:0!important;border-radius:6px!important;background:#e6e5e1!important;min-height:40px!important}
+:is(cart-items,cart-drawer) .quantity__button{background:none!important;background-image:none!important;border:0!important;box-shadow:none!important;color:#242223!important}
+:is(cart-items,cart-drawer) .quantity__input{background:none!important;font-weight:400!important}
+/* Gifts: an "Includes" card */
+cart-drawer .mc-cart-gifts{border:0!important;border-radius:10px!important;background:#f3f2ef!important;padding:16px!important}
+cart-drawer .mc-cart-gifts__title{font-size:15px!important;font-weight:400!important;padding-bottom:10px;border-bottom:1px solid rgba(36,34,35,.14)}
+cart-drawer .mc-cart-gift{padding:8px 0!important}
+cart-drawer .mc-cart-gift__img{background:#fff}
+cart-drawer .mc-cart-gift__free{font-family:var(--mc-font)!important;font-size:15px!important;letter-spacing:0!important;text-transform:none!important;font-weight:400!important}
+/* Totals and promise box: black text, no teal */
+cart-drawer .mc-totals__save{font-family:var(--mc-font)!important;font-size:14px!important;letter-spacing:0!important;text-transform:none!important;color:#242223!important;font-weight:500!important}
+cart-drawer .mc-totals__gifts span{font-family:var(--mc-font)!important;font-size:14px!important;letter-spacing:0!important;text-transform:none!important}
+cart-drawer .mc-cart-sub{border:0!important;background:#f3f2ef!important}
+:is(#main-cart-footer,cart-drawer) .totals__total{font-size:17px!important;font-weight:400!important}
+:is(#main-cart-footer,cart-drawer) .totals__total-value,cart-drawer .mc-totals__now{font-size:22px!important;font-weight:400!important}
+:is(#main-cart-footer,cart-drawer) .cart__checkout-button{border-radius:2px!important;letter-spacing:.08em!important;font-weight:400!important}
+
+/* =========================================================================================
+   Simplify pass: white throughout (brand), no grey cards, hairline dividers, fewer lines.
+   Shown: product, plan, saving, quantity, gifts (names + Free), total, checkout.
+   ========================================================================================= */
+cart-drawer .drawer__inner,cart-items,#main-cart-footer{background:#fff!important}
+:is(cart-items,cart-drawer) .cart-item{background:none!important;border-radius:0!important;border-bottom:1px solid rgba(36,34,35,.12)!important;margin-bottom:0!important}
+cart-drawer .cart-item{padding:18px 0!important}
+:is(cart-items,cart-drawer) .cart-items{border-spacing:0!important}
+cart-items tbody .cart-item > td{border-radius:0!important}
+:is(cart-items,cart-drawer) .cart-item__image{border:1px solid rgba(36,34,35,.1)!important}
+/* Fewer lines */
+cart-drawer .mc-cart-line--per-day,
+cart-drawer .mc-cart-sub,
+cart-drawer .cart-payment-details,
+cart-drawer .mc-cart-trust,
+cart-drawer #Details-CartDrawer,
+cart-drawer .mc-totals__gifts,
+cart-drawer .tax-note,
+#main-cart-footer .tax-note{display:none!important}
+/* Stepper: thin outline on white */
+:is(cart-items,cart-drawer) quantity-input.quantity{background:#fff!important;border:1px solid rgba(36,34,35,.25)!important}
+/* Gifts: a short list, no pictures */
+cart-drawer .mc-cart-gifts{background:none!important;border-radius:0!important;padding:16px 0 4px!important;margin-top:0!important}
+cart-drawer .mc-cart-gifts__title{border-bottom:0!important;padding-bottom:4px!important;font-size:14px!important;color:#5c5a5b!important}
+cart-drawer .mc-cart-gift__img{display:none!important}
+cart-drawer .mc-cart-gift{padding:3px 0!important;font-size:14px}
+cart-drawer .mc-cart-gift__name,cart-drawer .mc-cart-gift__free{font-size:14px!important}
+cart-drawer .drawer__footer{border-top:1px solid rgba(36,34,35,.12)!important}
+
+/* ---- Elevated: more space, finer lines, quieter type ---- */
+cart-drawer .drawer__inner{padding:0 28px!important;border-left:0!important;box-shadow:-24px 0 60px rgba(20,24,30,.08)}
+cart-drawer .drawer__header{padding:28px 0 20px!important;border-bottom:1px solid rgba(36,34,35,.1)}
+cart-drawer .drawer__heading{font-size:22px!important;letter-spacing:-.01em!important}
+cart-drawer .cart-item{padding:24px 0!important;border-bottom-color:rgba(36,34,35,.1)!important}
+:is(cart-items,cart-drawer) .cart-item__name{font-size:16px!important;font-weight:500!important;line-height:1.3!important}
+:is(cart-items,cart-drawer) .product-option,cart-drawer .mc-cart-line--save{font-size:13.5px!important;line-height:1.5!important}
+:is(cart-items,cart-drawer) .price,:is(cart-items,cart-drawer) .cart-item__final-price{font-size:16px!important}
+:is(cart-items,cart-drawer) .cart-item__old-price{font-size:13px!important}
+:is(cart-items,cart-drawer) quantity-input.quantity{min-height:36px!important;width:104px!important;border-color:rgba(36,34,35,.18)!important}
+:is(cart-items,cart-drawer) .quantity__input{font-size:14px!important}
+:is(cart-items,cart-drawer) cart-remove-button .button{opacity:.55}
+:is(cart-items,cart-drawer) cart-remove-button .button:hover{opacity:1}
+cart-drawer .mc-cart-gifts__title{font-family:var(--mc-mono)!important;font-size:11px!important;letter-spacing:.14em!important;text-transform:uppercase!important}
+cart-drawer .mc-cart-gift__name{color:#3d3b3c!important}
+cart-drawer .drawer__footer{padding:22px 0 28px!important;border-top-color:rgba(36,34,35,.1)!important}
+:is(#main-cart-footer,cart-drawer) .totals{align-items:baseline!important}
+:is(#main-cart-footer,cart-drawer) .totals__total{font-family:var(--mc-mono)!important;font-size:11.5px!important;letter-spacing:.14em!important;text-transform:uppercase!important;color:#5c5a5b!important}
+:is(#main-cart-footer,cart-drawer) .totals__total-value,cart-drawer .mc-totals__now{font-size:24px!important;letter-spacing:-.015em!important}
+:is(#main-cart-footer,cart-drawer) .cart__checkout-button{min-height:58px!important;margin-top:18px!important;font-size:14px!important;letter-spacing:.14em!important}
+cart-items .title--primary{font-size:clamp(30px,3.4vw,48px)!important}
+@media (max-width:749px){cart-drawer .drawer__inner{padding:0 20px!important}}
+/* No selling plan name ("3-Month Subscription") under the product */
+:is(cart-items,cart-drawer) .cart-item__details > p.product-option{display:none!important}
+/* Delivery promise under the checkout button */
+:is(#main-cart-footer,cart-drawer) .cart__ctas::after{content:"Free UK delivery on subscriptions  \00b7  90-day money-back guarantee\AOrder before 9pm and receive it next day.";white-space:pre-line;display:block;width:100%;margin-top:14px;text-align:center;font-family:var(--mc-font);font-size:14px;line-height:1.4;color:#242223}
+
+/* ---- Supply line under the product name: "3-month supply" / "1-month supply" (mono capitals) ---- */
+:is(cart-items,cart-drawer) .mc-supply{display:block!important;margin:6px 0 4px!important;font-family:var(--mc-mono)!important;font-size:12px!important;font-weight:500!important;letter-spacing:.1em!important;text-transform:uppercase!important;color:#242223!important}
+@media (max-width:749px){:is(cart-items,cart-drawer) .mc-supply{font-size:11px!important;letter-spacing:.08em!important}}

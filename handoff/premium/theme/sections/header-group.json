@@ -1,0 +1,122 @@
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "bf_head": {
+      "type": "muto-bf-head",
+      "settings": {}
+    },
+    "muto-announce": {
+      "type": "muto-announce",
+      "blocks": {
+        "m1": {
+          "type": "message",
+          "settings": {
+            "text": "LIMITED NEW CUSTOMER OFFER",
+            "link": ""
+          }
+        },
+        "message_9VTmw7": {
+          "type": "message",
+          "settings": {
+            "text": "£77 OF FREE GIFTS WITH EACH ORDER",
+            "link": ""
+          }
+        },
+        "message_HJgaUy": {
+          "type": "message",
+          "settings": {
+            "text": "FREE ULTRAPURE CREATINE, BOTTLE, SOCKS, JAR, EBOOK",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "m1",
+        "message_9VTmw7",
+        "message_HJgaUy"
+      ],
+      "disabled": true,
+      "settings": {
+        "bg": "#5df9ff",
+        "ink": "#000000",
+        "speed": 5,
+        "label": "Store announcements"
+      }
+    },
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_9b3TUT": {
+          "type": "announcement",
+          "settings": {
+            "text": "USE CODE SUMMER20 FOR 20% OFF - ENDS SOON",
+            "countdown_date": "",
+            "link": "https://muto.co/discount/SUMMER20?redirect=/products/muto-nad-cellular-complex"
+          }
+        }
+      },
+      "block_order": [
+        "announcement_9b3TUT"
+      ],
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "color_scheme": "scheme-1",
+        "show_line_separator": false,
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "link_list_pk3XqU": {
+          "type": "link_list",
+          "settings": {
+            "drawer_menu": "main-menu-new-drawer"
+          }
+        },
+        "logo_caption_rUhAbw": {
+          "type": "logo_caption",
+          "settings": {
+            "image_caption": "<p>above the standard,</p><p>beneath the surface.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "link_list_pk3XqU",
+        "logo_caption_rUhAbw"
+      ],
+      "settings": {
+        "logo_position": "middle-left",
+        "mobile_logo_position": "center",
+        "menu": "main-menu-new",
+        "menu_position": "center",
+        "menu_type_desktop": "drawer_dropdown",
+        "sticky_header_type": "none",
+        "show_line_separator": false,
+        "color_scheme": "scheme-3",
+        "menu_color_scheme": "scheme-3",
+        "enable_search": false,
+        "enable_cart": true,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "enable_account": false,
+        "enable_customer_avatar": false,
+        "margin_bottom": 0,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    }
+  },
+  "order": [
+    "bf_head",
+    "muto-announce",
+    "announcement-bar",
+    "header"
+  ]
+}
