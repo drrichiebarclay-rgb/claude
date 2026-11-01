@@ -116,6 +116,6 @@ html:root body .mc .mc__buy-title::after{content:"Built for life after 35.";disp
 /* First "Includes" row names the plan's supply instead of the product */
 html:root body .mc .mc__inc-main .mc__inc-name{font-size:0!important}
 html:root body .mc .mc__inc-main .mc__inc-name::before{font-size:15px}
-html:root body .mc .mc__plans:has(> label.mc__plan:nth-of-type(2).is-selected) .mc__inc-main .mc__inc-name::before{content:"NAD⁺ Cellular Complex 3-Month Supply"}
-html:root body .mc .mc__plans:has(> label.mc__plan:nth-of-type(1).is-selected) .mc__inc-main .mc__inc-name::before{content:"NAD⁺ Cellular Complex 1-Month Supply"}
+html:root body .mc .mc__plans:has(> label.mc__plan:nth-of-type(2).is-selected) .mc__inc-main .mc__inc-name::before{content:"NAD⁺ Cellular Complex (x3)"}
+html:root body .mc .mc__plans:has(> label.mc__plan:nth-of-type(1).is-selected) .mc__inc-main .mc__inc-name::before{content:"NAD⁺ Cellular Complex (x1)"}
 @media (max-width:749px){html:root body .mc .mc__inc-main .mc__inc-name::before{font-size:14px}}
