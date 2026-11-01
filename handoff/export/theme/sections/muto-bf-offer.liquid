@@ -6,7 +6,7 @@
   The styles and the top bar are in muto-bf-head, in the header group.
   After Black Friday: delete this section from the footer, and muto-bf-head from the header.
 {%- endcomment -%}
-{%- if template.suffix == 'muto-nad-bf' and product != blank -%}
+{%- if template.suffix contains 'muto-nad-bf' and product != blank -%}
   <div class="mc-sbar" id="mc-sbar" role="region" aria-label="Choose a plan and add to cart" aria-hidden="true">
     <div class="mc-sbar__in">
       <div class="mc-sbar__prod">

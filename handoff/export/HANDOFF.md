@@ -87,6 +87,13 @@ Settings live in `templates/product.muto-nad-bf.json` → section `buy` (type `m
   - Gift total per plan (CSS, update if gifts change): 3-Month "Free gifts worth £87", 1-Month "£72".
   - Footer: `kit_foot_1..3` = 90-day guarantee (pop-up) · Free next-day delivery · Skip or cancel anytime (pop-up).
 
+## Premium version (optional, for review)
+
+`templates/product.muto-nad-bf-premium.json` is a copy of the Black Friday PDP that also loads
+`assets/muto-bf-premium.css` (quieter top bar, title block and buy box). Preview it with
+`?view=muto-nad-bf-premium`. To make it the default, assign the product to that template, or move the CSS into
+the standard template's load (`snippets/muto-bf-bar.liquid`).
+
 ## Things to check before going live
 
 0. **Gift values**: if a gift or its value changes, update the block in the template *and* the two totals in `muto-bf-extra.css` (search "Free gifts worth").
