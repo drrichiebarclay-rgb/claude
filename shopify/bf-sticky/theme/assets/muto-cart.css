@@ -136,3 +136,26 @@ cart-drawer .mc-cart-gift__img{display:none!important}
 cart-drawer .mc-cart-gift{padding:3px 0!important;font-size:14px}
 cart-drawer .mc-cart-gift__name,cart-drawer .mc-cart-gift__free{font-size:14px!important}
 cart-drawer .drawer__footer{border-top:1px solid rgba(36,34,35,.12)!important}
+
+/* ---- Elevated: more space, finer lines, quieter type ---- */
+cart-drawer .drawer__inner{padding:0 28px!important;border-left:0!important;box-shadow:-24px 0 60px rgba(20,24,30,.08)}
+cart-drawer .drawer__header{padding:28px 0 20px!important;border-bottom:1px solid rgba(36,34,35,.1)}
+cart-drawer .drawer__heading{font-size:22px!important;letter-spacing:-.01em!important}
+cart-drawer .cart-item{padding:24px 0!important;border-bottom-color:rgba(36,34,35,.1)!important}
+:is(cart-items,cart-drawer) .cart-item__name{font-size:16px!important;font-weight:500!important;line-height:1.3!important}
+:is(cart-items,cart-drawer) .product-option,cart-drawer .mc-cart-line--save{font-size:13.5px!important;line-height:1.5!important}
+:is(cart-items,cart-drawer) .price,:is(cart-items,cart-drawer) .cart-item__final-price{font-size:16px!important}
+:is(cart-items,cart-drawer) .cart-item__old-price{font-size:13px!important}
+:is(cart-items,cart-drawer) quantity-input.quantity{min-height:36px!important;width:104px!important;border-color:rgba(36,34,35,.18)!important}
+:is(cart-items,cart-drawer) .quantity__input{font-size:14px!important}
+:is(cart-items,cart-drawer) cart-remove-button .button{opacity:.55}
+:is(cart-items,cart-drawer) cart-remove-button .button:hover{opacity:1}
+cart-drawer .mc-cart-gifts__title{font-family:var(--mc-mono)!important;font-size:11px!important;letter-spacing:.14em!important;text-transform:uppercase!important}
+cart-drawer .mc-cart-gift__name{color:#3d3b3c!important}
+cart-drawer .drawer__footer{padding:22px 0 28px!important;border-top-color:rgba(36,34,35,.1)!important}
+:is(#main-cart-footer,cart-drawer) .totals{align-items:baseline!important}
+:is(#main-cart-footer,cart-drawer) .totals__total{font-family:var(--mc-mono)!important;font-size:11.5px!important;letter-spacing:.14em!important;text-transform:uppercase!important;color:#5c5a5b!important}
+:is(#main-cart-footer,cart-drawer) .totals__total-value,cart-drawer .mc-totals__now{font-size:24px!important;letter-spacing:-.015em!important}
+:is(#main-cart-footer,cart-drawer) .cart__checkout-button{min-height:58px!important;margin-top:18px!important;font-size:14px!important;letter-spacing:.14em!important}
+cart-items .title--primary{font-size:clamp(30px,3.4vw,48px)!important}
+@media (max-width:749px){cart-drawer .drawer__inner{padding:0 20px!important}}
