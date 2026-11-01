@@ -1,4 +1,4 @@
-# MUTO site refresh: developer handoff (31 Oct 2026)
+# MUTO site refresh: developer handoff (31 Oct – 1 Nov 2026)
 
 All work is on the unpublished preview theme **"Black Friday | Claim offer + sticky bar | 31 Oct"**
 (`gid://shopify/OnlineStoreTheme/203974869339`). Preview: https://muto.co/?preview_theme_id=203974869339
@@ -67,7 +67,29 @@ Uploaded for this work: `muto-science-ride.jpg` (offer banner), `muto-science-bo
 `muto-about-runclub.jpg`, `muto-about-microscope.jpg`, `muto-creatine-scoop.jpg`.
 These already exist on the store, so they don't need re-uploading if you publish this theme.
 
+## Black Friday PDP buy box (latest changes)
+
+Settings live in `templates/product.muto-nad-bf.json` → section `buy` (type `muto-pdp-v2-buy`); styling in
+`assets/muto-bf-extra.css` (loaded last on that template). Text that comes from CSS `content` is marked below.
+
+- **Title block** (desktop order: label, headline, rating, description, Black Friday line):
+  - Label: `eyebrow` = "NAD+ Cellular Complex" (hidden on mobile).
+  - Headline (the page's h1): `heading` = "More energy.\nFaster recovery."
+  - "Built for life after 35." is a smaller italic line added with `.mc__buy-title::after` (CSS).
+  - Rating: `rating_score` = "4.8 from 103 reviews", five stars.
+  - Description: `.mc-subhead::before` (CSS). Desktop: two lines. Mobile: one sentence then three ✓ lines
+    (Every dose on the label / No proprietary blends / Third-party tested).
+  - On mobile the product photo is first (`.mc__buy-media{order:-10}`).
+- **Plan box "Includes" list**: `kit_itemised: true` switches the section's built-in itemised list on.
+  - First row `kit_main` = "NAD+ Cellular Complex · Included"; then each `gift` block in price order with
+    `row_label`, struck `value` and "Free" (the bottle is 3-Month only via the block's `plans` = "2").
+  - A thin rule above "Includes:" (`.mc__kit::before`), the gift photo tiles and the old tick-list are hidden.
+  - Gift total per plan (CSS, update if gifts change): 3-Month "Free gifts worth £87", 1-Month "£72".
+  - Footer: `kit_foot_1..3` = 90-day guarantee (pop-up) · Free next-day delivery · Skip or cancel anytime (pop-up).
+
 ## Things to check before going live
+
+0. **Gift values**: if a gift or its value changes, update the block in the template *and* the two totals in `muto-bf-extra.css` (search "Free gifts worth").
 
 1. **Selling plans**: the BF buy box, sticky bars and offer banners find the Skio plans by name
    (`3-month` / `1-month` in the plan name). Currently 3-MONTH SUBSCRIPTION (694836494683) and
