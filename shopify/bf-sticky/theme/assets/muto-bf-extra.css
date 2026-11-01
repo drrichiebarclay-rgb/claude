@@ -56,7 +56,6 @@ html:root body .mc .mc__kit-sum > span:first-child::before{content:"Future month
 /* "The problem" stat figures (~50%, ~80%...): same weight as the section headings */
 html:root body .mc .mc__prb-fig{font-weight:500!important}
 /* ---- Title block: ★ 4.8 from 103 reviews · NAD+ CELLULAR COMPLEX · headline · one line ---- */
-html:root body .mc .mc__stars > *:nth-child(n+2){display:none!important}
 html:root body .mc .mc__buy-copy > .mc__eyebrow,html:root body .mc .mc__eyebrow{margin-top:12px!important;font-family:var(--mc-mono)!important;font-size:12px!important;font-weight:400!important;letter-spacing:.12em!important;text-transform:uppercase!important;color:#5c5a5b!important}
 html:root body .mc .mc__buy-title,html:root body .mc .mc__buy-copy > .mc__buy-title{margin-top:8px!important;text-wrap:balance}
 html:root body .mc .mc-subhead::before{content:"Five supplements in one daily jar for energy, recovery and healthy ageing. Every dose on the label."!important}
@@ -78,3 +77,14 @@ html:root body .mc .mc__inc-foot{margin-top:12px!important;padding-top:12px!impo
 }
 /* A rule between the plan and "Includes:", as in the screenshot */
 html:root body .mc .mc__plans > .mc__kit{border-top:1px solid #242223!important;margin-top:4px!important;padding-top:16px!important}
+/* Title block order: label, headline (three lines), five-star rating, description, Black Friday line */
+html:root body .mc .mc__buy-copy > .mc__eyebrow{order:-3!important;margin-top:0!important}
+html:root body .mc .mc__buy-copy > .mc__buy-title{order:-2!important;margin-top:10px!important;line-height:.95!important}
+html:root body .mc .mc__buy-copy > .mc__rating{order:-1!important;margin-top:16px!important}
+html:root body .mc .mc__rating-text{font-size:14px!important;font-weight:500!important}
+html:root body .mc .mc-subhead{margin-top:12px!important}
+html:root body .mc .mc-subhead::before{font-weight:400!important;color:#3d3b3c!important;line-height:1.45!important;max-width:44ch}
+@media (max-width:749px){
+  html:root body .mc .mc__buy-copy > .mc__buy-title{font-size:28px!important}
+  html:root body .mc .mc__buy-copy > .mc__rating{margin-top:12px!important}
+}
