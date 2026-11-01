@@ -1,11 +1,11 @@
-# MUTO site refresh: developer handoff (31 Oct – 1 Nov 2026)
+# MUTO site refresh: developer handoff (updated 1 Nov 2026)
 
 All work is on the unpublished preview theme **"Black Friday | Claim offer + sticky bar | 31 Oct"**
 (`gid://shopify/OnlineStoreTheme/203974869339`). Preview: https://muto.co/?preview_theme_id=203974869339
 
 Nothing has been published. `theme/` in this folder holds every file that differs from the live theme,
-in the theme's own folder layout, and each one matches the preview theme byte for byte (all 61 checked against
-Shopify's checksums at handover, 31 Oct). Simplest route to go live: **publish the preview theme**. If you merge
+in the theme's own folder layout, and each one matches the preview theme byte for byte (all 65 checked against
+Shopify's checksums at handover, 1 Nov). Simplest route to go live: **publish the preview theme**. If you merge
 into another theme instead, copy `theme/` over it and see "Files in the Files area" below.
 
 ## Pages changed
@@ -89,12 +89,20 @@ Settings live in `templates/product.muto-nad-bf.json` → section `buy` (type `m
 
 ## Cart (page and drawer)
 
-`assets/muto-cart.css`, loaded site-wide by `muto-bf-head`, restyles `/cart` (main-cart-items / main-cart-footer) and the cart drawer (`snippets/cart-drawer.liquid`) with CSS only: outlined boxes, brand fonts, mono labels, black checkout button. It targets stable classes, so the theme's re-rendering on quantity change keeps the styles.
+- `snippets/cart-drawer.liquid`: the only Liquid change is the saving line, now "You save £X" (no "every month" /
+  "every 3 months" / "on your first order").
+`assets/muto-cart.css`, loaded site-wide by `muto-bf-head`, restyles `/cart` (main-cart-items / main-cart-footer) and the cart drawer (`snippets/cart-drawer.liquid`) with CSS: white, hairline dividers, brand fonts, black checkout button. Hidden for a calmer cart: the per-day line,
+the selling plan name, the subscription promise box, payment and trust icons, the order note, the tax note and the gifts
+line in the totals. A line under checkout reads "Free UK delivery on subscriptions · 90-day money-back guarantee /
+Order before 9pm and receive it next day." (`.cart__ctas::after`). It targets stable classes, so the theme's re-rendering on quantity change keeps the styles.
 
-## Premium version (optional, for review)
+## Premium version (recommended to go live)
 
 `templates/product.muto-nad-bf-premium.json` is a copy of the Black Friday PDP that also loads
-`assets/muto-bf-premium.css` (quieter top bar, title block and buy box). Preview it with
+`assets/muto-bf-premium.css`: Reformed-inspired, minimal styling of the top bar, title block, buy box (black
+"Best value" band on the 3-Month plan, Includes list, black add to cart, outlined drop-downs) and a light-touch pass on
+the rest of the page (white backgrounds, hairline cards, mono tags). Mobile is simplified further (unselected plan
+collapses, two-column footer, slightly larger body copy). Preview it with
 `?view=muto-nad-bf-premium`. To make it the default, assign the product to that template, or move the CSS into
 the standard template's load (`snippets/muto-bf-bar.liquid`).
 
