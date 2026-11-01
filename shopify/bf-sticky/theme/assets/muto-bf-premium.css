@@ -228,3 +228,38 @@ html:root body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-save::be
   html:root body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-save{height:36px!important;padding:0 10px!important}
   html:root body .mc .mc__plans > label.mc__plan:nth-of-type(2) .mc__plan-save::before{font-size:10px;letter-spacing:.06em}
 }
+
+/* =========================================================================================
+   The rest of the page, light touch (this file only loads on the premium template):
+   white throughout, hairline cards instead of grey fills, mono tags instead of lime pills,
+   a calmer section bar. Layout and content unchanged.
+   ========================================================================================= */
+html:root body.template-product #MainContent,
+html:root body #MainContent > .shopify-section:not([id$="__buy"]) .mc,
+html:root body #MainContent > .shopify-section .mh,
+html:root body #MainContent > .shopify-section .mh--field-board,
+html:root body #MainContent [id$="__board"],html:root body #MainContent [id$="__board"] .mh{background:#fff!important;background-image:none!important}
+/* Problem and standards cards: white with a hairline */
+html:root body .mc .mc__prb-item,html:root body .mc .mc__std-item{background:#fff!important;border:1px solid rgba(36,34,35,.14)!important;border-radius:8px!important;box-shadow:none!important}
+html:root body .mc .mc__prb-fig{font-weight:500!important;letter-spacing:-.03em!important}
+html:root body .mc .mc__prb-fig + *,html:root body .mc .mc__prb-text{font-weight:400!important;color:#3d3b3c!important}
+/* Tags: mono text, no lime pill, no sparkle */
+html:root body .mc .mc__trust-tag{padding:0!important;border-radius:0!important;background:none!important;font-family:var(--mc-mono)!important;font-size:11.5px!important;font-weight:400!important;letter-spacing:.12em!important;text-transform:uppercase!important;color:#5c5a5b!important}
+html:root body .mc .mc__trust-spark{display:none!important}
+html:root body .mc .mc__prb-pill{padding:0!important;background:none!important;border:0!important;font-family:var(--mc-mono)!important;font-size:12px!important;letter-spacing:.14em!important;color:#5c5a5b!important}
+/* Accent bar under figures: thin ink line instead of turquoise */
+html:root body .mc .mc__prb-item [class*="bar"],html:root body .mc .mc__prb-item hr{background:#242223!important;height:1px!important}
+/* Section bar: white, finer chips */
+html:root body .msn__nav{background:rgba(255,255,255,.96)!important;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+html:root body .msn__nav a{height:38px!important;border-color:rgba(36,34,35,.16)!important;font-size:13px!important;font-weight:400!important;letter-spacing:.06em!important}
+html:root body .msn__nav a.is-on{background:#242223!important;border-color:#242223!important}
+html:root body .msn__bar{background:#242223!important;height:1px!important}
+/* Reviews carousel: outlined quote cards on white */
+html:root body .mlv__card--q .mlv__box{background:#fff!important;border:1px solid rgba(36,34,35,.14)!important}
+html:root body .mlv .mlv__q{font-weight:400!important}
+/* Benefits tabs and photo chips: finer */
+html:root body .mbp__tab{font-weight:400!important;border-color:rgba(36,34,35,.16)!important}
+html:root body .mbp__chip,html:root body .mht__chip{background:rgba(255,255,255,.96)!important;font-weight:400!important}
+/* Buttons below the buy box: black, matching */
+html:root body .mrg__btn,html:root body .msc__btn{background:#242223!important;color:#fff!important;border-radius:6px!important}
+html:root body .mrg__btn:hover,html:root body .msc__btn:hover{background:#000!important}
