@@ -162,7 +162,7 @@ html:root body .mc .mc__acc-sum{min-height:58px!important;padding:0 18px!importa
    Brand pass: Reformed's layout in MUTO's type. Neue Haas Grotesk Display throughout the buy box,
    the site's uppercase heading, Sometype Mono capitals for labels.
    ========================================================================================= */
-#MainContent [id$="__buy"] .mc,#MainContent [id$="__buy"] .mc *:not(svg):not(path){font-family:var(--mc-font)!important}
+:where(#MainContent [id$="__buy"] .mc),:where(#MainContent [id$="__buy"] .mc) :where(*:not(svg):not(path)){font-family:var(--mc-font)!important}
 /* Headline: the site's heading (uppercase, 500, tight) */
 html:root body .mc .mc__buy-copy > .mc__buy-title{font-weight:500!important;text-transform:uppercase!important;letter-spacing:-.014em!important;line-height:.95!important;font-size:clamp(32px,3vw,44px)!important}
 html:root body .mc .mc__buy-title::after{text-transform:none!important;font-weight:400!important;font-size:.5em!important;letter-spacing:-.005em!important;line-height:1.25!important}
