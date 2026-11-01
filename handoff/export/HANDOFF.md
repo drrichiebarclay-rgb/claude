@@ -87,6 +87,10 @@ Settings live in `templates/product.muto-nad-bf.json` → section `buy` (type `m
   - Gift total per plan (CSS, update if gifts change): 3-Month "Free gifts worth £87", 1-Month "£72".
   - Footer: `kit_foot_1..3` = 90-day guarantee (pop-up) · Free next-day delivery · Skip or cancel anytime (pop-up).
 
+## Cart (page and drawer)
+
+`assets/muto-cart.css`, loaded site-wide by `muto-bf-head`, restyles `/cart` (main-cart-items / main-cart-footer) and the cart drawer (`snippets/cart-drawer.liquid`) with CSS only: outlined boxes, brand fonts, mono labels, black checkout button. It targets stable classes, so the theme's re-rendering on quantity change keeps the styles.
+
 ## Premium version (optional, for review)
 
 `templates/product.muto-nad-bf-premium.json` is a copy of the Black Friday PDP that also loads
