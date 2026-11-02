@@ -100,3 +100,14 @@ What changed:
 - **Per-section CSS**: nothing PDP-specific loads site-wide any more. Site type, header, cart and menu CSS is in "MUTO — Site styles"; the BF buy box CSS only loads where "MUTO — BF page styles" is added; the sticky add to cart is its own footer section (on every page except cart, password, gift card and giveaway).
 - **Menu drawer**: white panel, MUTO type in #242223 with thin dividers, mono "← Shop" back link, black Log in button (was the dark #2b2a2b panel with a turquoise button).
 - **Bottle and socks sticky bar**: with one option, the picker next to Add to cart is hidden, so "Performance Bottle" shows once.
+
+## Update, 2 Nov: new menu drawer (MUTO — Menu)
+
+`sections/muto-menu.liquid`, in the header group (`muto_menu`, menu "Main Menu New Drawer", Log in link to `/a/account/login`). Uploaded and checked. It fills the theme's drawer with:
+- a brand line ("Cellular longevity" / "Above the standard, beneath the surface."),
+- Shop: each product in the menu's Shop link with its photo and an arrow,
+- an offer card (Black Friday · Live now, 3 months for £99, Claim offer), editable or switched off in the section settings,
+- the other links grouped (Explore: Story, Blog; Science; Support), two columns,
+- Log in and the social icons.
+
+Dark MUTO panel with turquoise accents, Neue Haas type and Sometype Mono labels. The theme's own drawer script still opens and closes it. Removing the section brings the theme's plain drawer back. The old drawer CSS is gone from MUTO — Site styles.
