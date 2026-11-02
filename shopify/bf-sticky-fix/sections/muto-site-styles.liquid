@@ -83,21 +83,35 @@
   html body.template-index .header-wrapper{background-color:transparent!important}
   /* The site menu sits above everything on the page, on a solid panel */
   html body .section-header{z-index:30!important}
-  /* Menu drawer (phones): the same look as the header and pages. White panel, MUTO type in #242223,
-     thin dividers, black Log in button as the add to cart buttons */
+  /* Menu drawer: a plain white list like the header. Text at 18px, hairline rules, no boxes or grey fills;
+     Log in full width at the foot with the social icons in a row under it */
   html body .menu-drawer,html body .menu-drawer__submenu{--color-foreground:36,34,35;--color-background:255,255,255;background:#fff!important;color:#242223!important;font-family:var(--mc-font)!important}
-  html body .menu-drawer__navigation{padding:12px 0!important}
-  html body .menu-drawer__menu-item{font-family:var(--mc-font)!important;font-size:20px!important;font-weight:500!important;letter-spacing:-.01em;color:#242223!important;padding:14px 24px!important;border-bottom:1px solid rgba(36,34,35,.08)}
-  html body .menu-drawer summary.menu-drawer__menu-item{padding-right:52px!important}
-  html body .menu-drawer__menu-item > .svg-wrapper{right:24px!important;color:#242223}
-  html body .menu-drawer__menu-item:hover,html body .menu-drawer__menu-item--active,html body .menu-drawer__close-button:hover{background:#f6f6f6!important;color:#242223!important}
-  html body .menu-drawer__close-button{font-family:var(--mc-mono)!important;font-size:12px!important;text-transform:uppercase;letter-spacing:.06em;color:#242223!important;padding:14px 24px!important;margin-top:4px!important}
-  html body .menu-drawer__utility-links{background:#f6f6f6!important;padding:20px 24px!important}
-  html body .menu-drawer__utility-links .button{display:flex!important;align-items:center;justify-content:center;width:100%;min-height:48px!important;border-radius:10px!important;background:#242223!important;color:#fff!important;font-family:var(--mc-font)!important;font-size:15px!important;font-weight:500!important;letter-spacing:0;box-shadow:none!important}
+  html body .menu-drawer__navigation-container,html body .menu-drawer__inner-submenu{padding:0!important}
+  html body .menu-drawer__navigation{padding:8px 0 0!important;margin:0!important}
+  html body .menu-drawer__menu{padding:0!important;margin:0!important}
+  html body .menu-drawer__menu > li{margin:0!important;padding:0!important;height:auto!important;min-height:0!important;border:0!important;background:none!important}
+  html body .menu-drawer__menu-item{display:flex!important;align-items:center;min-height:0!important;height:auto!important;margin:0 20px!important;padding:16px 0!important;
+    font-family:var(--mc-font)!important;font-size:18px!important;line-height:1.2!important;font-weight:500!important;letter-spacing:-.01em;color:#242223!important;
+    background:none!important;border:0!important;border-bottom:1px solid rgba(36,34,35,.1)!important;border-radius:0!important;box-shadow:none!important;text-decoration:none!important}
+  html body .menu-drawer summary.menu-drawer__menu-item{padding-right:32px!important}
+  html body .menu-drawer__menu-item > .svg-wrapper{right:0!important;width:14px!important;color:#242223;opacity:.6}
+  html body .menu-drawer__menu-item:hover,html body .menu-drawer__menu-item:focus,html body .menu-drawer__menu-item--active,
+  html body .menu-drawer__close-button:hover,html body .menu-drawer__close-button:focus{background:none!important;color:#242223!important;opacity:.65}
+  html body .menu-drawer__close-button{display:flex!important;align-items:center;margin:8px 0 4px!important;padding:12px 20px!important;background:none!important;border:0!important;
+    font-family:var(--mc-mono)!important;font-size:11px!important;text-transform:uppercase;letter-spacing:.08em;color:#242223!important}
+  html body .menu-drawer__close-button .svg-wrapper{width:12px!important;margin-right:10px!important}
+  html body .menu-drawer__utility-links{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:14px!important;background:#fff!important;padding:20px 20px calc(20px + env(safe-area-inset-bottom))!important;margin:0!important;border:0!important}
+  html body .menu-drawer__utility-links .button{order:0;display:flex!important;align-items:center;justify-content:center;width:100%!important;min-width:0!important;height:48px!important;min-height:0!important;margin:0!important;padding:0 20px!important;
+    border:0!important;border-radius:8px!important;background:#242223!important;color:#fff!important;font-family:var(--mc-font)!important;font-size:15px!important;font-weight:500!important;letter-spacing:0!important;box-shadow:none!important}
   html body .menu-drawer__utility-links .button::before,html body .menu-drawer__utility-links .button::after{display:none!important}
   html body .menu-drawer__utility-links .button:hover{background:#000!important}
-  html body .menu-drawer .list-social{margin-top:12px}
-  html body .menu-drawer .list-social__link{color:#242223!important}
+  html body .menu-drawer .list-social{order:1;display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;justify-content:center!important;gap:0!important;margin:0!important;padding:0!important;width:auto!important}
+  html body .menu-drawer .list-social__item{margin:0!important;padding:0!important;border:0!important;background:none!important;width:auto!important;height:auto!important}
+  html body .menu-drawer .list-social__link{display:flex!important;padding:6px!important;border:0!important;outline:0;background:none!important;box-shadow:none!important;color:#242223!important;opacity:.7}
+  html body .menu-drawer .list-social__link:hover{opacity:1}
+  html body .menu-drawer .list-social__link .svg-wrapper,html body .menu-drawer .list-social__link svg{width:30px!important;height:30px!important;border:0!important;outline:0!important;box-shadow:none!important;background:none!important}
+  /* The theme's social icons draw a square frame as their last path: hidden here */
+  html body .menu-drawer .list-social__link svg path:last-child:not(:first-child){display:none!important}
   /* "On this page" links: hidden where they sit in the page; they appear pinned to the top once you scroll past */
   html:root body .msn{height:0!important;overflow:visible}
   html:root body .msn__nav:not(.is-fixed){visibility:hidden;opacity:0;pointer-events:none}
