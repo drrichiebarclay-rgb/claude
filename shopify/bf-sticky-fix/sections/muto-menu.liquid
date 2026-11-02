@@ -36,12 +36,12 @@
 -%}
 <style>
   /* Same panel as the side cart (assets/muto-cart.css): white, full height from the top of the page, hairline
-     rules, Neue Haas text, Sometype Mono labels, black uppercase buttons. It slides in from the left. */
-  html body #menu-drawer.mmd{--color-foreground:36,34,35;--color-background:255,255,255;position:fixed!important;top:0!important;left:0!important;bottom:0!important;
+     rules, Neue Haas text, Sometype Mono labels, black uppercase buttons. It slides in from the right, as the cart does. */
+  html body #menu-drawer.mmd{--color-foreground:36,34,35;--color-background:255,255,255;position:fixed!important;top:0!important;right:0!important;left:auto!important;bottom:0!important;transform:translateX(100%);
     height:100vh!important;height:100dvh!important;width:40rem!important;max-width:calc(100vw - 3rem)!important;z-index:1001!important;
     background:#fff!important;color:#242223!important;font-family:var(--mc-font)!important;border:0!important;filter:none!important;
-    box-shadow:24px 0 60px rgba(20,24,30,.08),0 0 0 100vmax rgba(36,34,35,0);transition:transform var(--duration-default,.3s) ease,visibility var(--duration-default,.3s) ease,box-shadow .3s ease!important}
-  html body details[open].menu-opening > #menu-drawer.mmd{box-shadow:24px 0 60px rgba(20,24,30,.08),0 0 0 100vmax rgba(36,34,35,.45)}
+    box-shadow:-24px 0 60px rgba(20,24,30,.08),0 0 0 100vmax rgba(36,34,35,0);transition:transform var(--duration-default,.3s) ease,visibility var(--duration-default,.3s) ease,box-shadow .3s ease!important}
+  html body details[open].menu-opening > #menu-drawer.mmd{transform:translateX(0);box-shadow:-24px 0 60px rgba(20,24,30,.08),0 0 0 100vmax rgba(36,34,35,.45)}
   /* The page dims through the panel's shadow, so the theme's own dimmer under the header goes clear;
      it still closes the menu when tapped. The header sits above the page while the menu is open. */
   html body:has(#menu-drawer.mmd) header-drawer summary::before{background:transparent!important}

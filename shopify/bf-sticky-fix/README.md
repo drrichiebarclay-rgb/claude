@@ -114,6 +114,6 @@ Dark MUTO panel with turquoise accents, Neue Haas type and Sometype Mono labels.
 
 ## Update, 2 Nov: menu and empty cart in the side cart's design
 
-- **MUTO — Menu** now matches the side cart: a white panel the full height of the page (from the top, over the header), sliding in from the left with the page dimmed behind. It has a "MENU" heading with a ✕, hairline rules, mono labels, product lines like the cart's, and a black uppercase Log in button like Checkout. The ✕ closes it through the theme's own menu button. The brand line is gone.
+- **MUTO — Menu** now matches the side cart: a white panel the full height of the page (from the top, over the header), sliding in from the right like the cart (changed from the left on request), with the page dimmed behind. It has a "MENU" heading with a ✕, hairline rules, mono labels, product lines like the cart's, and a black uppercase Log in button like Checkout. The ✕ closes it through the theme's own menu button. The brand line is gone.
 - **Offer card**: the photo `muto-menu-offer.jpg` (uploaded to Files, `shopify://shop_images/muto-menu-offer.jpg`, also in `assets/` here) runs the full card, with the text in its dark top and a white uppercase "Claim offer" button.
 - **Empty cart** (`assets/muto-cart-empty.css`, loaded by MUTO — Site styles): "YOUR CART IS EMPTY" as the cart's heading at the top with a hairline, a black uppercase full-width "Continue shopping" like Checkout, and "Have an account?" as a mono label.
