@@ -3,7 +3,7 @@
   site-wide muto-sci-sticky), so they match that page's bar exactly. The product page gets these sizes from
   muto-bf-type.css and the desktop step from muto-bf-extra.css, which only load there; the same values are
   repeated here, scoped to .mc-sbar--site and .mc-sbar--section. Also: price inside the button, no divider,
-  turquoise button. Render once per bar; the rules are the same each time.
+  black button (as on the premium page). Render once per bar; the rules are the same each time.
 {%- endcomment -%}
 <style>
   html:root body{padding-bottom:74px}
@@ -17,8 +17,10 @@
   :is(.mc-sbar--site,.mc-sbar--section) .mc-sbar__pick-sub{font-size:12px;margin-top:1px}
   :is(.mc-sbar--site,.mc-sbar--section) .mc-sbar__btn{height:48px;min-width:180px;padding:0 22px;border-radius:10px;font-size:15px}
   :is(.mc-sbar--site,.mc-sbar--section) .mc-sbar__btn-sep{display:none!important}
-  html:root body :is(.mc-sbar--site,.mc-sbar--section).mc-sbar .mc-sbar__btn{background:#5efaff!important;color:#242223!important}
-  html:root body :is(.mc-sbar--site,.mc-sbar--section).mc-sbar .mc-sbar__btn:hover{background:#3ef0f6!important;filter:none}
+  /* Button as on the premium Black Friday product page (muto-bf-premium.css): black, white text */
+  html:root body :is(.mc-sbar--site,.mc-sbar--section).mc-sbar .mc-sbar__btn{background:#242223!important;color:#fff!important;border-color:#242223!important}
+  html:root body :is(.mc-sbar--site,.mc-sbar--section).mc-sbar .mc-sbar__btn *{color:#fff!important}
+  html:root body :is(.mc-sbar--site,.mc-sbar--section).mc-sbar .mc-sbar__btn:hover{background:#000!important;filter:none}
   :is(.mc-sbar--site,.mc-sbar--section) .mc-sbar__btn[aria-busy="true"]{opacity:.7;cursor:progress}
   @media (max-width:749px){
     html:root body{padding-bottom:64px}
