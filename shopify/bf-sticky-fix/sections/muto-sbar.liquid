@@ -40,6 +40,11 @@
   if tname == 'cart' or tname == 'password' or tname == 'gift_card' or tsuffix contains 'give-away'
     assign skip = true
   endif
+  # Site-wide bar on the NAD+ product page: the Black Friday line under the name, unless one is set
+  assign sub_line = s.sub
+  if auto and sub_line == blank and p != blank and p.handle == 'muto-nad-cellular-complex'
+    assign sub_line = 'Black Friday · 3 months for £99'
+  endif
   assign on_bf_pdp = false
   if template.suffix contains 'muto-nad-bf' and product != blank
     if s.product == blank or s.product.id == product.id
@@ -59,7 +64,7 @@
     p: p,
     bar_id: bar_id,
     label: s.label,
-    sub_line: s.sub,
+    sub_line: sub_line,
     button: s.button,
     after_add: s.after_add,
     show_after: s.show_after,
@@ -106,6 +111,6 @@
     { "type": "checkbox", "id": "schema_on", "label": "Emit product structured data", "default": true }
   ],
   "presets": [{ "name": "MUTO — Sticky add to cart" }],
-  "enabled_on": { "templates": ["index", "product", "page", "collection", "article", "blog", "list-collections"] }
+  "enabled_on": { "templates": ["index", "product", "page", "collection", "article", "blog", "list-collections"], "groups": ["footer"] }
 }
 {% endschema %}

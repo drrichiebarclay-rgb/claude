@@ -87,13 +87,14 @@ The bar markup moved from `sections/muto-sbar.liquid` into `snippets/muto-sbar-b
 
 ## Update, 2 Nov: CSS split by section (Mehul), menu drawer, no doubled name
 
-**Not uploaded yet** (the upload approval failed). Copy these by hand, in this order:
+**Uploaded** to the Black Friday theme (203974869339); every file checked against the theme's checksums. The header group now starts with "MUTO — Site styles" (`site_styles`), and the footer group ends with "MUTO — Sticky add to cart" (`sticky_atc`, structured data off; the section now allows the footer group). `muto-bf-head` is the slimmed version.
 
-1. **New sections**: `sections/muto-site-styles.liquid` ("MUTO — Site styles") and `sections/muto-bf-style.liquid` ("MUTO — BF page styles").
-2. **Changed**: `sections/muto-bf-topbar.liquid`, `sections/muto-sbar.liquid`, `sections/muto-bf-offer.liquid`, `snippets/muto-sbar-bar.liquid`.
-3. **Theme editor, Header**: add "MUTO — Site styles" and drag it to the top. **Footer**: add "MUTO — Sticky add to cart" (leave Product blank, untick "Emit product structured data").
-4. **Both Black Friday templates** (`muto-nad-bf`, `muto-nad-bf-premium`): add "MUTO — BF page styles" directly above "MUTO PDP v2 — Buy" (Design: Premium on the premium one) and "MUTO — BF top bar".
-5. **Last**: copy the slimmed `sections/muto-bf-head.liquid`, check the BF pages, then delete "MUTO — Black Friday head" from the header.
+Left for Mehul, in the theme editor:
+1. **Both Black Friday templates** (`muto-nad-bf`, `muto-nad-bf-premium`): add "MUTO — BF page styles" directly above "MUTO PDP v2 — Buy" (Design: Premium on the premium one) and "MUTO — BF top bar".
+2. Check both BF pages, then delete "MUTO — Black Friday head" from the header.
+3. To bring this to the live theme ("Clone Of Live | Buy Box Redesign"), copy the same 7 files plus the two group changes.
+
+The page styles section doesn't load `muto-bf-layout.js`: "MUTO — Black Friday offer" in the footer already does. The footer sticky bar keeps the old head's "Black Friday · 3 months for £99" line on the NAD+ product page.
 
 What changed:
 - **Per-section CSS**: nothing PDP-specific loads site-wide any more. Site type, header, cart and menu CSS is in "MUTO — Site styles"; the BF buy box CSS only loads where "MUTO — BF page styles" is added; the sticky add to cart is its own footer section (on every page except cart, password, gift card and giveaway).

@@ -2,7 +2,8 @@
   MUTO — BF page styles (muto-bf-style). Add it to a Black Friday product template, directly ABOVE the
   "MUTO PDP v2 — Buy" section, so the styles load before the buy box is drawn (no flash of the old design).
   Loads the Black Friday CSS for the buy box and the sections below it, the premium design when chosen,
-  the new comparison and fold copy, and the gallery arrows / testing button script.
+  and the new comparison and fold copy. The gallery arrows / testing button script (muto-bf-layout.js)
+  is loaded by MUTO — Black Friday offer in the footer.
   The top bar is its own section (MUTO — BF top bar) and the sticky plan bar is MUTO — Black Friday offer.
   Nothing here is site-wide: remove this section and only this template changes.
 {%- endcomment -%}
@@ -64,7 +65,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
-<script src="{{ 'muto-bf-layout.js' | asset_url }}" defer="defer"></script>
 
 {% schema %}
 {
