@@ -122,3 +122,8 @@ Dark MUTO panel with turquoise accents, Neue Haas type and Sometype Mono labels.
 
 - Menu product photos load at up to 400px (`widths: 192, 256, 400`, `sizes: 64px`) instead of 160px, so they're sharp on phones. The offer photo loads at up to 1200px.
 - New settings in MUTO — Menu: **Shop photos**, one optional photo per Shop item in menu order. Item 1 (NAD⁺) uses the jar-only photo `muto-menu-nad-jar.jpg` (in Files and in `assets/` here).
+
+## Update, 2 Nov: menu close button, buttons like the product page
+
+- **MUTO — Menu** is now its own panel on the page body, like the cart drawer, instead of living inside Dawn's header drawer. The header's menu icon opens it, and its ✕ (pinned to the top of the panel), the dimmed page, Esc and any link close it. Scroll is locked while it's open, and Dawn's own drawer is hidden. Tested in a browser: open with the icon, then close with ✕, the backdrop and Esc.
+- **Buttons on home, science, about, ingredients, standards, FAQs and range pages** (`.msc__btn`, `.mrg__btn`, `.mil__cat-btn`, `.mtr__cta`) now match the premium product page's Add to cart: black, white uppercase text (letter-spacing .04em), 4px corners, 60px tall (56px on phones), black hover. The home hero button (`.mtop__btn`) is the same shape in white, because it sits on a dark photo. Outlined buttons (`.msc__tbtn`, `.mtr-btn`, outside the product page's buy box) get the same corners and type. All of this is in MUTO — Site styles.

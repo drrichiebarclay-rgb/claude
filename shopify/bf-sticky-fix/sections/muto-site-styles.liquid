@@ -66,9 +66,18 @@
   html body .mtr__t td,html body .mtr__row small,html body .mtr__doc,html body .mtr__batch,html body .mtr__tab b,html body .mtr__cert-meta,html body .mtr__cert-row > span:last-child,
   html body .mil__filter .n,html body .mil__dose,html body .mil__tag,html body .mil__cat-label,html body .mil__eyebrow{text-transform:uppercase!important;letter-spacing:.06em}
   html body .mtr__t td:first-child{text-transform:none!important;letter-spacing:0}
-  /* One button style: turquoise, 8px corners, as the add to cart */
-  html body .mil__cat-btn,html body .mtr .mtr__cta{display:inline-flex!important;align-items:center;justify-content:center;min-height:56px!important;padding:0 32px!important;border-radius:8px!important;background:#5efaff!important;color:#242223!important;font-family:var(--mc-font)!important;font-size:16px!important;font-weight:500!important;text-decoration:none!important}
-  html body .mil__cat-btn:hover{background:#3ef0f6!important;opacity:1!important}
+  /* Buttons as the product page's Add to cart (premium design): black, white uppercase text, 4px corners,
+     60px tall; black hover. Home, science, about, ingredients, standards, FAQs and range pages. */
+  html body :is(.msc__btn,.mrg__btn,.mil__cat-btn,.mtr .mtr__cta,.mtop__btn){display:inline-flex!important;align-items:center;justify-content:center;min-height:60px!important;padding:0 32px!important;
+    border:0!important;border-radius:4px!important;background:#242223!important;color:#fff!important;box-shadow:none!important;
+    font-family:var(--mc-font)!important;font-size:16px!important;font-weight:500!important;letter-spacing:.04em!important;text-transform:uppercase!important;text-decoration:none!important;transition:background .2s}
+  html body :is(.msc__btn,.mrg__btn,.mil__cat-btn,.mtr .mtr__cta,.mtop__btn):hover{background:#000!important;opacity:1!important}
+  /* The home page's first button sits on a dark photo: the same button in white */
+  html:root body .mtop__btn.mtop__btn{background:#fff!important;color:#242223!important}
+  html:root body .mtop__btn.mtop__btn:hover{background:#ececea!important}
+  /* Outlined buttons (lab results, certificates): the same corners and type */
+  html body :is(.msc__tbtn,.mtr-btn):not(.mc *){border-radius:4px!important;font-family:var(--mc-font)!important;font-weight:500!important;letter-spacing:.04em!important;text-transform:uppercase!important}
+  @media (max-width:749px){html body :is(.msc__btn,.mrg__btn,.mil__cat-btn,.mtr .mtr__cta,.mtop__btn){min-height:56px!important;font-size:15px!important}}
   /* Header: plain everywhere. No navy band and no glass pills; black logo, nav and icons. On the home page
      it sits over the opening photo, so it stays white there. */
   html body header.header,html body .header__heading-link,html body .header__wrapper{background:transparent!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}

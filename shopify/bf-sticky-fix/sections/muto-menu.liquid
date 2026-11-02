@@ -6,8 +6,8 @@
   - the other links grouped under their parent (Science, Support) or "Explore" (single links),
   - an offer card (Black Friday by default; switch it off after),
   - account and social links.
-  The drawer opening, closing and focus handling stay the theme's own. Nothing here touches the page itself.
-  Remove this section and the theme's plain drawer comes back.
+  The panel is its own element on the page body (like the cart drawer): the header's menu icon opens it; its X,
+  the dimmed page and Esc close it. Remove this section and the theme's plain drawer comes back.
 {%- endcomment -%}
 {%- liquid
   assign s = section.settings
@@ -35,23 +35,25 @@
   endif
 -%}
 <style>
-  /* Same panel as the side cart (assets/muto-cart.css): white, full height from the top of the page, hairline
-     rules, Neue Haas text, Sometype Mono labels, black uppercase buttons. It slides in from the right, as the cart does. */
-  html body #menu-drawer.mmd{--color-foreground:36,34,35;--color-background:255,255,255;position:fixed!important;top:0!important;right:0!important;left:auto!important;bottom:0!important;transform:translateX(100%);
-    height:100vh!important;height:100dvh!important;width:40rem!important;max-width:calc(100vw - 3rem)!important;z-index:1001!important;
-    background:#fff!important;color:#242223!important;font-family:var(--mc-font)!important;border:0!important;filter:none!important;
-    box-shadow:-24px 0 60px rgba(20,24,30,.08),0 0 0 100vmax rgba(36,34,35,0);transition:transform var(--duration-default,.3s) ease,visibility var(--duration-default,.3s) ease,box-shadow .3s ease!important}
-  html body details[open].menu-opening > #menu-drawer.mmd{transform:translateX(0);box-shadow:-24px 0 60px rgba(20,24,30,.08),0 0 0 100vmax rgba(36,34,35,.45)}
-  /* The page dims through the panel's shadow, so the theme's own dimmer under the header goes clear;
-     it still closes the menu when tapped. The header sits above the page while the menu is open. */
-  html body:has(#menu-drawer.mmd) header-drawer summary::before{background:transparent!important}
-  html body:has(#Details-menu-drawer-container[open]) .section-header{position:relative;z-index:1001!important}
-  #menu-drawer.mmd .menu-drawer__inner-container{height:100%;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+  /* Same panel as the side cart (assets/muto-cart.css): white, full height, sliding in from the right over a dimmed
+     page; hairline rules, Neue Haas text, Sometype Mono labels, black uppercase buttons. The panel is its own
+     element on the page body (like the cart drawer), so nothing in the header can cover or clip it. */
+  .mmd-root{position:fixed;inset:0;z-index:2147483000;visibility:hidden;pointer-events:none;transition:visibility 0s linear .32s}
+  .mmd-root.is-open{visibility:visible;pointer-events:auto;transition:none}
+  .mmd-ovl{position:absolute;inset:0;background:rgba(36,34,35,.45);opacity:0;transition:opacity .3s ease}
+  .mmd-root.is-open .mmd-ovl{opacity:1}
+  .mmd-panel{position:absolute;top:0;right:0;bottom:0;width:40rem;max-width:calc(100vw - 3rem);overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;
+    background:#fff;color:#242223;font-family:var(--mc-font);box-shadow:-24px 0 60px rgba(20,24,30,.12);transform:translateX(100%);transition:transform .32s cubic-bezier(.2,0,.2,1);outline:0}
+  .mmd-root.is-open .mmd-panel{transform:none}
+  @media (prefers-reduced-motion:reduce){.mmd-ovl,.mmd-panel{transition:none}}
+  html.mmd-lock,html.mmd-lock body{overflow:hidden!important}
+  /* The theme's own drawer is not used while this section is on */
+  html body:has(.mmd-root) #menu-drawer{display:none!important}
   .mmd__in{display:flex;flex-direction:column;min-height:100%;padding:0 28px calc(28px + env(safe-area-inset-bottom));box-sizing:border-box}
   .mmd a{color:inherit;text-decoration:none}
-  .mmd__head{display:flex;align-items:center;justify-content:space-between;padding:28px 0 20px;border-bottom:1px solid rgba(36,34,35,.1);margin-bottom:24px}
+  .mmd__head{position:sticky;top:0;z-index:2;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:28px 0 20px;border-bottom:1px solid rgba(36,34,35,.1);margin-bottom:24px}
   .mmd__title{margin:0;font-size:22px;line-height:1;font-weight:500;letter-spacing:-.01em;text-transform:uppercase;color:#242223}
-  .mmd__x{display:flex;align-items:center;justify-content:center;width:40px;height:40px;margin:-8px -10px -8px 0;padding:0;border:0;background:none;color:#242223;cursor:pointer}
+  .mmd__x{flex:0 0 auto;display:flex!important;visibility:visible!important;align-items:center;justify-content:center;width:40px;height:40px;margin:-8px -10px -8px 0;padding:0;border:0;background:none;color:#242223;cursor:pointer}
   .mmd__x svg{width:20px;height:20px}
   .mmd__label{display:flex;justify-content:space-between;align-items:baseline;margin:0 0 4px;font-family:var(--mc-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#5c5a5b}
   .mmd__label a{color:#5c5a5b;text-decoration:underline;text-underline-offset:3px}
@@ -193,26 +195,50 @@
   </div>
 </template>
 <script>
-  /* Put the MUTO menu into the theme's drawer. The drawer's own script keeps opening, closing and focus. */
+  /* The MUTO menu panel. The header's menu icon opens it (the theme's own drawer stays closed); the X, the dimmed
+     page and Esc close it. */
   (function () {
-    function swap() {
-      var d = document.getElementById('menu-drawer'), t = document.getElementById('mmd-tpl');
-      if (!d || !t || d.classList.contains('mmd')) return;
-      var box = d.querySelector('.menu-drawer__inner-container');
-      if (!box) return;
-      box.innerHTML = '';
-      box.appendChild(t.content.cloneNode(true));
-      d.classList.add('mmd');
-      /* Close: the same as tapping the header's menu icon, so the theme closes it with its animation */
-      var x = box.querySelector('[data-mmd-close]');
-      if (x) x.addEventListener('click', function (e) {
-        e.preventDefault();
-        var sm = document.querySelector('#Details-menu-drawer-container > summary');
-        if (sm) sm.click();
+    var root, panel, last = null;
+    function summary() { return document.querySelector('#Details-menu-drawer-container > summary'); }
+    function open() {
+      last = document.activeElement;
+      root.classList.add('is-open'); root.removeAttribute('inert'); root.setAttribute('aria-hidden', 'false');
+      document.documentElement.classList.add('mmd-lock');
+      var sm = summary(); if (sm) sm.setAttribute('aria-expanded', 'true');
+      var x = panel.querySelector('.mmd__x'); if (x) x.focus({ preventScroll: true });
+    }
+    function close() {
+      if (!root.classList.contains('is-open')) return;
+      root.classList.remove('is-open'); root.setAttribute('inert', ''); root.setAttribute('aria-hidden', 'true');
+      document.documentElement.classList.remove('mmd-lock');
+      var sm = summary(); if (sm) sm.setAttribute('aria-expanded', 'false');
+      if (last && last.focus) last.focus({ preventScroll: true });
+    }
+    function build() {
+      var t = document.getElementById('mmd-tpl');
+      if (!t) return;
+      var old = document.querySelector('.mmd-root'); if (old) old.remove();
+      root = document.createElement('div');
+      root.className = 'mmd-root'; root.setAttribute('aria-hidden', 'true'); root.setAttribute('inert', '');
+      root.innerHTML = '<div class="mmd-ovl" data-mmd-close></div><div class="mmd-panel mmd" role="dialog" aria-modal="true" aria-label="Menu" tabindex="-1"></div>';
+      panel = root.querySelector('.mmd-panel');
+      panel.appendChild(t.content.cloneNode(true));
+      document.body.appendChild(root);
+      root.addEventListener('click', function (e) {
+        if (e.target.closest('[data-mmd-close]')) { e.preventDefault(); close(); }
+        else if (e.target.closest('a[href]')) close();
       });
     }
-    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', swap); else swap();
-    document.addEventListener('shopify:section:load', function () { var d = document.getElementById('menu-drawer'); if (d) d.classList.remove('mmd'); swap(); });
+    /* The header's menu icon: open this panel instead of the theme's drawer */
+    document.addEventListener('click', function (e) {
+      var sm = e.target.closest && e.target.closest('#Details-menu-drawer-container > summary');
+      if (!sm || !root) return;
+      e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation();
+      if (root.classList.contains('is-open')) close(); else open();
+    }, true);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && root) close(); });
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build); else build();
+    document.addEventListener('shopify:section:load', build);
   })();
 </script>
 
