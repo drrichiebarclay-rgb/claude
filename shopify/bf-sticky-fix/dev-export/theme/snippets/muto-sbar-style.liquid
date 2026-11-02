@@ -1,0 +1,40 @@
+{%- comment -%}
+  Sizing for the sticky add to cart bars outside the Black Friday product page (muto-sbar section and the
+  site-wide muto-sci-sticky), so they match that page's bar exactly. The product page gets these sizes from
+  muto-bf-type.css and the desktop step from muto-bf-extra.css, which only load there; the same values are
+  repeated here, scoped to .mc-sbar--site and .mc-sbar--section. Also: price inside the button, no divider,
+  black button (as on the premium page). Render once per bar; the rules are the same each time.
+{%- endcomment -%}
+<style>
+  html:root body{padding-bottom:74px}
+  :is(.mc-sbar--site,.mc-sbar--section) .mc-sbar__in{gap:12px;padding-top:9px;padding-bottom:calc(9px + env(safe-area-inset-bottom))}
+  :is(.mc-sbar--site,.mc-sbar--section) .mc-sbar__img{flex-basis:44px;width:44px;height:44px;border-radius:8px}
+  :is(.mc-sbar--site,.mc-sbar--section) .mc-sbar__name{font-size:16px}
+  :is(.mc-sbar--site,.mc-sbar--section) .mc-sbar__offer{font-size:10px;margin-top:3px}
+  :is(.mc-sbar--site,.mc-sbar--section) .mc-sbar__pick{flex-basis:300px;height:48px;padding:0 38px 0 14px;border-radius:10px}
+  :is(.mc-sbar--site,.mc-sbar--section) .mc-sbar__pick::after{right:14px}
+  :is(.mc-sbar--site,.mc-sbar--section) .mc-sbar__pick-name{font-size:14px}
+  :is(.mc-sbar--site,.mc-sbar--section) .mc-sbar__pick-sub{font-size:12px;margin-top:1px}
+  :is(.mc-sbar--site,.mc-sbar--section) .mc-sbar__btn{height:48px;min-width:180px;padding:0 22px;border-radius:10px;font-size:15px}
+  :is(.mc-sbar--site,.mc-sbar--section) .mc-sbar__btn-sep{display:none!important}
+  /* Button as on the premium Black Friday product page (muto-bf-premium.css): black, white text */
+  html:root body :is(.mc-sbar--site,.mc-sbar--section).mc-sbar .mc-sbar__btn{background:#242223!important;color:#fff!important;border-color:#242223!important}
+  html:root body :is(.mc-sbar--site,.mc-sbar--section).mc-sbar .mc-sbar__btn *{color:#fff!important}
+  html:root body :is(.mc-sbar--site,.mc-sbar--section).mc-sbar .mc-sbar__btn:hover{background:#000!important;filter:none}
+  :is(.mc-sbar--site,.mc-sbar--section) .mc-sbar__btn[aria-busy="true"]{opacity:.7;cursor:progress}
+  @media (max-width:749px){
+    html:root body{padding-bottom:64px}
+    :is(.mc-sbar--site,.mc-sbar--section) .mc-sbar__in{gap:8px;padding:8px 10px;padding-bottom:calc(8px + env(safe-area-inset-bottom))}
+    :is(.mc-sbar--site,.mc-sbar--section) .mc-sbar__pick{height:46px;padding:0 32px 0 12px}
+    :is(.mc-sbar--site,.mc-sbar--section) .mc-sbar__pick::after{right:12px}
+    :is(.mc-sbar--site,.mc-sbar--section) .mc-sbar__pick-name{font-size:13.5px}
+    :is(.mc-sbar--site,.mc-sbar--section) .mc-sbar__pick-sub{font-size:11.5px}
+    :is(.mc-sbar--site,.mc-sbar--section) .mc-sbar__btn{height:46px;min-width:0;padding:0 20px;font-size:15px}
+  }
+  @media (min-width:990px){
+    :is(.mc-sbar--site,.mc-sbar--section) .mc-sbar__name{font-size:17px}
+    :is(.mc-sbar--site,.mc-sbar--section) .mc-sbar__pick-name{font-size:14.5px}
+    :is(.mc-sbar--site,.mc-sbar--section) .mc-sbar__pick-sub{font-size:12.5px}
+    :is(.mc-sbar--site,.mc-sbar--section) .mc-sbar__btn{font-size:15.5px}
+  }
+</style>

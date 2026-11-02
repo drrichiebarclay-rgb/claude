@@ -1,0 +1,46 @@
+{%- comment -%}
+  MUTO — Black Friday head (muto-bf-head). BEING RETIRED.
+  Everything site-wide moved to "MUTO — Site styles" (first in the header group), the Black Friday page CSS
+  to "MUTO — BF page styles" and the top bar to "MUTO — BF top bar" (both on the Black Friday templates),
+  and the sticky add to cart to "MUTO — Sticky add to cart" (footer group).
+  What is left below is the old Black Friday block, so the two Black Friday templates keep their look until
+  they have the two new sections. Once both templates have them: delete this section from the header.
+{%- endcomment -%}
+{%- if template.suffix contains 'muto-nad-bf' and product != blank -%}
+  {{ 'muto-bf-bar.css' | asset_url | stylesheet_tag }}
+  {{ 'muto-bf-sticky.css' | asset_url | stylesheet_tag }}
+  {{ 'muto-bf-compact.css' | asset_url | stylesheet_tag }}
+  {{ 'muto-bf-layout.css' | asset_url | stylesheet_tag }}
+  {{ 'muto-bf-type.css' | asset_url | stylesheet_tag }}
+  {{ 'muto-bf-copy.css' | asset_url | stylesheet_tag }}
+  <style>
+    /* The testing button is drawn under the image, then moved to where the badges were (muto-bf-layout.js):
+       hidden until it has moved, so its old place never shows */
+    html body .mc .mc__buy-media .mc-tests-btn{display:none!important}
+    /* Add to cart buttons (page and sticky bar): the brand turquoise */
+    html:root body .mc .mc__buy-cta,html:root body .mc-sbar .mc-sbar__btn{background:#5efaff!important;color:#242223!important}
+    html:root body .mc .mc__buy-cta:hover,html:root body .mc-sbar .mc-sbar__btn:hover{background:#3ef0f6!important;filter:none}
+    /* "Free from" and "Made with" lists under the button: smaller */
+    #MainContent [id$="__buy"] .mpb-lists{gap:16px;margin-top:18px}
+    #MainContent [id$="__buy"] .mpb-lists p{margin-bottom:8px;font-size:10.5px}
+    #MainContent [id$="__buy"] .mpb-lists ul{gap:4px;font-size:15px;line-height:1.3}
+    @media (max-width:749px){
+      #MainContent [id$="__buy"] .mpb-lists p{font-size:10px}
+      #MainContent [id$="__buy"] .mpb-lists ul{font-size:13.5px}
+    }
+  </style>
+  {%- render 'muto-bf-bar', product: product -%}
+  <script src="{{ 'muto-bf-claim.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "MUTO — Black Friday head",
+  "tag": "div",
+  "class": "muto-bf-head",
+  "settings": [
+    { "type": "paragraph", "content": "Being retired. Only the old Black Friday template styles and top bar are left here. Delete this section once both Black Friday templates have MUTO — BF page styles and MUTO — BF top bar." }
+  ],
+  "presets": [{ "name": "MUTO — Black Friday head" }]
+}
+{% endschema %}

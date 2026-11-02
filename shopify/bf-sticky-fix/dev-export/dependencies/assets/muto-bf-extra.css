@@ -1,0 +1,121 @@
+/* Black Friday PDP, latest tweaks (loaded last, from snippets/muto-bf-bar.liquid) */
+/* No stats bar ("92% reported improved energy") */
+html:root body .mc .mc-stats{display:none!important}
+/* One-time purchase under the Add to cart button, a bit bolder */
+html:root body .mc .mc__buy-copy > *{order:4}
+html:root body .mc .mc__buy-copy > .mc__rating,html:root body .mc .mc__buy-copy > .mc__eyebrow,
+html:root body .mc .mc__buy-copy > .mc__buy-title,html:root body .mc .mc__buy-copy > .mc-subhead{order:0}
+html:root body .mc .mc__buy-copy > .mc__trust,html:root body .mc .mc__buy-copy > .mc__plans,
+html:root body .mc .mc__buy-copy > .mc__pf > *,html:root body .mc .mc__buy-copy > .mc__buy-cta,
+html:root body .mc .mc__buy-copy > .mc__buy-actions{order:2}
+html:root body .mc .mc__buy-copy > .mc__pf > .mc__onetime,html:root body .mc .mc__buy-copy > .mpb-x{order:3}
+html:root body .mc .mc__onetime{margin-top:12px!important;color:#242223!important;font-weight:600!important}
+html:root body .mc .mc__onetime > span:first-child::before{font-size:15px;font-weight:600}
+@media (max-width:749px){html:root body .mc .mc__onetime > span:first-child::before{font-size:14px}}
+/* "Thank-you gifts in later boxes" reads "Future monthly gifts" */
+html:root body .mc .mc__kit-sum > span:first-child{font-size:0!important}
+html:root body .mc .mc__kit-sum > span:first-child::before{content:"Future monthly gifts";font-size:14px}
+@media (max-width:749px){html:root body .mc .mc__kit-sum > span:first-child::before{font-size:13px}}
+/* ---- Desktop (990px+): between the compact sizes and the site's usual ones. Phones unchanged. ---- */
+@media (min-width:990px){
+  html:root body #MainContent > .shopify-section:not([id$="__buy"]){zoom:.93}
+  .mc-bfx{font-size:14.5px}
+  .mc-sbar__name{font-size:17px}
+  .mc-sbar__pick-name{font-size:14.5px}
+  .mc-sbar__pick-sub{font-size:12.5px}
+  .mc-sbar__btn{font-size:15.5px}
+  html:root body .mc .mc__stars > span{width:15px!important;height:14px!important}
+  html:root body .mc .mc__rating-text{font-size:14px!important}
+  html:root body .mc .mc__buy-title,html:root body .mc .mc__buy-copy > .mc__buy-title{font-size:clamp(29px,2.7vw,39px)}
+  html:root body .mc .mc-subhead::before{font-size:16px}
+  html:root body .mc .mc-subhead::after{font-size:14.5px}
+  html:root body .mc .mc__plans-banner{font-size:12.5px}
+  html:root body .mc .mc__plan-save{font-size:11.5px}
+  html:root body .mc .mc__plans > label.mc__plan .mc__plan-name::before{font-size:17.5px}
+  html:root body .mc .mc__plans > label.mc__plan .mc__plan-head::after{font-size:13.5px;height:25px}
+  html:root body .mc .mc__plan-prices::before{font-size:20.5px}
+  html:root body .mc .mc__plan-prices::after{font-size:14px}
+  html:root body .mc .mc__plan-note{font-size:13.5px!important}
+  html:root body .mc .mc__plans > .mc__plan-detail{font-size:14px}
+  html:root body .mc .mc__kit-title::before{font-size:11.5px}
+  html:root body .mc .mc__kit-value,html:root body .mc .mc__kit-name{font-size:12px}
+  html:root body .mc .mc__kit-sum > span:first-child::before{font-size:14.5px}
+  html:root body .mc .mc__btn{font-size:16.5px}
+  html:root body .mc .mc__buy-cta{min-height:60px!important}
+  html:root body .mc .mc__buy-cta::after{font-size:13px}
+  html:root body .mc .mc__onetime > span:first-child::before{font-size:15.5px}
+  #MainContent [id$="__buy"] .mpb-del{font-size:14px}
+  #MainContent [id$="__buy"] .mc-tests-btn{font-size:14px;min-height:41px}
+  #MainContent [id$="__buy"] .mpb-doc b{font-size:15px}
+  #MainContent [id$="__buy"] .mpb-doc small{font-size:13px}
+  #MainContent [id$="__buy"] .mpb-lists ul{font-size:15.5px}
+  #MainContent [id$="__buy"] .mpb-lists p{font-size:11px}
+  html:root body .mc .mc__acc-sum{font-size:16px}
+  html:root body .mc .mc__acc-body{font-size:15px}
+}
+/* "The problem" stat figures (~50%, ~80%...): same weight as the section headings */
+html:root body .mc .mc__prb-fig{font-weight:500!important}
+/* ---- Title block: ★ 4.8 from 103 reviews · NAD+ CELLULAR COMPLEX · headline · one line ---- */
+html:root body .mc .mc__buy-copy > .mc__eyebrow,html:root body .mc .mc__eyebrow{margin-top:12px!important;font-family:var(--mc-mono)!important;font-size:12px!important;font-weight:400!important;letter-spacing:.12em!important;text-transform:uppercase!important;color:#5c5a5b!important}
+html:root body .mc .mc__buy-title,html:root body .mc .mc__buy-copy > .mc__buy-title{margin-top:8px!important;text-wrap:balance}
+html:root body .mc .mc-subhead::before{content:"Five supplements in one daily jar for energy, recovery and healthy ageing.\A Every dose on the label. No proprietary blends. Third-party tested."!important;white-space:pre-line!important}
+/* ---- Plans: an "Includes" list with the gifts, then guarantee / delivery / cancel ---- */
+html:root body .mc .mc__plans > .mc__plan-detail{display:none!important}
+html:root body .mc .mc__kit-list{display:none!important}
+html:root body .mc .mc__kit-title{font-size:0!important}
+html:root body .mc .mc__kit-title::before{content:"Includes:"!important;font-family:var(--mc-font)!important;font-size:17px!important;font-weight:500!important;letter-spacing:0!important;text-transform:none!important;color:#242223}
+html:root body .mc .mc__inc{margin-top:8px!important}
+html:root body .mc .mc__inc-row{padding:6px 0!important;font-size:15px!important}
+html:root body .mc .mc__inc-was{color:rgba(36,34,35,.45)!important}
+html:root body .mc .mc__inc-free{font-weight:500!important}
+html:root body .mc .mc__inc-main .mc__inc-free{font-weight:400!important;color:#5c5a5b!important}
+html:root body .mc .mc__inc-foot{margin-top:12px!important;padding-top:12px!important;font-size:13px!important}
+@media (max-width:749px){
+  html:root body .mc .mc__kit-title::before{font-size:15px!important}
+  html:root body .mc .mc__inc-row{font-size:14px!important;padding:5px 0!important}
+  html:root body .mc .mc__inc-foot{font-size:12px!important;gap:8px 12px!important}
+}
+/* A rule between the plan and "Includes:", as in the screenshot */
+html:root body .mc .mc__plans > .mc__kit{position:relative;margin-top:0!important;border-top:0!important;padding-top:18px!important}
+html:root body .mc .mc__plans > .mc__kit::before{content:"";position:absolute;top:0;left:18px;right:18px;height:1px;background:#242223}
+@media (max-width:749px){html:root body .mc .mc__plans > .mc__kit::before{left:12px;right:12px}}
+/* Title block order: label, headline (three lines), five-star rating, description, Black Friday line */
+html:root body .mc .mc__buy-copy > .mc__eyebrow{order:-3!important;margin-top:0!important}
+html:root body .mc .mc__buy-copy > .mc__buy-title{order:-2!important;margin-top:10px!important;line-height:.95!important}
+html:root body .mc .mc__buy-copy > .mc__rating{order:-1!important;margin-top:16px!important}
+html:root body .mc .mc__rating-text{font-size:14px!important;font-weight:500!important}
+html:root body .mc .mc-subhead{margin-top:12px!important}
+html:root body .mc .mc-subhead::before{font-weight:400!important;color:#3d3b3c!important;line-height:1.45!important;max-width:none!important}
+@media (max-width:749px){
+  html:root body .mc .mc__buy-copy > .mc__buy-title{font-size:28px!important}
+  html:root body .mc .mc__buy-copy > .mc__rating{margin-top:12px!important}
+}
+@media (min-width:990px){html:root body .mc .mc-subhead::before{font-size:15.5px!important}}
+/* What the gifts are worth, for the plan that's selected (3-Month: £87 incl. the bottle; 1-Month: £72) */
+html:root body .mc .mc__inc::after{display:flex;justify-content:space-between;margin-top:6px;padding-top:10px;border-top:1px solid rgba(36,34,35,.16);font-size:15px;font-weight:500;color:#242223;white-space:pre}
+html:root body .mc .mc__plans:has(> label.mc__plan:nth-of-type(2).is-selected) .mc__inc::after{content:"Free gifts worth £87"}
+html:root body .mc .mc__plans:has(> label.mc__plan:nth-of-type(1).is-selected) .mc__inc::after{content:"Free gifts worth £72"}
+@media (max-width:749px){html:root body .mc .mc__inc::after{font-size:14px}}
+/* Mobile: photo first, no product label, headline with more air */
+@media (max-width:749px){
+  html:root body .mc .mc__buy-media{order:-10!important}
+  html:root body .mc .mc__buy-copy > .mc__eyebrow{display:none!important}
+  html:root body .mc .mc__buy-copy > .mc__buy-title{margin-top:18px!important;font-size:30px!important;line-height:1.04!important;letter-spacing:-.01em!important}
+  html:root body .mc .mc__buy-copy > .mc__rating{margin-top:14px!important}
+  html:root body .mc .mc-subhead{margin-top:10px!important}
+}
+/* Mobile description: one sentence, then three short proof points on their own lines */
+@media (max-width:749px){
+  html:root body .mc .mc-subhead::before{content:"Five supplements in one daily jar for energy, recovery and healthy ageing.\A\A✓  Every dose on the label\A✓  No proprietary blends\A✓  Third-party tested"!important;
+    white-space:pre-line!important;font-size:15px!important;line-height:1.5!important;color:#242223!important}
+  html:root body .mc .mc-subhead::after{margin-top:14px!important}
+}
+/* "Built for life after 35." under the headline: smaller, italic, one line */
+html:root body .mc .mc__buy-title::after{content:"Built for life after 35.";display:block;margin-top:10px;font-size:.5em;font-style:italic;font-weight:400;line-height:1.2;letter-spacing:-.005em;text-transform:none;white-space:nowrap}
+@media (max-width:749px){html:root body .mc .mc__buy-title::after{font-size:20px;margin-top:8px}}
+/* First "Includes" row names the plan's supply instead of the product */
+html:root body .mc .mc__inc-main .mc__inc-name{font-size:0!important}
+html:root body .mc .mc__inc-main .mc__inc-name::before{font-size:15px}
+html:root body .mc .mc__plans:has(> label.mc__plan:nth-of-type(2).is-selected) .mc__inc-main .mc__inc-name::before{content:"NAD⁺ Cellular Complex (x3)"}
+html:root body .mc .mc__plans:has(> label.mc__plan:nth-of-type(1).is-selected) .mc__inc-main .mc__inc-name::before{content:"NAD⁺ Cellular Complex (x1)"}
+@media (max-width:749px){html:root body .mc .mc__inc-main .mc__inc-name::before{font-size:14px}}

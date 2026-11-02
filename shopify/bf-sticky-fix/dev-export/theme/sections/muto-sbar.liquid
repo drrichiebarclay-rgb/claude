@@ -1,0 +1,116 @@
+{%- comment -%}
+  MUTO — Sticky add to cart (muto-sbar). Add it to any template: home, product, page, collection or article.
+  The bar sells the product picked in "Product". If that's left blank it sells the page's own product
+  (product templates), and with no product at all it falls back to the site-wide NAD+ bar
+  (snippets/muto-sci-sticky.liquid).
+
+  The bar itself is snippets/muto-sbar-bar.liquid.
+  In the footer group this is the sticky add to cart on every page (turn it off there to remove it everywhere);
+  it steps aside when a page has its own sticky bar. Not shown on the cart, password, gift card or giveaway pages.
+
+  Options in the picker:
+  - Products sold on Skio plans: one option per selling plan (e.g. 1-month and 3-month), each using the
+    first available variant that has that plan, at the plan's own price. Optionally a one-time option.
+  - Products without plans: one option per available variant.
+  "Pre-select the option containing" picks the default (e.g. "3-month").
+
+  Every bar gets its own id (mc-sbar-<section id>) and its script only touches its own bar, so it works
+  next to the site-wide bar (which steps aside when this one is on the page) and next to the Black Friday
+  plan bar. On the Black Friday product template (muto-nad-bf) that plan bar (muto-bf-offer) already
+  sells the page's product, so this section stays hidden there unless it's set to a different product.
+  Shows once the page has scrolled past "Show after scrolling".
+{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign p = s.product
+  if p == blank
+    assign p = product
+  endif
+  assign bar_id = 'mc-sbar-' | append: section.id
+  # In the footer group it is the site-wide bar: it steps aside for a page's own sticky bar (a template's
+  # sticky section, the home page's sticky cart, a landing page's offer bar). On a template it always shows.
+  assign auto = true
+  if section.location == 'template'
+    assign auto = false
+  endif
+  # No bar on the cart, password and gift card pages, or the giveaway template
+  assign skip = false
+  assign tname = template.name | default: ''
+  assign tsuffix = template.suffix | default: ''
+  if tname == 'cart' or tname == 'password' or tname == 'gift_card' or tsuffix contains 'give-away'
+    assign skip = true
+  endif
+  # Site-wide bar on the NAD+ product page: the Black Friday line under the name, unless one is set
+  assign sub_line = s.sub
+  if auto and sub_line == blank and p != blank and p.handle == 'muto-nad-cellular-complex'
+    assign sub_line = 'Black Friday · 3 months for £99'
+  endif
+  assign on_bf_pdp = false
+  if template.suffix contains 'muto-nad-bf' and product != blank
+    if s.product == blank or s.product.id == product.id
+      assign on_bf_pdp = true
+    endif
+  endif
+-%}
+{%- if skip -%}
+{%- elsif on_bf_pdp -%}
+  {%- if request.design_mode -%}
+    <p style="margin:0;padding:12px 16px;font:14px/1.4 sans-serif;background:#fff6d6;color:#242223">MUTO — Sticky add to cart is hidden here: this Black Friday product page already has its plan bar (MUTO — Black Friday offer). Pick a different product in this section to show a second bar.</p>
+  {%- endif -%}
+{%- elsif p == blank -%}
+  {%- render 'muto-sci-sticky' -%}
+{%- else -%}
+  {%- render 'muto-sbar-bar',
+    p: p,
+    bar_id: bar_id,
+    label: s.label,
+    sub_line: sub_line,
+    button: s.button,
+    after_add: s.after_add,
+    show_after: s.show_after,
+    preselect: s.preselect,
+    one_time: s.one_time,
+    one_time_label: s.one_time_label,
+    plan_match_1: s.plan_match_1,
+    plan_label_1: s.plan_label_1,
+    plan_match_2: s.plan_match_2,
+    plan_label_2: s.plan_label_2,
+    auto: auto
+  -%}
+  {%- if request.design_mode and p.available == false -%}
+    <p style="margin:0;padding:12px 16px;font:14px/1.4 sans-serif;background:#fff6d6;color:#242223">MUTO — Sticky add to cart: {{ p.title }} has nothing available to buy, so the bar is hidden.</p>
+  {%- endif -%}
+{%- endif -%}
+{%- if s.schema_on and p != blank -%}
+  {% render 'muto-home-product-schema', product: p %}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "MUTO — Sticky add to cart",
+  "tag": "section",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Product", "info": "The product this bar sells. Blank: the page's own product on product pages, or the NAD+ bar on other pages." },
+    { "type": "text", "id": "label", "label": "Name on the bar", "info": "Blank uses the product's title" },
+    { "type": "text", "id": "sub", "label": "Line under the name", "info": "E.g. Black Friday · 3 months for £99" },
+    { "type": "text", "id": "button", "label": "Button", "default": "Add to cart" },
+    { "type": "select", "id": "after_add", "label": "After adding", "default": "cart", "options": [
+      { "value": "cart", "label": "Open the side cart" },
+      { "value": "checkout", "label": "Go straight to checkout" }
+    ] },
+    { "type": "range", "id": "show_after", "label": "Show after scrolling", "min": 0, "max": 1500, "step": 50, "unit": "px", "default": 500 },
+    { "type": "header", "content": "Options" },
+    { "type": "text", "id": "preselect", "label": "Pre-select the option containing", "default": "3-month", "info": "Matched against the plan or variant name, e.g. 3-month" },
+    { "type": "checkbox", "id": "one_time", "label": "Add a one-time purchase option", "default": false, "info": "Only for products that also sell on Skio plans" },
+    { "type": "text", "id": "one_time_label", "label": "One-time option name", "default": "One-time purchase" },
+    { "type": "text", "id": "plan_match_1", "label": "Rename plan 1: plan name contains", "default": "3-month" },
+    { "type": "text", "id": "plan_label_1", "label": "Rename plan 1: show as", "default": "3-Month Supply" },
+    { "type": "text", "id": "plan_match_2", "label": "Rename plan 2: plan name contains", "default": "1-month" },
+    { "type": "text", "id": "plan_label_2", "label": "Rename plan 2: show as", "default": "1-Month Supply" },
+    { "type": "header", "content": "Search" },
+    { "type": "checkbox", "id": "schema_on", "label": "Emit product structured data", "default": true }
+  ],
+  "presets": [{ "name": "MUTO — Sticky add to cart" }],
+  "enabled_on": { "templates": ["index", "product", "page", "collection", "article", "blog", "list-collections"], "groups": ["footer"] }
+}
+{% endschema %}

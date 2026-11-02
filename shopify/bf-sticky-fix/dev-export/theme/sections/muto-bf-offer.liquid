@@ -1,0 +1,49 @@
+{%- comment -%}
+  MUTO — Black Friday offer (muto-bf-offer). In the footer group; only on the Black Friday product
+  template (product.muto-nad-bf). The sticky plan bar at the foot of the screen: plan picker + Add to
+  cart, in step with the plan cards, submitting the page's own cart form (assets/muto-bf-sticky.js).
+  Also loads assets/muto-bf-layout.js (plan names for the picker, gallery arrows, testing button).
+  Loads its own bar CSS (assets/muto-bf-sticky.css). Its sizes and button colour come from the template's
+  MUTO — BF page styles section; the top bar is MUTO — BF top bar on the template.
+  After Black Friday: delete this section from the footer.
+{%- endcomment -%}
+{%- if template.suffix contains 'muto-nad-bf' and product != blank -%}
+  {{ 'muto-bf-sticky.css' | asset_url | stylesheet_tag }}
+  <div class="mc-sbar 1" id="mc-sbar" role="region" aria-label="Choose a plan and add to cart" aria-hidden="true">
+    <div class="mc-sbar__in">
+      <div class="mc-sbar__prod">
+        {%- if product.featured_image -%}
+          <img class="mc-sbar__img" src="{{ product.featured_image | image_url: width: 112 }}" width="56" height="56" alt="" loading="lazy">
+        {%- endif -%}
+        <div style="min-width:0">
+          <p class="mc-sbar__name">{{ product.title }}</p>
+          <p class="mc-sbar__offer"><i aria-hidden="true"></i>Black Friday · 53% off your first order</p>
+        </div>
+      </div>
+      <label class="mc-sbar__pick">
+        <span class="mc-sbar__pick-name" data-sbar-name>3-Month Supply</span>
+        <span class="mc-sbar__pick-sub" data-sbar-sub></span>
+        <select class="mc-sbar__select" data-sbar-select aria-label="Plan"></select>
+      </label>
+      <button type="button" class="mc-sbar__btn" data-sbar-add>
+        <span class="mc-sbar__btn-full">Add to cart</span><span class="mc-sbar__btn-short">Add</span>
+        <span class="mc-sbar__btn-sep" aria-hidden="true"></span>
+        <span class="mc-sbar__btn-price" data-sbar-price></span>
+      </button>
+    </div>
+  </div>
+  <script src="{{ 'muto-bf-layout.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'muto-bf-sticky.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "MUTO — Black Friday offer",
+  "tag": "div",
+  "class": "muto-bf-offer",
+  "settings": [
+    { "type": "paragraph", "content": "Only on the Black Friday product template (muto-nad-bf): the sticky plan bar at the foot of the screen. Its bar CSS loads here; sizes and button colour come from MUTO — BF page styles on the template." }
+  ],
+  "presets": [{ "name": "MUTO — Black Friday offer" }]
+}
+{% endschema %}
