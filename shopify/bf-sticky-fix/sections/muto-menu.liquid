@@ -112,14 +112,15 @@
       <ul class="mmd__prods" role="list">
         {%- for c in shop_link.links -%}
           {%- liquid
-            assign img = nil
-            if c.type == 'product_link' and c.object
+            assign photo_key = 'photo_' | append: forloop.index
+            assign img = s[photo_key]
+            if img == blank and c.type == 'product_link' and c.object
               assign img = c.object.featured_image
             endif
           -%}
           <li>
             <a class="mmd__prod" href="{{ c.url }}"{% if c.current %} aria-current="page"{% endif %}>
-              <span class="mmd__img">{%- if img -%}{{ img | image_url: width: 160 | image_tag: loading: 'lazy', alt: '', width: 56, height: 56 }}{%- endif -%}</span>
+              <span class="mmd__img">{%- if img -%}{{ img | image_url: width: 400 | image_tag: loading: 'lazy', alt: '', widths: '192, 256, 400', sizes: '64px' }}{%- endif -%}</span>
               <span class="mmd__name">{{ c.title | escape }}</span>
               <span class="mmd__go" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none"><path d="M1 7h11M7.5 2.5 12 7l-4.5 4.5" stroke="currentColor" stroke-width="1.3"/></svg></span>
             </a>
@@ -136,7 +137,7 @@
           {%- if s.promo_sub != blank -%}<span class="mmd__promo-sub" style="display:block">{{ s.promo_sub }}</span>{%- endif -%}
           <span class="mmd__promo-cta">{{ s.promo_cta | default: 'Claim offer' }}<svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11M7.5 2.5 12 7l-4.5 4.5" stroke="currentColor" stroke-width="1.6"/></svg></span>
         </span>
-        {%- if promo_img -%}<span class="mmd__promo-img">{{ promo_img | image_url: width: 800 | image_tag: loading: 'lazy', alt: '' }}</span>{%- endif -%}
+        {%- if promo_img -%}<span class="mmd__promo-img">{{ promo_img | image_url: width: 1200 | image_tag: loading: 'lazy', alt: '', widths: '600, 900, 1200', sizes: '(min-width: 750px) 344px, calc(100vw - 88px)' }}</span>{%- endif -%}
       </a>
     {%- endif -%}
 
@@ -227,6 +228,12 @@
     { "type": "url", "id": "shop_all_url", "label": "Shop all link (optional)" },
     { "type": "text", "id": "explore_label", "label": "Label for single links", "default": "Explore" },
     { "type": "url", "id": "login_url", "label": "Log in link", "info": "Blank: the store's log in page" },
+    { "type": "header", "content": "Shop photos" },
+    { "type": "paragraph", "content": "Optional: a photo for each Shop item, in menu order. Blank: the product's own photo." },
+    { "type": "image_picker", "id": "photo_1", "label": "Shop item 1" },
+    { "type": "image_picker", "id": "photo_2", "label": "Shop item 2" },
+    { "type": "image_picker", "id": "photo_3", "label": "Shop item 3" },
+    { "type": "image_picker", "id": "photo_4", "label": "Shop item 4" },
     { "type": "header", "content": "Offer card" },
     { "type": "checkbox", "id": "promo_on", "label": "Show the offer card", "default": true },
     { "type": "text", "id": "promo_eyebrow", "label": "Small line", "default": "Black Friday · Live now" },

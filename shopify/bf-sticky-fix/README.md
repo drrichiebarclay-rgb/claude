@@ -117,3 +117,8 @@ Dark MUTO panel with turquoise accents, Neue Haas type and Sometype Mono labels.
 - **MUTO — Menu** now matches the side cart: a white panel the full height of the page (from the top, over the header), sliding in from the right like the cart (changed from the left on request), with the page dimmed behind. It has a "MENU" heading with a ✕, hairline rules, mono labels, product lines like the cart's, and a black uppercase Log in button like Checkout. The ✕ closes it through the theme's own menu button. The brand line is gone.
 - **Offer card**: the photo `muto-menu-offer.jpg` (uploaded to Files, `shopify://shop_images/muto-menu-offer.jpg`, also in `assets/` here) runs the full card, with the text in its dark top and a white uppercase "Claim offer" button.
 - **Empty cart** (`assets/muto-cart-empty.css`, loaded by MUTO — Site styles): "YOUR CART IS EMPTY" as the cart's heading at the top with a hairline, a black uppercase full-width "Continue shopping" like Checkout, and "Have an account?" as a mono label.
+
+## Update, 2 Nov: sharper menu photos, NAD⁺ jar
+
+- Menu product photos load at up to 400px (`widths: 192, 256, 400`, `sizes: 64px`) instead of 160px, so they're sharp on phones. The offer photo loads at up to 1200px.
+- New settings in MUTO — Menu: **Shop photos**, one optional photo per Shop item in menu order. Item 1 (NAD⁺) uses the jar-only photo `muto-menu-nad-jar.jpg` (in Files and in `assets/` here).
