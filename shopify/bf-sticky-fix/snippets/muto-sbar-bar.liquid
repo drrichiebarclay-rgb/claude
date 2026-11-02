@@ -1,6 +1,6 @@
 {%- comment -%}
   MUTO sticky add to cart bar, for one product (p). Rendered by sections/muto-sbar.liquid (with its settings)
-  and by sections/muto-bf-head.liquid on product pages (auto: true, defaults). Same look as the Black Friday
+  (in the footer group with auto: true, so it steps aside for a page's own sticky bar). Same look as the Black Friday
   product page's bar (snippets/muto-sbar-style.liquid).
 
   Parameters: p (product, required), bar_id (unique id), label, sub_line, button, after_add ('cart' opens the
@@ -143,8 +143,8 @@
   {{ 'muto-bf-sticky.css' | asset_url | stylesheet_tag }}
   {%- render 'muto-sbar-style' -%}
   <style>
-    #{{ bar_id }} .mc-sbar__pick--one{pointer-events:none}
-    #{{ bar_id }} .mc-sbar__pick--one::after{display:none}
+    /* One option only (bottle, socks): no picker, the name on the left already says what it is */
+    #{{ bar_id }} .mc-sbar__pick--one{display:none!important}
   </style>
   <div class="mc-sbar mc-sbar--section" id="{{ bar_id }}" data-mc-sbar-section role="region" aria-label="{{ 'Add ' | append: p.title | append: ' to cart' | escape }}" aria-hidden="true"
     data-after="{{ show_after }}" data-go="{{ after_add }}" data-fallback="{{ p.url }}"{% if auto %} data-auto{% endif %}>

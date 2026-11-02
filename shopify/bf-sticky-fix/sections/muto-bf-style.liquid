@@ -1,0 +1,84 @@
+{%- comment -%}
+  MUTO — BF page styles (muto-bf-style). Add it to a Black Friday product template, directly ABOVE the
+  "MUTO PDP v2 — Buy" section, so the styles load before the buy box is drawn (no flash of the old design).
+  Loads the Black Friday CSS for the buy box and the sections below it, the premium design when chosen,
+  the new comparison and fold copy, and the gallery arrows / testing button script.
+  The top bar is its own section (MUTO — BF top bar) and the sticky plan bar is MUTO — Black Friday offer.
+  Nothing here is site-wide: remove this section and only this template changes.
+{%- endcomment -%}
+{%- assign premium = false -%}
+{%- if section.settings.design == 'premium' -%}{%- assign premium = true -%}{%- endif -%}
+{{ 'muto-bf-compact.css' | asset_url | stylesheet_tag }}
+{{ 'muto-bf-layout.css' | asset_url | stylesheet_tag }}
+{{ 'muto-bf-type.css' | asset_url | stylesheet_tag }}
+{{ 'muto-bf-copy.css' | asset_url | stylesheet_tag }}
+<style>
+  /* The testing button is drawn under the image, then moved to where the badges were (muto-bf-layout.js):
+     hidden until it has moved, so its old place never shows */
+  html body .mc .mc__buy-media .mc-tests-btn{display:none!important}
+  {%- unless premium %}
+  /* Add to cart buttons (page and sticky bar): the brand turquoise. The premium design makes them black. */
+  html:root body .mc .mc__buy-cta,html:root body .mc-sbar .mc-sbar__btn{background:#5efaff!important;color:#242223!important}
+  html:root body .mc .mc__buy-cta:hover,html:root body .mc-sbar .mc-sbar__btn:hover{background:#3ef0f6!important;filter:none}
+  {%- endunless %}
+  /* "Free from" and "Made with" lists under the button: smaller */
+  #MainContent [id$="__buy"] .mpb-lists{gap:16px;margin-top:18px}
+  #MainContent [id$="__buy"] .mpb-lists p{margin-bottom:8px;font-size:10.5px}
+  #MainContent [id$="__buy"] .mpb-lists ul{gap:4px;font-size:15px;line-height:1.3}
+  @media (max-width:749px){
+    #MainContent [id$="__buy"] .mpb-lists p{font-size:10px}
+    #MainContent [id$="__buy"] .mpb-lists ul{font-size:13.5px}
+  }
+</style>
+{{ 'muto-bf-extra.css' | asset_url | stylesheet_tag }}
+{%- if premium -%}{{ 'muto-bf-premium.css' | asset_url | stylesheet_tag }}{%- endif -%}
+{%- render 'muto-bf-compare' -%}
+<script>
+/* Swap the new comparison into the page's "compare" section once the page is parsed */
+document.addEventListener('DOMContentLoaded', function () {
+  var t = document.getElementById('mc-cmp-tpl'), s = document.querySelector('#MainContent [id$="__compare"]');
+  if (t && s && !s.querySelector('.mc-cmp')) { s.innerHTML = ''; s.appendChild(t.content.cloneNode(true)); }
+});
+</script>
+<script>
+/* Statement line ("The best is still ahead.") and the folds under the button: new titles and copy ("Who it's for"; "What it does" becomes "Science-Backed Benefits") */
+document.addEventListener('DOMContentLoaded', function () {
+  var FOLDS = [
+    { match: /who it/i, body: '<p><strong>Made for adults over 35.</strong> That’s when your body starts to change, and when most of our customers start taking MUTO. You don’t need to be sporty or own a smartwatch.</p>' +
+      '<p>It’s for you if afternoons feel harder than they used to, you get less back from the same effort, or you want to keep up with work, family and the things you love for years to come.</p>' },
+    { match: /what it does/i, title: 'Science-Backed Benefits', body: '<ul><li><strong>Energy:</strong> afternoons that hold</li><li><strong>Recovery:</strong> bounce back from a busy week</li>' +
+      '<li><strong>Stress:</strong> a clearer head on demanding days</li><li><strong>Longevity:</strong> support for your cells as you age</li><li><strong>Immunity:</strong> stay well through winter</li></ul>' +
+      '<p>A comprehensive multi-nutrient with NAD+ support for over 35s. Alongside your free creatine, it’s the daily foundation your body runs on.</p>' }
+  ];
+  var stm = document.querySelector('.mc .mc__stm-sub');
+  if (stm) stm.textContent = 'Your body changes in mid-life, and NAD+ Cellular Complex is the daily foundation built for it.';
+  [].forEach.call(document.querySelectorAll('.mc details'), function (d) {
+    var s = d.querySelector('summary'), t = s && s.querySelector('span');
+    if (!s) return;
+    FOLDS.forEach(function (f) {
+      if (!f.match.test(s.textContent)) return;
+      var b = d.querySelector('.mc__acc-body') || s.nextElementSibling;
+      if (b) b.innerHTML = f.body;
+      if (f.title && t) t.textContent = f.title;
+    });
+  });
+});
+</script>
+<script src="{{ 'muto-bf-layout.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "MUTO — BF page styles",
+  "tag": "div",
+  "class": "muto-bf-style",
+  "settings": [
+    { "type": "paragraph", "content": "Black Friday styles for this template's buy box and sections. Place it directly above MUTO PDP v2 — Buy." },
+    { "type": "select", "id": "design", "label": "Design", "default": "standard", "options": [
+      { "value": "standard", "label": "Standard (turquoise buttons)" },
+      { "value": "premium", "label": "Premium" }
+    ] }
+  ],
+  "presets": [{ "name": "MUTO — BF page styles" }],
+  "enabled_on": { "templates": ["product"] }
+}
+{% endschema %}

@@ -4,7 +4,9 @@
   (product templates), and with no product at all it falls back to the site-wide NAD+ bar
   (snippets/muto-sci-sticky.liquid).
 
-  The bar itself is snippets/muto-sbar-bar.liquid (also rendered site-wide on product pages by muto-bf-head).
+  The bar itself is snippets/muto-sbar-bar.liquid.
+  In the footer group this is the sticky add to cart on every page (turn it off there to remove it everywhere);
+  it steps aside when a page has its own sticky bar. Not shown on the cart, password, gift card or giveaway pages.
 
   Options in the picker:
   - Products sold on Skio plans: one option per selling plan (e.g. 1-month and 3-month), each using the
@@ -25,6 +27,19 @@
     assign p = product
   endif
   assign bar_id = 'mc-sbar-' | append: section.id
+  # In the footer group it is the site-wide bar: it steps aside for a page's own sticky bar (a template's
+  # sticky section, the home page's sticky cart, a landing page's offer bar). On a template it always shows.
+  assign auto = true
+  if section.location == 'template'
+    assign auto = false
+  endif
+  # No bar on the cart, password and gift card pages, or the giveaway template
+  assign skip = false
+  assign tname = template.name | default: ''
+  assign tsuffix = template.suffix | default: ''
+  if tname == 'cart' or tname == 'password' or tname == 'gift_card' or tsuffix contains 'give-away'
+    assign skip = true
+  endif
   assign on_bf_pdp = false
   if template.suffix contains 'muto-nad-bf' and product != blank
     if s.product == blank or s.product.id == product.id
@@ -32,7 +47,8 @@
     endif
   endif
 -%}
-{%- if on_bf_pdp -%}
+{%- if skip -%}
+{%- elsif on_bf_pdp -%}
   {%- if request.design_mode -%}
     <p style="margin:0;padding:12px 16px;font:14px/1.4 sans-serif;background:#fff6d6;color:#242223">MUTO — Sticky add to cart is hidden here: this Black Friday product page already has its plan bar (MUTO — Black Friday offer). Pick a different product in this section to show a second bar.</p>
   {%- endif -%}
@@ -53,7 +69,8 @@
     plan_match_1: s.plan_match_1,
     plan_label_1: s.plan_label_1,
     plan_match_2: s.plan_match_2,
-    plan_label_2: s.plan_label_2
+    plan_label_2: s.plan_label_2,
+    auto: auto
   -%}
   {%- if request.design_mode and p.available == false -%}
     <p style="margin:0;padding:12px 16px;font:14px/1.4 sans-serif;background:#fff6d6;color:#242223">MUTO — Sticky add to cart: {{ p.title }} has nothing available to buy, so the bar is hidden.</p>

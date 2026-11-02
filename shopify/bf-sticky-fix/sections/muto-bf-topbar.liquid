@@ -9,8 +9,8 @@
 
   Every bar gets its own id (mc-bfx-<section id>) and a self-contained script, so it doesn't depend on the
   page's template suffix or on the Black Friday product page's plan cards.
-  On the Black Friday product template (muto-nad-bf) the head section (muto-bf-head) already draws this bar,
-  so this section stays hidden there to avoid two bars.
+  On the Black Friday product templates this section is the top bar (add it to the template). While the old
+  muto-bf-head still draws its bar, this one removes itself, so there is never two.
   Uses assets/muto-bf-bar.css (fixed bar, page pushed down 44px / 40px on phones).
 {%- endcomment -%}
 {%- liquid
@@ -20,11 +20,6 @@
     assign p = product
   endif
   assign bar_id = 'mc-bfx-' | append: section.id
-  assign on_bf_pdp = false
-  if template.suffix contains 'muto-nad-bf' and product != blank
-    assign on_bf_pdp = true
-  endif
-
   assign q_variant = ''
   assign q_plan = ''
   if p != blank
@@ -52,11 +47,7 @@
     endif
   endif
 -%}
-{%- if on_bf_pdp -%}
-  {%- if request.design_mode -%}
-    <p style="margin:0;padding:12px 16px;font:14px/1.4 sans-serif;background:#fff6d6;color:#242223">MUTO — BF top bar is hidden here: this Black Friday product page already draws its top bar (MUTO — Black Friday head).</p>
-  {%- endif -%}
-{%- elsif q_variant == blank -%}
+{%- if q_variant == blank -%}
   {%- if request.design_mode -%}
     <p style="margin:0;padding:12px 16px;font:14px/1.4 sans-serif;background:#fff6d6;color:#242223">MUTO — BF top bar: pick a product that's available to buy (and, for a plan, one whose plan name contains "{{ s.plan_match }}").</p>
   {%- endif -%}
@@ -149,7 +140,7 @@
   "tag": "div",
   "class": "muto-bf-topbar",
   "settings": [
-    { "type": "paragraph", "content": "The black bar fixed to the top of the screen. Claim adds the product below on its plan to the cart, then opens the side cart. Hidden on the Black Friday product template (muto-nad-bf), which draws its own." },
+    { "type": "paragraph", "content": "The black bar fixed to the top of the screen. Claim adds the product below on its plan to the cart, then opens the side cart. Add it to the Black Friday templates, or any page." },
     { "type": "product", "id": "product", "label": "Product", "info": "Blank: the page's own product (product pages only)" },
     { "type": "text", "id": "plan_match", "label": "Plan name contains", "default": "3-month", "info": "The Skio plan Claim adds, matched on its name. No match: the first available variant, one-time." },
     { "type": "select", "id": "after_claim", "label": "After Claim", "default": "cart", "options": [

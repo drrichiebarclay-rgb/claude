@@ -84,3 +84,18 @@ If a page has no drawer, they fall back to the cart page. "Go straight to checko
 - **No doubles:** either bar removes itself if the page already has its own sticky bar. That covers a "MUTO — Sticky add to cart" section, the home page's "MUTO Home — Sticky cart" (`data-mh-sticky`), a landing page's offer bar (`.mlp-bar`), or any section whose id ends in `__sticky`.
 
 The bar markup moved from `sections/muto-sbar.liquid` into `snippets/muto-sbar-bar.liquid`, so the section and the head use the same bar. The section's settings are unchanged.
+
+## Update, 2 Nov: CSS split by section (Mehul), menu drawer, no doubled name
+
+**Not uploaded yet** (the upload approval failed). Copy these by hand, in this order:
+
+1. **New sections**: `sections/muto-site-styles.liquid` ("MUTO — Site styles") and `sections/muto-bf-style.liquid` ("MUTO — BF page styles").
+2. **Changed**: `sections/muto-bf-topbar.liquid`, `sections/muto-sbar.liquid`, `sections/muto-bf-offer.liquid`, `snippets/muto-sbar-bar.liquid`.
+3. **Theme editor, Header**: add "MUTO — Site styles" and drag it to the top. **Footer**: add "MUTO — Sticky add to cart" (leave Product blank, untick "Emit product structured data").
+4. **Both Black Friday templates** (`muto-nad-bf`, `muto-nad-bf-premium`): add "MUTO — BF page styles" directly above "MUTO PDP v2 — Buy" (Design: Premium on the premium one) and "MUTO — BF top bar".
+5. **Last**: copy the slimmed `sections/muto-bf-head.liquid`, check the BF pages, then delete "MUTO — Black Friday head" from the header.
+
+What changed:
+- **Per-section CSS**: nothing PDP-specific loads site-wide any more. Site type, header, cart and menu CSS is in "MUTO — Site styles"; the BF buy box CSS only loads where "MUTO — BF page styles" is added; the sticky add to cart is its own footer section (on every page except cart, password, gift card and giveaway).
+- **Menu drawer**: white panel, MUTO type in #242223 with thin dividers, mono "← Shop" back link, black Log in button (was the dark #2b2a2b panel with a turquoise button).
+- **Bottle and socks sticky bar**: with one option, the picker next to Add to cart is hidden, so "Performance Bottle" shows once.

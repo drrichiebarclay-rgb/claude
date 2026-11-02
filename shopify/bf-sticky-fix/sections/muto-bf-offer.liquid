@@ -3,10 +3,12 @@
   template (product.muto-nad-bf). The sticky plan bar at the foot of the screen: plan picker + Add to
   cart, in step with the plan cards, submitting the page's own cart form (assets/muto-bf-sticky.js).
   Also loads assets/muto-bf-layout.js (plan names for the picker, gallery arrows, testing button).
-  The styles and the top bar are in muto-bf-head, in the header group.
-  After Black Friday: delete this section from the footer, and muto-bf-head from the header.
+  Loads its own bar CSS (assets/muto-bf-sticky.css). Its sizes and button colour come from the template's
+  MUTO — BF page styles section; the top bar is MUTO — BF top bar on the template.
+  After Black Friday: delete this section from the footer.
 {%- endcomment -%}
 {%- if template.suffix contains 'muto-nad-bf' and product != blank -%}
+  {{ 'muto-bf-sticky.css' | asset_url | stylesheet_tag }}
   <div class="mc-sbar 1" id="mc-sbar" role="region" aria-label="Choose a plan and add to cart" aria-hidden="true">
     <div class="mc-sbar__in">
       <div class="mc-sbar__prod">
@@ -40,7 +42,7 @@
   "tag": "div",
   "class": "muto-bf-offer",
   "settings": [
-    { "type": "paragraph", "content": "Only on the Black Friday product template (muto-nad-bf): the sticky plan bar at the foot of the screen. The styles and top bar are in MUTO — Black Friday head, in the header." }
+    { "type": "paragraph", "content": "Only on the Black Friday product template (muto-nad-bf): the sticky plan bar at the foot of the screen. Its bar CSS loads here; sizes and button colour come from MUTO — BF page styles on the template." }
   ],
   "presets": [{ "name": "MUTO — Black Friday offer" }]
 }
