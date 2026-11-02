@@ -4,7 +4,7 @@
   sticky bar (a muto-sbar section, or any section whose id ends in "__sticky"). The same bar as the Black
   Friday product page (assets/muto-bf-sticky.css), but self-contained: there are no plan cards on this page,
   so the picker holds the two plans itself and the button adds the chosen one (variant + Skio selling plan,
-  read from the product) to the cart, then opens the cart.
+  read from the product) to the cart, then opens the side cart.
   It has no id (class mc-sbar--site), so a page-level sticky section's script never picks up this bar, and
   its script finds its own bar, so if it is rendered twice (head + a sticky section with no product) only one stays.
 {%- endcomment -%}
@@ -86,6 +86,16 @@
       /* The price on the button, as on the product page's bar */
       if (pr) pr.textContent = parts[1] || '';
     });
+    /* Open the theme's side cart (Dawn cart drawer) with fresh contents, as its own Add to cart does.
+       Resolves false when the page has no drawer, so the caller can fall back to the cart page. */
+    function openSideCart(root) {
+      var d = document.querySelector('cart-drawer');
+      if (!d || typeof d.renderContents !== 'function') return Promise.resolve(false);
+      return fetch(root + '?sections=cart-drawer,cart-icon-bubble', { credentials: 'same-origin' })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (s) { if (!s || !s['cart-drawer']) return false; d.renderContents({ sections: s }); return true; })
+        .catch(function () { return false; });
+    }
     btn.addEventListener('click', function () {
       var o = sel.options[sel.selectedIndex];
       var item = { id: parseInt(o.getAttribute('data-id'), 10), quantity: 1 };
@@ -93,7 +103,14 @@
       btn.setAttribute('aria-busy', 'true');
       var root = (window.Shopify && Shopify.routes && Shopify.routes.root) || '/';
       fetch(root + 'cart/add.js', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify({ items: [item] }) })
-        .then(function (r) { window.location.href = r.ok ? root + 'cart' : '{{ p.url }}'; })
+        .then(function (r) {
+          if (!r.ok) { window.location.href = '{{ p.url }}'; return; }
+          /* Open the side cart; no side cart on the page, the cart page */
+          openSideCart(root).then(function (opened) {
+            if (opened) btn.removeAttribute('aria-busy');
+            else window.location.href = root + 'cart';
+          });
+        })
         .catch(function () { window.location.href = '{{ p.url }}'; });
     });
     /* Shows once the intro has scrolled away (and only if no other sticky bar is on the page) */

@@ -199,6 +199,16 @@
         /* The price on the button, as on the product page's bar */
         if (pr) pr.textContent = o.getAttribute('data-price') || '';
       }
+      /* Open the theme's side cart (Dawn cart drawer) with fresh contents, as its own Add to cart does.
+         Resolves false when the page has no drawer, so the caller can fall back to the cart page. */
+      function openSideCart(root) {
+        var d = document.querySelector('cart-drawer');
+        if (!d || typeof d.renderContents !== 'function') return Promise.resolve(false);
+        return fetch(root + '?sections=cart-drawer,cart-icon-bubble', { credentials: 'same-origin' })
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .then(function (s) { if (!s || !s['cart-drawer']) return false; d.renderContents({ sections: s }); return true; })
+          .catch(function () { return false; });
+      }
       sel.selectedIndex = parseInt(sel.getAttribute('data-chosen'), 10) || 0;
       paint();
       sel.addEventListener('change', paint);
@@ -211,7 +221,15 @@
         var root = (window.Shopify && Shopify.routes && Shopify.routes.root) || '/';
         var go = bar.getAttribute('data-go') === 'checkout' ? 'checkout' : 'cart';
         fetch(root + 'cart/add.js', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify({ items: [item] }) })
-          .then(function (r) { window.location.href = r.ok ? root + go : bar.getAttribute('data-fallback'); })
+          .then(function (r) {
+            if (!r.ok) { window.location.href = bar.getAttribute('data-fallback'); return; }
+            if (go === 'checkout') { window.location.href = root + 'checkout'; return; }
+            /* Open the side cart; no side cart on the page, the cart page */
+            openSideCart(root).then(function (opened) {
+              if (opened) btn.removeAttribute('aria-busy');
+              else window.location.href = root + 'cart';
+            });
+          })
           .catch(function () { window.location.href = bar.getAttribute('data-fallback'); });
       });
       var after = parseInt(bar.getAttribute('data-after'), 10);
@@ -244,7 +262,7 @@
     { "type": "text", "id": "sub", "label": "Line under the name", "info": "E.g. Black Friday · 3 months for £99" },
     { "type": "text", "id": "button", "label": "Button", "default": "Add to cart" },
     { "type": "select", "id": "after_add", "label": "After adding", "default": "cart", "options": [
-      { "value": "cart", "label": "Open the cart" },
+      { "value": "cart", "label": "Open the side cart" },
       { "value": "checkout", "label": "Go straight to checkout" }
     ] },
     { "type": "range", "id": "show_after", "label": "Show after scrolling", "min": 0, "max": 1500, "step": 50, "unit": "px", "default": 500 },

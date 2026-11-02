@@ -64,3 +64,13 @@ Uploaded to the Black Friday theme (all files checked against the theme's checks
 - **`sections/muto-sbar.liquid`** and **`snippets/muto-sci-sticky.liquid`**: render that snippet and show the price in the button. Section prices print without trailing zeros (£99, not £99.00).
 - **`assets/muto-bf-claim.js`**: the product page's Claim now opens the cart instead of going straight to checkout. `snippets/muto-bf-bar.liquid` screen reader text updated to match. Both files are committed first as snapshots of the theme, so the diff shows only the change.
 - **`sections/muto-bf-topbar.liquid`**: "After Claim" now defaults to "Open the cart".
+
+## Update, 2 Nov: Claim and Add to cart open the side cart
+
+The theme's cart is set to "drawer" (Dawn's cart drawer). Claim on the Black Friday product pages (standard and premium), the BF top bar section, the sticky add to cart section and the site-wide sticky bar now:
+
+1. add the plan to the cart,
+2. fetch fresh `cart-drawer` and `cart-icon-bubble` sections (Shopify's Section Rendering API, as Dawn's own Add to cart does),
+3. call the drawer's `renderContents`, which updates it and slides it open.
+
+If a page has no drawer, they fall back to the cart page. "Go straight to checkout" is still an option on the two sections. Uploaded and checked against the theme's checksums.

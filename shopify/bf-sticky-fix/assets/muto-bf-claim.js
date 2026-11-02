@@ -21,12 +21,34 @@
     window.scrollTo({ top: y, behavior: 'smooth' });
   }
 
-  /* Added (or already in the cart): open the cart */
-  function done(ok) {
-    if (ok) { window.location.href = ((window.Shopify && Shopify.routes && Shopify.routes.root) || '/') + 'cart'; return; }
+  /* Open the theme's side cart (Dawn cart drawer) with fresh contents, as its own Add to cart does.
+     Resolves false when the page has no drawer, so the caller can fall back to the cart page. */
+  function openSideCart(root) {
+    var d = document.querySelector('cart-drawer');
+    if (!d || typeof d.renderContents !== 'function') return Promise.resolve(false);
+    return fetch(root + '?sections=cart-drawer,cart-icon-bubble', { credentials: 'same-origin' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (s) { if (!s || !s['cart-drawer']) return false; d.renderContents({ sections: s }); return true; })
+      .catch(function () { return false; });
+  }
+
+  function idle() {
     busy = false;
     bar.classList.remove('is-busy');
     bar.removeAttribute('aria-busy');
+  }
+
+  /* Added (or already in the cart): slide open the side cart; no side cart on the page, the cart page */
+  function done(ok) {
+    var root = (window.Shopify && Shopify.routes && Shopify.routes.root) || '/';
+    if (ok) {
+      openSideCart(root).then(function (opened) {
+        if (opened) idle();
+        else window.location.href = root + 'cart';
+      });
+      return;
+    }
+    idle();
     scrollToOffer();
   }
 

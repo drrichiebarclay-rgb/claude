@@ -1,7 +1,7 @@
 {%- comment -%}
   MUTO — Black Friday top bar (muto-bf-topbar). The black bar fixed to the top of the screen with
   "Claim →", as a section you can add to any template (page, home, collection, product, article).
-  "Claim" adds the chosen product on the chosen plan to the cart, then opens the cart (or goes to checkout).
+  "Claim" adds the chosen product on the chosen plan to the cart, then opens the side cart (or goes to checkout).
 
   It sells the product picked in "Product" (blank: the page's own product on product pages). The plan is
   the first available variant with a Skio selling plan whose name contains "Plan name contains"
@@ -85,13 +85,29 @@
     var others = [].slice.call(document.querySelectorAll('.mc-bfx')).filter(function (el) { return el !== bar; });
     if (others.length) { bar.remove(); return; }
     var busy = false;
-    function done(ok) {
-      var root = (window.Shopify && Shopify.routes && Shopify.routes.root) || '/';
-      if (ok) { window.location.href = root + (bar.getAttribute('data-go') === 'checkout' ? 'checkout' : 'cart'); return; }
+    /* Open the theme's side cart (Dawn cart drawer) with fresh contents, as its own Add to cart does.
+       Resolves false when the page has no drawer, so the caller can fall back to the cart page. */
+    function openSideCart(root) {
+      var d = document.querySelector('cart-drawer');
+      if (!d || typeof d.renderContents !== 'function') return Promise.resolve(false);
+      return fetch(root + '?sections=cart-drawer,cart-icon-bubble', { credentials: 'same-origin' })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (s) { if (!s || !s['cart-drawer']) return false; d.renderContents({ sections: s }); return true; })
+        .catch(function () { return false; });
+    }
+    function idle() {
       busy = false;
       bar.classList.remove('is-busy');
       bar.removeAttribute('aria-busy');
-      window.location.href = bar.getAttribute('href');
+    }
+    function done(ok) {
+      var root = (window.Shopify && Shopify.routes && Shopify.routes.root) || '/';
+      if (!ok) { idle(); window.location.href = bar.getAttribute('href'); return; }
+      if (bar.getAttribute('data-go') === 'checkout') { window.location.href = root + 'checkout'; return; }
+      openSideCart(root).then(function (opened) {
+        if (opened) idle();
+        else window.location.href = root + 'cart';
+      });
     }
     bar.addEventListener('click', function (e) {
       e.preventDefault();
@@ -133,11 +149,11 @@
   "tag": "div",
   "class": "muto-bf-topbar",
   "settings": [
-    { "type": "paragraph", "content": "The black bar fixed to the top of the screen. Claim adds the product below on its plan to the cart, then opens the cart. Hidden on the Black Friday product template (muto-nad-bf), which draws its own." },
+    { "type": "paragraph", "content": "The black bar fixed to the top of the screen. Claim adds the product below on its plan to the cart, then opens the side cart. Hidden on the Black Friday product template (muto-nad-bf), which draws its own." },
     { "type": "product", "id": "product", "label": "Product", "info": "Blank: the page's own product (product pages only)" },
     { "type": "text", "id": "plan_match", "label": "Plan name contains", "default": "3-month", "info": "The Skio plan Claim adds, matched on its name. No match: the first available variant, one-time." },
     { "type": "select", "id": "after_claim", "label": "After Claim", "default": "cart", "options": [
-      { "value": "cart", "label": "Open the cart" },
+      { "value": "cart", "label": "Open the side cart" },
       { "value": "checkout", "label": "Go straight to checkout" }
     ] },
     { "type": "header", "content": "Text" },
