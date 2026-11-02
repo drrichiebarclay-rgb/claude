@@ -78,7 +78,7 @@
                 assign vname = s.plan_label_2
               endif
             endif
-            assign price_s = al.price | money | strip_html
+            assign price_s = al.price | money_without_trailing_zeros | strip_html
             assign save = ''
             if al.compare_at_price > al.price
               assign save = al.compare_at_price | minus: al.price | times: 100 | divided_by: al.compare_at_price
@@ -95,7 +95,7 @@
             endif
             assign vname_e = vname | escape
             capture o
-              echo '<option value="' | append: v.id | append: '" data-plan="' | append: sp.id | append: '" data-name="' | append: vname_e | append: '" data-sub="' | append: sub | append: '">' | append: vname_e | append: ' – ' | append: sub | append: '</option>'
+              echo '<option value="' | append: v.id | append: '" data-plan="' | append: sp.id | append: '" data-name="' | append: vname_e | append: '" data-sub="' | append: sub | append: '" data-price="' | append: price_s | append: '">' | append: vname_e | append: ' – ' | append: sub | append: '</option>'
             endcapture
             assign opts = opts | append: o
             break
@@ -117,10 +117,10 @@
         endif
         if ov != blank
           assign count = count | plus: 1
-          assign price_s = ov.price | money | strip_html
+          assign price_s = ov.price | money_without_trailing_zeros | strip_html
           assign vname_e = s.one_time_label | default: 'One-time purchase' | escape
           capture o
-            echo '<option value="' | append: ov.id | append: '" data-plan="" data-name="' | append: vname_e | append: '" data-sub="' | append: price_s | append: '">' | append: vname_e | append: ' – ' | append: price_s | append: '</option>'
+            echo '<option value="' | append: ov.id | append: '" data-plan="" data-name="' | append: vname_e | append: '" data-sub="' | append: price_s | append: '" data-price="' | append: price_s | append: '">' | append: vname_e | append: ' – ' | append: price_s | append: '</option>'
           endcapture
           assign opts = opts | append: o
         endif
@@ -135,7 +135,7 @@
         if vname == 'Default Title'
           assign vname = p.title
         endif
-        assign price_s = v.price | money | strip_html
+        assign price_s = v.price | money_without_trailing_zeros | strip_html
         assign count = count | plus: 1
         assign hay = vname | downcase
         if chosen == 0 and pick != blank and hay contains pick
@@ -143,7 +143,7 @@
         endif
         assign vname_e = vname | escape
         capture o
-          echo '<option value="' | append: v.id | append: '" data-plan="" data-name="' | append: vname_e | append: '" data-sub="' | append: price_s | append: '">' | append: vname_e | append: ' – ' | append: price_s | append: '</option>'
+          echo '<option value="' | append: v.id | append: '" data-plan="" data-name="' | append: vname_e | append: '" data-sub="' | append: price_s | append: '" data-price="' | append: price_s | append: '">' | append: vname_e | append: ' – ' | append: price_s | append: '</option>'
         endcapture
         assign opts = opts | append: o
       endfor
@@ -154,11 +154,8 @@
   -%}
   {%- if count > 0 -%}
     {{ 'muto-bf-sticky.css' | asset_url | stylesheet_tag }}
+    {%- render 'muto-sbar-style' -%}
     <style>
-      #{{ bar_id }} .mc-sbar__btn-sep{display:none!important}
-      html:root body #{{ bar_id }}.mc-sbar .mc-sbar__btn{background:#5efaff!important;color:#242223!important}
-      html:root body #{{ bar_id }}.mc-sbar .mc-sbar__btn:hover{background:#3ef0f6!important;filter:none}
-      #{{ bar_id }} .mc-sbar__btn[aria-busy="true"]{opacity:.7;cursor:progress}
       #{{ bar_id }} .mc-sbar__pick--one{pointer-events:none}
       #{{ bar_id }} .mc-sbar__pick--one::after{display:none}
     </style>
@@ -179,6 +176,7 @@
         </label>
         <button type="button" class="mc-sbar__btn" data-sbar-add>
           <span class="mc-sbar__btn-full">{{ s.button | default: 'Add to cart' }}</span><span class="mc-sbar__btn-short">Add</span>
+          <span class="mc-sbar__btn-price" data-sbar-price></span>
         </button>
       </div>
     </div>
@@ -189,7 +187,7 @@
       if (!bar || bar.dataset.ready) return;
       bar.dataset.ready = '1';
       var sel = bar.querySelector('[data-sbar-select]'), btn = bar.querySelector('[data-sbar-add]');
-      var nm = bar.querySelector('[data-sbar-name]'), sub = bar.querySelector('[data-sbar-sub]');
+      var nm = bar.querySelector('[data-sbar-name]'), sub = bar.querySelector('[data-sbar-sub]'), pr = bar.querySelector('[data-sbar-price]');
       function paint() {
         var o = sel.options[sel.selectedIndex];
         if (!o) return;
@@ -198,6 +196,8 @@
         sub.innerHTML = '';
         var b = document.createElement('b'); b.textContent = parts[0]; sub.appendChild(b);
         if (parts[1]) sub.appendChild(document.createTextNode(' · ' + parts[1]));
+        /* The price on the button, as on the product page's bar */
+        if (pr) pr.textContent = o.getAttribute('data-price') || '';
       }
       sel.selectedIndex = parseInt(sel.getAttribute('data-chosen'), 10) || 0;
       paint();

@@ -1,7 +1,7 @@
 {%- comment -%}
   MUTO — Black Friday top bar (muto-bf-topbar). The black bar fixed to the top of the screen with
   "Claim →", as a section you can add to any template (page, home, collection, product, article).
-  "Claim" adds the chosen product on the chosen plan to the cart, then goes to checkout (or the cart).
+  "Claim" adds the chosen product on the chosen plan to the cart, then opens the cart (or goes to checkout).
 
   It sells the product picked in "Product" (blank: the page's own product on product pages). The plan is
   the first available variant with a Skio selling plan whose name contains "Plan name contains"
@@ -87,7 +87,7 @@
     var busy = false;
     function done(ok) {
       var root = (window.Shopify && Shopify.routes && Shopify.routes.root) || '/';
-      if (ok) { window.location.href = root + (bar.getAttribute('data-go') === 'cart' ? 'cart' : 'checkout'); return; }
+      if (ok) { window.location.href = root + (bar.getAttribute('data-go') === 'checkout' ? 'checkout' : 'cart'); return; }
       busy = false;
       bar.classList.remove('is-busy');
       bar.removeAttribute('aria-busy');
@@ -133,19 +133,19 @@
   "tag": "div",
   "class": "muto-bf-topbar",
   "settings": [
-    { "type": "paragraph", "content": "The black bar fixed to the top of the screen. Claim adds the product below on its plan to the cart, then goes to checkout. Hidden on the Black Friday product template (muto-nad-bf), which draws its own." },
+    { "type": "paragraph", "content": "The black bar fixed to the top of the screen. Claim adds the product below on its plan to the cart, then opens the cart. Hidden on the Black Friday product template (muto-nad-bf), which draws its own." },
     { "type": "product", "id": "product", "label": "Product", "info": "Blank: the page's own product (product pages only)" },
     { "type": "text", "id": "plan_match", "label": "Plan name contains", "default": "3-month", "info": "The Skio plan Claim adds, matched on its name. No match: the first available variant, one-time." },
-    { "type": "select", "id": "after_claim", "label": "After Claim", "default": "checkout", "options": [
-      { "value": "checkout", "label": "Go straight to checkout" },
-      { "value": "cart", "label": "Open the cart" }
+    { "type": "select", "id": "after_claim", "label": "After Claim", "default": "cart", "options": [
+      { "value": "cart", "label": "Open the cart" },
+      { "value": "checkout", "label": "Go straight to checkout" }
     ] },
     { "type": "header", "content": "Text" },
     { "type": "inline_richtext", "id": "text_desktop", "label": "Desktop text", "default": "<b>Black Friday:</b> 3 months for £99 (save 53%) + welcome kit worth £87" },
     { "type": "text", "id": "text_desktop_2", "label": "Desktop text, after the dot", "default": "While stock lasts" },
     { "type": "inline_richtext", "id": "text_mobile", "label": "Phone and tablet text", "default": "<b>3 months for £99</b> · Save 53%" },
     { "type": "text", "id": "cta", "label": "Link text", "default": "Claim" },
-    { "type": "text", "id": "aria", "label": "Screen reader text", "default": "Black Friday: 3 months for £99, save 53%, plus a welcome kit worth £87, while stock lasts. Claim: adds the 3-month plan and goes to checkout." }
+    { "type": "text", "id": "aria", "label": "Screen reader text", "default": "Black Friday: 3 months for £99, save 53%, plus a welcome kit worth £87, while stock lasts. Claim: adds the 3-month plan and opens the cart." }
   ],
   "presets": [{ "name": "MUTO — BF top bar" }]
 }

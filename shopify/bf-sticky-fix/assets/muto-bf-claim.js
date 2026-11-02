@@ -21,8 +21,9 @@
     window.scrollTo({ top: y, behavior: 'smooth' });
   }
 
+  /* Added (or already in the cart): open the cart */
   function done(ok) {
-    if (ok) { window.location.href = '/checkout'; return; }
+    if (ok) { window.location.href = ((window.Shopify && Shopify.routes && Shopify.routes.root) || '/') + 'cart'; return; }
     busy = false;
     bar.classList.remove('is-busy');
     bar.removeAttribute('aria-busy');
@@ -39,7 +40,7 @@
     bar.setAttribute('aria-busy', 'true');
     var root = (window.Shopify && Shopify.routes && Shopify.routes.root) || '/';
     var planId = q.plan ? parseInt(q.plan, 10) : null;
-    /* Already in the cart on this plan (a second tap, or back from checkout): don't add a second box */
+    /* Already in the cart on this plan (a second tap, or back from the cart): don't add a second box */
     fetch(root + 'cart.js', { credentials: 'same-origin' })
       .then(function (r) { return r.ok ? r.json() : { items: [] }; })
       .catch(function () { return { items: [] }; })

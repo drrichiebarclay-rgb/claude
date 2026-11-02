@@ -36,12 +36,7 @@
 -%}
 {%- if q_v != blank -%}
   {{ 'muto-bf-sticky.css' | asset_url | stylesheet_tag }}
-  <style>
-    .mc-sbar--site .mc-sbar__btn-sep{display:none!important}
-    html:root body .mc-sbar--site.mc-sbar .mc-sbar__btn{background:#5efaff!important;color:#242223!important}
-    html:root body .mc-sbar--site.mc-sbar .mc-sbar__btn:hover{background:#3ef0f6!important;filter:none}
-    .mc-sbar--site .mc-sbar__btn[aria-busy="true"]{opacity:.7;cursor:progress}
-  </style>
+  {%- render 'muto-sbar-style' -%}
   <div class="mc-sbar mc-sbar--site" role="region" aria-label="Choose a plan and add to cart" aria-hidden="true">
     <div class="mc-sbar__in">
       <div class="mc-sbar__prod">
@@ -61,6 +56,7 @@
       </label>
       <button type="button" class="mc-sbar__btn" data-sbar-add>
         <span class="mc-sbar__btn-full">Add to cart</span><span class="mc-sbar__btn-short">Add</span>
+        <span class="mc-sbar__btn-price" data-sbar-price>£99</span>
       </button>
     </div>
   </div>
@@ -82,11 +78,13 @@
     }
     document.addEventListener('DOMContentLoaded', stepAside);
     var sel = bar.querySelector('[data-sbar-select]'), btn = bar.querySelector('[data-sbar-add]');
-    var nm = bar.querySelector('[data-sbar-name]'), sub = bar.querySelector('[data-sbar-sub]');
+    var nm = bar.querySelector('[data-sbar-name]'), sub = bar.querySelector('[data-sbar-sub]'), pr = bar.querySelector('[data-sbar-price]');
     sel.addEventListener('change', function () {
       var o = sel.options[sel.selectedIndex], parts = o.getAttribute('data-sub').split(' · ');
       nm.textContent = o.getAttribute('data-name');
       sub.innerHTML = '<b>' + parts[0] + '</b> · ' + parts[1];
+      /* The price on the button, as on the product page's bar */
+      if (pr) pr.textContent = parts[1] || '';
     });
     btn.addEventListener('click', function () {
       var o = sel.options[sel.selectedIndex];

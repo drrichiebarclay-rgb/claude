@@ -55,3 +55,12 @@ In the theme editor, open the page template, then **Add section**:
   - the plan added to the cart has the right selling plan
   - Claim goes to checkout
   - only one sticky bar shows
+
+## Update, 2 Nov: same design as the product page, and Claim opens the cart
+
+Uploaded to the Black Friday theme (all files checked against the theme's checksums).
+
+- **`snippets/muto-sbar-style.liquid`** (new): the product page's sticky bar sizes (from `muto-bf-type.css` and the desktop step in `muto-bf-extra.css`, which only load on that page), scoped to the site-wide bar and the section bar. Both bars render it, so they look like the product page's bar: 44px photo, 48px picker and button, the same type sizes, price inside the button, turquoise button.
+- **`sections/muto-sbar.liquid`** and **`snippets/muto-sci-sticky.liquid`**: render that snippet and show the price in the button. Section prices print without trailing zeros (£99, not £99.00).
+- **`assets/muto-bf-claim.js`**: the product page's Claim now opens the cart instead of going straight to checkout. `snippets/muto-bf-bar.liquid` screen reader text updated to match. Both files are committed first as snapshots of the theme, so the diff shows only the change.
+- **`sections/muto-bf-topbar.liquid`**: "After Claim" now defaults to "Open the cart".
