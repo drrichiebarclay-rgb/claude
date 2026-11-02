@@ -8,6 +8,27 @@ This follows your feedback: the CSS is now split by section, so nothing PDP-spec
 
 ---
 
+## ⚠️ Status at 2 Nov, ~12:30: live needs the header and footer steps now
+
+- **Live** ("Clone Of Live | Buy Box Redesign [31-08]") already has every file in `theme/`. They were uploaded at 11:53–11:54 and match by checksum. But live's **header and footer groups were not updated**, so live runs the slimmed `muto-bf-head` with no **MUTO — Site styles**, **MUTO — Menu** or **MUTO — Sticky add to cart**. Since then, every page except the two BF product templates has been missing the site fonts, header, cart and button styles, the new menu and the sticky bar.
+- **Ready-made fix:** theme **"Clone Of Live | BF menu, buttons, sticky, CSS by section [02-11]"**, a fresh duplicate of live with the header and footer groups done. Everything else is live's own, including today's template edits. All files are checked by checksum.
+  - Preview: https://muto.co/?preview_theme_id=204099125595
+  - Editor: https://admin.shopify.com/store/c0xuhb-9e/themes/204099125595/editor
+
+**Pick one:**
+
+- **A. Publish the clone** after a quick preview: homepage, bottle page, menu, cart, a BF product page. Any edits made on live after ~12:30 would need copying across first.
+- **B. Fix live in place** (about a minute in the theme editor):
+  1. Header → add **MUTO — Site styles** and drag it to the **top**.
+  2. Header → add **MUTO — Menu**. Settings: Menu *Main Menu New Drawer*; Log in link `https://mutolongevity.com/a/account/login`; Shop item 1 `muto-menu-nad-jar.jpg`; Offer card image `muto-menu-offer.jpg`.
+  3. Footer → add **MUTO — Sticky add to cart**. Leave Product blank and untick "Emit product structured data".
+
+  Or upload `reference/header-group.json` and `reference/footer-group.json` to live. They are exactly live's current files plus those three sections.
+
+The rest of this guide (install order, BF template steps, dev notes, tests) still applies. Steps 1–2 below are already done on live and on the clone.
+
+---
+
 ## What's in the zip
 
 | Folder | What | Action |
