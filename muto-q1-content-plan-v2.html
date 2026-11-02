@@ -1,0 +1,521 @@
+<title>MUTO Q1 Content Plan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sometype+Mono:wght@400;500&display=swap">
+<style>
+@font-face{font-family:"Neue Haas Grotesk Display Pro";src:url("https://cdn.shopify.com/s/files/1/0976/2724/2843/files/NeueHaasDisplay-Roman.woff2?v=1788216240") format("woff2");font-weight:400 450;font-display:swap}
+@font-face{font-family:"Neue Haas Grotesk Display Pro";src:url("https://cdn.shopify.com/s/files/1/0976/2724/2843/files/NeueHaasDisplay-Mediu.woff2?v=1788216243") format("woff2");font-weight:500 550;font-display:swap}
+@font-face{font-family:"Neue Haas Grotesk Display Pro";src:url("https://cdn.shopify.com/s/files/1/0976/2724/2843/files/NeueHaasDisplay-Bold.woff2?v=1788216239") format("woff2");font-weight:600 700;font-display:swap}
+/* Layout: one 1200px column on off-white; mint wash hero, a full-bleed charcoal cinema band for production, and two wide grids (shoots, Q1) that scroll inside their own frames.
+   Single deliberate look (MUTO light brand); every colour is a MUTO token or a charcoal / off-white tint of one. */
+:root{
+  --muto-off-white:#fafafa; --muto-white:#ffffff; --muto-grey-band:#e8e8e8; --muto-charcoal:#242223;
+  --muto-cyan:#5efaff; --muto-lime:#f0ff84; --muto-sage:rgba(200,210,207,.4); --muto-hair:rgba(36,34,35,.15);
+  --muto-field:
+    radial-gradient(143.1% 77.1% at 9.6% 175.2%, rgba(188,203,66,.21) 0%, rgba(188,203,66,0) 100%),
+    radial-gradient(95.8% 76% at 80% 97.4%, rgba(244,253,252,1) 0%, rgba(244,253,252,0) 100%),
+    radial-gradient(148% 49.8% at 137.7% 63.6%, rgba(163,244,76,.39) 0%, rgba(163,244,76,0) 100%),
+    radial-gradient(57.4% 122.8% at 58.4% 99%, rgba(45,251,166,1) 0%, rgba(45,251,166,0) 100%),
+    #fafafa;
+  /* tints of the tokens above, for secondary text and dark-band hairlines */
+  --ink-2:rgba(36,34,35,.72); --night-ink-2:rgba(250,250,250,.68); --night-hair:rgba(250,250,250,.16);
+  --muto-sans:"Neue Haas Grotesk Display Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --muto-mono:"Sometype Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --ease:cubic-bezier(.2,0,.2,1);
+  color-scheme:light;
+}
+*{box-sizing:border-box;border-radius:0}
+html{background:var(--muto-off-white)}
+body{background:var(--muto-off-white);color:var(--muto-charcoal);font:400 16px/1.55 var(--muto-sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--muto-off-white)}
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+h1,h2,h3{font-family:var(--muto-sans);text-wrap:balance;margin:0;font-weight:500}
+h2{font-size:clamp(30px,4vw,48px);letter-spacing:-.035em;line-height:1.04}
+h3{font-size:20px;letter-spacing:-.02em;line-height:1.22}
+p{margin:0;max-width:65ch}
+.lab{font:400 11.5px/1.4 var(--muto-mono);letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2)}
+.lead{font-size:18px;max-width:58ch}
+.muted{color:var(--ink-2)}
+.tag{display:inline-flex;align-items:center;font:500 11px/1 var(--muto-mono);letter-spacing:.05em;text-transform:uppercase;padding:7px 12px;border-radius:40px;white-space:nowrap;color:var(--muto-charcoal)}
+.tag.proof{background:var(--muto-cyan)} .tag.feel{background:var(--muto-lime)}
+.tag.both{padding:0;overflow:hidden}
+.tag.both span{padding:7px 10px 7px 12px;background:var(--muto-cyan)}
+.tag.both span+span{padding:7px 12px 7px 8px;background:var(--muto-lime)}
+
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--muto-off-white);border-bottom:1px solid var(--muto-hair)}
+nav .wrap{display:flex;gap:24px;align-items:center;overflow-x:auto;padding-block:15px;scrollbar-width:none}
+nav .wrap::-webkit-scrollbar{display:none}
+nav a{font:400 11.5px/1 var(--muto-mono);letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2);text-decoration:none;white-space:nowrap}
+nav a:hover,nav a:focus-visible{color:var(--muto-charcoal)}
+nav .brand{font:600 16px/1 var(--muto-sans);letter-spacing:.2em;color:var(--muto-charcoal);margin-right:8px}
+a:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--muto-charcoal);outline-offset:3px}
+
+header.hero{background:var(--muto-field);padding-block:88px 60px;border-bottom:1px solid var(--muto-hair)}
+.hero .slate{display:flex;flex-wrap:wrap;gap:10px 28px;margin-bottom:44px;padding-bottom:16px;border-bottom:1px solid var(--muto-hair)}
+.hero .slate span{font:400 11.5px/1 var(--muto-mono);letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2)}
+.hero .slate b{color:var(--muto-charcoal);font-weight:500}
+.hero h1{font-size:clamp(44px,8.6vw,116px);font-weight:500;line-height:.96;letter-spacing:-.045em}
+.hero h1 .proof,.hero h1 .feel{padding:0 .08em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hero h1 .proof{background:var(--muto-cyan)} .hero h1 .feel{background:var(--muto-lime)}
+.hero .lead{margin-top:34px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:60px;border-top:1px solid var(--muto-charcoal)}
+.stats div{padding:18px 18px 0 0;display:grid;gap:8px;align-content:start}
+.stats b{font:500 48px/1 var(--muto-sans);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.stats span{font:400 11.5px/1.4 var(--muto-mono);text-transform:uppercase;letter-spacing:.05em;color:var(--ink-2)}
+@media (max-width:640px){.stats{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:22px}.stats b{font-size:40px}}
+
+section{padding-block:88px;border-bottom:1px solid var(--muto-hair)}
+@media (max-width:640px){section{padding-block:72px}}
+.sec-head{display:grid;gap:14px;margin-bottom:40px}
+
+.rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--muto-hair);border:1px solid var(--muto-hair)}
+.rules div{background:var(--muto-white);padding:26px;display:grid;gap:10px;align-content:start;min-width:0}
+.rules .n{font:400 11.5px/1 var(--muto-mono);letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2)}
+@media (max-width:760px){.rules{grid-template-columns:1fr}}
+.balance{display:flex;flex-wrap:wrap;gap:10px 12px;align-items:center;margin-top:28px}
+.balance .muted{margin-right:16px}
+.guard{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.guard span{font:400 12px/1.3 var(--muto-mono);background:var(--muto-grey-band);padding:7px 12px;border-radius:40px;color:var(--muto-charcoal)}
+
+.pillars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:760px){.pillars{grid-template-columns:1fr}}
+.pillar{background:var(--muto-white);border:1px solid var(--muto-hair);padding:28px 24px 24px;display:grid;gap:14px;align-content:start;min-width:0;position:relative}
+.pillar::before{content:"";position:absolute;inset:-1px -1px auto;height:6px;background:var(--c)}
+.pillar.proof{--c:var(--muto-cyan)} .pillar.feel{--c:var(--muto-lime)}
+.pillar .top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.pillar .name{display:grid;gap:6px;min-width:0}
+.pillar ul{margin:0;padding-left:18px;display:grid;gap:5px}
+.pillar ul li::marker{color:var(--ink-2)}
+.kv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;border-top:1px solid var(--muto-hair);padding-top:14px}
+.kv div{display:grid;gap:4px;min-width:0;align-content:start}
+.kv b{font-weight:500;font-size:14px;line-height:1.35}
+@media (max-width:440px){.kv{grid-template-columns:1fr 1fr}.pillar .top{flex-direction:column-reverse}}
+
+.tbl{overflow-x:auto;border:1px solid var(--muto-hair);background:var(--muto-white)}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th,td{text-align:left;vertical-align:top;padding:12px 14px;border-bottom:1px solid var(--muto-hair)}
+th{font:400 11px/1.3 var(--muto-mono);letter-spacing:.05em;text-transform:uppercase;color:var(--muto-charcoal);background:var(--muto-grey-band);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td.mono{font-family:var(--muto-mono);font-size:12.5px;white-space:nowrap}
+@media (max-width:640px){#paid table,#measure table{min-width:640px}}
+
+.tent{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+@media (max-width:860px){.tent{grid-template-columns:1fr}}
+.card{background:var(--muto-white);border:1px solid var(--muto-hair);padding:26px;display:grid;gap:16px;align-content:start;min-width:0}
+.card ol,.card ul{margin:0;padding-left:20px;display:grid;gap:6px}
+.acts{display:grid;border-left:1px solid var(--muto-charcoal);margin-left:5px}
+.act{position:relative;padding:0 0 18px 22px;display:grid;gap:4px}
+.act::before{content:"";position:absolute;left:-6px;top:3px;width:11px;height:11px;background:var(--muto-lime);border:1px solid var(--muto-charcoal)}
+.act:last-child{padding-bottom:0}
+.act .t{font:500 11.5px/1.2 var(--muto-mono);color:var(--muto-charcoal);letter-spacing:.05em;text-transform:uppercase}
+.note{font-size:14px;color:var(--ink-2);border-left:4px solid var(--muto-cyan);padding-left:12px}
+
+/* cinema band */
+section.night{background:var(--muto-charcoal);color:var(--muto-off-white);border-bottom:0;padding-block:112px}
+@media (max-width:640px){section.night{padding-block:80px}}
+.night .muted,.night .lab{color:var(--night-ink-2)}
+.night .sec-head .lab{color:var(--muto-cyan)}
+.night h2{font-size:clamp(34px,5.4vw,68px);letter-spacing:-.04em;line-height:1}
+.tiers{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:20px}
+@media (max-width:860px){.tiers{grid-template-columns:1fr}}
+.tier{border:1px solid var(--night-hair);padding:28px;display:grid;gap:14px;align-content:start;min-width:0}
+.tier.hero-t{border-color:var(--muto-lime)}
+.spec{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.spec li{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;font-size:14.5px;padding-top:12px;border-top:1px solid var(--night-hair)}
+.spec li span{font:400 11px/1.7 var(--muto-mono);letter-spacing:.05em;text-transform:uppercase;color:var(--muto-lime)}
+.tier:not(.hero-t) .spec li span{color:var(--muto-cyan)}
+@media (max-width:440px){.spec li{grid-template-columns:1fr;gap:4px}}
+
+.tl-frame,.q1-frame{overflow-x:auto;border:1px solid var(--muto-hair);background:var(--muto-white);-webkit-overflow-scrolling:touch}
+.scroll-hint{display:none;font:400 11px/1 var(--muto-mono);letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2);margin-bottom:10px}
+@media (max-width:1100px){.scroll-hint{display:block}}
+.tl{display:grid;grid-template-columns:118px repeat(14,minmax(80px,1fr));min-width:1240px;font-size:12px}
+.tl .wk{font:400 11px/1.2 var(--muto-mono);color:var(--ink-2);padding:10px 6px;border-bottom:1px solid var(--muto-hair);border-left:1px solid var(--muto-hair);text-align:center;white-space:nowrap;background:var(--muto-grey-band)}
+.tl .wk.mo{color:var(--muto-charcoal);font-weight:500}
+.tl .rl{font:400 11px/1.3 var(--muto-mono);letter-spacing:.05em;text-transform:uppercase;color:var(--muto-charcoal);padding:12px 10px;border-bottom:1px solid var(--muto-hair);display:flex;align-items:center;position:sticky;left:0;background:var(--muto-white);z-index:2}
+.tl .cell{border-left:1px solid var(--muto-hair);border-bottom:1px solid var(--muto-hair)}
+.tl .ev{margin:7px 4px;padding:7px 7px;line-height:1.3;font-size:12px;z-index:1;align-self:center;color:var(--muto-charcoal);min-width:0;overflow-wrap:anywhere;hyphens:auto}
+.tl .ev b{display:block;font:500 10.5px/1.2 var(--muto-mono);letter-spacing:.05em;text-transform:uppercase;margin-bottom:3px}
+.tl .ev.h{background:var(--muto-lime)} .tl .ev.a{background:var(--muto-cyan)}
+.tl .ev.h.tbc{background:var(--muto-lime);outline:1px dashed var(--muto-charcoal);outline-offset:-1px}
+.tl .ev.away{background:var(--muto-grey-band);color:var(--muto-charcoal);text-align:center;font:400 11.5px/1.3 var(--muto-mono);letter-spacing:.05em;text-transform:uppercase}
+.tl .ev.ok{color:var(--ink-2);text-align:center;font:400 11.5px/1.3 var(--muto-mono);letter-spacing:.05em;text-transform:uppercase;border:1px solid var(--muto-hair);background:var(--muto-white)}
+.tl .ev.risk{background:var(--muto-white);border:1px dashed var(--muto-charcoal)}
+.legend{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:14px;font-size:13px;color:var(--ink-2)}
+.legend i{display:inline-block;width:12px;height:12px;vertical-align:-2px;margin-right:6px}
+
+.slates{display:grid;margin-top:32px;border:1px solid var(--muto-hair);background:var(--muto-white)}
+.slates>div{display:grid;grid-template-columns:86px 150px minmax(0,1fr) minmax(0,1.3fr);gap:16px;padding:14px 16px;border-bottom:1px solid var(--muto-hair);font-size:14.5px}
+.slates>div:last-child{border-bottom:0}
+.slates .d{font:500 12px/1.4 var(--muto-mono);letter-spacing:.05em;text-transform:uppercase}
+.slates .w{font:400 12px/1.4 var(--muto-mono);color:var(--ink-2)}
+@media (max-width:760px){.slates>div{grid-template-columns:76px minmax(0,1fr);gap:6px 14px}.slates>div>:nth-child(3),.slates>div>:nth-child(4){grid-column:2}}
+
+.q1{display:grid;grid-template-columns:150px repeat(13,minmax(54px,1fr));min-width:900px}
+.q1 .h{font:400 11px/1.25 var(--muto-mono);color:var(--ink-2);text-align:center;padding:10px 4px;border-bottom:1px solid var(--muto-hair);border-left:1px solid var(--muto-hair);background:var(--muto-grey-band)}
+.q1 .h b{display:block;color:var(--muto-charcoal);font-weight:500;text-transform:uppercase;letter-spacing:.05em}
+.q1 .h:first-child{position:sticky;left:0;z-index:2;text-transform:uppercase;letter-spacing:.05em}
+.q1 .rl{padding:10px 12px;border-bottom:1px solid var(--muto-hair);font-size:13px;font-weight:500;display:flex;align-items:center;gap:8px;position:sticky;left:0;background:var(--muto-white);z-index:2}
+.q1 .rl i{width:10px;height:10px;flex:none;border:1px solid var(--muto-charcoal)}
+.q1 .c{border-left:1px solid var(--muto-hair);border-bottom:1px solid var(--muto-hair);display:flex;align-items:center;justify-content:center;padding:6px 3px;min-height:44px}
+.q1 .c span{font:500 11px/1.15 var(--muto-mono);padding:5px 6px;text-align:center;color:var(--muto-charcoal)}
+.q1 .p span{background:var(--muto-cyan)} .q1 .f span{background:var(--muto-lime)}
+.q1 .x span{background:var(--muto-charcoal);color:var(--muto-off-white)}
+.q1 .rowend{border-bottom:0}
+
+.rhythm{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;background:var(--muto-hair);border:1px solid var(--muto-hair);margin-top:20px}
+.rhythm div{background:var(--muto-white);padding:14px;display:grid;gap:6px;align-content:start;min-width:0}
+.rhythm .day{font:500 12px/1 var(--muto-mono);letter-spacing:.05em;text-transform:uppercase}
+.rhythm .fmt{font:400 11.5px/1.3 var(--muto-mono);color:var(--ink-2)}
+@media (max-width:760px){.rhythm{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.pipe{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;counter-reset:s}
+.pipe div{border-top:1px solid var(--muto-charcoal);padding-top:12px;display:grid;gap:6px;font-size:14.5px;min-width:0;align-content:start}
+.pipe div::before{counter-increment:s;content:"Step " counter(s);font:500 11px/1 var(--muto-mono);letter-spacing:.05em;text-transform:uppercase;background:var(--muto-cyan);justify-self:start;padding:6px 10px;border-radius:40px}
+@media (max-width:760px){.pipe{grid-template-columns:1fr 1fr}}
+@media (max-width:440px){.pipe{grid-template-columns:1fr}}
+
+.road{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media (max-width:860px){.road{grid-template-columns:1fr}}
+.road .card ul{list-style:none;padding:0;gap:10px}
+.road .card li{display:grid;grid-template-columns:14px minmax(0,1fr);gap:10px;font-size:14.5px}
+.road .card li::before{content:"";width:12px;height:12px;border:1px solid var(--muto-charcoal);margin-top:5px}
+.road .who{font:400 11px/1 var(--muto-mono);letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2);margin-left:4px;white-space:nowrap}
+.decisions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px}
+.decisions div{border:1px solid var(--muto-hair);padding:18px;font-size:14.5px;display:grid;gap:8px;background:var(--muto-white);min-width:0;align-content:start}
+@media (max-width:760px){.decisions{grid-template-columns:1fr}}
+footer{background:var(--muto-charcoal);color:var(--night-ink-2);padding-block:44px 64px;font:400 12px/1.6 var(--muto-mono);letter-spacing:.05em;text-transform:uppercase}
+.stack{display:grid;gap:16px}
+@media (prefers-reduced-motion: no-preference){
+  .hero h1{animation:rise .7s var(--ease) both}
+  .hero .lead,.stats{animation:rise .7s .1s var(--ease) both}
+  @keyframes rise{from{transform:translateY(10px)}to{transform:none}}
+}
+</style>
+
+<nav aria-label="Sections"><div class="wrap">
+  <span class="brand">MUTO</span>
+  <a href="#stance">Stance</a><a href="#pillars">Pillars</a><a href="#tentpoles">Launches</a><a href="#production">Production</a><a href="#shoots">Shoot plan</a><a href="#calendar">Q1 calendar</a><a href="#paid">Organic → paid</a><a href="#measure">Measurement</a><a href="#roadmap">Roadmap</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="slate">
+    <span>Prod. <b>MUTO organic</b></span><span>Scene <b>Q1 2027</b></span><span>Run <b>4 Jan – 29 Mar</b></span><span>Shoots <b>9 Nov – 8 Feb</b></span><span>Rev. <b>2 Nov 2026</b></span>
+  </div>
+  <h1>Clinical in <span class="proof">substance</span>.<br>Human in <span class="feel">feeling</span>.</h1>
+  <p class="lead">Ten shoot days and thirteen Sunday runs bank a quarter of content built on one objective: trust. Every piece proves MUTO is science-led, and every piece makes someone feel it. Richie is away 1 December to 10 January, so everything he fronts is shot either side.</p>
+  <div class="stats">
+    <div><b>10</b><span>production days, Nov to Feb</span></div>
+    <div><b>13</b><span>Sunday Road to London shoots</span></div>
+    <div><b>150+</b><span>organic assets banked</span></div>
+    <div><b>30+</b><span>ad-ready cuts for Meta</span></div>
+  </div>
+</div></header>
+
+<main>
+<section id="stance"><div class="wrap">
+  <div class="sec-head"><span class="lab">Brand stance</span><h2>Trust first. Proven in the lab, felt in the story.</h2>
+  <p class="muted">Every piece answers one question for a 40–60 year old: why believe this one is different from every supplement I've bought on trust? Primary persona: MP5 The Protector. Secondary: MP2 Busy 40s. Supporting: the high performer.</p></div>
+  <div class="rules">
+    <div><span class="n">Rule 1</span><h3>Clinical in substance</h3><p class="muted">Every statement traces to a study, a named scientist or a certificate. Real labs, real data, credentials on screen. No hype words.</p></div>
+    <div><span class="n">Rule 2</span><h3>Emotional in delivery</h3><p class="muted">Science pieces open on a human stake: what changes in your 40s, who depends on you. Every human story carries one proof point.</p></div>
+    <div><span class="n">Rule 3</span><h3>One look</h3><p class="muted">Tech studio, labs, clean type and data overlays, carried by cinematic grade, music and faces. No whiteboards, stock wellness or influencer gloss.</p></div>
+  </div>
+  <div class="balance">
+    <span class="tag proof">Leads with proof</span><span class="muted">Education · SAB podcast · Clinical trial · Documentary</span>
+    <span class="tag feel">Leads with feeling</span><span class="muted">The Everyday System · Road to London</span>
+  </div>
+  <div class="guard">
+    <span>No outcome or efficacy claims</span><span>Westminster: process only until Q2 results</span><span>Never "NAD+ up 51%" as our study</span><span>19 ingredients</span><span>"Five jobs" always listed</span><span>Longevity, not NAD+</span><span>No Black Friday CTAs in organic</span>
+  </div>
+</div></section>
+
+<section id="pillars"><div class="wrap">
+  <div class="sec-head"><span class="lab">Six pillars</span><h2>Each pillar has one job, one format and one slot.</h2></div>
+  <div class="pillars">
+    <article class="pillar proof"><div class="top"><div class="name"><span class="lab">Pillar 1 · Fridays</span><h3>Founder education: "Above the Standard"</h3></div><span class="tag proof">Proof</span></div>
+      <p class="muted">Turns Richie's PhD credibility into proof MUTO does the work others skip. The science is the subject; Richie is the guide.</p>
+      <ul><li><b>Studies:</b> what the research says, how to read a study, what our trials measure</li><li><b>Ingredients:</b> one a week, always as part of the complex</li><li><b>Standards:</b> the UK legal bar, batch testing, certificates, doses</li></ul>
+      <div class="kv"><div><span class="lab">Funnel</span><b>MOF / BOF</b></div><div><span class="lab">Format</span><b>60–90s Reel, tech studio</b></div><div><span class="lab">Q1 output</span><b>13 eps, 4 carousels</b></div></div></article>
+
+    <article class="pillar proof"><div class="top"><div class="name"><span class="lab">Pillar 2 · Monthly</span><h3>Documentary: "Beneath the Surface"</h3></div><span class="tag both"><span>Proof +</span><span>feeling</span></span></div>
+      <p class="muted">Creates the category: why energy and ageing are cellular, from evolution to the 40s slowdown to measuring it yourself.</p>
+      <ul><li><b>Ep 1, The Energy Problem:</b> the slowdown at 40–50 and where energy comes from</li><li><b>Ep 2, Built on Trust:</b> why the industry asks for trust</li><li><b>Ep 3, Measure It:</b> trials, wearables, you can track it</li></ul>
+      <div class="kv"><div><span class="lab">Funnel</span><b>TOF</b></div><div><span class="lab">Format</span><b>8–12 min, cinema</b></div><div><span class="lab">Q1 output</span><b>Trailer + 3 eps, ~15 cuts</b></div></div></article>
+
+    <article class="pillar proof"><div class="top"><div class="name"><span class="lab">Pillar 3 · Monthly updates</span><h3>Clinical trial &amp; science</h3></div><span class="tag proof">Proof</span></div>
+      <p class="muted">Westminster shows rigour, not results. "Most supplements have never been tested. Here's what testing ours looks like."</p>
+      <ul><li>Trial kickoff BTS and an interview with the trial lead, Dr Lewis Mattan</li><li>Richie's talk to Westminster students, long-form plus 4 shorts</li><li>A 60s trial update from Richie every month</li></ul>
+      <div class="kv"><div><span class="lab">Funnel</span><b>MOF / BOF</b></div><div><span class="lab">Format</span><b>Cinema films + updates</b></div><div><span class="lab">Q1 output</span><b>~6 hero, ~10 shorts</b></div></div></article>
+
+    <article class="pillar proof"><div class="top"><div class="name"><span class="lab">Pillar 4 · Odd weeks</span><h3>SAB podcast</h3></div><span class="tag proof">Proof</span></div>
+      <p class="muted">Borrowed authority: seven scientists, seven episodes. Advisors get talking points, not scripts. Open with Dr James Morehen.</p>
+      <ul><li>30–45 min conversations, Richie hosting, tech studio</li><li>Three clip prompts per guest: your 40s, the biggest myth, advice to your 45-year-old self</li><li>YouTube and Spotify, clips to Reels</li></ul>
+      <div class="kv"><div><span class="lab">Funnel</span><b>MOF</b></div><div><span class="lab">Format</span><b>Long-form + clips</b></div><div><span class="lab">Q1 output</span><b>7 eps, ~35 shorts</b></div></div></article>
+
+    <article class="pillar feel"><div class="top"><div class="name"><span class="lab">Pillar 5 · Even weeks</span><h3>The Everyday System</h3></div><span class="tag feel">Feeling</span></div>
+      <p class="muted">Real life stories that let the persona see themselves: 2 parents, 2 athletes, 1 entrepreneur, 1 community member.</p>
+      <ul><li>Who they are → what started slipping → what's at stake → what they changed → who they do it for</li><li>MUTO appears in the routine, never as a claim</li><li>Stories 4–6 cast on whichever persona wins</li></ul>
+      <div class="kv"><div><span class="lab">Funnel</span><b>TOF / MOF</b></div><div><span class="lab">Format</span><b>3–5 min cinema film</b></div><div><span class="lab">Q1 output</span><b>6 films, ~15 ad cuts</b></div></div></article>
+
+    <article class="pillar feel"><div class="top"><div class="name"><span class="lab">Pillar 6 · Every Monday</span><h3>Road to London</h3></div><span class="tag feel">Feeling</span></div>
+      <p class="muted">A serialised team story with a deadline everyone understands, raising for the NSPCC on the way to the London Marathon.</p>
+      <ul><li>The week in training → "Why I run" → "The numbers" (wearable data, shown not claimed) → NSPCC total</li><li>Shot Sunday by the videographer, edited for Monday</li></ul>
+      <div class="kv"><div><span class="lab">Funnel</span><b>TOF, community</b></div><div><span class="lab">Format</span><b>3–5 min ep + Reel</b></div><div><span class="lab">Q1 output</span><b>13 eps, 13 Reels</b></div></div></article>
+  </div>
+</div></section>
+
+<section id="tentpoles"><div class="wrap">
+  <div class="sec-head"><span class="lab">Tent-pole launches</span><h2>Two moments that carry the trust story beyond the feed.</h2></div>
+  <div class="tent">
+    <div class="card">
+      <div class="stack" style="gap:8px"><span class="lab">November · within 48h of certification</span><h3>Informed Sport launch</h3></div>
+      <p>Most supplements are never tested for banned substances. MUTO is tested batch by batch. It is about purity and safety, so no performance claims ride on it.</p>
+      <div class="tbl"><table>
+        <thead><tr><th>Day</th><th>What goes out</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">Day 0</td><td>Certificate confirmed and listed; mark added to PDP trust ticker and FAQ</td></tr>
+          <tr><td class="mono">Day 1</td><td>"Every batch, tested" Reel, Stories with listing link, LinkedIn, subscriber email</td></tr>
+          <tr><td class="mono">Day 2</td><td>Carousel: what Informed Sport means, and what it doesn't</td></tr>
+          <tr><td class="mono">Day 4</td><td>Why it matters to pro athletes: Dr James Morehen or Matt Rabin</td></tr>
+          <tr><td class="mono">Day 7</td><td>"What it took" founder Reel</td></tr>
+          <tr><td class="mono">Week 1</td><td>Mark added to MOF trust ads, 2–3 new ads</td></tr>
+        </tbody></table></div>
+      <p class="note">Shoot w/c 9 Nov in one 2-hour session and hold. Nothing says "certified" until the listing is public. Decide whether to tell the curcumin story.</p>
+    </div>
+    <div class="card">
+      <div class="stack" style="gap:8px"><span class="lab">Launch w/c 11 Jan · 3–4 min</span><h3>Seed round launch film</h3></div>
+      <p>One argument: MUTO is building the evidence layer between the cell and the wearable, and the seed round funds the proof. Story in the film; numbers stay in the deck.</p>
+      <div class="acts">
+        <div class="act"><span class="t">0:00 – 0:45 · Who we are</span><span>Wearables show your body changing; nothing links it to your cells. "Biology sets limits. We intend to move them."</span></div>
+        <div class="act"><span class="t">0:45 – 1:45 · The story so far</span><span>From Novo Nordisk and Harley Street to a 19-ingredient complex, seven scientists, subscribers and elite sport.</span></div>
+        <div class="act"><span class="t">1:45 – 2:45 · What we're proving</span><span>Molecular change to wearable output has never been bridged. MUTO is building that bridge, and the IP. With Dr Rob Seaborne.</span></div>
+        <div class="act"><span class="t">2:45 – 3:45 · How we're doing it</span><span>Westminster, Coventry, Newcastle, King's, a strengthened science team. "We don't ask you to trust us. We're going to show you."</span></div>
+      </div>
+      <p class="note">Interview 16 Nov, King's in the Dec documentary block, rough cut 18 Dec, final 8 Jan. Deliver hero, 60–90s teaser, act cuts and a 30s version.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="production" class="night"><div class="wrap">
+  <div class="sec-head"><span class="lab">Production model</span><h2>Hero films are world-class cinema, not content.</h2>
+  <p class="muted">Weekly, repeatable series go to one videographer who also edits. The documentary, The Everyday System, the trial films and the seed film go to a cinema-standard production team and a world-class editor. The bar is UVU-level athlete films and feature documentaries.</p></div>
+  <div class="tiers">
+    <div class="tier">
+      <span class="lab">Always-on tier</span><h3>One videographer-editor</h3>
+      <p class="muted">Road to London, SAB podcast, founder education. Every Sunday, two edit days a week, plus the studio days.</p>
+      <ul class="spec">
+        <li><span>Set</span>Rented tech studio with a futuristic look, designed once and documented so November and January match</li>
+        <li><span>Look</span>Lit once by the hero DOP, sharing the hero grade</li>
+        <li><span>Delivers</span>13 marathon eps, 7 podcasts, 13 education eps, weekly Reels and paid cuts</li>
+      </ul>
+    </div>
+    <div class="tier hero-t">
+      <span class="lab" style="color:var(--muto-lime)">Hero tier · cinema standard</span><h3>Production company + world-class editor</h3>
+      <ul class="spec">
+        <li><span>Direction</span>A director with feature-documentary or high-end commercial credits who owns each arc</li>
+        <li><span>Camera</span>ARRI Alexa or Sony Venice class, cinema primes or anamorphic, DOP and gaffer lighting for mood</li>
+        <li><span>Science</span>Macro and high-speed photography; a motion designer for molecule-to-wearable sequences</li>
+        <li><span>Sound</span>Location recordist, original score, full sound design and mix</li>
+        <li><span>Finish</span>Dedicated colourist, 4K masters, one MUTO grade across every film</li>
+        <li><span>Story</span>Pre-interviews and a treatment before every shoot</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="shoots"><div class="wrap">
+  <div class="sec-head"><span class="lab">Shoot plan · 9 Nov to 8 Feb</span><h2>Richie-led shoots land either side of his absence.</h2>
+  <p class="muted">Five shoots before Christmas bank the first six to eight weeks. December runs on the production team alone: the documentary, story 1 and the first trial episode.</p></div>
+  <p class="scroll-hint">Swipe to see all 14 weeks →</p>
+  <div class="tl-frame" role="region" aria-label="Shoot timeline by week" tabindex="0">
+    <div class="tl">
+      <div class="wk" style="border-left:0"></div>
+      <div class="wk mo">9 Nov</div><div class="wk">16 Nov</div><div class="wk">23 Nov</div><div class="wk">30 Nov</div><div class="wk mo">7 Dec</div><div class="wk">14 Dec</div><div class="wk">21 Dec</div><div class="wk">28 Dec</div><div class="wk mo">4 Jan</div><div class="wk">11 Jan</div><div class="wk">18 Jan</div><div class="wk">25 Jan</div><div class="wk mo">1 Feb</div><div class="wk">8 Feb</div>
+
+      <div class="rl" style="grid-row:2">Richie</div>
+      <div class="ev ok" style="grid-row:2;grid-column:2/5">Available</div>
+      <div class="ev away" style="grid-row:2;grid-column:5/11">Away · 1 Dec – 10 Jan</div>
+      <div class="ev ok" style="grid-row:2;grid-column:11/16">Back</div>
+
+      <div class="rl" style="grid-row:3">Hero tier</div>
+      <div class="ev h" style="grid-row:3;grid-column:3"><b>Day 1</b>Doc + seed interviews</div>
+      <div class="ev h tbc" style="grid-row:3;grid-column:5"><b>Day 3</b>Westminster kickoff</div>
+      <div class="ev h" style="grid-row:3;grid-column:6"><b>Days 4–5</b>Documentary + King's</div>
+      <div class="ev h" style="grid-row:3;grid-column:7"><b>Day 6</b>Story 1</div>
+      <div class="ev h" style="grid-row:3;grid-column:11"><b>Day 7</b>Stories 2–3</div>
+      <div class="ev h" style="grid-row:3;grid-column:12"><b>Day 8</b>Westminster talk</div>
+      <div class="ev h" style="grid-row:3;grid-column:15"><b>Days 9–10</b>Stories 4–6</div>
+
+      <div class="rl" style="grid-row:4">Always-on</div>
+      <div class="ev a" style="grid-row:4;grid-column:2"><b>Shoot</b>Informed Sport</div>
+      <div class="ev a" style="grid-row:4;grid-column:3"><b>Day 1</b>Education ×13</div>
+      <div class="ev a" style="grid-row:4;grid-column:4"><b>Day 2</b>SAB block 1</div>
+      <div class="ev a" style="grid-row:4;grid-column:12"><b>Day 8</b>SAB block 2</div>
+
+      <div class="rl" style="grid-row:5">Sundays</div>
+      <div class="ev a" style="grid-row:5;grid-column:9/16"><b>From 3 Jan</b>Road to London, every Sunday to 28 Mar →</div>
+
+      <div class="rl" style="grid-row:6;border-bottom:0">Post + launch</div>
+      <div class="ev risk" style="grid-row:6;grid-column:7/11"><b>Holiday edit · risk</b>Seed film, trailer, Doc Ep 1</div>
+      <div class="ev h" style="grid-row:6;grid-column:11"><b>Launch</b>Seed film</div>
+
+      <div class="cell" style="grid-row:2/7;grid-column:2;border-bottom:0"></div><div class="cell" style="grid-row:2/7;grid-column:3;border-bottom:0"></div><div class="cell" style="grid-row:2/7;grid-column:4;border-bottom:0"></div><div class="cell" style="grid-row:2/7;grid-column:5;border-bottom:0"></div><div class="cell" style="grid-row:2/7;grid-column:6;border-bottom:0"></div><div class="cell" style="grid-row:2/7;grid-column:7;border-bottom:0"></div><div class="cell" style="grid-row:2/7;grid-column:8;border-bottom:0"></div><div class="cell" style="grid-row:2/7;grid-column:9;border-bottom:0"></div><div class="cell" style="grid-row:2/7;grid-column:10;border-bottom:0"></div><div class="cell" style="grid-row:2/7;grid-column:11;border-bottom:0"></div><div class="cell" style="grid-row:2/7;grid-column:12;border-bottom:0"></div><div class="cell" style="grid-row:2/7;grid-column:13;border-bottom:0"></div><div class="cell" style="grid-row:2/7;grid-column:14;border-bottom:0"></div><div class="cell" style="grid-row:2/7;grid-column:15;border-bottom:0"></div>
+    </div>
+  </div>
+  <div class="legend"><span><i style="background:var(--muto-lime)"></i>Hero tier (cinema)</span><span><i style="background:var(--muto-cyan)"></i>Always-on (videographer)</span><span><i style="border:1px dashed var(--muto-charcoal)"></i>Date set by the trial, or at risk</span></div>
+
+  <div class="slates">
+    <div><span class="d">Day 1</span><span class="w">w/c 16 Nov · Tech studio</span><span>Production team (am) + videographer (pm)</span><span class="muted">Richie's doc and seed film interviews; all 13 education episodes</span></div>
+    <div><span class="d">Day 2</span><span class="w">w/c 23 Nov · Tech studio</span><span>Videographer</span><span class="muted">SAB block 1: 4 episodes, ~20 shorts</span></div>
+    <div><span class="d">Day 3</span><span class="w">Late Nov/Dec · Westminster</span><span>Production team</span><span class="muted">Trial episode 1: kickoff BTS, Dr Lewis Mattan, lab b-roll</span></div>
+    <div><span class="d">Days 4–5</span><span class="w">w/c 7 Dec · Labs, King's</span><span>Production team</span><span class="muted">SAB expert interviews, Dr Rob Seaborne, macro b-roll, product stills, ingredient inserts</span></div>
+    <div><span class="d">Day 6</span><span class="w">w/c 14 Dec · Location</span><span>Production team</span><span class="muted">Everyday System story 1, a Protector parent</span></div>
+    <div><span class="d">Day 7</span><span class="w">w/c 11 Jan · Location</span><span>Production team</span><span class="muted">Everyday System stories 2–3</span></div>
+    <div><span class="d">Day 8</span><span class="w">w/c 18 Jan · Studio, Westminster</span><span>Videographer + production team</span><span class="muted">SAB block 2: 3 episodes; Richie's student talk</span></div>
+    <div><span class="d">Days 9–10</span><span class="w">w/c 8 Feb · Location</span><span>Production team</span><span class="muted">Everyday System stories 4–6, cast on the winning persona</span></div>
+  </div>
+</div></section>
+
+<section id="calendar"><div class="wrap">
+  <div class="sec-head"><span class="lab">Q1 publishing calendar</span><h2>One hero drop every week, on top of Monday's marathon episode.</h2>
+  <p class="muted">SAB lands on odd weeks and The Everyday System on even weeks. Documentary episodes drop monthly.</p></div>
+  <p class="scroll-hint">Swipe to see all 13 weeks →</p>
+  <div class="q1-frame" role="region" aria-label="Q1 calendar by week" tabindex="0">
+    <div class="q1">
+      <div class="h" style="border-left:0;text-align:left;padding-left:12px">Series</div>
+      <div class="h"><b>Wk 1</b>4 Jan</div><div class="h"><b>Wk 2</b>11 Jan</div><div class="h"><b>Wk 3</b>18 Jan</div><div class="h"><b>Wk 4</b>25 Jan</div><div class="h"><b>Wk 5</b>1 Feb</div><div class="h"><b>Wk 6</b>8 Feb</div><div class="h"><b>Wk 7</b>15 Feb</div><div class="h"><b>Wk 8</b>22 Feb</div><div class="h"><b>Wk 9</b>1 Mar</div><div class="h"><b>Wk 10</b>8 Mar</div><div class="h"><b>Wk 11</b>15 Mar</div><div class="h"><b>Wk 12</b>22 Mar</div><div class="h"><b>Wk 13</b>29 Mar</div>
+
+      <div class="rl"><i style="background:var(--muto-lime)"></i>Road to London</div>
+      <div class="c f"><span>Ep 1</span></div><div class="c f"><span>Ep 2</span></div><div class="c f"><span>Ep 3</span></div><div class="c f"><span>Ep 4</span></div><div class="c f"><span>Ep 5</span></div><div class="c f"><span>Ep 6</span></div><div class="c f"><span>Ep 7</span></div><div class="c f"><span>Ep 8</span></div><div class="c f"><span>Ep 9</span></div><div class="c f"><span>Ep 10</span></div><div class="c f"><span>Ep 11</span></div><div class="c f"><span>Ep 12</span></div><div class="c f"><span>Ep 13</span></div>
+
+      <div class="rl"><i style="background:var(--muto-cyan)"></i>SAB podcast</div>
+      <div class="c p"><span>Ep 1</span></div><div class="c"></div><div class="c p"><span>Ep 2</span></div><div class="c"></div><div class="c p"><span>Ep 3</span></div><div class="c"></div><div class="c p"><span>Ep 4</span></div><div class="c"></div><div class="c p"><span>Ep 5</span></div><div class="c"></div><div class="c p"><span>Ep 6</span></div><div class="c"></div><div class="c p"><span>Ep 7</span></div>
+
+      <div class="rl"><i style="background:var(--muto-lime)"></i>Everyday System</div>
+      <div class="c"></div><div class="c f"><span>Story 1</span></div><div class="c"></div><div class="c f"><span>Story 2</span></div><div class="c"></div><div class="c f"><span>Story 3</span></div><div class="c"></div><div class="c f"><span>Story 4</span></div><div class="c"></div><div class="c f"><span>Story 5</span></div><div class="c"></div><div class="c f"><span>Story 6</span></div><div class="c"></div>
+
+      <div class="rl"><i style="background:var(--muto-cyan)"></i>Documentary</div>
+      <div class="c p"><span>Trailer</span></div><div class="c"></div><div class="c p"><span>Ep 1</span></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c p"><span>Ep 2</span></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c p"><span>Ep 3</span></div><div class="c"></div><div class="c"></div>
+
+      <div class="rl"><i style="background:var(--muto-cyan)"></i>Trial &amp; science</div>
+      <div class="c p"><span>Kickoff</span></div><div class="c p"><span>Trial lead</span></div><div class="c"></div><div class="c p"><span>Talk</span></div><div class="c p"><span>Update</span></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c p"><span>Update</span></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c p"><span>Update</span></div>
+
+      <div class="rl"><i style="background:var(--muto-cyan)"></i>Founder education</div>
+      <div class="c p"><span>1</span></div><div class="c p"><span>2</span></div><div class="c p"><span>3</span></div><div class="c p"><span>4</span></div><div class="c p"><span>5</span></div><div class="c p"><span>6</span></div><div class="c p"><span>7</span></div><div class="c p"><span>8</span></div><div class="c p"><span>9</span></div><div class="c p"><span>10</span></div><div class="c p"><span>11</span></div><div class="c p"><span>12</span></div><div class="c p"><span>13</span></div>
+
+      <div class="rl rowend"><i style="background:var(--muto-charcoal)"></i>Seed film</div>
+      <div class="c rowend"></div><div class="c x rowend"><span>Launch</span></div><div class="c rowend"></div><div class="c rowend"></div><div class="c rowend"></div><div class="c rowend"></div><div class="c rowend"></div><div class="c rowend"></div><div class="c rowend"></div><div class="c rowend"></div><div class="c rowend"></div><div class="c rowend"></div><div class="c rowend"></div>
+    </div>
+  </div>
+
+  <div class="rhythm" aria-label="Weekly Instagram rhythm">
+    <div><span class="day">Mon</span><span>Road to London</span><span class="fmt">Reel + YouTube</span></div>
+    <div><span class="day">Tue</span><span>SAB clip or episode teaser</span><span class="fmt">Reel</span></div>
+    <div><span class="day">Wed</span><span>Science or myth carousel</span><span class="fmt">Carousel</span></div>
+    <div><span class="day">Thu</span><span>Hero drop: story, doc or trial</span><span class="fmt">Reel + YouTube</span></div>
+    <div><span class="day">Fri</span><span>Founder education</span><span class="fmt">Reel + LinkedIn</span></div>
+    <div><span class="day">Sat</span><span>Premium product shot or community</span><span class="fmt">Static</span></div>
+  </div>
+  <p class="muted" style="margin-top:14px;font-size:13.5px">Six grid posts a week, about half video, at least three carrying a visible proof element. Stories run daily. If Beadlet NMN launches in January it takes that week's Saturday slot.</p>
+</div></section>
+
+<section id="paid"><div class="wrap">
+  <div class="sec-head"><span class="lab">Repurposing and organic → paid</span><h2>Organic is the creative lab for Meta.</h2></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Source</th><th>Long-form</th><th>Instagram</th><th>Carousel / static</th><th>Paid candidates</th></tr></thead>
+    <tbody>
+      <tr><td>SAB episode</td><td>30–45 min YouTube + Spotify</td><td>5 Reels</td><td>Quote carousel</td><td>2 doctor TOF/MOF cuts, no product</td></tr>
+      <tr><td>Everyday System film</td><td>3–5 min film</td><td>60s cut + 3 Reels</td><td>Story still</td><td>2–3 testimonial cuts</td></tr>
+      <tr><td>Documentary episode</td><td>8–12 min YouTube</td><td>90s cut + 4 Reels</td><td>Explainer carousel</td><td>2 problem-framing cuts</td></tr>
+      <tr><td>Westminster piece</td><td>Talk recording</td><td>2–4 Reels</td><td>"How we test" carousel</td><td>1 trust cut</td></tr>
+      <tr><td>Road to London</td><td>3–5 min YouTube</td><td>Reel + Stories</td><td>NSPCC total card</td><td>Top episodes only</td></tr>
+      <tr><td>Education episode</td><td>—</td><td>1 Reel</td><td>—</td><td>Standards or ingredient cut</td></tr>
+    </tbody></table></div>
+  <div class="pipe" style="margin-top:28px">
+    <div><b>Rank every Monday</b><span class="muted">Last week's Reels by 3-second hold and average watch time.</span></div>
+    <div><b>Promote the top 20%</b><span class="muted">Into Meta within 7 days, in the ad set for the persona they mirror.</span></div>
+    <div><b>Change one thing</b><span class="muted">Only the first frame and on-screen hook. Doctor content carries no product.</span></div>
+    <div><b>Log the winner</b><span class="muted">Hook, angle and persona into the creative library to brief the next shoot.</span></div>
+  </div>
+</div></section>
+
+<section id="measure"><div class="wrap">
+  <div class="sec-head"><span class="lab">Measurement</span><h2>Judge organic on attention, trust and winning ads, not followers.</h2>
+  <p class="muted">Targets are placeholders until a two-week January baseline is in.</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Level</th><th>Metric</th><th>Why it matters</th><th>Target</th></tr></thead>
+    <tbody>
+      <tr><td>Attention</td><td>3-second hold, average watch %</td><td>Predicts Meta thumb-stop and hold</td><td>+20% by March</td></tr>
+      <tr><td>Resonance</td><td>Shares + saves per 1,000 reach</td><td>Organic reach and real interest</td><td>+25%</td></tr>
+      <tr><td>Intent</td><td>Profile visits, link clicks, email sign-ups</td><td>Movement toward purchase</td><td>+20%</td></tr>
+      <tr><td>Trust</td><td>Comment and DM language; "what made you trust MUTO?"</td><td>Doubt turning into detailed questions</td><td>Monthly read</td></tr>
+      <tr><td>Business</td><td>"How did you hear about us?" share</td><td>Organic's share of new subscribers</td><td>Baseline in Jan</td></tr>
+      <tr><td>Paid feed</td><td>Organic cuts that become Meta winners</td><td>The real return on shoot days</td><td>5+ in Q1</td></tr>
+    </tbody></table></div>
+  <h3 style="margin-top:36px;margin-bottom:14px">Three experiments, one variable each</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Test</th><th>Hypothesis</th><th>Method</th><th>KPI</th><th>Decision</th></tr></thead>
+    <tbody>
+      <tr><td>Marathon hook</td><td>Opening on a person and emotion holds better than opening on wearable data</td><td>Alternate openings across episodes 1–8</td><td>3-second hold</td><td>15%+ lead → lock it, test length next</td></tr>
+      <tr><td>SAB clip angle</td><td>"What changes in your 40s" beats myth-busting for the Protector</td><td>Alternate angles across episodes 1–4</td><td>Shares + saves / 1k</td><td>20%+ gap → brief eps 5–7, test in Meta</td></tr>
+      <tr><td>Story persona</td><td>Parent stories outperform athlete stories with 40–60s</td><td>Compare stories 1–3, organic and paid</td><td>Watch %, then CPA</td><td>Clear winner → cast stories 4–6</td></tr>
+    </tbody></table></div>
+</div></section>
+
+<section id="roadmap" style="border-bottom:0"><div class="wrap">
+  <div class="sec-head"><span class="lab">Roadmap</span><h2>The next four weeks decide whether Q1 runs on a bank of content.</h2></div>
+  <div class="road">
+    <div class="card"><span class="lab">This week</span><ul>
+      <li><span>Shoot Informed Sport assets w/c 9 Nov; brief Rehook on the email <span class="who">Richie, Drew</span></span></li>
+      <li><span>Lock November dates: day 1 (w/c 16 Nov), SAB block 1 (w/c 23 Nov) <span class="who">Richie</span></span></li>
+      <li><span>Hire the videographer-editor, starting by w/c 16 Nov <span class="who">Richie</span></span></li>
+      <li><span>Choose the production company and editor; confirm December and holiday edit availability <span class="who">Richie</span></span></li>
+      <li><span>Confirm SAB advisors and December documentary slots <span class="who">Richie</span></span></li>
+      <li><span>Confirm King's access and Dr Rob Seaborne's interview <span class="who">Richie</span></span></li>
+      <li><span>Shortlist six story subjects; lock story 1 for w/c 14 Dec <span class="who">Kush</span></span></li>
+      <li><span>Westminster kickoff date and filming permission <span class="who">Richie</span></span></li>
+    </ul></div>
+    <div class="card"><span class="lab">Next 30 days</span><ul>
+      <li><span>Shoot days 1–3 before 1 December</span></li>
+      <li><span>Rent the tech studio for day 1 and both SAB blocks; design and document one set</span></li>
+      <li><span>Documentary treatment and Ep 1 outline, signed off before Richie leaves</span></li>
+      <li><span>Hand December briefs to the production team with a remote sign-off process</span></li>
+      <li><span>Videographer builds edit templates and runs a test Sunday shoot</span></li>
+      <li><span>Add the post-purchase survey questions</span></li>
+    </ul></div>
+    <div class="card"><span class="lab">Next 90 days (Q1)</span><ul>
+      <li><span>Publish to the calendar; Monday review feeds Meta weekly</span></li>
+      <li><span>Launch the seed film w/c 11 Jan</span></li>
+      <li><span>Shoot days 7–10, casting stories 4–6 on experiment results</span></li>
+      <li><span>End-of-March review: which pillar earned its cost, and Q2 with Westminster results</span></li>
+    </ul></div>
+  </div>
+
+  <h3 style="margin-top:40px;margin-bottom:14px">Owners</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Owner</th><th>Responsibility</th></tr></thead>
+    <tbody>
+      <tr><td>Richie</td><td>On camera for education, SAB host, Westminster talk, documentary; signs off hero edits</td></tr>
+      <tr><td>Organic lead (Madison or another hire; Richie until in seat)</td><td>Calendar, grid, Stories, briefing both crews</td></tr>
+      <tr><td>Videographer-editor</td><td>Road to London, SAB podcast, education series: shoot, edit, cut-downs</td></tr>
+      <tr><td>Production company + editor</td><td>Documentary, The Everyday System, trial, seed film</td></tr>
+      <tr><td>Kush</td><td>Story talent, athletes, creator coordination</td></tr>
+      <tr><td>Jack Wrenn</td><td>Organic-to-paid pipeline and experiment readouts</td></tr>
+    </tbody></table></div>
+
+  <h3 style="margin-top:40px">Open decisions</h3>
+  <div class="decisions">
+    <div><span class="lab">Budget</span>Which production company and editor for the hero tier, at cinema standard: director, colourist, composer and motion designer, not just a crew.</div>
+    <div><span class="lab">Videographer</span>Retainer or day rate, and London-based for Sundays?</div>
+    <div><span class="lab">SAB</span>Who is the seventh podcast guest?</div>
+    <div><span class="lab">Westminster</span>Does the student talk land in December or the January term?</div>
+    <div><span class="lab">Marathon</span>Is the start list confirmed, so episodes name runners from week 1?</div>
+    <div><span class="lab">Informed Sport</span>Tell the curcumin story publicly, or keep it internal?</div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">MUTO · Q1 2027 organic content plan · Above the standard. Beneath the surface.</div></footer>
