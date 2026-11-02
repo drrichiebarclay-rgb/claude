@@ -1,8 +1,8 @@
 ba24c22207281225e73785406effb1de  theme/assets/muto-bf-claim.js
 8149379152b306e5f62b745654b89808  theme/assets/muto-cart-empty.css
-aa0ff20609da744d5d71837e9dafa57d  theme/sections/muto-bf-head.liquid
+12b4032d35aae155cdda401452d3439d  theme/sections/muto-bf-head.liquid
 49f118b2974276ee7c3b39aa579960e4  theme/sections/muto-bf-offer.liquid
-5611839026ff9a5f0440bb0b629c1b9e  theme/sections/muto-bf-style.liquid
+ea888806fdd8f7cfcd5046737e06b116  theme/sections/muto-bf-style.liquid
 86bb8bd9f1cd5528cf960ff1ddf3ac0c  theme/sections/muto-bf-topbar.liquid
 44bdf7a8b01b7a6f6813d922ae1cb24c  theme/sections/muto-menu.liquid
 d9877c3b58a306be92035805ebbec946  theme/sections/muto-sbar.liquid
@@ -11,6 +11,8 @@ d9877c3b58a306be92035805ebbec946  theme/sections/muto-sbar.liquid
 fa6145e0dc7c42fbdf2958d07cae4504  theme/snippets/muto-sbar-bar.liquid
 6e4be40e0845f056be76d6c07ecb9528  theme/snippets/muto-sbar-style.liquid
 4ce2103e2331a6f47208bb9e7b73032e  theme/snippets/muto-sci-sticky.liquid
+e9b81009d5eed88cca3e8d5b298c3ff8  theme/templates/product.muto-nad-bf-premium.json
+068303f6d53e2093d70ecc493f881dff  theme/templates/product.muto-nad-bf.json
 6b3796fd2b63b77ca6852c77d992d85c  dependencies/assets/muto-bf-bar.css
 1ba7180876664167a0b9ae3b9b1d1532  dependencies/assets/muto-bf-compact.css
 648ca12d0b1c54f77341116a54991ffb  dependencies/assets/muto-bf-copy.css

@@ -25,6 +25,23 @@ This follows your feedback: the CSS is now split by section, so nothing PDP-spec
 
   Or upload `reference/header-group.json` and `reference/footer-group.json` to live. They are exactly live's current files plus those three sections.
 
+
+## Update ~12:15: the header section now holds only the top bar's CSS (done in the clone)
+
+Your note: the section beside the announcement bar should only carry the bar's CSS. Done in the clone:
+
+| File | Change |
+|---|---|
+| `sections/muto-bf-head.liquid` (now "MUTO — BF head top bar") | Only `muto-bf-bar.css`, the bar itself and `muto-bf-claim.js`, on the BF templates. No page CSS. |
+| `sections/muto-bf-style.liquid` ("MUTO — BF page styles") | Holds the page CSS that was in the head: compact, layout, type, copy CSS and the inline rules. New setting **Load the extras** (off): extra.css, new comparison, new fold copy, which live doesn't use. Design: Standard / Premium. |
+| `templates/product.muto-nad-bf.json`, `templates/product.muto-nad-bf-premium.json` | Live's own templates with one change: a `bf_style` section (Design Standard, extras off) added **first**, before `head_styles`, so the CSS order matches the old header order exactly. |
+| `muto-bf-sticky.css` | No longer loaded by the head; "MUTO — Black Friday offer" (footer) already loads it. |
+
+**Net effect on the BF pages: the same CSS files and rules, in the same order relative to the template's own styles. Other pages: none of it.**
+
+**To bring this to live**, either publish the clone, or upload `theme/sections/muto-bf-style.liquid` first, then both `theme/templates/*.json`, then `theme/sections/muto-bf-head.liquid` last. The templates are byte-for-byte live's as of 12:03 plus `bf_style`; if anyone has edited them on live since, add the section in the editor instead (first in the template, Design Standard).
+
+---
 The rest of this guide (install order, BF template steps, dev notes, tests) still applies. Steps 1–2 below are already done on live and on the clone.
 
 ---
