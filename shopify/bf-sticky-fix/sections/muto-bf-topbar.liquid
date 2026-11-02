@@ -54,11 +54,11 @@
 -%}
 {%- if on_bf_pdp -%}
   {%- if request.design_mode -%}
-    <p style="margin:0;padding:12px 16px;font:14px/1.4 sans-serif;background:#fff6d6;color:#242223">MUTO — Black Friday top bar is hidden here: this Black Friday product page already draws its top bar (MUTO — Black Friday head).</p>
+    <p style="margin:0;padding:12px 16px;font:14px/1.4 sans-serif;background:#fff6d6;color:#242223">MUTO — BF top bar is hidden here: this Black Friday product page already draws its top bar (MUTO — Black Friday head).</p>
   {%- endif -%}
 {%- elsif q_variant == blank -%}
   {%- if request.design_mode -%}
-    <p style="margin:0;padding:12px 16px;font:14px/1.4 sans-serif;background:#fff6d6;color:#242223">MUTO — Black Friday top bar: pick a product that's available to buy (and, for a plan, one whose plan name contains "{{ s.plan_match }}").</p>
+    <p style="margin:0;padding:12px 16px;font:14px/1.4 sans-serif;background:#fff6d6;color:#242223">MUTO — BF top bar: pick a product that's available to buy (and, for a plan, one whose plan name contains "{{ s.plan_match }}").</p>
   {%- endif -%}
 {%- else -%}
   {{ 'muto-bf-bar.css' | asset_url | stylesheet_tag }}
@@ -129,7 +129,7 @@
 
 {% schema %}
 {
-  "name": "MUTO — Black Friday top bar",
+  "name": "MUTO — BF top bar",
   "tag": "div",
   "class": "muto-bf-topbar",
   "settings": [
@@ -147,6 +147,6 @@
     { "type": "text", "id": "cta", "label": "Link text", "default": "Claim" },
     { "type": "text", "id": "aria", "label": "Screen reader text", "default": "Black Friday: 3 months for £99, save 53%, plus a welcome kit worth £87, while stock lasts. Claim: adds the 3-month plan and goes to checkout." }
   ],
-  "presets": [{ "name": "MUTO — Black Friday top bar" }]
+  "presets": [{ "name": "MUTO — BF top bar" }]
 }
 {% endschema %}

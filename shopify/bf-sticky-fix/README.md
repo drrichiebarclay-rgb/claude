@@ -45,7 +45,7 @@ Copy sections first, then the snippet. No template or asset changes needed: both
 ## How to use on a page
 
 In the theme editor, open the page template, then **Add section**:
-- **MUTO — Black Friday top bar**: pick the product.
+- **MUTO — BF top bar**: pick the product.
 - **MUTO — Sticky add to cart**: pick the product. Name it anything but `sticky`.
 
 ## Check before publishing
