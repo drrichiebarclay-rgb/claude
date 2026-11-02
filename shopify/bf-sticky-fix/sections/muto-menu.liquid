@@ -47,6 +47,10 @@
   .mmd-root.is-open .mmd-panel{transform:none}
   @media (prefers-reduced-motion:reduce){.mmd-ovl,.mmd-panel{transition:none}}
   html.mmd-lock,html.mmd-lock body{overflow:hidden!important}
+  /* Fonts as the side cart: Neue Haas Grotesk Display for everything, Sometype Mono for the small capitals labels,
+     forced so the theme's heading and body fonts never reach the panel */
+  .mmd-root,.mmd-root :where(*){font-family:var(--mc-font)!important;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+  .mmd-root :is(.mmd__label,.mmd__label *,.mmd__promo-eye){font-family:var(--mc-mono)!important}
   /* The theme's own drawer is not used while this section is on */
   html body:has(.mmd-root) #menu-drawer{display:none!important}
   .mmd__in{display:flex;flex-direction:column;min-height:100%;padding:0 28px calc(28px + env(safe-area-inset-bottom));box-sizing:border-box}
