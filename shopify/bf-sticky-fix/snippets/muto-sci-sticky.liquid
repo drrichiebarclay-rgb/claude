@@ -1,7 +1,8 @@
 {%- comment -%}
-  Site-wide sticky add to cart (rendered by muto-bf-head on every page except product pages, home, cart,
-  accounts and password, and by muto-sbar when no product is in scope). Steps aside if the page has its own
-  sticky bar (a muto-sbar section, or any section whose id ends in "__sticky"). The same bar as the Black
+  Site-wide sticky add to cart (rendered by muto-bf-head on every page that isn't a product page, the cart,
+  password or gift card page, and by muto-sbar when no product is in scope). Steps aside if the page has its
+  own sticky bar (a muto-sbar section, the home page's sticky cart, a landing page's offer bar, or any
+  section whose id ends in "__sticky"). The same bar as the Black
   Friday product page (assets/muto-bf-sticky.css), but self-contained: there are no plan cards on this page,
   so the picker holds the two plans itself and the button adds the chosen one (variant + Skio selling plan,
   read from the product) to the cart, then opens the side cart.
@@ -72,7 +73,7 @@
     var gone = false;
     function stepAside() {
       if (gone) return true;
-      var others = [].slice.call(document.querySelectorAll('#MainContent [id$="__sticky"], .mc-sbar:not(.mc-sbar--site)')).filter(function (el) { return el !== bar && !el.contains(bar); });
+      var others = [].slice.call(document.querySelectorAll('#MainContent [id$="__sticky"], [data-mh-sticky], .mlp-bar, .mc-sbar:not(.mc-sbar--site)')).filter(function (el) { return el !== bar && !el.contains(bar); });
       if (others.length) { gone = true; window.removeEventListener('scroll', onScroll); bar.remove(); }
       return gone;
     }

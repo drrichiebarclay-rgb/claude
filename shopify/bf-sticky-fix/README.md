@@ -74,3 +74,13 @@ The theme's cart is set to "drawer" (Dawn's cart drawer). Claim on the Black Fri
 3. call the drawer's `renderContents`, which updates it and slides it open.
 
 If a page has no drawer, they fall back to the cart page. "Go straight to checkout" is still an option on the two sections. Uploaded and checked against the theme's checksums.
+
+## Update, 2 Nov: sticky add to cart on every page
+
+`sections/muto-bf-head.liquid` (in the header group, so on every page) now draws a sticky add to cart everywhere except the cart, password and gift card pages:
+
+- **Product pages:** a bar for that page's own product (`snippets/muto-sbar-bar.liquid`), with its Skio plans or variants. Skipped on the Black Friday templates (they draw their own plan bar) and the giveaway template.
+- **Every other page** (home, pages, collections, blog, search, 404, account): the NAD+ bar (`snippets/muto-sci-sticky.liquid`).
+- **No doubles:** either bar removes itself if the page already has its own sticky bar. That covers a "MUTO — Sticky add to cart" section, the home page's "MUTO Home — Sticky cart" (`data-mh-sticky`), a landing page's offer bar (`.mlp-bar`), or any section whose id ends in `__sticky`.
+
+The bar markup moved from `sections/muto-sbar.liquid` into `snippets/muto-sbar-bar.liquid`, so the section and the head use the same bar. The section's settings are unchanged.

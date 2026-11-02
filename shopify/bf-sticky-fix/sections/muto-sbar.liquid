@@ -4,6 +4,8 @@
   (product templates), and with no product at all it falls back to the site-wide NAD+ bar
   (snippets/muto-sci-sticky.liquid).
 
+  The bar itself is snippets/muto-sbar-bar.liquid (also rendered site-wide on product pages by muto-bf-head).
+
   Options in the picker:
   - Products sold on Skio plans: one option per selling plan (e.g. 1-month and 3-month), each using the
     first available variant that has that plan, at the plan's own price. Optionally a one-time option.
@@ -29,7 +31,6 @@
       assign on_bf_pdp = true
     endif
   endif
-  assign pick = s.preselect | downcase | strip
 -%}
 {%- if on_bf_pdp -%}
   {%- if request.design_mode -%}
@@ -38,213 +39,23 @@
 {%- elsif p == blank -%}
   {%- render 'muto-sci-sticky' -%}
 {%- else -%}
-  {%- liquid
-    assign opts = ''
-    assign count = 0
-    assign chosen = 0
-    assign first_name = ''
-    assign first_sub = ''
-    assign seen_plans = ''
-
-    if p.selling_plan_groups.size > 0
-      # One option per selling plan, in the order the product's plan groups list them
-      for g in p.selling_plan_groups
-        for sp in g.selling_plans
-          assign key = '|' | append: sp.id | append: '|'
-          if seen_plans contains key
-            continue
-          endif
-          for v in p.variants
-            unless v.available
-              continue
-            endunless
-            assign al = v.selling_plan_allocations | where: 'selling_plan_id', sp.id | first
-            if al == blank
-              continue
-            endif
-            assign seen_plans = seen_plans | append: key
-            assign vname = sp.name | downcase | capitalize
-            if s.plan_label_1 != blank and s.plan_match_1 != blank
-              assign m1 = s.plan_match_1 | downcase
-              assign spn = sp.name | downcase
-              if spn contains m1
-                assign vname = s.plan_label_1
-              endif
-            endif
-            if s.plan_label_2 != blank and s.plan_match_2 != blank
-              assign m2 = s.plan_match_2 | downcase
-              assign spn = sp.name | downcase
-              if spn contains m2
-                assign vname = s.plan_label_2
-              endif
-            endif
-            assign price_s = al.price | money_without_trailing_zeros | strip_html
-            assign save = ''
-            if al.compare_at_price > al.price
-              assign save = al.compare_at_price | minus: al.price | times: 100 | divided_by: al.compare_at_price
-              assign save = 'Save ' | append: save | append: '%'
-            endif
-            assign sub = price_s
-            if save != blank
-              assign sub = price_s | append: ' · ' | append: save
-            endif
-            assign count = count | plus: 1
-            assign hay = vname | append: ' ' | append: sp.name | downcase
-            if chosen == 0 and pick != blank and hay contains pick
-              assign chosen = count
-            endif
-            assign vname_e = vname | escape
-            capture o
-              echo '<option value="' | append: v.id | append: '" data-plan="' | append: sp.id | append: '" data-name="' | append: vname_e | append: '" data-sub="' | append: sub | append: '" data-price="' | append: price_s | append: '">' | append: vname_e | append: ' – ' | append: sub | append: '</option>'
-            endcapture
-            assign opts = opts | append: o
-            break
-          endfor
-        endfor
-      endfor
-      if s.one_time and p.requires_selling_plan == false
-        # One-time: the variant named "one time" if there is one, else the first available variant
-        assign ov = nil
-        for v in p.variants
-          assign vt = v.title | downcase
-          if v.available and vt contains 'one time'
-            assign ov = v
-            break
-          endif
-        endfor
-        if ov == blank
-          assign ov = p.first_available_variant
-        endif
-        if ov != blank
-          assign count = count | plus: 1
-          assign price_s = ov.price | money_without_trailing_zeros | strip_html
-          assign vname_e = s.one_time_label | default: 'One-time purchase' | escape
-          capture o
-            echo '<option value="' | append: ov.id | append: '" data-plan="" data-name="' | append: vname_e | append: '" data-sub="' | append: price_s | append: '" data-price="' | append: price_s | append: '">' | append: vname_e | append: ' – ' | append: price_s | append: '</option>'
-          endcapture
-          assign opts = opts | append: o
-        endif
-      endif
-    else
-      # No plans: one option per available variant
-      for v in p.variants
-        unless v.available
-          continue
-        endunless
-        assign vname = v.title
-        if vname == 'Default Title'
-          assign vname = p.title
-        endif
-        assign price_s = v.price | money_without_trailing_zeros | strip_html
-        assign count = count | plus: 1
-        assign hay = vname | downcase
-        if chosen == 0 and pick != blank and hay contains pick
-          assign chosen = count
-        endif
-        assign vname_e = vname | escape
-        capture o
-          echo '<option value="' | append: v.id | append: '" data-plan="" data-name="' | append: vname_e | append: '" data-sub="' | append: price_s | append: '" data-price="' | append: price_s | append: '">' | append: vname_e | append: ' – ' | append: price_s | append: '</option>'
-        endcapture
-        assign opts = opts | append: o
-      endfor
-    endif
-    if chosen == 0
-      assign chosen = 1
-    endif
+  {%- render 'muto-sbar-bar',
+    p: p,
+    bar_id: bar_id,
+    label: s.label,
+    sub_line: s.sub,
+    button: s.button,
+    after_add: s.after_add,
+    show_after: s.show_after,
+    preselect: s.preselect,
+    one_time: s.one_time,
+    one_time_label: s.one_time_label,
+    plan_match_1: s.plan_match_1,
+    plan_label_1: s.plan_label_1,
+    plan_match_2: s.plan_match_2,
+    plan_label_2: s.plan_label_2
   -%}
-  {%- if count > 0 -%}
-    {{ 'muto-bf-sticky.css' | asset_url | stylesheet_tag }}
-    {%- render 'muto-sbar-style' -%}
-    <style>
-      #{{ bar_id }} .mc-sbar__pick--one{pointer-events:none}
-      #{{ bar_id }} .mc-sbar__pick--one::after{display:none}
-    </style>
-    <div class="mc-sbar mc-sbar--section" id="{{ bar_id }}" data-mc-sbar-section role="region" aria-label="{{ 'Add ' | append: p.title | append: ' to cart' | escape }}" aria-hidden="true"
-      data-after="{{ s.show_after }}" data-go="{{ s.after_add }}" data-fallback="{{ p.url }}">
-      <div class="mc-sbar__in">
-        <div class="mc-sbar__prod">
-          {%- if p.featured_image -%}<img class="mc-sbar__img" src="{{ p.featured_image | image_url: width: 112 }}" width="56" height="56" alt="" loading="lazy">{%- endif -%}
-          <div style="min-width:0">
-            <p class="mc-sbar__name">{{ s.label | default: p.title }}</p>
-            {%- if s.sub != blank -%}<p class="mc-sbar__offer"><i aria-hidden="true"></i>{{ s.sub }}</p>{%- endif -%}
-          </div>
-        </div>
-        <label class="mc-sbar__pick{% if count == 1 %} mc-sbar__pick--one{% endif %}">
-          <span class="mc-sbar__pick-name" data-sbar-name></span>
-          <span class="mc-sbar__pick-sub" data-sbar-sub></span>
-          <select class="mc-sbar__select" data-sbar-select data-chosen="{{ chosen | minus: 1 }}" aria-label="Option"{% if count == 1 %} tabindex="-1"{% endif %}>{{ opts }}</select>
-        </label>
-        <button type="button" class="mc-sbar__btn" data-sbar-add>
-          <span class="mc-sbar__btn-full">{{ s.button | default: 'Add to cart' }}</span><span class="mc-sbar__btn-short">Add</span>
-          <span class="mc-sbar__btn-price" data-sbar-price></span>
-        </button>
-      </div>
-    </div>
-    <script>
-    (function () {
-      /* This section's own bar only: other sticky bars on the page keep their own scripts */
-      var bar = document.getElementById({{ bar_id | json }});
-      if (!bar || bar.dataset.ready) return;
-      bar.dataset.ready = '1';
-      var sel = bar.querySelector('[data-sbar-select]'), btn = bar.querySelector('[data-sbar-add]');
-      var nm = bar.querySelector('[data-sbar-name]'), sub = bar.querySelector('[data-sbar-sub]'), pr = bar.querySelector('[data-sbar-price]');
-      function paint() {
-        var o = sel.options[sel.selectedIndex];
-        if (!o) return;
-        nm.textContent = o.getAttribute('data-name');
-        var parts = (o.getAttribute('data-sub') || '').split(' · ');
-        sub.innerHTML = '';
-        var b = document.createElement('b'); b.textContent = parts[0]; sub.appendChild(b);
-        if (parts[1]) sub.appendChild(document.createTextNode(' · ' + parts[1]));
-        /* The price on the button, as on the product page's bar */
-        if (pr) pr.textContent = o.getAttribute('data-price') || '';
-      }
-      /* Open the theme's side cart (Dawn cart drawer) with fresh contents, as its own Add to cart does.
-         Resolves false when the page has no drawer, so the caller can fall back to the cart page. */
-      function openSideCart(root) {
-        var d = document.querySelector('cart-drawer');
-        if (!d || typeof d.renderContents !== 'function') return Promise.resolve(false);
-        return fetch(root + '?sections=cart-drawer,cart-icon-bubble', { credentials: 'same-origin' })
-          .then(function (r) { return r.ok ? r.json() : null; })
-          .then(function (s) { if (!s || !s['cart-drawer']) return false; d.renderContents({ sections: s }); return true; })
-          .catch(function () { return false; });
-      }
-      sel.selectedIndex = parseInt(sel.getAttribute('data-chosen'), 10) || 0;
-      paint();
-      sel.addEventListener('change', paint);
-      btn.addEventListener('click', function () {
-        if (btn.getAttribute('aria-busy') === 'true') return;
-        var o = sel.options[sel.selectedIndex];
-        var item = { id: parseInt(o.value, 10), quantity: 1 };
-        if (o.getAttribute('data-plan')) item.selling_plan = parseInt(o.getAttribute('data-plan'), 10);
-        btn.setAttribute('aria-busy', 'true');
-        var root = (window.Shopify && Shopify.routes && Shopify.routes.root) || '/';
-        var go = bar.getAttribute('data-go') === 'checkout' ? 'checkout' : 'cart';
-        fetch(root + 'cart/add.js', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify({ items: [item] }) })
-          .then(function (r) {
-            if (!r.ok) { window.location.href = bar.getAttribute('data-fallback'); return; }
-            if (go === 'checkout') { window.location.href = root + 'checkout'; return; }
-            /* Open the side cart; no side cart on the page, the cart page */
-            openSideCart(root).then(function (opened) {
-              if (opened) btn.removeAttribute('aria-busy');
-              else window.location.href = root + 'cart';
-            });
-          })
-          .catch(function () { window.location.href = bar.getAttribute('data-fallback'); });
-      });
-      var after = parseInt(bar.getAttribute('data-after'), 10);
-      if (isNaN(after)) after = 500;
-      function onScroll() {
-        var on = (window.pageYOffset || document.documentElement.scrollTop) > after;
-        bar.classList.toggle('is-visible', on);
-        bar.setAttribute('aria-hidden', on ? 'false' : 'true');
-        if ('inert' in bar) bar.inert = !on;
-      }
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
-    })();
-    </script>
-  {%- elsif request.design_mode -%}
+  {%- if request.design_mode and p.available == false -%}
     <p style="margin:0;padding:12px 16px;font:14px/1.4 sans-serif;background:#fff6d6;color:#242223">MUTO — Sticky add to cart: {{ p.title }} has nothing available to buy, so the bar is hidden.</p>
   {%- endif -%}
 {%- endif -%}

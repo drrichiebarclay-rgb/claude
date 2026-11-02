@@ -142,16 +142,27 @@
  "publisher":{"@type":"Organization","name":"MUTO","url":"{{ shop.url }}"}}
 </script>
 {%- endif -%}
-{%- comment -%} Sticky add to cart on every page. Not on product pages (they have their own buy box and bar),
-the home page (its own sticky section), the cart, accounts or the password page. {%- endcomment -%}
+{%- comment -%} Sticky add to cart on every page except the cart, password and gift card pages.
+  Product pages: a bar for that page's product (snippets/muto-sbar-bar.liquid), except the Black Friday
+  templates, which draw their own plan bar (muto-bf-offer), and the giveaway template.
+  Every other page: the NAD+ bar (snippets/muto-sci-sticky.liquid).
+  Either bar removes itself if the page already has its own sticky bar (a MUTO sticky section, the home
+  page's sticky cart, a landing page's offer bar), so there is never two. {%- endcomment -%}
 {%- liquid
-  assign no_sticky = "product,index,cart,password,gift_card,404,search" | split: ","
+  assign no_sticky = "cart,password,gift_card" | split: ","
   assign tname = template.name | default: ''
-  assign show_sticky = true
-  if no_sticky contains tname or template.directory == 'customers'
-    assign show_sticky = false
-  endif
-  if show_sticky
+  assign tsuffix = template.suffix | default: ''
+  if no_sticky contains tname
+    # no bar
+  elsif tname == 'product'
+    unless tsuffix contains 'muto-nad-bf' or tsuffix contains 'give-away' or product == blank
+      assign auto_sub = ''
+      if product.handle == 'muto-nad-cellular-complex'
+        assign auto_sub = 'Black Friday · 3 months for £99'
+      endif
+      render 'muto-sbar-bar', p: product, bar_id: 'mc-sbar-auto', auto: true, sub_line: auto_sub
+    endunless
+  else
     render 'muto-sci-sticky'
   endif
 -%}
@@ -162,7 +173,7 @@ the home page (its own sticky section), the cart, accounts or the password page.
   "tag": "div",
   "class": "muto-bf-head",
   "settings": [
-    { "type": "paragraph", "content": "Only on the Black Friday product template (muto-nad-bf): loads the Black Friday styles before the page is drawn, and the top bar with Claim (3-month plan straight to checkout)." }
+    { "type": "paragraph", "content": "Only on the Black Friday product template (muto-nad-bf): loads the Black Friday styles before the page is drawn, and the top bar with Claim (adds the 3-month plan and opens the side cart). On every page except the cart: the sticky add to cart." }
   ],
   "presets": [{ "name": "MUTO — Black Friday head" }]
 }
