@@ -95,6 +95,7 @@
   .footer h1,.footer h2,.footer h3,.footer .h1,.footer .h2,.footer .footer-block__heading,[id*="__footer"] h2,[id*="__footer"] .h1,[id*="__footer"] .h2{font-weight:500!important}
 </style>
 {{ 'muto-cart.css' | asset_url | stylesheet_tag }}
+{{ 'muto-cart-empty.css' | asset_url | stylesheet_tag }}
 {%- comment -%} Structured data for search and answer engines: who MUTO is (home), and what the science page is {%- endcomment -%}
 {%- if template.name == 'index' -%}
 <script type="application/ld+json">

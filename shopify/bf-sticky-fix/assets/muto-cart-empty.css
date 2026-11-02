@@ -1,0 +1,24 @@
+/* MUTO empty side cart: the same look as the full cart (muto-cart.css). "YOUR CART IS EMPTY" as the cart's
+   heading at the top with a hairline under it, the button as the checkout button (black, uppercase,
+   full width), and the log in line under a mono label. Loaded by MUTO — Site styles. */
+cart-drawer.is-empty .drawer__inner{display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;padding:0 28px!important}
+cart-drawer .drawer__inner-empty{display:block!important;height:auto!important;flex:1}
+cart-drawer .drawer__inner-empty .cart-drawer__warnings{display:block!important;text-align:left!important;padding:0!important;margin:0!important;height:auto!important}
+cart-drawer .drawer__inner-empty .cart-drawer__empty-content{display:block!important;text-align:left!important;margin:0!important}
+cart-drawer .drawer__inner-empty .cart__empty-text{margin:0 0 28px!important;padding:28px 48px 20px 0!important;border-bottom:1px solid rgba(36,34,35,.1);
+  font-family:var(--mc-font)!important;font-size:22px!important;line-height:1!important;font-weight:500!important;letter-spacing:-.01em!important;text-transform:uppercase!important;color:#242223!important}
+cart-drawer .drawer__inner-empty .drawer__close{position:absolute!important;top:18px!important;right:16px!important;color:#242223!important}
+cart-drawer .drawer__inner-empty a.button,cart-drawer .drawer__inner-empty .button{display:flex!important;align-items:center;justify-content:center;width:100%!important;max-width:none!important;min-height:58px!important;margin:0!important;padding:0 20px!important;
+  border:0!important;border-radius:2px!important;background:#242223!important;color:#fff!important;box-shadow:none!important;
+  font-family:var(--mc-font)!important;font-size:14px!important;font-weight:400!important;letter-spacing:.14em!important;text-transform:uppercase!important;text-decoration:none!important}
+cart-drawer .drawer__inner-empty .button::before,cart-drawer .drawer__inner-empty .button::after{display:none!important}
+cart-drawer .drawer__inner-empty .button:hover{background:#000!important}
+cart-drawer .drawer__inner-empty .cart__login-title{margin:32px 0 6px!important;padding-top:22px;border-top:1px solid rgba(36,34,35,.1);
+  font-family:var(--mc-mono)!important;font-size:11px!important;font-weight:400!important;letter-spacing:.14em!important;text-transform:uppercase!important;color:#5c5a5b!important}
+cart-drawer .drawer__inner-empty .cart__login-paragraph{margin:0!important;font-family:var(--mc-font)!important;font-size:15px!important;line-height:1.4!important;color:#3d3b3c!important}
+cart-drawer .drawer__inner-empty .cart__login-paragraph a{color:#242223!important;text-underline-offset:3px}
+@media (max-width:749px){
+  cart-drawer.is-empty .drawer__inner{padding:0 20px!important}
+  cart-drawer .drawer__inner-empty .cart__empty-text{padding-top:24px!important}
+  cart-drawer .drawer__inner-empty .drawer__close{top:14px!important;right:10px!important}
+}
