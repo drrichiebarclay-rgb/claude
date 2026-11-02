@@ -35,7 +35,13 @@
 {%- comment -%} Then, in the order the old header had them: the extra layout CSS (includes the phone rule that puts the
   image first), the premium design, the new comparison and the new fold copy {%- endcomment -%}
 {{ 'muto-bf-extra.css' | asset_url | stylesheet_tag }}
-{%- if premium -%}{{ 'muto-bf-premium.css' | asset_url | stylesheet_tag }}{%- endif -%}
+{%- if premium -%}
+  {{ 'muto-bf-premium.css' | asset_url | stylesheet_tag }}
+  <style>
+    /* Phones: a little room between the photo and the headline (the premium CSS sets it to 0) */
+    @media (max-width:749px){html:root body #MainContent .mc .mc__buy-copy > .mc__buy-title{margin-top:10px!important}}
+  </style>
+{%- endif -%}
 {%- render 'muto-bf-compare' -%}
 <script>
 /* Swap the new comparison into the page's "compare" section once the page is parsed */
