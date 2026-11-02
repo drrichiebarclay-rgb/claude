@@ -33,13 +33,14 @@ Your note: the section beside the announcement bar should only carry the bar's C
 | File | Change |
 |---|---|
 | `sections/muto-bf-head.liquid` (now "MUTO — BF head top bar") | Only `muto-bf-bar.css`, the bar itself and `muto-bf-claim.js`, on the BF templates. No page CSS. |
-| `sections/muto-bf-style.liquid` ("MUTO — BF page styles") | Holds the page CSS that was in the head: compact, layout, type, copy CSS and the inline rules. New setting **Load the extras** (off): extra.css, new comparison, new fold copy, which live doesn't use. Design: Standard / Premium. |
+| `sections/muto-bf-style.liquid` ("MUTO — BF page styles") | Holds the page CSS that was in the head: compact, layout, type, copy CSS and the inline rules. Then extra.css, the premium design (automatic on the premium template) and the comparison and fold-copy scripts, as the bar snippet loaded them. The old "extras" setting is kept only so the templates stay valid. |
 | `templates/product.muto-nad-bf.json`, `templates/product.muto-nad-bf-premium.json` | Live's own templates with one change: a `bf_style` section (Design Standard, extras off) added **first**, before `head_styles`, so the CSS order matches the old header order exactly. |
 | `muto-bf-sticky.css` | No longer loaded by the head; "MUTO — Black Friday offer" (footer) already loads it. |
+| `snippets/muto-bf-bar.liquid` | Now only the bar's markup. It used to also load `muto-bf-extra.css`, `muto-bf-premium.css` (premium template), the comparison and the fold-copy scripts; those moved into "MUTO — BF page styles" **in the same order** (after the page CSS). The extras always load, and premium is picked automatically on `product.muto-nad-bf-premium`. |
 
 **Net effect on the BF pages: the same CSS files and rules, in the same order relative to the template's own styles. Other pages: none of it.**
 
-**To bring this to live**, either publish the clone, or upload `theme/sections/muto-bf-style.liquid` first, then both `theme/templates/*.json`, then `theme/sections/muto-bf-head.liquid` last. The templates are byte-for-byte live's as of 12:03 plus `bf_style`; if anyone has edited them on live since, add the section in the editor instead (first in the template, Design Standard).
+**To bring this to live**, either publish the clone, or upload `theme/sections/muto-bf-style.liquid` first, then both `theme/templates/*.json`, then `theme/sections/muto-bf-head.liquid` and `theme/snippets/muto-bf-bar.liquid` **last**. If the snippet or head go first, the BF pages lose this CSS until the templates are in. On phones the image then drops below the title, because `muto-bf-extra.css` puts the image first only when it loads after `muto-bf-layout.css`. The templates are byte-for-byte live's as of 12:03 plus `bf_style`; if anyone has edited them on live since, add the section in the editor instead (first in the template, Design Standard).
 
 ---
 The rest of this guide (install order, BF template steps, dev notes, tests) still applies. Steps 1–2 below are already done on live and on the clone.

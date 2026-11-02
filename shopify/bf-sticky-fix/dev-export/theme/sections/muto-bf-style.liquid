@@ -2,15 +2,16 @@
   MUTO — BF page styles (muto-bf-style). Add it to a Black Friday product template, directly ABOVE the
   "MUTO PDP v2 — Buy" section, so the styles load before the buy box is drawn (no flash of the old design).
   Loads the Black Friday CSS for the buy box and the sections below it (compact, layout, type and copy CSS
-  and the inline rules that used to sit in the header's "MUTO — Black Friday head"). Optional: the premium
-  design, and the extras (extra layout CSS, new comparison, new fold copy). The gallery arrows / testing
+  and the inline rules that used to sit in the header's "MUTO — Black Friday head"). Then the extra
+  layout CSS, the premium design (setting, or automatically on product.muto-nad-bf-premium), the new comparison
+  and the new fold copy: all of these used to load from the top bar snippet in the header. The gallery arrows / testing
   button script (muto-bf-layout.js) is loaded by MUTO — Black Friday offer in the footer.
   Put it FIRST in the template, above any custom-liquid styles, so the cascade matches the old header order.
   The top bar is its own section (MUTO — BF top bar) and the sticky plan bar is MUTO — Black Friday offer.
   Nothing here is site-wide: remove this section and only this template changes.
 {%- endcomment -%}
 {%- assign premium = false -%}
-{%- if section.settings.design == 'premium' -%}{%- assign premium = true -%}{%- endif -%}
+{%- if section.settings.design == 'premium' or template.suffix == 'muto-nad-bf-premium' -%}{%- assign premium = true -%}{%- endif -%}
 {{ 'muto-bf-compact.css' | asset_url | stylesheet_tag }}
 {{ 'muto-bf-layout.css' | asset_url | stylesheet_tag }}
 {{ 'muto-bf-type.css' | asset_url | stylesheet_tag }}
@@ -19,11 +20,9 @@
   /* The testing button is drawn under the image, then moved to where the badges were (muto-bf-layout.js):
      hidden until it has moved, so its old place never shows */
   html body .mc .mc__buy-media .mc-tests-btn{display:none!important}
-  {%- unless premium %}
-  /* Add to cart buttons (page and sticky bar): the brand turquoise. The premium design makes them black. */
+  /* Add to cart buttons (page and sticky bar): the brand turquoise. muto-bf-premium.css, loaded after, makes them black. */
   html:root body .mc .mc__buy-cta,html:root body .mc-sbar .mc-sbar__btn{background:#5efaff!important;color:#242223!important}
   html:root body .mc .mc__buy-cta:hover,html:root body .mc-sbar .mc-sbar__btn:hover{background:#3ef0f6!important;filter:none}
-  {%- endunless %}
   /* "Free from" and "Made with" lists under the button: smaller */
   #MainContent [id$="__buy"] .mpb-lists{gap:16px;margin-top:18px}
   #MainContent [id$="__buy"] .mpb-lists p{margin-bottom:8px;font-size:10.5px}
@@ -33,10 +32,10 @@
     #MainContent [id$="__buy"] .mpb-lists ul{font-size:13.5px}
   }
 </style>
-{%- comment -%} Optional: the newer layout extras, the new comparison and the new fold copy (off on the live
-  templates, which don't use them yet) {%- endcomment -%}
-{%- if section.settings.extras -%}
+{%- comment -%} Then, in the order the old header had them: the extra layout CSS (includes the phone rule that puts the
+  image first), the premium design, the new comparison and the new fold copy {%- endcomment -%}
 {{ 'muto-bf-extra.css' | asset_url | stylesheet_tag }}
+{%- if premium -%}{{ 'muto-bf-premium.css' | asset_url | stylesheet_tag }}{%- endif -%}
 {%- render 'muto-bf-compare' -%}
 <script>
 /* Swap the new comparison into the page's "compare" section once the page is parsed */
@@ -69,8 +68,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
-{%- endif -%}
-{%- if premium -%}{{ 'muto-bf-premium.css' | asset_url | stylesheet_tag }}{%- endif -%}
 
 {% schema %}
 {
@@ -80,10 +77,10 @@ document.addEventListener('DOMContentLoaded', function () {
   "settings": [
     { "type": "paragraph", "content": "Black Friday styles for this template's buy box and sections. Place it first in the template, above MUTO PDP v2 — Buy." },
     { "type": "select", "id": "design", "label": "Design", "default": "standard", "options": [
-      { "value": "standard", "label": "Standard (turquoise buttons)" },
+      { "value": "standard", "label": "Standard (premium on the premium template)" },
       { "value": "premium", "label": "Premium" }
     ] },
-    { "type": "checkbox", "id": "extras", "label": "Load the extras", "default": false, "info": "Extra layout CSS, the new comparison and the new fold copy" }
+    { "type": "checkbox", "id": "extras", "label": "Extras (no longer used)", "default": true, "info": "The extras always load now; this setting is kept so existing templates stay valid." }
   ],
   "presets": [{ "name": "MUTO — BF page styles" }],
   "enabled_on": { "templates": ["product"] }
