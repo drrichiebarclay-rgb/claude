@@ -98,32 +98,54 @@
 /* Trust: logos and the thin scientific board strip (as in the PDP buy box) */
 .mlst-trust{padding:28px 20px 4px}
 .mlst-trust__lab{text-align:center}
-.mlst-logos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:center;justify-items:center;gap:12px;max-width:620px;margin:14px auto 0;padding:0 0 4px;list-style:none}
-.mlst-logos li{display:flex;align-items:center;justify-content:center;width:100%;height:40px;overflow:hidden}
-.mlst-logos img{width:auto;height:26px;max-width:100%;object-fit:contain;clip-path:inset(2px 3px 2px 2px);mix-blend-mode:multiply;filter:grayscale(1) contrast(1.1);opacity:.8}
-@media (min-width:750px){.mlst-logos li{height:48px}.mlst-logos img{height:34px}}
-.mlst-doc{display:flex;align-items:center;gap:16px;margin-top:20px;padding:14px 18px;border:1px solid var(--hair);background:var(--paper);color:var(--ink);text-decoration:none}
+.mlst-logos{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px 44px;margin:16px 0 0;padding:0;list-style:none}
+.mlst-logos li{display:block;flex:0 0 auto;line-height:0}
+.mlst-logos img{display:block;width:auto;height:24px;max-width:none;mix-blend-mode:multiply;filter:grayscale(1);opacity:.78}
+@media (min-width:750px){.mlst-logos{gap:16px 64px}.mlst-logos img{height:30px}}
+.mlst-doc{display:flex;align-items:center;gap:16px;max-width:560px;margin:24px auto 0;padding:14px 18px;border:1px solid var(--hair);border-radius:12px;background:var(--paper);color:var(--ink);text-decoration:none}
 a.mlst-doc:hover{border-color:var(--ink)}
 .mlst-doc__faces{display:flex;flex:0 0 auto}
 .mlst-doc__faces img{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--paper);background:var(--ground)}
 .mlst-doc__faces img + img{margin-left:-12px}
-.mlst-doc__txt{display:grid;gap:2px;flex:1 1 auto;min-width:0}
+.mlst-doc__txt{display:grid;gap:3px;flex:1 1 auto;min-width:0}
 .mlst-doc__txt b{font-size:15px;font-weight:500;line-height:1.3}
-.mlst-doc__txt small{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.mlst-doc__txt small{font-size:13px;line-height:1.35;color:var(--ink-2)}
 .mlst-doc i{font-style:normal;font-size:18px}
+@media (max-width:480px){.mlst-doc{gap:12px;padding:12px 14px}.mlst-doc__faces img{width:34px;height:34px}.mlst-doc__faces img + img{margin-left:-10px}.mlst-doc__txt b{font-size:14px}}
 
 .mlst-r:last-of-type{margin-bottom:56px}
 .mlst-note{margin-bottom:48px}
 
 /* Second PDP buy box (section "buy2"). Shopify won't accept a second section named "…__buy", and the
    Black Friday premium CSS styles the box by that name, so its buy-box rules are repeated here for buy2.
-   Source: assets/muto-bf-premium.css and sections/muto-bf-style.liquid. If those change, change these. */
+   Source: assets/muto-bf-premium-v3.css and sections/muto-bf-style-v3.liquid (url-3). If those change, change these. */
 #MainContent [id$="__buy2"] .mpb-del b,#MainContent [id$="__buy2"] .mpb-del strong{font-weight:500}
 :where(#MainContent [id$="__buy2"] .mc),:where(#MainContent [id$="__buy2"] .mc) :where(*:not(svg):not(path)){font-family:var(--mc-font)!important}
 #MainContent [id$="__buy2"] .mpb-lists{gap:16px;margin-top:18px}
 #MainContent [id$="__buy2"] .mpb-lists p{margin-bottom:8px;font-size:10.5px}
 #MainContent [id$="__buy2"] .mpb-lists ul{gap:4px;font-size:15px;line-height:1.3}
 @media (max-width:749px){#MainContent [id$="__buy2"] .mpb-lists p{font-size:10px}#MainContent [id$="__buy2"] .mpb-lists ul{font-size:13.5px}}
-/* The premium CSS paints every section except the buy box white; give buy2 back the buy box's own wash */
-html:root body #MainContent > .shopify-section[id$="__buy2"] .mc.mc--buy.mc--fit-nad{background:var(--mc-field-buy-nad)!important}
-html:root body #MainContent > .shopify-section[id$="__buy2"] .mc.mc--buy:not(.mc--fit-nad){background:var(--mc-field-buy)!important}
+/* Both buy boxes on this page sit on a plain #FAFAFA panel instead of the mint wash used on the PDP */
+html:root body #MainContent#MainContent > .shopify-section[id$="__buy"] .mc.mc--buy,
+html:root body #MainContent#MainContent > .shopify-section[id$="__buy2"] .mc.mc--buy{background:#FAFAFA!important;background-image:none!important}
+
+.mlst-r__claim{margin-top:14px;font-size:12.5px;line-height:1.5;color:var(--ink-3)}
+.mlst-r__body h3{margin-top:18px;font-size:18px;font-weight:500;line-height:1.3}
+.mlst-r__body h3 + p{margin-top:4px}
+
+/* This landing page has no site navigation: the theme header (logo, links, cart icon) is hidden. The Black
+   Friday bar stays (it is its own fixed section), and the page starts straight under it. */
+html:root body .shopify-section-group-header-group[id$="__header"],
+html:root body .shopify-section[id$="__header"].section-header{display:none!important}
+html:root body main#MainContent{margin-top:0!important}
+
+/* Reviews widget (REVIEWS.io): its buttons match the page's own buttons (black, white text, 4px corners,
+   uppercase), in place of the turquoise fill */
+html:root body #MainContent [id$="__reviews"] :is(.R-Button,.R-Button--primary,button.R-Button){
+  background:#242223!important;border:1px solid #242223!important;color:#fff!important;border-radius:4px!important;
+  min-height:56px!important;padding:0 28px!important;font-family:var(--mc-font)!important;font-size:15px!important;
+  font-weight:500!important;letter-spacing:.04em!important;text-transform:uppercase!important;box-shadow:none!important}
+html:root body #MainContent [id$="__reviews"] :is(.R-Button,.R-Button--primary,button.R-Button):hover{background:#000!important;border-color:#000!important}
+html:root body #MainContent [id$="__reviews"] :is(.R-Button,.R-Button--primary,button.R-Button) *{color:inherit!important;font:inherit!important;letter-spacing:inherit!important;text-transform:inherit!important}
+html:root body #MainContent [id$="__reviews"] .R-Button--secondary{background:transparent!important;color:#242223!important}
+html:root body #MainContent [id$="__reviews"] .R-Button--secondary:hover{background:#242223!important;color:#fff!important}

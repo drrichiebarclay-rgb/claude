@@ -46,6 +46,7 @@
         {%- endif -%}
         <div class="mlst-r__body">{{ b.body }}</div>
         {%- if b.pull != blank -%}<p class="mlst-r__pull">{{ b.pull }}</p>{%- endif -%}
+        {%- if b.claim != blank -%}<p class="mlst-r__claim">{{ b.claim }}</p>{%- endif -%}
       </article>
     {%- endfor -%}
 
@@ -81,7 +82,8 @@
         { "type": "text", "id": "image_url", "label": "Image URL", "info": "Used when no image is picked" },
         { "type": "text", "id": "image_alt", "label": "Image alt text" },
         { "type": "richtext", "id": "body", "label": "Copy" },
-        { "type": "text", "id": "pull", "label": "Pull line" }
+        { "type": "text", "id": "pull", "label": "Pull line" },
+        { "type": "textarea", "id": "claim", "label": "Claims note", "info": "Small print under the reason, e.g. the authorised claim for a benefit named above" }
       ]
     }
   ],
