@@ -1009,7 +1009,7 @@
         "space_bottom": 72
       }
     },
-    "end__buy": {
+    "buy2": {
       "type": "muto-pdp-v2-buy",
       "blocks": {
         "g1": {
@@ -1621,7 +1621,7 @@
     "art2",
     "quotes",
     "board",
-    "end__buy",
+    "buy2",
     "reviews",
     "early",
     "easy_read",
