@@ -79,14 +79,32 @@
       state.sections = sections;
       d.renderContents(state);
       d.classList.remove('is-empty');
-      try {
-        if (typeof publish === 'function' && window.PUB_SUB_EVENTS) publish(PUB_SUB_EVENTS.cartUpdate, { source: 'muto-bf-bar', productVariantId: vid, cartData: res });
-      } catch (err) {}
+      announce(res);
       idle();
       return true;
     }
     go(root + 'cart');
     return false;
+  }
+  /* Tell the theme the cart changed, exactly as its own Add to cart does. This is what adds the free welcome
+     gifts (custom.js listens for it and adds the 3-month kit: creatine, socks, bottle, vial, Garmin entry).
+     PUB_SUB_EVENTS and publish are top-level declarations in constants.js / pubsub.js, not window properties,
+     so they are checked with typeof. If the theme's listener isn't attached yet (a very early tap: custom.js
+     loads late on these pages), wait for the page to finish loading and announce then. */
+  function announce(res) {
+    function fire() {
+      try {
+        if (typeof publish === 'function' && typeof PUB_SUB_EVENTS !== 'undefined') {
+          publish(PUB_SUB_EVENTS.cartUpdate, { source: 'muto-bf-bar', productVariantId: vid, cartData: res });
+          return true;
+        }
+      } catch (err) {}
+      return false;
+    }
+    var ready = false;
+    try { ready = typeof subscribers !== 'undefined' && typeof PUB_SUB_EVENTS !== 'undefined' && (subscribers[PUB_SUB_EVENTS.cartUpdate] || []).length > 0; } catch (err) {}
+    if (ready || document.readyState === 'complete') { fire(); return; }
+    window.addEventListener('load', function () { setTimeout(fire, 0); }, { once: true });
   }
   function openDrawerFresh() {
     var d = document.querySelector('cart-drawer');
