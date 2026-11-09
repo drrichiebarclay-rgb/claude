@@ -150,3 +150,13 @@ html:root body #MainContent [id$="__reviews"] :is(.R-Button,.R-Button--primary,b
 html:root body #MainContent [id$="__reviews"] :is(.R-Button,.R-Button--primary,button.R-Button) *{color:inherit!important;font:inherit!important;letter-spacing:inherit!important;text-transform:inherit!important}
 html:root body #MainContent [id$="__reviews"] .R-Button--secondary{background:transparent!important;color:#242223!important}
 html:root body #MainContent [id$="__reviews"] .R-Button--secondary:hover{background:#242223!important;color:#fff!important}
+
+/* Sometype Mono is always in capitals on this page: the places where the theme or this page set it in lower case */
+html:root body .mlst .mlst-r__n,
+html:root body .mlst .mlst-guar__badge,
+html:root body .mc .mc-bf__note b,
+html:root body .mc .mc__plans-banner::before,
+html:root body .mc .mc__stm-label,
+html:root body .mc .mc__prb-pill,
+html:root body .mc .mc__ing-dose,
+html:root body .mpb-bad i{text-transform:uppercase!important}
