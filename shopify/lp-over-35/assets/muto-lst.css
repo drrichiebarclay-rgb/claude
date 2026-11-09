@@ -37,10 +37,13 @@
 .mlst-r__body{margin-top:20px;font-size:18px;line-height:1.6;color:var(--ink)}
 .mlst-r__body p + p{margin-top:14px}
 .mlst-r__body ul{margin-top:14px;padding:0;list-style:none;display:grid;gap:10px}
-.mlst-r__body li{position:relative;padding-left:28px}
-.mlst-r__body li::before{content:"";position:absolute;left:0;top:.5em;width:12px;height:12px;background:var(--cyan);outline:1px solid var(--ink);outline-offset:-1px}
+.mlst-r__body li{position:relative;padding-left:18px}
+/* Bullets as the buy box: a thin black bar, not a box */
+.mlst-r__body li::before{content:"";position:absolute;left:0;top:calc(.8em - 7px);width:2.5px;height:14px;background:var(--ink)}
 .mlst-r__body strong{font-weight:500}
-.mlst-r__pull{margin-top:22px;padding:18px 20px;border-left:3px solid var(--ink);background:var(--ground);font-size:18px;line-height:1.45;font-weight:500}
+/* Pull line as a card, like the scientific board strip: white, hairline border, 12px corners */
+.mlst .mlst-r__pull{margin-top:24px;padding:18px 22px;border:1px solid var(--hair);border-radius:12px;background:var(--paper);font-size:18px;font-weight:500;line-height:1.35;letter-spacing:-.005em;color:var(--ink)}
+@media (max-width:749px){.mlst .mlst-r__pull{padding:14px 16px;font-size:16px}}
 .mlst-note{margin-top:28px;padding-top:14px;border-top:1px solid var(--hair);font-size:12.5px;line-height:1.5;color:var(--ink-3)}
 
 /* Offer: the PDP buy box, simplified */
