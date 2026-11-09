@@ -42,7 +42,7 @@
         <p class="mlst-r__n"><b>{{ b.number }}</b>Reason {{ b.number }} of {{ s.total | default: 5 }}</p>
         <h2>{{ b.title }}</h2>
         {%- if r_src != blank -%}
-          <div class="mlst-r__img"><img src="{{ r_src }}" alt="{{ b.image_alt | escape }}" width="1400" height="933" loading="lazy"></div>
+          <div class="mlst-r__img"><img src="{{ r_src }}" alt="{{ b.image_alt | escape }}" width="1400" height="933" loading="lazy"{% if b.image_position != blank %} style="object-position:{{ b.image_position | escape }}"{% endif %}></div>
         {%- endif -%}
         <div class="mlst-r__body">{{ b.body }}</div>
         {%- if b.pull != blank -%}<p class="mlst-r__pull">{{ b.pull }}</p>{%- endif -%}
@@ -81,6 +81,7 @@
         { "type": "image_picker", "id": "image", "label": "Image" },
         { "type": "text", "id": "image_url", "label": "Image URL", "info": "Used when no image is picked" },
         { "type": "text", "id": "image_alt", "label": "Image alt text" },
+        { "type": "text", "id": "image_position", "label": "Image focus", "info": "e.g. 50% 30% to keep a face in the crop. Blank centres it." },
         { "type": "richtext", "id": "body", "label": "Copy" },
         { "type": "text", "id": "pull", "label": "Pull line" },
         { "type": "textarea", "id": "claim", "label": "Claims note", "info": "Small print under the reason, e.g. the authorised claim for a benefit named above" }
