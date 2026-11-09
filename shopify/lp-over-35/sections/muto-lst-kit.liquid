@@ -44,6 +44,14 @@
         <p class="mlst-kit__h">{{ s.heading }}</p>
         {%- if s.sub != blank -%}<p class="mlst-kit__sub">{{ s.sub }}</p>{%- endif -%}
       </div>
+      {%- liquid
+        if s.image != blank
+          assign k_src = s.image | image_url: width: 1400
+        else
+          assign k_src = s.image_url
+        endif
+      -%}
+      {%- if k_src != blank -%}<div class="mlst-kit__hero"><img src="{{ k_src }}" alt="{{ s.image_alt | escape }}" width="1400" height="933" loading="lazy"></div>{%- endif -%}
       {%- if s.fig_1 != blank or s.fig_2 != blank -%}
         <ul class="mlst-kit__figs">
           {%- if s.fig_1 != blank -%}<li><small>{{ s.fig_1_label }}</small><b>{{ s.fig_1 }}</b></li>{%- endif -%}
@@ -125,6 +133,9 @@
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Black Friday offer" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "3 months for £99" },
     { "type": "text", "id": "sub", "label": "Line under", "default": "90-day risk-free money-back guarantee" },
+    { "type": "image_picker", "id": "image", "label": "Product image", "info": "Shown under the offer" },
+    { "type": "text", "id": "image_url", "label": "Product image URL", "info": "Used when no image is picked" },
+    { "type": "text", "id": "image_alt", "label": "Product image alt text" },
     { "type": "text", "id": "fig_1_label", "label": "Figure 1: label", "default": "Save" },
     { "type": "text", "id": "fig_1", "label": "Figure 1", "default": "53%" },
     { "type": "text", "id": "fig_2_label", "label": "Figure 2: label", "default": "Welcome kit" },

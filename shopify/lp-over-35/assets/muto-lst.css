@@ -210,3 +210,7 @@ html:root body .mlst .mlst-lc{text-transform:none!important}
 .mlst .mlst-kit__note{margin-top:12px;font-size:13.5px;line-height:1.45;color:var(--ink-2);text-align:center}
 @media (max-width:480px){.mlst-kit__body{grid-template-columns:1fr}.mlst-kit__img{max-width:220px}.mlst .mlst-kit__h{font-size:30px}}
 @media (min-width:750px){.mlst-kit__top{padding:34px 32px 0}.mlst .mlst-kit__h{font-size:44px}.mlst-kit__list{padding:0 32px}.mlst-kit__foot{padding:24px 32px 28px}.mlst-kit__body{grid-template-columns:180px 1fr;gap:22px}}
+
+.mlst-kit__hero{margin:22px 22px 0;border-radius:8px;overflow:hidden;background:var(--ground)}
+.mlst-kit__hero img{width:100%;aspect-ratio:3/2;object-fit:cover}
+@media (min-width:750px){.mlst-kit__hero{margin:26px 32px 0}}
