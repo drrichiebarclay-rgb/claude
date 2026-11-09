@@ -161,3 +161,6 @@ html:root body .mc .mc__stm-label,
 html:root body .mc .mc__prb-pill,
 html:root body .mc .mc__ing-dose,
 html:root body .mpb-bad i{text-transform:uppercase!important}
+
+/* Keep a letter in lower case inside an uppercase heading, e.g. the "s" in "35s" */
+html:root body .mlst .mlst-lc{text-transform:none!important}
