@@ -1,0 +1,27 @@
+{%- comment -%}
+  MUTO — Black Friday top bar (header) (muto-bf-head). In the header group, beside the announcement bar.
+  Only the Black Friday top bar lives here: its own CSS (assets/muto-bf-bar.css) and the bar with its Claim
+  script inline (snippets/muto-bf-bar.liquid). Only on the Black Friday product templates (suffix muto-nad-bf:
+  standard, premium and v3). assets/muto-bf-claim.js is no longer loaded: the script is inline so the bar
+  responds from the first tap. Also renders snippets/muto-bf-kit-box.liquid: every welcome-kit item in the
+  buy box opens into a box with its photo, name, value and description.
+  The product page CSS is in "MUTO — BF page styles" on those templates, the sticky plan bar's CSS in
+  "MUTO — Black Friday offer" (footer), and everything site-wide in "MUTO — Site styles".
+{%- endcomment -%}
+{%- if template.suffix contains 'muto-nad-bf' and product != blank -%}
+  {{ 'muto-bf-bar.css' | asset_url | stylesheet_tag }}
+  {%- render 'muto-bf-bar', product: product -%}
+  {%- render 'muto-bf-kit-box' -%}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "MUTO — BF head top bar",
+  "tag": "div",
+  "class": "muto-bf-head",
+  "settings": [
+    { "type": "paragraph", "content": "The Black Friday top bar (Claim →) on the Black Friday product templates. Its CSS only; the page CSS is in MUTO — BF page styles on those templates." }
+  ],
+  "presets": [{ "name": "MUTO — BF head top bar" }]
+}
+{% endschema %}

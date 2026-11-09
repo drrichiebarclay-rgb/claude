@@ -1,0 +1,131 @@
+{%- comment -%}
+  MUTO — Black Friday buy box: every welcome-kit item opens into a box (muto-bf-kit-box).
+  Rendered by sections/muto-bf-head.liquid, so it runs only on the Black Friday product templates.
+  Tap an image tile, an itemised row ("Performance socks … Free") or a later-delivery tile and a box opens
+  with the item's photo large, its name, its value and its description (the image's alt text, set per gift
+  in the buy box). Close with ×, a tap outside or Esc. Nothing is typed here: it reads what the buy box drew,
+  so changing a gift in the theme editor changes its box.
+{%- endcomment -%}
+<style>
+  html body .mc .mc__kit-list > li,
+  html body .mc .mc__kit-month,
+  html body .mc .mc__inc > .mc__inc-row:not(.mc__inc-main){cursor:pointer;-webkit-tap-highlight-color:transparent}
+  html body .mc .mc__kit-list > li .mc__kit-frame,
+  html body .mc .mc__kit-month .mc__kit-frame{transition:transform .2s ease,box-shadow .2s ease}
+  html body .mc .mc__kit-list > li:hover .mc__kit-frame,
+  html body .mc .mc__kit-month:hover .mc__kit-frame{transform:translateY(-2px);box-shadow:0 6px 18px rgba(36,34,35,.14)}
+  html body .mc .mc__inc > .mc__inc-row:not(.mc__inc-main) .mc__inc-name{text-decoration:underline dotted rgba(36,34,35,.45);text-underline-offset:4px}
+  html body .mc .mc__inc > .mc__inc-row:not(.mc__inc-main) .mc__inc-name::after{content:"+";display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;margin-left:8px;border:1px solid currentColor;border-radius:50%;font-size:12px;line-height:1;vertical-align:1px;text-decoration:none;opacity:.6}
+  html body .mc [data-mc-kbox]:focus-visible{outline:2px solid #242223;outline-offset:3px}
+
+  .mc-kbox{width:min(440px,calc(100% - 32px));max-height:calc(100% - 32px);padding:0;border:0;border-radius:20px;background:#fff;color:#242223;box-shadow:0 24px 70px rgba(14,19,17,.3);overflow:auto}
+  .mc-kbox::backdrop{background:rgba(14,19,17,.55)}
+  .mc-kbox[open]{animation:mcKboxIn .22s ease-out}
+  @keyframes mcKboxIn{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+  .mc-kbox__in{position:relative}
+  .mc-kbox__x{position:absolute;top:12px;right:12px;z-index:1;width:36px;height:36px;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.92);font-size:24px;line-height:36px;color:#242223;cursor:pointer}
+  .mc-kbox__img{aspect-ratio:67/84;max-height:min(56vh,480px);margin:0 auto;background:#f2f2f0;overflow:hidden}
+  .mc-kbox__img img{display:block;width:100%;height:100%;object-fit:cover}
+  .mc-kbox__body{padding:22px 26px 28px}
+  .mc-kbox__tag{margin:0 0 8px;font-family:var(--mc-mono,ui-monospace,monospace);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(36,34,35,.6)}
+  .mc-kbox__t{margin:0;font-size:22px;font-weight:500;line-height:1.2;letter-spacing:-.01em}
+  .mc-kbox__v{margin:8px 0 0;font-size:15px;line-height:1.4}
+  .mc-kbox__v s{margin-right:6px;color:rgba(36,34,35,.45)}
+  .mc-kbox__v b{font-weight:500}
+  .mc-kbox__d{margin:14px 0 0;font-size:15px;line-height:1.5;color:rgba(36,34,35,.78)}
+  .mc-kbox__d:empty,.mc-kbox__v:empty{display:none}
+  @media (prefers-reduced-motion:reduce){.mc-kbox[open]{animation:none}}
+</style>
+<script>
+(function () {
+  if (window.mcKitBox) return;
+  window.mcKitBox = true;
+  var TILE = '.mc .mc__kit-list > li', MONTH = '.mc .mc__kit-month', ROW = '.mc .mc__inc > .mc__inc-row:not(.mc__inc-main)';
+  var dlg, last;
+
+  function txt(el, sel) { var n = el && el.querySelector(sel); return n ? n.textContent.replace(/\s+/g, ' ').trim() : ''; }
+  function rowsOf(kit) { return [].slice.call(kit.querySelectorAll('.mc__inc > .mc__inc-row:not(.mc__inc-main)')); }
+  function tilesOf(kit) { return [].slice.call(kit.querySelectorAll('.mc__kit-list > li')); }
+
+  function build() {
+    dlg = document.createElement('dialog');
+    dlg.className = 'mc-kbox';
+    dlg.setAttribute('aria-labelledby', 'mc-kbox-t');
+    dlg.innerHTML = '<div class="mc-kbox__in"><button type="button" class="mc-kbox__x" aria-label="Close">&times;</button>' +
+      '<div class="mc-kbox__img"><img alt=""></div><div class="mc-kbox__body"><p class="mc-kbox__tag"></p>' +
+      '<p class="mc-kbox__t" id="mc-kbox-t"></p><p class="mc-kbox__v"></p><p class="mc-kbox__d"></p></div></div>';
+    document.body.appendChild(dlg);
+    dlg.addEventListener('click', function (e) { if (e.target === dlg || e.target.closest('.mc-kbox__x')) dlg.close(); });
+    dlg.addEventListener('close', function () { if (last && last.focus) last.focus(); });
+  }
+
+  /* The photo at a size fit for the box: Shopify CDN images take a width parameter */
+  function big(src) {
+    if (!src) return '';
+    if (/[?&]width=\d+/.test(src)) return src.replace(/([?&]width=)\d+/, '$1900');
+    return src + (src.indexOf('?') > -1 ? '&' : '?') + 'width=900';
+  }
+
+  function open(el) {
+    var kit = el.closest('.mc__kit') || el.closest('.mc'), tile = el, row = null, tag = 'In your welcome kit';
+    if (el.matches(ROW)) {
+      row = el; tile = tilesOf(kit)[rowsOf(kit).indexOf(el)] || null;
+    } else if (el.matches(TILE)) {
+      row = rowsOf(kit)[tilesOf(kit).indexOf(el)] || null;
+    }
+    var img = tile && tile.querySelector('img');
+    var title = '', value = '', desc = img ? (img.getAttribute('alt') || '') : '';
+    if (el.matches(MONTH)) {
+      tag = txt(el, '.mc__kit-month-n') || 'Arrives later';
+      title = txt(el, '.mc__kit-month-t');
+      value = txt(el, '.mc__kit-month-v');
+    } else {
+      title = txt(row, '.mc__inc-name') || txt(tile, '.mc__kit-name');
+      var was = txt(row, '.mc__inc-was'), free = txt(row, '.mc__inc-free');
+      if (was) value = '<s>' + was + '</s><b>' + (free || 'Free') + '</b>';
+      else if (free) value = '<b>' + free + '</b>';
+      else value = txt(tile, '.mc__kit-value');
+    }
+    if (desc && title && desc.toLowerCase() === title.toLowerCase()) desc = '';
+    if (!dlg) build();
+    var bimg = dlg.querySelector('.mc-kbox__img');
+    var bi = bimg.querySelector('img');
+    bimg.style.display = img ? '' : 'none';
+    bi.src = img ? big(img.currentSrc || img.src) : '';
+    bi.alt = desc;
+    dlg.querySelector('.mc-kbox__tag').textContent = tag;
+    dlg.querySelector('.mc-kbox__t').textContent = title;
+    dlg.querySelector('.mc-kbox__v').innerHTML = value;
+    dlg.querySelector('.mc-kbox__d').textContent = desc;
+    last = el;
+    if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
+  }
+
+  function target(e) { var t = e.target.closest(TILE + ',' + MONTH + ',' + ROW); return t && !e.target.closest('a,button,input,select,textarea,.mc__kit-sum') ? t : null; }
+
+  document.addEventListener('click', function (e) {
+    var t = target(e);
+    if (!t) return;
+    e.preventDefault(); /* a kit item inside a plan card must not also change the plan */
+    open(t);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    var t = e.target.closest && e.target.closest('[data-mc-kbox]');
+    if (!t) return;
+    e.preventDefault();
+    open(t);
+  });
+  /* Make each item reachable by keyboard and announce it as opening a box */
+  function mark() {
+    [].forEach.call(document.querySelectorAll(TILE + ',' + MONTH + ',' + ROW), function (el) {
+      if (el.hasAttribute('data-mc-kbox')) return;
+      el.setAttribute('data-mc-kbox', '');
+      el.setAttribute('role', 'button');
+      el.setAttribute('tabindex', '0');
+      el.setAttribute('aria-haspopup', 'dialog');
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mark); else mark();
+})();
+</script>

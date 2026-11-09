@@ -1,0 +1,121 @@
+{%- liquid
+  # The Quarterly plan, read off the product: the first variant that sells on a 3-month selling plan.
+  # Nothing typed, so the same code works on the main product, -2 and -3 (different variant ids).
+  assign bf_q_variant = ''
+  assign bf_q_plan = ''
+  if product != blank
+    for pv in product.variants
+      if bf_q_variant != blank
+        break
+      endif
+      for alloc in pv.selling_plan_allocations
+        assign bf_n = alloc.selling_plan.name | downcase
+        if bf_n contains '3-month' or bf_n contains '3 month' or bf_n contains 'quarter'
+          if pv.available
+            assign bf_q_variant = pv.id
+            assign bf_q_plan = alloc.selling_plan.id
+            break
+          endif
+        endif
+      endfor
+    endfor
+  endif
+  # A real link, so a tap works before any script has loaded: adds the 3-month plan and opens the cart page.
+  assign bf_href = '#MainContent'
+  if bf_q_variant != blank
+    assign bf_href = routes.cart_add_url | append: '?id=' | append: bf_q_variant | append: '&quantity=1'
+    if bf_q_plan != blank
+      assign bf_href = bf_href | append: '&selling_plan=' | append: bf_q_plan
+    endif
+  endif
+-%}
+<a class="mc-bfx" id="mc-bfx" href="{{ bf_href }}" role="button"
+  data-variant="{{ bf_q_variant }}" data-plan="{{ bf_q_plan }}"
+  aria-label="Black Friday: 3 months for £99, save 53%, plus a welcome kit worth £87, while stock lasts. Claim: adds the 3-month plan and opens the cart.">
+  <span class="mc-bfx__dot" aria-hidden="true"></span>
+  <span class="mc-bfx__d"><b>Black Friday:</b> 3 months for £99 (save 53%) + welcome kit worth £87</span>
+  <span class="mc-bfx__d mc-bfx__sep" aria-hidden="true">·</span>
+  <span class="mc-bfx__d">While stock lasts</span>
+  <span class="mc-bfx__m"><b>3 months for £99</b> · Save 53%</span>
+  <span class="mc-bfx__sep mc-bfx__sep--cta" aria-hidden="true">·</span>
+  <span class="mc-bfx__cta">Claim&nbsp;&rarr;</span>
+  <span class="mc-bfx__busy" aria-hidden="true"><span class="mc-bfx__spin"></span>Adding your Black Friday offer&hellip;</span>
+</a>
+<script>
+/* Claim: inline, straight after the bar, so it works from the first tap (it used to wait for a deferred
+   file). One request at tap time: the cart is checked in the background as the page loads, and the add
+   returns the side cart's new contents in the same response. The bar changes the moment it's tapped. */
+(function () {
+  var bar = document.getElementById('mc-bfx');
+  if (!bar || bar.getAttribute('data-ready')) return;
+  bar.setAttribute('data-ready', '1');
+  var vid = bar.getAttribute('data-variant'), plan = bar.getAttribute('data-plan');
+  var planId = plan ? parseInt(plan, 10) : null;
+  var root = (window.Shopify && Shopify.routes && Shopify.routes.root) || '/';
+  var busy = false, cartP = null;
+
+  function getCart() {
+    if (!cartP) cartP = fetch(root + 'cart.js', { credentials: 'same-origin' })
+      .then(function (r) { return r.ok ? r.json() : { items: [] }; })
+      .catch(function () { return { items: [] }; });
+    return cartP;
+  }
+  /* Warm the "already in the cart?" check before anyone taps */
+  if (vid && window.fetch) (window.requestIdleCallback || function (f) { setTimeout(f, 1500); })(function () { getCart(); });
+
+  function go(url) { window.location.href = url; }
+  function idle() { busy = false; bar.classList.remove('is-busy'); bar.removeAttribute('aria-busy'); }
+
+  /* Open the theme's side cart with the sections the add returned; no side cart: the cart page */
+  function openDrawer(sections) {
+    var d = document.querySelector('cart-drawer');
+    if (d && typeof d.renderContents === 'function' && sections && sections['cart-drawer']) {
+      d.renderContents({ sections: sections });
+      idle();
+      return true;
+    }
+    go(root + 'cart');
+    return false;
+  }
+  function openDrawerFresh() {
+    var d = document.querySelector('cart-drawer');
+    if (!d || typeof d.renderContents !== 'function') return go(root + 'cart');
+    fetch(root + '?sections=cart-drawer,cart-icon-bubble', { credentials: 'same-origin' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (s) { if (!openDrawer(s)) return; })
+      .catch(function () { go(root + 'cart'); });
+  }
+
+  bar.addEventListener('click', function (e) {
+    if (!vid || !window.fetch) return; /* the link itself does the job */
+    e.preventDefault();
+    if (busy) return;
+    busy = true;
+    bar.classList.add('is-busy');
+    bar.setAttribute('aria-busy', 'true');
+    /* Never leave someone waiting: if nothing has happened in 6 seconds, use the plain link */
+    var safety = setTimeout(function () { if (busy) go(bar.getAttribute('href')); }, 6000);
+    getCart().then(function (cart) {
+      var has = (cart.items || []).some(function (it) {
+        var sp = it.selling_plan_allocation && it.selling_plan_allocation.selling_plan;
+        return String(it.variant_id) === String(vid) && (sp ? sp.id : null) === planId;
+      });
+      if (has) { clearTimeout(safety); return openDrawerFresh(); }
+      var item = { id: parseInt(vid, 10), quantity: 1 };
+      if (planId) item.selling_plan = planId;
+      return fetch(root + 'cart/add.js', {
+        method: 'POST', credentials: 'same-origin',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ items: [item], sections: 'cart-drawer,cart-icon-bubble', sections_url: window.location.pathname })
+      })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (res) {
+          clearTimeout(safety);
+          cartP = null; /* the cart changed */
+          if (!res) return go(bar.getAttribute('href'));
+          openDrawer(res.sections);
+        });
+    }).catch(function () { clearTimeout(safety); go(bar.getAttribute('href')); });
+  });
+})();
+</script>
