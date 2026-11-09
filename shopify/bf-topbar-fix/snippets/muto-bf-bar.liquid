@@ -66,11 +66,22 @@
   function go(url) { window.location.href = url; }
   function idle() { busy = false; bar.classList.remove('is-busy'); bar.removeAttribute('aria-busy'); }
 
-  /* Open the theme's side cart with the sections the add returned; no side cart: the cart page */
-  function openDrawer(sections) {
+  /* Open the theme's side cart with the sections the add returned, the way the theme's own Add to cart does
+     (assets/product-form.js): clear the drawer's empty state first, or a cart that started empty opens with
+     no items showing, then tell the rest of the page the cart changed. No side cart: the cart page. */
+  function openDrawer(sections, res) {
     var d = document.querySelector('cart-drawer');
     if (d && typeof d.renderContents === 'function' && sections && sections['cart-drawer']) {
-      d.renderContents({ sections: sections });
+      d.classList.remove('is-empty');
+      var items = d.querySelector('cart-drawer-items');
+      if (items) items.classList.remove('is-empty');
+      var state = res || {};
+      state.sections = sections;
+      d.renderContents(state);
+      d.classList.remove('is-empty');
+      try {
+        if (typeof publish === 'function' && window.PUB_SUB_EVENTS) publish(PUB_SUB_EVENTS.cartUpdate, { source: 'muto-bf-bar', productVariantId: vid, cartData: res });
+      } catch (err) {}
       idle();
       return true;
     }
@@ -113,7 +124,7 @@
           clearTimeout(safety);
           cartP = null; /* the cart changed */
           if (!res) return go(bar.getAttribute('href'));
-          openDrawer(res.sections);
+          openDrawer(res.sections, res);
         });
     }).catch(function () { clearTimeout(safety); go(bar.getAttribute('href')); });
   });
