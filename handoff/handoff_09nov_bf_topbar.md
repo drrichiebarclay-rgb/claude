@@ -3,12 +3,14 @@ title: "MUTO product pages: Black Friday top bar, welcome kit and url-2"
 subtitle: "9 November 2026"
 ---
 
-Fixes for the three Black Friday product pages. **The theme changes are already built in a duplicate of live: publish it, then switch url-2's template.** Nothing else on the site changes.
+Fixes for the three Black Friday product pages, plus one change to url-2. **The theme changes are already built in a duplicate of live: publish it, then move url-2 onto its new template and retire the old one.** Nothing else on the site changes.
+
+**url-2:** its current design is retired. url-2 gets its own duplicate of the main page's template, a separate file so the two pages can be changed independently later.
 
 | Page | Template today | Template after this handover |
 |---|---|---|
 | Main: `/products/muto-nad-cellular-complex` | `product.muto-nad-bf-premium` | no change |
-| url-2: `/products/muto-nad-cellular-complex-2` | `product.muto-nad-bf` | **`product.muto-nad-bf-premium`** (same as main) |
+| url-2: `/products/muto-nad-cellular-complex-2` | `product.muto-nad-bf` (retired) | **`product.muto-nad-bf-premium-2`**, a duplicate of main's |
 | url-3: `/products/muto-nad-cellular-complex-3` | `product.muto-nad-bf-v3` | no change |
 
 # Before you start
@@ -18,6 +20,7 @@ Fixes for the three Black Friday product pages. **The theme changes are already 
   - <https://muto.co/products/muto-nad-cellular-complex?preview_theme_id=204572492123>
   - <https://muto.co/products/muto-nad-cellular-complex-2?preview_theme_id=204572492123>
   - <https://muto.co/products/muto-nad-cellular-complex-3?preview_theme_id=204572492123>
+  - url-2 on its new template, before you switch it: <https://muto.co/products/muto-nad-cellular-complex-2?view=muto-nad-bf-premium-2&preview_theme_id=204572492123>
 - **Files:** GitHub, repo `drrichiebarclay-rgb/claude`, branch `claude/exciting-allen-d0oqpz`, folder `shopify/bf-topbar-fix/`. The same files are in the duplicate theme.
 - **Not yet tested on the real store.** It was built without access to muto.co and tested on a mock page only. Do the checks at the end on the previews before publishing.
 
@@ -29,27 +32,28 @@ The duplicate was made from live on 9 Nov, about 12:00 UK. If anyone has edited 
 
 Online Store → Themes → **Clone Of Live | BF top bar fix [09-11]** → Publish.
 
-# Step 3: give url-2 the main page's design
+# Step 3: retire the current url-2 design and move url-2 onto the duplicate of main
 
-After publishing:
+The duplicate of main's template is already in the published theme from Step 2: `templates/product.muto-nad-bf-premium-2.json`. It is a copy of `product.muto-nad-bf-premium.json` with one setting changed:
 
-1. Products → **NAD+ Cellular Complex** with the handle `muto-nad-cellular-complex-2`. There are several products with this title, so check the handle.
-2. Theme template: change `muto-nad-bf` to **`muto-nad-bf-premium`**. Save.
-3. Open url-2 and check it now looks exactly like the main page.
+- **The one change:** in the **MUTO — BF page styles** section (`bf_style`), Design is set to **Premium**.
+- **Why it's needed:** that section turns on the premium design automatically only for the exact template name `muto-nad-bf-premium`. A copy under another name has to ask for it.
 
-This is a product setting, so it changes the live page as soon as you save. Do it straight after publishing so url-2 never shows the old design on the new theme.
+The top bar, the kit boxes and the sticky offer bar switch on for any template whose name contains `muto-nad-bf`, so the copy gets all of them.
 
-# Step 4: retire the old url-2 design
+Straight after publishing:
 
-Once Step 3 is done and checked, the template `product.muto-nad-bf` is no longer used by any product.
+1. Products → **NAD+ Cellular Complex** with the handle `muto-nad-cellular-complex-2`. Several products have this title, so check the handle.
+2. Theme template: change `muto-nad-bf` to **`muto-nad-bf-premium-2`**. Save. This changes the live page immediately.
+3. Open url-2 next to the main page. They should look identical.
+4. **Retire the old url-2 design:**
+   - Products: filter by theme template `muto-nad-bf` and confirm nothing is left on it.
+   - Delete `templates/product.muto-nad-bf.json` in Edit code. Keep a copy first; it's in the GitHub folder above.
+   - **Order matters:** don't delete it before step 2. A product whose template is deleted falls back to the default product page.
 
-1. Products: filter by theme template `muto-nad-bf` and confirm nothing is left on it.
-2. Then delete `templates/product.muto-nad-bf.json` from the live theme, in Edit code. Keep a copy first; it's in the GitHub folder above.
+Expected side effect: `layout/theme.liquid` loads jQuery, Slick and custom.js deferred only on the `muto-nad-bf`, `muto-nad-trust` and `muto-bf-redirect` templates. On its new template, url-2 loads them the normal way, exactly as the main page does today.
 
-Two side effects of retiring it, both expected:
-
-- `layout/theme.liquid` loads jQuery, Slick and custom.js deferred only on the `muto-nad-bf`, `muto-nad-trust` and `muto-bf-redirect` templates. url-2 on the premium template loads them the normal way, exactly as the main page does today.
-- The `muto-bf-style` section uses the premium design whenever the template suffix is `muto-nad-bf-premium`, so url-2 gets it automatically. No setting to change.
+From now on, changes to main's template don't reach url-2, and the other way round. Edit both if both should change.
 
 # What changed in the theme
 
@@ -113,8 +117,9 @@ All three templates: "Performance socks (UK 6–11)" → **"Performance socks (o
 | `snippets/muto-bf-kit-box.liquid` | New |
 | `sections/muto-bf-head.liquid` | Renders the kit box; no longer loads `muto-bf-claim.js` |
 | `assets/muto-bf-bar.css` | Tapped state added at the end |
-| `templates/product.muto-nad-bf.json` | Socks label (retired in Step 4) |
+| `templates/product.muto-nad-bf.json` | Socks label; retired and deleted in Step 3 |
 | `templates/product.muto-nad-bf-premium.json` | Socks label |
+| `templates/product.muto-nad-bf-premium-2.json` | **New:** url-2's duplicate of main's template, with the socks label; style section set to Premium |
 | `templates/product.muto-nad-bf-v3.json` | Socks label |
 
 # Checks before and after publishing
@@ -129,5 +134,6 @@ On a phone, with an **empty cart** each time, on main, url-2 and url-3:
 - [ ] Buy box: the socks row reads "Performance socks (one size fits all)".
 - [ ] Tap each kit tile and each itemised row. A box opens with the right photo, name and value. The plan selection doesn't change.
 - [ ] Desktop: the same checks, plus Esc closes the box.
-- [ ] After Step 3: url-2 looks identical to main, and the checks above still pass on url-2.
+- [ ] Before Step 3: url-2 on its new template (the `?view=muto-nad-bf-premium-2` preview link) looks identical to main.
+- [ ] After Step 3: url-2 looks identical to main, the checks above pass on url-2, and no product is left on `muto-nad-bf`.
 - [ ] Place one test order through checkout from the Claim bar. Confirm the gifts and the £99 price carry through.
