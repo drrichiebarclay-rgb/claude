@@ -41,13 +41,6 @@
             "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/mens-fitness-magazine-logo-blue_1.jpg?v=1769537356"
           }
         },
-        "l2": {
-          "type": "logo",
-          "settings": {
-            "name": "Oura",
-            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/oura-logo-blue_1.jpg?v=1769537370"
-          }
-        },
         "l3": {
           "type": "logo",
           "settings": {
@@ -58,7 +51,6 @@
       },
       "block_order": [
         "l1",
-        "l2",
         "l3"
       ],
       "settings": {
