@@ -1178,9 +1178,18 @@
             "quote": "I love that this replaces multiple products",
             "name": "Amy C"
           }
+        },
+        "v_sean": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/1. Sean HERO Video.mp4",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/preview_images/6cf68a4ba8484ef68370462614110925.thumbnail.0000000000.jpg?v=1794240972",
+            "handle": "Sean Carroll"
+          }
         }
       },
       "block_order": [
+        "v_sean",
         "v0",
         "q0",
         "q1",
