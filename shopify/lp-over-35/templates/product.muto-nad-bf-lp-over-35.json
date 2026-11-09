@@ -106,7 +106,7 @@
             "title": "Energy, recovery and healthy ageing, from one daily foundation",
             "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-benefits-nad.jpg",
             "image_alt": "The MUTO NAD+ Cellular Complex jar of capsules beside its carton",
-            "body": "<p>Instead of a cupboard of separate bottles, one formula covers the three things most people over 35 tell us they care about.</p><ul><li><strong>Energy for today.</strong> B vitamins and folate, for afternoons that hold.</li><li><strong>Recovery for tomorrow.</strong> Vitamin D, so a hard week doesn’t linger.</li><li><strong>Healthy ageing.</strong> Zinc, copper and B2, alongside NR at 300mg for NAD+ support.</li></ul><h3>What people tell us they notice</h3><p><strong>Around day 30:</strong> afternoons that hold. <strong>Around day 60:</strong> bouncing back sooner. <strong>By day 90:</strong> feeling like themselves again. Everyone’s different, so give it the full 90 days.</p>",
+            "body": "<p>Instead of a cupboard of separate bottles, one formula covers the three things most people over 35 tell us they care about.</p><ul><li><strong>Energy for today.</strong> B vitamins and folate, for afternoons that hold.</li><li><strong>Recovery for tomorrow.</strong> Vitamin D, so a hard week doesn’t linger.</li><li><strong>Healthy ageing.</strong> Zinc, copper and B2, alongside NR at 300mg for NAD+ support.</li></ul><p>Most people notice the change build gradually over the first 90 days. There’s a timeline of what to expect further down the page.</p>",
             "pull": "",
             "claim": "Vitamins B2, B3, B6, B12 and folate contribute to the reduction of tiredness and fatigue. Vitamin D contributes to normal muscle function. Zinc, copper and vitamin B2 contribute to the protection of cells from oxidative stress."
           }
@@ -1626,6 +1626,62 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
+    },
+    "timeline": {
+      "type": "muto-expect",
+      "blocks": {
+        "m1": {
+          "type": "milestone",
+          "settings": {
+            "day": 1,
+            "label": "",
+            "title": "Your starting point",
+            "text": "<p>Score your afternoons, sleep and recovery out of 10, or note your wearable’s 30-day averages. Then two capsules with breakfast: CoQ10, vitamins D3 and K2 dissolve in fat, so food helps your body take them in.</p>"
+          }
+        },
+        "m2": {
+          "type": "milestone",
+          "settings": {
+            "day": 30,
+            "label": "",
+            "title": "Afternoons that hold",
+            "text": "<p>Usually the first thing people notice: less of the 3pm wall, energy left for the evening. B vitamins contribute to the reduction of tiredness and fatigue.</p>"
+          }
+        },
+        "m3": {
+          "type": "milestone",
+          "settings": {
+            "day": 60,
+            "label": "",
+            "title": "Bouncing back sooner",
+            "text": "<p>A walk, a round of golf or a gym session stops hanging around for days. Vitamin D contributes to normal muscle function.</p>"
+          }
+        },
+        "m4": {
+          "type": "milestone",
+          "settings": {
+            "day": 90,
+            "label": "",
+            "title": "Feeling like yourself",
+            "text": "<p>Compare your scores with day 1. Many people say they hadn’t realised how flat they’d been. Not for you? Every subscription payment back, less delivery.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "m1",
+        "m2",
+        "m3",
+        "m4"
+      ],
+      "settings": {
+        "anchor": "what-to-expect",
+        "eyebrow": "What to expect",
+        "heading": "What people tell us they notice.",
+        "lede": "Roughly when, in their words. Everyone’s different, so score yourself on day 1 and compare. Got a wearable? Track the shift yourself.",
+        "foot": "What customers tell us, not a clinical study. Our first UK clinical trial starts this December.",
+        "space_top": 96,
+        "space_bottom": 96
+      }
     }
   },
   "order": [
@@ -1636,6 +1692,7 @@
     "art1",
     "buy",
     "art2",
+    "timeline",
     "quotes",
     "board",
     "buy2",
