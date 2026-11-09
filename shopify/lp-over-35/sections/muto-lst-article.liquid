@@ -1,0 +1,90 @@
+{%- comment -%}
+  MUTO listicle — article (muto-lst-article). The hero and the numbered reasons of "5 reasons people over 35
+  are switching". Add it more than once to split the reasons around an offer (MUTO listicle — offer): the
+  hero only shows when its heading is filled in, and each reason block carries its own number.
+  Styles: assets/muto-lst.css.
+{%- endcomment -%}
+{{ 'muto-lst.css' | asset_url | stylesheet_tag }}
+{%- assign s = section.settings -%}
+<div class="mlst">
+  <div class="mlst__wrap">
+    {%- if s.heading != blank -%}
+      <header class="mlst-hero">
+        {%- if s.eyebrow != blank -%}<p class="mlst__lab mlst__lab--dot">{{ s.eyebrow }}</p>{%- endif -%}
+        <h1>{{ s.heading }}</h1>
+        {%- if s.sub != blank -%}<p class="mlst-hero__sub">{{ s.sub }}</p>{%- endif -%}
+        {%- if s.meta != blank -%}
+          <div class="mlst-hero__meta"><span class="mlst-stars" aria-hidden="true">★★★★★</span><span>{{ s.meta }}</span></div>
+        {%- endif -%}
+        {%- liquid
+          if s.image != blank
+            assign h_src = s.image | image_url: width: 1600
+          else
+            assign h_src = s.image_url
+          endif
+        -%}
+        {%- if h_src != blank -%}
+          <div class="mlst-hero__img"><img src="{{ h_src }}" alt="{{ s.image_alt | escape }}" width="1600" height="900" fetchpriority="high"></div>
+        {%- endif -%}
+      </header>
+    {%- endif -%}
+
+    {%- for block in section.blocks -%}
+      {%- liquid
+        assign b = block.settings
+        if b.image != blank
+          assign r_src = b.image | image_url: width: 1400
+        else
+          assign r_src = b.image_url
+        endif
+      -%}
+      <article class="mlst-r" {{ block.shopify_attributes }}>
+        <p class="mlst-r__n"><b>{{ b.number }}</b>Reason {{ b.number }} of {{ s.total | default: 5 }}</p>
+        <h2>{{ b.title }}</h2>
+        {%- if r_src != blank -%}
+          <div class="mlst-r__img"><img src="{{ r_src }}" alt="{{ b.image_alt | escape }}" width="1400" height="933" loading="lazy"></div>
+        {%- endif -%}
+        <div class="mlst-r__body">{{ b.body }}</div>
+        {%- if b.pull != blank -%}<p class="mlst-r__pull">{{ b.pull }}</p>{%- endif -%}
+      </article>
+    {%- endfor -%}
+
+    {%- if s.note != blank -%}<p class="mlst-note">{{ s.note }}</p>{%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO listicle — article",
+  "tag": "section",
+  "class": "muto-lst-article",
+  "settings": [
+    { "type": "paragraph", "content": "Hero (shows when Heading is filled) and numbered reasons. Add the section twice to put an offer between reasons." },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "textarea", "id": "heading", "label": "Heading" },
+    { "type": "textarea", "id": "sub", "label": "Standfirst" },
+    { "type": "text", "id": "meta", "label": "Rating line", "info": "Shown after five stars" },
+    { "type": "image_picker", "id": "image", "label": "Hero image" },
+    { "type": "text", "id": "image_url", "label": "Hero image URL", "info": "Used when no image is picked" },
+    { "type": "text", "id": "image_alt", "label": "Hero image alt text" },
+    { "type": "number", "id": "total", "label": "Number of reasons", "default": 5 },
+    { "type": "textarea", "id": "note", "label": "Footnote" }
+  ],
+  "blocks": [
+    {
+      "type": "reason",
+      "name": "Reason",
+      "settings": [
+        { "type": "text", "id": "number", "label": "Number", "default": "1" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_url", "label": "Image URL", "info": "Used when no image is picked" },
+        { "type": "text", "id": "image_alt", "label": "Image alt text" },
+        { "type": "richtext", "id": "body", "label": "Copy" },
+        { "type": "text", "id": "pull", "label": "Pull line" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "MUTO listicle — article" }]
+}
+{% endschema %}

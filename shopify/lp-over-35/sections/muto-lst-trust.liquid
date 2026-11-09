@@ -1,0 +1,72 @@
+{%- comment -%}
+  MUTO listicle — trust (muto-lst-trust). A row of logos (Men's Fitness, Oura, Women's Fitness) and the thin
+  scientific board strip from the PDP buy box: four faces, "Formulated with leading doctors and scientists".
+  Logos are blocks (picker or URL). Styles: assets/muto-lst.css.
+{%- endcomment -%}
+{{ 'muto-lst.css' | asset_url | stylesheet_tag }}
+{%- assign s = section.settings -%}
+<div class="mlst">
+  <div class="mlst__wrap mlst-trust">
+    {%- if section.blocks.size > 0 -%}
+      {%- if s.label != blank -%}<p class="mlst__lab mlst-trust__lab">{{ s.label }}</p>{%- endif -%}
+      <ul class="mlst-logos">
+        {%- for block in section.blocks -%}
+          {%- liquid
+            if block.settings.image != blank
+              assign l_src = block.settings.image | image_url: width: 360
+            else
+              assign l_src = block.settings.image_url
+            endif
+          -%}
+          {%- if l_src != blank -%}
+            <li {{ block.shopify_attributes }}><img src="{{ l_src }}" alt="{{ block.settings.name | escape }}" width="180" height="48" loading="lazy"></li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    {%- if s.doc_title != blank -%}
+      {%- if s.doc_link != blank -%}<a class="mlst-doc" href="{{ s.doc_link }}">{%- else -%}<div class="mlst-doc">{%- endif -%}
+        <span class="mlst-doc__faces">
+          {%- for n in (1..4) -%}
+            {%- assign fk = 'face_' | append: n -%}
+            {%- if s[fk] != blank -%}<img src="{{ s[fk] | image_url: width: 120 }}" alt="" width="44" height="44" loading="lazy">{%- endif -%}
+          {%- endfor -%}
+        </span>
+        <span class="mlst-doc__txt"><b>{{ s.doc_title }}</b>{%- if s.doc_text != blank -%}<small>{{ s.doc_text }}</small>{%- endif -%}</span>
+        {%- if s.doc_link != blank -%}<i aria-hidden="true">→</i>{%- endif -%}
+      {%- if s.doc_link != blank -%}</a>{%- else -%}</div>{%- endif -%}
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MUTO listicle — trust",
+  "tag": "section",
+  "class": "muto-lst-trust",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Logos label", "default": "Featured in" },
+    { "type": "header", "content": "Scientific board strip" },
+    { "type": "image_picker", "id": "face_1", "label": "Face 1" },
+    { "type": "image_picker", "id": "face_2", "label": "Face 2" },
+    { "type": "image_picker", "id": "face_3", "label": "Face 3" },
+    { "type": "image_picker", "id": "face_4", "label": "Face 4" },
+    { "type": "text", "id": "doc_title", "label": "Title", "default": "Formulated with leading doctors and scientists" },
+    { "type": "text", "id": "doc_text", "label": "Line", "default": "Our scientific advisory board reviews the formula" },
+    { "type": "url", "id": "doc_link", "label": "Link", "info": "Optional" }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Name (alt text)" },
+        { "type": "image_picker", "id": "image", "label": "Logo" },
+        { "type": "text", "id": "image_url", "label": "Logo URL", "info": "Used when no logo is picked" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "MUTO listicle — trust" }]
+}
+{% endschema %}

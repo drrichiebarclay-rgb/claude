@@ -1,0 +1,664 @@
+{
+  "sections": {
+    "bf_style": {
+      "type": "muto-bf-style-v3",
+      "settings": {
+        "design": "premium",
+        "extras": false
+      }
+    },
+    "hero": {
+      "type": "muto-lst-article",
+      "blocks": {},
+      "block_order": [],
+      "settings": {
+        "eyebrow": "For adults over 35",
+        "heading": "5 reasons people over 35 are switching to NAD+ Cellular Complex",
+        "sub": "Your body changes in mid-life, and NAD+ Cellular Complex is the daily foundation built for it.",
+        "meta": "4.8 from 103 reviews · 90-day money-back guarantee",
+        "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-hero-product.jpg",
+        "image_alt": "A jar of MUTO NAD+ Cellular Complex in its open presentation box beside the carton",
+        "total": 5,
+        "note": ""
+      }
+    },
+    "trust": {
+      "type": "muto-lst-trust",
+      "blocks": {
+        "l1": {
+          "type": "logo",
+          "settings": {
+            "name": "Men's Fitness",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/mens-fitness-magazine-logo-blue_1.svg"
+          }
+        },
+        "l2": {
+          "type": "logo",
+          "settings": {
+            "name": "Oura",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/oura-logo-blue.svg"
+          }
+        },
+        "l3": {
+          "type": "logo",
+          "settings": {
+            "name": "Women's Fitness",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/womens-fitness-magazine-logo-blue_1.svg"
+          }
+        }
+      },
+      "block_order": [
+        "l1",
+        "l2",
+        "l3"
+      ],
+      "settings": {
+        "label": "Featured in",
+        "face_1": "shopify://shop_images/Dr_James_Cover_Final.png",
+        "face_2": "shopify://shop_images/Dr_Alka_Cover_Final.png",
+        "face_3": "shopify://shop_images/Dr_Richard_Cover_Final.png",
+        "face_4": "shopify://shop_images/Dr_Matt.png",
+        "doc_title": "Formulated with leading doctors and scientists",
+        "doc_text": "Our scientific advisory board reviews the formula",
+        "doc_link": ""
+      }
+    },
+    "art1": {
+      "type": "muto-lst-article",
+      "blocks": {
+        "r1": {
+          "type": "reason",
+          "settings": {
+            "number": "1",
+            "title": "What you needed at 20 isn’t what you need after 35",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-pillar-ageing-core.jpg",
+            "image_alt": "An athlete's midsection in low gym light",
+            "body": "<p>Your body starts to change in your mid-30s. Afternoons feel harder than they used to, and you get less back from the same effort.</p><p>NAD+ Cellular Complex is made for adults over 35. That’s when your body starts to change, and when most of our customers start taking it. You don’t need to be sporty or own a smartwatch.</p>",
+            "pull": "Your body changes in mid-life. NAD+ Cellular Complex is the daily foundation built for it."
+          }
+        },
+        "r2": {
+          "type": "reason",
+          "settings": {
+            "number": "2",
+            "title": "Every dose on the label, and the science behind it",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-made-declared.jpg",
+            "image_alt": "NAD+ Cellular Complex label showing every dose",
+            "body": "<p>19 ingredients in two capsules, with every dose printed on the label. No proprietary blends, no fillers, no stimulants.</p><ul><li><strong>Made in the UK</strong> in GMP- and ISO-certified facilities, and every batch tested by an independent lab.</li><li><strong>A scientific advisory board</strong> that includes England Rugby’s Lead Performance Nutritionist, longevity doctors and a leading metabolism researcher. Six doctors and scientists review the formula.</li><li><strong>Rated 4.8</strong> from 103 customer reviews.</li></ul>",
+            "pull": ""
+          }
+        },
+        "r3": {
+          "type": "reason",
+          "settings": {
+            "number": "3",
+            "title": "Energy, recovery and longevity, in one",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-benefits-nad.jpg",
+            "image_alt": "The MUTO NAD+ Cellular Complex jar of capsules beside its carton",
+            "body": "<p>One comprehensive multi-nutrient with NAD+ support for over 35s, taken with breakfast.</p><ul><li><strong>Energy:</strong> afternoons that hold.*</li><li><strong>Recovery:</strong> bounce back from a busy week.</li><li><strong>Longevity:</strong> support for your cells as you age.</li></ul>",
+            "pull": ""
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3"
+      ],
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "sub": "",
+        "meta": "",
+        "image_url": "",
+        "image_alt": "",
+        "total": 5,
+        "note": ""
+      }
+    },
+    "offer1": {
+      "type": "muto-lst-offer",
+      "blocks": {
+        "g1": {
+          "type": "gift",
+          "settings": {
+            "name": "Ultrapure creatine",
+            "value": 30,
+            "plans": "both",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg",
+            "note": ""
+          }
+        },
+        "g2": {
+          "type": "gift",
+          "settings": {
+            "name": "Performance socks (one size fits all)",
+            "value": 12,
+            "plans": "both",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-socks.jpg",
+            "note": ""
+          }
+        },
+        "g3": {
+          "type": "gift",
+          "settings": {
+            "name": "Performance bottle",
+            "value": 15,
+            "plans": "3",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-bottle.jpg",
+            "note": ""
+          }
+        },
+        "g4": {
+          "type": "gift",
+          "settings": {
+            "name": "Travel vial",
+            "value": 10,
+            "plans": "3",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-travel-vial.jpg",
+            "note": ""
+          }
+        },
+        "g5": {
+          "type": "gift",
+          "settings": {
+            "name": "Forever jar to keep",
+            "value": 10,
+            "plans": "both",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-forever-jar.jpg",
+            "note": ""
+          }
+        },
+        "g6": {
+          "type": "gift",
+          "settings": {
+            "name": "12-week protocol guide",
+            "value": 10,
+            "plans": "both",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-guide.jpg",
+            "note": ""
+          }
+        },
+        "g7": {
+          "type": "gift",
+          "settings": {
+            "name": "Entry to win a Garmin watch",
+            "value": 0,
+            "plans": "both",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-garmin.jpg",
+            "note": "Free entry"
+          }
+        }
+      },
+      "block_order": [
+        "g1",
+        "g2",
+        "g3",
+        "g4",
+        "g5",
+        "g6",
+        "g7"
+      ],
+      "settings": {
+        "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-lp-kit-hero.jpg",
+        "image_alt": "The MUTO welcome kit: NAD+ Cellular Complex jar and refill pouches, Ultrapure Creatine, the bottle and the presentation box",
+        "rating": "4.8 from 103 reviews",
+        "sku_3m": "NAD-3M-Month1",
+        "name_3m": "3 months",
+        "sub_3m": "Delivered every 3 months",
+        "tag_3m": "Best value",
+        "sku_1m": "NAD-1M-Month1",
+        "name_1m": "1 month",
+        "sub_1m": "Delivered every month",
+        "kit_label": "Free welcome kit",
+        "cta": "Add to cart",
+        "guarantee": "<b>90-day money-back guarantee.</b> Feel the difference in 90 days, or get every subscription payment back.",
+        "ticks": "Skip, pause or cancel online anytime\nFree delivery",
+        "eyebrow": "New customer offer",
+        "heading": "Try it for 90 days, risk-free"
+      }
+    },
+    "art2": {
+      "type": "muto-lst-article",
+      "blocks": {
+        "r4": {
+          "type": "reason",
+          "settings": {
+            "number": "4",
+            "title": "Alongside your free creatine, it’s all you need",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/home-benefits-creatine.jpg",
+            "image_alt": "A close-up of the MUTO creatine pouch",
+            "body": "<p>Two capsules of NAD+ Cellular Complex with breakfast, and a scoop of Ultrapure Micronised Creatine, which comes free in your welcome kit.</p><p>Together they’re the daily foundation your body runs on. Nothing else to add, and nothing to work out.</p>",
+            "pull": ""
+          }
+        },
+        "r5": {
+          "type": "reason",
+          "settings": {
+            "number": "5",
+            "title": "Feel the difference in 90 days, or get every payment back",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-lp-mp4-hrv-watch.jpg",
+            "image_alt": "An athlete after a session checking HRV on a sports watch",
+            "body": "<p>Note your baseline when you start, on a wearable or simply how your afternoons feel, and track it over 90 days.</p><p>If you don’t feel the difference, we’ll refund every subscription payment. Skip, pause or cancel online anytime.</p>",
+            "pull": "90 days to feel the difference, or every subscription payment back."
+          }
+        }
+      },
+      "block_order": [
+        "r4",
+        "r5"
+      ],
+      "settings": {
+        "heading": "",
+        "total": 5,
+        "note": "*Vitamins B2, B3, B5, B6, B12 and folate contribute to the reduction of tiredness and fatigue."
+      }
+    },
+    "offer2": {
+      "type": "muto-lst-offer",
+      "blocks": {
+        "g1": {
+          "type": "gift",
+          "settings": {
+            "name": "Ultrapure creatine",
+            "value": 30,
+            "plans": "both",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg",
+            "note": ""
+          }
+        },
+        "g2": {
+          "type": "gift",
+          "settings": {
+            "name": "Performance socks (one size fits all)",
+            "value": 12,
+            "plans": "both",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-socks.jpg",
+            "note": ""
+          }
+        },
+        "g3": {
+          "type": "gift",
+          "settings": {
+            "name": "Performance bottle",
+            "value": 15,
+            "plans": "3",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-bottle.jpg",
+            "note": ""
+          }
+        },
+        "g4": {
+          "type": "gift",
+          "settings": {
+            "name": "Travel vial",
+            "value": 10,
+            "plans": "3",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-travel-vial.jpg",
+            "note": ""
+          }
+        },
+        "g5": {
+          "type": "gift",
+          "settings": {
+            "name": "Forever jar to keep",
+            "value": 10,
+            "plans": "both",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-forever-jar.jpg",
+            "note": ""
+          }
+        },
+        "g6": {
+          "type": "gift",
+          "settings": {
+            "name": "12-week protocol guide",
+            "value": 10,
+            "plans": "both",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-guide.jpg",
+            "note": ""
+          }
+        },
+        "g7": {
+          "type": "gift",
+          "settings": {
+            "name": "Entry to win a Garmin watch",
+            "value": 0,
+            "plans": "both",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-garmin.jpg",
+            "note": "Free entry"
+          }
+        }
+      },
+      "block_order": [
+        "g1",
+        "g2",
+        "g3",
+        "g4",
+        "g5",
+        "g6",
+        "g7"
+      ],
+      "settings": {
+        "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-lp-kit-hero.jpg",
+        "image_alt": "The MUTO welcome kit: NAD+ Cellular Complex jar and refill pouches, Ultrapure Creatine, the bottle and the presentation box",
+        "rating": "4.8 from 103 reviews",
+        "sku_3m": "NAD-3M-Month1",
+        "name_3m": "3 months",
+        "sub_3m": "Delivered every 3 months",
+        "tag_3m": "Best value",
+        "sku_1m": "NAD-1M-Month1",
+        "name_1m": "1 month",
+        "sub_1m": "Delivered every month",
+        "kit_label": "Free welcome kit",
+        "cta": "Add to cart",
+        "guarantee": "<b>90-day money-back guarantee.</b> Feel the difference in 90 days, or get every subscription payment back.",
+        "ticks": "Skip, pause or cancel online anytime\nFree delivery",
+        "eyebrow": "New customer offer",
+        "heading": "Start your 90 days today"
+      }
+    },
+    "loved": {
+      "type": "muto-loved",
+      "blocks": {
+        "v0": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/kate v4.mp4",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/preview_images/ae14f3b1ff0f4ef09ae55be1fd8cfadd.thumbnail.0000000000.jpg?v=1773314771",
+            "handle": "Kate Bright"
+          }
+        },
+        "q0": {
+          "type": "quote",
+          "disabled": true,
+          "settings": {
+            "quote": "Being in my mid 30s, everything has started to slow down. Muto is providing me with a sense of vitality which I haven’t experienced since my mid 20s",
+            "name": "Jonathon R"
+          }
+        },
+        "q1": {
+          "type": "quote",
+          "settings": {
+            "quote": "No afternoon slump and in general feeling great",
+            "name": "Lynda"
+          }
+        },
+        "v1": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/✅Copy of David Chat.mp4",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/preview_images/cd1132a29bdc4f5081bfd9e6b008339b.thumbnail.0000000000.jpg?v=1793207168",
+            "handle": "David Mercado"
+          }
+        },
+        "q2": {
+          "type": "quote",
+          "disabled": true,
+          "settings": {
+            "quote": "I didn't realise how flat I'd been feeling until this helped lift me out of it",
+            "name": "Holly P"
+          }
+        },
+        "q3": {
+          "type": "quote",
+          "disabled": true,
+          "settings": {
+            "quote": "I have sustained energy, I sleep better, perform better in workouts, and don’t crash anymore.",
+            "name": "Danny S"
+          }
+        },
+        "v2": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/Lucy Short.mp4",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/preview_images/3dcc774e01284c63ab3f6eaf40bc5fb7.thumbnail.0000000000.jpg?v=1766048998",
+            "handle": "Lucy Halliday"
+          }
+        },
+        "q4": {
+          "type": "quote",
+          "disabled": true,
+          "settings": {
+            "quote": "Bought it to support healthy ageing and have been genuinely surprised at how quickly I felt a difference. My recovery and sleep have noticeably improved.",
+            "name": "K R"
+          }
+        },
+        "v3": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/MU06_26_MUTO_VIDEO-1.mp4",
+            "image_url": "",
+            "handle": "Adam Hamilton"
+          }
+        },
+        "q5": {
+          "type": "quote",
+          "settings": {
+            "quote": "I am usually sceptical to new supplements but this has been highly recommended by my friend so gave it a shot. It has exceeded my expectations, which is not easy as I am well-versed in nutrition and supplements.",
+            "name": "Aleks"
+          }
+        },
+        "v4": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/Nothing Gets in on Trust_V01.mp4",
+            "image_url": "",
+            "handle": "Harry Insley"
+          }
+        },
+        "q6": {
+          "type": "quote",
+          "disabled": true,
+          "settings": {
+            "quote": "As a keen runner, I’ve noticed how Muto has helped me recover faster meaning I can train harder, more often.",
+            "name": "Ayo P"
+          }
+        },
+        "v5": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/clip 3.mp4",
+            "image_url": "",
+            "handle": "Adam Facey"
+          }
+        },
+        "q7": {
+          "type": "quote",
+          "disabled": true,
+          "settings": {
+            "quote": "The cellular energy boost it gives you really enables me to power through my day.",
+            "name": "Max"
+          }
+        },
+        "v6": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/MUTO_Creator-Ad_Max-Richards_Script-B.mp4",
+            "image_url": "",
+            "handle": "Max Richards"
+          }
+        },
+        "q8": {
+          "type": "quote",
+          "settings": {
+            "quote": "Richie from the team gave me a call just to chat about my background and goals",
+            "name": "Mathew H"
+          }
+        },
+        "v7": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/The Baseline.mp4",
+            "image_url": "",
+            "handle": "Yolanda King"
+          }
+        },
+        "q9": {
+          "type": "quote",
+          "settings": {
+            "quote": "I love that this replaces multiple products",
+            "name": "Amy C"
+          }
+        }
+      },
+      "block_order": [
+        "v0",
+        "q0",
+        "q1",
+        "v1",
+        "q2",
+        "q3",
+        "v2",
+        "q4",
+        "v3",
+        "q5",
+        "v4",
+        "q6",
+        "v5",
+        "q7",
+        "v6",
+        "q8",
+        "v7",
+        "q9"
+      ],
+      "settings": {
+        "anchor": "results",
+        "rating": "4.8 from 103 reviews",
+        "hide_stars": false,
+        "heading": "In their words.",
+        "link_label": "Read all reviews",
+        "link": "/products/muto-nad-cellular-complex#ReviewsWidget",
+        "space_top": 96,
+        "space_bottom": 96
+      }
+    },
+    "board": {
+      "type": "muto-home-board",
+      "blocks": {
+        "m1": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Dr_James_Cover_Final.png",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-board-3.jpg?v=1790751994",
+            "image_alt": "Dr Alka Patel being interviewed on the MUTO scientific board panel",
+            "image_position": "",
+            "video": "shopify://files/videos/Dr-James-Final4x5.mov",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "name": "Dr James Morehen",
+            "role": "PERFORMANCE NUTRITIONIST, INTERNATIONAL RUGBY",
+            "tag": "Performance"
+          }
+        },
+        "m2": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Dr_Alka_Cover_Final.png",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-board-1.jpg?v=1790751995",
+            "image_alt": "A MUTO scientific advisory board member being interviewed",
+            "image_position": "",
+            "video": "shopify://files/videos/Dr-Alka-Final4x5.mov",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "name": "Dr Alka Patel",
+            "role": "LONGEVITY DOCTOR & GLOBAL SPEAKER",
+            "tag": "Healthy ageing"
+          }
+        },
+        "m3": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Dr_Richard_Cover_Final.png",
+            "image_fallback": "",
+            "image_alt": "A MUTO scientific advisory board member being interviewed",
+            "image_position": "",
+            "video": "shopify://files/videos/Dr-Richard4x5.mov",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "name": "Dr Richard Mackenzie",
+            "role": "LEADING METABOLISM RESEARCHER",
+            "tag": "Energy"
+          }
+        },
+        "m4": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Dr_Matt.png",
+            "image_fallback": "",
+            "image_alt": "A MUTO scientific advisory board member being interviewed",
+            "image_position": "",
+            "video": "shopify://files/videos/Dr-Macie-4x5.mov",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "name": "Dr Maciej Zatonski",
+            "role": "PERFORMANCE & SLEEP DOCTOR",
+            "tag": "Recovery"
+          }
+        },
+        "m5": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Dr-ash-cover-hq.webp",
+            "image_fallback": "",
+            "image_alt": "A MUTO scientific advisory board member being interviewed",
+            "image_position": "",
+            "video": "shopify://files/videos/Dr. ASH Intro.mp4",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "name": "Dr Ash Kapoor",
+            "role": "Longevity & Human Optimisation Doctor & Founder of Levitas One",
+            "tag": "Healthy ageing"
+          }
+        },
+        "m6": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Jamie-Paweleck.jpg",
+            "image_fallback": "",
+            "image_alt": "A MUTO scientific advisory board member being interviewed",
+            "image_position": "",
+            "video_url": "",
+            "video_link": "",
+            "show_play": true,
+            "name": "Dr Jamie Paweleck",
+            "role": "Longevity doctor and medical educator",
+            "tag": "Healthy ageing"
+          }
+        }
+      },
+      "block_order": [
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5",
+        "m6"
+      ],
+      "settings": {
+        "field": false,
+        "heading": "Reviewed by our\nscientific board.",
+        "note": "Scientists in metabolism, sleep, performance and healthy ageing",
+        "compact": true,
+        "rail_gap": 40,
+        "fit": "nad",
+        "space_top": 60,
+        "space_bottom": 72
+      }
+    }
+  },
+  "order": [
+    "bf_style",
+    "hero",
+    "trust",
+    "art1",
+    "offer1",
+    "art2",
+    "loved",
+    "board",
+    "offer2"
+  ]
+}

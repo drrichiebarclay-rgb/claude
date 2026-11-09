@@ -1,0 +1,112 @@
+/* MUTO listicle (muto-lst): "5 reasons people over 35 are switching". Used by sections/muto-lst-article.liquid
+   and sections/muto-lst-offer.liquid on templates/product.lp-over-35.json. PDP branding: white page, charcoal
+   ink, Neue Haas Grotesk Display, Sometype Mono labels, cyan accent used sparingly. */
+@font-face{font-family:"Neue Haas Grotesk Display Pro";src:url("https://cdn.shopify.com/s/files/1/0976/2724/2843/files/NeueHaasDisplay-Roman.woff2?v=1788216240") format("woff2");font-weight:400 450;font-display:swap}
+@font-face{font-family:"Neue Haas Grotesk Display Pro";src:url("https://cdn.shopify.com/s/files/1/0976/2724/2843/files/NeueHaasDisplay-Mediu.woff2?v=1788216243") format("woff2");font-weight:500 550;font-display:swap}
+@font-face{font-family:"Neue Haas Grotesk Display Pro";src:url("https://cdn.shopify.com/s/files/1/0976/2724/2843/files/NeueHaasDisplay-Bold.woff2?v=1788216239") format("woff2");font-weight:600 700;font-display:swap}
+@font-face{font-family:"Sometype Mono";src:url("https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gempages_SometypeMono-VariableFont_wght.ttf?v=1788157466") format("truetype-variations");font-weight:400 700;font-display:swap}
+
+.mlst{--ink:#242223;--ink-2:rgba(36,34,35,.72);--ink-3:rgba(36,34,35,.5);--hair:rgba(36,34,35,.14);--paper:#fff;--ground:#f6f6f4;--cyan:#5efaff;
+  --font:"Neue Haas Grotesk Display Pro",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;--mono:"Sometype Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  background:var(--paper);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.55;letter-spacing:0;-webkit-font-smoothing:antialiased}
+.mlst *,.mlst *::before,.mlst *::after{box-sizing:border-box}
+.mlst img{display:block;max-width:100%;height:auto}
+.mlst p,.mlst h1,.mlst h2,.mlst h3,.mlst ul{margin:0}
+.mlst__wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.mlst__lab{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+.mlst__lab--dot{display:inline-flex;align-items:center;gap:10px}
+.mlst__lab--dot::before{content:"";width:8px;height:8px;background:var(--cyan);flex:0 0 auto}
+
+/* Hero */
+.mlst-hero{padding:48px 0 8px}
+.mlst-hero h1{margin:16px 0 0;font-size:clamp(34px,6.2vw,54px);font-weight:500;line-height:1.04;letter-spacing:-.025em}
+.mlst-hero__sub{margin-top:18px;font-size:clamp(18px,2.4vw,21px);line-height:1.45;color:var(--ink-2)}
+.mlst-hero__meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;margin-top:22px;padding-top:18px;border-top:1px solid var(--hair);font-size:14px;color:var(--ink-2)}
+.mlst-stars{letter-spacing:.12em;color:var(--ink)}
+.mlst-hero__img{margin-top:28px;background:var(--ground)}
+.mlst-hero__img img{width:100%;aspect-ratio:16/9;object-fit:cover}
+
+/* Reasons */
+.mlst-r{padding:44px 0 4px}
+.mlst-r + .mlst-r{border-top:1px solid var(--hair);margin-top:36px}
+.mlst-r__n{font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:.12em;color:var(--ink-2)}
+.mlst-r__n b{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;margin-right:10px;background:var(--ink);color:#fff;font-weight:500;letter-spacing:0}
+.mlst-r h2{margin:16px 0 0;font-size:clamp(26px,4.2vw,36px);font-weight:500;line-height:1.1;letter-spacing:-.02em}
+.mlst-r__img{margin-top:22px;background:var(--ground)}
+.mlst-r__img img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.mlst-r__body{margin-top:20px;font-size:18px;line-height:1.6;color:var(--ink)}
+.mlst-r__body p + p{margin-top:14px}
+.mlst-r__body ul{margin-top:14px;padding:0;list-style:none;display:grid;gap:10px}
+.mlst-r__body li{display:grid;grid-template-columns:22px 1fr;gap:10px}
+.mlst-r__body li::before{content:"";width:12px;height:12px;margin-top:.45em;background:var(--cyan);outline:1px solid var(--ink);outline-offset:-1px}
+.mlst-r__body strong{font-weight:500}
+.mlst-r__pull{margin-top:22px;padding:18px 20px;border-left:3px solid var(--ink);background:var(--ground);font-size:18px;line-height:1.45;font-weight:500}
+.mlst-note{margin-top:28px;padding-top:14px;border-top:1px solid var(--hair);font-size:12.5px;line-height:1.5;color:var(--ink-3)}
+
+/* Offer: the PDP buy box, simplified */
+.mlst-offer{padding:56px 0;background:var(--ground)}
+.mlst-offer__wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.mlst-offer__h{margin:12px 0 0;font-size:clamp(28px,4.6vw,42px);font-weight:500;line-height:1.06;letter-spacing:-.02em}
+.mlst-offer__grid{display:grid;grid-template-columns:1fr;gap:24px;margin-top:28px}
+@media (min-width:900px){.mlst-offer__grid{grid-template-columns:1.05fr 1fr;gap:40px;align-items:start}}
+.mlst-offer__media{background:#111}
+.mlst-offer__media img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.mlst-box{background:var(--paper);border:1px solid var(--hair);padding:24px}
+@media (min-width:900px){.mlst-box{padding:30px}}
+.mlst-box__title{font-size:26px;font-weight:500;line-height:1.15;letter-spacing:-.01em}
+.mlst-box__rate{display:flex;align-items:center;gap:10px;margin-top:6px;font-size:14px;color:var(--ink-2)}
+.mlst-plans{display:grid;gap:10px;margin:20px 0 0;padding:0;border:0}
+.mlst-plan{position:relative;display:grid;grid-template-columns:22px 1fr auto;align-items:center;gap:12px;padding:16px;border:1px solid var(--hair);background:var(--paper);cursor:pointer;transition:border-color .15s}
+.mlst-plan:hover{border-color:var(--ink)}
+.mlst-plan input{position:absolute;opacity:0;pointer-events:none}
+.mlst-plan__dot{width:20px;height:20px;border:1.5px solid var(--ink);border-radius:50%;display:grid;place-items:center}
+.mlst-plan__dot::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--ink);transform:scale(0);transition:transform .15s}
+.mlst-plan.is-on{border:2px solid var(--ink);padding:15px}
+.mlst-plan.is-on .mlst-plan__dot::after{transform:scale(1)}
+.mlst-plan input:focus-visible ~ .mlst-plan__dot{outline:2px solid var(--ink);outline-offset:3px}
+.mlst-plan__name{font-size:17px;font-weight:500;line-height:1.25}
+.mlst-plan__sub{display:block;margin-top:2px;font-size:13.5px;line-height:1.35;color:var(--ink-2)}
+.mlst-plan__price{text-align:right;white-space:nowrap}
+.mlst-plan__now{display:block;font-size:20px;font-weight:500;line-height:1.1}
+.mlst-plan__was{display:block;margin-top:2px;font-size:13.5px;color:var(--ink-3);text-decoration:line-through}
+.mlst-plan__tag{position:absolute;top:-11px;right:14px;padding:3px 9px;background:var(--cyan);color:var(--ink);font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase}
+.mlst-kit{margin-top:20px;padding-top:16px;border-top:1px solid var(--hair)}
+.mlst-kit__h{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.mlst-kit__list{display:grid;gap:8px;margin-top:12px;padding:0;list-style:none}
+.mlst-kit__list li{display:grid;grid-template-columns:40px 1fr auto;align-items:center;gap:12px;font-size:15px;line-height:1.3}
+.mlst-kit__list li[hidden]{display:none}
+.mlst-kit__list img{width:40px;height:48px;object-fit:cover;background:var(--ground)}
+.mlst-kit__v{white-space:nowrap;font-size:14px}
+.mlst-kit__v s{margin-right:6px;color:var(--ink-3)}
+.mlst-kit__v b{font-weight:500}
+.mlst-cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;margin-top:22px;padding:18px 20px;border:0;background:var(--ink);color:#fff;font:500 16px/1 var(--font);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background .15s}
+.mlst-cta:hover{background:#000}
+.mlst-cta[aria-busy="true"]{cursor:progress;opacity:.85}
+.mlst-cta__spin{display:none;width:14px;height:14px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:mlstSpin .7s linear infinite}
+.mlst-cta[aria-busy="true"] .mlst-cta__spin{display:inline-block}
+@keyframes mlstSpin{to{transform:rotate(360deg)}}
+.mlst-ticks{display:grid;gap:8px;margin-top:16px;padding:0;list-style:none;font-size:14px;line-height:1.35;color:var(--ink)}
+.mlst-ticks li{display:grid;grid-template-columns:16px 1fr;gap:10px}
+.mlst-ticks svg{width:16px;height:16px;margin-top:1px}
+.mlst-guar{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center;margin-top:18px;padding:14px 16px;background:var(--ground)}
+.mlst-guar__badge{display:grid;place-items:center;width:44px;height:44px;border:1.5px solid var(--ink);border-radius:50%;font-family:var(--mono);font-size:12px;font-weight:600;line-height:1}
+.mlst-guar p{font-size:14px;line-height:1.4}
+.mlst-guar b{font-weight:500}
+.mlst-err{margin-top:10px;font-size:14px;color:#b2541a}
+@media (prefers-reduced-motion:reduce){.mlst-cta__spin{animation:none}}
+
+/* Trust: logos and the thin scientific board strip (as in the PDP buy box) */
+.mlst-trust{padding:28px 20px 4px}
+.mlst-trust__lab{text-align:center}
+.mlst-logos{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:18px 40px;margin:14px 0 0;padding:0 0 24px;list-style:none;border-bottom:1px solid var(--hair)}
+.mlst-logos img{width:auto;height:30px;max-width:150px;object-fit:contain;filter:grayscale(1) brightness(.35);opacity:.85}
+@media (min-width:750px){.mlst-logos img{height:36px;max-width:180px}}
+.mlst-doc{display:flex;align-items:center;gap:16px;margin-top:20px;padding:14px 18px;border:1px solid var(--hair);background:var(--paper);color:var(--ink);text-decoration:none}
+a.mlst-doc:hover{border-color:var(--ink)}
+.mlst-doc__faces{display:flex;flex:0 0 auto}
+.mlst-doc__faces img{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--paper);background:var(--ground)}
+.mlst-doc__faces img + img{margin-left:-12px}
+.mlst-doc__txt{display:grid;gap:2px;flex:1 1 auto;min-width:0}
+.mlst-doc__txt b{font-size:15px;font-weight:500;line-height:1.3}
+.mlst-doc__txt small{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.mlst-doc i{font-style:normal;font-size:18px}
