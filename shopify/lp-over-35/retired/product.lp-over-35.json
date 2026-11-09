@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "retired": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "{%- comment -%} Retired: this landing page lives on templates/product.muto-nad-bf-lp-over-35.json (the Black Friday\n  name is what switches on the top bar, sticky bar and kit boxes). Delete this file in Edit code. {%- endcomment -%}\n{%- if request.design_mode -%}\n<div style=\"max-width:640px;margin:80px auto;padding:28px;border:2px solid #242223;border-radius:12px;font:16px/1.5 sans-serif;color:#242223;background:#fff\">\n  <p style=\"margin:0 0 10px;font-weight:700;font-size:20px\">This template is retired</p>\n  <p style=\"margin:0 0 10px\">The over-35 listicle is on <b>product.muto-nad-bf-lp-over-35</b>. Choose it from the template menu at the top of the editor: only that one shows the Black Friday top bar, the sticky add to cart and the welcome-kit boxes.</p>\n  <p style=\"margin:0\">Then delete <code>templates/product.lp-over-35.json</code> in Edit code.</p>\n</div>\n{%- else -%}\n<script>location.replace(location.pathname + '?view=muto-nad-bf-lp-over-35' + (/preview_theme_id=\\d+/.test(location.search) ? '&' + location.search.match(/preview_theme_id=\\d+/)[0] : ''));</script>\n<p style=\"text-align:center;margin:80px 20px\"><a href=\"?view=muto-nad-bf-lp-over-35\">Continue to the page</a></p>\n{%- endif -%}"
+      }
+    }
+  },
+  "order": [
+    "retired"
+  ]
+}
