@@ -110,588 +110,7 @@
             "pull": "",
             "claim": "Vitamins B2, B3, B6, B12 and folate contribute to the reduction of tiredness and fatigue. Vitamin D contributes to normal muscle function. Zinc, copper and vitamin B2 contribute to the protection of cells from oxidative stress."
           }
-        }
-      },
-      "block_order": [
-        "r1",
-        "r2",
-        "r3"
-      ],
-      "settings": {
-        "eyebrow": "",
-        "heading": "",
-        "sub": "",
-        "meta": "",
-        "image_url": "",
-        "image_alt": "",
-        "total": 5,
-        "note": ""
-      }
-    },
-    "buy": {
-      "type": "muto-pdp-v2-buy",
-      "blocks": {
-        "g1": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Frame_2147230135.png",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-gallery-1.jpg?v=1790879783",
-            "image_alt": "The MUTO NAD+ Cellular Complex jar, pouch, sachets and bottle photographed together on a dark background"
-          }
         },
-        "g2": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Frame2147230121.png",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-gallery-2.jpg?v=1790879783",
-            "image_alt": "A cyclist in a helmet catching her breath after an effort"
-          }
-        },
-        "g3": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Frame_2147230136.png",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-gallery-3.jpg?v=1790879783",
-            "image_alt": "A cyclist at speed, shot with motion blur"
-          }
-        },
-        "job1": {
-          "type": "point",
-          "settings": {
-            "label": "Energy",
-            "title": "Afternoons that hold",
-            "icon": "",
-            "dark": false,
-            "text": ""
-          }
-        },
-        "job2": {
-          "type": "point",
-          "settings": {
-            "label": "Recovery",
-            "title": "Bouncing back sooner",
-            "icon": "",
-            "dark": false,
-            "text": ""
-          }
-        },
-        "job3": {
-          "type": "point",
-          "disabled": true,
-          "settings": {
-            "label": "Mind",
-            "title": "A clearer head, all day",
-            "icon": "",
-            "dark": false,
-            "text": ""
-          }
-        },
-        "job4": {
-          "type": "point",
-          "settings": {
-            "label": "Healthy ageing",
-            "title": "Feeling like yourself",
-            "icon": "",
-            "dark": false,
-            "text": ""
-          }
-        },
-        "job5": {
-          "type": "point",
-          "disabled": true,
-          "settings": {
-            "label": "Immunity",
-            "title": "Stay well through winter",
-            "icon": "",
-            "dark": false,
-            "text": ""
-          }
-        },
-        "job6": {
-          "type": "point",
-          "disabled": true,
-          "settings": {
-            "label": "Simplicity",
-            "title": "One jar replaces five",
-            "icon": "",
-            "dark": false,
-            "text": ""
-          }
-        },
-        "tr1": {
-          "type": "trust",
-          "settings": {
-            "text": "90-day money-back guarantee"
-          }
-        },
-        "p1": {
-          "type": "plan",
-          "settings": {
-            "name": "1-Month Supply",
-            "price": "£60",
-            "price_suffix": "",
-            "was": "",
-            "save": "",
-            "note": "£49.99 for your first month, then £60 every 4 weeks",
-            "detail": "<ul><li>Welcome kit included, then thank-you gifts in boxes 2 to 6</li><li>90-day money-back guarantee</li><li>Skip, pause or cancel online, no phone calls</li><li>Free next-day UK delivery</li></ul>"
-          }
-        },
-        "k0": {
-          "type": "gift",
-          "settings": {
-            "value": "",
-            "name": "Creatine",
-            "row_label": "Ultrapure creatine",
-            "row_note": "",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
-            "image_alt": "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate, part of the welcome kit",
-            "plans": ""
-          }
-        },
-        "qk3": {
-          "type": "gift",
-          "settings": {
-            "value": "",
-            "name": "Bottle",
-            "row_label": "Performance bottle",
-            "row_note": "",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-bottle.jpg?v=1791022787",
-            "image_alt": "The MUTO Performance Bottle in translucent blue",
-            "plans": "2"
-          }
-        },
-        "k1": {
-          "type": "gift",
-          "settings": {
-            "value": "",
-            "name": "Socks",
-            "row_label": "Performance socks (one size fits all)",
-            "row_note": "",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-socks.jpg?v=1791023071",
-            "image_alt": "A pouch of MUTO Performance Socks, part of the welcome kit",
-            "plans": ""
-          }
-        },
-        "qk_vial": {
-          "type": "gift",
-          "settings": {
-            "value": "",
-            "name": "Travel vial",
-            "row_label": "Travel vial",
-            "row_note": "",
-            "image": "shopify://shop_images/gift-travel-vial.jpg",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-travel-vial.jpg?v=1793355262",
-            "image_alt": "The MUTO travel vial, a frosted glass tube of capsules with a silver cap",
-            "plans": "2"
-          }
-        },
-        "k2": {
-          "type": "gift",
-          "settings": {
-            "value": "",
-            "name": "Jar to keep",
-            "row_label": "Forever jar to keep",
-            "row_note": "",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-forever-jar.jpg?v=1791023224",
-            "image_alt": "The MUTO Forever Jar in its presentation box, part of the welcome kit",
-            "plans": ""
-          }
-        },
-        "k3": {
-          "type": "gift",
-          "settings": {
-            "value": "",
-            "name": "12-week guide",
-            "row_label": "12-week guide",
-            "row_note": "",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-gift-guide-v2.jpg?v=1791392560",
-            "image_alt": "The MUTO 12 Week Protocol Guide, a black book with the formula listed down its cover",
-            "plans": ""
-          }
-        },
-        "k4": {
-          "type": "gift",
-          "settings": {
-            "value": "Garmin Watch",
-            "name": "giveaway entry",
-            "row_label": "Entry to win a Garmin watch",
-            "row_note": "Free entry",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-garmin.jpg?v=1791883127",
-            "image_alt": "A white Garmin watch, the giveaway prize in the welcome kit",
-            "plans": ""
-          }
-        },
-        "mg2": {
-          "type": "month",
-          "settings": {
-            "label": "Box 2",
-            "text": "Bottle",
-            "value": "",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-bottle.jpg?v=1791022787",
-            "image_alt": "The MUTO Performance Bottle, free with order 2",
-            "plans": "1"
-          }
-        },
-        "mg3": {
-          "type": "month",
-          "settings": {
-            "label": "Box 3",
-            "text": "Socks",
-            "value": "",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-socks.jpg?v=1791023071",
-            "image_alt": "A pouch of MUTO Performance Socks, free with order 3",
-            "plans": "1"
-          }
-        },
-        "mg4a": {
-          "type": "month",
-          "settings": {
-            "label": "Box 4",
-            "text": "Creatine",
-            "value": "",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
-            "image_alt": "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate, free with order 4",
-            "plans": "1"
-          }
-        },
-        "mg4b": {
-          "type": "month",
-          "settings": {
-            "label": "Box 4",
-            "text": "Store credit",
-            "value": "",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-gift-credit-v2.jpg?v=1791392560",
-            "image_alt": "A black MUTO gift card for £10 store credit",
-            "plans": "1"
-          }
-        },
-        "mg6a": {
-          "type": "month",
-          "settings": {
-            "label": "Box 6",
-            "text": "Creatine",
-            "value": "",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
-            "image_alt": "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate, free with order 6",
-            "plans": "1"
-          }
-        },
-        "mg6b": {
-          "type": "month",
-          "settings": {
-            "label": "Box 6",
-            "text": "Chat with an expert",
-            "value": "",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-gift-consultation-v2.jpg?v=1791392559",
-            "image_alt": "A silver MUTO gift card for a one-to-one consultation",
-            "plans": "1"
-          }
-        },
-        "qm2a": {
-          "type": "month",
-          "settings": {
-            "label": "Box 2",
-            "text": "Socks",
-            "value": "",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-socks.jpg?v=1791023071",
-            "image_alt": "A pouch of MUTO Performance Socks, free with box 2",
-            "plans": "2"
-          }
-        },
-        "qm2b": {
-          "type": "month",
-          "settings": {
-            "label": "Box 2",
-            "text": "Creatine",
-            "value": "",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
-            "image_alt": "A pouch of MUTO creatine, free with box 2",
-            "plans": "2"
-          }
-        },
-        "qm2c": {
-          "type": "month",
-          "settings": {
-            "label": "Box 2",
-            "text": "Store credit",
-            "value": "",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-gift-credit-v2.jpg?v=1791392560",
-            "image_alt": "A black MUTO gift card for £10 store credit",
-            "plans": "2"
-          }
-        },
-        "qm3a": {
-          "type": "month",
-          "settings": {
-            "label": "Box 3",
-            "text": "Creatine",
-            "value": "",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
-            "image_alt": "A pouch of MUTO creatine, free with box 3",
-            "plans": "2"
-          }
-        },
-        "qm3b": {
-          "type": "month",
-          "settings": {
-            "label": "Box 3",
-            "text": "Chat with an expert",
-            "value": "",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-gift-consultation-v2.jpg?v=1791392559",
-            "image_alt": "A silver MUTO gift card for a one-to-one consultation",
-            "plans": "2"
-          }
-        },
-        "qm4": {
-          "type": "month",
-          "settings": {
-            "label": "Box 4 on",
-            "text": "Creatine, every box",
-            "value": "",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
-            "image_alt": "A pouch of MUTO creatine, free in every box from box 4",
-            "plans": "2"
-          }
-        },
-        "plan_RAXANa": {
-          "type": "plan",
-          "settings": {
-            "name": "3-Month Supply",
-            "price": "£99",
-            "price_suffix": "",
-            "was": "",
-            "save": "",
-            "note": "£99 today for your first 3 months. Then £125 for the next 3 months, then £150 every 3 months. Skip or cancel online anytime; we remind you 5 days before each payment.",
-            "detail": "<ul><li>Welcome kit included, then thank-you gifts in later boxes</li><li>90-day money-back guarantee</li><li>Skip, pause or cancel online, no phone calls</li><li>Free next-day UK delivery</li></ul>"
-          }
-        },
-        "fold3": {
-          "type": "fold",
-          "settings": {
-            "title": "What’s inside",
-            "text": "<p>19 ingredients, every dose on the label, no blends.</p><p>19 ingredients in two capsules. Every dose is on the label, per two-capsule serving:</p><ul><li><strong>TMG (trimethylglycine)</strong> 450mg</li><li><strong>NR (nicotinamide riboside)</strong> 300mg</li><li><strong>Grape seed extract</strong> 150mg · 120:1 extract, 95% polyphenols, 142.5mg</li><li><strong>CoQ10</strong> 150mg · ubiquinone</li><li><strong>Zinc</strong> 15mg · zinc bisglycinate</li><li><strong>Trans-resveratrol</strong> 50mg · from Japanese knotweed root, 95%</li><li><strong>Vitamin D3</strong> 50mcg (2,000 IU) · cholecalciferol, from algae</li><li><strong>PQQ</strong> 20mg · pyrroloquinoline quinone</li><li><strong>Vitamin B3</strong> 16mg · nicotinamide, no flush</li><li><strong>Vitamin B12</strong> 100mcg · methylcobalamin</li><li><strong>Vitamin B5</strong> 10mg · calcium D-pantothenate</li><li><strong>Copper</strong> 1mg · copper bisglycinate</li><li><strong>Vitamin K2</strong> 100mcg · menaquinone-7, MK-7</li><li><strong>Vitamin B6</strong> 5mg · pyridoxal-5′-phosphate, P5P</li><li><strong>Vitamin B2</strong> 5mg · riboflavin-5′-phosphate</li><li><strong>Vitamin B1</strong> 5mg · thiamine hydrochloride</li><li><strong>BioPerine® black pepper extract</strong> 5mg · 95% piperine, 4.75mg</li><li><strong>Folate</strong> 400mcg · L-5-methyltetrahydrofolate, 5-MTHF</li><li><strong>Biotin</strong> 300mcg · D-biotin</li></ul><p>Filter them by job on our <a href=\"/pages/ingredients\">ingredients page</a>.</p>"
-          }
-        },
-        "fold1": {
-          "type": "fold",
-          "settings": {
-            "title": "Who it’s for",
-            "text": "<p><strong>For active adults with plenty still to do</strong>, who’ve noticed afternoons fading or sessions taking longer to bounce back from.</p><p>You don’t need to be sporty or own a wearable. Adults only; not during pregnancy or breastfeeding.</p>"
-          }
-        },
-        "fold4": {
-          "type": "fold",
-          "settings": {
-            "title": "How to take it",
-            "text": "<p>Two capsules every morning with breakfast.</p><p><strong>Why with food?</strong> CoQ10, vitamin D3 and K2 dissolve in fat, so your body takes them in best with a meal.</p><p><strong>Why every day?</strong> It works best as a habit. Keep the jar by the kettle.</p>"
-          }
-        },
-        "fold6": {
-          "type": "fold",
-          "settings": {
-            "title": "Delivery, subscription and guarantee",
-            "text": "<p><strong>Delivery.</strong> Free next-day UK delivery, tracked 24h. Order by 9pm for delivery tomorrow.</p><p><strong>Your plan.</strong> 3-Month Supply: £99 for your first 3 months, then £125 for the next 3 months, then £150 every 3 months. 1-Month Supply: £49.99 for your first month, then £60 every 4 weeks.</p><p><strong>Skip, pause or cancel</strong> online anytime. No phone calls, and we remind you 5 days before every payment.</p><p><strong>90-day money-back guarantee.</strong> If you’re a first-time subscriber, take it every day for 90 days. Not for you? Email <a href=\"mailto:hello@mutolongevity.com\">hello@mutolongevity.com</a> within 14 days after your 90 days end (104 days from your first order) and we’ll refund the subscription payments you’ve made, less our delivery costs. One-time purchases and Amazon orders aren’t covered.</p>"
-          }
-        },
-        "fold2": {
-          "type": "fold",
-          "disabled": true,
-          "settings": {
-            "title": "What it does",
-            "text": "<p>Five jobs in one daily formula:</p><ul><li><strong>Energy.</strong> Vitamins B6 and B12 contribute to the reduction of tiredness and fatigue.</li><li><strong>Recovery.</strong> Vitamin D contributes to normal muscle function.</li><li><strong>Stress.</strong> B vitamins contribute to normal psychological function, and B5 to normal mental performance.</li><li><strong>Longevity.</strong> 300mg NR, which your body turns into NAD+, plus zinc, which contributes to the protection of cells from oxidative stress.</li><li><strong>Immunity.</strong> Vitamin D, zinc, copper, folate, B6 and B12 contribute to the normal function of the immune system.</li></ul><p>One jar instead of five pots: no separate NAD+, CoQ10, resveratrol, D3 + K2 or B-complex.</p>"
-          }
-        },
-        "fold5": {
-          "type": "fold",
-          "disabled": true,
-          "settings": {
-            "title": "Quality and testing",
-            "text": "<ul><li>Every dose on the label, no proprietary blends</li><li>Only UK-authorised ingredients: that’s why we use NR, not NMN</li><li>Made in the UK to GMP standards</li><li>Every batch tested before release for heavy metals, microbes and capsule quality</li><li>Vegan capsules from plant cellulose, vitamin D3 from algae, no major allergens</li></ul><p><a href=\"#test-results\">See the results for the current batch</a></p>"
-          }
-        },
-        "fold7": {
-          "type": "fold",
-          "disabled": true,
-          "settings": {
-            "title": "90-day money-back promise",
-            "text": "<p>Take it every day for 90 days. If you don’t feel the difference, email <a href=\"mailto:hello@mutolongevity.com\">hello@mutolongevity.com</a> and you get every subscription payment back.</p>"
-          }
-        },
-        "snippet_1": {
-          "type": "snippet",
-          "disabled": true,
-          "settings": {
-            "quote": "“No afternoon slump and in general feeling great”",
-            "name": "Lynda"
-          }
-        },
-        "snippet_2": {
-          "type": "snippet",
-          "disabled": true,
-          "settings": {
-            "quote": "“More focused during the day”",
-            "name": "Alexandra"
-          }
-        },
-        "snippet_7": {
-          "type": "snippet",
-          "disabled": true,
-          "settings": {
-            "quote": "“I love that this replaces multiple products”",
-            "name": "Amy C"
-          }
-        },
-        "x_delivery": {
-          "type": "delivery",
-          "settings": {
-            "text": "Ready to ship — arrives <strong>tomorrow</strong>"
-          }
-        },
-        "x_badges": {
-          "type": "badges",
-          "settings": {
-            "mark_1": "UK",
-            "label_1": "Made in the UK",
-            "mark_2": "GMP",
-            "label_2": "Made to GMP standards",
-            "mark_3": "shield",
-            "label_3": "Every batch tested"
-          }
-        },
-        "x_promise": {
-          "type": "promise",
-          "settings": {
-            "title": "No-risk 90-day guarantee",
-            "text": "First-time subscribers: take it every day for 90 days. Not for you? Email us within 14 days after day 90 and we’ll refund your subscription payments, less delivery. Skip, pause or cancel online anytime."
-          }
-        },
-        "x_doctors": {
-          "type": "doctors",
-          "settings": {
-            "face_1": "shopify://shop_images/Dr_James_Cover_Final.png",
-            "face_2": "shopify://shop_images/Dr_Alka_Cover_Final.png",
-            "face_3": "shopify://shop_images/Dr_Richard_Cover_Final.png",
-            "face_4": "shopify://shop_images/Dr_Matt.png",
-            "title": "Reviewed by our scientific board",
-            "text": "Meet the board",
-            "link": "#scientific-board"
-          }
-        },
-        "x_lists": {
-          "type": "lists",
-          "settings": {
-            "title_1": "Free from",
-            "items_1": "Proprietary blends\nFillers\nCaffeine and stimulants\nMajor allergens",
-            "title_2": "Made with",
-            "items_2": "Vegan capsules\nVitamin D3 from algae\nActive B vitamins\nBisglycinate minerals"
-          }
-        }
-      },
-      "block_order": [
-        "g1",
-        "g2",
-        "g3",
-        "job1",
-        "job2",
-        "job3",
-        "job4",
-        "job5",
-        "job6",
-        "tr1",
-        "p1",
-        "k0",
-        "qk3",
-        "k1",
-        "qk_vial",
-        "k2",
-        "k3",
-        "k4",
-        "mg2",
-        "mg3",
-        "mg4a",
-        "mg4b",
-        "mg6a",
-        "mg6b",
-        "qm2a",
-        "qm2b",
-        "qm2c",
-        "qm3a",
-        "qm3b",
-        "qm4",
-        "plan_RAXANa",
-        "fold3",
-        "fold1",
-        "fold4",
-        "fold6",
-        "fold2",
-        "fold5",
-        "fold7",
-        "snippet_1",
-        "snippet_2",
-        "snippet_7",
-        "x_delivery",
-        "x_badges",
-        "x_promise",
-        "x_doctors",
-        "x_lists"
-      ],
-      "custom_css": [],
-      "settings": {
-        "allow_transparent_header": true,
-        "rating_score": "4.8 from 103 reviews",
-        "rating_count": "",
-        "rating_stars": 5,
-        "rating_link": "#ReviewsWidget",
-        "eyebrow": "90-day money-back guarantee",
-        "heading": "Energy for today.\nRecovery for tomorrow.",
-        "serving": "What you needed at 20 isn’t what you need now.",
-        "points_foot": "",
-        "points_note": "",
-        "text": "<p>For people with plenty still to do. Flagging by mid-afternoon? Legs still heavy from the weekend? This is the daily foundation for your energy, recovery and the years ahead.</p><ul><li>Every dose on the label</li><li>Every batch independently tested</li><li>Reviewed by our scientific board</li></ul><p>Black Friday: 3 months for £99, then £125 · Ends 30 Nov</p>",
-        "image_fallback": "",
-        "image_alt": "The MUTO creatine pouch photographed with the NAD+ Cellular Complex set",
-        "gallery_from_product": true,
-        "gallery_position": "100% 50%",
-        "note_title": "",
-        "note_text": "",
-        "plans_banner": "Black Friday · 3 months for £99 + welcome kit",
-        "plans_label": "Choose your plan",
-        "hidden_plans": "",
-        "kit_title": "Welcome kit included",
-        "kit_itemised": true,
-        "kit_main": "NAD+ Cellular Complex",
-        "kit_main_note": "Included",
-        "kit_foot_1": "90-day guarantee",
-        "kit_foot_1_pop_title": "90-day money-back guarantee",
-        "kit_foot_1_pop": "<p><strong>No risk.</strong> If you’re a first-time subscriber, take it every day for 90 days. Not for you? Email us within 14 days after your 90 days end and we’ll refund your subscription payments, less delivery.</p><p>Fewer than 1 in 1,000 people ask for a refund.</p><p><a href=\"/pages/faqs#guarantee\">Full details</a></p>",
-        "kit_foot_2": "Free next-day delivery",
-        "kit_foot_3": "Skip, pause or cancel online",
-        "kit_foot_3_pop_title": "Skip or cancel anytime",
-        "kit_foot_3_pop": "<p>Going on holiday or running low? Skip a box, move your next order, or stop whenever you want, before your next payment. You’re in control.</p>",
-        "kit_foot_4": "",
-        "kit_foot_4_pop_title": "No contract",
-        "kit_foot_4_pop": "<p>You’re never tied in. Pause, start again or stop your plan whenever you like, from your account. No questions asked.</p>",
-        "gifts_label": "Thank-you gifts in later boxes",
-        "gifts_text": "",
-        "onetime_label": "Prefer to try one jar? Buy once for [price] (no kit, no guarantee)",
-        "onetime_link": "",
-        "cta_label": "Add to cart",
-        "show_quantity": false,
-        "qty_label": "Quantity",
-        "cta_price": false,
-        "cta_link": "",
-        "research_title": "",
-        "refs": "",
-        "who_title": "Who takes it",
-        "schema_on": true,
-        "fit": "nad",
-        "space_top": 0,
-        "space_bottom": 100
-      }
-    },
-    "art2": {
-      "type": "muto-lst-article",
-      "blocks": {
         "r4": {
           "type": "reason",
           "settings": {
@@ -718,13 +137,77 @@
         }
       },
       "block_order": [
+        "r1",
+        "r2",
+        "r3",
         "r4",
         "r5"
       ],
       "settings": {
+        "eyebrow": "",
         "heading": "",
+        "sub": "",
+        "meta": "",
+        "image_url": "",
+        "image_alt": "",
         "total": 5,
         "note": ""
+      }
+    },
+    "timeline": {
+      "type": "muto-expect",
+      "blocks": {
+        "m1": {
+          "type": "milestone",
+          "settings": {
+            "day": 1,
+            "label": "",
+            "title": "Your starting point",
+            "text": "<p>Score your afternoons, sleep and recovery out of 10, or note your wearable’s 30-day averages. Then two capsules with breakfast: CoQ10, vitamins D3 and K2 dissolve in fat, so food helps your body take them in.</p>"
+          }
+        },
+        "m2": {
+          "type": "milestone",
+          "settings": {
+            "day": 30,
+            "label": "",
+            "title": "Afternoons that hold",
+            "text": "<p>Usually the first thing people notice: less of the 3pm wall, energy left for the evening. B vitamins contribute to the reduction of tiredness and fatigue.</p>"
+          }
+        },
+        "m3": {
+          "type": "milestone",
+          "settings": {
+            "day": 60,
+            "label": "",
+            "title": "Bouncing back sooner",
+            "text": "<p>A walk, a round of golf or a gym session stops hanging around for days. Vitamin D contributes to normal muscle function.</p>"
+          }
+        },
+        "m4": {
+          "type": "milestone",
+          "settings": {
+            "day": 90,
+            "label": "",
+            "title": "Feeling like yourself",
+            "text": "<p>Compare your scores with day 1. Many people say they hadn’t realised how flat they’d been. Not for you? Every subscription payment back, less delivery.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "m1",
+        "m2",
+        "m3",
+        "m4"
+      ],
+      "settings": {
+        "anchor": "what-to-expect",
+        "eyebrow": "What to expect",
+        "heading": "What people tell us they notice.",
+        "lede": "Roughly when, in their words. Everyone’s different, so score yourself on day 1 and compare. Got a wearable? Track the shift yourself.",
+        "foot": "What customers tell us, not a clinical study. Our first UK clinical trial starts this December.",
+        "space_top": 96,
+        "space_bottom": 96
       }
     },
     "quotes": {
@@ -1020,7 +503,7 @@
         "space_bottom": 72
       }
     },
-    "buy2": {
+    "buy": {
       "type": "muto-pdp-v2-buy",
       "blocks": {
         "g1": {
@@ -1626,62 +1109,6 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
-    },
-    "timeline": {
-      "type": "muto-expect",
-      "blocks": {
-        "m1": {
-          "type": "milestone",
-          "settings": {
-            "day": 1,
-            "label": "",
-            "title": "Your starting point",
-            "text": "<p>Score your afternoons, sleep and recovery out of 10, or note your wearable’s 30-day averages. Then two capsules with breakfast: CoQ10, vitamins D3 and K2 dissolve in fat, so food helps your body take them in.</p>"
-          }
-        },
-        "m2": {
-          "type": "milestone",
-          "settings": {
-            "day": 30,
-            "label": "",
-            "title": "Afternoons that hold",
-            "text": "<p>Usually the first thing people notice: less of the 3pm wall, energy left for the evening. B vitamins contribute to the reduction of tiredness and fatigue.</p>"
-          }
-        },
-        "m3": {
-          "type": "milestone",
-          "settings": {
-            "day": 60,
-            "label": "",
-            "title": "Bouncing back sooner",
-            "text": "<p>A walk, a round of golf or a gym session stops hanging around for days. Vitamin D contributes to normal muscle function.</p>"
-          }
-        },
-        "m4": {
-          "type": "milestone",
-          "settings": {
-            "day": 90,
-            "label": "",
-            "title": "Feeling like yourself",
-            "text": "<p>Compare your scores with day 1. Many people say they hadn’t realised how flat they’d been. Not for you? Every subscription payment back, less delivery.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "m1",
-        "m2",
-        "m3",
-        "m4"
-      ],
-      "settings": {
-        "anchor": "what-to-expect",
-        "eyebrow": "What to expect",
-        "heading": "What people tell us they notice.",
-        "lede": "Roughly when, in their words. Everyone’s different, so score yourself on day 1 and compare. Got a wearable? Track the shift yourself.",
-        "foot": "What customers tell us, not a clinical study. Our first UK clinical trial starts this December.",
-        "space_top": 96,
-        "space_bottom": 96
-      }
     }
   },
   "order": [
@@ -1690,12 +1117,10 @@
     "hero",
     "trust",
     "art1",
-    "buy",
-    "art2",
     "timeline",
     "quotes",
     "board",
-    "buy2",
+    "buy",
     "reviews",
     "early",
     "easy_read",
