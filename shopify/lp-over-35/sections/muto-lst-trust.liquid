@@ -19,7 +19,7 @@
             endif
           -%}
           {%- if l_src != blank -%}
-            <li {{ block.shopify_attributes }}><img src="{{ l_src }}" alt="{{ block.settings.name | escape }}" width="180" height="48" loading="lazy"></li>
+            <li {{ block.shopify_attributes }}><img src="{{ l_src }}" alt="{{ block.settings.name | escape }}" width="180" height="48" loading="eager"></li>
           {%- endif -%}
         {%- endfor -%}
       </ul>
