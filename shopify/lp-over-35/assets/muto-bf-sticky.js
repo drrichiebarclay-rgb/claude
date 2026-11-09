@@ -93,8 +93,8 @@
   });
 
   /* Show the bar whenever the page's own Add to cart button is off screen */
-  function watch() {
-    var mains = [].slice.call(document.querySelectorAll('.mc__buy-cta'));
+  function watch(sel) {
+    var mains = [].slice.call(document.querySelectorAll(sel || '.mc__buy-cta'));
     var seen = [];
     function show(on) {
       bar.classList.toggle('is-visible', on);
@@ -117,8 +117,23 @@
     }
   }
 
+  /* A page with no buy box (the over-35 listicle's offer cards): the bar offers the 3-month plan and its button
+     hands the tap to the Black Friday top bar's Claim, as the cards' own Claim buttons do */
+  function offerMode() {
+    var claim = document.getElementById('mc-bfx');
+    if (!claim || !claim.getAttribute('data-variant') || !document.querySelector('[data-mlst-claim]')) return;
+    var pick = select.closest('.mc-sbar__pick');
+    select.hidden = true;
+    if (pick) pick.style.pointerEvents = 'none';
+    nameEl.textContent = '3-Month Supply';
+    subEl.textContent = 'Black Friday · welcome kit included';
+    priceEl.textContent = '£99';
+    addBtn.addEventListener('click', function () { claim.click(); });
+    watch('[data-mlst-claim]');
+  }
+
   function start() {
-    if (!build()) return;
+    if (!build()) { offerMode(); return; }
     paint();
     watch();
     /* The price on the main button is repainted by the page after load; follow it */
