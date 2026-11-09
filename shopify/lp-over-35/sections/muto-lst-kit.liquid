@@ -1,0 +1,154 @@
+{%- comment -%}
+  MUTO listicle — offer & kit (muto-lst-kit). In place of a full buy box mid-article: the offer in a white
+  hairline card (as the PDP's premium design), then each free gift in the welcome kit as an accordion row
+  (photo, name, worth; opens to a larger photo and a line about it), then one Claim button.
+  The Claim button adds the 3-month plan exactly as the Black Friday top bar does (it hands the tap to the
+  bar's own script: add, open the side cart, gifts added by the theme). Before scripts load, or with no bar,
+  it is a plain /cart/add link for the 3-month plan. Styles: assets/muto-lst.css.
+{%- endcomment -%}
+{{ 'muto-lst.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign s = section.settings
+  assign q_variant = ''
+  assign q_plan = ''
+  if product != blank
+    for pv in product.variants
+      if q_variant != blank
+        break
+      endif
+      for alloc in pv.selling_plan_allocations
+        assign pn = alloc.selling_plan.name | downcase
+        if pn contains '3-month' or pn contains '3 month' or pn contains 'quarter'
+          if pv.available
+            assign q_variant = pv.id
+            assign q_plan = alloc.selling_plan.id
+            break
+          endif
+        endif
+      endfor
+    endfor
+  endif
+  assign href = '#MainContent'
+  if q_variant != blank
+    assign href = routes.cart_add_url | append: '?id=' | append: q_variant | append: '&quantity=1'
+    if q_plan != blank
+      assign href = href | append: '&selling_plan=' | append: q_plan
+    endif
+  endif
+-%}
+<div class="mlst">
+  <div class="mlst__wrap">
+    <div class="mlst-kit" id="offer">
+      <div class="mlst-kit__top">
+        {%- if s.eyebrow != blank -%}<p class="mlst__lab mlst__lab--dot mlst-kit__eye">{{ s.eyebrow }}</p>{%- endif -%}
+        <p class="mlst-kit__h">{{ s.heading }}</p>
+        {%- if s.sub != blank -%}<p class="mlst-kit__sub">{{ s.sub }}</p>{%- endif -%}
+      </div>
+      {%- if s.fig_1 != blank or s.fig_2 != blank -%}
+        <ul class="mlst-kit__figs">
+          {%- if s.fig_1 != blank -%}<li><small>{{ s.fig_1_label }}</small><b>{{ s.fig_1 }}</b></li>{%- endif -%}
+          {%- if s.fig_2 != blank -%}<li><small>{{ s.fig_2_label }}</small><b>{{ s.fig_2 }}</b></li>{%- endif -%}
+        </ul>
+      {%- endif -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <div class="mlst-kit__list">
+          {%- if s.list_label != blank -%}<p class="mlst-kit__lh"><span>{{ s.list_label }}</span>{%- if s.list_note != blank -%}<span>{{ s.list_note }}</span>{%- endif -%}</p>{%- endif -%}
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign b = block.settings
+              if b.image != blank
+                assign g_thumb = b.image | image_url: width: 160
+                assign g_big = b.image | image_url: width: 900
+              else
+                assign g_thumb = b.image_url
+                assign g_big = b.image_url
+                if b.image_url contains 'cdn.shopify.com'
+                  if b.image_url contains '?'
+                    assign g_thumb = b.image_url | append: '&width=160'
+                    assign g_big = b.image_url | append: '&width=900'
+                  else
+                    assign g_thumb = b.image_url | append: '?width=160'
+                    assign g_big = b.image_url | append: '?width=900'
+                  endif
+                endif
+              endif
+            -%}
+            <details class="mlst-kit__item" {{ block.shopify_attributes }}>
+              <summary>
+                {%- if g_thumb != blank -%}<span class="mlst-kit__thumb"><img src="{{ g_thumb }}" alt="" width="64" height="64" loading="lazy"></span>{%- endif -%}
+                <span class="mlst-kit__name">{{ b.name }}</span>
+                {%- if b.worth != blank -%}<span class="mlst-kit__worth">{{ b.worth }}</span>{%- endif -%}
+                <span class="mlst-kit__chev" aria-hidden="true"></span>
+              </summary>
+              <div class="mlst-kit__body">
+                {%- if g_big != blank -%}<div class="mlst-kit__img"><img src="{{ g_big }}" alt="{{ b.image_alt | escape }}" width="900" height="900" loading="lazy"></div>{%- endif -%}
+                <div class="mlst-kit__txt">
+                  {{ b.text }}
+                  {%- if b.claim != blank -%}<p class="mlst-r__claim">{{ b.claim }}</p>{%- endif -%}
+                </div>
+              </div>
+            </details>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      <div class="mlst-kit__foot">
+        <a class="mlst-kit__cta" href="{{ href }}" data-mlst-claim>{{ s.cta | default: 'Claim the offer' }}<span aria-hidden="true">→</span></a>
+        {%- if s.cta_note != blank -%}<p class="mlst-kit__note">{{ s.cta_note }}</p>{%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  /* Hand the tap to the Black Friday bar's Claim (one request, side cart, welcome gifts). No bar: the link adds
+     the 3-month plan and opens the cart page. */
+  (function () {
+    var a = document.querySelector('#shopify-section-{{ section.id }} [data-mlst-claim]');
+    if (!a) return;
+    a.addEventListener('click', function (e) {
+      var bar = document.getElementById('mc-bfx');
+      if (!bar || !bar.getAttribute('data-variant')) return;
+      e.preventDefault();
+      bar.click();
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "MUTO listicle — offer & kit",
+  "tag": "section",
+  "class": "muto-lst-kit",
+  "settings": [
+    { "type": "paragraph", "content": "The offer, then each free gift as an accordion, then a Claim button that adds the 3-month plan (as the Black Friday top bar)." },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Black Friday offer" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "3 months for £99" },
+    { "type": "text", "id": "sub", "label": "Line under", "default": "90-day risk-free money-back guarantee" },
+    { "type": "text", "id": "fig_1_label", "label": "Figure 1: label", "default": "Save" },
+    { "type": "text", "id": "fig_1", "label": "Figure 1", "default": "53%" },
+    { "type": "text", "id": "fig_2_label", "label": "Figure 2: label", "default": "Welcome kit" },
+    { "type": "text", "id": "fig_2", "label": "Figure 2", "default": "£87, free" },
+    { "type": "text", "id": "list_label", "label": "Kit list heading", "default": "Your free welcome kit" },
+    { "type": "text", "id": "list_note", "label": "Kit list note", "default": "Tap to open" },
+    { "type": "text", "id": "cta", "label": "Button", "default": "Claim the offer" },
+    { "type": "textarea", "id": "cta_note", "label": "Line under the button" }
+  ],
+  "blocks": [
+    {
+      "type": "gift",
+      "name": "Gift",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Name" },
+        { "type": "text", "id": "worth", "label": "Worth", "info": "e.g. Worth £30, or Free entry" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_url", "label": "Image URL", "info": "Used when no image is picked" },
+        { "type": "text", "id": "image_alt", "label": "Image alt text" },
+        { "type": "richtext", "id": "text", "label": "Description" },
+        { "type": "textarea", "id": "claim", "label": "Small print" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "MUTO listicle — offer & kit" }]
+}
+{% endschema %}
