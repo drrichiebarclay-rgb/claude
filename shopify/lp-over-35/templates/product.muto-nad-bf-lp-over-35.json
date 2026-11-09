@@ -137,7 +137,10 @@
       "type": "custom-liquid",
       "name": "Offer strip",
       "settings": {
-        "custom_liquid": "<div class=\"mlst\"><div class=\"mlst__wrap\">\n  <div class=\"mlst-strap\">\n    <p class=\"mlst-strap__eye\">Black Friday offer</p>\n    <p class=\"mlst-strap__h\">90-day risk-free money-back guarantee</p>\n    <p class=\"mlst-strap__sub\"><b>Save 53%</b><span aria-hidden=\"true\">+</span><b>£87 welcome kit free</b></p>\n  </div>\n</div></div>"
+        "custom_liquid": "<div class=\"mlst\"><div class=\"mlst__wrap\">\n  <div class=\"mlst-strap\">\n    <p class=\"mlst__lab mlst__lab--dot mlst-strap__eye\">Black Friday offer</p>\n    <p class=\"mlst-strap__h\">90‑day risk‑free money‑back guarantee</p>\n    <ul class=\"mlst-strap__row\">\n      <li><small>Save</small><b>53%</b></li>\n      <li><small>Welcome kit</small><b>£87, free</b></li>\n    </ul>\n  </div>\n</div></div>",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "buy2": {
