@@ -589,6 +589,187 @@
         "space_bottom": 100
       }
     },
+    "ag1_plans": {
+      "type": "custom-liquid",
+      "name": "AG1-style plan pricing",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_liquid": "{%- render 'muto-bf-ag1-plans' -%}"
+      }
+    },
+    "reviews_ticker": {
+      "type": "muto-ticker",
+      "blocks": {
+        "q1": {
+          "type": "quote",
+          "settings": {
+            "text": "A sense of vitality I haven’t experienced since my mid 20s",
+            "name": "Jonathon R"
+          }
+        },
+        "q2": {
+          "type": "quote",
+          "settings": {
+            "text": "Has actually changed my recovery",
+            "name": "Adam H"
+          }
+        },
+        "q3": {
+          "type": "quote",
+          "settings": {
+            "text": "No afternoon slump and in general feeling great",
+            "name": "Lynda"
+          }
+        },
+        "q4": {
+          "type": "quote",
+          "settings": {
+            "text": "Energy is up and staying consistent",
+            "name": "Jack"
+          }
+        },
+        "q5": {
+          "type": "quote",
+          "settings": {
+            "text": "I love that this replaces multiple products",
+            "name": "Amy C"
+          }
+        },
+        "q6": {
+          "type": "quote",
+          "settings": {
+            "text": "More energy and a clearer mind",
+            "name": "Sam"
+          }
+        },
+        "q7": {
+          "type": "quote",
+          "settings": {
+            "text": "It has exceeded my expectations",
+            "name": "Aleks"
+          }
+        },
+        "q8": {
+          "type": "quote",
+          "settings": {
+            "text": "I sleep better, perform better in workouts, and don’t crash anymore",
+            "name": "Danny S"
+          }
+        },
+        "q9": {
+          "type": "quote",
+          "settings": {
+            "text": "My recovery and sleep have noticeably improved",
+            "name": "K R"
+          }
+        },
+        "q10": {
+          "type": "quote",
+          "settings": {
+            "text": "Muto has helped me recover faster",
+            "name": "Ayo P"
+          }
+        },
+        "q11": {
+          "type": "quote",
+          "settings": {
+            "text": "All my key biometrics are improving",
+            "name": "Hugh K"
+          }
+        },
+        "q12": {
+          "type": "quote",
+          "settings": {
+            "text": "I didn’t realise how flat I’d been feeling",
+            "name": "Holly P"
+          }
+        },
+        "q13": {
+          "type": "quote",
+          "settings": {
+            "text": "My energy levels and my sleep have improved drastically",
+            "name": "Matteo M"
+          }
+        },
+        "q14": {
+          "type": "quote",
+          "settings": {
+            "text": "Definitely feel more focused during the day",
+            "name": "Alexandra"
+          }
+        },
+        "q15": {
+          "type": "quote",
+          "settings": {
+            "text": "It did not disappoint",
+            "name": "Rebeca"
+          }
+        },
+        "q16": {
+          "type": "quote",
+          "settings": {
+            "text": "I have felt such a difference",
+            "name": "Michelle F"
+          }
+        },
+        "q17": {
+          "type": "quote",
+          "settings": {
+            "text": "Enables me to power through my day",
+            "name": "Max"
+          }
+        },
+        "q18": {
+          "type": "quote",
+          "settings": {
+            "text": "More energised and ready for my next session",
+            "name": "Brendan"
+          }
+        },
+        "q19": {
+          "type": "quote",
+          "settings": {
+            "text": "Mornings already feel easier",
+            "name": "Becca"
+          }
+        },
+        "q20": {
+          "type": "quote",
+          "settings": {
+            "text": "Richie from the team gave me a call to chat about my goals",
+            "name": "Mathew H"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7",
+        "q8",
+        "q9",
+        "q10",
+        "q11",
+        "q12",
+        "q13",
+        "q14",
+        "q15",
+        "q16",
+        "q17",
+        "q18",
+        "q19",
+        "q20"
+      ],
+      "settings": {
+        "space_top": 36,
+        "space_bottom": 36
+      }
+    },
     "early": {
       "type": "custom-liquid",
       "settings": {
@@ -2185,177 +2366,6 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
-    },
-    "reviews_ticker": {
-      "type": "muto-ticker",
-      "blocks": {
-        "q1": {
-          "type": "quote",
-          "settings": {
-            "text": "A sense of vitality I haven’t experienced since my mid 20s",
-            "name": "Jonathon R"
-          }
-        },
-        "q2": {
-          "type": "quote",
-          "settings": {
-            "text": "Has actually changed my recovery",
-            "name": "Adam H"
-          }
-        },
-        "q3": {
-          "type": "quote",
-          "settings": {
-            "text": "No afternoon slump and in general feeling great",
-            "name": "Lynda"
-          }
-        },
-        "q4": {
-          "type": "quote",
-          "settings": {
-            "text": "Energy is up and staying consistent",
-            "name": "Jack"
-          }
-        },
-        "q5": {
-          "type": "quote",
-          "settings": {
-            "text": "I love that this replaces multiple products",
-            "name": "Amy C"
-          }
-        },
-        "q6": {
-          "type": "quote",
-          "settings": {
-            "text": "More energy and a clearer mind",
-            "name": "Sam"
-          }
-        },
-        "q7": {
-          "type": "quote",
-          "settings": {
-            "text": "It has exceeded my expectations",
-            "name": "Aleks"
-          }
-        },
-        "q8": {
-          "type": "quote",
-          "settings": {
-            "text": "I sleep better, perform better in workouts, and don’t crash anymore",
-            "name": "Danny S"
-          }
-        },
-        "q9": {
-          "type": "quote",
-          "settings": {
-            "text": "My recovery and sleep have noticeably improved",
-            "name": "K R"
-          }
-        },
-        "q10": {
-          "type": "quote",
-          "settings": {
-            "text": "Muto has helped me recover faster",
-            "name": "Ayo P"
-          }
-        },
-        "q11": {
-          "type": "quote",
-          "settings": {
-            "text": "All my key biometrics are improving",
-            "name": "Hugh K"
-          }
-        },
-        "q12": {
-          "type": "quote",
-          "settings": {
-            "text": "I didn’t realise how flat I’d been feeling",
-            "name": "Holly P"
-          }
-        },
-        "q13": {
-          "type": "quote",
-          "settings": {
-            "text": "My energy levels and my sleep have improved drastically",
-            "name": "Matteo M"
-          }
-        },
-        "q14": {
-          "type": "quote",
-          "settings": {
-            "text": "Definitely feel more focused during the day",
-            "name": "Alexandra"
-          }
-        },
-        "q15": {
-          "type": "quote",
-          "settings": {
-            "text": "It did not disappoint",
-            "name": "Rebeca"
-          }
-        },
-        "q16": {
-          "type": "quote",
-          "settings": {
-            "text": "I have felt such a difference",
-            "name": "Michelle F"
-          }
-        },
-        "q17": {
-          "type": "quote",
-          "settings": {
-            "text": "Enables me to power through my day",
-            "name": "Max"
-          }
-        },
-        "q18": {
-          "type": "quote",
-          "settings": {
-            "text": "More energised and ready for my next session",
-            "name": "Brendan"
-          }
-        },
-        "q19": {
-          "type": "quote",
-          "settings": {
-            "text": "Mornings already feel easier",
-            "name": "Becca"
-          }
-        },
-        "q20": {
-          "type": "quote",
-          "settings": {
-            "text": "Richie from the team gave me a call to chat about my goals",
-            "name": "Mathew H"
-          }
-        }
-      },
-      "block_order": [
-        "q1",
-        "q2",
-        "q3",
-        "q4",
-        "q5",
-        "q6",
-        "q7",
-        "q8",
-        "q9",
-        "q10",
-        "q11",
-        "q12",
-        "q13",
-        "q14",
-        "q15",
-        "q16",
-        "q17",
-        "q18",
-        "q19",
-        "q20"
-      ],
-      "settings": {
-        "space_top": 36,
-        "space_bottom": 36
-      }
     }
   },
   "order": [
@@ -2363,6 +2373,7 @@
     "head_styles",
     "bf_bar",
     "buy",
+    "ag1_plans",
     "reviews_ticker",
     "early",
     "nav",

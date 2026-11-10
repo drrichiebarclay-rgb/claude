@@ -595,6 +595,16 @@
         "space_bottom": 100
       }
     },
+    "ag1_plans": {
+      "type": "custom-liquid",
+      "name": "AG1-style plan pricing",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_liquid": "{%- render 'muto-bf-ag1-plans' -%}"
+      }
+    },
     "early": {
       "type": "custom-liquid",
       "settings": {
@@ -2448,6 +2458,7 @@
     "head_styles",
     "bf_bar",
     "buy",
+    "ag1_plans",
     "early",
     "nav",
     "problem",
