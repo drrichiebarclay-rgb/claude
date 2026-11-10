@@ -237,3 +237,29 @@ html:root body .mlst .mlst-lc{text-transform:none!important}
 @media (min-width:750px){.mlst .mlst-kit__band{padding:13px 32px}.mlst-kit__plan{margin:24px 32px 26px;padding:22px 22px 18px}.mlst-kit__price{font-size:44px}}
 @media (max-width:749px){.mlst .mlst-kit__ph{margin-top:16px;padding-right:0}.mlst .mlst-kit__ph b{font-size:17px}}
 .mlst-kit__pnote{margin-left:-8px;font-size:18px;color:var(--ink)}
+
+/* AG1-style plan card: the whole offer card is the selected plan. Black 1.5px border, the band as its header,
+   the Save pill on the right, the price lines indented under the plan name, terms, comparison, ticks. */
+.mlst .mlst-kit{border:1.5px solid #242223;border-radius:12px}
+.mlst .mlst-kit__plan{margin:0;padding:20px 22px 18px;border:0;border-radius:0}
+.mlst .mlst-kit__ph{margin-top:0;padding-right:0;flex-wrap:nowrap;gap:12px}
+.mlst .mlst-kit__ph b{font-size:19px;font-weight:500}
+.mlst .mlst-kit__badge{margin-left:auto;flex:0 0 auto}
+.mlst-kit__pin{padding-left:34px}
+.mlst .mlst-kit__pr{margin-top:8px;gap:4px 10px}
+.mlst-kit__price{font-size:32px}
+.mlst-kit__pnote{margin-left:-8px;font-size:22px;font-weight:500;color:var(--ink)}
+.mlst-kit__was{font-size:18px}
+.mlst .mlst-kit__bill{margin-top:8px;font-size:15.5px;color:var(--ink)}
+.mlst-kit__bill b{font-family:var(--font);font-size:15.5px;font-weight:400;letter-spacing:0;text-transform:none;color:var(--ink-2)}
+.mlst .mlst-kit__sm{margin-top:4px;font-size:15px;line-height:1.4;color:var(--ink-2)}
+.mlst-kit__hero{margin:0 22px}
+.mlst-kit__terms{margin:18px 22px 0;padding:16px 0 4px;border-top:1px solid var(--hair);font-size:14.5px;line-height:1.5;color:var(--ink)}
+.mlst-kit__terms p + p{margin-top:10px}
+.mlst .mlst-kit__cmp{font-style:italic;color:var(--ink-2)}
+.mlst .mlst-kit__ticks{display:grid;gap:8px;margin:14px 0 0;padding:0;list-style:none;font-size:15.5px}
+.mlst-kit__ticks li{position:relative;padding-left:28px}
+.mlst-kit__ticks li::before{content:"";position:absolute;left:2px;top:.28em;width:12px;height:7px;border-left:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);transform:rotate(-45deg)}
+.mlst .mlst-kit__list{margin-top:18px}
+@media (min-width:750px){.mlst .mlst-kit__plan{padding:24px 32px 20px}.mlst-kit__price{font-size:40px}.mlst-kit__hero{margin:0 32px}.mlst-kit__terms{margin:20px 32px 0}}
+@media (max-width:749px){.mlst .mlst-kit__ph{margin-top:0}.mlst .mlst-kit__ph b{font-size:17px}.mlst-kit__pin{padding-left:0}}

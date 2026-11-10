@@ -228,18 +228,21 @@
         "list_label": "+ Free welcome kit",
         "list_note": "<s>£87</s> Free",
         "cta": "Claim the offer",
-        "cta_note": "Adds the 3-month plan. Skip, pause or cancel online, and we remind you 5 days before each payment.",
+        "cta_note": "",
         "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-lp-kit-hero.jpg?v=1791969959",
         "image_alt": "The MUTO welcome kit: NAD+ Cellular Complex jar and refill pouches, Ultrapure Creatine, the bottle and the presentation box",
-        "tab": "Best value",
         "plan_name": "3-Month Supply",
         "badge": "Save 53%",
         "price": "£33",
         "was": "£70",
         "price_note": "/mo",
-        "bill": "£99 today for your first 3 months · Delivered every 3 months",
-        "per": "£1.10 / serving",
-        "then": "Then £125 for your next 3 months, then £150 every 3 months. Skip, pause or cancel online anytime, and 90 days to feel the difference or every subscription payment back."
+        "bill": "90-day supply, delivered every 3 months",
+        "per": "£1.10/serving",
+        "then": "then £125 for your next 3 months, then £150 every 3 months",
+        "first": "£99 on your first order",
+        "terms": "Black Friday offer for first-time subscribers, on your first order only, while stock lasts. The subscription then renews automatically every 3 months until you cancel. Skip, pause or cancel online anytime, and we remind you 5 days before each payment.",
+        "compare": "For comparison: £33 a month for your first 3 months, £41.67 a month for the next 3, then £50 a month.",
+        "ticks": "Free welcome kit worth £87 with your first order\n90-day money-back guarantee\nFree next-day UK delivery"
       }
     },
     "art2": {
@@ -750,18 +753,21 @@
         "list_label": "+ Free welcome kit",
         "list_note": "<s>£87</s> Free",
         "cta": "Claim the offer",
-        "cta_note": "Adds the 3-month plan. Skip, pause or cancel online, and we remind you 5 days before each payment.",
+        "cta_note": "",
         "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-lp-kit-hero.jpg?v=1791969959",
         "image_alt": "The MUTO welcome kit: NAD+ Cellular Complex jar and refill pouches, Ultrapure Creatine, the bottle and the presentation box",
-        "tab": "Best value",
         "plan_name": "3-Month Supply",
         "badge": "Save 53%",
         "price": "£33",
         "was": "£70",
         "price_note": "/mo",
-        "bill": "£99 today for your first 3 months · Delivered every 3 months",
-        "per": "£1.10 / serving",
-        "then": "Then £125 for your next 3 months, then £150 every 3 months. Skip, pause or cancel online anytime, and 90 days to feel the difference or every subscription payment back."
+        "bill": "90-day supply, delivered every 3 months",
+        "per": "£1.10/serving",
+        "then": "then £125 for your next 3 months, then £150 every 3 months",
+        "first": "£99 on your first order",
+        "terms": "Black Friday offer for first-time subscribers, on your first order only, while stock lasts. The subscription then renews automatically every 3 months until you cancel. Skip, pause or cancel online anytime, and we remind you 5 days before each payment.",
+        "compare": "For comparison: £33 a month for your first 3 months, £41.67 a month for the next 3, then £50 a month.",
+        "ticks": "Free welcome kit worth £87 with your first order\n90-day money-back guarantee\nFree next-day UK delivery"
       }
     },
     "reviews": {

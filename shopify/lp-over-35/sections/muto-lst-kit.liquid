@@ -40,6 +40,15 @@
   <div class="mlst__wrap">
     <div class="mlst-kit" id="offer-{{ section.id }}">
       {%- if s.eyebrow != blank -%}<p class="mlst-kit__band"><span aria-hidden="true">✦</span>{{ s.eyebrow }}</p>{%- endif -%}
+      <div class="mlst-kit__plan">
+        <p class="mlst-kit__ph"><span class="mlst-kit__radio" aria-hidden="true"></span><b>{{ s.plan_name }}</b>{%- if s.badge != blank -%}<span class="mlst-kit__badge">{{ s.badge }}</span>{%- endif -%}</p>
+        <div class="mlst-kit__pin">
+          <p class="mlst-kit__pr"><span class="mlst-kit__price">{{ s.price }}</span>{%- if s.price_note != blank -%}<span class="mlst-kit__pnote">{{ s.price_note }}</span>{%- endif -%}{%- if s.was != blank -%}<s class="mlst-kit__was"><span class="visually-hidden">Was </span>{{ s.was }}</s>{%- endif -%}</p>
+          {%- if s.bill != blank or s.per != blank -%}<p class="mlst-kit__bill"><span>{{ s.bill }}</span>{%- if s.per != blank -%}<b>{{ s.per }}</b>{%- endif -%}</p>{%- endif -%}
+          {%- if s.first != blank -%}<p class="mlst-kit__sm">{{ s.first }}</p>{%- endif -%}
+          {%- if s.then != blank -%}<p class="mlst-kit__sm">{{ s.then }}</p>{%- endif -%}
+        </div>
+      </div>
       {%- liquid
         if s.image != blank
           assign k_src = s.image | image_url: width: 1400
@@ -48,14 +57,19 @@
         endif
       -%}
       {%- if k_src != blank -%}<div class="mlst-kit__hero"><img src="{{ k_src }}" alt="{{ s.image_alt | escape }}" width="1400" height="933" loading="lazy"></div>{%- endif -%}
+      {%- if s.terms != blank or s.compare != blank or s.ticks != blank -%}
+        <div class="mlst-kit__terms">
+          {%- if s.terms != blank -%}<p>{{ s.terms }}</p>{%- endif -%}
+          {%- if s.compare != blank -%}<p class="mlst-kit__cmp">{{ s.compare }}</p>{%- endif -%}
+          {%- if s.ticks != blank -%}
+            <ul class="mlst-kit__ticks">
+              {%- assign tl = s.ticks | newline_to_br | split: '<br />' -%}
+              {%- for t in tl -%}{%- assign tt = t | strip -%}{%- if tt != blank -%}<li>{{ tt }}</li>{%- endif -%}{%- endfor -%}
+            </ul>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
 
-      <div class="mlst-kit__plan">
-        {%- if s.tab != blank -%}<span class="mlst-kit__tab">{{ s.tab }}</span>{%- endif -%}
-        <p class="mlst-kit__ph"><span class="mlst-kit__radio" aria-hidden="true"></span><b>{{ s.plan_name }}</b>{%- if s.badge != blank -%}<span class="mlst-kit__badge">{{ s.badge }}</span>{%- endif -%}</p>
-        <p class="mlst-kit__pr"><span class="mlst-kit__price">{{ s.price }}</span>{%- if s.price_note != blank -%}<span class="mlst-kit__pnote">{{ s.price_note }}</span>{%- endif -%}{%- if s.was != blank -%}<s class="mlst-kit__was"><span class="visually-hidden">Was </span>{{ s.was }}</s>{%- endif -%}</p>
-        {%- if s.bill != blank or s.per != blank -%}<p class="mlst-kit__bill"><span>{{ s.bill }}</span>{%- if s.per != blank -%}<b>{{ s.per }}</b>{%- endif -%}</p>{%- endif -%}
-        {%- if s.then != blank -%}<p class="mlst-kit__then">{{ s.then }}</p>{%- endif -%}
-      </div>
 
       {%- if section.blocks.size > 0 -%}
         <div class="mlst-kit__list">
@@ -133,7 +147,6 @@
     { "type": "text", "id": "image_url", "label": "Product image URL", "info": "Used when no image is picked" },
     { "type": "text", "id": "image_alt", "label": "Product image alt text" },
     { "type": "header", "content": "Plan" },
-    { "type": "text", "id": "tab", "label": "Corner tab", "default": "Best value" },
     { "type": "text", "id": "plan_name", "label": "Plan name", "default": "3-Month Supply" },
     { "type": "text", "id": "badge", "label": "Badge", "default": "Save 53%" },
     { "type": "text", "id": "price", "label": "Price", "default": "£99" },
@@ -141,7 +154,11 @@
     { "type": "text", "id": "price_note", "label": "After the price", "default": "for 3 months" },
     { "type": "text", "id": "bill", "label": "Billing line", "default": "£33 a month · Delivered every 3 months" },
     { "type": "text", "id": "per", "label": "Per serving", "default": "£1.10 / serving" },
-    { "type": "textarea", "id": "then", "label": "Small print under the plan" },
+    { "type": "text", "id": "first", "label": "First-order line", "default": "£99 on your first order" },
+    { "type": "text", "id": "then", "label": "Then line", "default": "then £125, then £150 every 3 months" },
+    { "type": "textarea", "id": "terms", "label": "Offer terms" },
+    { "type": "textarea", "id": "compare", "label": "For comparison" },
+    { "type": "textarea", "id": "ticks", "label": "Ticked benefits", "info": "One per line" },
     { "type": "header", "content": "Welcome kit" },
     { "type": "text", "id": "list_label", "label": "Kit list heading", "default": "Your free welcome kit" },
     { "type": "text", "id": "list_note", "label": "Kit list note", "default": "Free", "info": "Wrap a price in s tags to cross it out" },
