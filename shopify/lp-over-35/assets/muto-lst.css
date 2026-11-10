@@ -236,4 +236,4 @@ html:root body .mlst .mlst-lc{text-transform:none!important}
 .mlst-kit__worth{white-space:nowrap}
 @media (min-width:750px){.mlst .mlst-kit__band{padding:13px 32px}.mlst-kit__plan{margin:24px 32px 26px;padding:22px 22px 18px}.mlst-kit__price{font-size:44px}}
 @media (max-width:749px){.mlst .mlst-kit__ph{margin-top:16px;padding-right:0}.mlst .mlst-kit__ph b{font-size:17px}}
-.mlst-kit__pnote{margin-left:-6px}
+.mlst-kit__pnote{margin-left:-8px;font-size:18px;color:var(--ink)}

@@ -52,7 +52,7 @@
       <div class="mlst-kit__plan">
         {%- if s.tab != blank -%}<span class="mlst-kit__tab">{{ s.tab }}</span>{%- endif -%}
         <p class="mlst-kit__ph"><span class="mlst-kit__radio" aria-hidden="true"></span><b>{{ s.plan_name }}</b>{%- if s.badge != blank -%}<span class="mlst-kit__badge">{{ s.badge }}</span>{%- endif -%}</p>
-        <p class="mlst-kit__pr"><span class="mlst-kit__price">{{ s.price }}</span>{%- if s.was != blank -%}<s class="mlst-kit__was"><span class="visually-hidden">Was </span>{{ s.was }}</s>{%- endif -%}{%- if s.price_note != blank -%}<span class="mlst-kit__pnote">{{ s.price_note }}</span>{%- endif -%}</p>
+        <p class="mlst-kit__pr"><span class="mlst-kit__price">{{ s.price }}</span>{%- if s.price_note != blank -%}<span class="mlst-kit__pnote">{{ s.price_note }}</span>{%- endif -%}{%- if s.was != blank -%}<s class="mlst-kit__was"><span class="visually-hidden">Was </span>{{ s.was }}</s>{%- endif -%}</p>
         {%- if s.bill != blank or s.per != blank -%}<p class="mlst-kit__bill"><span>{{ s.bill }}</span>{%- if s.per != blank -%}<b>{{ s.per }}</b>{%- endif -%}</p>{%- endif -%}
         {%- if s.then != blank -%}<p class="mlst-kit__then">{{ s.then }}</p>{%- endif -%}
       </div>
