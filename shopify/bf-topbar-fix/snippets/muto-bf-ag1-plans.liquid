@@ -7,8 +7,8 @@
     90-day supply, delivered every 3 months ........ £1.10/serving
     £99 on your first order
     then £125 for your next 3 months, then £150 every 3 months
-  with a "Black Friday offer" band on the 3-month card, and under the cards the selected plan's terms and a
-  "For comparison" line. The card's own radio, selection and Add to cart are untouched: only the copy inside is
+  with a "Black Friday offer" band on the 3-month card. (A terms and "For comparison" line under the cards
+  was removed on request; terms() is kept but not called.) The card's own radio, selection and Add to cart are untouched: only the copy inside is
   replaced, and the old price/note/tab text is hidden. Figures are typed below (PLANS); change them there.
   Remove the section from a template and that page goes back to the previous cards.
 {%- endcomment -%}
@@ -110,7 +110,7 @@
   function run() {
     [].forEach.call(document.querySelectorAll('#MainContent .mc .mc__plans'), function (plans) {
       [].forEach.call(plans.querySelectorAll(':scope > label.mc__plan'), build);
-      terms(plans);
+      /* Terms and 'For comparison' under the cards: removed at the brand's request (terms() kept, not called) */
     });
   }
   run();
