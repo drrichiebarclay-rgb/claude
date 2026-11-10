@@ -13,7 +13,7 @@
   Remove the section from a template and that page goes back to the previous cards.
 {%- endcomment -%}
 <style>
-  html:root body #MainContent#MainContent .mc .mc__plans > label.mc__plan.is-ag.is-ag{display:block!important;position:relative;padding:0!important;border:1px solid rgba(36,34,35,.18)!important;border-radius:12px!important;background:#fff!important;box-shadow:none!important;overflow:hidden;min-height:0!important}
+  html:root body #MainContent#MainContent .mc .mc__plans > label.mc__plan.is-ag.is-ag{display:block!important;position:relative;padding:0!important;border:1px solid rgba(36,34,35,.18)!important;border-radius:10px!important;background:#fff!important;box-shadow:none!important;overflow:hidden;min-height:0!important}
   html:root body #MainContent#MainContent .mc .mc__plans > label.mc__plan.is-ag.is-ag.is-selected{border:1.5px solid #242223!important}
   html:root body #MainContent#MainContent .mc .mc__plans > label.mc__plan.is-ag.is-ag::before,
   html:root body #MainContent#MainContent .mc .mc__plans > label.mc__plan.is-ag.is-ag::after{content:none!important;display:none!important}
@@ -25,6 +25,9 @@
   html:root body #MainContent#MainContent .mc .mc__plans > label.mc__plan.is-ag.is-ag .mc__plan-head::after{display:none!important}
   html:root body #MainContent#MainContent .mc .mc__plans > label.mc__plan.is-ag.is-ag .mc__plan-head{display:flex!important;align-items:center!important;gap:12px!important;margin:0!important;padding:0!important;position:static!important}
   html:root body #MainContent#MainContent .mc .mc__plans > label.mc__plan.is-ag.is-ag .mc__plan-dot{flex:0 0 22px!important;width:22px!important;height:22px!important;margin:0!important;position:static!important}
+  /* Where the welcome kit hangs off the selected card as one panel (premium designs), the card's bottom joins it:
+     square corners, no bottom border; the kit's own sides and dividing rule carry on below */
+  html:root body #MainContent#MainContent .mc .mc__plans:has(> .mc__kit) > label.mc__plan.is-ag.is-ag.is-selected{border-bottom:0!important;border-bottom-left-radius:0!important;border-bottom-right-radius:0!important}
   .ag-band{display:flex;align-items:center;gap:10px;padding:11px 18px;background:#242223;color:#fff;font-family:var(--mc-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase}
   .ag-band i{font-style:normal;color:#5efaff;letter-spacing:0}
   .ag-in{display:block;padding:16px 18px 16px}
