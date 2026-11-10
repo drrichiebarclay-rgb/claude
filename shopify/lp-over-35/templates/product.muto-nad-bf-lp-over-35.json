@@ -234,10 +234,10 @@
         "tab": "Best value",
         "plan_name": "3-Month Supply",
         "badge": "Save 53%",
-        "price": "£99",
-        "was": "£210",
-        "price_note": "for 3 months",
-        "bill": "£33 a month · Delivered every 3 months",
+        "price": "£33",
+        "was": "£70",
+        "price_note": "/mo",
+        "bill": "£99 today for your first 3 months · Delivered every 3 months",
         "per": "£1.10 / serving",
         "then": "Then £125 for your next 3 months, then £150 every 3 months. Skip, pause or cancel online anytime, and 90 days to feel the difference or every subscription payment back."
       }
@@ -756,10 +756,10 @@
         "tab": "Best value",
         "plan_name": "3-Month Supply",
         "badge": "Save 53%",
-        "price": "£99",
-        "was": "£210",
-        "price_note": "for 3 months",
-        "bill": "£33 a month · Delivered every 3 months",
+        "price": "£33",
+        "was": "£70",
+        "price_note": "/mo",
+        "bill": "£99 today for your first 3 months · Delivered every 3 months",
         "per": "£1.10 / serving",
         "then": "Then £125 for your next 3 months, then £150 every 3 months. Skip, pause or cancel online anytime, and 90 days to feel the difference or every subscription payment back."
       }
