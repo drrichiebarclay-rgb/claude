@@ -43,8 +43,8 @@
       <div class="mlst-kit__plan">
         <p class="mlst-kit__ph"><span class="mlst-kit__radio" aria-hidden="true"></span><b>{{ s.plan_name }}</b>{%- if s.badge != blank -%}<span class="mlst-kit__badge">{{ s.badge }}</span>{%- endif -%}</p>
         <div class="mlst-kit__pin">
-          <p class="mlst-kit__pr"><span class="mlst-kit__price">{{ s.price }}</span>{%- if s.price_note != blank -%}<span class="mlst-kit__pnote">{{ s.price_note }}</span>{%- endif -%}{%- if s.was != blank -%}<s class="mlst-kit__was"><span class="visually-hidden">Was </span>{{ s.was }}</s>{%- endif -%}</p>
-          {%- if s.bill != blank or s.per != blank -%}<p class="mlst-kit__bill"><span>{{ s.bill }}</span>{%- if s.per != blank -%}<b>{{ s.per }}</b>{%- endif -%}</p>{%- endif -%}
+          <p class="mlst-kit__pr"><span class="mlst-kit__price">{{ s.price }}</span>{%- if s.price_note != blank -%}<span class="mlst-kit__pnote">{{ s.price_note }}</span>{%- endif -%}{%- if s.was != blank -%}<s class="mlst-kit__was"><span class="visually-hidden">Was </span>{{ s.was }}</s>{%- endif -%}{%- if s.per != blank -%}<span class="mlst-kit__day">{{ s.per }}</span>{%- endif -%}</p>
+          {%- if s.bill != blank -%}<p class="mlst-kit__bill"><span>{{ s.bill }}</span></p>{%- endif -%}
           {%- if s.first != blank -%}<p class="mlst-kit__sm">{{ s.first }}</p>{%- endif -%}
           {%- if s.then != blank -%}<p class="mlst-kit__sm">{{ s.then }}</p>{%- endif -%}
         </div>
@@ -153,7 +153,7 @@
     { "type": "text", "id": "was", "label": "Crossed-out price", "default": "£210" },
     { "type": "text", "id": "price_note", "label": "After the price", "default": "for 3 months" },
     { "type": "text", "id": "bill", "label": "Billing line", "default": "£33 a month · Delivered every 3 months" },
-    { "type": "text", "id": "per", "label": "Per serving", "default": "£1.10 / serving" },
+    { "type": "text", "id": "per", "label": "Price a day", "default": "£1.10 a day" },
     { "type": "text", "id": "first", "label": "First-order line", "default": "£99 on your first order" },
     { "type": "text", "id": "then", "label": "Then line", "default": "then £125, then £150 every 3 months" },
     { "type": "textarea", "id": "terms", "label": "Offer terms" },

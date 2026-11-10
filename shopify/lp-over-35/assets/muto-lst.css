@@ -209,3 +209,6 @@ html:root body .mlst .mlst-lc{text-transform:none!important}
 @media (max-width:749px){.mlst .mlst-kit__ph{margin-top:0}.mlst .mlst-kit__ph b{font-size:17px}.mlst-kit__pin{padding-left:0}}
 .mlst .mlst-kit{padding:0}
 html:root body .mlst .mlst-kit > .mlst-kit__band{margin:0!important}
+/* Discount and price a day, more prominent: a bigger Save pill; price a day as an outlined pill beside the price */
+.mlst .mlst-kit__badge{padding:7px 12px;border-radius:4px;font-size:13px;font-weight:600;letter-spacing:.1em}
+.mlst-kit__day{margin-left:auto;align-self:center;padding:6px 11px;border:1.5px solid #242223;border-radius:999px;font-size:16px;font-weight:500;line-height:1.1;color:var(--ink);white-space:nowrap}
