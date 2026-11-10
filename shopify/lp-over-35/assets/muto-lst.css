@@ -46,50 +46,6 @@
 @media (max-width:749px){.mlst .mlst-r__pull{padding:14px 16px;font-size:16px}}
 .mlst-note{margin-top:28px;padding-top:14px;border-top:1px solid var(--hair);font-size:12.5px;line-height:1.5;color:var(--ink-3)}
 
-/* Offer: the PDP buy box, simplified */
-.mlst-offer{padding:56px 0;background:var(--ground)}
-.mlst-offer__wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-.mlst-offer__h{margin:12px 0 0;font-size:clamp(28px,4.6vw,42px);font-weight:500;line-height:1.06;letter-spacing:-.02em}
-.mlst-offer__grid{display:grid;grid-template-columns:1fr;gap:24px;margin-top:28px}
-@media (min-width:900px){.mlst-offer__grid{grid-template-columns:1.05fr 1fr;gap:40px;align-items:start}}
-.mlst-offer__media{background:#111}
-.mlst-offer__media img{width:100%;aspect-ratio:4/3;object-fit:cover}
-.mlst-box{background:var(--paper);border:1px solid var(--hair);padding:24px}
-@media (min-width:900px){.mlst-box{padding:30px}}
-.mlst-box__title{font-size:26px;font-weight:500;line-height:1.15;letter-spacing:-.01em}
-.mlst-box__rate{display:flex;align-items:center;gap:10px;margin-top:6px;font-size:14px;color:var(--ink-2)}
-.mlst-plans{display:grid;gap:10px;margin:20px 0 0;padding:0;border:0}
-.mlst-plan{position:relative;display:grid;grid-template-columns:22px 1fr auto;align-items:center;gap:12px;padding:16px;border:1px solid var(--hair);background:var(--paper);cursor:pointer;transition:border-color .15s}
-.mlst-plan:hover{border-color:var(--ink)}
-.mlst-plan input{position:absolute;opacity:0;pointer-events:none}
-.mlst-plan__dot{width:20px;height:20px;border:1.5px solid var(--ink);border-radius:50%;display:grid;place-items:center}
-.mlst-plan__dot::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--ink);transform:scale(0);transition:transform .15s}
-.mlst-plan.is-on{border:2px solid var(--ink);padding:15px}
-.mlst-plan.is-on .mlst-plan__dot::after{transform:scale(1)}
-.mlst-plan input:focus-visible ~ .mlst-plan__dot{outline:2px solid var(--ink);outline-offset:3px}
-.mlst-plan__name{font-size:17px;font-weight:500;line-height:1.25}
-.mlst-plan__sub{display:block;margin-top:2px;font-size:13.5px;line-height:1.35;color:var(--ink-2)}
-.mlst-plan__price{text-align:right;white-space:nowrap}
-.mlst-plan__now{display:block;font-size:20px;font-weight:500;line-height:1.1}
-.mlst-plan__was{display:block;margin-top:2px;font-size:13.5px;color:var(--ink-3);text-decoration:line-through}
-.mlst-plan__tag{position:absolute;top:-11px;right:14px;padding:3px 9px;background:var(--cyan);color:var(--ink);font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase}
-.mlst-kit{margin-top:20px;padding-top:16px;border-top:1px solid var(--hair)}
-.mlst-cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;margin-top:22px;padding:18px 20px;border:0;background:var(--ink);color:#fff;font:500 16px/1 var(--font);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background .15s}
-.mlst-cta:hover{background:#000}
-.mlst-cta[aria-busy="true"]{cursor:progress;opacity:.85}
-.mlst-cta__spin{display:none;width:14px;height:14px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:mlstSpin .7s linear infinite}
-.mlst-cta[aria-busy="true"] .mlst-cta__spin{display:inline-block}
-@keyframes mlstSpin{to{transform:rotate(360deg)}}
-.mlst-ticks{display:grid;gap:8px;margin-top:16px;padding:0;list-style:none;font-size:14px;line-height:1.35;color:var(--ink)}
-.mlst-ticks li{display:grid;grid-template-columns:16px 1fr;gap:10px}
-.mlst-ticks svg{width:16px;height:16px;margin-top:1px}
-.mlst-guar{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center;margin-top:18px;padding:14px 16px;background:var(--ground)}
-.mlst-guar__badge{display:grid;place-items:center;width:44px;height:44px;border:1.5px solid var(--ink);border-radius:50%;font-family:var(--mono);font-size:12px;font-weight:600;line-height:1}
-.mlst-guar p{font-size:14px;line-height:1.4}
-.mlst-guar b{font-weight:500}
-.mlst-err{margin-top:10px;font-size:14px;color:#b2541a}
-@media (prefers-reduced-motion:reduce){.mlst-cta__spin{animation:none}}
-
 /* Trust: logos and the thin scientific board strip (as in the PDP buy box) */
 .mlst-trust{padding:28px 20px 4px}
 .mlst-trust__lab{text-align:center}
@@ -159,18 +115,6 @@ html:root body .mpb-bad i{text-transform:uppercase!important}
 
 /* Keep a letter in lower case inside an uppercase heading, e.g. the "s" in "35s" */
 html:root body .mlst .mlst-lc{text-transform:none!important}
-
-/* Offer strip above the first buy box, in the PDP's premium language: white card, hairline border, grey mono
-   label with the one turquoise mark, uppercase 500 heading, two figures split by a hairline */
-.mlst-strap{margin:0 0 40px;padding:24px 22px 0;border:1px solid var(--hair);border-radius:8px;background:#fff;color:var(--ink);text-align:center}
-.mlst .mlst-strap__eye{justify-content:center}
-.mlst .mlst-strap__h{margin-top:12px;font-size:26px;font-weight:500;line-height:1.02;letter-spacing:-.02em;text-transform:uppercase;text-wrap:balance}
-.mlst .mlst-strap__row{display:grid;grid-template-columns:1fr 1fr;margin:22px -22px 0;padding:0;list-style:none;border-top:1px solid var(--hair)}
-.mlst-strap__row li{display:grid;gap:6px;padding:16px 12px 18px}
-.mlst-strap__row li + li{border-left:1px solid var(--hair)}
-.mlst-strap__row small{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
-.mlst-strap__row b{font-size:20px;font-weight:500;line-height:1.1;letter-spacing:-.01em}
-@media (min-width:750px){.mlst-strap{padding:32px 32px 0}.mlst .mlst-strap__h{font-size:36px}.mlst .mlst-strap__row{margin:28px -32px 0}.mlst-strap__row li{padding:20px 16px 22px}.mlst-strap__row b{font-size:24px}}
 
 /* Offer & kit (muto-lst-kit): the PDP's premium language. White card, hairline border, grey mono labels, one
    turquoise mark, uppercase 500 heading; gifts as hairline accordion rows; the buy box's black button. */
@@ -263,3 +207,5 @@ html:root body .mlst .mlst-lc{text-transform:none!important}
 .mlst .mlst-kit__list{margin-top:18px}
 @media (min-width:750px){.mlst .mlst-kit__plan{padding:24px 32px 20px}.mlst-kit__price{font-size:40px}.mlst-kit__hero{margin:0 32px}.mlst-kit__terms{margin:20px 32px 0}}
 @media (max-width:749px){.mlst .mlst-kit__ph{margin-top:0}.mlst .mlst-kit__ph b{font-size:17px}.mlst-kit__pin{padding-left:0}}
+.mlst .mlst-kit{padding:0}
+html:root body .mlst .mlst-kit > .mlst-kit__band{margin:0!important}
