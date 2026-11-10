@@ -535,7 +535,7 @@
         "hide_stars": false,
         "heading": "In their words.",
         "link_label": "Read all reviews",
-        "link": "/products/muto-nad-cellular-complex#ReviewsWidget",
+        "link": "#ReviewsWidget",
         "space_top": 96,
         "space_bottom": 96
       }
