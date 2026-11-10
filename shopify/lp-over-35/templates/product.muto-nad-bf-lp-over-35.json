@@ -140,7 +140,7 @@
           "type": "gift",
           "settings": {
             "name": "Ultrapure creatine",
-            "worth": "Worth £30",
+            "worth": "<s>£30</s> Free",
             "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
             "image_alt": "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate",
             "text": "<p>250g of micronised creatine monohydrate: 50 servings. One level scoop a day in water, a smoothie or your coffee, alongside your two capsules.</p>",
@@ -151,7 +151,7 @@
           "type": "gift",
           "settings": {
             "name": "Performance socks",
-            "worth": "Worth £12",
+            "worth": "<s>£12</s> Free",
             "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-socks.jpg?v=1791023071",
             "image_alt": "A pouch of MUTO Performance Socks",
             "text": "<p>One size fits all. For the run, the gym or the school run.</p>",
@@ -162,7 +162,7 @@
           "type": "gift",
           "settings": {
             "name": "Performance bottle",
-            "worth": "Worth £15",
+            "worth": "<s>£15</s> Free",
             "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-bottle.jpg?v=1791022787",
             "image_alt": "The MUTO Performance Bottle in translucent blue",
             "text": "<p>Our translucent blue bottle, for the glass of water your capsules go down with, and everything after.</p>",
@@ -173,7 +173,7 @@
           "type": "gift",
           "settings": {
             "name": "Travel vial",
-            "worth": "Worth £10",
+            "worth": "<s>£10</s> Free",
             "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-travel-vial.jpg?v=1793355262",
             "image_alt": "The MUTO travel vial, a frosted glass tube of capsules with a silver cap",
             "text": "<p>A frosted glass vial for a few days’ capsules, so a trip away doesn’t break the routine.</p>",
@@ -184,7 +184,7 @@
           "type": "gift",
           "settings": {
             "name": "Forever jar to keep",
-            "worth": "Worth £10",
+            "worth": "<s>£10</s> Free",
             "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-forever-jar.jpg?v=1791023224",
             "image_alt": "The MUTO Forever Jar in its presentation box",
             "text": "<p>The glass jar your capsules live in, in its presentation box. Made to keep and refill.</p>",
@@ -195,7 +195,7 @@
           "type": "gift",
           "settings": {
             "name": "12-week guide",
-            "worth": "Worth £10",
+            "worth": "<s>£10</s> Free",
             "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-gift-guide-v2.jpg?v=1791392560",
             "image_alt": "The MUTO 12 Week Protocol Guide",
             "text": "<p>Your first 12 weeks, laid out: what to take, when, and what people tell us they notice along the way.</p>",
@@ -225,18 +225,21 @@
       ],
       "settings": {
         "eyebrow": "Black Friday offer",
-        "heading": "3 months for £99",
-        "sub": "90-day risk-free money-back guarantee",
-        "fig_1_label": "Save",
-        "fig_1": "53%",
-        "fig_2_label": "Welcome kit",
-        "fig_2": "£87, free",
-        "list_label": "Your free welcome kit",
-        "list_note": "Tap to open",
+        "list_label": "+ Free welcome kit",
+        "list_note": "<s>£87</s> Free",
         "cta": "Claim the offer",
         "cta_note": "Adds the 3-month plan. Skip, pause or cancel online, and we remind you 5 days before each payment.",
         "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-lp-kit-hero.jpg?v=1791969959",
-        "image_alt": "The MUTO welcome kit: NAD+ Cellular Complex jar and refill pouches, Ultrapure Creatine, the bottle and the presentation box"
+        "image_alt": "The MUTO welcome kit: NAD+ Cellular Complex jar and refill pouches, Ultrapure Creatine, the bottle and the presentation box",
+        "tab": "Best value",
+        "plan_name": "3-Month Supply",
+        "badge": "Save 53%",
+        "price": "£99",
+        "was": "£210",
+        "price_note": "for 3 months",
+        "bill": "£33 a month · Delivered every 3 months",
+        "per": "£1.10 / serving",
+        "then": "Then £125 for your next 3 months, then £150 every 3 months. Skip, pause or cancel online anytime, and 90 days to feel the difference or every subscription payment back."
       }
     },
     "art2": {
@@ -659,7 +662,7 @@
           "type": "gift",
           "settings": {
             "name": "Ultrapure creatine",
-            "worth": "Worth £30",
+            "worth": "<s>£30</s> Free",
             "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
             "image_alt": "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate",
             "text": "<p>250g of micronised creatine monohydrate: 50 servings. One level scoop a day in water, a smoothie or your coffee, alongside your two capsules.</p>",
@@ -670,7 +673,7 @@
           "type": "gift",
           "settings": {
             "name": "Performance socks",
-            "worth": "Worth £12",
+            "worth": "<s>£12</s> Free",
             "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-socks.jpg?v=1791023071",
             "image_alt": "A pouch of MUTO Performance Socks",
             "text": "<p>One size fits all. For the run, the gym or the school run.</p>",
@@ -681,7 +684,7 @@
           "type": "gift",
           "settings": {
             "name": "Performance bottle",
-            "worth": "Worth £15",
+            "worth": "<s>£15</s> Free",
             "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-bottle.jpg?v=1791022787",
             "image_alt": "The MUTO Performance Bottle in translucent blue",
             "text": "<p>Our translucent blue bottle, for the glass of water your capsules go down with, and everything after.</p>",
@@ -692,7 +695,7 @@
           "type": "gift",
           "settings": {
             "name": "Travel vial",
-            "worth": "Worth £10",
+            "worth": "<s>£10</s> Free",
             "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-travel-vial.jpg?v=1793355262",
             "image_alt": "The MUTO travel vial, a frosted glass tube of capsules with a silver cap",
             "text": "<p>A frosted glass vial for a few days’ capsules, so a trip away doesn’t break the routine.</p>",
@@ -703,7 +706,7 @@
           "type": "gift",
           "settings": {
             "name": "Forever jar to keep",
-            "worth": "Worth £10",
+            "worth": "<s>£10</s> Free",
             "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-forever-jar.jpg?v=1791023224",
             "image_alt": "The MUTO Forever Jar in its presentation box",
             "text": "<p>The glass jar your capsules live in, in its presentation box. Made to keep and refill.</p>",
@@ -714,7 +717,7 @@
           "type": "gift",
           "settings": {
             "name": "12-week guide",
-            "worth": "Worth £10",
+            "worth": "<s>£10</s> Free",
             "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-gift-guide-v2.jpg?v=1791392560",
             "image_alt": "The MUTO 12 Week Protocol Guide",
             "text": "<p>Your first 12 weeks, laid out: what to take, when, and what people tell us they notice along the way.</p>",
@@ -744,18 +747,21 @@
       ],
       "settings": {
         "eyebrow": "Black Friday offer",
-        "heading": "3 months for £99",
-        "sub": "90-day risk-free money-back guarantee",
-        "fig_1_label": "Save",
-        "fig_1": "53%",
-        "fig_2_label": "Welcome kit",
-        "fig_2": "£87, free",
-        "list_label": "Your free welcome kit",
-        "list_note": "Tap to open",
+        "list_label": "+ Free welcome kit",
+        "list_note": "<s>£87</s> Free",
         "cta": "Claim the offer",
         "cta_note": "Adds the 3-month plan. Skip, pause or cancel online, and we remind you 5 days before each payment.",
         "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-lp-kit-hero.jpg?v=1791969959",
-        "image_alt": "The MUTO welcome kit: NAD+ Cellular Complex jar and refill pouches, Ultrapure Creatine, the bottle and the presentation box"
+        "image_alt": "The MUTO welcome kit: NAD+ Cellular Complex jar and refill pouches, Ultrapure Creatine, the bottle and the presentation box",
+        "tab": "Best value",
+        "plan_name": "3-Month Supply",
+        "badge": "Save 53%",
+        "price": "£99",
+        "was": "£210",
+        "price_note": "for 3 months",
+        "bill": "£33 a month · Delivered every 3 months",
+        "per": "£1.10 / serving",
+        "then": "Then £125 for your next 3 months, then £150 every 3 months. Skip, pause or cancel online anytime, and 90 days to feel the difference or every subscription payment back."
       }
     },
     "reviews": {
