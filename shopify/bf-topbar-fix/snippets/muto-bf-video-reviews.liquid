@@ -1,0 +1,63 @@
+{%- comment -%}
+  MUTO — video reviews in the buy box (muto-bf-video-reviews). "Real customers, real reviews": a row of customer
+  videos under the buy box's dropdowns, swipeable, tap to play with sound (one at a time). Rendered by the
+  custom-liquid section straight after the buy box (ag1_plans); a small script moves it into the buy box, under
+  the dropdowns. Videos are the files in Content → Files; to change one, change its line in VIDEOS below
+  (the .mp4 link and poster from the file's details).
+{%- endcomment -%}
+<div class="mc-vr" data-mc-vr hidden>
+  <p class="mc-vr__h"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M4 21c.8-4 4-6 8-6s7.2 2 8 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Real customers, real reviews</p>
+  <ul class="mc-vr__rail" role="list">
+    {%- liquid
+      assign V = 'Kate Bright|ae14f3b1ff0f4ef09ae55be1fd8cfadd|77730008;Lucy Halliday|3dcc774e01284c63ab3f6eaf40bc5fb7|65412981;David Mercado|cd1132a29bdc4f5081bfd9e6b008339b|99212314;Adam Facey|ce62c47010e04dba98d257841b9f6427|96571073' | split: ';'
+    -%}
+    {%- for row in V -%}
+      {%- assign f = row | split: '|' -%}
+      <li class="mc-vr__card">
+        <div class="mc-vr__box">
+          <video playsinline preload="none" poster="https://cdn.shopify.com/s/files/1/0976/2724/2843/files/preview_images/{{ f[1] }}.thumbnail.0000000000.jpg?width=480"
+            src="https://cdn.shopify.com/videos/c/vp/{{ f[1] }}/{{ f[1] }}.HD-720p-4.5Mbps-{{ f[2] }}.mp4" aria-label="Video review from {{ f[0] }}"></video>
+          <button type="button" class="mc-vr__play" aria-label="Play {{ f[0] }}’s video review"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M5 3.5v13l11-6.5z"/></svg></button>
+        </div>
+        <p class="mc-vr__name">{{ f[0] }}</p>
+      </li>
+    {%- endfor -%}
+  </ul>
+</div>
+<style>
+  .mc-vr{margin:18px 0 0;padding-top:16px;border-top:1px solid #242223;font-family:var(--mc-font)}
+  .mc-vr[hidden]{display:none!important}
+  .mc-vr__h{display:flex;align-items:center;gap:12px;margin:0 0 14px;font-size:16px;font-weight:500;line-height:1.2;letter-spacing:.02em;text-transform:uppercase;color:#242223}
+  .mc-vr__rail{display:flex;gap:10px;margin:0;padding:0 0 4px;list-style:none;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .mc-vr__rail::-webkit-scrollbar{display:none}
+  .mc-vr__card{flex:0 0 40%;max-width:190px;margin:0;scroll-snap-align:start}
+  .mc-vr__box{position:relative;aspect-ratio:9/16;border-radius:10px;overflow:hidden;background:#e9e9e7;cursor:pointer}
+  .mc-vr__box video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .mc-vr__play{position:absolute;left:50%;top:50%;z-index:1;display:grid;place-items:center;width:52px;height:52px;padding:0;transform:translate(-50%,-50%);border:0;border-radius:50%;background:rgba(255,255,255,.92);color:#242223;cursor:pointer;transition:opacity .2s}
+  .mc-vr__play svg{width:18px;height:18px;margin-left:3px}
+  .mc-vr__card.is-playing .mc-vr__play{opacity:0;pointer-events:none}
+  .mc-vr__name{margin:8px 0 0;text-align:center;font-size:15px;line-height:1.3;color:#242223}
+  @media (max-width:749px){.mc-vr__card{flex-basis:42%}.mc-vr__h{font-size:15px}}
+</style>
+<script>
+(function () {
+  var vr = document.querySelector('[data-mc-vr]');
+  if (!vr) return;
+  /* Into the buy box, straight under its dropdowns */
+  var acc = document.querySelector('#MainContent [id$="__buy"] .mc__acc');
+  if (acc && acc.parentNode) acc.parentNode.insertBefore(vr, acc.nextSibling);
+  vr.hidden = false;
+  var vids = [].slice.call(vr.querySelectorAll('video'));
+  vids.forEach(function (v) {
+    var card = v.closest('.mc-vr__card');
+    function stop() { v.pause(); card.classList.remove('is-playing'); }
+    card.querySelector('.mc-vr__box').addEventListener('click', function () {
+      if (v.paused) {
+        vids.forEach(function (o) { if (o !== v) { o.pause(); o.closest('.mc-vr__card').classList.remove('is-playing'); } });
+        v.muted = false; v.play(); card.classList.add('is-playing');
+      } else stop();
+    });
+    v.addEventListener('ended', stop);
+  });
+})();
+</script>
