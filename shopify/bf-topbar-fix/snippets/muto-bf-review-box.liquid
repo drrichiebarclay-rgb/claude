@@ -1,0 +1,172 @@
+{%- comment -%}
+  MUTO — rotating reviews in the buy box (muto-bf-review-box). A box in the dropdowns' style, between the buy box's
+  three ticks and its Black Friday line, rotating through 20 real customer reviews from REVIEWS.io (energy,
+  recovery, science, trust): stars, the review word for word (… marks where it is shortened), the reviewer's name as
+  REVIEWS.io shows it, an age or town only where the reviewer gave one. Rotates every 6 seconds; pauses on hover,
+  focus or tap; arrows to step; no auto-rotation for people who ask for reduced motion.
+  Rendered by the custom-liquid section after the buy box (ag1_plans); a script moves it into place.
+  Chosen 11 Nov 2026 from 103 reviews. A block of imported reviews (IDs 51870930–51870956) was left out pending a
+  check that they are genuine; reviews about medical conditions were left out too.
+{%- endcomment -%}
+<div class="mc-rv" data-mc-rv hidden role="region" aria-roledescription="carousel" aria-label="Customer reviews">
+  <div class="mc-rv__stack" aria-live="polite">
+    <figure class="mc-rv__slide" data-i="0">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span><span class="mc-rv__tag">Energy</span></div>
+      <blockquote class="mc-rv__q">“3 mths in and having the best sleep - no afternoon slump and in general feeling great”</blockquote>
+      <figcaption class="mc-rv__who"><b>Lynda, Preston</b><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-i="1" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span><span class="mc-rv__tag">Energy</span></div>
+      <blockquote class="mc-rv__q">“I'm now on month two of MUTO and saw HRV improvements within the first week but now seeing recovery improvements too! Energy levels also seem up and less and less of the afternoon slump each week!”</blockquote>
+      <figcaption class="mc-rv__who"><b>Jack</b><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-i="2" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span><span class="mc-rv__tag">Energy</span></div>
+      <blockquote class="mc-rv__q">“Been using this for 2 months now and can really feel the benefits, my energy throughout the day never drops…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Joshua S.</b><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-i="3" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span><span class="mc-rv__tag">Energy</span></div>
+      <blockquote class="mc-rv__q">“…I have sustained energy, I sleep better, perform better in workouts, and don’t crash anymore.”</blockquote>
+      <figcaption class="mc-rv__who"><b>Danny S.</b><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-i="4" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span><span class="mc-rv__tag">Energy</span></div>
+      <blockquote class="mc-rv__q">“Been using for a month. More energy and clear focus when I start my day.…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Josh R.</b><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-i="5" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span><span class="mc-rv__tag">Energy</span></div>
+      <blockquote class="mc-rv__q">“I've been using for one month now and really feel the difference! Better sleep, better skin, more energy - happy days!”</blockquote>
+      <figcaption class="mc-rv__who"><b>Beth</b><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-i="6" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span><span class="mc-rv__tag">Recovery</span></div>
+      <blockquote class="mc-rv__q">“I started taking Muto for my Boston Marathon training hoping to have better recovery; and it did not disappoint.…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Rebeca, San José</b><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-i="7" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span><span class="mc-rv__tag">Recovery</span></div>
+      <blockquote class="mc-rv__q">“I’ve been taking MUTO every day for just under 2 months now and definitely feel more focused during the day and that my recovery is quicker and better than normal.…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Alexandra, Bearsden</b><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-i="8" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span><span class="mc-rv__tag">Recovery</span></div>
+      <blockquote class="mc-rv__q">“Started using muto because I felt like my body couldn’t keep up with the amount of exercise I wanted to do. After taking muto, I felt more energised and ready for my next session!…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Brendan</b><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-i="9" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span><span class="mc-rv__tag">Recovery</span></div>
+      <blockquote class="mc-rv__q">“…The biggest shift was in my HRV: even after hard sessions, I woke up feeling recovered instead of drained.…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Abraham S.</b><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-i="10" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span><span class="mc-rv__tag">Recovery</span></div>
+      <blockquote class="mc-rv__q">“…Recovery runs, days off etc have always been a part of my routine but I have genuinely regained the confidence in my ability to recover again.…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Adam, 46</b><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-i="11" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span><span class="mc-rv__tag">Science</span></div>
+      <blockquote class="mc-rv__q">“Muto has so much more science behind it than the average supplement brand.…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Lotti</b><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-i="12" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span><span class="mc-rv__tag">Science</span></div>
+      <blockquote class="mc-rv__q">“…the way that they have done their branding along with explaining the science behind longevity is top quality. Dr Richie Barclay knows his stuff.”</blockquote>
+      <figcaption class="mc-rv__who"><b>Catalin-Constantin M.</b><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-i="13" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span><span class="mc-rv__tag">Science</span></div>
+      <blockquote class="mc-rv__q">“…I wanted to slim down my supplements to 1 which met all my needs. I'm a 53year old medic and female, longevity is my goal.…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Sunjit B., 53</b><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-i="14" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span><span class="mc-rv__tag">Science</span></div>
+      <blockquote class="mc-rv__q">“…The product is clearly well thought-out, science-led, and supported by real-world results.”</blockquote>
+      <figcaption class="mc-rv__who"><b>Qasim M.</b><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-i="15" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span><span class="mc-rv__tag">Trust</span></div>
+      <blockquote class="mc-rv__q">“…What i am here to say is that I have NEVER experience such a high level of customer service as with this company.…”</blockquote>
+      <figcaption class="mc-rv__who"><b>T. F.</b><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-i="16" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span><span class="mc-rv__tag">Trust</span></div>
+      <blockquote class="mc-rv__q">“…I am pretty sceptical when trying new products and companies but the Muto team have been outstanding.…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Adam</b><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-i="17" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span><span class="mc-rv__tag">Trust</span></div>
+      <blockquote class="mc-rv__q">“I love that this replaces multiple products. The quality feels high and the results have been real – more vitality and better overall wellbeing.”</blockquote>
+      <figcaption class="mc-rv__who"><b>Amy C.</b><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-i="18" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span><span class="mc-rv__tag">Trust</span></div>
+      <blockquote class="mc-rv__q">“…Richie from the team gave me a call just to chat about my background and goals, which was a really nice personal touch you don’t see much these days.”</blockquote>
+      <figcaption class="mc-rv__who"><b>Mathew H.</b><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-i="19" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span><span class="mc-rv__tag">Trust</span></div>
+      <blockquote class="mc-rv__q">“…I also had a call with Richie where we discussed my health goals and he gave me great advice moving forward.…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Fiona S.</b><span>Verified buyer</span></figcaption>
+    </figure>
+  </div>
+  <div class="mc-rv__nav">
+    <span class="mc-rv__count" aria-hidden="true"><b data-mc-rv-n>1</b> / 20</span>
+    <button type="button" class="mc-rv__btn" data-mc-rv-step="-1" aria-label="Previous review"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3 5 8l5 5" stroke="currentColor" stroke-width="1.6"/></svg></button>
+    <button type="button" class="mc-rv__btn" data-mc-rv-step="1" aria-label="Next review"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m6 3 5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></button>
+  </div>
+</div>
+<style>
+  /* Inside the buy box's subhead, which sets its own text to size 0: everything here sets its own size */
+  html body #MainContent .mc .mc-rv{display:block;margin:18px 0 6px;padding:16px 18px 12px;border:1px solid #242223;border-radius:10px;background:#fff;font-family:var(--mc-font);font-size:15px;line-height:1.45;letter-spacing:0;text-transform:none;color:#242223;text-align:left;white-space:normal}
+  .mc-rv[hidden]{display:none!important}
+  .mc-rv__stack{display:grid}
+  .mc-rv__slide{grid-area:1/1;margin:0;opacity:0;visibility:hidden;transition:opacity .45s ease,visibility 0s linear .45s}
+  .mc-rv__slide.is-on{opacity:1;visibility:visible;transition:opacity .45s ease}
+  .mc-rv__top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .mc-rv__stars{font-size:15px;letter-spacing:2px;color:#242223}
+  .mc-rv__tag{font-family:var(--mc-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(36,34,35,.62)}
+  html body #MainContent .mc .mc-rv__q{margin:10px 0 0;padding:0;border:0;font-size:15.5px;font-weight:500;line-height:1.42;letter-spacing:-.005em;font-style:normal;quotes:none}
+  .mc-rv__q::before,.mc-rv__q::after{content:none!important}
+  .mc-rv__who{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin-top:10px;font-size:13.5px}
+  .mc-rv__who b{font-weight:500}
+  .mc-rv__who span{font-family:var(--mc-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(36,34,35,.62)}
+  .mc-rv__nav{display:flex;align-items:center;gap:6px;margin-top:10px;padding-top:10px;border-top:1px solid rgba(36,34,35,.12)}
+  .mc-rv__count{margin-right:auto;font-family:var(--mc-mono);font-size:11px;letter-spacing:.1em;color:rgba(36,34,35,.62)}
+  .mc-rv__count b{font-weight:500;color:#242223}
+  html body #MainContent .mc .mc-rv__btn{display:grid;place-items:center;width:32px;height:32px;min-height:0;padding:0;border:1px solid rgba(36,34,35,.25);border-radius:50%;background:#fff;color:#242223;cursor:pointer}
+  .mc-rv__btn:hover{border-color:#242223}
+  .mc-rv__btn svg{width:14px;height:14px}
+  @media (prefers-reduced-motion:reduce){.mc-rv__slide,.mc-rv__slide.is-on{transition:none}}
+</style>
+<script>
+(function () {
+  var box = document.querySelector('[data-mc-rv]');
+  if (!box) return;
+  /* Between the buy box's ticks and its Black Friday line (both drawn by the subhead's CSS) */
+  var sub = document.querySelector('#MainContent [id$="__buy"] .mc-subhead');
+  if (!sub) return;
+  sub.appendChild(box);
+  box.hidden = false;
+  var slides = [].slice.call(box.querySelectorAll('.mc-rv__slide')), n = box.querySelector('[data-mc-rv-n]');
+  var i = 0, timer = null, held = false;
+  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function show(k) {
+    i = (k + slides.length) % slides.length;
+    slides.forEach(function (s, j) { var on = j === i; s.classList.toggle('is-on', on); if (on) s.removeAttribute('aria-hidden'); else s.setAttribute('aria-hidden', 'true'); });
+    if (n) n.textContent = i + 1;
+  }
+  function start() { stop(); if (!still && !held) timer = setInterval(function () { show(i + 1); }, 6000); }
+  function stop() { if (timer) clearInterval(timer); timer = null; }
+  box.addEventListener('mouseenter', function () { held = true; stop(); });
+  box.addEventListener('mouseleave', function () { held = false; start(); });
+  box.addEventListener('focusin', function () { held = true; stop(); });
+  box.addEventListener('focusout', function () { held = false; start(); });
+  box.addEventListener('touchstart', function () { held = true; stop(); setTimeout(function () { held = false; start(); }, 8000); }, { passive: true });
+  [].forEach.call(box.querySelectorAll('[data-mc-rv-step]'), function (b) {
+    b.addEventListener('click', function () { show(i + parseInt(b.getAttribute('data-mc-rv-step'), 10)); });
+  });
+  show(0); start();
+})();
+</script>
