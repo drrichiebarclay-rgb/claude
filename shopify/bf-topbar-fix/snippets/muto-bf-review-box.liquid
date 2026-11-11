@@ -122,14 +122,14 @@
   html body #MainContent .mc .mc-rv{display:block;margin:18px 0 6px;padding:16px 18px 12px;border:1px solid #242223;border-radius:10px;background:#fff;font-family:var(--mc-font);font-size:15px;line-height:1.45;letter-spacing:0;text-transform:none;color:#242223;text-align:left;white-space:normal}
   .mc-rv[hidden]{display:none!important}
   .mc-rv__stack{display:grid}
-  .mc-rv__slide{grid-area:1/1;margin:0;opacity:0;visibility:hidden;transition:opacity .45s ease,visibility 0s linear .45s}
+  .mc-rv__slide{grid-area:1/1;display:flex;flex-direction:column;margin:0;opacity:0;visibility:hidden;transition:opacity .45s ease,visibility 0s linear .45s}
   .mc-rv__slide.is-on{opacity:1;visibility:visible;transition:opacity .45s ease}
   .mc-rv__top{display:flex;align-items:center;justify-content:space-between;gap:12px}
   .mc-rv__stars{font-size:15px;letter-spacing:2px;color:#242223}
   .mc-rv__tag{font-family:var(--mc-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(36,34,35,.62)}
   html body #MainContent .mc .mc-rv__q{margin:10px 0 0;padding:0;border:0;font-size:15.5px;font-weight:500;line-height:1.42;letter-spacing:-.005em;font-style:normal;quotes:none}
   .mc-rv__q::before,.mc-rv__q::after{content:none!important}
-  .mc-rv__who{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin-top:10px;font-size:13.5px}
+  html body #MainContent .mc .mc-rv__who{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin:auto 0 0!important;padding:12px 0 0!important;font-size:13.5px}
   .mc-rv__who b{font-weight:500}
   .mc-rv__who span{font-family:var(--mc-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(36,34,35,.62)}
   .mc-rv__nav{display:flex;align-items:center;gap:6px;margin-top:10px;padding-top:10px;border-top:1px solid rgba(36,34,35,.12)}
@@ -142,12 +142,14 @@
 </style>
 <script>
 (function () {
+  function init() {
   var box = document.querySelector('[data-mc-rv]');
-  if (!box) return;
+  if (!box || box.getAttribute('data-ready')) return;
   /* Between the buy box's ticks and its Black Friday line (both drawn by the subhead's CSS) */
   var sub = document.querySelector('#MainContent [id$="__buy"] .mc-subhead');
   if (!sub) return;
   sub.appendChild(box);
+  box.setAttribute('data-ready', '1');
   box.hidden = false;
   var slides = [].slice.call(box.querySelectorAll('.mc-rv__slide')), n = box.querySelector('[data-mc-rv-n]');
   var i = 0, timer = null, held = false;
@@ -168,5 +170,9 @@
     b.addEventListener('click', function () { show(i + parseInt(b.getAttribute('data-mc-rv-step'), 10)); });
   });
   show(0); start();
+  }
+  /* Straight away, and again once the page is parsed in case the buy box wasn't ready yet; it only sets up once */
+  init();
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else setTimeout(init, 0);
 })();
 </script>
