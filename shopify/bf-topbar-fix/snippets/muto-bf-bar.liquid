@@ -43,8 +43,9 @@
 </a>
 <script>
 /* Claim: inline, straight after the bar, so it works from the first tap (it used to wait for a deferred
-   file). One request at tap time: the cart is checked in the background as the page loads, and the add
-   returns the side cart's new contents in the same response. The bar changes the moment it's tapped. */
+   file). The bar changes the moment it's tapped. At tap time the cart is read fresh (never a copy from page
+   load: someone may have removed the plan in the side cart since), then the add returns the side cart's new
+   contents in the same response. */
 (function () {
   var bar = document.getElementById('mc-bfx');
   if (!bar || bar.getAttribute('data-ready')) return;
@@ -52,16 +53,15 @@
   var vid = bar.getAttribute('data-variant'), plan = bar.getAttribute('data-plan');
   var planId = plan ? parseInt(plan, 10) : null;
   var root = (window.Shopify && Shopify.routes && Shopify.routes.root) || '/';
-  var busy = false, cartP = null;
+  var busy = false;
 
+  /* The cart as it is now. Always a fresh read: a copy taken at page load goes stale as soon as the shopper
+     changes the side cart, and then a tap after removing the plan would add nothing. */
   function getCart() {
-    if (!cartP) cartP = fetch(root + 'cart.js', { credentials: 'same-origin' })
+    return fetch(root + 'cart.js', { credentials: 'same-origin', cache: 'no-store' })
       .then(function (r) { return r.ok ? r.json() : { items: [] }; })
       .catch(function () { return { items: [] }; });
-    return cartP;
   }
-  /* Warm the "already in the cart?" check before anyone taps */
-  if (vid && window.fetch) (window.requestIdleCallback || function (f) { setTimeout(f, 1500); })(function () { getCart(); });
 
   function go(url) { window.location.href = url; }
   function idle() { busy = false; bar.classList.remove('is-busy'); bar.removeAttribute('aria-busy'); }
@@ -140,7 +140,6 @@
         .then(function (r) { return r.ok ? r.json() : null; })
         .then(function (res) {
           clearTimeout(safety);
-          cartP = null; /* the cart changed */
           if (!res) return go(bar.getAttribute('href'));
           openDrawer(res.sections, res);
         });
