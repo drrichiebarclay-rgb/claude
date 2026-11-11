@@ -15,6 +15,13 @@
 {%- elsif template.name == 'index' -%}
   {%- comment -%} Home page: its Black Friday bar adds the 3-month plan and opens the side cart {%- endcomment -%}
   {%- render 'muto-bf-home-claim' -%}
+{%- elsif template.name != 'password' and template.name != 'gift_card' -%}
+  {%- comment -%} Every other page: the same bar, for NAD+ Cellular Complex (Claim adds its 3-month plan) {%- endcomment -%}
+  {%- assign bf_nad = all_products['muto-nad-cellular-complex'] -%}
+  {%- if bf_nad != blank -%}
+    {{ 'muto-bf-bar.css' | asset_url | stylesheet_tag }}
+    {%- render 'muto-bf-bar', product: bf_nad -%}
+  {%- endif -%}
 {%- endif -%}
 
 {% schema %}
