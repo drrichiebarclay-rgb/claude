@@ -12,6 +12,9 @@
   {{ 'muto-bf-bar.css' | asset_url | stylesheet_tag }}
   {%- render 'muto-bf-bar', product: product -%}
   {%- render 'muto-bf-kit-box' -%}
+{%- elsif template.name == 'index' -%}
+  {%- comment -%} Home page: its Black Friday bar adds the 3-month plan and opens the side cart {%- endcomment -%}
+  {%- render 'muto-bf-home-claim' -%}
 {%- endif -%}
 
 {% schema %}
