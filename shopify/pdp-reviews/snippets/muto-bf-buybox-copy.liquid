@@ -9,6 +9,8 @@
   "For over-35s" sits above the headline.
   The first product photo's printed offer text is covered by a patch with the new offer wording (see .mc-heroflag).
   On phones the headline is sized to fit two lines and the guarantee badge is the short version.
+  "View nutrition label" sits under the testing link and opens the label (Files: muto-nad-nutrition-label-phone.png
+  on phones, muto-nad-nutrition-label-desktop.png otherwise).
   2. "Skip, pause or cancel online · cancel in 2 clicks", directly under the plan cards (above Add to cart).
      The same line was taken out of the "Delivery, subscription and guarantee" dropdown.
   Rendered by the custom-liquid section after the buy box (ag1_plans); a small script puts each piece in place.
@@ -22,6 +24,16 @@
   <span class="mc-heroflag__line">+ Free welcome kit worth £87</span>
   <span class="mc-heroflag__line">90-day money-back guarantee</span>
 </div>
+<button type="button" class="mc-label-btn" data-mc-label-btn hidden aria-haspopup="dialog">View nutrition label</button>
+<dialog class="mc-label" data-mc-label aria-label="Nutrition label">
+  <button type="button" class="mc-label__x" data-mc-label-close aria-label="Close nutrition label"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  <div class="mc-label__scroll">
+    <picture>
+      <source media="(max-width: 749px)" srcset="https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-nad-nutrition-label-phone.png?v=1794506117" width="1080" height="1920">
+      <img src="https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-nad-nutrition-label-desktop.png?v=1794505972" alt="NAD+ Cellular Complex nutrition label: amounts and %NRV per two-capsule serving, ingredients and cautions" width="1290" height="968" loading="lazy">
+    </picture>
+  </div>
+</dialog>
 <p class="mc-skip" data-mc-skip hidden>Skip, pause or cancel online <span aria-hidden="true">·</span> cancel in 2 clicks</p>
 <style>
   /* The theme's "Five supplements in one daily jar…" line under the guarantee badge: hidden (the line under the headline says it) */
@@ -67,6 +79,25 @@
   html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-tests-btn{display:flex!important;justify-content:center!important;align-items:center!important;gap:6px!important;width:auto!important;min-height:0!important;margin:10px auto 0!important;padding:4px 0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;font-size:14.5px!important;font-weight:500!important;text-decoration:underline!important;text-underline-offset:3px!important;text-decoration-thickness:1px!important;color:#242223!important}
   html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-tests-btn .mc-tests-btn__tick{display:none!important}
   html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-tests-btn::before{content:""!important;display:block!important;flex:0 0 17px;width:17px;height:17px;margin:0!important;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23242223' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='10' cy='10' r='8.6'/%3E%3Cpath d='M6.3 10.3l2.5 2.5 4.9-5.3'/%3E%3C/svg%3E") center/contain no-repeat!important;border:0!important}
+  /* "View nutrition label": same underlined style as the testing link, straight under it; opens the label in a pop-up
+     (phone image on phones, desktop image on larger screens; never full screen; clear close button) */
+  .mc-label-btn[hidden]{display:none!important}
+  html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-label-btn{display:flex!important;justify-content:center;align-items:center;gap:6px;width:auto;min-height:0;margin:6px auto 0!important;padding:4px 0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;font-family:var(--mc-font);font-size:14.5px!important;font-weight:500!important;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;color:#242223!important;cursor:pointer}
+  html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-label-btn::before{content:"";display:block;flex:0 0 17px;width:17px;height:17px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23242223' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='2.5' width='12' height='15' rx='2'/%3E%3Cpath d='M7 7h6M7 10h6M7 13h4'/%3E%3C/svg%3E") center/contain no-repeat}
+  .mc-label{position:fixed;inset:0;width:min(1040px,calc(100vw - 48px));max-width:none;height:fit-content;max-height:calc(100vh - 48px);margin:auto;padding:0;border:1px solid #242223;border-radius:10px;background:#fff;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.25)}
+  .mc-label:not([open]){display:none}
+  .mc-label::backdrop{background:rgba(36,34,35,.6)}
+  .mc-label__scroll{max-height:calc(100vh - 50px);overflow:auto;line-height:0;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+  .mc-label__scroll img{display:block;width:100%;height:auto}
+  .mc-label__x{position:absolute;top:10px;right:10px;z-index:2;display:grid;place-items:center;width:42px;height:42px;min-height:0;padding:0;border:0;border-radius:50%;background:#242223;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.25);cursor:pointer}
+  .mc-label__x svg{width:18px;height:18px}
+  .mc-label__x:focus-visible{outline:2px solid #5efaff;outline-offset:2px}
+  @media (max-width:749px){
+    .mc-label{width:calc(100vw - 28px);max-height:86vh;border-radius:12px}
+    .mc-label__scroll{max-height:86vh}
+    .mc-label__x{top:8px;right:8px;width:40px;height:40px}
+  }
+  html.mc-label-open{overflow:hidden}
   /* Removed on request: the one-time purchase link and the "Formulated with leading doctors and scientists" card */
   html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__onetime,
   html:root body #MainContent#MainContent [id$="__buy"] .mc .mpb-doc{display:none!important}
@@ -137,6 +168,25 @@
       if (tb.nextElementSibling !== bad) bad.parentNode.insertBefore(tb, bad);
       tb.setAttribute('data-placed', '1');
     }
+    /* "View nutrition label" straight under the placed testing link; the pop-up lives at the end of the page */
+    var lb = document.querySelector('[data-mc-label-btn]'), dlg = document.querySelector('[data-mc-label]'), placedTb = buy.querySelector('.mc-tests-btn[data-placed]');
+    if (lb && dlg && placedTb && !lb.getAttribute('data-ready')) {
+      placedTb.parentNode.insertBefore(lb, placedTb.nextSibling);
+      lb.setAttribute('data-ready', '1'); lb.hidden = false;
+      /* The theme's layout script re-inserts the testing link later; keep this link straight after it */
+      var keep = function () { var t = buy.querySelector('.mc-tests-btn[data-placed]'); if (t && t.nextElementSibling !== lb) t.parentNode.insertBefore(lb, t.nextSibling); };
+      if (window.MutationObserver) new MutationObserver(keep).observe(placedTb.parentNode, { childList: true });
+      document.addEventListener('DOMContentLoaded', function () { setTimeout(keep, 0); });
+      var shut = function () { if (dlg.open && dlg.close) dlg.close(); else dlg.removeAttribute('open'); document.documentElement.classList.remove('mc-label-open'); };
+      lb.addEventListener('click', function () {
+        if (dlg.parentNode !== document.body && document.body) document.body.appendChild(dlg);
+        if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
+        document.documentElement.classList.add('mc-label-open');
+      });
+      dlg.querySelector('[data-mc-label-close]').addEventListener('click', shut);
+      dlg.addEventListener('click', function (e) { if (e.target === dlg) shut(); });
+      dlg.addEventListener('close', function () { document.documentElement.classList.remove('mc-label-open'); });
+    }
     var skip = document.querySelector('[data-mc-skip]'), plans = buy.querySelector('.mc__plans');
     if (skip && plans && !skip.getAttribute('data-ready')) {
       plans.parentNode.insertBefore(skip, plans.nextSibling);
@@ -145,7 +195,7 @@
   }
   (window.mcWhen || function (f) { f(); document.addEventListener('DOMContentLoaded', f); })(function () {
     init();
-    return !!document.querySelector('[data-mc-sub][data-ready]') && !!document.querySelector('[data-mc-for][data-ready]') && !!document.querySelector('[data-mc-skip][data-ready]') && !!document.querySelector('#MainContent [id$="__buy"] .mc-tests-btn[data-placed]');
+    return !!document.querySelector('[data-mc-sub][data-ready]') && !!document.querySelector('[data-mc-for][data-ready]') && !!document.querySelector('[data-mc-skip][data-ready]') && !!document.querySelector('#MainContent [id$="__buy"] .mc-tests-btn[data-placed]') && !!document.querySelector('[data-mc-label-btn][data-ready]');
   });
 })();
 </script>
