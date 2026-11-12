@@ -1,0 +1,144 @@
+{%- comment -%}
+  MUTO — Loved by our community. A centred star line, then a row of cards that slides: customer videos
+  (tap to play with sound) between quote cards (five stars, the quote, the name, "Verified buyer"), arrows
+  either side and a "Read all reviews" button. BLOCKS: video (video, handle) and quote (quote, name).
+  MOBILE: swipe, no arrows.
+{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign sid = section.id
+-%}
+<style>
+  #shopify-section-{{ sid }}{--mlv-ink:#242223;--mlv-muted:#6b6a6a;--mlv-card:#f3f3f1;--mlv-mono:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace}
+  #shopify-section-{{ sid }} .mlv,#shopify-section-{{ sid }} .mlv p,#shopify-section-{{ sid }} .mlv blockquote,#shopify-section-{{ sid }} .mlv a,#shopify-section-{{ sid }} .mlv h2{font-family:var(--mc-font,"Neue Haas Grotesk Display Pro"),sans-serif;-webkit-font-smoothing:antialiased}
+  #shopify-section-{{ sid }} .mlv{background:#fff;color:var(--mlv-ink);padding:{{ s.space_top }}px 0 {{ s.space_bottom }}px}
+  #shopify-section-{{ sid }} .mlv__head{display:grid;justify-items:center;gap:20px;padding:0 20px;text-align:center}
+  #shopify-section-{{ sid }} .mlv__rate{display:flex;align-items:center;gap:12px;margin:0;font-family:var(--mlv-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mlv-muted)}
+  #shopify-section-{{ sid }} .mlv__rate .mlv__stars{color:var(--mlv-ink);letter-spacing:3px;font-size:15px}
+  #shopify-section-{{ sid }} .mlv__stars{letter-spacing:3px;font-size:17px}
+  #shopify-section-{{ sid }} .mlv .mlv__h{margin:0;max-width:22ch;font-weight:500;font-size:clamp(34px,4.444vw,64px);line-height:.906;letter-spacing:-.014em;text-transform:uppercase;color:var(--mlv-ink);text-wrap:balance}
+  #shopify-section-{{ sid }} .mlv__wrap{position:relative;margin-top:40px}
+  #shopify-section-{{ sid }} .mlv__rail{display:flex;gap:24px;margin:0;padding:0 24px 4px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 24px;scrollbar-width:none;list-style:none}
+  #shopify-section-{{ sid }} .mlv__rail::-webkit-scrollbar{display:none}
+  #shopify-section-{{ sid }} .mlv__card{flex:0 0 clamp(280px,22vw,340px);display:flex;flex-direction:column;gap:14px;margin:0;scroll-snap-align:start}
+  #shopify-section-{{ sid }} .mlv__card--q{flex-basis:clamp(300px,24vw,400px);display:flex;flex-direction:column}
+  #shopify-section-{{ sid }} .mlv__box{position:relative;flex:1 0 auto;aspect-ratio:2/3;border-radius:10px;overflow:hidden;background:var(--mlv-card)}
+  #shopify-section-{{ sid }} .mlv__card--q .mlv__box{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:36px 28px;aspect-ratio:auto;text-align:center}
+  #shopify-section-{{ sid }} .mlv__box video,#shopify-section-{{ sid }} .mlv__box img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  #shopify-section-{{ sid }} .mlv__play{position:absolute;left:50%;top:50%;z-index:2;display:grid;place-items:center;width:64px;height:64px;transform:translate(-50%,-50%);border:0;border-radius:50%;background:rgba(255,255,255,.88);color:var(--mlv-ink);cursor:pointer;transition:opacity .2s}
+  #shopify-section-{{ sid }} .mlv__play svg{width:20px;height:20px;margin-left:3px}
+  #shopify-section-{{ sid }} .mlv__card.is-playing .mlv__play{opacity:0}
+  #shopify-section-{{ sid }} .mlv__handle{margin:0;text-align:center;font-size:15px;color:var(--mlv-muted)}
+  #shopify-section-{{ sid }} .mlv .mlv__q{margin:0;padding:0;border:0;font-style:normal;font-weight:500;font-size:clamp(24px,2.1vw,32px);line-height:1.15;letter-spacing:-.015em;color:var(--mlv-ink);text-wrap:balance}
+  #shopify-section-{{ sid }} .mlv .mlv__q::before,#shopify-section-{{ sid }} .mlv .mlv__q::after{display:none}
+  #shopify-section-{{ sid }} .mlv__who{margin:0;font-family:var(--mlv-mono);font-size:12px;line-height:1.7;letter-spacing:.12em;text-transform:uppercase;color:var(--mlv-ink)}
+  #shopify-section-{{ sid }} .mlv__who span{display:block;color:var(--mlv-muted)}
+  #shopify-section-{{ sid }} .mlv__arrow{position:absolute;top:calc(50% - 40px);z-index:3;display:grid;place-items:center;width:52px;height:52px;border:1px solid rgba(36,34,35,.14);border-radius:8px;background:#fff;color:var(--mlv-ink);font-size:20px;cursor:pointer;box-shadow:0 4px 18px rgba(0,0,0,.08)}
+  #shopify-section-{{ sid }} .mlv__arrow--prev{left:24px}
+  #shopify-section-{{ sid }} .mlv__arrow--next{right:24px}
+  #shopify-section-{{ sid }} .mlv__foot{display:flex;justify-content:center;margin-top:40px;padding:0 20px}
+  #shopify-section-{{ sid }} .mlv__all{display:inline-flex;align-items:center;justify-content:center;min-width:280px;padding:18px 28px;border:1px solid var(--mlv-ink);border-radius:6px;font-size:16px;font-weight:500;line-height:1;color:var(--mlv-ink);text-decoration:none;transition:background .2s,color .2s}
+  #shopify-section-{{ sid }} .mlv__all:hover{background:var(--mlv-ink);color:#fff}
+  @media (max-width:749px){
+    #shopify-section-{{ sid }} .mlv{padding:{{ s.space_top | times: 0.66 | round }}px 0 {{ s.space_bottom | times: 0.66 | round }}px}
+    #shopify-section-{{ sid }} .mlv__head{gap:16px}
+    #shopify-section-{{ sid }} .mlv__wrap{margin-top:28px}
+    #shopify-section-{{ sid }} .mlv__rail{gap:12px;padding:0 16px 4px;scroll-padding:0 16px}
+    #shopify-section-{{ sid }} .mlv__card{flex-basis:68%}
+    #shopify-section-{{ sid }} .mlv__card--q{flex-basis:78%}
+    #shopify-section-{{ sid }} .mlv__arrow{display:none}
+    #shopify-section-{{ sid }} .mlv .mlv__q{font-size:24px}
+    #shopify-section-{{ sid }} .mlv__foot{margin-top:28px}
+    #shopify-section-{{ sid }} .mlv__all{width:100%;min-width:0}
+  }
+</style>
+
+<div class="mlv"{% if s.anchor != blank %} id="{{ s.anchor }}"{% endif %} data-mlv>
+  <div class="mlv__head">
+    {%- if s.rating != blank -%}<p class="mlv__rate">{% unless s.hide_stars %}<span class="mlv__stars" aria-hidden="true">★★★★★</span>{% endunless %}{{ s.rating }}</p>{%- endif -%}
+    <h2 class="mlv__h">{{ s.heading }}</h2>
+  </div>
+  <div class="mlv__wrap">
+    <ul class="mlv__rail" data-mlv-rail>
+      {%- for b in section.blocks -%}
+        {%- assign bs = b.settings -%}
+        {%- if b.type == 'video' -%}
+          <li class="mlv__card" {{ b.shopify_attributes }}>
+            <div class="mlv__box">
+              {%- if bs.video != blank -%}
+                {{ bs.video | video_tag: muted: true, loop: true, playsinline: true, controls: false, preload: 'none', image_size: '600x' }}
+              {%- elsif bs.image_url != blank -%}
+                <img src="{{ bs.image_url }}{% if bs.image_url contains '?' %}&{% else %}?{% endif %}width=700" srcset="{{ bs.image_url }}{% if bs.image_url contains '?' %}&{% else %}?{% endif %}width=400 400w, {{ bs.image_url }}{% if bs.image_url contains '?' %}&{% else %}?{% endif %}width=700 700w" sizes="(min-width: 990px) 22vw, 68vw" alt="" loading="lazy" width="600" height="900">
+              {%- endif -%}
+              {%- if bs.video != blank -%}<button type="button" class="mlv__play" aria-label="Play video"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M5 3.5v13l11-6.5z"/></svg></button>{%- endif -%}
+            </div>
+            {%- if bs.handle != blank -%}<p class="mlv__handle">{{ bs.handle }}</p>{%- endif -%}
+          </li>
+        {%- else -%}
+          <li class="mlv__card mlv__card--q" {{ b.shopify_attributes }}>
+            <div class="mlv__box">
+              <span class="mlv__stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <blockquote class="mlv__q">“{{ bs.quote }}”</blockquote>
+              <p class="mlv__who">{{ bs.name }}<span>Verified buyer</span></p>
+            </div>
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+    <button type="button" class="mlv__arrow mlv__arrow--prev" aria-label="Previous" data-mlv-dir="-1">←</button>
+    <button type="button" class="mlv__arrow mlv__arrow--next" aria-label="Next" data-mlv-dir="1">→</button>
+  </div>
+  {%- if s.link_label != blank -%}<div class="mlv__foot"><a class="mlv__all" href="{{ s.link }}">{{ s.link_label }}</a></div>{%- endif -%}
+</div>
+<script>
+  (function () {
+    var root = document.querySelector('#shopify-section-{{ sid }} [data-mlv]');
+    if (!root) return;
+    var rail = root.querySelector('[data-mlv-rail]');
+    root.querySelectorAll('[data-mlv-dir]').forEach(function (b) {
+      b.addEventListener('click', function () { rail.scrollBy({ left: +b.getAttribute('data-mlv-dir') * rail.clientWidth * .7, behavior: 'smooth' }); });
+    });
+    /* Tap a video to play it with sound; only one plays at a time */
+    var vids = [].slice.call(root.querySelectorAll('video'));
+    vids.forEach(function (v) {
+      var card = v.closest('.mlv__card');
+      function toggle() {
+        if (v.paused) {
+          vids.forEach(function (o) { if (o !== v) { o.pause(); o.closest('.mlv__card').classList.remove('is-playing'); } });
+          v.muted = false; v.play(); card.classList.add('is-playing');
+        } else { v.pause(); card.classList.remove('is-playing'); }
+      }
+      card.querySelector('.mlv__box').addEventListener('click', toggle);
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "MUTO — Loved by community",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "Anchor", "default": "reviews" },
+    { "type": "text", "id": "rating", "label": "Rating line", "default": "4.8 from 103 reviews" },
+    { "type": "checkbox", "id": "hide_stars", "label": "Hide the stars on the rating line", "default": false },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Loved by our community." },
+    { "type": "text", "id": "link_label", "label": "Button", "default": "Read all reviews" },
+    { "type": "url", "id": "link", "label": "Button link" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 96 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 96 }
+  ],
+  "blocks": [
+    { "type": "video", "name": "Video", "settings": [
+      { "type": "video", "id": "video", "label": "Video" },
+      { "type": "text", "id": "image_url", "label": "Still image URL (if no video)" },
+      { "type": "text", "id": "handle", "label": "Name or handle under it" }
+    ] },
+    { "type": "quote", "name": "Quote", "settings": [
+      { "type": "textarea", "id": "quote", "label": "Quote" },
+      { "type": "text", "id": "name", "label": "Name" }
+    ] }
+  ],
+  "presets": [{ "name": "MUTO — Loved by community" }],
+  "enabled_on": { "templates": ["index", "page", "product"] }
+}
+{% endschema %}

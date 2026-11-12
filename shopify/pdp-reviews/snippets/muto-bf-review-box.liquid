@@ -1,0 +1,289 @@
+{%- comment -%}
+  MUTO — reviews in the buy box (muto-bf-review-box). A box in the dropdowns' style, between the buy box's three
+  ticks and its Black Friday line: filters (All, Energy, Recovery, Sleep, Busy life, Wearable user), then real
+  customer reviews from REVIEWS.io rotating every 6 seconds (pauses on hover, focus or tap; arrows to step; no
+  auto-rotation for people who ask for reduced motion).
+  Each review: stars, the review word for word (… marks a cut), the name as REVIEWS.io shows it, the age only
+  where the reviewer wrote it, a life stage only from the reviewer's own words, and "Verified buyer" only where
+  REVIEWS.io marks them verified. The first three are the reviewers closest to the 35–55 buyer (46, 53, 36).
+  Built 12 Nov 2026 by shopify/pdp-reviews/build_box.py, which checks every quote against REVIEWS.io; change the
+  list there and rebuild. Left out: reviews IDs 51870930–51870962 (pending a check that they are genuine),
+  reviews about medical conditions, and repeat postings of the same review.
+  Rendered by the custom-liquid section after the buy box (ag1_plans); a script moves it into place.
+{%- endcomment -%}
+<div class="mc-rv" data-mc-rv hidden role="region" aria-roledescription="carousel" aria-label="Customer reviews">
+  <div class="mc-rv__chips" role="group" aria-label="Show reviews about">
+    <button type="button" class="mc-rv__chip" data-f="All" aria-pressed="true">All</button>
+    <button type="button" class="mc-rv__chip" data-f="Energy" aria-pressed="false">Energy</button>
+    <button type="button" class="mc-rv__chip" data-f="Recovery" aria-pressed="false">Recovery</button>
+    <button type="button" class="mc-rv__chip" data-f="Sleep" aria-pressed="false">Sleep</button>
+    <button type="button" class="mc-rv__chip" data-f="Busy life" aria-pressed="false">Busy life</button>
+    <button type="button" class="mc-rv__chip" data-f="Wearable user" aria-pressed="false">Wearable user</button>
+  </div>
+  <div class="mc-rv__stack" aria-live="polite">
+    <figure class="mc-rv__slide" data-tags="|Recovery|Sleep|Wearable user|" data-rid="51870896">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“…my sleep is hitting good to excellent consistently and recovery from work outs hasn&#x27;t been over 24 hours since I started MUTO.…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Adam, 46</b><i>Trains 4–5 times a week, races Hyrox</i><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="|Recovery|Busy life|" data-rid="51870911" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“…I wanted to slim down my supplements to 1 which met all my needs.…I feel very strong in the gym when lifting weights.…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Sunjit B., 53</b><i>Medic, strength trains 3 times a week</i><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="|Energy|Busy life|" data-rid="51870901" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“I&#x27;m 36, and I feel as resilient as my 20s.…I&#x27;m feeling way sharper at work and I have constant energy throughout the day, no crashes, nothing.…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Kevin, 36</b><i>Working, already nails the basics</i><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="|Energy|Busy life|" data-rid="51870912" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“…My energy levels are better, my HRV has improved and I feel more relaxed in the mornings (which is a rare thing to say as a busy mum of 3!)…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Fiona S.</b><i>Busy mum of 3</i><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="|Energy|" data-rid="51870866" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“Being in my mid 30s, everything has started to slow down. Muto is providing me with a sense of vitality which I haven’t experienced since my mid 20s…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Jonathon R., Mid 30s</b><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="|Energy|" data-rid="51870885" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“My 24 year old son recommended I try this. I have been using for almost a month and can honestly say I have felt such a difference…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Michelle F.</b><i>Mum of a 24-year-old son</i><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="|Recovery|Energy|Wearable user|" data-rid="51870882" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“…In the first 4 weeks: My HRV went up by 32%, my resting heart rate dropped by 7% and my average recovery score improved by 26%…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Mathew H.</b><i>Whoop user</i><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="|Energy|Busy life|" data-rid="51870874" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“…I feel like I have more energy and a clearer mind.…It’s helping massively towards achieving work and fitness goals.”</blockquote>
+      <figcaption class="mc-rv__who"><b>Sam</b><i>Working on work and fitness goals</i><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="|Energy|Wearable user|" data-rid="51870876" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“Tracking through my Oura ring for the past two weeks HRV was up significantly after two days. Energy is up and staying consistent.…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Jack</b><i>Oura ring user</i><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="|Recovery|Sleep|Wearable user|" data-rid="51870868" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“I track the effectiveness of my supplements using my Oura ring, and all my key biometrics are improving: recovery, sleep, HRV and RHR…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Hugh K.</b><i>Oura ring user</i><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="|Energy|Sleep|Wearable user|" data-rid="51870884" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“Since starting taking Muto my energy levels and my sleep has improved drastically (even within the first month)…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Matteo M.</b><i>Garmin user</i><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="|Energy|Wearable user|" data-rid="51870864" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“Within a few days I had more energy, felt more focussed and my Whoop HRV rose from 80 to 120.…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Emma F.</b><i>Whoop user</i><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="|Energy|Wearable user|" data-rid="51870918" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“…More energy and clear focus when I start my day. HRV is up on my oura ring, and feeling good.…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Josh R.</b><i>Oura ring user</i><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="|Recovery|Wearable user|" data-rid="51870903" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“…30 days taking MUTO my recovery is still consistently green (whoop), I&#x27;m now starting to see an increase in HRV for my first time ever.…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Tom L.</b><i>Whoop user</i><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="|Wearable user|" data-rid="51870895" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“…Already noticed a positive difference in my HRV through my OURA ring data.…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Russell</b><i>Oura ring user</i><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="|Recovery|Energy|" data-rid="52482185" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“I started taking Muto for my Boston Marathon training hoping to have better recovery; and it did not disappoint.…I feel very energetic every day.”</blockquote>
+      <figcaption class="mc-rv__who"><b>Rebeca, San José</b><i>Training for the Boston Marathon</i><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="|Recovery|" data-rid="51870867" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“As a keen runner, I’ve noticed how Muto has helped me recover faster meaning I can train harder, more often.…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Ayo P.</b><i>Keen runner</i><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="|Recovery|" data-rid="51870907" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“I do a lot of endurance sport and train most days…My HRV is averaging higher and I feel better in myself. I am recovering quicker too.…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Linzey R.</b><i>Endurance sport, trains most days</i><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="|Recovery|Energy|" data-rid="52431255" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“…definitely feel more focused during the day and that my recovery is quicker and better than normal.…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Alexandra, Bearsden</b><i>Tracks her HRV</i><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="|Recovery|" data-rid="51870902" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“…The biggest shift was in my HRV: even after hard sessions, I woke up feeling recovered instead of drained.…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Abraham S.</b><i>Has tracked recovery and HRV for years</i><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="|Recovery|Sleep|" data-rid="51870889" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“…bought it to support healthy ageing and have been genuinely surprised at how quickly I felt a difference. My recovery and sleep have noticeably improved.…”</blockquote>
+      <figcaption class="mc-rv__who"><b>K R</b><i>Bought it for healthy ageing</i><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="|Energy|Sleep|" data-rid="51870863" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“…I have sustained energy, I sleep better, perform better in workouts, and don’t crash anymore.”</blockquote>
+      <figcaption class="mc-rv__who"><b>Danny S.</b><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="|Sleep|Energy|" data-rid="51870872" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“I&#x27;ve been using for one month now and really feel the difference! Better sleep, better skin, more energy - happy days!”</blockquote>
+      <figcaption class="mc-rv__who"><b>Beth</b><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="|Sleep|Energy|" data-rid="51870888" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“I didn&#x27;t realise how flat I&#x27;d been feeling until this helped lift me out of it. More vitality, brighter mood, and deeper sleep.”</blockquote>
+      <figcaption class="mc-rv__who"><b>Holly P.</b><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="|Sleep|Recovery|" data-rid="51870906" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“After just 2 weeks of taking Muto, I saw a 20% uptick in my HRV and noticeably better sleep.…”</blockquote>
+      <figcaption class="mc-rv__who"><b>George</b><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="|Sleep|" data-rid="51870879" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“Has definitely helped my sleep and reduced my sugar cravings in the evening massively.”</blockquote>
+      <figcaption class="mc-rv__who"><b>Fiona L.</b><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="|Sleep|Energy|" data-rid="54717775" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“3 mths in and having the best sleep - no afternoon slump and in general feeling great”</blockquote>
+      <figcaption class="mc-rv__who"><b>Lynda, Preston</b><span>Reviewed on REVIEWS.io</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="|Energy|" data-rid="51870873" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“…I predominantly struggle with mornings but already feel myself finding these easier, having more energy throughout the whole day…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Becca</b><i>Struggles with mornings</i><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="|Recovery|Energy|" data-rid="51870877" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“Started using muto because I felt like my body couldn’t keep up with the amount of exercise I wanted to do. After taking muto, I felt more energised and ready for my next session!…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Brendan</b><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="|Recovery|Energy|" data-rid="51870926" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“Muto has so much more science behind it than the average supplement brand.…I&#x27;ve been using it for a month and I already feel better and have noticed improved recovery and energy.”</blockquote>
+      <figcaption class="mc-rv__who"><b>Lotti</b><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="||" data-rid="51870897" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“…The product is clearly well thought-out, science-led, and supported by real-world results.”</blockquote>
+      <figcaption class="mc-rv__who"><b>Qasim M.</b><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="||" data-rid="51870890" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“I love that this replaces multiple products. The quality feels high and the results have been real – more vitality and better overall wellbeing.”</blockquote>
+      <figcaption class="mc-rv__who"><b>Amy C.</b><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="||" data-rid="51870904" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“…What i am here to say is that I have NEVER experience such a high level of customer service as with this company.…”</blockquote>
+      <figcaption class="mc-rv__who"><b>T. F.</b><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="||" data-rid="51870920" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“…the way that they have done their branding along with explaining the science behind longevity is top quality. Dr Richie Barclay knows his stuff.”</blockquote>
+      <figcaption class="mc-rv__who"><b>Catalin-Constantin M.</b><span>Verified buyer</span></figcaption>
+    </figure>
+  </div>
+  <div class="mc-rv__nav">
+    <span class="mc-rv__count" aria-hidden="true"><b data-mc-rv-n>1</b> / <span data-mc-rv-t>34</span></span>
+    <button type="button" class="mc-rv__btn" data-mc-rv-step="-1" aria-label="Previous review"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3 5 8l5 5" stroke="currentColor" stroke-width="1.6"/></svg></button>
+    <button type="button" class="mc-rv__btn" data-mc-rv-step="1" aria-label="Next review"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m6 3 5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></button>
+  </div>
+</div>
+<style>
+  /* Inside the buy box's subhead, which sets its own text to size 0: everything here sets its own size */
+  html body #MainContent .mc .mc-rv{display:block;margin:18px 0 6px;padding:14px 18px 12px;border:1px solid #242223;border-radius:10px;background:#fff;font-family:var(--mc-font);font-size:15px;line-height:1.45;letter-spacing:0;text-transform:none;color:#242223;text-align:left;white-space:normal}
+  .mc-rv[hidden]{display:none!important}
+  html body #MainContent .mc .mc-rv__chips{display:flex;gap:6px;margin:0 -18px 12px;padding:0 18px 12px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid rgba(36,34,35,.12)}
+  .mc-rv__chips::-webkit-scrollbar{display:none}
+  html body #MainContent .mc .mc-rv__chip{flex:0 0 auto;min-height:0;margin:0;padding:6px 11px;border:1px solid rgba(36,34,35,.25);border-radius:999px;background:#fff;color:#242223;font-family:var(--mc-mono);font-size:10.5px;font-weight:500;line-height:1.2;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;cursor:pointer}
+  html body #MainContent .mc .mc-rv__chip:hover{border-color:#242223}
+  html body #MainContent .mc .mc-rv__chip[aria-pressed="true"]{background:#242223;border-color:#242223;color:#fff}
+  .mc-rv__stack{display:grid}
+  .mc-rv__slide{grid-area:1/1;display:flex;flex-direction:column;margin:0;opacity:0;visibility:hidden;transition:opacity .45s ease,visibility 0s linear .45s}
+  .mc-rv__slide.is-out{display:none}
+  .mc-rv__slide.is-on{opacity:1;visibility:visible;transition:opacity .45s ease}
+  .mc-rv__top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .mc-rv__stars{font-size:15px;letter-spacing:2px;color:#242223}
+  html body #MainContent .mc .mc-rv__q{margin:8px 0 0;padding:0;border:0;font-size:15.5px;font-weight:500;line-height:1.42;letter-spacing:-.005em;font-style:normal;quotes:none;color:#242223!important}
+  .mc-rv__q::before,.mc-rv__q::after{content:none!important}
+  html body #MainContent .mc .mc-rv__who{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin:auto 0 0!important;padding:12px 0 0!important;font-size:13.5px}
+  .mc-rv__who b{font-weight:500}
+  html body #MainContent .mc .mc-rv__who i{font-style:normal;color:rgba(36,34,35,.72)}
+  .mc-rv__who span{margin-left:auto;font-family:var(--mc-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(36,34,35,.62)}
+  .mc-rv__nav{display:flex;align-items:center;gap:6px;margin-top:10px;padding-top:10px;border-top:1px solid rgba(36,34,35,.12)}
+  .mc-rv__count{margin-right:auto;font-family:var(--mc-mono);font-size:11px;letter-spacing:.1em;color:rgba(36,34,35,.62)}
+  .mc-rv__count b{font-weight:500;color:#242223}
+  html body #MainContent .mc .mc-rv__btn{display:grid;place-items:center;width:32px;height:32px;min-height:0;padding:0;border:1px solid rgba(36,34,35,.25);border-radius:50%;background:#fff;color:#242223;cursor:pointer}
+  .mc-rv__btn:hover{border-color:#242223}
+  .mc-rv__btn svg{width:14px;height:14px}
+  @media (prefers-reduced-motion:reduce){.mc-rv__slide,.mc-rv__slide.is-on{transition:none}}
+  /* Phones: smaller type and tighter spacing, so the box takes less room */
+  @media (max-width:749px){
+    html body #MainContent .mc .mc-rv{margin:14px 0 4px!important;padding:10px 14px 10px!important}
+    html body #MainContent .mc .mc-rv__chips{margin:0 -14px 10px!important;padding:0 14px 10px!important;gap:5px!important}
+    html body #MainContent .mc .mc-rv__chip{padding:5px 9px!important;font-size:9.5px!important}
+    html body #MainContent .mc .mc-rv__stars{font-size:12px!important;letter-spacing:1.5px!important}
+    html body #MainContent .mc .mc-rv__q{margin-top:6px!important;font-size:13.5px!important;line-height:1.4!important}
+    html body #MainContent .mc .mc-rv__who{padding-top:8px!important;font-size:12.5px!important}
+    html body #MainContent .mc .mc-rv__who span{font-size:9.5px!important}
+    html body #MainContent .mc .mc-rv__nav{margin-top:8px!important;padding-top:8px!important}
+    html body #MainContent .mc .mc-rv__count{font-size:10px!important}
+    html body #MainContent .mc .mc-rv__btn{width:28px!important;height:28px!important}
+    .mc-rv__btn svg{width:12px;height:12px}
+  }
+</style>
+<script>
+(function () {
+  function init() {
+  var box = document.querySelector('[data-mc-rv]');
+  if (!box || box.getAttribute('data-ready')) return;
+  /* Between the buy box's ticks and its Black Friday line (both drawn by the subhead's CSS) */
+  var sub = document.querySelector('#MainContent [id$="__buy"] .mc-subhead');
+  if (!sub) return;
+  sub.appendChild(box);
+  box.setAttribute('data-ready', '1');
+  box.hidden = false;
+  var all = [].slice.call(box.querySelectorAll('.mc-rv__slide')), slides = all;
+  var n = box.querySelector('[data-mc-rv-n]'), tot = box.querySelector('[data-mc-rv-t]');
+  var chips = [].slice.call(box.querySelectorAll('.mc-rv__chip'));
+  var i = 0, timer = null, held = false;
+  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function show(k) {
+    i = (k + slides.length) % slides.length;
+    all.forEach(function (s) { var on = s === slides[i]; s.classList.toggle('is-on', on); if (on) s.removeAttribute('aria-hidden'); else s.setAttribute('aria-hidden', 'true'); });
+    if (n) n.textContent = i + 1;
+  }
+  function filter(f) {
+    slides = all.filter(function (s) { return f === 'All' || s.getAttribute('data-tags').indexOf('|' + f + '|') > -1; });
+    all.forEach(function (s) { s.classList.toggle('is-out', slides.indexOf(s) < 0); });
+    chips.forEach(function (c) { c.setAttribute('aria-pressed', c.getAttribute('data-f') === f ? 'true' : 'false'); });
+    if (tot) tot.textContent = slides.length;
+    show(0);
+  }
+  function start() { stop(); if (!still && !held) timer = setInterval(function () { show(i + 1); }, 6000); }
+  function stop() { if (timer) clearInterval(timer); timer = null; }
+  box.addEventListener('mouseenter', function () { held = true; stop(); });
+  box.addEventListener('mouseleave', function () { held = false; start(); });
+  box.addEventListener('focusin', function () { held = true; stop(); });
+  box.addEventListener('focusout', function () { held = false; start(); });
+  box.addEventListener('touchstart', function () { held = true; stop(); setTimeout(function () { held = false; start(); }, 8000); }, { passive: true });
+  [].forEach.call(box.querySelectorAll('[data-mc-rv-step]'), function (b) {
+    b.addEventListener('click', function () { show(i + parseInt(b.getAttribute('data-mc-rv-step'), 10)); });
+  });
+  chips.forEach(function (c) { c.addEventListener('click', function () { filter(c.getAttribute('data-f')); }); });
+  filter('All'); start();
+  }
+  /* Straight away, and again once the page is parsed in case the buy box wasn't ready yet; it only sets up once */
+  init();
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else setTimeout(init, 0);
+})();
+</script>
