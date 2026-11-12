@@ -2,7 +2,7 @@
   MUTO — Black Friday plan cards, AG1-style pricing (muto-bf-ag1-plans).
   Rendered by a custom-liquid section placed straight after the buy box on the Black Friday product templates
   (main, url-2's muto-nad-bf-premium-2, url-3). Rebuilds what each plan card shows, in AG1's order:
-    radio · plan name · £33/mo £70 crossed out (right), Save pill beneath the price
+    radio · plan name · £33/mo £70 crossed out (right); the lines below, with the Save pill at their right
     90-day supply, delivered every 3 months ........ £1.10/serving
     £1.10 a day, less than half a coffee
     £99 today, then £125, then £150 every 3 months
@@ -92,7 +92,9 @@
   .ag-right{flex:0 0 auto;margin-left:auto;display:flex;flex-direction:column;align-items:flex-end;gap:7px}
   html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-right .ag-price{margin:0!important;flex-wrap:nowrap;justify-content:flex-end;align-items:baseline;white-space:nowrap;line-height:1.25;padding-top:1px}
   html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-right .ag-save{margin:0!important}
-  html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-body .ag-perday{margin-top:2px!important}
+  html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-body{display:flow-root!important}
+  html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-body > .ag-save{float:right;margin:3px 0 0 10px!important;padding:3px 8px!important;line-height:1.2!important}
+  html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-body .ag-perday{margin-top:4px!important}
 </style>
 <script>
 (function () {
@@ -131,9 +133,10 @@
     /* Right-hand side: the price, with the Save pill beneath it */
     var right = el('span', 'ag-right');
     right.appendChild(el('span', 'ag-price', '<b>' + p.price + '</b><em>' + p.unit + '</em>' + (p.was ? '<s><span class="visually-hidden">Was </span>' + p.was + '</s>' : '')));
-    if (p.save) right.appendChild(el('span', 'ag-save', p.save));
     head.appendChild(right);
     var body = el('span', 'ag-body');
+    /* The Save pill sits at the right of the lines below, so they start straight under the plan name */
+    if (p.save) body.appendChild(el('span', 'ag-save', p.save));
     /* One plain line for the daily price and the coffee comparison (no pill) */
     if (p.per) body.appendChild(el('span', 'ag-perday', '<b>' + p.per + '</b>' + (p.cup ? ', ' + p.cup : '')));
     if (p.line) body.appendChild(el('span', 'ag-line', '<span>' + p.line + '</span>'));
