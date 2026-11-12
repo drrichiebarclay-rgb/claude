@@ -6,6 +6,7 @@
      product is described once. The guarantee badge reads "Give it 90 days. Test it, or get your money back."
   The "Black Friday: 3 months for £99 · While stock lasts" line under the reviews box is hidden, and the three bold
   ticks above the reviews box are one small grey line.
+  "For over-35s" sits above the headline.
   The first product photo's printed offer text is covered by a patch with the new offer wording (see .mc-heroflag).
   On phones the headline is sized to fit two lines and the guarantee badge is the short version.
   2. "Skip, pause or cancel online · cancel in 2 clicks", directly under the plan cards (above Add to cart).
@@ -13,6 +14,7 @@
   Rendered by the custom-liquid section after the buy box (ag1_plans); a small script puts each piece in place.
   Wording follows the jobs-to-be-done research (Nov 2026): say what it is and who it's for first, in plain words.
 {%- endcomment -%}
+<p class="mc-for" data-mc-for hidden>For over-35<span style="text-transform:none">s</span></p>
 <p class="mc-sub" data-mc-sub hidden><b>NAD<sup>+</sup> Cellular Complex</b> is two capsules a day for energy, recovery and ageing well. One jar instead of a shelf of pots, made for over-35s whose lives don’t fit a perfect routine.</p>
 <div class="mc-heroflag" data-mc-heroflag hidden aria-hidden="true">
   <span class="mc-heroflag__tag">Black Friday offer</span>
@@ -37,6 +39,10 @@
   /* The quiet proof line sits just under the guarantee badge */
   html body #MainContent .mc .mc-subhead{margin-top:14px!important}
   .mc-sub[hidden]{display:none!important}
+  /* "For over-35s" above the headline */
+  .mc-for[hidden]{display:none!important}
+  html body #MainContent .mc .mc-for{order:-4;margin:0 0 12px;padding:0;font-family:var(--mc-mono);font-size:12.5px;font-weight:500;line-height:1.2;letter-spacing:.14em;text-transform:uppercase;color:#242223;text-align:left}
+  @media (max-width:749px){html body #MainContent .mc .mc-for{margin:18px 0 8px;font-size:11.5px}}
   .mc-skip[hidden]{display:none!important}
   html body #MainContent .mc .mc-skip{order:2;margin:12px 0 0;padding:0;font-family:var(--mc-font);font-size:14.5px;font-weight:500;line-height:1.4;text-align:center;color:#242223}
   html body #MainContent .mc .mc-skip span{margin:0 4px;opacity:.5}
@@ -79,6 +85,11 @@
         img.parentNode.appendChild(flag);
         flag.setAttribute('data-ready', '1'); flag.hidden = false;
       }
+    }
+    var fo = document.querySelector('[data-mc-for]'), t1 = buy.querySelector('.mc__buy-title');
+    if (fo && t1 && !fo.getAttribute('data-ready')) {
+      t1.parentNode.insertBefore(fo, t1);
+      fo.setAttribute('data-ready', '1'); fo.hidden = false;
     }
     var skip = document.querySelector('[data-mc-skip]'), plans = buy.querySelector('.mc__plans');
     if (skip && plans && !skip.getAttribute('data-ready')) {
