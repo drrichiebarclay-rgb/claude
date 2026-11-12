@@ -1,0 +1,28 @@
+{%- comment -%}
+  MUTO — one box style across the main product page (muto-bf-boxes). Every content box takes the look of the buy box's
+  dropdowns: white, a solid 1px charcoal outline (#242223), 8px corners, no shadow or gradient. Applies to the
+  "Why it happens" stat cards, the standards cards, the FAQ (each question becomes a box, as the buy box's dropdowns),
+  the scientific board card and the reviews box in the buy box. The dark band's cards get the same corners and a
+  light outline. The plan cards keep their own selected / not-selected outlines.
+  Rendered by the custom-liquid section after the buy box (ag1_plans).
+{%- endcomment -%}
+<style>
+  /* "Why it happens" stat cards (were a grey glass gradient with a shadow and 24px corners) */
+  html:root body #MainContent#MainContent [id$="__problem"] .mc .mc__prb-item{background:#fff!important;background-image:none!important;border:1px solid #242223!important;border-radius:8px!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+  html:root body #MainContent#MainContent [id$="__problem"] .mc .mc__prb-item::before,
+  html:root body #MainContent#MainContent [id$="__problem"] .mc .mc__prb-item::after{content:none!important;display:none!important}
+  html:root body #MainContent#MainContent [id$="__problem"] .mc .mc__prb-item .mc__trust-tag{background:#f1f1ef!important}
+  /* Standards ("The law asks very little…") cards */
+  html:root body #MainContent#MainContent [id$="__standards"] .mc .mc__std-item{background:#fff!important;border:1px solid #242223!important;border-radius:8px!important;box-shadow:none!important}
+  /* FAQ: each question its own box, as the buy box's dropdowns */
+  html:root body #MainContent#MainContent [id$="__faq"] .mc .mc__faq-list{display:grid!important;gap:10px!important;border:0!important}
+  html:root body #MainContent#MainContent [id$="__faq"] .mc .mc__faq-item{border:1px solid #242223!important;border-radius:8px!important;background:#fff!important;overflow:hidden}
+  html:root body #MainContent#MainContent [id$="__faq"] .mc .mc__faq-sum{padding:16px 14px 16px 18px!important;text-transform:none!important}
+  html:root body #MainContent#MainContent [id$="__faq"] .mc .mc__faq-sum *{text-transform:none!important}
+  html:root body #MainContent#MainContent [id$="__faq"] .mc .mc__faq-body{padding:0 18px 16px!important}
+  /* Buy box: the scientific board card and the reviews box */
+  html:root body #MainContent#MainContent [id$="__buy"] .mc .mpb-doc{border:1px solid #242223!important;border-radius:8px!important;box-shadow:none!important}
+  html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-rv{border-radius:8px!important}
+  /* The dark band's cards: same corners, a light solid outline */
+  html:root body .mc-jobs .mc-jobs__card{border:1px solid rgba(255,255,255,.45)!important;border-radius:8px!important}
+</style>

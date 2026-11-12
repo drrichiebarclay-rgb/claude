@@ -602,7 +602,7 @@
         "color_scheme": "scheme-1",
         "padding_top": 0,
         "padding_bottom": 0,
-        "custom_liquid": "{%- render 'muto-bf-ag1-plans' -%}\n{%- render 'muto-bf-video-reviews' -%}\n{%- render 'muto-bf-review-box' -%}\n{%- render 'muto-bf-buybox-copy' -%}\n{%- render 'muto-bf-jobs' -%}"
+        "custom_liquid": "{%- render 'muto-bf-ag1-plans' -%}\n{%- render 'muto-bf-video-reviews' -%}\n{%- render 'muto-bf-review-box' -%}\n{%- render 'muto-bf-buybox-copy' -%}\n{%- render 'muto-bf-jobs' -%}\n{%- render 'muto-bf-boxes' -%}"
       }
     },
     "reviews_ticker": {
