@@ -1,0 +1,17 @@
+{%- comment -%}
+  MUTO — early helper (muto-bf-early). Rendered first, before the buy box, so the buy box's own snippets (styles and
+  scripts) are in place before the page is first drawn. mcWhen(fn) runs fn straight away and again each time the page
+  adds new elements while it loads, until fn returns true (its pieces are in place) or the page has finished loading.
+  This puts each piece in its final spot the moment that spot exists, so nothing shows first and then moves.
+{%- endcomment -%}
+<script>
+window.mcWhen = window.mcWhen || function (fn) {
+  if (fn()) return;
+  var queued = false, mo = new MutationObserver(function () {
+    if (queued) return; queued = true;
+    Promise.resolve().then(function () { queued = false; if (fn()) mo.disconnect(); });
+  });
+  mo.observe(document.documentElement, { childList: true, subtree: true });
+  document.addEventListener('DOMContentLoaded', function () { fn(); setTimeout(function () { fn(); mo.disconnect(); }, 0); });
+};
+</script>

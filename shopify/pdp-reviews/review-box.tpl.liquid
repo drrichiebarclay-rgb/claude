@@ -119,7 +119,7 @@
   filter('All'); start();
   }
   /* Straight away, and again once the page is parsed in case the buy box wasn't ready yet; it only sets up once */
-  init();
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else setTimeout(init, 0);
+  /* Placed the moment the buy box's subhead exists (see muto-bf-early), so it never drops in late */
+  (window.mcWhen || function (f) { f(); document.addEventListener('DOMContentLoaded', f); })(function () { init(); return !!document.querySelector('[data-mc-rv][data-ready]'); });
 })();
 </script>

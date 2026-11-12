@@ -49,10 +49,15 @@
 (function () {
   var vr = document.querySelector('[data-mc-vr]');
   if (!vr) return;
-  /* Into the buy box, straight under its dropdowns */
-  var acc = document.querySelector('#MainContent [id$="__buy"] .mc__acc');
-  if (acc && acc.parentNode) acc.parentNode.insertBefore(vr, acc.nextSibling);
-  vr.hidden = false;
+  /* Into the buy box, straight under its dropdowns, the moment they exist (see muto-bf-early) */
+  (window.mcWhen || function (f) { f(); document.addEventListener('DOMContentLoaded', f); })(function () {
+    if (vr.getAttribute('data-ready')) return true;
+    var acc = document.querySelector('#MainContent [id$="__buy"] .mc__acc');
+    if (!acc || !acc.parentNode || (!acc.nextElementSibling && document.readyState === 'loading')) return false;
+    acc.parentNode.insertBefore(vr, acc.nextSibling);
+    vr.setAttribute('data-ready', '1'); vr.hidden = false;
+    return true;
+  });
   var vids = [].slice.call(vr.querySelectorAll('video'));
   vids.forEach(function (v) {
     var card = v.closest('.mc-vr__card');

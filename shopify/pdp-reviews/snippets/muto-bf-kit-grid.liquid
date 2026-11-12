@@ -112,8 +112,7 @@
     kit.setAttribute('data-kt-worth', one ? WORTH.one : WORTH.three);
   }
   function run() { [].forEach.call(document.querySelectorAll('#MainContent [id$="__buy"] .mc__kit'), build); }
-  run();
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+  (window.mcWhen || function (f) { f(); document.addEventListener('DOMContentLoaded', f); })(function () { run(); return !!document.querySelector('#MainContent [id$="__buy"] .mc__kit.has-tiles') && !!document.querySelector('#MainContent [id$="__buy"] .mc__pf'); });
   document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('.mc__plan')) setTimeout(run, 60); });
 })();
 </script>

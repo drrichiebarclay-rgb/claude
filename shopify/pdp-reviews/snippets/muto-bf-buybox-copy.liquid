@@ -9,7 +9,6 @@
   "For over-35s" sits above the headline.
   The first product photo's printed offer text is covered by a patch with the new offer wording (see .mc-heroflag).
   On phones the headline is sized to fit two lines and the guarantee badge is the short version.
-  "View nutrition label" sits under "View third-party testing results" and opens the label (Files: muto-nad-nutrition-label.png).
   2. "Skip, pause or cancel online · cancel in 2 clicks", directly under the plan cards (above Add to cart).
      The same line was taken out of the "Delivery, subscription and guarantee" dropdown.
   Rendered by the custom-liquid section after the buy box (ag1_plans); a small script puts each piece in place.
@@ -23,12 +22,6 @@
   <span class="mc-heroflag__line">+ Free welcome kit worth £87</span>
   <span class="mc-heroflag__line">90-day money-back guarantee</span>
 </div>
-<button type="button" class="mc-label-btn" data-mc-label-btn hidden aria-haspopup="dialog">View nutrition label</button>
-<dialog class="mc-label" data-mc-label aria-label="Nutrition label">
-  <div class="mc-label__bar"><p class="mc-label__t">Nutrition label</p><button type="button" class="mc-label__x" data-mc-label-close aria-label="Close">&times;</button></div>
-  <div class="mc-label__scroll"><img src="https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-nad-nutrition-label.png?v=1794479829" alt="NAD+ Cellular Complex nutrition label: amounts and %NRV per two-capsule serving, ingredients and cautions" width="1290" height="968" loading="lazy"></div>
-  <p class="mc-label__hint">Scroll sideways to see the whole label.</p>
-</dialog>
 <p class="mc-skip" data-mc-skip hidden>Skip, pause or cancel online <span aria-hidden="true">·</span> cancel in 2 clicks</p>
 <style>
   /* The theme's "Five supplements in one daily jar…" line under the guarantee badge: hidden (the line under the headline says it) */
@@ -67,23 +60,13 @@
     html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc__eyebrow{margin-top:18px!important}
     html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-subhead{margin-top:20px!important}
   }
+  /* Only the testing link this snippet has put in place shows: never under the product photo (where the theme first puts
+     it), and never a second copy (two theme scripts each add one if the photo area has none) */
+  html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc-tests-btn:not([data-placed]){display:none!important}
   /* "View third-party testing results": a plain underlined link, not a pill */
   html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-tests-btn{display:flex!important;justify-content:center!important;align-items:center!important;gap:6px!important;width:auto!important;min-height:0!important;margin:10px auto 0!important;padding:4px 0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;font-size:14.5px!important;font-weight:500!important;text-decoration:underline!important;text-underline-offset:3px!important;text-decoration-thickness:1px!important;color:#242223!important}
   html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-tests-btn .mc-tests-btn__tick{display:none!important}
   html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-tests-btn::before{content:""!important;display:block!important;flex:0 0 17px;width:17px;height:17px;margin:0!important;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23242223' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='10' cy='10' r='8.6'/%3E%3Cpath d='M6.3 10.3l2.5 2.5 4.9-5.3'/%3E%3C/svg%3E") center/contain no-repeat!important;border:0!important}
-  /* "View nutrition label": the same underlined link style as the testing link, straight under it; opens the label */
-  .mc-label-btn[hidden]{display:none!important}
-  html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-label-btn{display:flex!important;justify-content:center;align-items:center;gap:6px;width:auto;min-height:0;margin:6px auto 0!important;padding:4px 0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;font-family:var(--mc-font);font-size:14.5px!important;font-weight:500!important;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;color:#242223!important;cursor:pointer}
-  html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-label-btn::before{content:"";display:block;flex:0 0 17px;width:17px;height:17px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23242223' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='2.5' width='12' height='15' rx='2'/%3E%3Cpath d='M7 7h6M7 10h6M7 13h4'/%3E%3C/svg%3E") center/contain no-repeat}
-  .mc-label{width:min(960px,calc(100vw - 24px));max-width:none;max-height:calc(100vh - 24px);margin:auto;padding:0;border:1px solid #242223;border-radius:8px;background:#fff;color:#242223;font-family:var(--mc-font)}
-  .mc-label::backdrop{background:rgba(36,34,35,.55)}
-  .mc-label__bar{display:flex;align-items:center;justify-content:space-between;padding:12px 14px 12px 18px;border-bottom:1px solid rgba(36,34,35,.14)}
-  .mc-label__t{margin:0;font-size:16px;font-weight:600}
-  .mc-label__x{display:grid;place-items:center;width:36px;height:36px;min-height:0;padding:0;border:1px solid rgba(36,34,35,.25);border-radius:50%;background:#fff;font-size:22px;line-height:1;color:#242223;cursor:pointer}
-  .mc-label__scroll{overflow:auto;-webkit-overflow-scrolling:touch;max-height:calc(100vh - 140px)}
-  .mc-label__scroll img{display:block;width:100%;height:auto}
-  .mc-label__hint{display:none;margin:0;padding:8px 14px 12px;font-size:12.5px;color:rgba(36,34,35,.62);text-align:center}
-  @media (max-width:749px){.mc-label__scroll img{width:820px;max-width:none}.mc-label__hint{display:block}}
   /* Removed on request: the one-time purchase link and the "Formulated with leading doctors and scientists" card */
   html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__onetime,
   html:root body #MainContent#MainContent [id$="__buy"] .mc .mpb-doc{display:none!important}
@@ -147,14 +130,12 @@
       t1.parentNode.insertBefore(fo, t1);
       fo.setAttribute('data-ready', '1'); fo.hidden = false;
     }
-    var lb = document.querySelector('[data-mc-label-btn]'), dlg = document.querySelector('[data-mc-label]'), tests = buy.querySelector('.mc-tests-btn');
-    if (lb && dlg && tests && !lb.getAttribute('data-ready')) {
-      tests.parentNode.insertBefore(lb, tests.nextSibling);
-      document.body.appendChild(dlg);
-      lb.setAttribute('data-ready', '1'); lb.hidden = false;
-      lb.addEventListener('click', function () { if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', ''); });
-      dlg.querySelector('[data-mc-label-close]').addEventListener('click', function () { dlg.close ? dlg.close() : dlg.removeAttribute('open'); });
-      dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+    /* The testing-results link: straight to its place above the badges (the theme's layout script would move it there
+       a second after the page appears, so it showed under the photo first) */
+    var tb = buy.querySelector('.mc-tests-btn'), bad = buy.querySelector('.mpb-bad');
+    if (tb && bad && !buy.querySelector('.mc-tests-btn[data-placed]')) {
+      if (tb.nextElementSibling !== bad) bad.parentNode.insertBefore(tb, bad);
+      tb.setAttribute('data-placed', '1');
     }
     var skip = document.querySelector('[data-mc-skip]'), plans = buy.querySelector('.mc__plans');
     if (skip && plans && !skip.getAttribute('data-ready')) {
@@ -162,7 +143,9 @@
       skip.setAttribute('data-ready', '1'); skip.hidden = false;
     }
   }
-  init();
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else setTimeout(init, 0);
+  (window.mcWhen || function (f) { f(); document.addEventListener('DOMContentLoaded', f); })(function () {
+    init();
+    return !!document.querySelector('[data-mc-sub][data-ready]') && !!document.querySelector('[data-mc-for][data-ready]') && !!document.querySelector('[data-mc-skip][data-ready]') && !!document.querySelector('#MainContent [id$="__buy"] .mc-tests-btn[data-placed]');
+  });
 })();
 </script>
