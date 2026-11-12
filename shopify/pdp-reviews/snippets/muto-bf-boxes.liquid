@@ -30,4 +30,9 @@
   html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-rv{border-radius:8px!important}
   /* The dark band's cards: same corners, a light solid outline */
   html:root body .mc-jobs .mc-jobs__card{border:1px solid rgba(255,255,255,.45)!important;border-radius:8px!important}
+  /* Phones: the welcome kit's "Includes" list, one line per item (text scales with the screen, 11px to 13.5px) */
+  @media (max-width:749px){
+    html:root body #MainContent#MainContent .mc .mc__inc-row{font-size:clamp(11px,3.4vw,13.5px)!important;gap:6px!important}
+    html:root body #MainContent#MainContent .mc .mc__inc-row > *:first-child{white-space:nowrap!important}
+  }
 </style>
