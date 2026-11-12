@@ -26,7 +26,7 @@
       {%- for row in ROWS -%}
         {%- assign f = row | split: '|' -%}
         <div class="mc-vs__r" role="row">
-          <span class="mc-vs__l" role="rowheader">{{ f[0] }}</span>
+          <span class="mc-vs__l" role="rowheader"><span>{{ f[0] }}</span></span>
           {%- for k in (1..4) -%}
             {%- assign v = f[k] -%}
             <span class="mc-vs__c{% if k == 1 %} mc-vs__c--m{% endif %}" role="cell">
@@ -38,7 +38,7 @@
         </div>
       {%- endfor -%}
       <div class="mc-vs__r mc-vs__r--cost" role="row">
-        <span class="mc-vs__l" role="rowheader">Monthly cost</span>
+        <span class="mc-vs__l" role="rowheader"><span>Monthly cost</span></span>
         <span class="mc-vs__c mc-vs__c--m" role="cell"><b>£33*</b></span>
         <span class="mc-vs__c" role="cell"><b>£40</b></span>
         <span class="mc-vs__c" role="cell"><b>£40–80</b></span>
@@ -58,6 +58,7 @@
   .mc-vs__t{margin-top:48px}
   .mc-vs__r{display:grid;grid-template-columns:minmax(0,1.6fr) repeat(4,minmax(0,1fr));align-items:stretch;border-bottom:1px solid rgba(36,34,35,.14)}
   .mc-vs__r--head,.mc-vs__r--cost{border-bottom:0}
+  /* The label text sits in its own span: the theme turns "NAD+" into NAD<sup>+</sup>, which would otherwise split the label into separate pieces in this flex cell */
   .mc-vs__l{display:flex;align-items:center;padding:20px 16px 20px 0;font-size:17px;font-weight:500;line-height:1.3}
   .mc-vs__c{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:18px 8px;text-align:center;font-size:15px;line-height:1.25}
   .mc-vs__c b{font-weight:500}
