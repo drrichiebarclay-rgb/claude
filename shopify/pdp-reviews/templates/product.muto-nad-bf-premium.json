@@ -2006,15 +2006,47 @@
             "title": "How is it tested?",
             "text": "<p>Every batch is tested before release for heavy metals, microbes and capsule quality. <a href=\"#test-results\">See the results for the current batch</a>.</p>"
           }
+        },
+        "q12": {
+          "type": "q",
+          "settings": {
+            "title": "Is it gluten-free?",
+            "text": "<p>Yes, there’s no gluten in any of the ingredients. MUTO is free from all 14 major allergens, including cereals containing gluten, and the capsules are vegan.</p>"
+          }
+        },
+        "q13": {
+          "type": "q",
+          "settings": {
+            "title": "What does it replace, and what should I keep taking?",
+            "text": "<p><strong>It replaces</strong> a separate NAD+ supplement, CoQ10, resveratrol, vitamin D3 and K2, and a B complex. If you take any of those, you can usually stop. Check the doses on our label against what you take now, so you don’t double up, especially on vitamin D and zinc.</p><p><strong>Keep taking</strong> anything your GP has prescribed, and things MUTO doesn’t contain, like omega-3, magnesium, protein or creatine (there’s free creatine in your welcome kit).</p><p>Not sure? Email <a href=\"mailto:hello@mutolongevity.com\">hello@mutolongevity.com</a> with what you take and we’ll go through it with you.</p>"
+          }
+        },
+        "q14": {
+          "type": "q",
+          "settings": {
+            "title": "If I stop, will it drop?",
+            "text": "<p>Probably, over time, and we’d rather be straight with you about that. Your body uses these nutrients every day and doesn’t store most of them for long, so MUTO works as a daily habit, not a one-off course. Stop, and whatever you noticed is likely to drift back towards where you started.</p><p>That’s why we suggest scoring yourself on day 1: you can always check whether it’s still worth it for you.</p>"
+          }
+        },
+        "q15": {
+          "type": "q",
+          "settings": {
+            "title": "Can I change my delivery date?",
+            "text": "<p>Yes. In your account you can move your next delivery to a date that suits you, skip one, or pause. We bill once a month on the 1-Month plan (not every 4 weeks), and once every 3 months on the 3-Month plan, and we email you 5 days before every payment.</p>"
+          }
         }
       },
       "block_order": [
         "q4",
         "q5",
         "q6",
+        "q14",
         "q10",
         "q9",
+        "q15",
         "q11",
+        "q13",
+        "q12",
         "q3",
         "q2",
         "q1",
