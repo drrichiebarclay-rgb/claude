@@ -2,7 +2,7 @@
   MUTO — welcome kit as photo tiles (muto-bf-kit-grid). Inside the selected plan's "Includes:" panel, the list of free
   gifts is shown as a grid of tiles: photo, name, the crossed-out value and a FREE badge. The tiles are built from the
   panel's own rows; tapping a tile opens that gift's details (the row's own pop-up). The 1-Month plan shows only its
-  five gifts (creatine, socks, guide, Forever Jar, Garmin entry: £62); the 3-Month plan shows all seven (£87). The "NAD+ Cellular Complex · Included" row stays as a line above the tiles.
+  five gifts (creatine, socks, guide, Forever Jar, Apple Watch prize-draw entry: £62); the 3-Month plan shows all seven (£87). The "NAD+ Cellular Complex · Included" row stays as a line above the tiles.
   Photos: each gift product's main photo in Products, shown whole on a matching studio-grey background;
   change them in PHOTOS below.
   Rendered by the custom-liquid section after the buy box (ag1_plans).
@@ -23,6 +23,8 @@
   .mc-kt__tile:hover{border-color:#242223}
   .mc-kt__free{position:absolute;top:-8px;left:50%;transform:translateX(-50%);padding:2px 6px;border-radius:999px;background:#242223;color:#fff;font-family:var(--mc-mono);font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;line-height:1.2;white-space:nowrap}
   .mc-kt__img{display:block;width:100%;aspect-ratio:1;border-radius:4px;overflow:hidden;background:linear-gradient(180deg,#222125 0%,#343337 40%,#c9c7c9 85%,#dedcde 100%)}
+  .mc-kt__img{display:grid!important;place-items:center}
+  .mc-kt__icon{width:46%;height:46%}
   .mc-kt__img img{display:block;width:100%;height:100%;object-fit:contain}
   .mc-kt__name{display:block;margin-top:6px;font-size:11px;font-weight:500;line-height:1.25;text-wrap:balance}
   .mc-kt__was{display:block;margin-top:2px;font-size:10.5px;line-height:1.2;color:rgba(36,34,35,.5)}
@@ -41,19 +43,22 @@
 (function () {
   /* Gift photos: each gift product's main photo in Products (shown whole, not cropped), matched on the gift's name */
   var PHOTOS = [
-    [/creatine/i, 'Frame2147230125.png?v=1791393368'],
-    [/sock/i, 'home-essentials-socks.jpg?v=1791037580'],
-    [/bottle/i, 'muto-bottle-front.jpg?v=1791291422'],
-    [/vial/i, 'travel-vial-square.jpg?v=1793355284'],
-    [/forever|jar to keep/i, 'gift-forever-jar.jpg?v=1791023224'],
-    [/guide|protocol/i, 'image_8.png?v=1791392460'],
-    [/garmin|watch/i, 'gift-garmin.jpg?v=1791883127']
+    /* name, photo, zoom (1 = the whole photo; above 1 fills the tile and zooms in on the product) */
+    [/creatine/i, 'Frame2147230125.png?v=1791393368', 1.4],
+    [/sock/i, 'home-essentials-socks.jpg?v=1791037580', 1.45],
+    [/bottle/i, 'muto-bottle-front.jpg?v=1791291422', 1.6],
+    [/vial/i, 'travel-vial-square.jpg?v=1793355284', 1],
+    [/forever|jar to keep/i, 'gift-forever-jar.jpg?v=1791023224', 1.05],
+    [/guide|protocol/i, 'image_8.png?v=1791392460', 1.1],
+    [/apple watch|garmin|watch/i, '', 1] /* no Apple Watch photo yet: a watch icon shows until one is added here */
   ];
   /* Which gifts each plan includes, and what they're worth (the theme's own rows don't change with the plan) */
   var ONE_MONTH = /creatine|sock|guide|protocol|forever|jar to keep|garmin|watch/i;
+  var WATCH_ICON = '<svg class="mc-kt__icon" viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 10l1.5-6h11L31 10"/><path d="M17 38l1.5 6h11L31 38"/><rect x="13" y="10" width="22" height="28" rx="7"/><path d="M24 19v6l4 2"/></svg>';
   var WORTH = { three: '£87', one: '£62' };
   var CDN = 'https://cdn.shopify.com/s/files/1/0976/2724/2843/files/';
-  function photo(n) { for (var i = 0; i < PHOTOS.length; i++) if (PHOTOS[i][0].test(n)) return CDN + PHOTOS[i][1] + '&width=360'; return ''; }
+  function photo(n) { for (var i = 0; i < PHOTOS.length; i++) if (PHOTOS[i][0].test(n)) return PHOTOS[i][1] ? CDN + PHOTOS[i][1] + '&width=420' : ''; return ''; }
+  function zoom(n) { for (var i = 0; i < PHOTOS.length; i++) if (PHOTOS[i][0].test(n)) return PHOTOS[i][2] || 1; return 1; }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function build(kit) {
     var rows = [].slice.call(kit.querySelectorAll('.mc__inc-row:not(.mc__inc-main)'));
@@ -71,7 +76,7 @@
         var free = (r.querySelector('.mc__inc-free') || {}).textContent || 'Free';
         var li = document.createElement('li');
         li.innerHTML = '<button type="button" class="mc-kt__tile"><span class="mc-kt__free">' + esc(/entry/i.test(free) ? 'Free entry' : 'Free') + '</span>' +
-          '<span class="mc-kt__img">' + (photo(name) ? '<img src="' + photo(name) + '" alt="" width="150" height="150" loading="lazy">' : '') + '</span>' +
+          '<span class="mc-kt__img">' + (photo(name) ? '<img src="' + photo(name) + '" alt="" width="150" height="150" loading="lazy"' + (zoom(name) > 1 ? ' style="object-fit:cover;transform:scale(' + zoom(name) + ')"' : '') + '>' : (/watch/i.test(name) ? WATCH_ICON : '')) + '</span>' +
           '<span class="mc-kt__name">' + esc(name.replace(/\s*\(one size fits all\)/i, '')) + '</span>' +
           '<span class="mc-kt__was">' + (was ? '<s><span class="visually-hidden">Worth </span>' + esc(was) + '</s>' : '&nbsp;') + '</span></button>';
         var btn = li.firstChild;

@@ -218,12 +218,12 @@
         "k4": {
           "type": "gift",
           "settings": {
-            "value": "Garmin Watch",
+            "value": "Apple Watch",
             "name": "giveaway entry",
-            "row_label": "Entry to win a Garmin watch",
+            "row_label": "Entry to win an Apple Watch",
             "row_note": "Free entry",
-            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-garmin.jpg?v=1791883127",
-            "image_alt": "A white Garmin watch, the giveaway prize in the welcome kit",
+            "image_fallback": "",
+            "image_alt": "An Apple Watch, the giveaway prize in the welcome kit",
             "plans": ""
           }
         },
