@@ -97,6 +97,14 @@
 </style>
 <script>
 (function () {
+  /* The theme's cart script writes its "New Subtotal…" message into the first [aria-live="polite"] on the page. Give it a
+     hidden one at the very top, so the message is still read out by screen readers and never lands in anything visible */
+  if (!document.getElementById('mc-cart-live')) {
+    var live = document.createElement('p');
+    live.id = 'mc-cart-live'; live.className = 'visually-hidden'; live.setAttribute('aria-live', 'polite');
+    live.style.cssText = 'position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap';
+    (document.body || document.documentElement).insertBefore(live, (document.body || document.documentElement).firstChild);
+  }
   function init() {
     var buy = document.querySelector('#MainContent [id$="__buy"]');
     if (!buy) return;
