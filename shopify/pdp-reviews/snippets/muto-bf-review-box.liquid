@@ -244,8 +244,10 @@
     html body #MainContent .mc .mc-rv{margin:14px 0 4px!important;padding:10px 14px 10px!important}
     html body #MainContent .mc .mc-rv__fit{margin:0 -14px 10px!important;padding:0 14px 10px!important}
     html body #MainContent .mc .mc-rv__ask{margin-bottom:7px!important;font-size:13px!important}
-    html body #MainContent .mc .mc-rv__chips{gap:5px!important}
-    html body #MainContent .mc .mc-rv__chip{padding:6px 10px!important;font-size:12.5px!important}
+    /* One even row of three: equal widths, text wraps inside, 44px tap height */
+    html body #MainContent .mc .mc-rv__chips{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:6px!important}
+    html body #MainContent .mc .mc-rv__chip{display:flex!important;align-items:center;justify-content:center;min-height:44px!important;padding:6px 6px!important;border-radius:8px!important;font-size:12.5px!important;line-height:1.2!important;white-space:normal!important;text-align:center;text-wrap:balance}
+    @media (max-width:374px){html body #MainContent .mc .mc-rv__chip{font-size:11.5px!important;padding:6px 4px!important}}
     html body #MainContent .mc .mc-rv__stars{font-size:12px!important;letter-spacing:1.5px!important}
     html body #MainContent .mc .mc-rv__q{margin-top:6px!important;font-size:13.5px!important;line-height:1.4!important}
     html body #MainContent .mc .mc-rv__who{padding-top:8px!important;font-size:12.5px!important}
