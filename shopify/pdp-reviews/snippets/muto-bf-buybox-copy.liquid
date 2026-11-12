@@ -1,6 +1,9 @@
 {%- comment -%}
   MUTO — buy box copy (muto-bf-buybox-copy). Two pieces of plain-English copy in the main product page's buy box:
-  1. "What it is", under the guarantee badge: the product's name, what it is in one sentence, and who it's for.
+  0. Under the headline ("Flat by 3pm? Slower to bounce back?", the buy section's Heading setting): one plain line
+     on what it is and who it's for, in place of "Built for life after 35." (drawn by the theme's CSS, hidden).
+     The guarantee badge reads "Give it 90 days. Track it, or get your money back."
+  1. "What it is", under the guarantee badge: the product's name and what it is in one sentence.
      It takes the place of the "Five supplements in one daily jar…" line (drawn by the theme's CSS), which is hidden.
   2. "Skip, pause or cancel online · cancel in 2 clicks", directly under the plan cards (above Add to cart).
      The same line was taken out of the "Delivery, subscription and guarantee" dropdown.
@@ -10,12 +13,16 @@
 <div class="mc-what" data-mc-what hidden>
   <p class="mc-what__name">NAD<sup>+</sup> Cellular Complex</p>
   <p class="mc-what__text">Two capsules a day with 19 nutrients, including NR, which your body turns into NAD<sup>+</sup>, the molecule your cells use to make energy. One jar instead of a shelf of pots.</p>
-  <p class="mc-what__who"><b>Who it’s for:</b> adults over 35 whose life doesn’t fit a perfect routine.</p>
 </div>
+<p class="mc-sub" data-mc-sub hidden>Two capsules a day for energy, recovery and ageing well. Made for lives that don’t fit a perfect routine.</p>
 <p class="mc-skip" data-mc-skip hidden>Skip, pause or cancel online <span aria-hidden="true">·</span> cancel in 2 clicks</p>
 <style>
   /* The theme's "Five supplements in one daily jar…" line under the guarantee badge: replaced by .mc-what */
   html:root body #MainContent#MainContent .mc .mc__buy-copy > .mc__eyebrow::after{content:none!important;display:none!important}
+  html:root body #MainContent#MainContent .mc .mc__buy-title::after{content:none!important;display:none!important}
+  html:root body #MainContent#MainContent .mc .mc__buy-copy > .mc__eyebrow::before{content:"Give it 90 days. Track it, or get your money back."!important;white-space:normal!important;max-width:100%;line-height:1.35!important;padding-top:8px!important;padding-bottom:8px!important}
+  html body #MainContent .mc .mc-sub{order:-4;margin:12px 0 0;padding:0;font-family:var(--mc-font);font-size:19px;line-height:1.4;color:rgba(36,34,35,.72);text-wrap:pretty;text-align:left}
+  .mc-sub[hidden]{display:none!important}
   html body #MainContent .mc .mc-what{order:-2;margin:18px 0 0;padding:0;font-family:var(--mc-font);color:#242223;text-align:left}
   .mc-what[hidden],.mc-skip[hidden]{display:none!important}
   html body #MainContent .mc .mc-what p{margin:0;padding:0;font-size:16px;line-height:1.5;text-wrap:pretty;color:#242223}
@@ -31,6 +38,7 @@
     html body #MainContent .mc .mc-what p{font-size:15px}
     html body #MainContent .mc .mc-what .mc-what__name{font-size:16px}
     html body #MainContent .mc .mc-skip{font-size:13.5px}
+    html body #MainContent .mc .mc-sub{font-size:16px;margin-top:10px}
   }
 </style>
 <script>
@@ -42,6 +50,11 @@
     if (what && eye && !what.getAttribute('data-ready')) {
       eye.parentNode.insertBefore(what, eye.nextSibling);
       what.setAttribute('data-ready', '1'); what.hidden = false;
+    }
+    var sub = document.querySelector('[data-mc-sub]'), h1 = buy.querySelector('.mc__buy-title');
+    if (sub && h1 && !sub.getAttribute('data-ready')) {
+      h1.parentNode.insertBefore(sub, h1.nextSibling);
+      sub.setAttribute('data-ready', '1'); sub.hidden = false;
     }
     var skip = document.querySelector('[data-mc-skip]'), plans = buy.querySelector('.mc__plans');
     if (skip && plans && !skip.getAttribute('data-ready')) {

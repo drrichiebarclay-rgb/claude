@@ -549,7 +549,7 @@
         "rating_stars": 5,
         "rating_link": "#ReviewsWidget",
         "eyebrow": "NAD+ Cellular Complex",
-        "heading": "More energy.\nFaster recovery.",
+        "heading": "Flat by 3pm?\nSlower to bounce back?",
         "serving": "",
         "points_foot": "",
         "points_note": "",
@@ -959,9 +959,9 @@
     "statement": {
       "type": "muto-crea-statement",
       "settings": {
-        "label": "The answer",
-        "heading": "Built for what you need now,\nnot what you needed at 20.",
-        "sub": "Your body changes in mid-life, and NAD+ Cellular Complex is the daily foundation built for it.",
+        "label": "Not everybody is a 25-year-old PT.",
+        "heading": "Your life won’t fit a perfect routine.\nYour body still needs one.",
+        "sub": "NAD+ Cellular Complex is two capsules every morning. Nothing to mix, nothing to carry around.",
         "note": "Every dose on the label. Every batch tested.",
         "space_top": 100,
         "space_bottom": 100
