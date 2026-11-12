@@ -5,7 +5,15 @@
   research, Nov 2026): flat afternoons, training recovery, a life that won't fit a routine, too many pots.
   Product benefits use authorised claims only (B vitamins and folate: tiredness and fatigue; vitamin D: muscle
   function). Rendered by the custom-liquid section after the buy box (ag1_plans); it stays where it is.
+  Above the band: an "As seen in" row with the Men's Fitness and Women's Fitness logos (as on the listicle).
 {%- endcomment -%}
+<div class="mc-seen" aria-label="As seen in">
+  <p class="mc-seen__lab">As seen in</p>
+  <ul class="mc-seen__logos" role="list">
+    <li><img src="https://cdn.shopify.com/s/files/1/0976/2724/2843/files/mens-fitness-magazine-logo-blue_1.jpg?v=1769537356&width=360" alt="Men's Fitness" width="180" height="48" loading="lazy"></li>
+    <li><img src="https://cdn.shopify.com/s/files/1/0976/2724/2843/files/womens-fitness-magazine-logo-blue_1.jpg?v=1769537339&width=360" alt="Women's Fitness" width="180" height="48" loading="lazy"></li>
+  </ul>
+</div>
 <section class="mc-jobs" aria-labelledby="mc-jobs-h">
   <div class="mc-jobs__in">
     <p class="mc-jobs__eye">Not everybody is a 25-year-old PT.</p>
@@ -38,6 +46,14 @@
 <style>
   /* The reviews strip just above this band: same off-white as the buy box (#FAFAFA), not white */
   html body #MainContent > .shopify-section[id$="__reviews_ticker"],html body #MainContent > .shopify-section[id$="__reviews_ticker"] .mtk{background:#fafafa!important}
+  /* "As seen in": the press logos from the listicle, under the reviews strip */
+  .mc-seen{background:#fafafa;padding:22px 20px 26px;text-align:center}
+  .mc-seen__lab{margin:0;font-family:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(36,34,35,.62)}
+  .mc-seen__logos{display:flex;justify-content:center;align-items:center;gap:0 48px;margin:14px 0 0;padding:0;list-style:none}
+  .mc-seen__logos li{margin:0;padding:0;line-height:0}
+  .mc-seen__logos li::before{content:none!important}
+  .mc-seen__logos img{display:block;width:auto;height:30px;max-width:180px;object-fit:contain;mix-blend-mode:multiply;filter:grayscale(1);opacity:.78}
+  @media (max-width:749px){.mc-seen{padding:18px 16px 22px}.mc-seen__logos{gap:0 28px}.mc-seen__logos img{height:22px}}
   .mc-jobs{background:#242223;color:#fff;font-family:var(--mc-font,"Neue Haas Grotesk Display Pro"),sans-serif;-webkit-font-smoothing:antialiased}
   .mc-jobs__in{max-width:1280px;margin:0 auto;padding:88px 40px 96px}
   .mc-jobs__eye{margin:0 0 18px;font-family:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:#5efaff}
