@@ -4,9 +4,14 @@
   "Why it happens" stat cards, the standards cards, the FAQ (each question becomes a box, as the buy box's dropdowns),
   the scientific board card and the reviews box in the buy box. The dark band's cards get the same corners and a
   light outline. The plan cards keep their own selected / not-selected outlines.
+  Also turns off the lazy rendering of the lower sections, which made the page jump while scrolling.
   Rendered by the custom-liquid section after the buy box (ag1_plans).
 {%- endcomment -%}
 <style>
+  /* Stop the page jumping on scroll: the board, ingredient library, comparison and FAQ sections were set to render
+     only when scrolled to (content-visibility:auto) with a 900px stand-in height. Their real heights differ a lot
+     (the library is ~2,800px), so the page grew or shrank as each one came into view. Render them normally. */
+  html:root body #MainContent#MainContent > .shopify-section{content-visibility:visible!important;contain-intrinsic-size:none!important}
   /* "Why it happens" stat cards (were a grey glass gradient with a shadow and 24px corners) */
   html:root body #MainContent#MainContent [id$="__problem"] .mc .mc__prb-item{background:#fff!important;background-image:none!important;border:1px solid #242223!important;border-radius:8px!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
   html:root body #MainContent#MainContent [id$="__problem"] .mc .mc__prb-item::before,
