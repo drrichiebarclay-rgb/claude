@@ -64,6 +64,14 @@
     /* The plan lines ("90-day supply…", "£99 today…") match the welcome kit list's text size on phones */
     .ag-line,.ag-sm,.ag-perday{font-size:clamp(11px,3.4vw,13.5px)}
   }
+  /* One text size for the two lines under the price (the daily price and the payment schedule) */
+  html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-perday,
+  html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-sm{font-family:var(--mc-font)!important;font-size:15px!important;line-height:1.45!important;margin-top:4px!important}
+  html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-perday{margin-top:8px!important}
+  @media (max-width:749px){
+    html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-perday,
+    html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-sm{font-size:clamp(12.5px,3.6vw,14px)!important}
+  }
 </style>
 <script>
 (function () {
