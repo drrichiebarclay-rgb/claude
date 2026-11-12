@@ -48,9 +48,22 @@
   html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__buy-cta{flex-direction:column!important;gap:3px!important;padding-top:12px!important;padding-bottom:12px!important}
   html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__buy-cta::after{content:"Skip, pause or cancel online · cancel in 2 clicks"!important;display:block!important;margin:0!important;padding:0!important;background:none!important;font-family:var(--mc-font)!important;font-size:13px!important;font-weight:400!important;line-height:1.3!important;letter-spacing:0!important;text-transform:none!important;color:rgba(255,255,255,.88)!important;opacity:1!important;position:static!important}
   html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-skip{display:none!important}
+  /* A little more room between the headline, the line under it, the rating, the guarantee badge and the proof line */
+  html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-sub{margin-top:18px!important}
+  html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc__rating{margin-top:24px!important}
+  html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc__eyebrow{margin-top:20px!important}
+  html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-subhead{margin-top:22px!important}
+  html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-for{margin-bottom:14px!important}
+  @media (max-width:749px){
+    html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-sub{margin-top:16px!important}
+    html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc__rating{margin-top:20px!important}
+    html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc__eyebrow{margin-top:18px!important}
+    html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-subhead{margin-top:20px!important}
+  }
   /* "View third-party testing results": a plain underlined link, not a pill */
   html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-tests-btn{display:flex!important;justify-content:center!important;align-items:center!important;gap:6px!important;width:auto!important;min-height:0!important;margin:10px auto 0!important;padding:4px 0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;font-size:14.5px!important;font-weight:500!important;text-decoration:underline!important;text-underline-offset:3px!important;text-decoration-thickness:1px!important;color:#242223!important}
-  html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-tests-btn svg{width:16px!important;height:16px!important}
+  html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-tests-btn .mc-tests-btn__tick{display:none!important}
+  html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-tests-btn::before{content:""!important;display:block!important;flex:0 0 17px;width:17px;height:17px;margin:0!important;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23242223' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='10' cy='10' r='8.6'/%3E%3Cpath d='M6.3 10.3l2.5 2.5 4.9-5.3'/%3E%3C/svg%3E") center/contain no-repeat!important;border:0!important}
   /* Removed on request: the one-time purchase link and the "Formulated with leading doctors and scientists" card */
   html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__onetime,
   html:root body #MainContent#MainContent [id$="__buy"] .mc .mpb-doc{display:none!important}
