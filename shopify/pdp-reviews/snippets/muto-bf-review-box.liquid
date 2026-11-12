@@ -1,6 +1,7 @@
 {%- comment -%}
   MUTO — reviews in the buy box (muto-bf-review-box). A box in the dropdowns' style, between the buy box's three
-  ticks and its Black Friday line: filters (All, Energy, Recovery, Sleep, Busy life, Wearable user), then real
+  ticks and its Black Friday line: "Sound like you?" with three chips in the customers' own moments (Flat by 3pm,
+  Slower to bounce back, Too many pots on the shelf; tap one to see matching reviews, tap again for all), then real
   customer reviews from REVIEWS.io rotating every 6 seconds (pauses on hover, focus or tap; arrows to step; no
   auto-rotation for people who ask for reduced motion).
   Each review: stars, the review word for word (… marks a cut), the name as REVIEWS.io shows it, the age only
@@ -12,13 +13,13 @@
   Rendered by the custom-liquid section after the buy box (ag1_plans); a script moves it into place.
 {%- endcomment -%}
 <div class="mc-rv" data-mc-rv hidden role="region" aria-roledescription="carousel" aria-label="Customer reviews">
-  <div class="mc-rv__chips" role="group" aria-label="Show reviews about">
-    <button type="button" class="mc-rv__chip" data-f="All" aria-pressed="true">All</button>
-    <button type="button" class="mc-rv__chip" data-f="Energy" aria-pressed="false">Energy</button>
-    <button type="button" class="mc-rv__chip" data-f="Recovery" aria-pressed="false">Recovery</button>
-    <button type="button" class="mc-rv__chip" data-f="Sleep" aria-pressed="false">Sleep</button>
-    <button type="button" class="mc-rv__chip" data-f="Busy life" aria-pressed="false">Busy life</button>
-    <button type="button" class="mc-rv__chip" data-f="Wearable user" aria-pressed="false">Wearable user</button>
+  <div class="mc-rv__fit">
+    <p class="mc-rv__ask" id="mc-rv-ask">Sound like you?</p>
+    <div class="mc-rv__chips" role="group" aria-labelledby="mc-rv-ask">
+    <button type="button" class="mc-rv__chip" data-f="Energy" aria-pressed="false">Flat by 3pm</button>
+    <button type="button" class="mc-rv__chip" data-f="Recovery" aria-pressed="false">Slower to bounce back</button>
+    <button type="button" class="mc-rv__chip" data-f="Pots" aria-pressed="false">Too many pots on the shelf</button>
+    </div>
   </div>
   <div class="mc-rv__stack" aria-live="polite">
     <figure class="mc-rv__slide" data-tags="|Recovery|Sleep|Wearable user|" data-rid="51870896">
@@ -26,7 +27,7 @@
       <blockquote class="mc-rv__q">“…my sleep is hitting good to excellent consistently and recovery from work outs hasn&#x27;t been over 24 hours since I started MUTO.…”</blockquote>
       <figcaption class="mc-rv__who"><b>Adam, 46</b><i>Trains 4–5 times a week, races Hyrox</i><span>Verified buyer</span></figcaption>
     </figure>
-    <figure class="mc-rv__slide" data-tags="|Recovery|Busy life|" data-rid="51870911" aria-hidden="true">
+    <figure class="mc-rv__slide" data-tags="|Recovery|Busy life|Pots|" data-rid="51870911" aria-hidden="true">
       <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
       <blockquote class="mc-rv__q">“…I wanted to slim down my supplements to 1 which met all my needs.…I feel very strong in the gym when lifting weights.…”</blockquote>
       <figcaption class="mc-rv__who"><b>Sunjit B., 53</b><i>Medic, strength trains 3 times a week</i><span>Verified buyer</span></figcaption>
@@ -176,7 +177,7 @@
       <blockquote class="mc-rv__q">“…The product is clearly well thought-out, science-led, and supported by real-world results.”</blockquote>
       <figcaption class="mc-rv__who"><b>Qasim M.</b><span>Verified buyer</span></figcaption>
     </figure>
-    <figure class="mc-rv__slide" data-tags="||" data-rid="51870890" aria-hidden="true">
+    <figure class="mc-rv__slide" data-tags="|Pots|" data-rid="51870890" aria-hidden="true">
       <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
       <blockquote class="mc-rv__q">“I love that this replaces multiple products. The quality feels high and the results have been real – more vitality and better overall wellbeing.”</blockquote>
       <figcaption class="mc-rv__who"><b>Amy C.</b><span>Verified buyer</span></figcaption>
@@ -191,9 +192,19 @@
       <blockquote class="mc-rv__q">“…the way that they have done their branding along with explaining the science behind longevity is top quality. Dr Richie Barclay knows his stuff.”</blockquote>
       <figcaption class="mc-rv__who"><b>Catalin-Constantin M.</b><span>Verified buyer</span></figcaption>
     </figure>
+    <figure class="mc-rv__slide" data-tags="|Pots|" data-rid="51870924" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“…Two months into muto &amp; my &#x27;health&#x27; cupboard now consists of 1 supplement rather than 10!…”</blockquote>
+      <figcaption class="mc-rv__who"><b>Jenna J.</b><span>Verified buyer</span></figcaption>
+    </figure>
+    <figure class="mc-rv__slide" data-tags="|Pots|" data-rid="51870917" aria-hidden="true">
+      <div class="mc-rv__top"><span class="mc-rv__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <blockquote class="mc-rv__q">“Finally a supplement that has everything I need in one! Great benefits and really works.”</blockquote>
+      <figcaption class="mc-rv__who"><b>Chloe S.</b><span>Verified buyer</span></figcaption>
+    </figure>
   </div>
   <div class="mc-rv__nav">
-    <span class="mc-rv__count" aria-hidden="true"><b data-mc-rv-n>1</b> / <span data-mc-rv-t>34</span></span>
+    <span class="mc-rv__count" aria-hidden="true"><b data-mc-rv-n>1</b> / <span data-mc-rv-t>36</span></span>
     <button type="button" class="mc-rv__btn" data-mc-rv-step="-1" aria-label="Previous review"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3 5 8l5 5" stroke="currentColor" stroke-width="1.6"/></svg></button>
     <button type="button" class="mc-rv__btn" data-mc-rv-step="1" aria-label="Next review"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m6 3 5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></button>
   </div>
@@ -202,9 +213,11 @@
   /* Inside the buy box's subhead, which sets its own text to size 0: everything here sets its own size */
   html body #MainContent .mc .mc-rv{display:block;margin:18px 0 6px;padding:14px 18px 12px;border:1px solid #242223;border-radius:10px;background:#fff;font-family:var(--mc-font);font-size:15px;line-height:1.45;letter-spacing:0;text-transform:none;color:#242223;text-align:left;white-space:normal}
   .mc-rv[hidden]{display:none!important}
-  html body #MainContent .mc .mc-rv__chips{display:flex;gap:6px;margin:0 -18px 12px;padding:0 18px 12px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid rgba(36,34,35,.12)}
+  html body #MainContent .mc .mc-rv__fit{margin:0 -18px 12px;padding:0 18px 12px;border-bottom:1px solid rgba(36,34,35,.12)}
+  html body #MainContent .mc .mc-rv__ask{margin:0 0 8px!important;padding:0;font-family:var(--mc-font);font-size:14px;font-weight:500;line-height:1.3;color:#242223}
+  html body #MainContent .mc .mc-rv__chips{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0}
   .mc-rv__chips::-webkit-scrollbar{display:none}
-  html body #MainContent .mc .mc-rv__chip{flex:0 0 auto;min-height:0;margin:0;padding:6px 11px;border:1px solid rgba(36,34,35,.25);border-radius:999px;background:#fff;color:#242223;font-family:var(--mc-mono);font-size:10.5px;font-weight:500;line-height:1.2;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;cursor:pointer}
+  html body #MainContent .mc .mc-rv__chip{flex:0 0 auto;min-height:0;margin:0;padding:7px 12px;border:1px solid rgba(36,34,35,.3);border-radius:999px;background:#fff;color:#242223;font-family:var(--mc-font);font-size:14px;font-weight:500;line-height:1.2;letter-spacing:0;text-transform:none;white-space:nowrap;cursor:pointer}
   html body #MainContent .mc .mc-rv__chip:hover{border-color:#242223}
   html body #MainContent .mc .mc-rv__chip[aria-pressed="true"]{background:#242223;border-color:#242223;color:#fff}
   .mc-rv__stack{display:grid}
@@ -229,8 +242,10 @@
   /* Phones: smaller type and tighter spacing, so the box takes less room */
   @media (max-width:749px){
     html body #MainContent .mc .mc-rv{margin:14px 0 4px!important;padding:10px 14px 10px!important}
-    html body #MainContent .mc .mc-rv__chips{margin:0 -14px 10px!important;padding:0 14px 10px!important;gap:5px!important}
-    html body #MainContent .mc .mc-rv__chip{padding:5px 9px!important;font-size:9.5px!important}
+    html body #MainContent .mc .mc-rv__fit{margin:0 -14px 10px!important;padding:0 14px 10px!important}
+    html body #MainContent .mc .mc-rv__ask{margin-bottom:7px!important;font-size:13px!important}
+    html body #MainContent .mc .mc-rv__chips{gap:5px!important}
+    html body #MainContent .mc .mc-rv__chip{padding:6px 10px!important;font-size:12.5px!important}
     html body #MainContent .mc .mc-rv__stars{font-size:12px!important;letter-spacing:1.5px!important}
     html body #MainContent .mc .mc-rv__q{margin-top:6px!important;font-size:13.5px!important;line-height:1.4!important}
     html body #MainContent .mc .mc-rv__who{padding-top:8px!important;font-size:12.5px!important}
@@ -279,7 +294,7 @@
   [].forEach.call(box.querySelectorAll('[data-mc-rv-step]'), function (b) {
     b.addEventListener('click', function () { show(i + parseInt(b.getAttribute('data-mc-rv-step'), 10)); });
   });
-  chips.forEach(function (c) { c.addEventListener('click', function () { filter(c.getAttribute('data-f')); }); });
+  chips.forEach(function (c) { c.addEventListener('click', function () { filter(c.getAttribute('aria-pressed') === 'true' ? 'All' : c.getAttribute('data-f')); }); });
   filter('All'); start();
   }
   /* Straight away, and again once the page is parsed in case the buy box wasn't ready yet; it only sets up once */

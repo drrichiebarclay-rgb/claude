@@ -412,7 +412,7 @@
           "type": "fold",
           "settings": {
             "title": "Delivery, subscription and guarantee",
-            "text": "<p><strong>Delivery.</strong> Free next-day UK delivery, tracked 24h. Order by 9pm for delivery tomorrow.</p><p><strong>Your plan.</strong> 3-Month Supply: £99 for your first 3 months, then £125 for the next 3 months, then £150 every 3 months. 1-Month Supply: £49.99 for your first month, then £60 every month.</p><p><strong>Skip, pause or cancel</strong> online anytime. No phone calls, and we remind you 5 days before every payment.</p><p><strong>90-day money-back guarantee.</strong> If you’re a first-time subscriber, take it every day for 90 days. Not for you? Email <a href=\"mailto:hello@mutolongevity.com\">hello@mutolongevity.com</a> within 14 days after your 90 days end (104 days from your first order) and we’ll refund the subscription payments you’ve made, less our delivery costs. One-time purchases and Amazon orders aren’t covered.</p>"
+            "text": "<p><strong>Delivery.</strong> Free next-day UK delivery, tracked 24h. Order by 9pm for delivery tomorrow.</p><p><strong>Your plan.</strong> 3-Month Supply: £99 for your first 3 months, then £125 for the next 3 months, then £150 every 3 months. 1-Month Supply: £49.99 for your first month, then £60 every month.</p><p><strong>Reminders.</strong> We email you 5 days before every payment.</p><p><strong>90-day money-back guarantee.</strong> If you’re a first-time subscriber, take it every day for 90 days. Not for you? Email <a href=\"mailto:hello@mutolongevity.com\">hello@mutolongevity.com</a> within 14 days after your 90 days end (104 days from your first order) and we’ll refund the subscription payments you’ve made, less our delivery costs. One-time purchases and Amazon orders aren’t covered.</p>"
           }
         },
         "fold7": {
@@ -571,7 +571,7 @@
         "kit_foot_1_pop_title": "90-day money-back guarantee",
         "kit_foot_1_pop": "<p><strong>No risk.</strong> Take it every day for 90 days. Not for you? Email us within 14 days after your 90 days end. We’ll give your money back, minus delivery.</p><p>Fewer than 1 in 1,000 people ask for a refund.</p><p><a href=\"/pages/faqs#guarantee\">Full details</a></p>",
         "kit_foot_2": "Free next-day delivery",
-        "kit_foot_3": "Skip or cancel anytime",
+        "kit_foot_3": "",
         "kit_foot_3_pop_title": "Skip or cancel anytime",
         "kit_foot_3_pop": "<p>Going on holiday or running low? Skip a box, move your next order, or stop whenever you want, before your next payment. You’re in control.</p>",
         "kit_foot_4": "",
@@ -602,7 +602,7 @@
         "color_scheme": "scheme-1",
         "padding_top": 0,
         "padding_bottom": 0,
-        "custom_liquid": "{%- render 'muto-bf-ag1-plans' -%}\n{%- render 'muto-bf-video-reviews' -%}\n{%- render 'muto-bf-review-box' -%}"
+        "custom_liquid": "{%- render 'muto-bf-ag1-plans' -%}\n{%- render 'muto-bf-video-reviews' -%}\n{%- render 'muto-bf-review-box' -%}\n{%- render 'muto-bf-buybox-copy' -%}"
       }
     },
     "reviews_ticker": {

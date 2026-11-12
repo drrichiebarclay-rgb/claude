@@ -1,0 +1,55 @@
+{%- comment -%}
+  MUTO — buy box copy (muto-bf-buybox-copy). Two pieces of plain-English copy in the main product page's buy box:
+  1. "What it is", under the guarantee badge: the product's name, what it is in one sentence, and who it's for.
+     It takes the place of the "Five supplements in one daily jar…" line (drawn by the theme's CSS), which is hidden.
+  2. "Skip, pause or cancel online · cancel in 2 clicks", directly under the plan cards (above Add to cart).
+     The same line was taken out of the "Delivery, subscription and guarantee" dropdown.
+  Rendered by the custom-liquid section after the buy box (ag1_plans); a small script puts each piece in place.
+  Wording follows the jobs-to-be-done research (Nov 2026): say what it is and who it's for first, in plain words.
+{%- endcomment -%}
+<div class="mc-what" data-mc-what hidden>
+  <p class="mc-what__name">NAD<sup>+</sup> Cellular Complex</p>
+  <p class="mc-what__text">Two capsules a day with 19 nutrients, including NR, which your body turns into NAD<sup>+</sup>, the molecule your cells use to make energy. One jar instead of a shelf of pots.</p>
+  <p class="mc-what__who"><b>Who it’s for:</b> adults over 35 whose life doesn’t fit a perfect routine.</p>
+</div>
+<p class="mc-skip" data-mc-skip hidden>Skip, pause or cancel online <span aria-hidden="true">·</span> cancel in 2 clicks</p>
+<style>
+  /* The theme's "Five supplements in one daily jar…" line under the guarantee badge: replaced by .mc-what */
+  html:root body #MainContent#MainContent .mc .mc__buy-copy > .mc__eyebrow::after{content:none!important;display:none!important}
+  html body #MainContent .mc .mc-what{order:-2;margin:18px 0 0;padding:0;font-family:var(--mc-font);color:#242223;text-align:left}
+  .mc-what[hidden],.mc-skip[hidden]{display:none!important}
+  html body #MainContent .mc .mc-what p{margin:0;padding:0;font-size:16px;line-height:1.5;text-wrap:pretty;color:#242223}
+  html body #MainContent .mc .mc-what .mc-what__name{font-size:17px;font-weight:600;line-height:1.3}
+  html body #MainContent .mc .mc-what .mc-what__text{margin-top:4px}
+  html body #MainContent .mc .mc-what .mc-what__who{margin-top:8px}
+  html body #MainContent .mc .mc-what b{font-weight:600}
+  html body #MainContent .mc .mc-what sup{font-size:.6em;line-height:0}
+  html body #MainContent .mc .mc-skip{order:2;margin:12px 0 0;padding:0;font-family:var(--mc-font);font-size:14.5px;font-weight:500;line-height:1.4;text-align:center;color:#242223}
+  html body #MainContent .mc .mc-skip span{margin:0 4px;opacity:.5}
+  @media (max-width:749px){
+    html body #MainContent .mc .mc-what{margin-top:16px}
+    html body #MainContent .mc .mc-what p{font-size:15px}
+    html body #MainContent .mc .mc-what .mc-what__name{font-size:16px}
+    html body #MainContent .mc .mc-skip{font-size:13.5px}
+  }
+</style>
+<script>
+(function () {
+  function init() {
+    var buy = document.querySelector('#MainContent [id$="__buy"]');
+    if (!buy) return;
+    var what = document.querySelector('[data-mc-what]'), eye = buy.querySelector('.mc__eyebrow');
+    if (what && eye && !what.getAttribute('data-ready')) {
+      eye.parentNode.insertBefore(what, eye.nextSibling);
+      what.setAttribute('data-ready', '1'); what.hidden = false;
+    }
+    var skip = document.querySelector('[data-mc-skip]'), plans = buy.querySelector('.mc__plans');
+    if (skip && plans && !skip.getAttribute('data-ready')) {
+      plans.parentNode.insertBefore(skip, plans.nextSibling);
+      skip.setAttribute('data-ready', '1'); skip.hidden = false;
+    }
+  }
+  init();
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else setTimeout(init, 0);
+})();
+</script>

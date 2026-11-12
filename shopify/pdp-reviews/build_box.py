@@ -4,7 +4,7 @@ R = {x['product_review_id']: x for x in json.load(open(sys.argv[1]))}
 # id, display name, age (only as the reviewer wrote it), life stage (from their own words), tags, quote ("…" = cut)
 L = [
  (51870896,'Adam','46','Trains 4–5 times a week, races Hyrox','Recovery,Sleep,Wearable user',"…my sleep is hitting good to excellent consistently and recovery from work outs hasn't been over 24 hours since I started MUTO.…"),
- (51870911,'Sunjit B.','53','Medic, strength trains 3 times a week','Recovery,Busy life',"…I wanted to slim down my supplements to 1 which met all my needs.…I feel very strong in the gym when lifting weights.…"),
+ (51870911,'Sunjit B.','53','Medic, strength trains 3 times a week','Recovery,Busy life,Pots',"…I wanted to slim down my supplements to 1 which met all my needs.…I feel very strong in the gym when lifting weights.…"),
  (51870901,'Kevin','36','Working, already nails the basics','Energy,Busy life',"I'm 36, and I feel as resilient as my 20s.…I'm feeling way sharper at work and I have constant energy throughout the day, no crashes, nothing.…"),
  (51870912,'Fiona S.','','Busy mum of 3','Energy,Busy life',"…My energy levels are better, my HRV has improved and I feel more relaxed in the mornings (which is a rare thing to say as a busy mum of 3!)…"),
  (51870866,'Jonathon R.','Mid 30s','','Energy',"Being in my mid 30s, everything has started to slow down. Muto is providing me with a sense of vitality which I haven’t experienced since my mid 20s…"),
@@ -34,11 +34,15 @@ L = [
  (51870877,'Brendan','','','Recovery,Energy',"Started using muto because I felt like my body couldn’t keep up with the amount of exercise I wanted to do. After taking muto, I felt more energised and ready for my next session!…"),
  (51870926,'Lotti','','','Recovery,Energy',"Muto has so much more science behind it than the average supplement brand.…I've been using it for a month and I already feel better and have noticed improved recovery and energy."),
  (51870897,'Qasim M.','','','',"…The product is clearly well thought-out, science-led, and supported by real-world results."),
- (51870890,'Amy C.','','','',"I love that this replaces multiple products. The quality feels high and the results have been real – more vitality and better overall wellbeing."),
+ (51870890,'Amy C.','','','Pots',"I love that this replaces multiple products. The quality feels high and the results have been real – more vitality and better overall wellbeing."),
  (51870904,'T. F.','','','',"…What i am here to say is that I have NEVER experience such a high level of customer service as with this company.…"),
  (51870920,'Catalin-Constantin M.','','','',"…the way that they have done their branding along with explaining the science behind longevity is top quality. Dr Richie Barclay knows his stuff."),
+ (51870924,'Jenna J.','','','Pots',"…Two months into muto & my 'health' cupboard now consists of 1 supplement rather than 10!…"),
+ (51870917,'Chloe S.','','','Pots',"Finally a supplement that has everything I need in one! Great benefits and really works."),
 ]
-FILTERS = ['Energy','Recovery','Sleep','Busy life','Wearable user']
+FILTERS = ['Energy','Recovery','Sleep','Busy life','Wearable user','Pots']
+# The 'Sound like you?' chips: the customer's moment, and the tag it shows
+CHIPS = [('Flat by 3pm','Energy'), ('Slower to bounce back','Recovery'), ('Too many pots on the shelf','Pots')]
 norm = lambda s: re.sub(r"\s+", " ", html.unescape(s).replace('’', "'").replace('‘', "'")).strip()
 bad = 0
 for (i, n, a, st, tg, q) in L:
@@ -67,7 +71,7 @@ for k, (i, n, a, st, tg, q) in enumerate(L):
     '      <blockquote class="mc-rv__q">“' + e(q) + '”</blockquote>\n'
     '      <figcaption class="mc-rv__who">' + who + '</figcaption>\n'
     '    </figure>')
-chips = '\n'.join('    <button type="button" class="mc-rv__chip" data-f="' + e(f) + '" aria-pressed="' + ('true' if f == 'All' else 'false') + '">' + e(f) + '</button>' for f in ['All'] + FILTERS)
+chips = '\n'.join('    <button type="button" class="mc-rv__chip" data-f="' + e(t) + '" aria-pressed="false">' + e(lbl) + '</button>' for (lbl, t) in CHIPS)
 tpl = open(sys.argv[2]).read()
 out = tpl.replace('%%SLIDES%%', '\n'.join(slides)).replace('%%CHIPS%%', chips).replace('%%N%%', str(len(L)))
 open(sys.argv[3], 'w').write(out)
