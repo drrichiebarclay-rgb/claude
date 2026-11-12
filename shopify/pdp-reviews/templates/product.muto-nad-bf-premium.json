@@ -976,7 +976,7 @@
             "count": "8",
             "outcome": "Afternoons that hold",
             "doses": "B vitamins · Folate 400mcg · NR 300mg · CoQ10 150mg",
-            "text": "For when you’re flagging by mid-afternoon. Vitamins B2, B3, B6, B12 and folate contribute to the reduction of tiredness and fatigue. Usually the first thing people tell us they notice, around day 30.",
+            "text": "For the 3pm meeting and the second coffee you shouldn’t need. Vitamins B2, B3, B6, B12 and folate contribute to the reduction of tiredness and fatigue. Usually the first thing people notice, around day 30.",
             "ingredients": "Vitamin B2 (Riboflavin) | 5 mg\nVitamin B3 (Niacin) | 16 mg NE\nVitamin B6 (P5P) | 5 mg\nVitamin B12 (Methylcobalamin) | 100 mcg\nFolate (5-MTHF) | 400 mcg\nNicotinamide Riboside (NR) | 300 mg\nCoQ10 | 150 mg\nPQQ | 20 mg",
             "image": "shopify://shop_images/Golden_Hour_Family_Beach_Walk.png",
             "position": "object-position:50% 0%"
@@ -987,9 +987,9 @@
           "settings": {
             "title": "Recovery",
             "count": "4",
-            "outcome": "Bouncing back sooner",
+            "outcome": "Ready to go again",
             "doses": "Vitamin D3 50mcg · CoQ10 150mg · PQQ 20mg",
-            "text": "For heavy legs and sessions that take longer to bounce back from. Vitamin D contributes to normal muscle function. People tell us they notice it around day 60.",
+            "text": "For the stairs the morning after a hard session, and the training you want to keep doing. Vitamin D contributes to normal muscle function. People tell us they notice it around day 60.",
             "ingredients": "Vitamin D3 (Vegan) | 50 mcg\nVitamin K2 (MK-7) | 100 mcg\nCoQ10 | 150 mg\nPQQ | 20 mg",
             "image": "shopify://shop_images/038A80BF-8A59-420A-8CC3-3C5DDFB275B6.png",
             "position": "object-position:50% 20%"
@@ -1014,9 +1014,9 @@
           "settings": {
             "title": "Healthy ageing",
             "count": "7",
-            "outcome": "Feeling like yourself",
+            "outcome": "Live better for longer",
             "doses": "Zinc 15mg · Copper 1mg · B2 5mg · NR 300mg",
-            "text": "For doing the things you enjoy, for years to come. Zinc, copper and vitamin B2 contribute to the protection of cells from oxidative stress. Around day 90, people tell us they feel like themselves again.",
+            "text": "For keeping up with the people who rely on you and the things you love, for years to come. Zinc, copper and vitamin B2 contribute to the protection of cells from oxidative stress. Around day 90, people tell us they feel like themselves again.",
             "ingredients": "Zinc (Bisglycinate) | 15 mg\nCopper (Bisglycinate) | 1 mg\nVitamin B2 (Riboflavin) | 5 mg\nNicotinamide Riboside (NR) | 300 mg\nTMG (Trimethylglycine) | 450 mg\nTrans-Resveratrol | 50 mg\nGrape Seed Extract | 150 mg",
             "image": "shopify://shop_images/Golden_Hour_Ocean_Portrait.png",
             "position": "object-position:50% 20%"
@@ -1046,9 +1046,9 @@
       ],
       "settings": {
         "anchor": "benefits",
-        "eyebrow": "The three jobs",
+        "eyebrow": "What it does",
         "heading": "Energy, recovery\nand healthy ageing.",
-        "lede": "From one daily foundation. Every dose on the label, every batch tested. Tap a job to see the claim and the doses behind it.",
+        "lede": "The three things customers tell us they want back: afternoons that don’t fade, a body that’s ready to go again, and feeling like themselves for years to come. Tap one to see what’s behind it, dose by dose.",
         "link_label": "See all 19 ingredients",
         "link": "#library",
         "space_top": 96,
@@ -2430,8 +2430,8 @@
     "head_styles",
     "bf_bar",
     "buy",
-    "ag1_plans",
     "reviews_ticker",
+    "ag1_plans",
     "early",
     "nav",
     "v3_lower",
