@@ -1,0 +1,106 @@
+{%- comment -%}
+  MUTO — "MUTO vs the usual" on the main product page (muto-bf-compare-main). A simple ticks-and-crosses table:
+  MUTO's column in charcoal, then a multivitamin, a greens powder and buying separately; six short rows from the
+  jobs-to-be-done research (built for over-35s, NAD+ support, every dose on the label, every batch tested, one jar,
+  a 90-day money-back guarantee) and the monthly cost. ✓ yes, ✗ no, ? depends on the brand.
+  Rendered by the "url-3 design below buy" custom-liquid section (v3_lower) inside a <template>; the script swaps it
+  into the page's "compare" section. To change a row, edit ROWS below (y = yes, n = no, q = depends).
+{%- endcomment -%}
+{%- liquid
+  assign ROWS = 'Built for over-35s|y|n|n|q;NAD+ support (NR, CoQ10, PQQ)|y|n|n|y;Every dose on the label|y|y|q|q;Every batch tested, results published|y|q|q|q;One jar, nothing to mix|y|y|n|n;90-day money-back guarantee|y|q|q|q' | split: ';'
+-%}
+<template id="mc-cmp-tpl">
+<div class="mc-cmp mc-vs" id="compare">
+  <div class="mc-vs__in">
+    <p class="mc-vs__eye">MUTO vs the usual</p>
+    <h2 class="mc-vs__h">Hold any label up against ours.</h2>
+    <p class="mc-vs__intro">Most people we speak to have a cupboard full of these and no idea which ones work. Here’s how they compare.</p>
+    <div class="mc-vs__t" role="table" aria-label="MUTO compared with a multivitamin, a greens powder and buying supplements separately">
+      <div class="mc-vs__r mc-vs__r--head" role="row">
+        <span class="mc-vs__l" role="columnheader"><span class="visually-hidden">What you get</span></span>
+        <span class="mc-vs__c mc-vs__c--m" role="columnheader"><span class="mc-vs__img"><img src="https://cdn.shopify.com/s/files/1/0976/2724/2843/files/nad-jar.jpg?v=1792524286&width=240" alt="" width="120" height="120" loading="lazy"></span><b>MUTO</b></span>
+        <span class="mc-vs__c" role="columnheader"><span class="mc-vs__img"><img src="{{ 'muto-cmp-multivitamin.jpg' | asset_url }}" alt="" width="120" height="120" loading="lazy"></span><b>Multi&shy;vitamin</b></span>
+        <span class="mc-vs__c" role="columnheader"><span class="mc-vs__img"><img src="{{ 'muto-cmp-greens.jpg' | asset_url }}" alt="" width="120" height="120" loading="lazy"></span><b>Greens powder</b></span>
+        <span class="mc-vs__c" role="columnheader"><span class="mc-vs__img"><img src="{{ 'muto-cmp-separate.jpg' | asset_url }}" alt="" width="120" height="120" loading="lazy"></span><b>Buying separately</b></span>
+      </div>
+      {%- for row in ROWS -%}
+        {%- assign f = row | split: '|' -%}
+        <div class="mc-vs__r" role="row">
+          <span class="mc-vs__l" role="rowheader">{{ f[0] }}</span>
+          {%- for k in (1..4) -%}
+            {%- assign v = f[k] -%}
+            <span class="mc-vs__c{% if k == 1 %} mc-vs__c--m{% endif %}" role="cell">
+              {%- if v == 'y' -%}<i class="mc-vs__i mc-vs__i--y" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></i>
+              {%- elsif v == 'n' -%}<i class="mc-vs__i mc-vs__i--n" aria-label="No"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></i>
+              {%- else -%}<i class="mc-vs__i mc-vs__i--q" aria-label="Depends on the brand">?</i>{%- endif -%}
+            </span>
+          {%- endfor -%}
+        </div>
+      {%- endfor -%}
+      <div class="mc-vs__r mc-vs__r--cost" role="row">
+        <span class="mc-vs__l" role="rowheader">Monthly cost</span>
+        <span class="mc-vs__c mc-vs__c--m" role="cell"><b>£33*</b></span>
+        <span class="mc-vs__c" role="cell"><b>£40</b></span>
+        <span class="mc-vs__c" role="cell"><b>£40–80</b></span>
+        <span class="mc-vs__c" role="cell"><b>£90+</b></span>
+      </div>
+    </div>
+    <p class="mc-vs__note">? depends on the brand. *Your first 3-Month Supply is £99, about £33 a month; then £125 for the next 3 months and £150 every 3 months after that. Comparisons are by category, not brand, and products vary.</p>
+  </div>
+</div>
+</template>
+<style>
+  .mc-vs{background:#fafafa;color:#242223;font-family:var(--mc-font,"Neue Haas Grotesk Display Pro"),sans-serif;-webkit-font-smoothing:antialiased}
+  .mc-vs__in{max-width:1080px;margin:0 auto;padding:96px 40px}
+  .mc-vs__eye{margin:0 0 16px;text-align:center;font-family:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(36,34,35,.62)}
+  .mc-vs__h{margin:0;text-align:center;font-family:inherit;font-size:clamp(32px,4vw,56px);font-weight:500;line-height:1;letter-spacing:-.02em;text-transform:uppercase;text-wrap:balance}
+  .mc-vs__intro{max-width:46ch;margin:20px auto 0;text-align:center;font-size:clamp(16px,1.35vw,19px);line-height:1.5;text-wrap:balance}
+  .mc-vs__t{margin-top:48px}
+  .mc-vs__r{display:grid;grid-template-columns:minmax(0,1.6fr) repeat(4,minmax(0,1fr));align-items:stretch;border-bottom:1px solid rgba(36,34,35,.14)}
+  .mc-vs__r--head,.mc-vs__r--cost{border-bottom:0}
+  .mc-vs__l{display:flex;align-items:center;padding:20px 16px 20px 0;font-size:17px;font-weight:500;line-height:1.3}
+  .mc-vs__c{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:18px 8px;text-align:center;font-size:15px;line-height:1.25}
+  .mc-vs__c b{font-weight:500}
+  .mc-vs__c--m{background:#242223;color:#fff}
+  .mc-vs__r--head .mc-vs__c{justify-content:flex-end;padding-top:24px;padding-bottom:20px}
+  .mc-vs__r--head .mc-vs__c--m{border-radius:14px 14px 0 0}
+  .mc-vs__r--cost .mc-vs__c{padding-top:22px;padding-bottom:26px;font-size:20px}
+  .mc-vs__r--cost .mc-vs__c--m{border-radius:0 0 14px 14px}
+  .mc-vs__r:not(.mc-vs__r--head):not(.mc-vs__r--cost) .mc-vs__c--m{box-shadow:inset 0 -1px 0 rgba(255,255,255,.14)}
+  .mc-vs__img{display:block;width:72px;height:72px;border-radius:50%;overflow:hidden;background:#fff}
+  .mc-vs__img img{display:block;width:100%;height:100%;object-fit:cover}
+  .mc-vs__i{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;font-style:normal;font-family:var(--mc-mono,"Sometype Mono"),monospace;font-size:15px;font-weight:600;line-height:1}
+  .mc-vs__i svg{width:16px;height:16px}
+  .mc-vs__i--y{background:#e9e9e7;color:#242223}
+  .mc-vs__c--m .mc-vs__i--y{background:#5efaff;color:#242223}
+  .mc-vs__i--n{border:1px solid rgba(36,34,35,.25);color:rgba(36,34,35,.55)}
+  .mc-vs__i--q{border:1px solid rgba(36,34,35,.25);color:rgba(36,34,35,.55)}
+  .mc-vs__note{max-width:60ch;margin:24px auto 0;text-align:center;font-size:13px;line-height:1.5;color:rgba(36,34,35,.62)}
+  @media (max-width:749px){
+    .mc-vs__in{padding:56px 16px}
+    .mc-vs__eye{font-size:11px}
+    .mc-vs__h{font-size:30px}
+    .mc-vs__intro{font-size:16px}
+    .mc-vs__t{margin-top:32px}
+    .mc-vs__r{grid-template-columns:minmax(0,1.35fr) repeat(4,minmax(0,1fr))}
+    .mc-vs__l{padding:14px 8px 14px 0;font-size:13.5px}
+    .mc-vs__c{gap:6px;padding:12px 2px;font-size:11.5px}
+    .mc-vs__r--head .mc-vs__c{padding-top:14px;padding-bottom:12px}
+    .mc-vs__r--head .mc-vs__c--m{border-radius:10px 10px 0 0}
+    .mc-vs__r--cost .mc-vs__c{padding-top:14px;padding-bottom:16px;font-size:14px}
+    .mc-vs__r--cost .mc-vs__c--m{border-radius:0 0 10px 10px}
+    .mc-vs__img{width:40px;height:40px}
+    .mc-vs__i{width:24px;height:24px;font-size:12px}
+    .mc-vs__i svg{width:12px;height:12px}
+    .mc-vs__note{font-size:12px}
+  }
+</style>
+<script>
+(function () {
+  var tpl = document.getElementById('mc-cmp-tpl');
+  var sec = document.querySelector('#MainContent [id$="__compare"]');
+  if (!tpl || !sec || sec.querySelector('.mc-vs')) return;
+  sec.innerHTML = '';
+  sec.appendChild(tpl.content.cloneNode(true));
+})();
+</script>
