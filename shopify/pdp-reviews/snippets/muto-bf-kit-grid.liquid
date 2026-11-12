@@ -3,7 +3,8 @@
   gifts is shown as a grid of tiles: photo, name, the crossed-out value and a FREE badge. The tiles are built from the
   panel's own rows, so a gift that isn't in the chosen plan is hidden here too, and tapping a tile opens that gift's
   details (the row's own pop-up). The "NAD+ Cellular Complex · Included" row stays as a line above the tiles.
-  Photos: the gift photos in Content → Files (the same ones the over-35 listicle uses); change them in PHOTOS below.
+  Photos: each gift product's main photo in Products, shown whole on a matching studio-grey background;
+  change them in PHOTOS below.
   Rendered by the custom-liquid section after the buy box (ag1_plans).
 {%- endcomment -%}
 <style>
@@ -18,8 +19,8 @@
   .mc-kt__tile[hidden]{display:none}
   .mc-kt__tile:hover{border-color:#242223}
   .mc-kt__free{position:absolute;top:-9px;left:50%;transform:translateX(-50%);padding:3px 8px;border-radius:999px;background:#242223;color:#fff;font-family:var(--mc-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;line-height:1.2;white-space:nowrap}
-  .mc-kt__img{display:block;width:100%;aspect-ratio:1;border-radius:4px;overflow:hidden;background:#f4f4f2}
-  .mc-kt__img img{display:block;width:100%;height:100%;object-fit:cover}
+  .mc-kt__img{display:block;width:100%;aspect-ratio:1;border-radius:4px;overflow:hidden;background:linear-gradient(180deg,#222125 0%,#343337 40%,#c9c7c9 85%,#dedcde 100%)}
+  .mc-kt__img img{display:block;width:100%;height:100%;object-fit:contain}
   .mc-kt__name{display:block;margin-top:8px;font-size:12.5px;font-weight:500;line-height:1.25;text-wrap:balance}
   .mc-kt__was{display:block;margin-top:3px;font-size:12px;line-height:1.2;color:rgba(36,34,35,.5)}
   .mc-kt__was s{text-decoration-thickness:1px}
@@ -35,18 +36,18 @@
 </style>
 <script>
 (function () {
-  /* Gift photos, matched on the start of the gift's name */
+  /* Gift photos: each gift product's main photo in Products (shown whole, not cropped), matched on the gift's name */
   var PHOTOS = [
-    [/creatine/i, 'gift-creatine.jpg?v=1791022787'],
-    [/sock/i, 'gift-socks.jpg?v=1791023071'],
-    [/bottle/i, 'gift-bottle.jpg?v=1791022787'],
-    [/vial/i, 'gift-travel-vial.jpg?v=1793355262'],
+    [/creatine/i, 'Frame2147230125.png?v=1791393368'],
+    [/sock/i, 'home-essentials-socks.jpg?v=1791037580'],
+    [/bottle/i, 'muto-bottle-front.jpg?v=1791291422'],
+    [/vial/i, 'travel-vial-square.jpg?v=1793355284'],
     [/forever|jar to keep/i, 'gift-forever-jar.jpg?v=1791023224'],
-    [/guide|protocol/i, 'muto-gift-guide-v2.jpg?v=1791392560'],
+    [/guide|protocol/i, 'image_8.png?v=1791392460'],
     [/garmin|watch/i, 'gift-garmin.jpg?v=1791883127']
   ];
   var CDN = 'https://cdn.shopify.com/s/files/1/0976/2724/2843/files/';
-  function photo(n) { for (var i = 0; i < PHOTOS.length; i++) if (PHOTOS[i][0].test(n)) return CDN + PHOTOS[i][1] + '&width=300'; return ''; }
+  function photo(n) { for (var i = 0; i < PHOTOS.length; i++) if (PHOTOS[i][0].test(n)) return CDN + PHOTOS[i][1] + '&width=360'; return ''; }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function build(kit) {
     var rows = [].slice.call(kit.querySelectorAll('.mc__inc-row:not(.mc__inc-main)'));
