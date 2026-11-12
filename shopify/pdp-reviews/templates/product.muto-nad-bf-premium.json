@@ -491,6 +491,27 @@
             "title_2": "Made with",
             "items_2": "Vegan capsules\nVitamin D3 from algae\nActive B vitamins\nBisglycinate minerals"
           }
+        },
+        "fold_benefits": {
+          "type": "fold",
+          "settings": {
+            "title": "Benefits",
+            "text": "<p>The three things customers tell us they want back, and the doses behind them.</p><ul><li><strong>Afternoons that hold.</strong> Vitamins B2, B3, B6, B12 and folate contribute to the reduction of tiredness and fatigue.</li><li><strong>Ready to go again.</strong> Vitamin D contributes to normal muscle function.</li><li><strong>Live better for longer.</strong> Zinc, copper and vitamin B2 contribute to the protection of cells from oxidative stress.</li><li><strong>One jar, not ten.</strong> In place of a separate NAD+ supplement, CoQ10, resveratrol, vitamin D3 and K2, and a B complex.</li></ul>"
+          }
+        },
+        "fold_trust": {
+          "type": "fold",
+          "settings": {
+            "title": "Why trust us",
+            "text": "<ul><li><strong>Made by a scientist.</strong> Founded by Dr Richie Barclay, a cell biologist with a PhD in cellular biology and nutrition.</li><li><strong>Reviewed by our scientific board.</strong> Six scientists in metabolism, sleep, performance nutrition and healthy ageing review the formula and meet every quarter.</li><li><strong>Our first clinical trial</strong> starts this December, with the University of Westminster.</li><li><strong>Nothing hidden.</strong> All 19 ingredients and doses on the label, no proprietary blends.</li><li><strong>90-day money-back guarantee</strong> for first-time subscribers, and you can skip, pause or cancel online.</li></ul>"
+          }
+        },
+        "fold_quality": {
+          "type": "fold",
+          "settings": {
+            "title": "Quality and certifications",
+            "text": "<ul><li><strong>Made in the UK</strong> in a GMP- and ISO-certified facility.</li><li><strong>Every batch tested</strong> by an independent lab for identity, potency, heavy metals and microbes. The certificates are on our website.</li><li><strong>Vegan capsules</strong>, with vitamin D3 from algae.</li><li><strong>Free from</strong> the 14 major allergens, fillers, caffeine and stimulants.</li><li><strong>NR at 300mg</strong>, the most allowed in Great Britain. NR is authorised for food supplements in the UK.</li></ul>"
+          }
         }
       },
       "block_order": [
@@ -525,9 +546,12 @@
         "qm3b",
         "qm4",
         "plan_RAXANa",
+        "fold_benefits",
         "fold3",
         "fold1",
         "fold4",
+        "fold_trust",
+        "fold_quality",
         "fold6",
         "fold2",
         "fold5",
