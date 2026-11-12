@@ -43,8 +43,14 @@
   html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__buy-cta{background:#1e8f4e!important;background-image:none!important;border-color:#1e8f4e!important;color:#fff!important;text-transform:none!important;letter-spacing:0!important;min-height:58px}
   html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__buy-cta:hover{background:#18763f!important;border-color:#18763f!important}
   html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__buy-cta *{text-transform:none!important;letter-spacing:0!important}
-  html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__buy-cta::before,
-  html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__buy-cta::after{content:none!important;display:none!important}
+  html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__buy-cta::before{content:none!important;display:none!important}
+  /* "Skip, pause or cancel online · cancel in 2 clicks" as the button's second line (in place of the separate line above it) */
+  html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__buy-cta{flex-direction:column!important;gap:3px!important;padding-top:12px!important;padding-bottom:12px!important}
+  html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__buy-cta::after{content:"Skip, pause or cancel online · cancel in 2 clicks"!important;display:block!important;margin:0!important;padding:0!important;background:none!important;font-family:var(--mc-font)!important;font-size:13px!important;font-weight:400!important;line-height:1.3!important;letter-spacing:0!important;text-transform:none!important;color:rgba(255,255,255,.88)!important;opacity:1!important;position:static!important}
+  html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-skip{display:none!important}
+  /* Removed on request: the one-time purchase link and the "Formulated with leading doctors and scientists" card */
+  html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__onetime,
+  html:root body #MainContent#MainContent [id$="__buy"] .mc .mpb-doc{display:none!important}
   /* "For over-35s" above the headline */
   .mc-for[hidden]{display:none!important}
   html body #MainContent .mc .mc-for{order:-4;margin:0 0 12px;padding:0;font-family:var(--mc-mono);font-size:12.5px;font-weight:500;line-height:1.2;letter-spacing:.14em;text-transform:uppercase;color:#242223;text-align:left}

@@ -1,0 +1,98 @@
+{%- comment -%}
+  MUTO — welcome kit as photo tiles (muto-bf-kit-grid). Inside the selected plan's "Includes:" panel, the list of free
+  gifts is shown as a grid of tiles: photo, name, the crossed-out value and a FREE badge. The tiles are built from the
+  panel's own rows, so a gift that isn't in the chosen plan is hidden here too, and tapping a tile opens that gift's
+  details (the row's own pop-up). The "NAD+ Cellular Complex · Included" row stays as a line above the tiles.
+  Photos: the gift photos in Content → Files (the same ones the over-35 listicle uses); change them in PHOTOS below.
+  Rendered by the custom-liquid section after the buy box (ag1_plans).
+{%- endcomment -%}
+<style>
+  html:root body #MainContent#MainContent [id$="__buy"] .mc__kit.has-tiles .mc__inc-row:not(.mc__inc-main){display:none!important}
+  .mc-kt{margin:12px 0 4px}
+  .mc-kt__h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:0 0 14px;font-family:var(--mc-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#242223}
+  .mc-kt__h span + span{color:rgba(36,34,35,.62)}
+  .mc-kt__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px 8px;margin:0;padding:0;list-style:none}
+  .mc-kt__grid > li{display:flex;margin:0;padding:0}
+  .mc-kt__grid > li::before{content:none!important}
+  .mc-kt__tile{width:100%;position:relative;display:flex;flex-direction:column;align-items:center;margin:0;padding:14px 6px 10px;border:1px solid rgba(36,34,35,.22);border-radius:8px;background:#fff;text-align:center;cursor:pointer;font:inherit;color:#242223;min-width:0}
+  .mc-kt__tile[hidden]{display:none}
+  .mc-kt__tile:hover{border-color:#242223}
+  .mc-kt__free{position:absolute;top:-9px;left:50%;transform:translateX(-50%);padding:3px 8px;border-radius:999px;background:#242223;color:#fff;font-family:var(--mc-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;line-height:1.2;white-space:nowrap}
+  .mc-kt__img{display:block;width:100%;aspect-ratio:1;border-radius:4px;overflow:hidden;background:#f4f4f2}
+  .mc-kt__img img{display:block;width:100%;height:100%;object-fit:cover}
+  .mc-kt__name{display:block;margin-top:8px;font-size:12.5px;font-weight:500;line-height:1.25;text-wrap:balance}
+  .mc-kt__was{display:block;margin-top:3px;font-size:12px;line-height:1.2;color:rgba(36,34,35,.5)}
+  .mc-kt__was s{text-decoration-thickness:1px}
+  /* Phones: the prize-draw entry as one wide tile across the row, so it doesn't sit alone */
+  @media (max-width:989px){
+    .mc-kt__grid > li.is-entry{grid-column:1/-1}
+    .mc-kt__grid > li.is-entry .mc-kt__tile{flex-direction:row;align-items:center;gap:12px;padding:10px 12px;text-align:left}
+    .mc-kt__grid > li.is-entry .mc-kt__img{flex:0 0 64px;width:64px}
+    .mc-kt__grid > li.is-entry .mc-kt__name{margin-top:0}
+    .mc-kt__grid > li.is-entry .mc-kt__was{display:none}
+  }
+  @media (min-width:990px){.mc-kt__grid{grid-template-columns:repeat(4,minmax(0,1fr))}.mc-kt__name{font-size:13.5px}}
+</style>
+<script>
+(function () {
+  /* Gift photos, matched on the start of the gift's name */
+  var PHOTOS = [
+    [/creatine/i, 'gift-creatine.jpg?v=1791022787'],
+    [/sock/i, 'gift-socks.jpg?v=1791023071'],
+    [/bottle/i, 'gift-bottle.jpg?v=1791022787'],
+    [/vial/i, 'gift-travel-vial.jpg?v=1793355262'],
+    [/forever|jar to keep/i, 'gift-forever-jar.jpg?v=1791023224'],
+    [/guide|protocol/i, 'muto-gift-guide-v2.jpg?v=1791392560'],
+    [/garmin|watch/i, 'gift-garmin.jpg?v=1791883127']
+  ];
+  var CDN = 'https://cdn.shopify.com/s/files/1/0976/2724/2843/files/';
+  function photo(n) { for (var i = 0; i < PHOTOS.length; i++) if (PHOTOS[i][0].test(n)) return CDN + PHOTOS[i][1] + '&width=300'; return ''; }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function build(kit) {
+    var rows = [].slice.call(kit.querySelectorAll('.mc__inc-row:not(.mc__inc-main)'));
+    if (!rows.length) return;
+    var wrap = kit.querySelector('.mc-kt');
+    if (!wrap) {
+      var total = 0;
+      wrap = document.createElement('div'); wrap.className = 'mc-kt';
+      var ul = document.createElement('ul'); ul.className = 'mc-kt__grid'; ul.setAttribute('role', 'list');
+      rows.forEach(function (r, i) {
+        var nameEl = r.querySelector('.mc__inc-name') || r.firstElementChild;
+        var name = (nameEl.textContent || '').replace(/\s+/g, ' ').trim();
+        var wasEl = r.querySelector('.mc__inc-was');
+        var was = wasEl ? wasEl.textContent.trim() : '';
+        var free = (r.querySelector('.mc__inc-free') || {}).textContent || 'Free';
+        var li = document.createElement('li');
+        li.innerHTML = '<button type="button" class="mc-kt__tile"><span class="mc-kt__free">' + esc(/entry/i.test(free) ? 'Free entry' : 'Free') + '</span>' +
+          '<span class="mc-kt__img">' + (photo(name) ? '<img src="' + photo(name) + '" alt="" width="150" height="150" loading="lazy">' : '') + '</span>' +
+          '<span class="mc-kt__name">' + esc(name.replace(/\s*\(one size fits all\)/i, '')) + '</span>' +
+          '<span class="mc-kt__was">' + (was ? '<s><span class="visually-hidden">Worth </span>' + esc(was) + '</s>' : '&nbsp;') + '</span></button>';
+        var btn = li.firstChild;
+        btn._row = r;
+        if (/entry/i.test(free)) li.className = 'is-entry';
+        btn.setAttribute('aria-label', name + (was ? ', worth ' + was : '') + ', free. Show details');
+        btn.addEventListener('click', function () { var b = r.querySelector('.mc__inc-link'); if (b) b.click(); });
+        ul.appendChild(li);
+      });
+      var kitTitle = kit.querySelector('.mc__inc');
+      wrap.appendChild(ul);
+      (kitTitle && kitTitle.parentNode === kit ? kit.insertBefore(wrap, kitTitle.nextSibling) : kit.appendChild(wrap));
+      kit.classList.add('has-tiles');
+    }
+    sync(kit);
+  }
+  /* Show only the gifts in the chosen plan (the theme marks the others .is-plan-off), and add up their value */
+  function sync(kit) {
+    var total = 0;
+    [].forEach.call(kit.querySelectorAll('.mc-kt__tile'), function (t) {
+      var off = t._row.classList.contains('is-plan-off');
+      t.parentNode.hidden = off;
+      if (!off) { var w = (t._row.querySelector('.mc__inc-was') || {}).textContent || ''; var n = parseFloat(w.replace(/[^\d.]/g, '')); if (n) total += n; }
+    });
+  }
+  function run() { [].forEach.call(document.querySelectorAll('#MainContent [id$="__buy"] .mc__kit'), build); }
+  run();
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+  document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('.mc__plan')) setTimeout(run, 60); });
+})();
+</script>

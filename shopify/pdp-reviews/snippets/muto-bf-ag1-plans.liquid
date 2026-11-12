@@ -5,8 +5,9 @@
     radio · plan name · Save pill (right)
     £33/mo  £70 crossed out
     90-day supply, delivered every 3 months ........ £1.10/serving
-    £99 today · then £125 for your next 3 months
-    then £150 every 3 months after that
+    £1.10 a day, less than half a coffee
+    £99 today, then £125, then £150 every 3 months
+  (Simplified 12 Nov 2026: no "90-day supply…" line and no daily-price pill.)
   The daily price carries a coffee comparison under it (a UK coffee-shop coffee is about £3.50, so £1.10 is
   less than half of one and £1.79 is less than one).
   with a "Black Friday offer" band on the 3-month card. (A terms and "For comparison" line under the cards
@@ -43,6 +44,8 @@
   .ag-dayw{margin-left:auto;align-self:center;display:flex;flex-direction:column;align-items:flex-end;gap:4px}
   .ag-cup{font-family:var(--mc-font);font-size:13px;line-height:1.2;color:rgba(36,34,35,.62);white-space:nowrap}
   .ag-nb{white-space:nowrap}
+  .ag-perday{display:block;margin-top:6px;font-family:var(--mc-font);font-size:15px;line-height:1.4;color:#242223}
+  .ag-perday b{font-weight:600}
   .ag-sm{text-wrap:pretty}
   .ag-day{padding:6px 11px;border:1.5px solid #242223;border-radius:999px;font-family:var(--mc-font);font-size:16px;font-weight:500;line-height:1.1;color:#242223;white-space:nowrap}
   .ag-line{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 12px;margin-top:8px;font-family:var(--mc-font);font-size:15px;line-height:1.4;color:#242223}
@@ -59,7 +62,7 @@
     .ag-price b{font-size:28px}
     .ag-cup{font-size:12px}
     /* The plan lines ("90-day supply…", "£99 today…") match the welcome kit list's text size on phones */
-    .ag-line,.ag-sm{font-size:clamp(11px,3.4vw,13.5px)}
+    .ag-line,.ag-sm,.ag-perday{font-size:clamp(11px,3.4vw,13.5px)}
   }
 </style>
 <script>
@@ -68,13 +71,13 @@
   var PLANS = [
     { match: /3.?month|quarter|£99/i, band: 'Black Friday offer', name: '3-Month Supply', save: 'Save 53%',
       price: '£33', unit: '/mo', was: '£70',
-      line: '90-day supply, delivered every 3 months', per: '£1.10 a day', cup: 'Less than half a coffee',
-      small: [['£99 today', 'then £125 for your next 3 months'], ['then £150 every 3 months after that']],
+      line: '', per: '£1.10 a day', cup: 'less than half a coffee',
+      small: [['£99 today', 'then £125', 'then £150 every 3 months']],
       terms: 'Black Friday offer for first-time subscribers, on your first order only, while stock lasts. Your plan then renews automatically every 3 months until you cancel. Skip, pause or cancel online anytime, and we remind you 5 days before each payment.',
       compare: 'For comparison: £33 a month for your first 3 months, £41.67 a month for the next 3, then £50 a month.' },
     { match: /1.?month|monthly|£49/i, band: '', name: '1-Month Supply', save: 'Save 28%',
       price: '£49.99', unit: '/mo', was: '£70',
-      line: '30-day supply, delivered every month', per: '£1.79 a day', cup: 'Less than a coffee',
+      line: '', per: '£1.79 a day', cup: 'less than a coffee',
       small: [['£49.99 today', 'then £60 every month']],
       terms: 'Offer on your first order only. Your plan then renews automatically every month until you cancel. Skip, pause or cancel online anytime, and we remind you 5 days before each payment.',
       compare: 'For comparison: £49.99 for your first month, then £60 a month.' }
@@ -98,10 +101,12 @@
     head.appendChild(el('span', 'ag-name', p.name));
     if (p.save) head.appendChild(el('span', 'ag-save', p.save));
     var body = el('span', 'ag-body');
-    body.appendChild(el('span', 'ag-price', '<b>' + p.price + '</b><em>' + p.unit + '</em>' + (p.was ? '<s><span class="visually-hidden">Was </span>' + p.was + '</s>' : '') + (p.per ? '<span class="ag-dayw"><span class="ag-day">' + p.per + '</span>' + (p.cup ? '<span class="ag-cup">' + p.cup + '</span>' : '') + '</span>' : '')));
-    body.appendChild(el('span', 'ag-line', '<span>' + p.line + '</span>'));
+    body.appendChild(el('span', 'ag-price', '<b>' + p.price + '</b><em>' + p.unit + '</em>' + (p.was ? '<s><span class="visually-hidden">Was </span>' + p.was + '</s>' : '') + ''));
+    /* One plain line for the daily price and the coffee comparison (no pill) */
+    if (p.per) body.appendChild(el('span', 'ag-perday', '<b>' + p.per + '</b>' + (p.cup ? ', ' + p.cup : '')));
+    if (p.line) body.appendChild(el('span', 'ag-line', '<span>' + p.line + '</span>'));
     /* Each step of the price stays on one line; a long line breaks only between steps */
-    p.small.forEach(function (t) { body.appendChild(el('span', 'ag-sm', [].concat(t).map(function (s) { return '<span class="ag-nb">' + s + '</span>'; }).join('<span class="ag-dot" aria-hidden="true"> · </span>'))); });
+    p.small.forEach(function (t) { body.appendChild(el('span', 'ag-sm', [].concat(t).map(function (s) { return '<span class="ag-nb">' + s + '</span>'; }).join(', '))); });
     inner.appendChild(body);
   }
   function terms(plans) {
