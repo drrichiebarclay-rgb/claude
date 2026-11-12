@@ -948,8 +948,8 @@
         "p4"
       ],
       "settings": {
-        "label": "What changes",
-        "heading": "Your body’s changed.\nYour supplements haven’t.",
+        "label": "Why it happens",
+        "heading": "It’s not in your head.\nYour body has changed.",
         "sources": "<p>Sources: 01. Conley et al., Journal of Physiology (2000). 02. Van Cauter et al., JAMA (2000). 03. Volpi et al., Current Opinion in Clinical Nutrition and Metabolic Care (2004).</p>",
         "space_top": 70,
         "space_bottom": 150
@@ -964,7 +964,8 @@
         "note": "Every dose on the label. Every batch tested.",
         "space_top": 100,
         "space_bottom": 100
-      }
+      },
+      "disabled": true
     },
     "benefits": {
       "type": "muto-benefits",
@@ -1211,7 +1212,6 @@
         },
         "q0": {
           "type": "quote",
-          "disabled": true,
           "settings": {
             "quote": "Being in my mid 30s, everything has started to slow down. Muto is providing me with a sense of vitality which I haven’t experienced since my mid 20s",
             "name": "Jonathon R"
@@ -1281,8 +1281,7 @@
           "settings": {
             "quote": "I am usually sceptical to new supplements but this has been highly recommended by my friend so gave it a shot. It has exceeded my expectations, which is not easy as I am well-versed in nutrition and supplements.",
             "name": "Aleks"
-          },
-          "disabled": true
+          }
         },
         "v4": {
           "type": "video",
@@ -1330,8 +1329,7 @@
           "settings": {
             "quote": "Richie from the team gave me a call just to chat about my background and goals",
             "name": "Mathew H"
-          },
-          "disabled": true
+          }
         },
         "v7": {
           "type": "video",
@@ -1346,8 +1344,7 @@
           "settings": {
             "quote": "I love that this replaces multiple products",
             "name": "Amy C"
-          },
-          "disabled": true
+          }
         },
         "v_sean": {
           "type": "video",
