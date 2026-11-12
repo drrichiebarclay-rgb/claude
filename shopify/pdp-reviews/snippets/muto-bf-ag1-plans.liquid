@@ -71,26 +71,26 @@
     html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-perday,
     html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-sm{font-size:clamp(12.5px,3.6vw,14px)!important}
   }
-  /* One type scale on the plan cards: name 17, price 26 with /mo and the old price at 15, lines 14-15 */
+  /* One type scale on the plan cards: the price the same size as the plan name (17, 16 on phones), /mo and the old price 14, lines 14-15 */
   html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-name{font-size:17px!important;line-height:1.25!important}
   html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-save{padding:5px 10px!important;font-size:11.5px!important}
   html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-price{margin-top:6px!important}
-  html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-price b{font-size:26px!important;letter-spacing:-.01em!important}
-  html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-price em{margin-left:-6px!important;font-size:15px!important}
-  html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-price s{font-size:15px!important}
+  html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-price b{font-size:17px!important;font-weight:600!important;line-height:1.25!important;letter-spacing:0!important}
+  html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-price em{margin-left:-8px!important;font-size:14px!important}
+  html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-price s{font-size:14px!important}
   @media (max-width:749px){
     html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-name{font-size:16px!important}
     html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-save{padding:4px 8px!important;font-size:10.5px!important}
-    html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-price b{font-size:23px!important}
+    html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-price b{font-size:16px!important}
     html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-price em,
-    html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-price s{font-size:14px!important}
+    html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-price s{font-size:13px!important}
   }
   /* Price on the right of the plan name, Save pill beneath it */
   html:root body #MainContent#MainContent .mc .mc__plans > label.mc__plan.is-ag.is-ag .mc__plan-head{align-items:flex-start!important}
   html:root body #MainContent#MainContent .mc .mc__plans > label.mc__plan.is-ag.is-ag .mc__plan-dot{margin-top:2px!important}
   html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-name{padding-top:1px}
   .ag-right{flex:0 0 auto;margin-left:auto;display:flex;flex-direction:column;align-items:flex-end;gap:7px}
-  html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-right .ag-price{margin:0!important;flex-wrap:nowrap;justify-content:flex-end;white-space:nowrap;line-height:1}
+  html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-right .ag-price{margin:0!important;flex-wrap:nowrap;justify-content:flex-end;align-items:baseline;white-space:nowrap;line-height:1.25;padding-top:1px}
   html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-right .ag-save{margin:0!important}
   html:root body #MainContent .mc .mc__plans > label.mc__plan.is-ag .ag-body .ag-perday{margin-top:2px!important}
 </style>
