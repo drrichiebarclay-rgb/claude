@@ -6,12 +6,20 @@
      product is described once. The guarantee badge reads "Give it 90 days. Test it, or get your money back."
   The "Black Friday: 3 months for £99 · While stock lasts" line under the reviews box is hidden, and the three bold
   ticks above the reviews box are one small grey line.
+  The first product photo's printed offer text is covered by a patch with the new offer wording (see .mc-heroflag).
+  On phones the headline is sized to fit two lines and the guarantee badge is the short version.
   2. "Skip, pause or cancel online · cancel in 2 clicks", directly under the plan cards (above Add to cart).
      The same line was taken out of the "Delivery, subscription and guarantee" dropdown.
   Rendered by the custom-liquid section after the buy box (ag1_plans); a small script puts each piece in place.
   Wording follows the jobs-to-be-done research (Nov 2026): say what it is and who it's for first, in plain words.
 {%- endcomment -%}
 <p class="mc-sub" data-mc-sub hidden><b>NAD<sup>+</sup> Cellular Complex</b> is two capsules a day for energy, recovery and ageing well. One jar instead of a shelf of pots, made for over-35s whose lives don’t fit a perfect routine.</p>
+<div class="mc-heroflag" data-mc-heroflag hidden aria-hidden="true">
+  <span class="mc-heroflag__tag">Black Friday offer</span>
+  <span class="mc-heroflag__price"><b>£33/mo</b> Save 53%</span>
+  <span class="mc-heroflag__line">+ Free welcome kit worth £87</span>
+  <span class="mc-heroflag__line">90-day money-back guarantee</span>
+</div>
 <p class="mc-skip" data-mc-skip hidden>Skip, pause or cancel online <span aria-hidden="true">·</span> cancel in 2 clicks</p>
 <style>
   /* The theme's "Five supplements in one daily jar…" line under the guarantee badge: hidden (the line under the headline says it) */
@@ -32,8 +40,24 @@
   .mc-skip[hidden]{display:none!important}
   html body #MainContent .mc .mc-skip{order:2;margin:12px 0 0;padding:0;font-family:var(--mc-font);font-size:14.5px;font-weight:500;line-height:1.4;text-align:center;color:#242223}
   html body #MainContent .mc .mc-skip span{margin:0 4px;opacity:.5}
+  /* The first product photo has its offer text printed in its top-left corner ("£33/mo (was £70)", "Energy for today…").
+     A patch in the photo's own background colour covers it, with the new wording on top in the same style */
+  .mc-heroflag[hidden]{display:none!important}
+  .has-heroflag{container-type:inline-size;position:relative}
+  .mc-heroflag{position:absolute;left:0;top:0;z-index:2;width:34.5%;height:34%;box-sizing:border-box;padding:2.6cqw 0 0 2.9cqw;background:#f4f0ec;font-family:var(--mc-font,"Neue Haas Grotesk Display Pro"),sans-serif;color:#242223;line-height:1.1;pointer-events:none;text-align:left}
+  .mc-heroflag::before{content:"";position:absolute;left:0;top:0;z-index:-1;width:131%;height:32%;background:#f4f0ec}
+  .mc-heroflag__tag{display:inline-block;padding:.12em .2em .04em;background:#5efaff;font-size:3.3cqw;font-weight:600;letter-spacing:-.01em;text-transform:uppercase;white-space:nowrap}
+  .mc-heroflag__price{display:block;margin-top:.9cqw;font-size:2.5cqw;font-weight:500;white-space:nowrap}
+  .mc-heroflag__price b{margin-right:.5cqw;font-size:4.4cqw;font-weight:700;letter-spacing:-.02em}
+  .mc-heroflag__line{display:block;margin-top:.9cqw;font-size:2.35cqw;font-weight:400;white-space:nowrap}
+  .mc-heroflag__price + .mc-heroflag__line{margin-top:2.4cqw}
+  /* Phones: the headline on two lines, and a short guarantee badge (the photo now carries the full offer) */
   @media (max-width:749px){
-          html body #MainContent .mc .mc-skip{font-size:13.5px}
+    html:root body #MainContent#MainContent .mc .mc__buy-copy > .mc__buy-title,html:root body #MainContent#MainContent .mc .mc__buy-title{font-size:min(6.6vw,30px)!important;line-height:1.02!important;letter-spacing:-.02em!important}
+    html:root body #MainContent#MainContent .mc .mc__buy-copy > .mc__eyebrow::before{content:"90-day money-back guarantee"!important}
+  }
+  @media (max-width:749px){
+    html body #MainContent .mc .mc-skip{font-size:13.5px}
     html body #MainContent .mc .mc-sub{font-size:16px;margin-top:10px}
   }
 </style>
@@ -46,6 +70,15 @@
     if (sub && h1 && !sub.getAttribute('data-ready')) {
       h1.parentNode.insertBefore(sub, h1.nextSibling);
       sub.setAttribute('data-ready', '1'); sub.hidden = false;
+    }
+    var flag = document.querySelector('[data-mc-heroflag]');
+    if (flag && !flag.getAttribute('data-ready')) {
+      var img = [].find.call(buy.querySelectorAll('[data-mc-slide] img'), function (i) { return /Frame_2147230175/.test(i.currentSrc || i.src || ''); });
+      if (img && img.parentNode) {
+        img.parentNode.classList.add('has-heroflag');
+        img.parentNode.appendChild(flag);
+        flag.setAttribute('data-ready', '1'); flag.hidden = false;
+      }
     }
     var skip = document.querySelector('[data-mc-skip]'), plans = buy.querySelector('.mc__plans');
     if (skip && plans && !skip.getAttribute('data-ready')) {
