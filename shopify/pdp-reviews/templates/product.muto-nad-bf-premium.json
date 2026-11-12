@@ -222,7 +222,7 @@
             "name": "giveaway entry",
             "row_label": "Entry to win an Apple Watch",
             "row_note": "Free entry",
-            "image_fallback": "",
+            "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-apple-watch.jpg?v=1794476848",
             "image_alt": "An Apple Watch, the giveaway prize in the welcome kit",
             "plans": ""
           }
