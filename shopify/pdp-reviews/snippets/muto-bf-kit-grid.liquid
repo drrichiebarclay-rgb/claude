@@ -5,7 +5,8 @@
   five gifts (creatine, socks, guide, Forever Jar, Apple Watch prize-draw entry: £62); the 3-Month plan shows all seven (£87). The "NAD+ Cellular Complex · Included" row stays as a line above the tiles.
   Photos: each gift product's main photo in Products, shown whole on a matching studio-grey background;
   change them in PHOTOS below.
-  Rendered by the custom-liquid section after the buy box (ag1_plans).
+  Tap a tile and a panel opens under its row with the photo, amount, value and description (DETAILS below).
+  Rendered from the head_styles section, before the buy box (see muto-bf-early).
 {%- endcomment -%}
 <style>
   html:root body #MainContent#MainContent [id$="__buy"] .mc__kit.has-tiles .mc__inc-row:not(.mc__inc-main){display:none!important}
@@ -28,6 +29,17 @@
   .mc-kt__img img{position:absolute!important;inset:0!important;display:block!important;width:100%!important;height:100%!important;max-width:none!important;object-fit:cover;transform:none!important}
   .mc-kt__icon{position:absolute;left:27%;top:27%;width:46%;height:46%}
   .mc-kt__name{display:block;margin-top:6px;font-size:11px;font-weight:500;line-height:1.25;text-wrap:balance}
+  .mc-kt__tile.is-open{border-color:#242223;box-shadow:inset 0 0 0 1px #242223}
+  .mc-kt__grid > li.mc-kt__more{grid-column:1/-1;display:flex;gap:14px;align-items:flex-start;margin:-4px 0 4px;padding:14px;border:1px solid #242223;border-radius:8px;background:#fff;animation:mcKtIn .2s ease-out}
+  @keyframes mcKtIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+  .mc-kt__more-img{flex:0 0 96px;width:96px;height:96px;border-radius:6px;overflow:hidden;background:#222125}
+  .mc-kt__more-img img{display:block;width:100%;height:100%;object-fit:cover}
+  .mc-kt__more-txt{display:flex;flex-direction:column;gap:4px;min-width:0;font-family:var(--mc-font);color:#242223;text-align:left}
+  .mc-kt__more-name{font-size:15px;font-weight:600;line-height:1.25}
+  .mc-kt__more-size{align-self:flex-start;padding:3px 8px;border-radius:999px;background:#f1f1ef;font-size:12.5px;font-weight:500;line-height:1.2}
+  .mc-kt__more-val{font-size:13px;line-height:1.3;color:rgba(36,34,35,.62)}
+  .mc-kt__more-desc{margin-top:2px;font-size:13.5px;line-height:1.45;color:#242223}
+  @media (max-width:749px){.mc-kt__more-img{flex-basis:72px;width:72px;height:72px}.mc-kt__more-desc{font-size:13px}}
   .mc-kt__size{display:block;margin-top:2px;font-size:10px;line-height:1.25;color:rgba(36,34,35,.62)}
   .mc-kt__was{display:block;margin-top:2px;font-size:10.5px;line-height:1.2;color:rgba(36,34,35,.5)}
   .mc-kt__was s{text-decoration-thickness:1px}
@@ -58,6 +70,18 @@
   var ONE_MONTH = /creatine|sock|guide|protocol|forever|jar to keep|garmin|watch/i;
   var WATCH_ICON = '<svg class="mc-kt__icon" viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 10l1.5-6h11L31 10"/><path d="M17 38l1.5 6h11L31 38"/><rect x="13" y="10" width="22" height="28" rx="7"/><path d="M24 19v6l4 2"/></svg>';
   var WORTH = { three: '£87', one: '£62' };
+  /* What each gift's panel says when its tile is tapped: amount, then a short description (from the gift products in
+     Shopify where they have one). Matched on the gift's name; change the words here. */
+  var DETAILS = [
+    [/creatine/i, '250g · 50 servings', 'Single-ingredient creatine monohydrate, micronised so it mixes cleanly into water, coffee or a smoothie. Unflavoured, nothing added. One 5g scoop a day. Creatine increases physical performance in successive bursts of short-term, high-intensity exercise; the benefit comes from a daily intake of 3g.'],
+    [/bottle/i, '500ml · BPA-free', 'Built for training days, workdays and everything in between. Enough for your morning scoop of creatine, your session, or the long afternoon at your desk. Simple, durable and easy to clean.'],
+    [/sock/i, 'One size fits all', 'Built for the miles, the reps and the long days. Cushioned where you land, breathable where you heat up, and made to stay put through a run, a session or a full day on your feet.'],
+    [/vial/i, 'Pocket size', 'A travel vial for your capsules, so your two a day come with you when you are away from home.'],
+    [/forever|jar to keep/i, 'Yours to keep', 'A jar to keep and refill from each delivery.'],
+    [/guide|protocol/i, '12 weeks · digital', 'Your guide to the first three months: how to take MUTO, what to track and what to expect along the way.'],
+    [/apple watch|garmin|watch/i, '', 'Your welcome kit includes a free entry into our prize draw to win an Apple Watch. Terms apply.']
+  ];
+  function detail(n) { for (var i = 0; i < DETAILS.length; i++) if (DETAILS[i][0].test(n)) return DETAILS[i]; return null; }
   var CDN = 'https://cdn.shopify.com/s/files/1/0976/2724/2843/files/';
   function photo(n) { for (var i = 0; i < PHOTOS.length; i++) if (PHOTOS[i][0].test(n)) return PHOTOS[i][1] ? CDN + PHOTOS[i][1] + '&width=420' : ''; return ''; }
   function zoom(n) { for (var i = 0; i < PHOTOS.length; i++) if (PHOTOS[i][0].test(n)) return PHOTOS[i][2] || 1; return 1; }
@@ -82,13 +106,15 @@
         var li = document.createElement('li');
         li.innerHTML = '<button type="button" class="mc-kt__tile"><span class="mc-kt__free">' + esc(/entry/i.test(free) ? 'Free entry' : 'Free') + '</span>' +
           '<span class="mc-kt__img">' + (photo(name) ? '<img src="' + photo(name) + '" alt="" width="150" height="150" loading="lazy"' + (zoom(name) > 1 ? ' style="object-fit:cover;transform:scale(' + zoom(name) + ')"' : '') + '>' : (/watch/i.test(name) ? WATCH_ICON : '')) + '</span>' +
-          '<span class="mc-kt__name">' + esc(short) + '</span>' + (size ? '<span class="mc-kt__size">' + esc(size) + '</span>' : '') +
+          '<span class="mc-kt__name">' + esc(short) + '</span>' +
           '<span class="mc-kt__was">' + (was ? '<s><span class="visually-hidden">Worth </span>' + esc(was) + '</s>' : '&nbsp;') + '</span></button>';
         var btn = li.firstChild;
         btn._row = r;
         if (/entry/i.test(free)) li.className = 'is-entry';
-        btn.setAttribute('aria-label', name + (was ? ', worth ' + was : '') + ', free. Show details');
-        btn.addEventListener('click', function () { var b = r.querySelector('.mc__inc-link'); if (b) b.click(); });
+        btn.setAttribute('aria-label', short + (was ? ', worth ' + was : '') + ', free. Show details');
+        btn._info = { name: short, size: size, was: was, free: /entry/i.test(free) ? 'Free entry' : 'Free', img: photo(name) };
+        btn.setAttribute('aria-expanded', 'false');
+        btn.addEventListener('click', function () { toggle(btn); });
         ul.appendChild(li);
       });
       var kitTitle = kit.querySelector('.mc__inc');
@@ -98,9 +124,31 @@
     }
     sync(kit);
   }
+  /* Tap a tile: a panel opens straight under that row of tiles with the gift's photo, amount, value and description.
+     Tap it again (or another tile) to close or switch. */
+  function toggle(btn) {
+    var ul = btn.closest('.mc-kt__grid'), open = ul.querySelector('.mc-kt__more');
+    var was = open && open._for === btn;
+    if (open) { open._for.setAttribute('aria-expanded', 'false'); open._for.classList.remove('is-open'); open.parentNode.removeChild(open); }
+    if (was) return;
+    var li = btn.parentNode, items = [].slice.call(ul.children).filter(function (x) { return !x.hidden && x.offsetParent !== null; });
+    var last = li; items.forEach(function (x) { if (x.offsetTop === li.offsetTop) last = x; });
+    var i = btn._info, d = detail(i.name) || ['', ''];
+    var size = d[0] ? d[1] : i.size;
+    var panel = document.createElement('li');
+    panel.className = 'mc-kt__more'; panel._for = btn; panel.id = 'mc-kt-more';
+    panel.innerHTML = (i.img ? '<span class="mc-kt__more-img"><img src="' + i.img + '" alt="" width="120" height="120"></span>' : '') +
+      '<span class="mc-kt__more-txt"><b class="mc-kt__more-name">' + esc(i.name) + '</b>' +
+      (size ? '<span class="mc-kt__more-size">' + esc(size) + '</span>' : '') +
+      '<span class="mc-kt__more-val">' + (i.was ? 'Worth ' + esc(i.was) + ' · ' : '') + esc(i.free) + '</span>' +
+      (d[2] ? '<span class="mc-kt__more-desc">' + esc(d[2]) + '</span>' : '') + '</span>';
+    last.parentNode.insertBefore(panel, last.nextSibling);
+    btn.setAttribute('aria-expanded', 'true'); btn.setAttribute('aria-controls', 'mc-kt-more'); btn.classList.add('is-open');
+  }
   /* Show only the gifts in the chosen plan, and its kit value; on phones the prize-draw entry goes full width if it
      would otherwise sit alone on its row */
   function sync(kit) {
+    var openP = kit.querySelector('.mc-kt__more'); if (openP) { openP._for.setAttribute('aria-expanded', 'false'); openP._for.classList.remove('is-open'); openP.parentNode.removeChild(openP); }
     var plans = kit.closest('.mc__plans');
     var sel = plans && (plans.querySelector(':scope > label.mc__plan.is-selected') || plans.querySelector(':scope > label.mc__plan input:checked') && plans.querySelector(':scope > label.mc__plan input:checked').closest('label'));
     var name = sel ? (sel.getAttribute('data-name') || sel.textContent) : '';
