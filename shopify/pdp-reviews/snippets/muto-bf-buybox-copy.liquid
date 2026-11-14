@@ -83,6 +83,23 @@
   /* "View nutrition label": same underlined style as the testing link, straight under it; opens the label in a pop-up
      (phone image on phones, desktop image on larger screens; never full screen; clear close button) */
   .mc-label-btn[hidden],.mc-links[hidden]{display:none!important}
+  /* Small image tiles in a row under the main photo (phones and desktop; were a column on the left on desktop, hidden on phones) */
+  html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__thumbs{display:flex!important;flex-direction:row!important;gap:8px!important;position:static!important;width:auto!important;height:auto!important;max-height:none!important;margin:10px 0 0!important;padding:0 0 4px!important;overflow-x:auto!important;overflow-y:hidden!important;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__thumbs::-webkit-scrollbar{display:none}
+  html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__thumb{display:block!important;flex:0 0 64px!important;width:64px!important;height:64px!important;padding:0!important;border:1px solid rgba(36,34,35,.18)!important;border-radius:8px!important;overflow:hidden;background:#fff;opacity:.75;cursor:pointer}
+  html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__thumb[aria-current="true"]{border-color:#242223!important;opacity:1}
+  html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__thumb img{display:block;width:100%!important;height:100%!important;object-fit:cover}
+  @media (min-width:750px){
+    html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__gallery{grid-template-columns:minmax(0,1fr)!important;grid-template-rows:auto!important;align-content:start}
+    html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__gallery-main{grid-column:1!important;grid-row:auto!important}
+    html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__thumbs{grid-column:1!important;grid-row:auto!important}
+    /* Desktop: the testing and nutrition links sit under the photo tiles */
+    html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__gallery > .mc-links{grid-column:1;margin:18px 0 0}
+  }
+  @media (max-width:749px){
+    html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__thumbs{padding:0 16px 4px!important}
+    html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__thumb{flex-basis:56px!important;width:56px!important;height:56px!important}
+  }
   /* Both links together above the plan cards, stacked and lined up on the left */
   html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-links{order:2!important;display:flex;flex-direction:column;align-items:flex-start;gap:2px;margin:4px 0 16px}
   html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc-links > .mc-tests-btn,
@@ -169,7 +186,15 @@
        a second after the page appears, so it showed under the photo first) */
     var links = document.querySelector('[data-mc-links]'), plansBox = buy.querySelector('.mc__plans');
     if (links && plansBox && !links.getAttribute('data-ready')) {
-      plansBox.parentNode.insertBefore(links, plansBox);
+      /* Phones: above the plan cards. Desktop: under the photo and its tiles */
+      var wide = window.matchMedia ? window.matchMedia('(min-width: 750px)') : null;
+      var place = function () {
+        var gal = buy.querySelector('.mc__gallery');
+        if (wide && wide.matches && gal) { if (links.parentNode !== gal) gal.appendChild(links); }
+        else if (links.nextElementSibling !== plansBox) plansBox.parentNode.insertBefore(links, plansBox);
+      };
+      place();
+      if (wide) (wide.addEventListener ? wide.addEventListener('change', place) : wide.addListener(place));
       links.setAttribute('data-ready', '1'); links.hidden = false;
     }
     var tb = buy.querySelector('.mc-tests-btn'), bad = buy.querySelector('.mpb-bad');

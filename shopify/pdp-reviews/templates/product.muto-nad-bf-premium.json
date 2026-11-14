@@ -184,7 +184,7 @@
           "settings": {
             "value": "£15",
             "name": "Bottle",
-            "row_label": "Performance bottle",
+            "row_label": "Bottle",
             "row_note": "",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-bottle.jpg?v=1791022787",
             "image_alt": "The MUTO Performance Bottle in translucent blue",
@@ -196,7 +196,7 @@
           "settings": {
             "value": "£12",
             "name": "Socks",
-            "row_label": "Performance socks (one size fits all)",
+            "row_label": "Socks (one size fits all)",
             "row_note": "",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-socks.jpg?v=1791023071",
             "image_alt": "A pouch of MUTO Performance Socks, part of the welcome kit",
@@ -496,14 +496,14 @@
           "type": "fold",
           "settings": {
             "title": "Benefits",
-            "text": "<p>The three things customers tell us they want back, and the doses behind them.</p><ul><li><strong>Afternoons that hold.</strong> Vitamins B2, B3, B6, B12 and folate contribute to the reduction of tiredness and fatigue.</li><li><strong>Ready to go again.</strong> Vitamin D contributes to normal muscle function.</li><li><strong>Live better for longer.</strong> Zinc, copper and vitamin B2 contribute to the protection of cells from oxidative stress.</li><li><strong>One jar, not ten.</strong> In place of a separate NAD+ supplement, CoQ10, resveratrol, vitamin D3 and K2, and a B complex.</li></ul>"
+            "text": "<p>What becomes possible when the basics are covered: steadier afternoons, a quicker bounce-back, and one less thing to think about. Every benefit below rests on an authorised health claim and a dose you can check on the label.</p><ul><li><strong>Afternoons that hold.</strong> Vitamins B2, B3, B6, B12 and folate contribute to the reduction of tiredness and fatigue. You get 100 mcg of B12 as methylcobalamin and 400 mcg of folate as 5-MTHF, forms your body can use straight away.</li><li><strong>Ready to go again.</strong> Vitamin D contributes to normal muscle function. Each serving gives you 50 mcg (2,000 IU) of vegan D3 from algae.</li><li><strong>Live better for longer.</strong> Zinc, copper and vitamin B2 contribute to the protection of cells from oxidative stress. Alongside them: 300 mg of NR (nicotinamide riboside), a form of vitamin B3 your body uses to make NAD+, plus 150 mg of CoQ10 and 20 mg of PQQ.</li><li><strong>One jar, not ten.</strong> 19 ingredients, every dose on the label, in place of a separate NAD+ supplement, CoQ10, resveratrol, vitamin D3 and K2, and a B complex. Two capsules with breakfast and you’re done.</li></ul><p>Built by scientists for people who want to keep showing up, for work, for training and for the people who rely on them, for years to come.</p>"
           }
         },
         "fold_trust": {
           "type": "fold",
           "settings": {
             "title": "Why trust us",
-            "text": "<ul><li><strong>Made by a scientist.</strong> Founded by Dr Richie Barclay, a cell biologist with a PhD in cellular biology and nutrition.</li><li><strong>Reviewed by our scientific board.</strong> Six scientists in metabolism, sleep, performance nutrition and healthy ageing review the formula and meet every quarter.</li><li><strong>Our first clinical trial</strong> starts this December, with the University of Westminster.</li><li><strong>Nothing hidden.</strong> All 19 ingredients and doses on the label, no proprietary blends.</li><li><strong>90-day money-back guarantee</strong> for first-time subscribers, and you can skip, pause or cancel online.</li></ul>"
+            "text": "<ul><li><strong>Made by a scientist.</strong> Founded by Dr Richie Barclay, a cell biologist with a PhD in cellular biology and nutrition.</li><li><strong>Reviewed by our scientific board.</strong> Six scientists in metabolism, sleep, performance nutrition and healthy ageing review the formula and meet every quarter.</li><li><strong>Tested by four universities.</strong> We partner with four different universities who test our formulas.</li><li><strong>Nothing hidden.</strong> All 19 ingredients and doses on the label, no proprietary blends.</li><li><strong>90-day money-back guarantee</strong> for first-time subscribers, and you can skip, pause or cancel online.</li></ul>"
           }
         },
         "fold_quality": {
