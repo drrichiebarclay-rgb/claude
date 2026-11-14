@@ -99,6 +99,11 @@
     html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__gallery > .mc-links > *{justify-content:center!important}
   }
   @media (max-width:749px){
+    /* Phones: the two links centred, with the plan cards close underneath */
+    html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc-links{align-items:center!important;margin:6px 0 0!important}
+    html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc-links > *{justify-content:center!important}
+    html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc-links + .mc__plans,
+    html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc-links ~ .mc__plans{margin-top:14px!important}
     html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__thumbs{padding:0 16px 4px!important}
     html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__thumb{flex-basis:56px!important;width:56px!important;height:56px!important}
   }
