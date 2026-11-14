@@ -28,6 +28,7 @@
   .mc-kt__img img{position:absolute!important;inset:0!important;display:block!important;width:100%!important;height:100%!important;max-width:none!important;object-fit:cover;transform:none!important}
   .mc-kt__icon{position:absolute;left:27%;top:27%;width:46%;height:46%}
   .mc-kt__name{display:block;margin-top:6px;font-size:11px;font-weight:500;line-height:1.25;text-wrap:balance}
+  .mc-kt__size{display:block;margin-top:2px;font-size:10px;line-height:1.25;color:rgba(36,34,35,.62)}
   .mc-kt__was{display:block;margin-top:2px;font-size:10.5px;line-height:1.2;color:rgba(36,34,35,.5)}
   .mc-kt__was s{text-decoration-thickness:1px}
   /* Phones: the prize-draw entry as one wide tile across the row, so it doesn't sit alone */
@@ -75,10 +76,13 @@
         var wasEl = r.querySelector('.mc__inc-was');
         var was = wasEl ? wasEl.textContent.trim() : '';
         var free = (r.querySelector('.mc__inc-free') || {}).textContent || 'Free';
+        /* A size in brackets (e.g. "(250g, 50 servings)") goes on its own small line; "(one size fits all)" is dropped */
+        var short = name.replace(/\s*\(one size fits all\)/i, ''), size = '', m = short.match(/^(.*?)\s*\(([^)]+)\)\s*$/);
+        if (m) { short = m[1]; size = m[2]; }
         var li = document.createElement('li');
         li.innerHTML = '<button type="button" class="mc-kt__tile"><span class="mc-kt__free">' + esc(/entry/i.test(free) ? 'Free entry' : 'Free') + '</span>' +
           '<span class="mc-kt__img">' + (photo(name) ? '<img src="' + photo(name) + '" alt="" width="150" height="150" loading="lazy"' + (zoom(name) > 1 ? ' style="object-fit:cover;transform:scale(' + zoom(name) + ')"' : '') + '>' : (/watch/i.test(name) ? WATCH_ICON : '')) + '</span>' +
-          '<span class="mc-kt__name">' + esc(name.replace(/\s*\(one size fits all\)/i, '')) + '</span>' +
+          '<span class="mc-kt__name">' + esc(short) + '</span>' + (size ? '<span class="mc-kt__size">' + esc(size) + '</span>' : '') +
           '<span class="mc-kt__was">' + (was ? '<s><span class="visually-hidden">Worth </span>' + esc(was) + '</s>' : '&nbsp;') + '</span></button>';
         var btn = li.firstChild;
         btn._row = r;

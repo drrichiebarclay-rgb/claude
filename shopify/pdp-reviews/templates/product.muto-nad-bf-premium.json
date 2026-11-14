@@ -208,7 +208,7 @@
           "settings": {
             "value": "£30",
             "name": "Creatine",
-            "row_label": "Ultrapure creatine",
+            "row_label": "Ultrapure creatine (250g, 50 servings)",
             "row_note": "",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
             "image_alt": "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate, part of the welcome kit",
@@ -253,7 +253,7 @@
           "type": "month",
           "settings": {
             "label": "Box 4",
-            "text": "Creatine",
+            "text": "Creatine (250g, 50 servings)",
             "value": "£30",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
             "image_alt": "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate, free with order 4",
@@ -275,7 +275,7 @@
           "type": "month",
           "settings": {
             "label": "Box 6",
-            "text": "Creatine",
+            "text": "Creatine (250g, 50 servings)",
             "value": "£30",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
             "image_alt": "A pouch of MUTO Ultrapure Micronised Creatine Monohydrate, free with order 6",
@@ -308,7 +308,7 @@
           "type": "month",
           "settings": {
             "label": "Box 2",
-            "text": "Creatine",
+            "text": "Creatine (250g, 50 servings)",
             "value": "£30",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
             "image_alt": "A pouch of MUTO creatine, free with box 2",
@@ -330,7 +330,7 @@
           "type": "month",
           "settings": {
             "label": "Box 3",
-            "text": "Creatine",
+            "text": "Creatine (250g, 50 servings)",
             "value": "£30",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
             "image_alt": "A pouch of MUTO creatine, free with box 3",
@@ -352,7 +352,7 @@
           "type": "month",
           "settings": {
             "label": "Box 4 on",
-            "text": "Creatine, every box",
+            "text": "Creatine (250g, 50 servings), every box",
             "value": "£30",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",
             "image_alt": "A pouch of MUTO creatine, free in every box from box 4",
