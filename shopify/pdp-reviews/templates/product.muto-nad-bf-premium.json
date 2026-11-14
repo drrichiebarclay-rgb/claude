@@ -1092,13 +1092,22 @@
             "text": "<p>Score your afternoons, sleep and recovery out of 10, or note your wearable’s 30-day averages. Then two capsules with breakfast: CoQ10, vitamins D3 and K2 dissolve in fat, so food helps your body take them in.</p>"
           }
         },
+        "m1b": {
+          "type": "milestone",
+          "settings": {
+            "day": 7,
+            "label": "Days 3–7",
+            "title": "More energy, within days",
+            "text": "<p>The first thing most people notice: less of the 3pm wall, and energy left for the evening. B vitamins contribute to the reduction of tiredness and fatigue.</p>"
+          }
+        },
         "m2": {
           "type": "milestone",
           "settings": {
             "day": 30,
             "label": "",
             "title": "Afternoons that hold",
-            "text": "<p>Usually the first thing people notice: less of the 3pm wall, energy left for the evening. B vitamins contribute to the reduction of tiredness and fatigue.</p>"
+            "text": "<p>The lift stops being a good day and becomes your normal. Compare your afternoon score with day 1.</p>"
           }
         },
         "m3": {
@@ -1122,6 +1131,7 @@
       },
       "block_order": [
         "m1",
+        "m1b",
         "m2",
         "m3",
         "m4"
@@ -1130,7 +1140,7 @@
         "anchor": "what-to-expect",
         "eyebrow": "What to expect",
         "heading": "What people tell us they notice.",
-        "lede": "Roughly when, in their words. Everyone’s different, so score yourself on day 1 and compare. Got a wearable? Track the shift yourself.",
+        "lede": "Most people tell us they notice more energy within days. Everyone’s different, so score yourself on day 1 and compare. Got a wearable? Track the shift yourself.",
         "foot": "What customers tell us, not a clinical study. Our first UK clinical trial starts this December.",
         "space_top": 96,
         "space_bottom": 96
