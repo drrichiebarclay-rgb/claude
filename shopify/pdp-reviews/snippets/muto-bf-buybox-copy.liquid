@@ -63,14 +63,15 @@
   html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-skip{display:none!important}
   /* A little more room between the headline, the line under it, the rating, the guarantee badge and the proof line */
   html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-sub{margin-top:18px!important}
-  html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc__rating{margin-top:24px!important}
-  html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc__eyebrow{margin-top:20px!important}
+  /* The star rating goes first, above "For over-35s"; more room under the intro paragraph */
+  html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc__rating{order:-5!important;margin-top:0!important;margin-bottom:16px!important}
+  html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc__eyebrow{margin-top:30px!important}
   html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-subhead{margin-top:22px!important}
   html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-for{margin-bottom:14px!important}
   @media (max-width:749px){
     html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-sub{margin-top:16px!important}
-    html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc__rating{margin-top:20px!important}
-    html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc__eyebrow{margin-top:18px!important}
+    html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc__rating{margin-top:20px!important;margin-bottom:12px!important}
+    html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc__eyebrow{margin-top:26px!important}
     html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-subhead{margin-top:20px!important}
   }
   /* Only the testing link this snippet has put in place shows: never under the product photo (where the theme first puts
@@ -90,11 +91,12 @@
   html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__thumb[aria-current="true"]{border-color:#242223!important;opacity:1}
   html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__thumb img{display:block;width:100%!important;height:100%!important;object-fit:cover}
   @media (min-width:750px){
-    html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__gallery{grid-template-columns:minmax(0,1fr)!important;grid-template-rows:auto!important;align-content:start}
+    html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__gallery{display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;height:auto!important;min-height:0!important}
     html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__gallery-main{grid-column:1!important;grid-row:auto!important}
     html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__thumbs{grid-column:1!important;grid-row:auto!important}
     /* Desktop: the testing and nutrition links sit under the photo tiles */
-    html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__gallery > .mc-links{grid-column:1;margin:18px 0 0}
+    html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__gallery > .mc-links{order:9!important;flex:0 0 auto!important;align-self:center!important;align-items:center!important;margin:16px auto 0!important}
+    html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__gallery > .mc-links > *{justify-content:center!important}
   }
   @media (max-width:749px){
     html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__thumbs{padding:0 16px 4px!important}
