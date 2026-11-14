@@ -17,13 +17,14 @@
   Wording follows the jobs-to-be-done research (Nov 2026): say what it is and who it's for first, in plain words.
 {%- endcomment -%}
 <p class="mc-for" data-mc-for hidden>For over-35<span style="text-transform:none">s</span></p>
-<p class="mc-sub" data-mc-sub hidden><b>NAD<sup>+</sup> Cellular Complex</b> is two capsules a day for energy, recovery and ageing well. One jar instead of a shelf of pots, made for over-35s whose lives don’t fit a perfect routine.</p>
+<p class="mc-sub" data-mc-sub hidden><b>NAD<sup>+</sup> Cellular Complex</b> is your daily edge: 19 maximally dosed nutrients in two capsules, created by scientists and led by the science. Energy, recovery and ageing well from one jar, not a shelf of pots. Made for over-35s whose lives don’t fit a perfect routine.</p>
 <div class="mc-heroflag" data-mc-heroflag hidden aria-hidden="true">
   <span class="mc-heroflag__tag">Black Friday offer</span>
   <span class="mc-heroflag__price"><b>£33/mo</b> Save 53%</span>
   <span class="mc-heroflag__line">+ Free welcome kit worth £87</span>
   <span class="mc-heroflag__line">90-day money-back guarantee</span>
 </div>
+<div class="mc-links" data-mc-links hidden></div>
 <button type="button" class="mc-label-btn" data-mc-label-btn hidden aria-haspopup="dialog">View nutrition label</button>
 <dialog class="mc-label" data-mc-label aria-label="Nutrition label">
   <button type="button" class="mc-label__x" data-mc-label-close aria-label="Close nutrition label"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
@@ -81,7 +82,11 @@
   html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-tests-btn::before{content:""!important;display:block!important;flex:0 0 17px;width:17px;height:17px;margin:0!important;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23242223' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='10' cy='10' r='8.6'/%3E%3Cpath d='M6.3 10.3l2.5 2.5 4.9-5.3'/%3E%3C/svg%3E") center/contain no-repeat!important;border:0!important}
   /* "View nutrition label": same underlined style as the testing link, straight under it; opens the label in a pop-up
      (phone image on phones, desktop image on larger screens; never full screen; clear close button) */
-  .mc-label-btn[hidden]{display:none!important}
+  .mc-label-btn[hidden],.mc-links[hidden]{display:none!important}
+  /* Both links together above the plan cards, stacked and lined up on the left */
+  html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-links{display:flex;flex-direction:column;align-items:flex-start;gap:2px;margin:4px 0 16px}
+  html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc-links > .mc-tests-btn,
+  html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc-links > .mc-label-btn{margin:0!important;justify-content:flex-start!important}
   html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-label-btn{display:flex!important;justify-content:center;align-items:center;gap:6px;width:auto;min-height:0;margin:6px auto 0!important;padding:4px 0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;font-family:var(--mc-font);font-size:14.5px!important;font-weight:500!important;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;color:#242223!important;cursor:pointer}
   html:root body #MainContent#MainContent [id$="__buy"] .mc .mc-label-btn::before{content:"";display:block;flex:0 0 17px;width:17px;height:17px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23242223' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='2.5' width='12' height='15' rx='2'/%3E%3Cpath d='M7 7h6M7 10h6M7 13h4'/%3E%3C/svg%3E") center/contain no-repeat}
   .mc-label{position:fixed;inset:0;width:min(1040px,calc(100vw - 48px));max-width:none;height:fit-content;max-height:calc(100vh - 48px);margin:auto;padding:0;border:1px solid #242223;border-radius:10px;background:#fff;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.25)}
@@ -98,8 +103,7 @@
     .mc-label__x{top:8px;right:8px;width:40px;height:40px}
   }
   html.mc-label-open{overflow:hidden}
-  /* Removed on request: the one-time purchase link and the "Formulated with leading doctors and scientists" card */
-  html:root body #MainContent#MainContent [id$="__buy"] .mc .mc__onetime,
+  /* Removed on request: the "Formulated with leading doctors and scientists" card (the one-time purchase link is back, under Add to cart) */
   html:root body #MainContent#MainContent [id$="__buy"] .mc .mpb-doc{display:none!important}
   /* "For over-35s" above the headline */
   .mc-for[hidden]{display:none!important}
@@ -163,19 +167,24 @@
     }
     /* The testing-results link: straight to its place above the badges (the theme's layout script would move it there
        a second after the page appears, so it showed under the photo first) */
+    var links = document.querySelector('[data-mc-links]'), plansBox = buy.querySelector('.mc__plans');
+    if (links && plansBox && !links.getAttribute('data-ready')) {
+      plansBox.parentNode.insertBefore(links, plansBox);
+      links.setAttribute('data-ready', '1'); links.hidden = false;
+    }
     var tb = buy.querySelector('.mc-tests-btn'), bad = buy.querySelector('.mpb-bad');
-    if (tb && bad && !buy.querySelector('.mc-tests-btn[data-placed]')) {
-      if (tb.nextElementSibling !== bad) bad.parentNode.insertBefore(tb, bad);
+    if (tb && links && links.getAttribute('data-ready') && !buy.querySelector('.mc-tests-btn[data-placed]')) {
+      links.insertBefore(tb, links.firstChild);
       tb.setAttribute('data-placed', '1');
     }
     /* "View nutrition label" straight under the placed testing link; the pop-up lives at the end of the page */
     var lb = document.querySelector('[data-mc-label-btn]'), dlg = document.querySelector('[data-mc-label]'), placedTb = buy.querySelector('.mc-tests-btn[data-placed]');
     if (lb && dlg && placedTb && !lb.getAttribute('data-ready')) {
-      placedTb.parentNode.insertBefore(lb, placedTb.nextSibling);
+      links.appendChild(lb);
       lb.setAttribute('data-ready', '1'); lb.hidden = false;
-      /* The theme's layout script re-inserts the testing link later; keep this link straight after it */
-      var keep = function () { var t = buy.querySelector('.mc-tests-btn[data-placed]'); if (t && t.nextElementSibling !== lb) t.parentNode.insertBefore(lb, t.nextSibling); };
-      if (window.MutationObserver) new MutationObserver(keep).observe(placedTb.parentNode, { childList: true });
+      /* The theme's layout script re-inserts the testing link by the badges later; put both back above the plan cards */
+      var keep = function () { var t = buy.querySelector('.mc-tests-btn[data-placed]'); if (t && t.parentNode !== links) links.insertBefore(t, links.firstChild); if (lb.parentNode !== links || links.lastElementChild !== lb) links.appendChild(lb); };
+      if (window.MutationObserver) new MutationObserver(keep).observe(buy, { childList: true, subtree: true });
       document.addEventListener('DOMContentLoaded', function () { setTimeout(keep, 0); });
       var shut = function () { if (dlg.open && dlg.close) dlg.close(); else dlg.removeAttribute('open'); document.documentElement.classList.remove('mc-label-open'); };
       lb.addEventListener('click', function () {

@@ -30,8 +30,9 @@
   /* Where the welcome kit hangs off the selected card as one panel (premium designs), the card's bottom joins it:
      square corners, no bottom border; the kit's own sides and dividing rule carry on below */
   html:root body #MainContent#MainContent .mc .mc__plans:has(> .mc__kit) > label.mc__plan.is-ag.is-ag.is-selected{border-bottom:0!important;border-bottom-left-radius:0!important;border-bottom-right-radius:0!important}
-  .ag-band{display:flex;align-items:center;gap:10px;padding:11px 18px;background:#242223;color:#fff;font-family:var(--mc-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase}
+  .ag-band{display:flex;align-items:center;gap:10px;padding:11px 18px;line-height:1.35;background:#242223;color:#fff;font-family:var(--mc-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase}
   .ag-band i{font-style:normal;color:#5efaff;letter-spacing:0}
+  @media (max-width:420px){.ag-band{gap:8px;padding:11px 14px;font-size:11px;letter-spacing:.08em}}
   .ag-in{display:block;padding:16px 18px 16px}
   .ag-name{flex:1 1 auto;min-width:0;font-family:var(--mc-font);font-size:18px;font-weight:500;line-height:1.2;color:#242223}
   .ag-save{flex:0 0 auto;margin-left:auto;padding:7px 12px;border-radius:4px;background:#5efaff;color:#242223;font-family:var(--mc-mono);font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
@@ -100,7 +101,7 @@
 (function () {
   /* The plans, matched on the card's name or price. Typed here so every Black Friday page says the same. */
   var PLANS = [
-    { match: /3.?month|quarter|£99/i, band: 'Black Friday offer', name: '3-Month Supply', save: 'Save 53%',
+    { match: /3.?month|quarter|£99/i, band: 'Best value: £111 off + £87 free gifts', name: '3-Month Supply', save: 'Save 53%',
       price: '£33', unit: '/mo', was: '£70',
       line: '', per: '£1.10 a day', cup: 'less than half a coffee',
       small: [['£99 today', 'then £125', 'then £150 every 3 months']],
