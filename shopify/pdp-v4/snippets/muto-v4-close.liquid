@@ -1,0 +1,50 @@
+{%- comment -%}
+  MUTO — closing offer on product page v4 (muto-v4-close): the offer, the guarantee and one button, before the FAQ.
+  The button takes the visitor back to the plan cards.
+{%- endcomment -%}
+<section class="v4c" aria-labelledby="v4c-h">
+  <div class="v4c__in">
+    <p class="v4c__eye">Black Friday offer · While stock lasts</p>
+    <h2 class="v4c__h" id="v4c-h">Give it 90 days.<br> Feel it, or get your money back.</h2>
+    <ul class="v4c__list" role="list">
+      <li><b>£33 a month</b> for your first 3 months (£99 today, 53% off)</li>
+      <li><b>£87 of free gifts</b> in your welcome kit</li>
+      <li><b>90-day money-back guarantee</b> for first-time subscribers</li>
+      <li><b>Skip, pause or cancel online</b>, free next-day UK delivery</li>
+    </ul>
+    <a class="v4c__btn" href="#v4-plans" data-v4-to-plans>Choose your plan</a>
+    <p class="v4c__note">3-Month Supply: £99 today, then £125 for the next 3 months, then £150 every 3 months.</p>
+  </div>
+</section>
+<style>
+  .v4c{background:#242223;color:#fff;font-family:var(--mc-font,"Neue Haas Grotesk Display Pro"),sans-serif;-webkit-font-smoothing:antialiased}
+  .v4c__in{max-width:760px;margin:0 auto;padding:88px 24px 92px;text-align:center}
+  .v4c__eye{margin:0 0 18px;font-family:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:#5efaff}
+  .v4c__h{margin:0;font-family:inherit;font-size:clamp(32px,4vw,56px);font-weight:500;line-height:1;letter-spacing:-.02em;text-transform:uppercase;color:#fff;text-wrap:balance}
+  .v4c__list{display:inline-grid;gap:10px;margin:32px 0 0;padding:0;list-style:none;text-align:left;font-size:17px;line-height:1.4;color:rgba(255,255,255,.82)}
+  .v4c__list li{position:relative;margin:0;padding:0 0 0 30px}
+  .v4c__list li::before{content:""!important;position:absolute;left:0;top:3px;width:18px;height:18px;border-radius:50%;background:#5efaff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 8.4l2.6 2.6L12 5.4' stroke='%23242223' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat}
+  .v4c__list b{font-weight:500;color:#fff}
+  .v4c__btn{display:block;max-width:420px;margin:36px auto 0;padding:19px 24px;border-radius:8px;background:#1f8a4c;color:#fff!important;font-size:19px;font-weight:500;line-height:1.2;text-align:center;text-decoration:none!important}
+  .v4c__btn:hover{background:#1a7841}
+  .v4c__note{max-width:52ch;margin:16px auto 0;font-size:13px;line-height:1.5;color:rgba(255,255,255,.6)}
+  @media (max-width:749px){
+    .v4c__in{padding:56px 20px 60px}
+    .v4c__eye{font-size:11px;margin-bottom:14px}
+    .v4c__h{font-size:30px}
+    .v4c__list{margin-top:24px;font-size:15.5px}
+    .v4c__btn{margin-top:28px;font-size:18px}
+  }
+</style>
+<script>
+(function () {
+  var a = document.querySelector('[data-v4-to-plans]');
+  if (!a) return;
+  a.addEventListener('click', function (e) {
+    var p = document.querySelector('#MainContent .mc__plans');
+    if (!p) return;
+    e.preventDefault();
+    window.scrollTo({ top: p.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' });
+  });
+})();
+</script>
