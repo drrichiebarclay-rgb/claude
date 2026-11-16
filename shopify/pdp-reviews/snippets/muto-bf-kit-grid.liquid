@@ -2,7 +2,7 @@
   MUTO — welcome kit as photo tiles (muto-bf-kit-grid). Inside the selected plan's "Includes:" panel, the list of free
   gifts is shown as a grid of tiles: photo, name, the crossed-out value and a FREE badge. The tiles are built from the
   panel's own rows; tapping a tile opens that gift's details (the row's own pop-up). The 1-Month plan shows only its
-  five gifts (creatine, socks, guide, Forever Jar, Apple Watch prize-draw entry: £62); the 3-Month plan shows all seven (£87). The "NAD+ Cellular Complex · Included" row stays as a line above the tiles.
+  five gifts (creatine, socks, guide, Forever Jar, Apple Watch prize-draw entry: £62); the 3-Month plan adds the travel vial (£72; the bottle now comes with box 2). The "NAD+ Cellular Complex · Included" row stays as a line above the tiles.
   Photos: each gift product's main photo in Products, shown whole on a matching studio-grey background;
   change them in PHOTOS below.
   Tap a tile and a panel opens under its row with the photo, amount, value and description (DETAILS below).
@@ -14,7 +14,7 @@
   .mc-kt__h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:0 0 14px;font-family:var(--mc-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#242223}
   .mc-kt__h span + span{color:rgba(36,34,35,.62)}
   .mc-kt__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px 6px;margin:0;padding:0;list-style:none}
-  html:root body #MainContent [id$="__buy"] .mc__kit[data-kt-worth="£87"] .mc__inc::after{content:"Free gifts worth £87"!important}
+  html:root body #MainContent [id$="__buy"] .mc__kit[data-kt-worth="£72"] .mc__inc::after{content:"Free gifts worth £72"!important}
   html:root body #MainContent [id$="__buy"] .mc__kit[data-kt-worth="£62"] .mc__inc::after{content:"Free gifts worth £62"!important}
   .mc-kt__grid > li{display:flex;margin:0;padding:0}
   .mc-kt__grid > li::before{content:none!important}
@@ -69,7 +69,7 @@
   /* Which gifts each plan includes, and what they're worth (the theme's own rows don't change with the plan) */
   var ONE_MONTH = /creatine|sock|guide|protocol|forever|jar to keep|garmin|watch/i;
   var WATCH_ICON = '<svg class="mc-kt__icon" viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 10l1.5-6h11L31 10"/><path d="M17 38l1.5 6h11L31 38"/><rect x="13" y="10" width="22" height="28" rx="7"/><path d="M24 19v6l4 2"/></svg>';
-  var WORTH = { three: '£87', one: '£62' };
+  var WORTH = { three: '£72', one: '£62' };
   /* What each gift's panel says when its tile is tapped: amount, then a short description (from the gift products in
      Shopify where they have one). Matched on the gift's name; change the words here. */
   var DETAILS = [
