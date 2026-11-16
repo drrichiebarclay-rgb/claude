@@ -118,6 +118,12 @@
     .mm-o__swap{display:block;margin:12px auto 0;padding:4px 0;border:0;background:none;font-family:var(--mc-font);font-size:14px;font-weight:500;line-height:1.3;color:#242223;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
     /* Each plan card closes on its own now that the kit is no longer inside the selected one */
     html:root body #MainContent#MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__plans > label.mc__plan.is-selected{border-bottom:1px solid #242223!important;border-radius:12px!important;padding-bottom:6px!important;overflow:hidden}
+    /* Under the welcome kit on phones: the second Add to cart, the one-time purchase link and the "Arrives by" line are
+       not shown. Add to cart keeps its place at zero height (not display:none): "Try it now" presses it, and the bottom
+       bar watches where it is to know when to appear. */
+    html:root body #MainContent#MainContent#MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__buy-cta{visibility:hidden!important;height:0!important;min-height:0!important;margin:0!important;padding:0!important;border:0!important;overflow:hidden!important}
+    html:root body #MainContent#MainContent#MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__onetime,
+    html:root body #MainContent#MainContent#MainContent#MainContent#MainContent [id$="__buy"] .mc .mpb-x .mpb-del{display:none!important}
     /* The moving reviews strip: above the photo, slim */
     html:root body #MainContent [id$="__buy"] .mc__buy-media > .shopify-section[id$="__reviews_ticker"] .mtk{padding:8px 0!important}
     /* The reviews box goes below Add to cart; the plan cards follow the button */
