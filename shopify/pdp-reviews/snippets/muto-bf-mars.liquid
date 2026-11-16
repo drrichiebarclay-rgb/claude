@@ -25,6 +25,7 @@
   </ul>
 </div>
 <div class="mm-o" data-mm-o hidden>
+  <p class="mm-o__plan"><b data-mm-plan>3-Month Supply</b><span data-mm-tag>Best value</span></p>
   <div class="mm-o__row">
     <p class="mm-o__price"><b data-mm-price>£33</b><small>/mo</small> <s>£70</s></p>
     <p class="mm-o__save"><b data-mm-save>53% off</b> <span data-mm-gifts>+ £72 free gifts</span><small>No code required</small></p>
@@ -77,6 +78,10 @@
     html:root body #MainContent#MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc-links > *{justify-content:flex-start!important}
     /* Price, saving and the button */
     html body #MainContent .mc .mm-o{order:-3;margin:22px 0 0;font-family:var(--mc-font);color:#242223}
+    html body #MainContent .mc .mm-o .mm-o__plan{display:flex;align-items:center;gap:10px;margin:0 0 10px;font-size:17px;line-height:1.2}
+    .mm-o__plan b{font-weight:600}
+    .mm-o__plan span{padding:4px 9px;border-radius:999px;background:#5efaff;font-family:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+    .mm-o__plan span[hidden]{display:none}
     .mm-o__row{display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
     .mm-o p{margin:0}
     .mm-o__price{font-size:17px;line-height:1;white-space:nowrap}
@@ -123,13 +128,15 @@
 <script>
 (function () {
   var PLANS = {
-    three: { price: '£33', save: '53% off', gifts: '+ £72 free gifts', refill: '£125 refill ships in 3 months', terms: '£99 today for your first 3 months. By default you’ll then receive NAD+ Cellular Complex every 3 months: £125 for the next 3 months, then £150. Skip, pause or cancel online anytime. Subscribers get discounted pricing and free gifts.' },
-    one: { price: '£49.99', save: '28% off', gifts: '+ £62 free gifts', refill: '£60 refill ships in 1 month', terms: '£49.99 today for your first month. By default you’ll then receive NAD+ Cellular Complex every month for £60. Skip, pause or cancel online anytime. Subscribers get discounted pricing and free gifts.' }
+    three: { plan: '3-Month Supply', tag: 'Best value', price: '£33', save: '53% off', gifts: '+ £72 free gifts', refill: '£125 refill ships in 3 months', terms: '£99 today for your first 3 months. By default you’ll then receive NAD+ Cellular Complex every 3 months: £125 for the next 3 months, then £150. Skip, pause or cancel online anytime. Subscribers get discounted pricing and free gifts.' },
+    one: { plan: '1-Month Supply', tag: '', price: '£49.99', save: '28% off', gifts: '+ £62 free gifts', refill: '£60 refill ships in 1 month', terms: '£49.99 today for your first month. By default you’ll then receive NAD+ Cellular Complex every month for £60. Skip, pause or cancel online anytime. Subscribers get discounted pricing and free gifts.' }
   };
   function paint() {
     var o = document.querySelector('[data-mm-o]'), sel = document.querySelector('#MainContent .mc__plans > label.mc__plan.is-selected');
     if (!o) return;
     var p = sel && /1.?month|monthly/i.test(sel.textContent) ? PLANS.one : PLANS.three;
+    o.querySelector('[data-mm-plan]').textContent = p.plan;
+    var tag = o.querySelector('[data-mm-tag]'); tag.textContent = p.tag; tag.hidden = !p.tag;
     o.querySelector('[data-mm-price]').textContent = p.price;
     o.querySelector('[data-mm-save]').textContent = p.save;
     o.querySelector('[data-mm-gifts]').textContent = p.gifts;
