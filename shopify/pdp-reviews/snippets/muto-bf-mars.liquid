@@ -93,7 +93,7 @@
     .mm-o__save small{display:block;margin-top:3px;font-size:10.5px;letter-spacing:.1em;color:rgba(36,34,35,.6)}
     .mm-o__btn{display:flex;justify-content:center;align-items:center;gap:12px;width:100%;min-height:60px;margin:14px 0 0;padding:14px 20px;border:0;border-radius:8px;background:#1f8a4c;color:#fff;font-family:var(--mc-font);font-size:20px;font-weight:600;line-height:1.1;letter-spacing:.01em;text-transform:uppercase;cursor:pointer}
     .mm-o__btn svg{width:24px;height:24px}
-    .mm-o__btn[aria-busy="true"]{opacity:.7}
+    .mm-o__btn[aria-busy="true"],.mm-o__swap[aria-busy="true"]{opacity:.6}
     .mm-o__terms{margin:14px 0 0!important;font-size:12.5px;line-height:1.45;color:rgba(36,34,35,.66);text-align:center}
     html body #MainContent .mc .mm-o .mm-pay{display:flex;flex-wrap:nowrap;justify-content:center;gap:5px;margin:14px 0 0;padding:0;list-style:none}
     html body #MainContent .mc .mm-o .mm-pay li{flex:0 1 32px;min-width:0;margin:0;padding:0;line-height:0}
@@ -143,7 +143,7 @@
   function paint() {
     var o = document.querySelector('[data-mm-o]'), sel = document.querySelector('#MainContent .mc__plans > label.mc__plan.is-selected');
     if (!o) return;
-    var p = sel && /1.?month|monthly/i.test(sel.textContent) ? PLANS.one : PLANS.three;
+    var p = PLANS.three;
     o.querySelector('[data-mm-plan]').textContent = p.plan;
     var tag = o.querySelector('[data-mm-tag]'); tag.textContent = p.tag; tag.hidden = !p.tag;
     o.querySelector('[data-mm-price]').textContent = p.price;
@@ -151,7 +151,7 @@
     o.querySelector('[data-mm-gifts]').textContent = p.gifts;
     o.querySelector('[data-mm-terms]').textContent = p.terms;
     o.querySelector('[data-mm-refill]').textContent = p.refill;
-    o.querySelector('[data-mm-swap]').textContent = p === PLANS.one ? 'Switch to the 3-Month Supply: £33/mo, best value' : 'Prefer monthly? 1-Month Supply, £49.99 today';
+
   }
   function init() {
     var buy = document.querySelector('#MainContent [id$="__buy"]');
@@ -165,11 +165,10 @@
       plans.parentNode.insertBefore(o, plans);
       o.setAttribute('data-ready', '1'); o.hidden = false;
       var btn = o.querySelector('[data-mm-go]');
-      btn.addEventListener('click', function () {
+/* The same way the bottom bar adds to cart: submit the page's own cart form for the chosen plan (pressing a hidden
+         button is not reliable in Safari on iPhone) */
+      var send = function () {
         var main = buy.querySelector('.mc__buy-cta');
-        btn.setAttribute('aria-busy', 'true'); setTimeout(function () { btn.removeAttribute('aria-busy'); }, 2500);
-        /* The same way the bottom bar adds to cart: submit the page's own cart form for the chosen plan (pressing a
-           hidden button is not reliable in Safari on iPhone) */
         var field = document.querySelector('[data-mh-cart-id]'), form = field && field.form;
         if (form && field.value) {
           if (form.requestSubmit) {
@@ -177,12 +176,31 @@
             try { form.requestSubmit(sub || undefined); } catch (err) { form.requestSubmit(); }
           } else form.submit();
         } else if (main) main.click();
+      };
+      var busy = function (el) { el.setAttribute('aria-busy', 'true'); setTimeout(function () { el.removeAttribute('aria-busy'); }, 2500); };
+      var cardFor = function (re) { return [].filter.call(buy.querySelectorAll('.mc__plans > label.mc__plan'), function (c) { return re.test(c.textContent); })[0]; };
+      btn.addEventListener('click', function () {
+        /* Always the 3-Month Supply: that is what this block shows */
+        var three = cardFor(/3.?month/i);
+        busy(btn);
+        if (three && !three.classList.contains('is-selected')) { three.click(); setTimeout(send, 250); } else send();
       });
-      /* The plan cards are hidden on phones: this link switches between the two plans by pressing the hidden card */
-      o.querySelector('[data-mm-swap]').addEventListener('click', function () {
-        var cards = [].slice.call(buy.querySelectorAll('.mc__plans > label.mc__plan'));
-        var other = cards.filter(function (c) { return !c.classList.contains('is-selected'); })[0];
-        if (other) { other.click(); setTimeout(paint, 60); }
+      /* "Prefer monthly?": adds the 1-Month Supply to the cart straight away. The block above stays on the 3-Month offer;
+         the hidden plan cards are switched to 1-Month for the add, then back. */
+      var swap = o.querySelector('[data-mm-swap]');
+      swap.addEventListener('click', function () {
+        var one = cardFor(/1.?month/i), three = cardFor(/3.?month/i), field = document.querySelector('[data-mh-cart-id]');
+        if (!one || swap.getAttribute('aria-busy')) return;
+        busy(swap);
+        var before = field && field.value, tries = 0;
+        one.click();
+        (function wait() {
+          var f = document.querySelector('[data-mh-cart-id]');
+          if ((f && f.value && f.value !== before && one.classList.contains('is-selected')) || ++tries > 20) {
+            send();
+            setTimeout(function () { if (three && !three.classList.contains('is-selected')) three.click(); }, 1800);
+          } else setTimeout(wait, 50);
+        })();
       });
       document.addEventListener('muto:home:plan', function () { setTimeout(paint, 0); });
       document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('.mc__plan')) setTimeout(paint, 40); });
