@@ -1,0 +1,125 @@
+{%- comment -%}
+  MUTO — phone layout for the top of the main product page (muto-bf-mars), after a high-converting phone product page:
+  photo → photo tiles → swipeable review quotes + the star rating → headline and intro → five ticks → the testing and
+  nutrition links → price, saving and one big button → the plan cards. Phones only (under 750px); desktop is unchanged.
+  The button adds the plan that is selected in the cards below (the 3-Month Supply unless they change it) by pressing
+  the page's own Add to cart. The reviews box and the grey proof line move below Add to cart.
+  To change the quotes or the ticks, edit them below. Quotes are customers' own words, shortened with "…".
+  Rendered from the head_styles section, before the buy box, and placed by mcWhen (muto-bf-early).
+{%- endcomment -%}
+<div class="mm-q" data-mm-q hidden>
+  <ul class="mm-q__rail" role="list">
+    <li class="mm-q__card"><p>“I’m 36, and I feel as resilient as my 20s.… I have <b>constant energy throughout the day, no crashes</b>, nothing.…”</p><p class="mm-q__by"><span class="mm-q__stars" aria-label="5 stars">★★★★★</span><span>Kevin, 36</span></p></li>
+    <li class="mm-q__card"><p>“…genuinely surprised at <b>how quickly I felt a difference</b>. My <b>recovery and sleep</b> have noticeably improved.…”</p><p class="mm-q__by"><span class="mm-q__stars" aria-label="5 stars">★★★★★</span><span>K R</span></p></li>
+    <li class="mm-q__card"><p>“…<b>within 2wks</b> of using it, I feel <b>more alert</b>, my cardio &amp; strength is getting better in the gym.…”</p><p class="mm-q__by"><span class="mm-q__stars" aria-label="5 stars">★★★★★</span><span>Twin M.</span></p></li>
+    <li class="mm-q__card"><p>“…My <b>energy levels are better</b>… and I feel more relaxed in the mornings (which is a rare thing to say as a <b>busy mum of 3</b>!)…”</p><p class="mm-q__by"><span class="mm-q__stars" aria-label="5 stars">★★★★★</span><span>Fiona S.</span></p></li>
+    <li class="mm-q__card"><p>“…<b>recovery from work outs hasn’t been over 24 hours</b> since I started MUTO.…”</p><p class="mm-q__by"><span class="mm-q__stars" aria-label="5 stars">★★★★★</span><span>Adam, 46</span></p></li>
+  </ul>
+  <a class="mm-q__rate" href="#ReviewsWidget"><span aria-hidden="true">★★★★★</span> 4.8 from 103 reviews</a>
+</div>
+<ul class="mm-t" data-mm-t role="list" hidden>
+  <li>19 nutrients at full dose, in two capsules</li>
+  <li>Every dose on the label, no proprietary blends</li>
+  <li>Made in the UK, every batch independently tested</li>
+  <li>90-day money-back guarantee</li>
+  <li>Free next-day UK delivery</li>
+</ul>
+<div class="mm-o" data-mm-o hidden>
+  <div class="mm-o__row">
+    <p class="mm-o__price"><b data-mm-price>£33</b><small>/mo</small> <s>£70</s></p>
+    <p class="mm-o__save"><b data-mm-save>53% off</b> <span data-mm-gifts>+ £87 free gifts</span><small>No code required</small></p>
+  </div>
+  <button type="button" class="mm-o__btn" data-mm-go>Try it now <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <p class="mm-o__terms" data-mm-terms>3-Month Supply: £99 today, then £125, then £150 every 3 months. Skip, pause or cancel online.</p>
+</div>
+<style>
+  .mm-q[hidden],.mm-t[hidden],.mm-o[hidden]{display:none!important}
+  @media (min-width:750px){.mm-q,.mm-t,.mm-o{display:none!important}}
+  @media (max-width:749px){
+    /* Review quotes under the photo tiles: swipe sideways */
+    html body #MainContent .mc .mm-q{margin:12px 0 0;font-family:var(--mc-font,"Neue Haas Grotesk Display Pro"),sans-serif}
+    .mm-q__rail{display:flex;gap:10px;margin:0;padding:0 16px 2px;list-style:none;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:16px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+    .mm-q__rail::-webkit-scrollbar{display:none}
+    .mm-q__card{flex:0 0 84%;display:flex;flex-direction:column;justify-content:space-between;gap:10px;margin:0;padding:14px 16px 12px;border-radius:10px;background:#f1f1ef;scroll-snap-align:start}
+    .mm-q__card::before{content:none!important}
+    .mm-q__card p{margin:0;font-size:15px;line-height:1.35;color:#242223;text-align:left}
+    .mm-q__card b{font-weight:600}
+    .mm-q__card .mm-q__by{display:flex;justify-content:space-between;align-items:center;font-size:13.5px;color:rgba(36,34,35,.72)}
+    .mm-q__stars{font-size:14px;letter-spacing:1px;color:#242223}
+    .mm-q__rate{display:block;margin:12px 0 0;text-align:center;font-family:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:#242223!important;text-decoration:underline;text-underline-offset:4px}
+    .mm-q__rate span{letter-spacing:1px;margin-right:6px}
+    /* The rating row above the headline, the product-name badge and the grey proof line: replaced by the pieces above */
+    html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc__rating,
+    html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc__eyebrow{display:none!important}
+    html:root body #MainContent#MainContent#MainContent .mc .mc-subhead::before{content:none!important;display:none!important}
+    /* Five ticks under the intro */
+    html body #MainContent .mc .mm-t{order:-4;display:grid;gap:9px;margin:18px 0 0;padding:0;list-style:none;font-family:var(--mc-font);font-size:16px;font-weight:500;line-height:1.3;color:#242223;text-align:left}
+    html body #MainContent .mc .mm-t li{position:relative;margin:0;padding:0 0 0 30px}
+    html body #MainContent .mc .mm-t li::before{content:""!important;position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:#242223 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 8.4l2.6 2.6L12 5.4' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat}
+    /* The two links: under the ticks, on the left */
+    html:root body #MainContent#MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc-links{order:-4!important;align-items:flex-start!important;margin:16px 0 0!important}
+    html:root body #MainContent#MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc-links > *{justify-content:flex-start!important}
+    /* Price, saving and the button */
+    html body #MainContent .mc .mm-o{order:-3;margin:22px 0 0;font-family:var(--mc-font);color:#242223}
+    .mm-o__row{display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+    .mm-o p{margin:0}
+    .mm-o__price{font-size:17px;line-height:1;white-space:nowrap}
+    .mm-o__price b{font-size:40px;font-weight:600;letter-spacing:-.02em}
+    .mm-o__price small{font-size:17px;font-weight:500}
+    .mm-o__price s{margin-left:6px;font-size:22px;color:rgba(36,34,35,.5)}
+    .mm-o__save{text-align:right;font-family:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace;font-size:12.5px;line-height:1.35;letter-spacing:.06em;text-transform:uppercase}
+    .mm-o__save b{font-weight:700}
+    .mm-o__save small{display:block;margin-top:3px;font-size:10.5px;letter-spacing:.1em;color:rgba(36,34,35,.6)}
+    .mm-o__btn{display:flex;justify-content:center;align-items:center;gap:12px;width:100%;min-height:60px;margin:14px 0 0;padding:14px 20px;border:0;border-radius:8px;background:#1f8a4c;color:#fff;font-family:var(--mc-font);font-size:20px;font-weight:600;line-height:1.1;letter-spacing:.01em;text-transform:uppercase;cursor:pointer}
+    .mm-o__btn svg{width:24px;height:24px}
+    .mm-o__btn[aria-busy="true"]{opacity:.7}
+    .mm-o__terms{margin:10px 0 0!important;font-size:12.5px;line-height:1.4;color:rgba(36,34,35,.66);text-align:center}
+    /* The reviews box goes below Add to cart; the plan cards follow the button */
+    html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc-subhead{order:3!important;margin-top:20px!important}
+    html:root body #MainContent#MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc-links ~ .mc__plans{margin-top:26px!important}
+    /* The moving quotes strip, now under the top bar: a slim strip */
+    html:root body #MainContent > .shopify-section[id$="__reviews_ticker"] .mtk{padding:10px 0!important}
+  }
+</style>
+<script>
+(function () {
+  var PLANS = {
+    three: { price: '£33', save: '53% off', gifts: '+ £87 free gifts', terms: '3-Month Supply: £99 today, then £125, then £150 every 3 months. Skip, pause or cancel online.' },
+    one: { price: '£49.99', save: '28% off', gifts: '+ £62 free gifts', terms: '1-Month Supply: £49.99 today, then £60 every month. Skip, pause or cancel online.' }
+  };
+  function paint() {
+    var o = document.querySelector('[data-mm-o]'), sel = document.querySelector('#MainContent .mc__plans > label.mc__plan.is-selected');
+    if (!o) return;
+    var p = sel && /1.?month|monthly/i.test(sel.textContent) ? PLANS.one : PLANS.three;
+    o.querySelector('[data-mm-price]').textContent = p.price;
+    o.querySelector('[data-mm-save]').textContent = p.save;
+    o.querySelector('[data-mm-gifts]').textContent = p.gifts;
+    o.querySelector('[data-mm-terms]').textContent = p.terms;
+  }
+  function init() {
+    var buy = document.querySelector('#MainContent [id$="__buy"]');
+    if (!buy) return false;
+    var q = document.querySelector('[data-mm-q]'), gal = buy.querySelector('.mc__gallery');
+    if (q && gal && !q.getAttribute('data-ready')) { gal.parentNode.insertBefore(q, gal.nextSibling); q.setAttribute('data-ready', '1'); q.hidden = false; }
+    var t = document.querySelector('[data-mm-t]'), sub = buy.querySelector('.mc-sub[data-ready]');
+    if (t && sub && !t.getAttribute('data-ready')) { sub.parentNode.insertBefore(t, sub.nextSibling); t.setAttribute('data-ready', '1'); t.hidden = false; }
+    var o = document.querySelector('[data-mm-o]'), plans = buy.querySelector('.mc__plans');
+    if (o && plans && !o.getAttribute('data-ready')) {
+      plans.parentNode.insertBefore(o, plans);
+      o.setAttribute('data-ready', '1'); o.hidden = false;
+      var btn = o.querySelector('[data-mm-go]');
+      btn.addEventListener('click', function () {
+        var main = buy.querySelector('.mc__buy-cta');
+        if (!main) return;
+        btn.setAttribute('aria-busy', 'true'); setTimeout(function () { btn.removeAttribute('aria-busy'); }, 2500);
+        main.click();
+      });
+      document.addEventListener('muto:home:plan', function () { setTimeout(paint, 0); });
+      document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('.mc__plan')) setTimeout(paint, 40); });
+      paint(); setTimeout(paint, 1500);
+    }
+    return !!(q && q.getAttribute('data-ready') && t && t.getAttribute('data-ready') && o && o.getAttribute('data-ready'));
+  }
+  (window.mcWhen || function (f) { f(); document.addEventListener('DOMContentLoaded', f); })(init);
+})();
+</script>
