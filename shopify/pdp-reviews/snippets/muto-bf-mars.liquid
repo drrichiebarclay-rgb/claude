@@ -30,7 +30,15 @@
     <p class="mm-o__save"><b data-mm-save>53% off</b> <span data-mm-gifts>+ £87 free gifts</span><small>No code required</small></p>
   </div>
   <button type="button" class="mm-o__btn" data-mm-go>Try it now <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-  <p class="mm-o__terms" data-mm-terms>3-Month Supply: £99 today, then £125, then £150 every 3 months. Skip, pause or cancel online.</p>
+  <ul class="mm-pay" role="list" aria-label="Ways to pay">
+    {%- for type in shop.enabled_payment_types -%}<li>{{ type | payment_type_svg_tag: class: 'mm-pay__i' }}</li>{%- endfor -%}
+  </ul>
+  <ul class="mm-3" role="list">
+    <li><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M25.5 12.5A10 10 0 0 0 7 11"/><path d="M6.5 19.5A10 10 0 0 0 25 21"/><path d="M7 5.5V11h5.5"/><path d="M25 26.5V21h-5.5"/></svg><span data-mm-refill>£125 refill ships in 3 months</span></li>
+    <li><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4l9 3.5v7c0 6-3.8 10.6-9 13-5.2-2.4-9-7-9-13v-7z"/><path d="M11.5 16l3.200 3.200 5.800-6.400"/></svg><span>90-day money-back guarantee</span></li>
+    <li><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5l12-5.5 12 5.5v13l-12 5.5-12-5.5z"/><path d="M4 9.5l12 5.5 12-5.5M16 15v13"/></svg><span>Free next-day UK delivery</span></li>
+  </ul>
+  <p class="mm-o__terms" data-mm-terms>£99 today for your first 3 months. By default you’ll then receive NAD+ Cellular Complex every 3 months: £125 for the next 3 months, then £150. Skip, pause or cancel online anytime. Subscribers get discounted pricing and free gifts.</p>
 </div>
 <style>
   .mm-q[hidden],.mm-t[hidden],.mm-o[hidden]{display:none!important}
@@ -40,13 +48,13 @@
     html body #MainContent .mc .mm-q{margin:12px 0 0;font-family:var(--mc-font,"Neue Haas Grotesk Display Pro"),sans-serif}
     html body #MainContent .mc .mm-q .mm-q__rail{display:flex!important;gap:10px!important;margin:0!important;padding:0 16px 2px!important;list-style:none;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:16px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
     .mm-q__rail::-webkit-scrollbar{display:none}
-    html body #MainContent .mc .mm-q .mm-q__card{flex:0 0 84%!important;display:flex!important;flex-direction:column;justify-content:space-between;gap:10px;margin:0!important;padding:14px 16px 12px!important;border:1px solid rgba(36,34,35,.12);border-radius:10px;background:#fff!important;scroll-snap-align:start;box-sizing:border-box}
+    html body #MainContent .mc .mm-q .mm-q__card{flex:0 0 76%!important;display:flex!important;flex-direction:column;justify-content:space-between;gap:6px;margin:0!important;padding:9px 12px 8px!important;border:1px solid rgba(36,34,35,.12);border-radius:10px;background:#fff!important;scroll-snap-align:start;box-sizing:border-box}
     .mm-q__card::before{content:none!important}
-    html body #MainContent .mc .mm-q .mm-q__card p{margin:0!important;padding:0!important;font-size:15px;line-height:1.35;color:#242223;text-align:left}
+    html body #MainContent .mc .mm-q .mm-q__card p{margin:0!important;padding:0!important;font-size:13px;line-height:1.3;color:#242223;text-align:left}
     .mm-q__card b{font-weight:600}
-    .mm-q__card .mm-q__by{display:flex;justify-content:space-between;align-items:center;font-size:13.5px;color:rgba(36,34,35,.72)}
-    .mm-q__stars{font-size:14px;letter-spacing:1px;color:#242223}
-    .mm-q__rate{display:block;margin:12px 0 0;text-align:center;font-family:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:#242223!important;text-decoration:underline;text-underline-offset:4px}
+    html body #MainContent .mc .mm-q .mm-q__card .mm-q__by{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(36,34,35,.72)}
+    .mm-q__stars{font-size:11.5px;letter-spacing:1px;color:#242223}
+    .mm-q__rate{display:block;margin:10px 0 0;text-align:center;font-family:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:#242223!important;text-decoration:underline;text-underline-offset:4px}
     .mm-q__rate span{letter-spacing:1px;margin-right:6px}
     /* The rating row above the headline, the product-name badge and the grey proof line: replaced by the pieces above */
     html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc__rating,
@@ -73,7 +81,25 @@
     .mm-o__btn{display:flex;justify-content:center;align-items:center;gap:12px;width:100%;min-height:60px;margin:14px 0 0;padding:14px 20px;border:0;border-radius:8px;background:#1f8a4c;color:#fff;font-family:var(--mc-font);font-size:20px;font-weight:600;line-height:1.1;letter-spacing:.01em;text-transform:uppercase;cursor:pointer}
     .mm-o__btn svg{width:24px;height:24px}
     .mm-o__btn[aria-busy="true"]{opacity:.7}
-    .mm-o__terms{margin:10px 0 0!important;font-size:12.5px;line-height:1.4;color:rgba(36,34,35,.66);text-align:center}
+    .mm-o__terms{margin:14px 0 0!important;font-size:12.5px;line-height:1.45;color:rgba(36,34,35,.66);text-align:center}
+    html body #MainContent .mc .mm-o .mm-pay{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:14px 0 0;padding:0;list-style:none}
+    html body #MainContent .mc .mm-o .mm-pay li{margin:0;padding:0;line-height:0}
+    html body #MainContent .mc .mm-o .mm-pay li::before,html body #MainContent .mc .mm-o .mm-3 li::before{content:none!important}
+    .mm-pay__i{display:block;width:38px;height:24px}
+    html body #MainContent .mc .mm-o .mm-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:18px 0 0;padding:0;list-style:none}
+    html body #MainContent .mc .mm-o .mm-3 li{display:flex;flex-direction:column;align-items:center;gap:6px;margin:0;padding:0;font-size:12.5px;font-weight:500;line-height:1.3;text-align:center;color:#242223;text-wrap:balance}
+    .mm-3 svg{width:26px;height:26px;color:#1f8a4c}
+    /* The welcome kit: its own block under the two plan cards, the gifts in one row to swipe */
+    html:root body #MainContent#MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__plans > .mc__kit{order:7!important;margin:6px 0 0!important;padding:0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important}
+    html:root body #MainContent#MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__plans > .mc__kit::before{content:"Welcome kit: arrives with 1st order"!important;display:block!important;margin:0 0 12px!important;padding:0!important;border:0!important;background:none!important;font-family:var(--mc-font)!important;font-size:16px!important;font-weight:600!important;line-height:1.2!important;letter-spacing:.01em!important;text-transform:uppercase!important;color:#242223!important}
+    html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__kit > .mc__kit-title,
+    html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__kit > .mc__inc{display:none!important}
+    html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__kit .mc-kt__grid{display:grid!important;grid-template-columns:none!important;grid-auto-flow:column!important;grid-auto-columns:104px!important;grid-template-rows:auto auto!important;gap:10px 8px!important;margin:0 -20px!important;padding:8px 20px 4px!important;overflow-x:auto!important;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+    html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__kit .mc-kt__grid::-webkit-scrollbar{display:none}
+    html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__kit .mc-kt__grid > li:not(.mc-kt__more){grid-row:1!important;grid-column:auto!important}
+    html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__kit .mc-kt__grid > li.mc-kt__more{grid-row:2!important;grid-column:1 / span 3!important;position:sticky;left:0;width:calc(100vw - 40px);box-sizing:border-box;margin:0!important}
+    /* The moving reviews strip: above the photo, slim */
+    html:root body #MainContent [id$="__buy"] .mc__buy-media > .shopify-section[id$="__reviews_ticker"] .mtk{padding:8px 0!important}
     /* The reviews box goes below Add to cart; the plan cards follow the button */
     html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc-subhead{order:3!important;margin-top:20px!important}
     html:root body #MainContent#MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc-links ~ .mc__plans{margin-top:26px!important}
@@ -82,8 +108,8 @@
 <script>
 (function () {
   var PLANS = {
-    three: { price: '£33', save: '53% off', gifts: '+ £87 free gifts', terms: '3-Month Supply: £99 today, then £125, then £150 every 3 months. Skip, pause or cancel online.' },
-    one: { price: '£49.99', save: '28% off', gifts: '+ £62 free gifts', terms: '1-Month Supply: £49.99 today, then £60 every month. Skip, pause or cancel online.' }
+    three: { price: '£33', save: '53% off', gifts: '+ £87 free gifts', refill: '£125 refill ships in 3 months', terms: '£99 today for your first 3 months. By default you’ll then receive NAD+ Cellular Complex every 3 months: £125 for the next 3 months, then £150. Skip, pause or cancel online anytime. Subscribers get discounted pricing and free gifts.' },
+    one: { price: '£49.99', save: '28% off', gifts: '+ £62 free gifts', refill: '£60 refill ships in 1 month', terms: '£49.99 today for your first month. By default you’ll then receive NAD+ Cellular Complex every month for £60. Skip, pause or cancel online anytime. Subscribers get discounted pricing and free gifts.' }
   };
   function paint() {
     var o = document.querySelector('[data-mm-o]'), sel = document.querySelector('#MainContent .mc__plans > label.mc__plan.is-selected');
@@ -93,6 +119,7 @@
     o.querySelector('[data-mm-save]').textContent = p.save;
     o.querySelector('[data-mm-gifts]').textContent = p.gifts;
     o.querySelector('[data-mm-terms]').textContent = p.terms;
+    o.querySelector('[data-mm-refill]').textContent = p.refill;
   }
   function init() {
     var buy = document.querySelector('#MainContent [id$="__buy"]');
@@ -116,7 +143,16 @@
       document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('.mc__plan')) setTimeout(paint, 40); });
       paint(); setTimeout(paint, 1500);
     }
-    return !!(q && q.getAttribute('data-ready') && t && t.getAttribute('data-ready') && o && o.getAttribute('data-ready'));
+    /* The moving reviews strip: above the photo on phones, back under the buy box on desktop */
+    var tk = document.querySelector('.shopify-section[id$="__reviews_ticker"]');
+    if (tk && gal && !tk.getAttribute('data-mm')) {
+      tk.setAttribute('data-mm', '1');
+      var home = document.createComment('mm-ticker'); tk.parentNode.insertBefore(home, tk);
+      var mq = window.matchMedia('(max-width: 749px)');
+      var put = function () { if (mq.matches) gal.parentNode.insertBefore(tk, gal); else home.parentNode.insertBefore(tk, home.nextSibling); };
+      put(); (mq.addEventListener ? mq.addEventListener('change', put) : mq.addListener(put));
+    }
+    return !!tk && !!(q && q.getAttribute('data-ready') && t && t.getAttribute('data-ready') && o && o.getAttribute('data-ready'));
   }
   (window.mcWhen || function (f) { f(); document.addEventListener('DOMContentLoaded', f); })(init);
 })();
