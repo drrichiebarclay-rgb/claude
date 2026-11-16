@@ -121,7 +121,7 @@
     /* Under the welcome kit on phones: the second Add to cart, the one-time purchase link and the "Arrives by" line are
        not shown. Add to cart keeps its place at zero height (not display:none): "Try it now" presses it, and the bottom
        bar watches where it is to know when to appear. */
-    html:root body #MainContent#MainContent#MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__buy-cta{visibility:hidden!important;height:0!important;min-height:0!important;margin:0!important;padding:0!important;border:0!important;overflow:hidden!important}
+    html:root body #MainContent#MainContent#MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__buy-cta{opacity:0!important;pointer-events:none!important;height:1px!important;min-height:0!important;margin:0!important;padding:0!important;border:0!important;overflow:hidden!important}
     html:root body #MainContent#MainContent#MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__onetime,
     html:root body #MainContent#MainContent#MainContent#MainContent#MainContent [id$="__buy"] .mc .mpb-x .mpb-del{display:none!important}
     /* The "90-day guarantee · Free next-day delivery" row under the gifts: said by the three points under the button */
@@ -167,9 +167,16 @@
       var btn = o.querySelector('[data-mm-go]');
       btn.addEventListener('click', function () {
         var main = buy.querySelector('.mc__buy-cta');
-        if (!main) return;
         btn.setAttribute('aria-busy', 'true'); setTimeout(function () { btn.removeAttribute('aria-busy'); }, 2500);
-        main.click();
+        /* The same way the bottom bar adds to cart: submit the page's own cart form for the chosen plan (pressing a
+           hidden button is not reliable in Safari on iPhone) */
+        var field = document.querySelector('[data-mh-cart-id]'), form = field && field.form;
+        if (form && field.value) {
+          if (form.requestSubmit) {
+            var sub = document.querySelector('button[form="' + form.id + '"][name="add"]');
+            try { form.requestSubmit(sub || undefined); } catch (err) { form.requestSubmit(); }
+          } else form.submit();
+        } else if (main) main.click();
       });
       /* The plan cards are hidden on phones: this link switches between the two plans by pressing the hidden card */
       o.querySelector('[data-mm-swap]').addEventListener('click', function () {
