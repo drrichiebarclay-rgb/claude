@@ -33,7 +33,7 @@
   </div>
   <button type="button" class="mm-o__btn" data-mm-go>Try it now <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   <ul class="mm-pay" role="list" aria-label="Ways to pay">
-    {%- assign mm_pay = 'american_express,apple_pay,google_pay,master,paypal,shopify_pay,visa' | split: ',' -%}
+    {%- assign mm_pay = 'american_express,apple_pay,google_pay,klarna,master,paypal,shopify_pay,visa' | split: ',' -%}
     {%- for type in shop.enabled_payment_types -%}{%- if mm_pay contains type -%}<li>{{ type | payment_type_svg_tag: class: 'mm-pay__i' }}</li>{%- endif -%}{%- endfor -%}
   </ul>
   <ul class="mm-3" role="list">
@@ -42,6 +42,7 @@
     <li><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5l12-5.5 12 5.5v13l-12 5.5-12-5.5z"/><path d="M4 9.5l12 5.5 12-5.5M16 15v13"/></svg><span>Free next-day UK delivery</span></li>
   </ul>
   <p class="mm-o__terms" data-mm-terms>£99 today for your first 3 months. By default you’ll then receive NAD+ Cellular Complex every 3 months: £125 for the next 3 months, then £150. Skip, pause or cancel online anytime. Subscribers get discounted pricing and free gifts.</p>
+  <button type="button" class="mm-o__swap" data-mm-swap>Prefer monthly? 1-Month Supply, £49.99 today</button>
 </div>
 <style>
   .mm-q[hidden],.mm-t[hidden],.mm-o[hidden]{display:none!important}
@@ -107,6 +108,11 @@
     html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__kit .mc-kt__grid::-webkit-scrollbar{display:none}
     html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__kit .mc-kt__grid > li:not(.mc-kt__more){grid-row:1!important;grid-column:auto!important}
     html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__kit .mc-kt__grid > li.mc-kt__more{grid-row:2!important;grid-column:1 / span 3!important;position:sticky;left:0;width:calc(100vw - 40px);box-sizing:border-box;margin:0!important}
+    /* The two plan cards are not shown on phones: the price row and button above stand in for them, and the link under
+       the small print switches plan */
+    html:root body #MainContent#MainContent#MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__plans > label.mc__plan{display:none!important}
+    html:root body #MainContent#MainContent#MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__plans > .mc__kit{margin-top:0!important}
+    .mm-o__swap{display:block;margin:12px auto 0;padding:4px 0;border:0;background:none;font-family:var(--mc-font);font-size:14px;font-weight:500;line-height:1.3;color:#242223;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
     /* Each plan card closes on its own now that the kit is no longer inside the selected one */
     html:root body #MainContent#MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__plans > label.mc__plan.is-selected{border-bottom:1px solid #242223!important;border-radius:12px!important;padding-bottom:6px!important;overflow:hidden}
     /* The moving reviews strip: above the photo, slim */
@@ -131,6 +137,7 @@
     o.querySelector('[data-mm-gifts]').textContent = p.gifts;
     o.querySelector('[data-mm-terms]').textContent = p.terms;
     o.querySelector('[data-mm-refill]').textContent = p.refill;
+    o.querySelector('[data-mm-swap]').textContent = p === PLANS.one ? 'Switch to the 3-Month Supply: £33/mo, best value' : 'Prefer monthly? 1-Month Supply, £49.99 today';
   }
   function init() {
     var buy = document.querySelector('#MainContent [id$="__buy"]');
@@ -149,6 +156,12 @@
         if (!main) return;
         btn.setAttribute('aria-busy', 'true'); setTimeout(function () { btn.removeAttribute('aria-busy'); }, 2500);
         main.click();
+      });
+      /* The plan cards are hidden on phones: this link switches between the two plans by pressing the hidden card */
+      o.querySelector('[data-mm-swap]').addEventListener('click', function () {
+        var cards = [].slice.call(buy.querySelectorAll('.mc__plans > label.mc__plan'));
+        var other = cards.filter(function (c) { return !c.classList.contains('is-selected'); })[0];
+        if (other) { other.click(); setTimeout(paint, 60); }
       });
       document.addEventListener('muto:home:plan', function () { setTimeout(paint, 0); });
       document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('.mc__plan')) setTimeout(paint, 40); });
