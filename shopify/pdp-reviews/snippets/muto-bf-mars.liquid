@@ -1,6 +1,6 @@
 {%- comment -%}
   MUTO — phone layout for the top of the main product page (muto-bf-mars), after a high-converting phone product page:
-  photo → photo tiles → swipeable review quotes + the star rating → headline and intro → five ticks → the testing and
+  photo → photo tiles → swipeable review quotes + the star rating → headline and intro → three benefits and a proof line → the testing and
   nutrition links → price, saving and one big button → the plan cards. Phones only (under 750px); desktop is unchanged.
   The button adds the plan that is selected in the cards below (the 3-Month Supply unless they change it) by pressing
   the page's own Add to cart. The reviews box and the grey proof line move below Add to cart.
@@ -17,33 +17,46 @@
   </ul>
   <a class="mm-q__rate" href="#ReviewsWidget"><span aria-hidden="true">★★★★★</span> 4.8 from 103 reviews</a>
 </div>
-<ul class="mm-t" data-mm-t role="list" hidden>
-  <li>19 nutrients at full dose, in two capsules</li>
-  <li>Every dose on the label, no proprietary blends</li>
-  <li>Made in the UK, every batch independently tested</li>
-  <li>90-day money-back guarantee</li>
-  <li>Free next-day UK delivery</li>
-</ul>
+<div class="mm-t" data-mm-t hidden>
+  <ul class="mm-t__list" role="list">
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2.5L5 13.5h6l-1 8 8-11h-6z"/></svg>More energy, fewer afternoon crashes*</li>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.5 9.500A8 8 0 0 0 5 8.5"/><path d="M4.5 14.500A8 8 0 0 0 19 15.5"/><path d="M5 4v4.500h4.5"/><path d="M19 20v-4.500h-4.5"/></svg>Recover in time to go again</li>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 2.700v5.300c0 4.6-2.9 8.1-7 10-4.1-1.9-7-5.4-7-10V5.700z"/><path d="M8.7 12l2.3 2.3 4.3-4.7"/></svg>Protect your cells as you age</li>
+  </ul>
+  <p class="mm-t__proof">Every dose on the label · Every batch independently tested · Developed with doctors and scientists</p>
+  <p class="mm-t__note">*Vitamins B2, B3, B6, B12 and folate contribute to the reduction of tiredness and fatigue.</p>
+</div>
 <div class="mm-o" data-mm-o hidden>
   <div class="mm-o__row">
     <p class="mm-o__price"><b data-mm-price>£33</b><small>/mo</small> <s>£70</s></p>
-    <p class="mm-o__save"><b data-mm-save>53% off</b> <span data-mm-gifts>+ £87 free gifts</span><small>No code required</small></p>
+    <p class="mm-o__save"><b data-mm-save>53% off</b> <span data-mm-gifts>+ £72 free gifts</span><small>No code required</small></p>
   </div>
   <button type="button" class="mm-o__btn" data-mm-go>Try it now <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   <ul class="mm-pay" role="list" aria-label="Ways to pay">
-    {%- assign mm_pay = 'american_express,apple_pay,google_pay,klarna,master,paypal,shopify_pay,visa' | split: ',' -%}
+    {%- assign mm_pay = 'american_express,apple_pay,google_pay,master,paypal,shopify_pay,visa' | split: ',' -%}
     {%- for type in shop.enabled_payment_types -%}{%- if mm_pay contains type -%}<li>{{ type | payment_type_svg_tag: class: 'mm-pay__i' }}</li>{%- endif -%}{%- endfor -%}
   </ul>
   <ul class="mm-3" role="list">
     <li><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M25.5 12.5A10 10 0 0 0 7 11"/><path d="M6.5 19.5A10 10 0 0 0 25 21"/><path d="M7 5.5V11h5.5"/><path d="M25 26.5V21h-5.5"/></svg><span data-mm-refill>£125 refill ships in 3 months</span></li>
-    <li><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4l9 3.5v7c0 6-3.8 10.6-9 13-5.2-2.4-9-7-9-13v-7z"/><path d="M11.5 16l3.200 3.200 5.800-6.400"/></svg><span>90-day money-back guarantee</span></li>
+    <li><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4l9 3.5v7c0 6-3.8 10.6-9 13-5.2-2.4-9-7-9-13v-7z"/><path d="M11.5 16l3.2 3.2 5.8-6.4"/></svg><span>90-day money-back guarantee</span></li>
     <li><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5l12-5.5 12 5.5v13l-12 5.5-12-5.5z"/><path d="M4 9.5l12 5.5 12-5.5M16 15v13"/></svg><span>Free next-day UK delivery</span></li>
   </ul>
   <p class="mm-o__terms" data-mm-terms>£99 today for your first 3 months. By default you’ll then receive NAD+ Cellular Complex every 3 months: £125 for the next 3 months, then £150. Skip, pause or cancel online anytime. Subscribers get discounted pricing and free gifts.</p>
 </div>
 <style>
   .mm-q[hidden],.mm-t[hidden],.mm-o[hidden]{display:none!important}
-  @media (min-width:750px){.mm-q,.mm-t,.mm-o{display:none!important}}
+  @media (min-width:750px){.mm-q,.mm-o{display:none!important}}
+  /* Three benefits and the proof line under the intro (phones and desktop); the old grey proof line is dropped */
+  html:root body #MainContent#MainContent#MainContent .mc .mc-subhead::before{content:none!important;display:none!important}
+  html body #MainContent .mc .mm-t{order:-4;margin:18px 0 0;font-family:var(--mc-font);color:#242223;text-align:left}
+  html body #MainContent .mc .mm-t .mm-t__list{display:grid;gap:10px;margin:0;padding:0;list-style:none;font-size:17px;font-weight:500;line-height:1.3}
+  html body #MainContent .mc .mm-t .mm-t__list li{display:flex;align-items:center;gap:10px;margin:0;padding:0}
+  html body #MainContent .mc .mm-t .mm-t__list li::before{content:none!important}
+  .mm-t__list svg{flex:0 0 22px;width:22px;height:22px;color:#242223}
+  html body #MainContent .mc .mm-t p{margin:0;padding:0}
+  html body #MainContent .mc .mm-t .mm-t__proof{margin-top:16px;font-size:14px;line-height:1.45;color:rgba(36,34,35,.72)}
+  html body #MainContent .mc .mm-t .mm-t__note{margin-top:8px;font-size:12px;line-height:1.4;color:rgba(36,34,35,.6)}
+  @media (max-width:749px){html body #MainContent .mc .mm-t .mm-t__list{font-size:16px}html body #MainContent .mc .mm-t .mm-t__proof{font-size:13px}}
   @media (max-width:749px){
     /* Review quotes under the photo tiles: swipe sideways */
     html body #MainContent .mc .mm-q{margin:12px 0 0;font-family:var(--mc-font,"Neue Haas Grotesk Display Pro"),sans-serif}
@@ -60,11 +73,6 @@
     /* The rating row above the headline, the product-name badge and the grey proof line: replaced by the pieces above */
     html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc__rating,
     html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc__eyebrow{display:none!important}
-    html:root body #MainContent#MainContent#MainContent .mc .mc-subhead::before{content:none!important;display:none!important}
-    /* Five ticks under the intro */
-    html body #MainContent .mc .mm-t{order:-4;display:grid;gap:9px;margin:18px 0 0;padding:0;list-style:none;font-family:var(--mc-font);font-size:16px;font-weight:500;line-height:1.3;color:#242223;text-align:left}
-    html body #MainContent .mc .mm-t li{position:relative;margin:0;padding:0 0 0 30px}
-    html body #MainContent .mc .mm-t li::before{content:""!important;position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:#242223 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 8.4l2.6 2.6L12 5.4' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat}
     /* The two links: under the ticks, on the left */
     html:root body #MainContent#MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc-links{order:-4!important;align-items:flex-start!important;margin:16px 0 0!important}
     html:root body #MainContent#MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc-links > *{justify-content:flex-start!important}
@@ -104,14 +112,14 @@
     /* The moving reviews strip: above the photo, slim */
     html:root body #MainContent [id$="__buy"] .mc__buy-media > .shopify-section[id$="__reviews_ticker"] .mtk{padding:8px 0!important}
     /* The reviews box goes below Add to cart; the plan cards follow the button */
-    html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc-subhead{order:3!important;margin-top:20px!important}
+    html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc-subhead{display:none!important}
     html:root body #MainContent#MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc-links ~ .mc__plans{margin-top:26px!important}
   }
 </style>
 <script>
 (function () {
   var PLANS = {
-    three: { price: '£33', save: '53% off', gifts: '+ £87 free gifts', refill: '£125 refill ships in 3 months', terms: '£99 today for your first 3 months. By default you’ll then receive NAD+ Cellular Complex every 3 months: £125 for the next 3 months, then £150. Skip, pause or cancel online anytime. Subscribers get discounted pricing and free gifts.' },
+    three: { price: '£33', save: '53% off', gifts: '+ £72 free gifts', refill: '£125 refill ships in 3 months', terms: '£99 today for your first 3 months. By default you’ll then receive NAD+ Cellular Complex every 3 months: £125 for the next 3 months, then £150. Skip, pause or cancel online anytime. Subscribers get discounted pricing and free gifts.' },
     one: { price: '£49.99', save: '28% off', gifts: '+ £62 free gifts', refill: '£60 refill ships in 1 month', terms: '£49.99 today for your first month. By default you’ll then receive NAD+ Cellular Complex every month for £60. Skip, pause or cancel online anytime. Subscribers get discounted pricing and free gifts.' }
   };
   function paint() {
