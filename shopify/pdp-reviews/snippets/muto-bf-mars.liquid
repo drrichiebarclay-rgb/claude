@@ -38,11 +38,11 @@
   @media (max-width:749px){
     /* Review quotes under the photo tiles: swipe sideways */
     html body #MainContent .mc .mm-q{margin:12px 0 0;font-family:var(--mc-font,"Neue Haas Grotesk Display Pro"),sans-serif}
-    .mm-q__rail{display:flex;gap:10px;margin:0;padding:0 16px 2px;list-style:none;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:16px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+    html body #MainContent .mc .mm-q .mm-q__rail{display:flex!important;gap:10px!important;margin:0!important;padding:0 16px 2px!important;list-style:none;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:16px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
     .mm-q__rail::-webkit-scrollbar{display:none}
-    .mm-q__card{flex:0 0 84%;display:flex;flex-direction:column;justify-content:space-between;gap:10px;margin:0;padding:14px 16px 12px;border-radius:10px;background:#f1f1ef;scroll-snap-align:start}
+    html body #MainContent .mc .mm-q .mm-q__card{flex:0 0 84%!important;display:flex!important;flex-direction:column;justify-content:space-between;gap:10px;margin:0!important;padding:14px 16px 12px!important;border:1px solid rgba(36,34,35,.12);border-radius:10px;background:#fff!important;scroll-snap-align:start;box-sizing:border-box}
     .mm-q__card::before{content:none!important}
-    .mm-q__card p{margin:0;font-size:15px;line-height:1.35;color:#242223;text-align:left}
+    html body #MainContent .mc .mm-q .mm-q__card p{margin:0!important;padding:0!important;font-size:15px;line-height:1.35;color:#242223;text-align:left}
     .mm-q__card b{font-weight:600}
     .mm-q__card .mm-q__by{display:flex;justify-content:space-between;align-items:center;font-size:13.5px;color:rgba(36,34,35,.72)}
     .mm-q__stars{font-size:14px;letter-spacing:1px;color:#242223}
@@ -77,8 +77,6 @@
     /* The reviews box goes below Add to cart; the plan cards follow the button */
     html:root body #MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc-subhead{order:3!important;margin-top:20px!important}
     html:root body #MainContent#MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mc-links ~ .mc__plans{margin-top:26px!important}
-    /* The moving quotes strip, now under the top bar: a slim strip */
-    html:root body #MainContent > .shopify-section[id$="__reviews_ticker"] .mtk{padding:10px 0!important}
   }
 </style>
 <script>
