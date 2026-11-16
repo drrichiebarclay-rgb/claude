@@ -45,6 +45,11 @@
 </div>
 <style>
   .mm-q[hidden],.mm-t[hidden],.mm-o[hidden]{display:none!important}
+  /* iPhone Safari enlarges the text of some items inside sideways-scrolling strips (its automatic text sizing). Turn
+     that off for the moving reviews strip, the review cards and the gift row, so every item is the same size. */
+  html:root body [id$="__reviews_ticker"],html:root body [id$="__reviews_ticker"] *,
+  html:root body .mm-q,html:root body .mm-q *,
+  html:root body #MainContent .mc .mc-kt__grid,html:root body #MainContent .mc .mc-kt__grid *{-webkit-text-size-adjust:100%!important;text-size-adjust:100%!important}
   @media (min-width:750px){.mm-q,.mm-o{display:none!important}}
   /* Three benefits and the proof line under the intro (phones and desktop); the old grey proof line is dropped */
   html:root body #MainContent#MainContent#MainContent .mc .mc-subhead::before{content:none!important;display:none!important}
