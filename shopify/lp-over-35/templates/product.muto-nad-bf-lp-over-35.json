@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "bf_style": {
@@ -18,8 +27,6 @@
     },
     "hero": {
       "type": "muto-lst-article",
-      "blocks": {},
-      "block_order": [],
       "settings": {
         "eyebrow": "Energy for today. Recovery for tomorrow.",
         "heading": "7 reasons why thousands of over 35<span class=\"mlst-lc\">s</span> are switching to NAD+ Cellular Complex",
@@ -28,7 +35,14 @@
         "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/lp-over-35-hero.jpg?v=1794239299",
         "image_alt": "A woman at her kitchen table in morning light, taking a capsule beside a glass of water and a jar of MUTO NAD+ Cellular Complex",
         "total": 7,
-        "note": ""
+        "note": "",
+        "offer_eyebrow": "Limited Black Friday bundle · While stocks last",
+        "offer_title": "3 months for £33/mo, plus £72 of free gifts",
+        "offer_text": "Save 53% on your first 3-Month Supply, with free Ultrapure creatine, socks, travel vial, Forever Jar and 12-week guide. 90-day money-back guarantee.",
+        "offer_cta": "Claim the bundle",
+        "offer_note": "£99 today, then £125 for your next 3 months, then £150 every 3 months. Skip, pause or cancel online.",
+        "offer_image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-lp-kit-hero.jpg?v=1791969959",
+        "offer_image_alt": "The MUTO welcome kit: NAD+ Cellular Complex jar and refill pouches, Ultrapure Creatine and the presentation box"
       }
     },
     "trust": {
@@ -79,10 +93,22 @@
             "claim": ""
           }
         },
-        "rv": {
+        "re": {
           "type": "reason",
           "settings": {
             "number": "2",
+            "title": "Energy for today. Recovery for tomorrow.",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/lp-over-35-reason-4.jpg?v=1794239547",
+            "image_alt": "A mother and her young daughter sitting outdoors on a windy day, the girl eating an apple, a flask beside them",
+            "body": "<p>The two things people over 35 tell us they miss most: an afternoon that doesn’t fade, and a body that’s ready again by the next session, the next school run, the next early start.</p><ul><li><strong>Energy for today.</strong> Vitamins B2, B3, B6, B12 and folate, in doses you can read on the label, for afternoons that hold.</li><li><strong>Recovery for tomorrow.</strong> Vitamin D for normal muscle function, so a hard week doesn’t linger.</li></ul>",
+            "pull": "",
+            "claim": "Vitamins B2, B3, B6, B12 and folate contribute to the reduction of tiredness and fatigue. Vitamin D contributes to normal muscle function."
+          }
+        },
+        "rv": {
+          "type": "reason",
+          "settings": {
+            "number": "3",
             "title": "Most supplements don’t tell you what’s in them",
             "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-made-declared.jpg?v=1790752124",
             "image_alt": "NAD+ Cellular Complex label showing every dose",
@@ -94,7 +120,7 @@
         "r2": {
           "type": "reason",
           "settings": {
-            "number": "3",
+            "number": "4",
             "title": "Created by a scientist. Reviewed by our scientific board.",
             "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/lp-over-35-reason-3-panel.jpg?v=1794239959",
             "image_alt": "Dr Richie Barclay, MUTO’s founder, speaking on a panel at the MUTO x NSPCC event",
@@ -102,25 +128,13 @@
             "pull": "Most supplements ask you to trust them. We’d rather show you.",
             "claim": ""
           }
-        },
-        "re": {
-          "type": "reason",
-          "settings": {
-            "number": "4",
-            "title": "Energy for today. Recovery for tomorrow.",
-            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/lp-over-35-reason-4.jpg?v=1794239547",
-            "image_alt": "A mother and her young daughter sitting outdoors on a windy day, the girl eating an apple, a flask beside them",
-            "body": "<p>The two things people over 35 tell us they miss most: an afternoon that doesn’t fade, and a body that’s ready again by the next session, the next school run, the next early start.</p><ul><li><strong>Energy for today.</strong> Vitamins B2, B3, B6, B12 and folate, in doses you can read on the label, for afternoons that hold.</li><li><strong>Recovery for tomorrow.</strong> Vitamin D for normal muscle function, so a hard week doesn’t linger.</li></ul>",
-            "pull": "",
-            "claim": "Vitamins B2, B3, B6, B12 and folate contribute to the reduction of tiredness and fatigue. Vitamin D contributes to normal muscle function."
-          }
         }
       },
       "block_order": [
         "r1",
+        "re",
         "rv",
-        "r2",
-        "re"
+        "r2"
       ],
       "settings": {
         "eyebrow": "",
@@ -155,17 +169,6 @@
             "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-socks.jpg?v=1791023071",
             "image_alt": "A pouch of MUTO Performance Socks",
             "text": "<p>One size fits all. For the run, the gym or the school run.</p>",
-            "claim": ""
-          }
-        },
-        "bottle": {
-          "type": "gift",
-          "settings": {
-            "name": "Performance bottle",
-            "worth": "<s>£15</s> Free",
-            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-bottle.jpg?v=1791022787",
-            "image_alt": "The MUTO Performance Bottle in translucent blue",
-            "text": "<p>Our translucent blue bottle, for the glass of water your capsules go down with, and everything after.</p>",
             "claim": ""
           }
         },
@@ -217,20 +220,15 @@
       "block_order": [
         "creatine",
         "socks",
-        "bottle",
         "vial",
         "jar",
         "guide",
         "garmin"
       ],
       "settings": {
-        "eyebrow": "Black Friday offer",
-        "list_label": "+ Free welcome kit",
-        "list_note": "<s>£87</s> Free",
-        "cta": "Claim the offer",
-        "cta_note": "",
+        "eyebrow": "Limited Black Friday bundle · While stocks last",
         "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-lp-kit-hero.jpg?v=1791969959",
-        "image_alt": "The MUTO welcome kit: NAD+ Cellular Complex jar and refill pouches, Ultrapure Creatine, the bottle and the presentation box",
+        "image_alt": "The MUTO welcome kit: NAD+ Cellular Complex jar and refill pouches, Ultrapure Creatine and the presentation box",
         "plan_name": "3-Month Supply",
         "badge": "Save 53%",
         "price": "£33",
@@ -238,11 +236,15 @@
         "price_note": "/mo",
         "bill": "90-day supply, delivered every 3 months",
         "per": "£1.10 a day",
-        "then": "then £125 for your next 3 months, then £150 every 3 months",
         "first": "£99 on your first order",
+        "then": "then £125 for your next 3 months, then £150 every 3 months",
         "terms": "",
         "compare": "",
-        "ticks": "Free welcome kit worth £87 with your first order\n90-day money-back guarantee\nFree next-day UK delivery"
+        "ticks": "Free welcome kit worth £72 with your first order\n90-day money-back guarantee\nFree next-day UK delivery",
+        "list_label": "+ Free welcome kit",
+        "list_note": "<s>£72</s> Free",
+        "cta": "Claim the offer",
+        "cta_note": ""
       }
     },
     "art2": {
@@ -267,7 +269,7 @@
             "title": "Alongside your free creatine, one simple daily routine",
             "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-creatine-scoop.jpg?v=1793458470",
             "image_alt": "A scoop of MUTO micronised creatine over the open pouch",
-            "body": "<p>Two capsules with breakfast, and a scoop of Ultrapure creatine in your water or coffee. About ten seconds a day, and nothing to work out.</p><p>Creatine is one of the most researched supplements there is. It does a different job from NAD+ Cellular Complex, so the two sit well together: one for your daily foundation, one for the effort you put in.</p><h3>Your welcome kit</h3><ul><li>Ultrapure creatine</li><li>Performance bottle and socks</li><li>Travel vial, for days away</li><li>Your 12-week plan, so you know what to expect and when</li></ul>",
+            "body": "<p>Two capsules with breakfast, and a scoop of Ultrapure creatine in your water or coffee. About ten seconds a day, and nothing to work out.</p><p>Creatine is one of the most researched supplements there is. It does a different job from NAD+ Cellular Complex, so the two sit well together: one for your daily foundation, one for the effort you put in.</p><h3>Your welcome kit</h3><ul><li>Ultrapure creatine</li><li>Performance socks</li><li>Travel vial, for days away</li><li>Your 12-week plan, so you know what to expect and when</li></ul>",
             "pull": "",
             "claim": "Creatine increases physical performance in successive bursts of short-term, high-intensity exercise. The beneficial effect is obtained with a daily intake of 3g of creatine."
           }
@@ -683,17 +685,6 @@
             "claim": ""
           }
         },
-        "bottle": {
-          "type": "gift",
-          "settings": {
-            "name": "Performance bottle",
-            "worth": "<s>£15</s> Free",
-            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-bottle.jpg?v=1791022787",
-            "image_alt": "The MUTO Performance Bottle in translucent blue",
-            "text": "<p>Our translucent blue bottle, for the glass of water your capsules go down with, and everything after.</p>",
-            "claim": ""
-          }
-        },
         "vial": {
           "type": "gift",
           "settings": {
@@ -742,20 +733,15 @@
       "block_order": [
         "creatine",
         "socks",
-        "bottle",
         "vial",
         "jar",
         "guide",
         "garmin"
       ],
       "settings": {
-        "eyebrow": "Black Friday offer",
-        "list_label": "+ Free welcome kit",
-        "list_note": "<s>£87</s> Free",
-        "cta": "Claim the offer",
-        "cta_note": "",
+        "eyebrow": "Limited Black Friday bundle · While stocks last",
         "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-lp-kit-hero.jpg?v=1791969959",
-        "image_alt": "The MUTO welcome kit: NAD+ Cellular Complex jar and refill pouches, Ultrapure Creatine, the bottle and the presentation box",
+        "image_alt": "The MUTO welcome kit: NAD+ Cellular Complex jar and refill pouches, Ultrapure Creatine and the presentation box",
         "plan_name": "3-Month Supply",
         "badge": "Save 53%",
         "price": "£33",
@@ -763,11 +749,15 @@
         "price_note": "/mo",
         "bill": "90-day supply, delivered every 3 months",
         "per": "£1.10 a day",
-        "then": "then £125 for your next 3 months, then £150 every 3 months",
         "first": "£99 on your first order",
+        "then": "then £125 for your next 3 months, then £150 every 3 months",
         "terms": "",
         "compare": "",
-        "ticks": "Free welcome kit worth £87 with your first order\n90-day money-back guarantee\nFree next-day UK delivery"
+        "ticks": "Free welcome kit worth £72 with your first order\n90-day money-back guarantee\nFree next-day UK delivery",
+        "list_label": "+ Free welcome kit",
+        "list_note": "<s>£72</s> Free",
+        "cta": "Claim the offer",
+        "cta_note": ""
       }
     },
     "reviews": {

@@ -26,6 +26,38 @@
         {%- if h_src != blank -%}
           <div class="mlst-hero__img"><img src="{{ h_src }}" alt="{{ s.image_alt | escape }}" width="1600" height="1067" fetchpriority="high"></div>
         {%- endif -%}
+        {%- comment -%} The offer in the hero: shows when "Offer headline" is filled in. Its button presses the first offer card's Claim. {%- endcomment -%}
+        {%- if s.offer_title != blank -%}
+          {%- liquid
+            if s.offer_image != blank
+              assign o_src = s.offer_image | image_url: width: 640
+            else
+              assign o_src = s.offer_image_url
+            endif
+          -%}
+          <aside class="mlst-ho" aria-label="{{ s.offer_eyebrow | default: 'Offer' | escape }}">
+            {%- if o_src != blank -%}<div class="mlst-ho__img"><img src="{{ o_src }}" alt="{{ s.offer_image_alt | escape }}" width="640" height="640" loading="eager"></div>{%- endif -%}
+            <div class="mlst-ho__txt">
+              {%- if s.offer_eyebrow != blank -%}<p class="mlst-ho__eye"><i aria-hidden="true">✦</i>{{ s.offer_eyebrow }}</p>{%- endif -%}
+              <p class="mlst-ho__h">{{ s.offer_title }}</p>
+              {%- if s.offer_text != blank -%}<p class="mlst-ho__p">{{ s.offer_text }}</p>{%- endif -%}
+              <a class="mlst-ho__cta" href="#mlst-offer" data-mlst-hero-claim>{{ s.offer_cta | default: 'Claim the offer' }}<span aria-hidden="true">→</span></a>
+              {%- if s.offer_note != blank -%}<p class="mlst-ho__note">{{ s.offer_note }}</p>{%- endif -%}
+            </div>
+          </aside>
+          <script>
+            (function () {
+              var a = document.querySelector('#shopify-section-{{ section.id }} [data-mlst-hero-claim]');
+              if (!a) return;
+              a.addEventListener('click', function (e) {
+                var claim = document.querySelector('.mlst-kit__cta[data-mlst-claim]');
+                if (!claim) return;
+                e.preventDefault();
+                claim.click();
+              });
+            })();
+          </script>
+        {%- endif -%}
       </header>
     {%- endif -%}
 
@@ -68,6 +100,15 @@
     { "type": "image_picker", "id": "image", "label": "Hero image" },
     { "type": "text", "id": "image_url", "label": "Hero image URL", "info": "Used when no image is picked" },
     { "type": "text", "id": "image_alt", "label": "Hero image alt text" },
+    { "type": "header", "content": "Offer in the hero" },
+    { "type": "text", "id": "offer_eyebrow", "label": "Offer label" },
+    { "type": "text", "id": "offer_title", "label": "Offer headline", "info": "Blank hides the offer" },
+    { "type": "textarea", "id": "offer_text", "label": "Offer text" },
+    { "type": "text", "id": "offer_cta", "label": "Button text", "default": "Claim the offer" },
+    { "type": "textarea", "id": "offer_note", "label": "Small print under the button" },
+    { "type": "image_picker", "id": "offer_image", "label": "Offer image" },
+    { "type": "text", "id": "offer_image_url", "label": "Offer image URL", "info": "Used when no image is picked" },
+    { "type": "text", "id": "offer_image_alt", "label": "Offer image alt text" },
     { "type": "number", "id": "total", "label": "Number of reasons", "default": 5 },
     { "type": "textarea", "id": "note", "label": "Footnote" }
   ],
