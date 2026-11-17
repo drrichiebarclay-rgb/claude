@@ -208,11 +208,11 @@
         "garmin": {
           "type": "gift",
           "settings": {
-            "name": "Entry to win a Garmin watch",
+            "name": "Entry to win an Apple Watch",
             "worth": "Free entry",
-            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-garmin.jpg?v=1791883127",
-            "image_alt": "A white Garmin watch, the giveaway prize",
-            "text": "<p>Your order enters you into our draw to win a Garmin watch. Terms apply.</p>",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-sq-apple-watch.jpg?v=1794477407",
+            "image_alt": "An Apple Watch, the prize in our draw",
+            "text": "<p>Your order enters you into our draw to win an Apple Watch. Winners are drawn at random and announced by email every quarter. Terms apply.</p>",
             "claim": ""
           }
         }
@@ -721,11 +721,11 @@
         "garmin": {
           "type": "gift",
           "settings": {
-            "name": "Entry to win a Garmin watch",
+            "name": "Entry to win an Apple Watch",
             "worth": "Free entry",
-            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-garmin.jpg?v=1791883127",
-            "image_alt": "A white Garmin watch, the giveaway prize",
-            "text": "<p>Your order enters you into our draw to win a Garmin watch. Terms apply.</p>",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-sq-apple-watch.jpg?v=1794477407",
+            "image_alt": "An Apple Watch, the prize in our draw",
+            "text": "<p>Your order enters you into our draw to win an Apple Watch. Winners are drawn at random and announced by email every quarter. Terms apply.</p>",
             "claim": ""
           }
         }
