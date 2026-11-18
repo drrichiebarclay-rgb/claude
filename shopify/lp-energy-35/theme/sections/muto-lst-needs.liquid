@@ -8,6 +8,7 @@
   As an advertorial: fill in the Article header settings (headline, standfirst, author) and the section opens
   like an article, with a byline. Text blocks carry the story between essentials and Quote blocks carry a pull
   quote or a customer's words. "Article style" sets the headings in sentence case, like the other advertorials.
+  "News article layout" goes further: a serif reading column, numbered subheads and plain lists, no cards.
 
   Numbering is automatic: essentials are counted in block order, so reordering or removing one renumbers the rest.
   Used on templates/product.muto-nad-bf-lp-energy-35.json.
@@ -49,6 +50,54 @@
 
   /* Article style: headings in sentence case, as in the other advertorials (the theme sets listicle headings in capitals) */
   html:root body #MainContent .mln.mln--article :is(h1,h2){text-transform:none!important}
+
+  /* News article layout: one serif reading column, numbered subheads, findings as a plain list, no cards */
+  .mln.mln--news{--serif:Georgia,"Times New Roman",Times,serif}
+  .mln.mln--news .mln-wrap{max-width:700px}
+  html:root body #MainContent .mln.mln--news :is(h1,h2){font-family:var(--serif)!important;font-weight:700;letter-spacing:-.012em;text-transform:none!important}
+  .mln.mln--news .mln-hd{padding-top:36px}
+  .mln.mln--news .mln-hd .mlst__lab{font-family:var(--font);font-size:12.5px;font-weight:600;letter-spacing:.08em;color:var(--ink)}
+  .mln.mln--news .mln-hd .mlst__lab::before{display:none}
+  .mln.mln--news .mln-hd h1{margin-top:12px;font-size:clamp(31px,5.2vw,46px);line-height:1.13}
+  html:root body #MainContent .mln.mln--news .mln-hd__sub{font-family:var(--serif)!important;font-size:clamp(18.5px,2.3vw,21px);line-height:1.5;color:var(--ink-2)}
+  .mln.mln--news .mln-by{margin-top:22px;padding:14px 0}
+  .mln.mln--news .mln-by img{width:44px;height:44px}
+  .mln.mln--news .mln-by__txt b{font-size:15px}
+  .mln.mln--news .mln-by__txt small{font-family:var(--font);font-size:13px;font-weight:400;letter-spacing:0;text-transform:none;color:var(--ink-2)}
+  .mln.mln--news :is(.mln-hd__img,.mln-ans__img){border-radius:0}
+  html:root body #MainContent .mln.mln--news :is(.mlst-r__body,.mln-dark__txt,.mln-ans__txt,.mln-look,.mln-sci li,.mln-q p,.mln-steps span){font-family:var(--serif)!important}
+  .mln.mln--news .mlst-r__body{font-size:19px;line-height:1.68}
+  .mln.mln--news .mlst-r__body p + p{margin-top:18px}
+  .mln.mln--news .mlst-r__body strong{font-weight:700}
+  .mln.mln--news .mln-p{padding-top:30px}
+  .mln.mln--news .mln-p--first .mlst-r__body > p:first-child::first-letter{float:none;margin:0;font-size:inherit;font-weight:inherit;line-height:inherit}
+  .mln.mln--news .mln-p h2,.mln.mln--news .mln-n h2{margin-top:0;font-size:clamp(24px,3.6vw,30px);line-height:1.2}
+  .mln.mln--news .mln-n{padding:40px 0 0}
+  .mln.mln--news .mln-n--rule{border-top:0;margin-top:0}
+  .mln.mln--news .mln-look{margin-top:16px;font-size:18px;line-height:1.55}
+  .mln.mln--news .mln-look b{font-family:var(--font);font-size:15px;font-weight:600}
+  .mln.mln--news .mln-sci{margin-top:20px;padding:0;border-radius:0;background:none}
+  .mln.mln--news .mln-sci .mlst__lab{font-family:var(--font);font-size:15px;font-weight:600;letter-spacing:0;text-transform:none;color:var(--ink)}
+  .mln.mln--news .mln-sci ul{gap:10px;margin-top:10px;padding-left:20px;list-style:disc}
+  .mln.mln--news .mln-sci li{padding-left:2px;font-size:18px;line-height:1.6}
+  .mln.mln--news .mln-sci li::before{display:none}
+  .mln.mln--news .mln-src{margin-top:12px}
+  .mln.mln--news .mln-q{margin-top:32px;border-left-width:2px}
+  .mln.mln--news .mln-q p{font-size:clamp(21px,3vw,25px);font-style:italic;font-weight:400;line-height:1.4;letter-spacing:0}
+  .mln.mln--news .mln-dark{margin-top:44px;padding:44px 0 40px}
+  .mln.mln--news .mln-dark h2{font-size:clamp(25px,3.8vw,32px)}
+  .mln.mln--news .mln-dark .mlst__lab::before{display:none}
+  .mln.mln--news .mln-steps li{border-radius:0;border-width:0 0 0 2px;border-color:var(--cyan);background:none;padding:2px 0 2px 16px;grid-template-columns:1fr}
+  .mln.mln--news .mln-steps i{display:none}
+  .mln.mln--news .mln-steps b{font-family:var(--font);font-size:17px}
+  .mln.mln--news .mln-steps span{font-size:17px;line-height:1.55}
+  .mln.mln--news .mln-steps{gap:18px}
+  html:root body #MainContent .mln.mln--news .mln-dark__end{font-family:var(--serif)!important;border-left:0;padding-left:0;font-size:18px;font-weight:400;line-height:1.6;color:rgba(255,255,255,.86)}
+  .mln.mln--news .mln-ans{margin-top:44px;padding:40px 0 40px}
+  .mln.mln--news .mln-ans h2{font-size:clamp(24px,3.6vw,30px);line-height:1.2}
+  .mln.mln--news .mln-ans .mlst__lab::before{display:none}
+  .mln.mln--news .mln-tbl{border-radius:0}
+  .mln.mln--news .mln-ticks li{border-radius:0}
 
   /* The seven at a glance */
   .mln .mln-idx{margin:28px 0 0;padding:20px 22px 22px;border:1px solid var(--hair);border-radius:12px;background:var(--ground)}
@@ -131,7 +180,7 @@
     assign hd_src = s.image_url
   endif
 -%}
-<div class="mlst mln{% if s.article %} mln--article{% endif %}">
+<div class="mlst mln{% if s.article %} mln--article{% endif %}{% if s.news %} mln--news{% endif %}">
   {%- if s.headline != blank -%}
     <div class="mln-wrap">
       <header class="mln-hd">
@@ -173,12 +222,20 @@
         {%- assign n = n | plus: 1 -%}
         <div class="mln-wrap">
           <article class="mln-n{% if prev == 'need' or prev == 'text' or prev == 'quote' %} mln-n--rule{% endif %}" id="mln-{{ section.id }}-{{ n }}" {{ block.shopify_attributes }}>
-            <p class="mlst-r__n"><b>{{ n }}</b>{{ s.count_label | default: 'Essential' }} {{ n }} of {{ total }}</p>
-            <h2>{{ b.title }}</h2>
-            {%- if b.dose != blank -%}
-              <p class="mln-in"><span>{{ b.dose_label | default: 'In MUTO' }}</span><b>{{ b.dose }}</b></p>
+            {%- if s.news -%}
+              <h2>{{ n }}. {{ b.title }}</h2>
+              {%- if b.body != blank -%}<div class="mlst-r__body">{{ b.body }}</div>{%- endif -%}
+              {%- if b.dose != blank -%}
+                <p class="mln-look"><b>{{ b.dose_label | default: 'In MUTO' }}:</b> {{ b.dose }}</p>
+              {%- endif -%}
+            {%- else -%}
+              <p class="mlst-r__n"><b>{{ n }}</b>{{ s.count_label | default: 'Essential' }} {{ n }} of {{ total }}</p>
+              <h2>{{ b.title }}</h2>
+              {%- if b.dose != blank -%}
+                <p class="mln-in"><span>{{ b.dose_label | default: 'In MUTO' }}</span><b>{{ b.dose }}</b></p>
+              {%- endif -%}
+              {%- if b.body != blank -%}<div class="mlst-r__body">{{ b.body }}</div>{%- endif -%}
             {%- endif -%}
-            {%- if b.body != blank -%}<div class="mlst-r__body">{{ b.body }}</div>{%- endif -%}
             {%- if b.science != blank -%}
               <div class="mln-sci">
                 <p class="mlst__lab">{{ s.science_label | default: 'What the research says' }}</p>
@@ -331,6 +388,7 @@
     { "type": "paragraph", "content": "Numbered ingredients with the science and sources for each. Drag a Dark panel between two essentials; end with the Answer. Essentials number themselves in order." },
     { "type": "header", "content": "Article header" },
     { "type": "checkbox", "id": "article", "label": "Article style", "default": false, "info": "Headings in sentence case, like the other advertorials" },
+    { "type": "checkbox", "id": "news", "label": "News article layout", "default": false, "info": "Serif reading column, numbered subheads and plain lists in place of the cards" },
     { "type": "text", "id": "kicker", "label": "Kicker" },
     { "type": "textarea", "id": "headline", "label": "Headline", "info": "Blank hides the article header" },
     { "type": "textarea", "id": "standfirst", "label": "Standfirst" },

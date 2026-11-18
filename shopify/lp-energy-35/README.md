@@ -1,11 +1,12 @@
-# Advertorial: "I'm a cell biologist. These are the 7 things I'd take for energy after 35."
+# Advertorial: "Why you're more tired after 35: a cell biologist on the seven nutrients that matter"
 
-An advertorial for paid traffic, written in Richie's voice: headline, standfirst and byline, a short opening
-story, then seven numbered essentials (NAD+, CoQ10, methylated B vitamins, creatine, zinc and copper, D3 and
-K2, PQQ and trans-resveratrol). Each has what it does, what to look for on a label, what the research says
-and its sources. A black "why it happens" band sits between essentials 2 and 3. MUTO isn't named until the
-end, where it is introduced as what Richie built to cover the list, followed by a customer review, the
-**live main product page's buy box** and the reviews widget.
+An advertorial for paid traffic, laid out like a news article and written in Richie's voice: category line,
+headline, standfirst, byline, lead photo with a caption, then a single serif reading column. Seven numbered
+subheads (NAD+, CoQ10, B vitamins, creatine, zinc and copper, D3 and K2, PQQ and trans-resveratrol), each
+with a few plain paragraphs, what to look for on a label, the evidence as a short list and its sources. A
+black "Why energy falls with age" explainer sits between 2 and 3. MUTO isn't named until "Getting all seven"
+at the end, followed by a customer review, what's in MUTO, the **live main product page's buy box** and the
+reviews widget.
 
 Page address once the files are on the live theme:
 
@@ -66,8 +67,10 @@ template from the menu at the top); tell me about editor changes so the script k
 
 ## Editing in the theme editor
 
-- **Article header:** headline, standfirst, byline and lead photo are in the section's settings. "Article
-  style" sets headings in sentence case, like the other advertorials; untick it for capitals.
+- **Article header:** headline, standfirst, byline, lead photo and caption are in the section's settings.
+- **News article layout** (ticked on this page): serif reading column, numbered subheads, plain lists. Untick
+  it for the card design with "Essential 1 of 7" badges. "Article style" on its own only sets headings in
+  sentence case.
 - **Text** blocks carry the story. The first one, above essential 1, opens with a large first letter.
 - **Quote** blocks are a pull quote or a customer review (tick "Show five stars").
 
@@ -93,9 +96,12 @@ template from the menu at the top); tell me about editor changes so the script k
 
 Before ads go live:
 
-- [ ] **Richie: it's in your voice.** Approve or reword the opening ("There's a question I hear more than
-      any other…"), the asides ("the mistake I see most often", "I'd skip products that list it as an
-      ingredient") and "I couldn't find one product that covered this list… So I formulated it."
+- [ ] **Richie: it's in your voice.** Approve or reword the opening ("I get asked the same thing most
+      weeks…"), the opinions ("it isn't fashionable, which is partly why I like it", "the early results are
+      interesting enough for me") and "That's the reason I made MUTO NAD+ Cellular Complex."
+- [ ] **Two factual asides to confirm:** methylated B vitamins "cost more to put in a capsule", and
+      "Creatine doesn't fit in a capsule at a useful dose".
+- [ ] **Dateline** in the byline: "Updated November 2026". Change it when the article is revised.
 - [ ] **Customer quote:** Jonathon R's review, word for word from the product page.
 
 - [ ] **Regulatory read-through.** Citing studies for ingredients without an authorised claim (the CoQ10
