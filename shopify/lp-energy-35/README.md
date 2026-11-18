@@ -42,6 +42,16 @@ address above.
   is the main product shown through a second template (`?view=`). No product's template assignment changes.
 - **The name** is kept so the address already shared keeps working.
 
+## The trust section
+
+Under the offer: six icon tiles (third-party tested, scientific board, made in the UK, GMP, ISO,
+filler-free), the scientific board strip, and two buttons.
+
+- **View nutrition table** opens the product page's nutrition label image in a pop-up.
+- **View third-party test results** opens the product page's test-results panel. That panel is the
+  `tests` section on the template, copied unchanged from the live product page, so update it there and
+  rebuild when a new batch is tested.
+
 ## How the Claim button works
 
 It adds the 3-Month Supply and opens the side cart by handing the tap to the Black Friday bar's own script

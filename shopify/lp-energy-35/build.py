@@ -325,11 +325,32 @@ offer = {"type": "offer", "settings": {
     "cta": "Claim today’s offer",
     "note": "New subscribers. While stocks last. Adds the 3-Month Supply to your cart with your free welcome kit."}}
 
+F = CDN
+trust = {"type": "trust", "settings": {
+    "heading": "Don’t take our word for it. <em>Check it.</em>",
+    "sub": "You’re putting this in your body every morning, so you should be able to see exactly what it is.",
+    "items": lines(
+        "Third-party tested | Every batch, by an independent UK lab | lab",
+        "Scientific board | Doctors and scientists review the formula | board",
+        "Made in the UK | In a certified British facility | uk",
+        "GMP certified | Made to Good Manufacturing Practice | gmp",
+        "ISO certified | Made in an ISO-certified facility | iso",
+        "Filler-free | No fillers, no blends, no stimulants | leaf"),
+    "board_title": "Reviewed by our scientific board",
+    "board_text": "Scientists in metabolism, sleep, performance and healthy ageing",
+    "board_faces": lines(F + "Dr_James_Cover_Final.png?width=120", F + "Dr_Alka_Cover_Final.png?width=120",
+                         F + "Dr_Richard_Cover_Final.png?width=120", F + "Dr_Matt.png?width=120"),
+    "label_link": "View nutrition table",
+    "label_image": F + "muto-nad-nutrition-label-desktop.png?v=1794505972",
+    "label_image_phone": F + "muto-nad-nutrition-label-phone.png?v=1794506117",
+    "label_alt": "NAD+ Cellular Complex nutrition label: amounts and %NRV per two-capsule serving, ingredients and cautions",
+    "tests_link": "View third-party test results"}}
+
 order_blocks = [("opening", opening), ("photo", photo), ("mito", mito), ("chart", chart), ("why", dark),
                 ("cta1", cta()), ("seven", seven), ("nad", nad), ("coq10", coq10), ("bvits", b_vits),
                 ("creatine", creatine), ("zinc", zinc), ("d3k2", d3k2), ("pqq", pqq), ("cta2", cta()),
                 ("reveal", reveal), ("customer", customer), ("answer", answer), ("timeline", timeline),
-                ("offer", offer)]
+                ("offer", offer), ("trust", trust)]
 needs = {"type": "muto-lst-needs",
          "blocks": {k: v for k, v in order_blocks},
          "block_order": [k for k, _ in order_blocks],
@@ -343,6 +364,7 @@ needs = {"type": "muto-lst-needs",
 sections = {
     "needs": needs,
     "reviews": P["reviews"],
+    "tests": P["tests"],  # the test-results panel the trust block's link opens
 }
 out = {"sections": sections, "order": list(sections)}
 

@@ -237,6 +237,22 @@
             "cta": "Claim today’s offer",
             "note": "New subscribers. While stocks last. Adds the 3-Month Supply to your cart with your free welcome kit."
           }
+        },
+        "trust": {
+          "type": "trust",
+          "settings": {
+            "heading": "Don’t take our word for it. <em>Check it.</em>",
+            "sub": "You’re putting this in your body every morning, so you should be able to see exactly what it is.",
+            "items": "Third-party tested | Every batch, by an independent UK lab | lab\nScientific board | Doctors and scientists review the formula | board\nMade in the UK | In a certified British facility | uk\nGMP certified | Made to Good Manufacturing Practice | gmp\nISO certified | Made in an ISO-certified facility | iso\nFiller-free | No fillers, no blends, no stimulants | leaf",
+            "board_title": "Reviewed by our scientific board",
+            "board_text": "Scientists in metabolism, sleep, performance and healthy ageing",
+            "board_faces": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/Dr_James_Cover_Final.png?width=120\nhttps://cdn.shopify.com/s/files/1/0976/2724/2843/files/Dr_Alka_Cover_Final.png?width=120\nhttps://cdn.shopify.com/s/files/1/0976/2724/2843/files/Dr_Richard_Cover_Final.png?width=120\nhttps://cdn.shopify.com/s/files/1/0976/2724/2843/files/Dr_Matt.png?width=120",
+            "label_link": "View nutrition table",
+            "label_image": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-nad-nutrition-label-desktop.png?v=1794505972",
+            "label_image_phone": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-nad-nutrition-label-phone.png?v=1794506117",
+            "label_alt": "NAD+ Cellular Complex nutrition label: amounts and %NRV per two-capsule serving, ingredients and cautions",
+            "tests_link": "View third-party test results"
+          }
         }
       },
       "block_order": [
@@ -259,7 +275,8 @@
         "customer",
         "answer",
         "timeline",
-        "offer"
+        "offer",
+        "trust"
       ],
       "settings": {
         "article": true,
@@ -302,10 +319,386 @@
         "button_link": "#",
         "button_style": "gradient-secondary"
       }
+    },
+    "tests": {
+      "type": "muto-test-results",
+      "blocks": {
+        "c01": {
+          "type": "cert",
+          "settings": {
+            "lab": "ALS Laboratories (UK) Ltd",
+            "number": "TRTH2761685-1",
+            "scope": "Microbiology, batch 0725021",
+            "date": "22 Jul 2025"
+          }
+        },
+        "c02": {
+          "type": "cert",
+          "settings": {
+            "lab": "ALS Laboratories (UK) Ltd",
+            "number": "TRTH2761684-1",
+            "scope": "Microbiology, batch 0725022",
+            "date": "22 Jul 2025"
+          }
+        },
+        "c03": {
+          "type": "cert",
+          "settings": {
+            "lab": "M S Laboratories Ltd",
+            "number": "CR60146",
+            "scope": "Heavy metals, batches 0725021 and 0725022",
+            "date": "14 Aug 2025"
+          }
+        },
+        "t01": {
+          "type": "test",
+          "settings": {
+            "group": "Heavy metals",
+            "name": "Lead (Pb)",
+            "spec": "Under 3 mg/kg",
+            "result": "0.01 mg/kg",
+            "note": "300× under the limit",
+            "pass": true
+          }
+        },
+        "t02": {
+          "type": "test",
+          "settings": {
+            "group": "Heavy metals",
+            "name": "Arsenic (As)",
+            "spec": "No legal limit for supplements",
+            "result": "0.01 mg/kg",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t03": {
+          "type": "test",
+          "settings": {
+            "group": "Heavy metals",
+            "name": "Mercury (Hg)",
+            "spec": "Under 0.1 mg/kg",
+            "result": "Under 0.01 mg/kg",
+            "note": "Below what the lab can measure",
+            "pass": true
+          }
+        },
+        "t04": {
+          "type": "test",
+          "settings": {
+            "group": "Heavy metals",
+            "name": "Cadmium (Cd)",
+            "spec": "Under 1 mg/kg",
+            "result": "Under 0.01 mg/kg",
+            "note": "Below what the lab can measure",
+            "pass": true
+          }
+        },
+        "t05": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "Salmonella",
+            "spec": "Not detected in 25g",
+            "result": "Not detected",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t06": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "E. coli",
+            "spec": "Under 10 cfu/g",
+            "result": "Under 10 cfu/g",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t07": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "Enterobacteria",
+            "spec": "Under 10,000 cfu/g",
+            "result": "Under 10 cfu/g",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t08": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "Total viable count",
+            "spec": "Under 500,000 cfu/g",
+            "result": "10 cfu/g",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t09": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "Yeasts",
+            "spec": "Under 10,000 cfu/g",
+            "result": "Under 20 cfu/g",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t10": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "Moulds",
+            "spec": "Under 10,000 cfu/g",
+            "result": "Under 20 cfu/g",
+            "note": "",
+            "pass": true
+          }
+        },
+        "f01": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "TMG (trimethylglycine)",
+            "form": "Trimethylglycine",
+            "amount": "450mg"
+          }
+        },
+        "f02": {
+          "type": "item",
+          "settings": {
+            "group": "NR, for NAD+",
+            "name": "NR (nicotinamide riboside)",
+            "form": "Nicotinamide riboside",
+            "amount": "300mg"
+          }
+        },
+        "f03": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "Grape seed extract",
+            "form": "120:1 extract, 95% polyphenols (142.5mg)",
+            "amount": "150mg"
+          }
+        },
+        "f04": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "CoQ10",
+            "form": "Ubiquinone",
+            "amount": "150mg"
+          }
+        },
+        "f05": {
+          "type": "item",
+          "settings": {
+            "group": "Minerals",
+            "name": "Zinc",
+            "form": "Zinc bisglycinate",
+            "amount": "15mg"
+          }
+        },
+        "f06": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "Trans-resveratrol",
+            "form": "From Japanese knotweed root, 95%",
+            "amount": "50mg"
+          }
+        },
+        "f07": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin D3",
+            "form": "Cholecalciferol, from algae",
+            "amount": "50mcg (2,000 IU)"
+          }
+        },
+        "f08": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "PQQ",
+            "form": "Pyrroloquinoline quinone",
+            "amount": "20mg"
+          }
+        },
+        "f09": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B3",
+            "form": "Nicotinamide (no flush)",
+            "amount": "16mg"
+          }
+        },
+        "f10": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B12",
+            "form": "Methylcobalamin",
+            "amount": "100mcg"
+          }
+        },
+        "f11": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B5",
+            "form": "Calcium D-pantothenate",
+            "amount": "10mg"
+          }
+        },
+        "f12": {
+          "type": "item",
+          "settings": {
+            "group": "Minerals",
+            "name": "Copper",
+            "form": "Copper bisglycinate",
+            "amount": "1mg"
+          }
+        },
+        "f13": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin K2",
+            "form": "Menaquinone-7 (MK-7)",
+            "amount": "100mcg"
+          }
+        },
+        "f14": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B6",
+            "form": "Pyridoxal-5′-phosphate (P5P)",
+            "amount": "5mg"
+          }
+        },
+        "f15": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B2",
+            "form": "Riboflavin-5′-phosphate",
+            "amount": "5mg"
+          }
+        },
+        "f16": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B1",
+            "form": "Thiamine hydrochloride",
+            "amount": "5mg"
+          }
+        },
+        "f17": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "BioPerine® black pepper extract",
+            "form": "95% piperine (4.75mg)",
+            "amount": "5mg"
+          }
+        },
+        "f18": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Folate",
+            "form": "L-5-methyltetrahydrofolate (5-MTHF)",
+            "amount": "400mcg"
+          }
+        },
+        "f19": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Biotin",
+            "form": "D-biotin",
+            "amount": "300mcg"
+          }
+        }
+      },
+      "block_order": [
+        "c01",
+        "c02",
+        "c03",
+        "t01",
+        "t02",
+        "t03",
+        "t04",
+        "t05",
+        "t06",
+        "t07",
+        "t08",
+        "t09",
+        "t10",
+        "f01",
+        "f02",
+        "f03",
+        "f04",
+        "f05",
+        "f06",
+        "f07",
+        "f08",
+        "f09",
+        "f10",
+        "f11",
+        "f12",
+        "f13",
+        "f14",
+        "f15",
+        "f16",
+        "f17",
+        "f18",
+        "f19"
+      ],
+      "settings": {
+        "show_button": false,
+        "button_label": "View third-party testing results",
+        "product": "NAD+ Cellular Complex",
+        "batch": "0725021 · 0725022",
+        "doc_label": "Certificates of analysis",
+        "made": "",
+        "bbe": "",
+        "issued": "Jul–Aug 2025",
+        "scope": "on two production batches",
+        "group_order": "NR, for NAD+|Vitamins|Minerals|Other actives",
+        "heading": "Every result came in within its limit.",
+        "stat_value": "300×",
+        "stat_label": "Under the lead limit",
+        "chip": "No salmonella detected",
+        "note": "Microbiology by ALS Laboratories (UK) Ltd, heavy metals by M S Laboratories Ltd, both independent UK labs. Where the two batches differed, the higher result is shown. Ask us for the certificates: hello@mutolongevity.com",
+        "formula_sub": "What went into each capsule of this batch, per two-capsule serving, heaviest first. Vitamins are made with a small overage so the label dose holds right up to the best-before date.",
+        "capsule": "Capsule: hypromellose (HPMC), made from plant cellulose. Allergen and intolerance free.",
+        "why_1_h": "Heavy metals",
+        "why_1": "<p>Lead, arsenic, cadmium and mercury can build up in the body over time, and they can come in through plant extracts and minerals. Both batches were tested: lead came in at 0.01 mg/kg against a limit of 3, and mercury and cadmium were below what the lab can measure.</p>",
+        "why_2_h": "Microbes",
+        "why_2": "<p>Bacteria, yeasts and moulds can grow in ingredients that are stored or handled badly. Both batches were screened for six, including salmonella and E. coli. No salmonella was detected, and every other count was 20 per gram or under.</p>",
+        "why_3_h": "Who tested it",
+        "why_3": "<p>Microbiology was tested by ALS Laboratories (UK) Ltd and heavy metals by M S Laboratories Ltd, both independent UK laboratories. Every result here is copied from their certificates, listed with their numbers on the overview.</p>",
+        "why_4_h": "Every batch, not just the first",
+        "why_4": "<p>A new batch gets a new certificate. We’ll update these results each time, and your batch number is on the jar.</p>",
+        "certificate": ""
+      }
     }
   },
   "order": [
     "needs",
-    "reviews"
+    "reviews",
+    "tests"
   ]
 }

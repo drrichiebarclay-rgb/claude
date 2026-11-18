@@ -223,6 +223,31 @@
   .mln .mln-offer .mln-btn.is-busy{opacity:.7;pointer-events:none}
   .mln .mln-offer__note{margin-top:12px;font-size:13px;line-height:1.5;text-align:center;color:var(--ink-3)}
 
+  /* Trust: icon grid, the scientific board strip, and links that open the nutrition label and test results */
+  .mln .mln-trust{padding:8px 0 56px}
+  html:root body #MainContent .mln .mln-trust h2{margin:0;font-size:clamp(25px,4.2vw,34px);font-weight:700;line-height:1.12;letter-spacing:-.025em;text-align:center;text-transform:none!important}
+  .mln .mln-trust h2 em{font-style:normal;color:var(--acc,inherit)}
+  .mln .mln-trust__sub{margin-top:10px;font-size:17px;line-height:1.45;text-align:center;color:var(--ink-2)}
+  .mln .mln-trust__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:24px 0 0;padding:0;list-style:none}
+  .mln .mln-trust__grid li{display:grid;justify-items:center;align-content:start;gap:8px;padding:18px 10px 16px;border:1px solid var(--hair);border-radius:8px;background:var(--acc-soft,var(--ground));text-align:center}
+  .mln .mln-trust__grid svg{width:30px;height:30px;stroke:var(--acc,var(--ink));fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+  .mln .mln-trust__grid b{font-size:15px;font-weight:700;line-height:1.2}
+  .mln .mln-trust__grid span{font-size:13px;line-height:1.35;color:var(--ink-2)}
+  .mln .mln-board{display:flex;align-items:center;gap:14px;margin-top:14px;padding:14px 16px;border:1px solid var(--hair);border-radius:8px;background:#fff}
+  .mln .mln-board__faces{display:flex;flex:0 0 auto}
+  .mln .mln-board__faces img{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid #fff;background:var(--ground)}
+  .mln .mln-board__faces img + img{margin-left:-12px}
+  .mln .mln-board p{font-size:14px;line-height:1.35;color:var(--ink-2)}
+  .mln .mln-board p b{display:block;font-size:15.5px;font-weight:700;color:var(--ink)}
+  .mln .mln-trust__links{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+  .mln .mln-trust__links :is(a,button){display:flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:8px 12px;border:1.5px solid var(--ink);border-radius:8px;background:#fff;color:var(--ink);font-family:var(--font);font-size:14.5px;font-weight:600;line-height:1.2;text-align:center;text-decoration:none;cursor:pointer}
+  .mln .mln-trust__links :is(a,button):hover{background:var(--ink);color:#fff}
+  @media (max-width:480px){.mln .mln-trust__grid{grid-template-columns:repeat(2,minmax(0,1fr))}.mln .mln-trust__links{grid-template-columns:1fr}}
+  .mln-label{width:min(760px,calc(100% - 24px));max-height:calc(100% - 24px);margin:auto;padding:0;border:0;border-radius:10px;background:#fff;overflow:auto;box-shadow:0 24px 64px rgba(36,34,35,.25)}
+  .mln-label::backdrop{background:rgba(18,17,17,.6)}
+  .mln-label img{display:block;width:100%;height:auto}
+  .mln-label__x{position:sticky;top:10px;float:right;margin:10px 10px -50px 0;z-index:1;display:grid;place-items:center;width:40px;height:40px;border:1px solid rgba(36,34,35,.2);border-radius:50%;background:#fff;color:#242223;font-size:20px;line-height:1;cursor:pointer}
+
   /* The seven at a glance */
   .mln .mln-idx{margin:28px 0 0;padding:20px 22px 22px;border:1px solid var(--hair);border-radius:12px;background:var(--ground)}
   .mln .mln-idx ol{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;margin:14px 0 0;padding:0;list-style:none;counter-reset:mln}
@@ -555,6 +580,67 @@
           </section>
         </div>
 
+      {%- when 'trust' -%}
+        <div class="mln-wrap">
+          <section class="mln-trust" {{ block.shopify_attributes }}>
+            {%- if b.heading != blank -%}<h2>{{ b.heading }}</h2>{%- endif -%}
+            {%- if b.sub != blank -%}<p class="mln-trust__sub">{{ b.sub }}</p>{%- endif -%}
+            {%- if b.items != blank -%}
+              <ul class="mln-trust__grid">
+                {%- assign rows = b.items | newline_to_br | split: '<br />' -%}
+                {%- for row in rows -%}
+                  {%- assign parts = row | split: '|' -%}
+                  {%- assign name = parts[0] | strip -%}
+                  {%- if name != blank -%}
+                    {%- assign ic = parts[2] | strip | downcase -%}
+                    <li>
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        {%- case ic -%}
+                          {%- when 'lab' -%}<path d="M9 3h6M10 3v6L5 19a1.5 1.5 0 0 0 1.3 2h11.4A1.5 1.5 0 0 0 19 19l-5-10V3M7.5 15h9"/>
+                          {%- when 'board' -%}<circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.3"/><path d="M16 14.2c2.9.3 5 2.7 5 5.8"/>
+                          {%- when 'uk' -%}<path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>
+                          {%- when 'gmp' -%}<path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3z"/><path d="M9 12l2.2 2.2L15.2 10"/>
+                          {%- when 'iso' -%}<circle cx="12" cy="9" r="6"/><path d="M9.5 9l1.8 1.8L14.7 7.5M8.5 14.2L7 21l5-2.5 5 2.5-1.5-6.8"/>
+                          {%- when 'leaf' -%}<path d="M5 19c0-8 5-14 14-14 0 9-6 14-14 14z"/><path d="M5 19l8-8"/>
+                          {%- else -%}<circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.7 2.7L16 9.5"/>
+                        {%- endcase -%}
+                      </svg>
+                      <b>{{ name }}</b>
+                      {%- if parts.size > 1 -%}{%- assign tx = parts[1] | strip -%}{%- if tx != blank -%}<span>{{ tx }}</span>{%- endif -%}{%- endif -%}
+                    </li>
+                  {%- endif -%}
+                {%- endfor -%}
+              </ul>
+            {%- endif -%}
+            {%- if b.board_title != blank -%}
+              <div class="mln-board">
+                {%- if b.board_faces != blank -%}
+                  <span class="mln-board__faces">
+                    {%- assign faces = b.board_faces | newline_to_br | split: '<br />' -%}
+                    {%- for face in faces -%}{%- assign fu = face | strip -%}{%- if fu != blank -%}<img src="{{ fu }}" alt="" width="40" height="40" loading="lazy">{%- endif -%}{%- endfor -%}
+                  </span>
+                {%- endif -%}
+                <p><b>{{ b.board_title }}</b>{{ b.board_text }}</p>
+              </div>
+            {%- endif -%}
+            {%- if b.label_link != blank or b.tests_link != blank -%}
+              <div class="mln-trust__links">
+                {%- if b.label_link != blank and b.label_image != blank -%}<button type="button" data-mln-label-open aria-haspopup="dialog">{{ b.label_link }}</button>{%- endif -%}
+                {%- if b.tests_link != blank -%}<a href="#test-results">{{ b.tests_link }}</a>{%- endif -%}
+              </div>
+            {%- endif -%}
+            {%- if b.label_image != blank -%}
+              <dialog class="mln-label" data-mln-label aria-label="{{ b.label_link | escape }}">
+                <button type="button" class="mln-label__x" data-mln-label-close aria-label="Close">×</button>
+                <picture>
+                  {%- if b.label_image_phone != blank -%}<source media="(max-width: 749px)" srcset="{{ b.label_image_phone }}">{%- endif -%}
+                  <img src="{{ b.label_image }}" alt="{{ b.label_alt | escape }}" loading="lazy">
+                </picture>
+              </dialog>
+            {%- endif -%}
+          </section>
+        </div>
+
       {%- when 'cta' -%}
         {%- if b.label != blank -%}
           <div class="mln-wrap" {{ block.shopify_attributes }}>
@@ -676,6 +762,15 @@
       setTimeout(function () { a.classList.remove('is-busy'); }, 4000);
       bar.click();
     });
+
+    /* Nutrition label: opens in a pop-up; a tap on the dimmed area or the cross closes it */
+    var lab = root.querySelector('[data-mln-label]');
+    if (lab) {
+      root.addEventListener('click', function (e) {
+        if (e.target.closest && e.target.closest('[data-mln-label-open]')) { if (lab.showModal) lab.showModal(); else lab.setAttribute('open', ''); }
+        if (e.target === lab || (e.target.closest && e.target.closest('[data-mln-label-close]'))) { if (lab.close) lab.close(); else lab.removeAttribute('open'); }
+      });
+    }
 
     /* Countdown. With an end date (YYYY-MM-DD) it runs to midnight at the end of that day and then hides.
        With none it runs to midnight tonight, on the visitor's own clock. */
@@ -823,6 +918,24 @@
         { "type": "textarea", "id": "ticks", "label": "Ticked points", "info": "One per line" },
         { "type": "text", "id": "cta", "label": "Button text", "default": "Claim the offer", "info": "Adds the 3-month plan and opens the cart" },
         { "type": "textarea", "id": "note", "label": "Small print" }
+      ]
+    },
+    {
+      "type": "trust",
+      "name": "Trust",
+      "limit": 1,
+      "settings": [
+        { "type": "textarea", "id": "heading", "label": "Heading" },
+        { "type": "textarea", "id": "sub", "label": "Line under the heading" },
+        { "type": "textarea", "id": "items", "label": "Trust points", "info": "One per line: Title | short text | icon. Icons: lab, board, uk, gmp, iso, leaf" },
+        { "type": "text", "id": "board_title", "label": "Board strip title", "info": "Blank hides the strip" },
+        { "type": "text", "id": "board_text", "label": "Board strip text" },
+        { "type": "textarea", "id": "board_faces", "label": "Board photos", "info": "One image URL per line" },
+        { "type": "text", "id": "label_link", "label": "Nutrition label link text" },
+        { "type": "text", "id": "label_image", "label": "Nutrition label image URL" },
+        { "type": "text", "id": "label_image_phone", "label": "Nutrition label image URL, phones" },
+        { "type": "text", "id": "label_alt", "label": "Nutrition label alt text" },
+        { "type": "text", "id": "tests_link", "label": "Test results link text", "info": "Opens the MUTO — Test results section, which must be on the template" }
       ]
     },
     {
