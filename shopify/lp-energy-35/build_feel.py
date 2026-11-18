@@ -1,4 +1,4 @@
-"""Build version B of the "energy after 35" advertorial (templates/product.muto-nad-bf-lp-energy-35-feel.json).
+"""Build version B of the "energy after 35" advertorial (templates/page.lp-energy-35-feel.json).
 
 Same page furniture as version A (build.py): the direct layout, the offer with its countdown, the trust
 section, the reviews widget and the test-results panel. What changes is the argument. Version A explains
@@ -19,7 +19,7 @@ import build as A
 from build import CDN, lines, text, quote, cta, need
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-NAME = "product.muto-nad-bf-lp-energy-35-feel.json"
+NAME = "page.lp-energy-35-feel.json"
 RV = "MUTO customer. Individual experience; results vary."
 
 header = dict(
@@ -166,10 +166,10 @@ blocks += [("why", why), ("life", life), ("cta1", cta()),
 
 needs = {"type": "muto-lst-needs",
          "blocks": dict(blocks), "block_order": [k for k, _ in blocks],
-         "settings": dict(header, hide_bf_bars=True, index_label="", count_label="Essential",
+         "settings": dict(header, product=A.PRODUCT, hide_bf_bars=True, index_label="", count_label="Essential",
                           science_label="Research notes:", sources_label="Source")}
 
-sections = {"needs": needs, "reviews": A.P["reviews"], "tests": A.P["tests"]}
+sections = {"needs": needs, "reviews": A.LP["sections"]["reviews"], "tests": A.P["tests"]}
 path = os.path.join(HERE, "theme", "templates", NAME)
 with open(path, "w", encoding="utf-8") as f:
     json.dump({"sections": sections, "order": list(sections)}, f, ensure_ascii=False, indent=2)

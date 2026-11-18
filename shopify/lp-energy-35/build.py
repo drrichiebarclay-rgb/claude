@@ -1,4 +1,4 @@
-"""Build the "energy after 35" advertorial (templates/product.muto-nad-bf-lp-energy-35.json).
+"""Build the "energy after 35" advertorial (templates/page.lp-energy-35.json).
 
 An article in the founder's voice: headline, standfirst and byline, a short opening story, seven numbered
 essentials with the research for each, a black "why it happens" band, then MUTO as what he built, the live
@@ -26,7 +26,8 @@ import os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 CDN = "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/"
-NAME = "product.muto-nad-bf-lp-energy-35.json"
+NAME = "page.lp-energy-35.json"
+PRODUCT = "muto-nad-cellular-complex"
 
 
 def load(path):
@@ -35,6 +36,7 @@ def load(path):
 
 
 PDP = load("live-snapshot/product.muto-nad-bf-premium.json")
+LP = load("live-snapshot/page.lp-stack.json")  # a live landing page: its reviews widget is set up for a page
 P = PDP["sections"]
 
 
@@ -374,16 +376,18 @@ order_blocks = [("opening", opening), ("photo", photo), ("mito", mito), ("chart"
 needs = {"type": "muto-lst-needs",
          "blocks": {k: v for k, v in order_blocks},
          "block_order": [k for k, _ in order_blocks],
-         "settings": dict(header, hide_bf_bars=True, index_label="", count_label="Essential",
+         "settings": dict(header, product=PRODUCT, hide_bf_bars=True, index_label="", count_label="Essential",
                           science_label="Research notes:", sources_label="Sources")}
 
 # ------------------------------------------------------------------ the template
-# One section of our own, then the reviews widget copied unchanged from the live product page. There is no
-# buy box: the offer block's button adds the 3-month plan through the Black Friday bar's own script (the bar
-# is in the header on every page; this page hides it but still uses it).
+# A page template: one section of our own, the reviews widget as the live landing pages have it (set up for a
+# page, where there is no product in scope) and the test-results panel from the live product page. There is
+# no buy box: the offer block's button adds the 3-month plan of the product named in the section's Product
+# setting, through the Black Friday bar's own script (the bar is in the header on every page; this page
+# hides it but still uses it).
 sections = {
     "needs": needs,
-    "reviews": P["reviews"],
+    "reviews": LP["sections"]["reviews"],
     "tests": P["tests"],  # the test-results panel the trust block's link opens
 }
 out = {"sections": sections, "order": list(sections)}

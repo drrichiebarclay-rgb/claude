@@ -11,7 +11,7 @@
   "News article layout" goes further: a serif reading column, numbered subheads and plain lists, no cards.
 
   Numbering is automatic: essentials are counted in block order, so reordering or removing one renumbers the rest.
-  Used on templates/product.muto-nad-bf-lp-energy-35.json.
+  Used on templates/page.lp-energy-35.json and page.lp-energy-35-feel.json (it works on product templates too).
   Base styles: assets/muto-lst.css. The styles for this section's own parts are below.
 {%- endcomment -%}
 {{ 'muto-lst.css' | asset_url | stylesheet_tag }}
@@ -351,10 +351,15 @@
   endif
 
   # The offer's button adds the 3-month plan, read off the product as the Black Friday bar does
+  # On a page template there is no product in scope, so the section's own Product setting is used
+  assign offer_product = product
+  if s.product != blank
+    assign offer_product = s.product
+  endif
   assign q_variant = ''
   assign q_plan = ''
-  if product != blank
-    for pv in product.variants
+  if offer_product != blank
+    for pv in offer_product.variants
       if q_variant != blank
         break
       endif
@@ -867,6 +872,7 @@
   "class": "muto-lst-needs",
   "settings": [
     { "type": "paragraph", "content": "Numbered ingredients with the science and sources for each. Drag a Dark panel between two essentials; end with the Answer. Essentials number themselves in order." },
+    { "type": "product", "id": "product", "label": "Product for the offer button", "info": "Needed on a page template: the Claim button adds this product's 3-month plan. On a product template the page's own product is used when this is empty." },
     { "type": "checkbox", "id": "hide_bf_bars", "label": "Hide the Black Friday bars", "default": false, "info": "Hides the black bar at the top and the sticky add to cart on this page" },
     { "type": "header", "content": "Article header" },
     { "type": "checkbox", "id": "article", "label": "Article style", "default": false, "info": "Headings in sentence case, like the other advertorials" },
