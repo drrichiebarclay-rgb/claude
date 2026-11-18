@@ -8,15 +8,9 @@ A product template, like the over-35 listicle, so the page has the product in sc
 real one. The name starts with muto-nad-bf because the header and footer switch the Black Friday top bar and
 sticky add to cart on for any template whose name contains it.
 
-Everything from the buy box down is copied, unchanged, from the live main product page's template
-(live-snapshot/product.muto-nad-bf-premium.json, taken from the live theme on 18 November 2026): the buy box
-and the styles and scripts that draw it, the reviews widget and the test-results panel its button opens.
-Above it: one section, sections/muto-lst-needs.liquid, which carries the article header, the story text,
-the essentials, the quotes and the answer.
-
-Voice: first person, Dr Richie Barclay. Nothing is put in his mouth that the site doesn't already say about
-him (cell biologist, formulated MUTO because he couldn't find a product he'd take); the opening anecdote is
-for him to approve. Customer quotes are real reviews from the live product page, word for word.
+The page is one section of our own (sections/muto-lst-needs.liquid), which ends with the offer block, then
+the reviews widget copied unchanged from the live main product page's template
+(live-snapshot/product.muto-nad-bf-premium.json, 18 November 2026). No buy box, top bar or sticky bar.
 
 Claims guardrails, as on the other pages: authorised nutrient claims worded exactly and kept in the claims
 note; research described as what a study measured, with its source, never as a promised result; no claim that
@@ -71,7 +65,7 @@ header = {
     "image_caption": "",
     "read_pill": "Estimated 5-7 minute read",
 }
-CTA = "Try MUTO risk-free for 90 days"
+CTA = "See today’s Black Friday offer"
 CTA_NOTE = "90-day money-back guarantee on subscriptions. Skip, pause or cancel online."
 
 
@@ -300,38 +294,48 @@ timeline = {"type": "timeline", "settings": {
         "Day 90: Feeling like yourself | Many people say they hadn’t realised how flat they’d been. Not for you? Every subscription payment back, less delivery."),
     "foot": "What customers tell us, not a clinical study, and not a guaranteed outcome. Our first UK clinical trial starts this December."}}
 
+G = CDN
+offer = {"type": "offer", "settings": {
+    "label": "Today’s special offer",
+    "countdown": True, "countdown_label": "Offer ends at midnight", "countdown_end": "",
+    "heading": "The exclusive Black Friday <em>bundle</em>",
+    "sub": "Three months of NAD+ Cellular Complex, plus £72 of free gifts with your first order.",
+    "image_url": CDN + "muto-lp-kit-hero.jpg?v=1791969959",
+    "image_alt": "The MUTO welcome kit: NAD+ Cellular Complex jar and refill pouches, Ultrapure Creatine and the presentation box",
+    "price": "£33", "price_note": "/mo", "was": "£70", "badge": "Save 53%",
+    "bill": "£1.10 a day. £99 today for your first 3 months, then £125 for your next 3 months, "
+            "then £150 every 3 months. Skip, pause or cancel online.",
+    "list_label": "What’s included", "list_note": "£72 of free gifts",
+    "items": lines(
+        "NAD+ Cellular Complex, 3-month supply | Included | " + G + "muto-menu-nad-jar.jpg?v=1793615985&width=120",
+        "Ultrapure creatine (250g) | <s>£30</s> Free | " + G + "gift-creatine.jpg?v=1791022787&width=120",
+        "Socks | <s>£12</s> Free | " + G + "gift-socks.jpg?v=1791023071&width=120",
+        "Travel vial | <s>£10</s> Free | " + G + "gift-travel-vial.jpg?v=1793355262&width=120",
+        "Forever jar to keep | <s>£10</s> Free | " + G + "gift-forever-jar.jpg?v=1791023224&width=120",
+        "12-week guide | <s>£10</s> Free | " + G + "muto-gift-guide-v2.jpg?v=1791392560&width=120",
+        "Entry to win an Apple Watch | Free entry | " + G + "gift-sq-apple-watch.jpg?v=1794477407&width=120"),
+    "ticks": lines("90-day money-back guarantee", "Free next-day UK delivery", "Skip, pause or cancel online"),
+    "cta": "Claim today’s offer",
+    "note": "New subscribers. While stocks last. Adds the 3-Month Supply to your cart with your free welcome kit."}}
+
 order_blocks = [("opening", opening), ("photo", photo), ("mito", mito), ("chart", chart), ("why", dark),
                 ("cta1", cta()), ("seven", seven), ("nad", nad), ("coq10", coq10), ("bvits", b_vits),
                 ("creatine", creatine), ("zinc", zinc), ("d3k2", d3k2), ("pqq", pqq), ("cta2", cta()),
                 ("reveal", reveal), ("customer", customer), ("answer", answer), ("timeline", timeline),
-                ("cta3", cta())]
+                ("offer", offer)]
 needs = {"type": "muto-lst-needs",
          "blocks": {k: v for k, v in order_blocks},
          "block_order": [k for k, _ in order_blocks],
-         "settings": dict(header, index_label="", count_label="Essential",
+         "settings": dict(header, hide_bf_bars=True, index_label="", count_label="Essential",
                           science_label="Research notes:", sources_label="Sources")}
 
 # ------------------------------------------------------------------ the template
-# From the live product page, unchanged: the styles that draw the buy box (bf_style, head_styles), the Black
-# Friday top bar (bf_bar), the buy box, its scripts (early, easy_read, bands), the reviews widget and the
-# test-results panel that the buy box's "View third-party testing results" button opens.
-# Left out: ag1_plans. Despite the name it is the "As seen in" row and the dark "Your life won't fit a perfect
-# routine" band under the product page's buy box, not part of the buy box.
-bf_style = copy.deepcopy(P["bf_style"])
-# The premium look is automatic on the product page's own template name; here it is asked for by setting.
-bf_style["settings"]["design"] = "premium"
-
+# One section of our own, then the reviews widget copied unchanged from the live product page. There is no
+# buy box: the offer block's button adds the 3-month plan through the Black Friday bar's own script (the bar
+# is in the header on every page; this page hides it but still uses it).
 sections = {
-    "bf_style": bf_style,
-    "head_styles": P["head_styles"],
-    "bf_bar": P["bf_bar"],
     "needs": needs,
-    "buy": P["buy"],
-    "early": P["early"],
     "reviews": P["reviews"],
-    "tests": P["tests"],
-    "easy_read": P["easy_read"],
-    "bands": P["bands"],
 }
 out = {"sections": sections, "order": list(sections)}
 

@@ -5,8 +5,9 @@ bold headline with one phrase in green, "Sponsored content" label, byline, lead 
 one-line paragraphs; a bar chart; a black "Why energy falls with age" panel; seven numbered cards, one per
 nutrient, each with research notes, what to look for and its sources (tap "Sources"); MUTO introduced as the
 one routine that holds all seven; a customer review; "What's in MUTO"; a timeline of what customers report;
-and a green "Try MUTO risk-free for 90 days" button after each part. Then the **live main product page's
-buy box** and the reviews widget.
+and green buttons that scroll to the offer. It ends with **"Today's special offer"**: the Black Friday
+bundle (photo, £33/mo, what's included) with a countdown and a Claim button, then the reviews widget.
+There is no buy box, no Black Friday top bar and no sticky add to cart on this page.
 
 Unlike the reference there is no before-and-after photo, no invented narrator and no symptom checklist:
 the byline is Richie's, the review is a real one, the timeline is the product page's own, and every figure
@@ -37,37 +38,28 @@ address above.
 
 ## Why a product template, and why this name
 
-- **Product template:** the buy box only works with a product in scope, so the page is the main product
-  shown through a second template (`?view=`), the same way the over-35 listicle is
-  (`product.muto-nad-bf-lp-over-35`). No product's template assignment changes.
-- **`muto-nad-bf` in the name:** the header and footer switch on the Black Friday top bar and the sticky add
-  to cart for any template whose name contains it. Rename the file and they disappear.
+- **Product template:** the offer's button needs the product in scope to find the 3-month plan, so the page
+  is the main product shown through a second template (`?view=`). No product's template assignment changes.
+- **The name** is kept so the address already shared keeps working.
 
-## What's on the page, top to bottom
+## How the Claim button works
 
-| Section | Source |
-|---|---|
-| Black Friday styles, buy-box styles, top bar | Live product page, unchanged |
-| Article header (headline, standfirst, byline, lead photo), opening story, the 7 essentials, the black band, the customer quote and the answer | `muto-lst-needs` (new) |
-| Buy box | Live product page, unchanged |
-| Reviews widget | Live product page, unchanged |
-| Test-results panel (opened by the buy box's button) and the buy box's scripts | Live product page, unchanged |
+It adds the 3-Month Supply and opens the side cart by handing the tap to the Black Friday bar's own script
+(`snippets/muto-bf-bar.liquid`, which the header puts on every page). That is the same route as the bar's
+"Claim" and the over-35 listicle's offer card, so the welcome gifts are added by the theme as usual. The bar
+itself is hidden on this page ("Hide the Black Friday bars" in the section settings) but must stay in the
+header. If the header bar is ever removed, the button falls back to a plain add-to-cart link.
 
-Left out on purpose: the "As seen in" row and dark "Your life won't fit a perfect routine" band that follow
-the buy box on the product page (`ag1_plans`). They aren't part of the buy box, and the page has its own
-black band.
+## The offer copy is typed, not live
 
-## The buy box is a copy taken on 18 November 2026
+Price, "was" price, billing lines and the list of gifts are text in the Offer block, taken from the live
+over-35 listicle's offer card on 18 November 2026. Update them when the offer changes.
 
-It is the live template's buy box, block for block (`live-snapshot/product.muto-nad-bf-premium.json`). It
-does **not** follow later edits to the product page. When the product page's offer or buy box changes:
+## The countdown
 
-1. Save the live `templates/product.muto-nad-bf-premium.json` over the copy in `live-snapshot/`.
-2. Run `python3 build.py`.
-3. Copy the rebuilt template to the theme.
-
-The copy on this page lives in `build.py`. Everything is also editable in the theme editor (choose the
-template from the menu at the top); tell me about editor changes so the script keeps them.
+- **Offer end date blank (as built):** counts down to midnight tonight on the visitor's clock and starts
+  again the next day.
+- **Offer end date set (YYYY-MM-DD):** counts down to midnight at the end of that day, then hides.
 
 ## Editing in the theme editor
 
@@ -102,6 +94,12 @@ template from the menu at the top); tell me about editor changes so the script k
 
 Before ads go live:
 
+- [ ] **The countdown must be true.** A timer that resets every night on an offer that is still there the
+      next day is a false time limit, which UK consumer law (the DMCC Act 2024) and the ASA treat as a
+      banned practice. Either the price really changes at midnight each day, or put the offer's real last
+      day in "Offer end date", or untick the countdown. Same for the label "Today's special offer" and
+      "Offer ends at midnight".
+
 - [ ] **Richie: it's in your voice.** Approve or reword the opening ("I get asked the same thing most
       weeks…"), the opinions ("it isn't fashionable, which is partly why I like it", "the early results are
       interesting enough for me") and "That's the reason I made MUTO NAD+ Cellular Complex."
@@ -120,10 +118,9 @@ Before ads go live:
 
 ## Check after copying
 
-1. Open the address on a phone. Black Friday bar at the top, no store header, then the headline and byline.
-2. Seven essentials, numbered 1 to 7, with the black band between 2 and 3.
-3. "See today's offer" scrolls to the buy box.
-4. The buy box matches the main product page: plans, welcome kit, price and button. Add to cart on each plan.
-5. "View third-party testing results" opens the panel.
-6. Reviews load under the buy box.
-7. The sticky add to cart appears at the foot of the screen.
+1. Open the address on a phone. No black bar at the top, no store header, no sticky add to cart.
+2. Seven numbered cards, the black panel, the timeline.
+3. Every green button scrolls to "Today's special offer".
+4. The countdown is running.
+5. "Claim today's offer" opens the side cart with the 3-Month Supply at £99 and the welcome gifts.
+6. Reviews load under the offer.

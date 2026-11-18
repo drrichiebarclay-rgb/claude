@@ -186,6 +186,43 @@
   .mln .mln-tl__card span{display:block;margin-top:12px;font-size:16.5px;line-height:1.45}
   .mln .mln-tl__foot{margin-top:18px;font-size:15.5px;font-style:italic;line-height:1.45;color:var(--ink-2)}
 
+  /* Offer: label and countdown on a dark strip, bundle photo, price, what's included, one button */
+  .mln .mln-offer-wrap{padding:48px 0 56px;scroll-margin-top:16px}
+  .mln .mln-offer{border:2px solid var(--ink);border-radius:12px;background:#fff;overflow:hidden}
+  .mln .mln-offer__top{padding:16px 18px 18px;background:#121111;color:#fff;text-align:center}
+  .mln .mln-offer__lab{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#fff}
+  .mln .mln-offer__ends{margin-top:12px;font-size:14px;color:rgba(255,255,255,.8)}
+  .mln .mln-cd{display:flex;justify-content:center;gap:8px;margin-top:8px}
+  .mln .mln-cd span{display:grid;gap:4px;min-width:64px;padding:10px 8px 8px;border-radius:8px;background:rgba(255,255,255,.1)}
+  .mln .mln-cd b{font-size:28px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+  .mln .mln-cd span[hidden]{display:none}
+  .mln .mln-cd small{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+  .mln .mln-offer__in{padding:22px 18px 22px}
+  html:root body #MainContent .mln .mln-offer h2{margin:0;font-size:clamp(25px,4.2vw,34px);font-weight:700;line-height:1.12;letter-spacing:-.025em;text-align:center;text-transform:none!important}
+  .mln .mln-offer h2 em{font-style:normal;color:var(--acc,inherit)}
+  .mln .mln-offer__sub{margin-top:10px;font-size:16.5px;line-height:1.45;text-align:center;color:var(--ink-2)}
+  .mln .mln-offer__img{margin-top:18px;border-radius:8px;overflow:hidden;background:var(--ground)}
+  .mln .mln-offer__img img{width:100%;aspect-ratio:3/2;object-fit:cover}
+  .mln .mln-offer__price{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:6px 12px;margin-top:20px}
+  .mln .mln-offer__price b{font-size:46px;font-weight:700;line-height:1;letter-spacing:-.03em}
+  .mln .mln-offer__price b small{font-size:20px;font-weight:600;letter-spacing:0}
+  .mln .mln-offer__price s{font-size:20px;color:var(--ink-3)}
+  .mln .mln-offer__price i{padding:6px 10px;border-radius:6px;background:var(--acc,var(--ink));color:#fff;font-size:13px;font-style:normal;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+  .mln .mln-offer__bill{margin-top:10px;font-size:15px;line-height:1.45;text-align:center;color:var(--ink-2)}
+  .mln .mln-offer__lh{display:flex;justify-content:space-between;gap:12px;margin-top:22px;padding-bottom:10px;border-bottom:1.5px solid var(--ink);font-size:15px;font-weight:700}
+  .mln .mln-offer__list{margin:0;padding:0;list-style:none}
+  .mln .mln-offer__list li{display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--hair);font-size:16px;line-height:1.3}
+  .mln .mln-offer__list img{width:48px;height:48px;border-radius:6px;object-fit:cover;background:var(--ground)}
+  .mln .mln-offer__list span{font-weight:500}
+  .mln .mln-offer__list em{font-size:13.5px;font-style:normal;font-weight:600;color:var(--acc,var(--ink));white-space:nowrap}
+  .mln .mln-offer__list em s{margin-right:6px;font-weight:400;color:var(--ink-3)}
+  .mln .mln-offer__ticks{display:grid;gap:8px;margin:18px 0 0;padding:0;list-style:none;font-size:15.5px}
+  .mln .mln-offer__ticks li{position:relative;padding-left:26px}
+  .mln .mln-offer__ticks li::before{content:"";position:absolute;left:2px;top:.3em;width:13px;height:7px;border-left:2.5px solid var(--acc,var(--ink));border-bottom:2.5px solid var(--acc,var(--ink));transform:rotate(-45deg)}
+  .mln .mln-offer .mln-btn{margin-top:22px}
+  .mln .mln-offer .mln-btn.is-busy{opacity:.7;pointer-events:none}
+  .mln .mln-offer__note{margin-top:12px;font-size:13px;line-height:1.5;text-align:center;color:var(--ink-3)}
+
   /* The seven at a glance */
   .mln .mln-idx{margin:28px 0 0;padding:20px 22px 22px;border:1px solid var(--hair);border-radius:12px;background:var(--ground)}
   .mln .mln-idx ol{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;margin:14px 0 0;padding:0;list-style:none;counter-reset:mln}
@@ -266,7 +303,44 @@
   else
     assign hd_src = s.image_url
   endif
+
+  # The offer's button adds the 3-month plan, read off the product as the Black Friday bar does
+  assign q_variant = ''
+  assign q_plan = ''
+  if product != blank
+    for pv in product.variants
+      if q_variant != blank
+        break
+      endif
+      for alloc in pv.selling_plan_allocations
+        assign pn = alloc.selling_plan.name | downcase
+        if pn contains '3-month' or pn contains '3 month' or pn contains 'quarter'
+          if pv.available
+            assign q_variant = pv.id
+            assign q_plan = alloc.selling_plan.id
+            break
+          endif
+        endif
+      endfor
+    endfor
+  endif
+  assign claim_href = '#MainContent'
+  if q_variant != blank
+    assign claim_href = routes.cart_add_url | append: '?id=' | append: q_variant | append: '&quantity=1'
+    if q_plan != blank
+      assign claim_href = claim_href | append: '&selling_plan=' | append: q_plan
+    endif
+  endif
 -%}
+{%- if s.hide_bf_bars -%}
+  <style>
+    /* This page has no Black Friday top bar and no sticky add to cart. The top bar stays in the page, hidden,
+       because the offer's button uses it to add the plan and open the side cart. */
+    html:root body #mc-bfx,html:root body #mc-bfbar,html:root body #mc-sbar,html:root body .mc-sbar{display:none!important}
+    html:root body,html:root body:has(#mc-bfx){padding-top:0!important}
+    html:root body main#MainContent{margin-top:0!important;padding-top:0!important}
+  </style>
+{%- endif -%}
 <div class="mlst mln{% if s.article %} mln--article{% endif %}{% if s.news %} mln--news{% endif %}{% if s.direct %} mln--direct{% endif %}">
   {%- if s.headline != blank -%}
     <div class="mln-wrap">
@@ -422,6 +496,65 @@
           </section>
         </div>
 
+      {%- when 'offer' -%}
+        {%- liquid
+          if b.image != blank
+            assign o_src = b.image | image_url: width: 1400
+          else
+            assign o_src = b.image_url
+          endif
+        -%}
+        <div class="mln-wrap mln-offer-wrap" id="mln-offer-{{ section.id }}" data-mln-offer {{ block.shopify_attributes }}>
+          <section class="mln-offer">
+            <div class="mln-offer__top">
+              {%- if b.label != blank -%}<p class="mln-offer__lab">{{ b.label }}</p>{%- endif -%}
+              {%- if b.countdown -%}
+                <div data-mln-cd data-end="{{ b.countdown_end | strip | escape }}" hidden>
+                  {%- if b.countdown_label != blank -%}<p class="mln-offer__ends">{{ b.countdown_label }}</p>{%- endif -%}
+                  <div class="mln-cd" role="timer" aria-live="off">
+                    <span data-cd-days-box hidden><b data-cd-d>0</b><small>Days</small></span>
+                    <span><b data-cd-h>00</b><small>Hours</small></span>
+                    <span><b data-cd-m>00</b><small>Mins</small></span>
+                    <span><b data-cd-s>00</b><small>Secs</small></span>
+                  </div>
+                </div>
+              {%- endif -%}
+            </div>
+            <div class="mln-offer__in">
+              {%- if b.heading != blank -%}<h2>{{ b.heading }}</h2>{%- endif -%}
+              {%- if b.sub != blank -%}<p class="mln-offer__sub">{{ b.sub }}</p>{%- endif -%}
+              {%- if o_src != blank -%}<div class="mln-offer__img"><img src="{{ o_src }}" alt="{{ b.image_alt | escape }}" width="1400" height="933" loading="lazy"></div>{%- endif -%}
+              <p class="mln-offer__price"><b>{{ b.price }}{% if b.price_note != blank %}<small>{{ b.price_note }}</small>{% endif %}</b>{% if b.was != blank %}<s><span class="visually-hidden">Was </span>{{ b.was }}</s>{% endif %}{% if b.badge != blank %}<i>{{ b.badge }}</i>{% endif %}</p>
+              {%- if b.bill != blank -%}<p class="mln-offer__bill">{{ b.bill }}</p>{%- endif -%}
+              {%- if b.items != blank -%}
+                <p class="mln-offer__lh"><span>{{ b.list_label }}</span><span>{{ b.list_note }}</span></p>
+                <ul class="mln-offer__list">
+                  {%- assign rows = b.items | newline_to_br | split: '<br />' -%}
+                  {%- for row in rows -%}
+                    {%- assign parts = row | split: '|' -%}
+                    {%- assign name = parts[0] | strip -%}
+                    {%- if name != blank -%}
+                      {%- assign thumb = parts[2] | strip -%}
+                      <li>{% if thumb != blank %}<img src="{{ thumb }}" alt="" width="48" height="48" loading="lazy">{% else %}<i></i>{% endif %}<span>{{ name }}</span><em>{{ parts[1] | strip }}</em></li>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </ul>
+              {%- endif -%}
+              {%- if b.ticks != blank -%}
+                <ul class="mln-offer__ticks">
+                  {%- assign ticks = b.ticks | newline_to_br | split: '<br />' -%}
+                  {%- for tick in ticks -%}
+                    {%- assign tk = tick | strip -%}
+                    {%- if tk != blank -%}<li>{{ tk }}</li>{%- endif -%}
+                  {%- endfor -%}
+                </ul>
+              {%- endif -%}
+              <a class="mln-btn" href="{{ claim_href }}" data-mln-claim>{{ b.cta | default: 'Claim the offer' }}</a>
+              {%- if b.note != blank -%}<p class="mln-offer__note">{{ b.note }}</p>{%- endif -%}
+            </div>
+          </section>
+        </div>
+
       {%- when 'cta' -%}
         {%- if b.label != blank -%}
           <div class="mln-wrap" {{ block.shopify_attributes }}>
@@ -516,18 +649,63 @@
 </div>
 
 <script>
-  /* The answer's button scrolls to the buy box on this page (the section named "buy"), if there is one */
   (function () {
     var root = document.getElementById('shopify-section-{{ section.id }}');
     if (!root) return;
+
+    /* Buttons scroll to the offer in this section, or to the buy box on the page (the section named "buy") */
     root.addEventListener('click', function (e) {
       var a = e.target.closest && e.target.closest('[data-mln-buy]');
       if (!a) return;
-      var buy = document.querySelector('#MainContent [id$="__buy"]');
-      if (!buy) return;
+      var to = root.querySelector('[data-mln-offer]') || document.querySelector('#MainContent [id$="__buy"]');
+      if (!to) return;
       e.preventDefault();
-      var y = buy.getBoundingClientRect().top + window.pageYOffset - 52;
+      var y = to.getBoundingClientRect().top + window.pageYOffset - 12;
       window.scrollTo({ top: y, behavior: 'smooth' });
+    });
+
+    /* The offer's button: hand the tap to the Black Friday bar's Claim (one request, side cart, welcome gifts
+       added by the theme). No bar on the page: the link itself adds the 3-month plan and opens the cart. */
+    root.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('[data-mln-claim]');
+      if (!a) return;
+      var bar = document.getElementById('mc-bfx');
+      if (!bar || !bar.getAttribute('data-variant')) return;
+      e.preventDefault();
+      a.classList.add('is-busy');
+      setTimeout(function () { a.classList.remove('is-busy'); }, 4000);
+      bar.click();
+    });
+
+    /* Countdown. With an end date (YYYY-MM-DD) it runs to midnight at the end of that day and then hides.
+       With none it runs to midnight tonight, on the visitor's own clock. */
+    [].forEach.call(root.querySelectorAll('[data-mln-cd]'), function (box) {
+      var raw = (box.getAttribute('data-end') || '').trim();
+      var m = raw.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+      function target() {
+        var n = new Date();
+        if (m) return new Date(+m[1], +m[2] - 1, +m[3] + 1, 0, 0, 0, 0);
+        return new Date(n.getFullYear(), n.getMonth(), n.getDate() + 1, 0, 0, 0, 0);
+      }
+      var end = target();
+      var d = box.querySelector('[data-cd-d]'), dBox = box.querySelector('[data-cd-days-box]');
+      var h = box.querySelector('[data-cd-h]'), mi = box.querySelector('[data-cd-m]'), s = box.querySelector('[data-cd-s]');
+      function two(n) { return (n < 10 ? '0' : '') + n; }
+      function tick() {
+        var left = Math.floor((end - new Date()) / 1000);
+        if (left <= 0) {
+          if (m) { box.hidden = true; clearInterval(timer); return; }
+          end = target(); left = Math.floor((end - new Date()) / 1000);
+        }
+        var days = Math.floor(left / 86400);
+        if (dBox) { dBox.hidden = days < 1; if (d) d.textContent = days; }
+        h.textContent = two(Math.floor(left % 86400 / 3600));
+        mi.textContent = two(Math.floor(left % 3600 / 60));
+        s.textContent = two(left % 60);
+        box.hidden = false;
+      }
+      var timer = setInterval(tick, 1000);
+      tick();
     });
   })();
 </script>
@@ -539,6 +717,7 @@
   "class": "muto-lst-needs",
   "settings": [
     { "type": "paragraph", "content": "Numbered ingredients with the science and sources for each. Drag a Dark panel between two essentials; end with the Answer. Essentials number themselves in order." },
+    { "type": "checkbox", "id": "hide_bf_bars", "label": "Hide the Black Friday bars", "default": false, "info": "Hides the black bar at the top and the sticky add to cart on this page" },
     { "type": "header", "content": "Article header" },
     { "type": "checkbox", "id": "article", "label": "Article style", "default": false, "info": "Headings in sentence case, like the other advertorials" },
     { "type": "checkbox", "id": "news", "label": "News article layout", "default": false, "info": "Serif reading column, numbered subheads and plain lists in place of the cards" },
@@ -617,6 +796,33 @@
         { "type": "textarea", "id": "intro", "label": "Intro" },
         { "type": "textarea", "id": "items", "label": "Stages", "info": "One per line: Stage title | What people report" },
         { "type": "textarea", "id": "foot", "label": "Small print" }
+      ]
+    },
+    {
+      "type": "offer",
+      "name": "Offer",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Today’s special offer" },
+        { "type": "checkbox", "id": "countdown", "label": "Show a countdown", "default": true },
+        { "type": "text", "id": "countdown_label", "label": "Countdown label", "default": "Offer ends in" },
+        { "type": "text", "id": "countdown_end", "label": "Offer end date", "info": "YYYY-MM-DD: counts down to midnight at the end of that day, then hides. Blank: counts down to midnight tonight and starts again tomorrow, so only leave it blank if the offer really does change every night." },
+        { "type": "textarea", "id": "heading", "label": "Heading" },
+        { "type": "textarea", "id": "sub", "label": "Line under the heading" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_url", "label": "Image URL", "info": "Used when no image is picked" },
+        { "type": "text", "id": "image_alt", "label": "Image alt text" },
+        { "type": "text", "id": "price", "label": "Price", "default": "£33" },
+        { "type": "text", "id": "price_note", "label": "After the price", "default": "/mo" },
+        { "type": "text", "id": "was", "label": "Crossed-out price" },
+        { "type": "text", "id": "badge", "label": "Badge" },
+        { "type": "textarea", "id": "bill", "label": "Billing lines" },
+        { "type": "text", "id": "list_label", "label": "List heading", "default": "What’s included" },
+        { "type": "text", "id": "list_note", "label": "List note" },
+        { "type": "textarea", "id": "items", "label": "Included items", "info": "One per line: Name | value | image URL" },
+        { "type": "textarea", "id": "ticks", "label": "Ticked points", "info": "One per line" },
+        { "type": "text", "id": "cta", "label": "Button text", "default": "Claim the offer", "info": "Adds the 3-month plan and opens the cart" },
+        { "type": "textarea", "id": "note", "label": "Small print" }
       ]
     },
     {
