@@ -1,0 +1,305 @@
+{%- comment -%}
+  MUTO listicle — essentials (muto-lst-needs). The numbered ingredients of "After 35, your energy runs on
+  7 things": each Essential block is one ingredient (what it is, why it matters after 35, what the research
+  says, the authorised claim and its sources). A Dark panel block is the black "why it happens" band, placed
+  between two essentials by dragging it there. The Answer block closes the list: MUTO as the one routine that
+  holds all of them, with a button that scrolls to the buy box below.
+
+  Numbering is automatic: essentials are counted in block order, so reordering or removing one renumbers the rest.
+  Sits under MUTO listicle — article (the hero) on templates/product.muto-nad-bf-lp-energy-35.json.
+  Base styles: assets/muto-lst.css. The styles for this section's own parts are below.
+{%- endcomment -%}
+{{ 'muto-lst.css' | asset_url | stylesheet_tag }}
+<style>
+  .mln{padding-bottom:8px}
+  .mln .mln-wrap{max-width:760px;margin:0 auto;padding:0 20px}
+
+  /* The seven at a glance */
+  .mln .mln-idx{margin:28px 0 0;padding:20px 22px 22px;border:1px solid var(--hair);border-radius:12px;background:var(--ground)}
+  .mln .mln-idx ol{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;margin:14px 0 0;padding:0;list-style:none;counter-reset:mln}
+  .mln .mln-idx li{counter-increment:mln;display:flex;align-items:baseline;gap:10px;font-size:16px;font-weight:500;line-height:1.3}
+  .mln .mln-idx li::before{content:counter(mln);flex:0 0 auto;font-family:var(--mono);font-size:12px;font-weight:500;color:var(--ink-3)}
+  .mln .mln-idx a{color:inherit;text-decoration:none}
+  .mln .mln-idx a:hover{text-decoration:underline;text-underline-offset:3px}
+  @media (max-width:480px){.mln .mln-idx ol{grid-template-columns:1fr}}
+
+  /* An essential */
+  .mln .mln-n{padding:44px 0 4px;scroll-margin-top:64px}
+  .mln .mln-n--rule{border-top:1px solid var(--hair);margin-top:40px}
+  .mln .mln-n h2{margin:16px 0 0;font-size:clamp(26px,4.2vw,36px);font-weight:500;line-height:1.1;letter-spacing:-.02em}
+  .mln .mln-in{display:flex;align-items:stretch;margin-top:18px;border:1px solid var(--ink);border-radius:8px;overflow:hidden;font-size:15.5px;line-height:1.35}
+  .mln .mln-in span{flex:0 0 auto;display:flex;align-items:center;padding:10px 12px;background:var(--ink);color:#fff;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+  .mln .mln-in b{display:block;padding:10px 14px;font-weight:500}
+  .mln .mln-sci{margin-top:22px;padding:18px 20px 20px;border-radius:12px;background:var(--ground)}
+  .mln .mln-sci ul{display:grid;gap:12px;margin:12px 0 0;padding:0;list-style:none}
+  .mln .mln-sci li{position:relative;padding-left:18px;font-size:16.5px;line-height:1.5}
+  .mln .mln-sci li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;background:var(--cyan);outline:1px solid var(--ink)}
+  .mln sup{font-family:var(--mono);font-size:.62em;font-weight:500;line-height:0;margin-left:2px;vertical-align:super}
+  .mln .mln-src{margin-top:14px;font-size:12px;line-height:1.5;color:var(--ink-3)}
+  .mln .mln-src ol{margin:4px 0 0;padding:0 0 0 16px}
+  .mln .mln-src li + li{margin-top:2px}
+  @media (max-width:749px){.mln .mln-sci{padding:16px 16px 18px}.mln .mln-sci li{font-size:16px}}
+
+  /* The black band */
+  .mln .mln-dark{margin-top:52px;padding:56px 0 52px;background:#121111;color:#fff}
+  .mln .mln-dark .mlst__lab{color:rgba(255,255,255,.7)}
+  .mln .mln-dark h2{margin:16px 0 0;font-size:clamp(28px,4.6vw,40px);font-weight:500;line-height:1.08;letter-spacing:-.02em;color:#fff}
+  .mln .mln-dark__txt{margin-top:18px;font-size:18px;line-height:1.55;color:rgba(255,255,255,.82)}
+  .mln .mln-dark__txt p + p{margin-top:12px}
+  .mln .mln-dark__txt strong{font-weight:500;color:#fff}
+  .mln .mln-steps{display:grid;gap:12px;margin:28px 0 0;padding:0;list-style:none}
+  .mln .mln-steps li{display:grid;grid-template-columns:44px 1fr;gap:4px 14px;padding:18px 18px 20px;border:1px solid rgba(255,255,255,.18);border-radius:12px;background:rgba(255,255,255,.04)}
+  .mln .mln-steps i{grid-row:1 / span 2;font-family:var(--mono);font-style:normal;font-size:13px;font-weight:500;letter-spacing:.08em;color:var(--cyan);padding-top:4px}
+  .mln .mln-steps b{font-size:19px;font-weight:500;line-height:1.25;color:#fff}
+  .mln .mln-steps span{font-size:16px;line-height:1.5;color:rgba(255,255,255,.78)}
+  .mln .mln-dark__end{margin-top:26px;padding-left:16px;border-left:3px solid var(--cyan);font-size:19px;font-weight:500;line-height:1.4;color:#fff}
+  .mln .mln-dark .mln-src{color:rgba(255,255,255,.5)}
+  @media (max-width:749px){.mln .mln-dark{margin-top:44px;padding:44px 0 40px}.mln .mln-steps li{grid-template-columns:34px 1fr;padding:16px}.mln .mln-dark__end{font-size:17.5px}}
+
+  /* The answer: MUTO */
+  .mln .mln-ans{margin-top:56px;padding:52px 0 44px;background:var(--ground);border-top:1px solid var(--hair)}
+  .mln .mln-ans h2{margin:16px 0 0;font-size:clamp(30px,5vw,44px);font-weight:500;line-height:1.05;letter-spacing:-.02em}
+  .mln .mln-ans__txt{margin-top:16px;font-size:18px;line-height:1.55}
+  .mln .mln-ans__txt strong{font-weight:500}
+  .mln .mln-ans__img{margin-top:24px;border-radius:12px;overflow:hidden;background:#e9e9e6}
+  .mln .mln-ans__img img{width:100%;aspect-ratio:16/10;object-fit:cover}
+  .mln .mln-tbl{margin:24px 0 0;padding:0;list-style:none;border:1px solid var(--hair);border-radius:12px;background:#fff;overflow:hidden}
+  .mln .mln-tbl li{display:grid;grid-template-columns:22px minmax(0,1fr) minmax(0,1.15fr);gap:12px;align-items:baseline;padding:14px 16px;font-size:16px;line-height:1.35}
+  .mln .mln-tbl li + li{border-top:1px solid var(--hair)}
+  .mln .mln-tbl li::before{content:"";width:16px;height:9px;margin-top:2px;border-left:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(-45deg) translateY(-2px);align-self:center}
+  .mln .mln-tbl b{font-weight:500}
+  .mln .mln-tbl span{color:var(--ink-2)}
+  .mln .mln-ticks{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 0;padding:0;list-style:none}
+  .mln .mln-ticks li{padding:7px 12px;border:1px solid var(--hair);border-radius:999px;background:#fff;font-size:13.5px;font-weight:500;line-height:1.2}
+  .mln .mln-cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:58px;margin-top:24px;padding:0 24px;border:0;border-radius:4px;background:var(--ink);color:#fff;font-family:var(--font);font-size:16px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;cursor:pointer}
+  .mln .mln-cta:hover{background:#000;color:#fff}
+  .mln .mln-foot{margin-top:18px;font-size:12.5px;line-height:1.5;color:var(--ink-3)}
+  @media (max-width:480px){.mln .mln-tbl li{grid-template-columns:20px 1fr;gap:2px 10px}.mln .mln-tbl span{grid-column:2}.mln .mln-tbl li::before{align-self:start;margin-top:7px}}
+</style>
+
+{%- liquid
+  assign s = section.settings
+  assign needs = section.blocks | where: 'type', 'need'
+  assign total = needs.size
+  assign n = 0
+  assign prev = ''
+-%}
+<div class="mlst mln">
+  {%- if s.index_label != blank and total > 0 -%}
+    <div class="mln-wrap">
+      <nav class="mln-idx" aria-label="{{ s.index_label | escape }}">
+        <p class="mlst__lab mlst__lab--dot">{{ s.index_label }}</p>
+        <ol>
+          {%- for block in needs -%}
+            <li><a href="#mln-{{ section.id }}-{{ forloop.index }}">{{ block.settings.short | default: block.settings.title }}</a></li>
+          {%- endfor -%}
+        </ol>
+      </nav>
+    </div>
+  {%- endif -%}
+
+  {%- for block in section.blocks -%}
+    {%- assign b = block.settings -%}
+    {%- case block.type -%}
+
+      {%- when 'need' -%}
+        {%- assign n = n | plus: 1 -%}
+        <div class="mln-wrap">
+          <article class="mln-n{% if prev == 'need' %} mln-n--rule{% endif %}" id="mln-{{ section.id }}-{{ n }}" {{ block.shopify_attributes }}>
+            <p class="mlst-r__n"><b>{{ n }}</b>{{ s.count_label | default: 'Essential' }} {{ n }} of {{ total }}</p>
+            <h2>{{ b.title }}</h2>
+            {%- if b.dose != blank -%}
+              <p class="mln-in"><span>{{ b.dose_label | default: 'In MUTO' }}</span><b>{{ b.dose }}</b></p>
+            {%- endif -%}
+            {%- if b.body != blank -%}<div class="mlst-r__body">{{ b.body }}</div>{%- endif -%}
+            {%- if b.science != blank -%}
+              <div class="mln-sci">
+                <p class="mlst__lab">{{ s.science_label | default: 'What the research says' }}</p>
+                <ul>
+                  {%- assign lines = b.science | newline_to_br | split: '<br />' -%}
+                  {%- for line in lines -%}
+                    {%- assign parts = line | split: '|' -%}
+                    {%- assign txt = parts[0] | strip -%}
+                    {%- if txt != blank -%}
+                      <li>{{ txt }}{% if parts.size > 1 %}<sup>{{ parts[1] | strip }}</sup>{% endif %}</li>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </ul>
+              </div>
+            {%- endif -%}
+            {%- if b.claim != blank -%}<p class="mlst-r__claim">{{ b.claim }}</p>{%- endif -%}
+            {%- if b.refs != blank -%}
+              <div class="mln-src">
+                {{ s.sources_label | default: 'Sources' }}
+                <ol>
+                  {%- assign refs = b.refs | newline_to_br | split: '<br />' -%}
+                  {%- for ref in refs -%}
+                    {%- assign r = ref | strip -%}
+                    {%- if r != blank -%}<li>{{ r }}</li>{%- endif -%}
+                  {%- endfor -%}
+                </ol>
+              </div>
+            {%- endif -%}
+          </article>
+        </div>
+
+      {%- when 'dark' -%}
+        <section class="mln-dark" {{ block.shopify_attributes }}>
+          <div class="mln-wrap">
+            {%- if b.label != blank -%}<p class="mlst__lab mlst__lab--dot">{{ b.label }}</p>{%- endif -%}
+            {%- if b.heading != blank -%}<h2>{{ b.heading }}</h2>{%- endif -%}
+            {%- if b.text != blank -%}<div class="mln-dark__txt">{{ b.text }}</div>{%- endif -%}
+            <ol class="mln-steps">
+              {%- if b.step_1_title != blank -%}<li><i>01</i><b>{{ b.step_1_title }}</b><span>{{ b.step_1_text }}</span></li>{%- endif -%}
+              {%- if b.step_2_title != blank -%}<li><i>02</i><b>{{ b.step_2_title }}</b><span>{{ b.step_2_text }}</span></li>{%- endif -%}
+              {%- if b.step_3_title != blank -%}<li><i>03</i><b>{{ b.step_3_title }}</b><span>{{ b.step_3_text }}</span></li>{%- endif -%}
+            </ol>
+            {%- if b.end != blank -%}<p class="mln-dark__end">{{ b.end }}</p>{%- endif -%}
+            {%- if b.refs != blank -%}
+              <div class="mln-src">
+                {{ s.sources_label | default: 'Sources' }}
+                <ol>
+                  {%- assign refs = b.refs | newline_to_br | split: '<br />' -%}
+                  {%- for ref in refs -%}
+                    {%- assign r = ref | strip -%}
+                    {%- if r != blank -%}<li>{{ r }}</li>{%- endif -%}
+                  {%- endfor -%}
+                </ol>
+              </div>
+            {%- endif -%}
+          </div>
+        </section>
+
+      {%- when 'answer' -%}
+        {%- liquid
+          if b.image != blank
+            assign a_src = b.image | image_url: width: 1520
+          else
+            assign a_src = b.image_url
+          endif
+        -%}
+        <section class="mln-ans" {{ block.shopify_attributes }}>
+          <div class="mln-wrap">
+            {%- if b.label != blank -%}<p class="mlst__lab mlst__lab--dot">{{ b.label }}</p>{%- endif -%}
+            {%- if b.heading != blank -%}<h2>{{ b.heading }}</h2>{%- endif -%}
+            {%- if b.text != blank -%}<div class="mln-ans__txt">{{ b.text }}</div>{%- endif -%}
+            {%- if a_src != blank -%}
+              <div class="mln-ans__img"><img src="{{ a_src }}" alt="{{ b.image_alt | escape }}" width="1520" height="950" loading="lazy"{% if b.image_position != blank %} style="object-position:{{ b.image_position | escape }}"{% endif %}></div>
+            {%- endif -%}
+            {%- if b.rows != blank -%}
+              <ul class="mln-tbl">
+                {%- assign rows = b.rows | newline_to_br | split: '<br />' -%}
+                {%- for row in rows -%}
+                  {%- assign parts = row | split: '|' -%}
+                  {%- assign name = parts[0] | strip -%}
+                  {%- if name != blank -%}
+                    <li><b>{{ name }}</b>{% if parts.size > 1 %}<span>{{ parts[1] | strip }}</span>{% endif %}</li>
+                  {%- endif -%}
+                {%- endfor -%}
+              </ul>
+            {%- endif -%}
+            {%- if b.ticks != blank -%}
+              <ul class="mln-ticks">
+                {%- assign ticks = b.ticks | newline_to_br | split: '<br />' -%}
+                {%- for tick in ticks -%}
+                  {%- assign t = tick | strip -%}
+                  {%- if t != blank -%}<li>{{ t }}</li>{%- endif -%}
+                {%- endfor -%}
+              </ul>
+            {%- endif -%}
+            {%- if b.cta != blank -%}
+              <a class="mln-cta" href="{{ b.cta_link | default: '#MainContent' }}" data-mln-buy>{{ b.cta }}<span aria-hidden="true">↓</span></a>
+            {%- endif -%}
+            {%- if b.foot != blank -%}<p class="mln-foot">{{ b.foot }}</p>{%- endif -%}
+          </div>
+        </section>
+
+    {%- endcase -%}
+    {%- assign prev = block.type -%}
+  {%- endfor -%}
+</div>
+
+<script>
+  /* The answer's button scrolls to the buy box on this page (the section named "buy"), if there is one */
+  (function () {
+    var root = document.getElementById('shopify-section-{{ section.id }}');
+    if (!root) return;
+    root.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('[data-mln-buy]');
+      if (!a) return;
+      var buy = document.querySelector('#MainContent [id$="__buy"]');
+      if (!buy) return;
+      e.preventDefault();
+      var y = buy.getBoundingClientRect().top + window.pageYOffset - 52;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "MUTO listicle — essentials",
+  "tag": "section",
+  "class": "muto-lst-needs",
+  "settings": [
+    { "type": "paragraph", "content": "Numbered ingredients with the science and sources for each. Drag a Dark panel between two essentials; end with the Answer. Essentials number themselves in order." },
+    { "type": "text", "id": "index_label", "label": "List label", "default": "The 7 essentials", "info": "Heads the at-a-glance list at the top. Blank hides the list." },
+    { "type": "text", "id": "count_label", "label": "Counter word", "default": "Essential", "info": "As in: Essential 1 of 7" },
+    { "type": "text", "id": "science_label", "label": "Research box label", "default": "What the research says" },
+    { "type": "text", "id": "sources_label", "label": "Sources label", "default": "Sources" }
+  ],
+  "blocks": [
+    {
+      "type": "need",
+      "name": "Essential",
+      "settings": [
+        { "type": "text", "id": "short", "label": "Short name", "info": "Used in the at-a-glance list, e.g. CoQ10" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "text", "id": "dose_label", "label": "Dose label", "default": "In MUTO" },
+        { "type": "text", "id": "dose", "label": "Dose", "info": "What MUTO provides, e.g. 150mg CoQ10. Blank hides the strip." },
+        { "type": "richtext", "id": "body", "label": "Copy" },
+        { "type": "textarea", "id": "science", "label": "Research findings", "info": "One finding per line. To cite a source, end the line with | and its number, e.g. NAD+ falls with age. | 1" },
+        { "type": "textarea", "id": "claim", "label": "Claims note", "info": "The authorised health claim, worded exactly" },
+        { "type": "textarea", "id": "refs", "label": "Sources", "info": "One per line, in the order they are numbered above" }
+      ]
+    },
+    {
+      "type": "dark",
+      "name": "Dark panel",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label" },
+        { "type": "textarea", "id": "heading", "label": "Heading" },
+        { "type": "richtext", "id": "text", "label": "Copy" },
+        { "type": "text", "id": "step_1_title", "label": "Step 1 title" },
+        { "type": "textarea", "id": "step_1_text", "label": "Step 1 text" },
+        { "type": "text", "id": "step_2_title", "label": "Step 2 title" },
+        { "type": "textarea", "id": "step_2_text", "label": "Step 2 text" },
+        { "type": "text", "id": "step_3_title", "label": "Step 3 title" },
+        { "type": "textarea", "id": "step_3_text", "label": "Step 3 text" },
+        { "type": "textarea", "id": "end", "label": "Closing line" },
+        { "type": "textarea", "id": "refs", "label": "Sources", "info": "One per line" }
+      ]
+    },
+    {
+      "type": "answer",
+      "name": "Answer",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label" },
+        { "type": "textarea", "id": "heading", "label": "Heading" },
+        { "type": "richtext", "id": "text", "label": "Copy" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_url", "label": "Image URL", "info": "Used when no image is picked" },
+        { "type": "text", "id": "image_alt", "label": "Image alt text" },
+        { "type": "text", "id": "image_position", "label": "Image focus", "info": "e.g. 50% 60%. Blank centres it." },
+        { "type": "textarea", "id": "rows", "label": "Checklist", "info": "One per line: Essential | What MUTO provides" },
+        { "type": "textarea", "id": "ticks", "label": "Trust points", "info": "One per line" },
+        { "type": "text", "id": "cta", "label": "Button text", "default": "See today’s offer" },
+        { "type": "text", "id": "cta_link", "label": "Button link", "info": "Leave blank to scroll to the buy box on this page" },
+        { "type": "textarea", "id": "foot", "label": "Small print" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "MUTO listicle — essentials" }]
+}
+{% endschema %}
