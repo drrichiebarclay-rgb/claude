@@ -1,9 +1,11 @@
-# Landing page: "After 35, your energy runs on 7 things"
+# Advertorial: "I'm a cell biologist. These are the 7 things I'd take for energy after 35."
 
-An ingredient-led listicle for paid traffic. Seven numbered essentials (NAD+, CoQ10, methylated B vitamins,
-creatine, zinc and copper, D3 and K2, PQQ and trans-resveratrol), each with what it does, what the research
-says and its sources. A black "why it happens" band sits between essentials 2 and 3. It ends with MUTO as the
-one routine that holds all seven, then the **live main product page's buy box** and the reviews widget.
+An advertorial for paid traffic, written in Richie's voice: headline, standfirst and byline, a short opening
+story, then seven numbered essentials (NAD+, CoQ10, methylated B vitamins, creatine, zinc and copper, D3 and
+K2, PQQ and trans-resveratrol). Each has what it does, what to look for on a label, what the research says
+and its sources. A black "why it happens" band sits between essentials 2 and 3. MUTO isn't named until the
+end, where it is introduced as what Richie built to cover the list, followed by a customer review, the
+**live main product page's buy box** and the reviews widget.
 
 Page address once the files are on the live theme:
 
@@ -41,9 +43,7 @@ address above.
 | Section | Source |
 |---|---|
 | Black Friday styles, buy-box styles, top bar | Live product page, unchanged |
-| Hero: "After 35, your energy runs on 7 things. Here's what they are." | `muto-lst-article` (existing section) |
-| "Featured in" logos and the scientific board strip | `muto-lst-trust`, as on the over-35 listicle |
-| The 7 essentials, the black band and the answer | `muto-lst-needs` (new) |
+| Article header (headline, standfirst, byline, lead photo), opening story, the 7 essentials, the black band, the customer quote and the answer | `muto-lst-needs` (new) |
 | Buy box | Live product page, unchanged |
 | Reviews widget | Live product page, unchanged |
 | Test-results panel (opened by the buy box's button) and the buy box's scripts | Live product page, unchanged |
@@ -64,7 +64,12 @@ does **not** follow later edits to the product page. When the product page's off
 The copy on this page lives in `build.py`. Everything is also editable in the theme editor (choose the
 template from the menu at the top); tell me about editor changes so the script keeps them.
 
-## Editing the essentials in the theme editor
+## Editing in the theme editor
+
+- **Article header:** headline, standfirst, byline and lead photo are in the section's settings. "Article
+  style" sets headings in sentence case, like the other advertorials; untick it for capitals.
+- **Text** blocks carry the story. The first one, above essential 1, opens with a large first letter.
+- **Quote** blocks are a pull quote or a customer review (tick "Show five stars").
 
 - Essentials number themselves. Drag to reorder, and "Essential 3 of 7" follows.
 - **Research findings:** one per line. To cite a source, end the line with `|` and its number:
@@ -88,19 +93,22 @@ template from the menu at the top); tell me about editor changes so the script k
 
 Before ads go live:
 
+- [ ] **Richie: it's in your voice.** Approve or reword the opening ("There's a question I hear more than
+      any other…"), the asides ("the mistake I see most often", "I'd skip products that list it as an
+      ingredient") and "I couldn't find one product that covered this list… So I formulated it."
+- [ ] **Customer quote:** Jonathon R's review, word for word from the product page.
+
 - [ ] **Regulatory read-through.** Citing studies for ingredients without an authorised claim (the CoQ10
       fatigue analysis, the PQQ studies, NAD+ levels) can still be read as an implied health claim by the
       ASA. Have your adviser check essentials 1, 2 and 7 and the black band.
 - [ ] **Conze 2019 used NIAGEN-brand NR.** The page says "300mg of NR a day"; confirm you're happy citing it
       for MUTO's NR.
-- [ ] **Creatine wording:** "A free 250g pouch of Ultrapure Creatine in your welcome kit" and "with your
+- [ ] **Creatine wording** in the answer: "comes free in your welcome kit" and "Free 250g pouch with your
       first subscription order". Update if the welcome kit changes.
-- [ ] **Rating line** in the hero: "4.8 from 100+ reviews".
-- [ ] **"Formulated by a cell biologist to cover this list"** in the answer: approve or reword.
 
 ## Check after copying
 
-1. Open the address on a phone. Black Friday bar at the top, no store header, then the hero.
+1. Open the address on a phone. Black Friday bar at the top, no store header, then the headline and byline.
 2. Seven essentials, numbered 1 to 7, with the black band between 2 and 3.
 3. "See today's offer" scrolls to the buy box.
 4. The buy box matches the main product page: plans, welcome kit, price and button. Add to cart on each plan.

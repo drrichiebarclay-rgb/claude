@@ -1,4 +1,8 @@
-"""Build the "energy after 35" ingredient listicle (templates/product.muto-nad-bf-lp-energy-35.json).
+"""Build the "energy after 35" advertorial (templates/product.muto-nad-bf-lp-energy-35.json).
+
+An article in the founder's voice: headline, standfirst and byline, a short opening story, seven numbered
+essentials with the research for each, a black "why it happens" band, then MUTO as what he built, the live
+buy box and the reviews.
 
 A product template, like the over-35 listicle, so the page has the product in scope and the buy box is the
 real one. The name starts with muto-nad-bf because the header and footer switch the Black Friday top bar and
@@ -7,8 +11,12 @@ sticky add to cart on for any template whose name contains it.
 Everything from the buy box down is copied, unchanged, from the live main product page's template
 (live-snapshot/product.muto-nad-bf-premium.json, taken from the live theme on 18 November 2026): the buy box
 and the styles and scripts that draw it, the reviews widget and the test-results panel its button opens.
-Above it: the listicle hero and trust strip (existing sections) and the new essentials section
-(sections/muto-lst-needs.liquid).
+Above it: one section, sections/muto-lst-needs.liquid, which carries the article header, the story text,
+the essentials, the quotes and the answer.
+
+Voice: first person, Dr Richie Barclay. Nothing is put in his mouth that the site doesn't already say about
+him (cell biologist, formulated MUTO because he couldn't find a product he'd take); the opening anecdote is
+for him to approve. Customer quotes are real reviews from the live product page, word for word.
 
 Claims guardrails, as on the other pages: authorised nutrient claims worded exactly and kept in the claims
 note; research described as what a study measured, with its source, never as a promised result; no claim that
@@ -33,7 +41,6 @@ def load(path):
 
 
 PDP = load("live-snapshot/product.muto-nad-bf-premium.json")
-LST = load("live-snapshot/product.muto-nad-bf-lp-over-35.json")
 P = PDP["sections"]
 
 
@@ -41,38 +48,59 @@ def lines(*items):
     return "\n".join(items)
 
 
-def need(short, title, dose, body, science, refs, claim="", dose_label="In MUTO"):
+def need(short, title, dose, body, science, refs, claim="", dose_label="What to look for"):
     return {"type": "need", "settings": {
         "short": short, "title": title, "dose_label": dose_label, "dose": dose, "body": body,
         "science": lines(*science), "claim": claim, "refs": lines(*refs)}}
 
 
-# ------------------------------------------------------------------ hero and trust (existing sections)
-hero = {"type": "muto-lst-article", "settings": {
-    "eyebrow": "Energy after 35 · What the research says",
-    "heading": "After 35, your energy runs on 7 things. Here’s what they are.",
-    "sub": "If your afternoons fade faster than they used to, it isn’t in your head and it isn’t laziness. "
-           "The way your cells make energy starts to change from your mid-30s. This is what the research "
-           "says your body needs now, and why.",
-    "meta": "4.8 from 100+ reviews · 90-day money-back guarantee",
+# ------------------------------------------------------------------ article header and opening
+FOUNDER = CDN + "about-founder.jpg?v=1790751995"
+header = {
+    "article": True,
+    "kicker": "Energy and healthy ageing",
+    "headline": "I’m a cell biologist. These are the 7 things I’d take for energy after 35.",
+    "standfirst": "Most people over 35 blame themselves for the 3pm slump. The real cause is in your cells, "
+                  "and the research on what they need is clearer than the supplement aisle makes it look.",
+    "author_name": "By Dr Richie Barclay",
+    "author_role": "PhD cell biologist · Founder of MUTO · 6 min read",
+    "author_image_url": FOUNDER, "author_image_position": "50% 20%",
     "image_url": CDN + "muto-step-morning.jpg?v=1793455074",
     "image_alt": "A woman drinking coffee at her kitchen table in the morning light",
-    "total": 7, "note": "",
-    "offer_eyebrow": "", "offer_title": "", "offer_text": "", "offer_cta": "", "offer_note": "",
-    "offer_image_url": "", "offer_image_alt": ""}}
+    "image_caption": "",
+}
 
-trust = copy.deepcopy(LST["sections"]["trust"])
+
+def text(body, kicker="", heading=""):
+    return {"type": "text", "settings": {"kicker": kicker, "heading": heading, "body": body}}
+
+
+def quote(words, name="", note="", stars=False):
+    return {"type": "quote", "settings": {"stars": stars, "text": words, "name": name, "note": note}}
+
+
+opening = text(
+    "<p>There’s a question I hear more than any other. It usually comes from someone in their late 30s or 40s "
+    "who is doing most things right. <strong>“Why am I so tired? Nothing’s actually wrong with me.”</strong></p>"
+    "<p>They sleep reasonably well. They exercise. Their blood tests come back fine. And yet by mid-afternoon "
+    "they’re running on coffee and willpower, and a hard week takes longer to shake off than it used to.</p>"
+    "<p>I’m a cell biologist, so I’ll tell you what I tell them. You’re not lazy, and "
+    "you’re not imagining it. The way your cells make energy changes as you get older.</p>"
+    "<p>Here are the seven things I’d look at, in order. For each one I’ll tell you what it does, what to look "
+    "for on a label, and what the research actually shows, including where it’s still thin.</p>")
 
 # ------------------------------------------------------------------ the seven
 REG = "Regulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
 
 nad = need(
     "NAD+", "NAD+: the molecule every cell needs to make energy",
-    "300mg nicotinamide riboside (NR), with 450mg TMG",
-    "<p>NAD+ is in every cell you have. Your mitochondria, the parts of each cell that turn food into energy, "
-    "can’t do their job without it. <strong>And you have less of it with every decade.</strong></p>"
-    "<p>NAD+ itself isn’t well absorbed when you swallow it. So the practical route is nicotinamide riboside "
-    "(NR): a form of vitamin B3 that your body turns into NAD+.</p>",
+    "300mg of nicotinamide riboside (NR), the most the UK allows",
+    "<p>If I had to pick one molecule to explain why 45 feels different from 25, it would be this one. NAD+ is "
+    "in every cell you have. Your mitochondria, the parts of each cell that turn food into energy, can’t do "
+    "their job without it. <strong>And you have less of it with every decade.</strong></p>"
+    "<p>NAD+ itself isn’t well absorbed when you swallow it, which is why I’d skip products that list it as an "
+    "ingredient. The practical route is nicotinamide riboside (NR): a form of vitamin B3 that your body turns "
+    "into NAD+.</p>",
     ["NAD+ levels measured in human skin fall steadily with age, from newborns to people in their 70s. | 1",
      "In a placebo-controlled trial, 300mg of NR a day raised NAD+ in the blood by about 51% within two weeks. | 2",
      "Still being studied: whether more NAD+ changes how energetic people feel. The trials so far measure levels in the body."],
@@ -84,14 +112,15 @@ nad = need(
 
 coq10 = need(
     "CoQ10", "CoQ10: the spark inside your mitochondria",
-    "150mg CoQ10",
-    "<p>CoQ10 sits inside your mitochondria and carries electrons along the chain that makes ATP, the energy "
-    "your cells actually spend. It’s part of the machinery itself.</p>"
+    "150mg, taken with food",
+    "<p>CoQ10 is the one I’m most surprised people haven’t heard of. It sits inside your mitochondria and "
+    "carries electrons along the chain that makes ATP, the energy your cells actually spend. It’s part of the "
+    "machinery itself.</p>"
     "<p>Your body makes its own, but production peaks in your twenties and falls from there, and food provides "
     "very little.</p>",
     ["CoQ10 levels in human organs, including the heart, are highest at around age 20 and then decline. | 1",
      "A 2022 analysis that pooled 13 randomised trials and 1,126 people found CoQ10 reduced fatigue scores compared with placebo. | 2",
-     "CoQ10 is fat-soluble, so it’s absorbed better with food. That’s why MUTO is taken with breakfast. | 3"],
+     "CoQ10 is fat-soluble, so it’s absorbed better with food. Take it with breakfast, not on an empty stomach. | 3"],
     ["Kalén A, Appelkvist EL, Dallner G. Age-related changes in the lipid compositions of rat and human tissues. Lipids. 1989.",
      "Tsai IC, et al. Effectiveness of coenzyme Q10 supplementation for reducing fatigue: a systematic review and "
      "meta-analysis of randomized controlled trials. Front Pharmacol. 2022.",
@@ -121,7 +150,9 @@ dark = {"type": "dark", "settings": {
 
 b_vits = need(
     "Methylated B vitamins", "Methylated B vitamins: the form your body can use straight away",
-    "All 8 B vitamins. B12 as methylcobalamin, folate as 5-MTHF, B6 as P5P",
+    "All 8 B vitamins, with B12 as methylcobalamin, folate as 5-MTHF and B6 as P5P",
+    "<p>Most people have taken a B complex at some point. Far fewer have checked which form was in it, and "
+    "that’s the part I care about.</p>"
     "<p>B vitamins are the workers on your energy production line. Almost every step that releases energy from "
     "food needs one of them, and your body can’t store most of them for long.</p>"
     "<p>Ordinary B vitamins have to be converted before your body can use them. Methylated, or “active”, forms "
@@ -142,8 +173,9 @@ b_vits = need(
 
 creatine = need(
     "Creatine", "Creatine: your muscles’ fastest energy reserve",
-    "A free 250g pouch of Ultrapure Creatine in your welcome kit. One scoop a day",
-    "<p>Creatine isn’t only for bodybuilders. Your muscles store it as a rapid reserve that recharges ATP in "
+    "3 to 5g of creatine monohydrate a day. Nothing fancier",
+    "<p>This is the one that surprises people, because they think of it as a gym supplement. Creatine isn’t "
+    "only for bodybuilders. Your muscles store it as a rapid reserve that recharges ATP in "
     "seconds whenever demand spikes: the stairs, a run for the train, the last few reps.</p>"
     "<p>You make about a gram a day and get the rest from meat and fish. And from your 30s, muscle itself "
     "starts to slip unless you keep using it.</p>",
@@ -156,16 +188,15 @@ creatine = need(
      "Volpi E, Nazemi R, Fujita S. Muscle tissue changes with aging. Curr Opin Clin Nutr Metab Care. 2004.",
      REG],
     claim="Creatine increases physical performance in successive bursts of short-term, high-intensity exercise. "
-          "The beneficial effect is obtained with a daily intake of 3g of creatine.",
-    dose_label="With MUTO")
+          "The beneficial effect is obtained with a daily intake of 3g of creatine.")
 
 zinc = need(
     "Zinc and copper", "Zinc and copper: small doses, big jobs, and they have to be balanced",
-    "15mg zinc and 1mg copper, both as bisglycinate",
+    "15mg of zinc with 1mg of copper, both as bisglycinate",
     "<p>Zinc helps your body process the carbohydrate, fat and protein you eat. Copper is part of the final "
     "step of energy production inside your mitochondria. You only need a little of each, but you do need both.</p>"
-    "<p>Here’s the catch: they compete. Take zinc on its own for months and your copper can drop. That’s why "
-    "they belong in the same formula, in the right balance.</p>",
+    "<p>Here’s the catch, and it’s the mistake I see most often: they compete. Take zinc on its own for months "
+    "and your copper can drop. If a product gives you one without the other, put it back on the shelf.</p>",
     ["Zinc taken long-term without copper can lower the body’s copper levels. | 1",
      "In a crossover study, zinc bisglycinate was absorbed 43% better than zinc gluconate, a common form. | 2",
      "Zinc levels tend to fall as we get older. | 3"],
@@ -179,7 +210,7 @@ zinc = need(
 
 d3k2 = need(
     "Vitamin D3 and K2", "Vitamin D3 and K2: the sunshine pair your muscles rely on",
-    "50µg (2,000 IU) vegan vitamin D3 and 100µg vitamin K2 (MK-7)",
+    "2,000 IU of vitamin D3 with 100µg of vitamin K2 as MK-7",
     "<p>Your muscles need vitamin D to work normally, and how strong you feel is a big part of how energetic "
     "you feel. Your skin makes it from sunlight, but from October to March the UK sun isn’t strong enough.</p>"
     "<p>K2 is its partner. Vitamin D helps your body absorb calcium, and K2 works alongside it for your bones.</p>",
@@ -199,11 +230,11 @@ d3k2 = need(
 
 pqq = need(
     "PQQ and trans-resveratrol", "PQQ and trans-resveratrol: the two that mitochondria researchers are watching",
-    "20mg PQQ and 50mg trans-resveratrol, with 150mg grape seed extract",
-    "<p>These are the newest names on the list, and we’ll be straight with you: the research is at an earlier "
-    "stage than for the vitamins above.</p>"
+    "20mg of PQQ and 50mg of trans-resveratrol, the stable form",
+    "<p>These are the newest names on my list, and I’ll be straight with you: the research is at an earlier "
+    "stage than for the vitamins above. I include them because of where that research is pointing.</p>"
     "<p>PQQ is found in tiny amounts in kiwi, parsley and green tea. Resveratrol comes from grape skins. Both "
-    "are studied for the same reason: what they do in the mitochondria, the power stations this whole page is about.</p>",
+    "are studied for the same reason: what they do in the mitochondria, the power stations this whole article is about.</p>",
     ["In cell studies, PQQ switched on the signal that tells cells to build new mitochondria. | 1",
      "In a small human study, PQQ changed markers in blood and urine that are linked to mitochondrial activity. | 2",
      "Resveratrol is one of the most studied plant compounds in healthy-ageing research, including the cell "
@@ -214,12 +245,25 @@ pqq = need(
      "mitochondrial-related metabolism in human subjects. J Nutr Biochem. 2013.",
      "Baur JA, Sinclair DA. Therapeutic potential of resveratrol: the in vivo evidence. Nat Rev Drug Discov. 2006."])
 
+reveal = text(
+    "<p>Seven essentials means seven or more separate pots, each from a different brand, each with its own "
+    "dose and its own reorder date. Most people manage it for a month. Then the routine quietly falls apart.</p>"
+    "<p>The best formula in the world does nothing if you stop taking it. So the real question isn’t only what "
+    "to take. It’s what you’ll still be taking in six months.</p>",
+    kicker="The problem with a list like this",
+    heading="Knowing what to take is the easy part.")
+
+customer = quote(
+    "“Being in my mid 30s, everything has started to slow down. Muto is providing me with a sense of vitality "
+    "which I haven’t experienced since my mid 20s”",
+    name="Jonathon R", note="MUTO customer. Individual experience; results vary.", stars=True)
+
 answer = {"type": "answer", "settings": {
-    "label": "All seven, one routine",
-    "heading": "You could buy seven separate pots. Or take two capsules with breakfast.",
-    "text": "<p>MUTO NAD+ Cellular Complex was formulated by a cell biologist to cover this list. "
-            "<strong>Six of the seven are in two capsules a day</strong>, with every dose printed on the label. "
-            "The seventh, creatine, comes free in your welcome kit.</p>",
+    "label": "What I built",
+    "heading": "So I put all seven into one daily routine.",
+    "text": "<p>I couldn’t find one product that covered this list at these doses, with every dose printed on "
+            "the label. So I formulated it. <strong>MUTO NAD+ Cellular Complex puts six of the seven into two "
+            "capsules with breakfast.</strong> The seventh, creatine, comes free in your welcome kit.</p>",
     "image_url": CDN + "muto-menu-offer.jpg?v=1793615475",
     "image_alt": "A jar of MUTO NAD+ Cellular Complex beside its box, with every ingredient and dose printed on the side",
     "image_position": "50% 70%",
@@ -238,13 +282,14 @@ answer = {"type": "answer", "settings": {
             "If your tiredness is new, severe or doesn’t lift, speak to your GP. If you take medication, "
             "or are pregnant or breastfeeding, check with your doctor before taking supplements."}}
 
-order_blocks = [("nad", nad), ("coq10", coq10), ("why", dark), ("bvits", b_vits), ("creatine", creatine),
-                ("zinc", zinc), ("d3k2", d3k2), ("pqq", pqq), ("answer", answer)]
+order_blocks = [("opening", opening), ("nad", nad), ("coq10", coq10), ("why", dark), ("bvits", b_vits),
+                ("creatine", creatine), ("zinc", zinc), ("d3k2", d3k2), ("pqq", pqq), ("reveal", reveal),
+                ("customer", customer), ("answer", answer)]
 needs = {"type": "muto-lst-needs",
          "blocks": {k: v for k, v in order_blocks},
          "block_order": [k for k, _ in order_blocks],
-         "settings": {"index_label": "The 7 essentials", "count_label": "Essential",
-                      "science_label": "What the research says", "sources_label": "Sources"}}
+         "settings": dict(header, index_label="", count_label="Essential",
+                          science_label="What the research says", sources_label="Sources")}
 
 # ------------------------------------------------------------------ the template
 # From the live product page, unchanged: the styles that draw the buy box (bf_style, head_styles), the Black
@@ -260,8 +305,6 @@ sections = {
     "bf_style": bf_style,
     "head_styles": P["head_styles"],
     "bf_bar": P["bf_bar"],
-    "hero": hero,
-    "trust": trust,
     "needs": needs,
     "buy": P["buy"],
     "early": P["early"],

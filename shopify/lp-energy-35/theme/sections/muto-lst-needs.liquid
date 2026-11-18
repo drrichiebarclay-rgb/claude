@@ -5,14 +5,50 @@
   between two essentials by dragging it there. The Answer block closes the list: MUTO as the one routine that
   holds all of them, with a button that scrolls to the buy box below.
 
+  As an advertorial: fill in the Article header settings (headline, standfirst, author) and the section opens
+  like an article, with a byline. Text blocks carry the story between essentials and Quote blocks carry a pull
+  quote or a customer's words. "Article style" sets the headings in sentence case, like the other advertorials.
+
   Numbering is automatic: essentials are counted in block order, so reordering or removing one renumbers the rest.
-  Sits under MUTO listicle — article (the hero) on templates/product.muto-nad-bf-lp-energy-35.json.
+  Used on templates/product.muto-nad-bf-lp-energy-35.json.
   Base styles: assets/muto-lst.css. The styles for this section's own parts are below.
 {%- endcomment -%}
 {{ 'muto-lst.css' | asset_url | stylesheet_tag }}
 <style>
   .mln{padding-bottom:8px}
   .mln .mln-wrap{max-width:760px;margin:0 auto;padding:0 20px}
+
+  /* Article header: kicker, headline, standfirst, byline, lead image */
+  .mln .mln-hd{padding:44px 0 0}
+  .mln .mln-hd h1{margin:14px 0 0;font-size:clamp(33px,6vw,54px);font-weight:500;line-height:1.05;letter-spacing:-.028em}
+  .mln .mln-hd__sub{margin-top:18px;font-size:clamp(18px,2.4vw,21px);line-height:1.45;color:var(--ink-2)}
+  .mln .mln-by{display:flex;align-items:center;gap:14px;margin-top:24px;padding:16px 0;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+  .mln .mln-by img{flex:0 0 auto;width:52px;height:52px;border-radius:50%;object-fit:cover;background:var(--ground)}
+  .mln .mln-by__txt{display:grid;gap:4px;min-width:0}
+  .mln .mln-by__txt b{font-size:16.5px;font-weight:500;line-height:1.2}
+  .mln .mln-by__txt small{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.1em;line-height:1.45;text-transform:uppercase;color:var(--ink-2)}
+  .mln .mln-hd__img{margin-top:24px;border-radius:12px;overflow:hidden;background:var(--ground)}
+  .mln .mln-hd__img img{width:100%;aspect-ratio:16/10;object-fit:cover}
+  .mln .mln-hd__cap{margin-top:8px;font-size:12.5px;line-height:1.45;color:var(--ink-3)}
+
+  /* Story text between essentials */
+  .mln .mln-p{padding:36px 0 0}
+  .mln .mln-p--first{padding-top:28px}
+  .mln .mln-p h2{margin:12px 0 0;font-size:clamp(26px,4.2vw,36px);font-weight:500;line-height:1.1;letter-spacing:-.02em}
+  .mln .mln-p .mlst-r__body{font-size:19px;line-height:1.6}
+  .mln .mln-p--first .mlst-r__body{margin-top:0}
+  .mln .mln-p--first .mlst-r__body > p:first-child::first-letter{float:left;margin:6px 10px 0 0;font-size:3.5em;font-weight:500;line-height:.82}
+  @media (max-width:749px){.mln .mln-p .mlst-r__body{font-size:18px}}
+
+  /* Pull quote, or a customer's words */
+  .mln .mln-q{margin:36px 0 0;padding:4px 0 4px 20px;border-left:3px solid var(--ink)}
+  .mln .mln-q p{font-size:clamp(22px,3.4vw,28px);font-weight:500;line-height:1.25;letter-spacing:-.015em}
+  .mln .mln-q footer{margin-top:12px;font-size:14px;line-height:1.4;color:var(--ink-2)}
+  .mln .mln-q footer b{font-weight:500;color:var(--ink)}
+  .mln .mln-q .mln-stars{display:block;margin-bottom:10px;font-size:14px;letter-spacing:.14em}
+
+  /* Article style: headings in sentence case, as in the other advertorials (the theme sets listicle headings in capitals) */
+  html:root body #MainContent .mln.mln--article :is(h1,h2){text-transform:none!important}
 
   /* The seven at a glance */
   .mln .mln-idx{margin:28px 0 0;padding:20px 22px 22px;border:1px solid var(--hair);border-radius:12px;background:var(--ground)}
@@ -83,8 +119,39 @@
   assign total = needs.size
   assign n = 0
   assign prev = ''
+  assign first_text = true
+  if s.author_image != blank
+    assign by_src = s.author_image | image_url: width: 160
+  else
+    assign by_src = s.author_image_url
+  endif
+  if s.image != blank
+    assign hd_src = s.image | image_url: width: 1520
+  else
+    assign hd_src = s.image_url
+  endif
 -%}
-<div class="mlst mln">
+<div class="mlst mln{% if s.article %} mln--article{% endif %}">
+  {%- if s.headline != blank -%}
+    <div class="mln-wrap">
+      <header class="mln-hd">
+        {%- if s.kicker != blank -%}<p class="mlst__lab mlst__lab--dot">{{ s.kicker }}</p>{%- endif -%}
+        <h1>{{ s.headline }}</h1>
+        {%- if s.standfirst != blank -%}<p class="mln-hd__sub">{{ s.standfirst }}</p>{%- endif -%}
+        {%- if s.author_name != blank -%}
+          <div class="mln-by">
+            {%- if by_src != blank -%}<img src="{{ by_src }}" alt="" width="52" height="52"{% if s.author_image_position != blank %} style="object-position:{{ s.author_image_position | escape }}"{% endif %}>{%- endif -%}
+            <span class="mln-by__txt"><b>{{ s.author_name }}</b>{%- if s.author_role != blank -%}<small>{{ s.author_role }}</small>{%- endif -%}</span>
+          </div>
+        {%- endif -%}
+        {%- if hd_src != blank -%}
+          <div class="mln-hd__img"><img src="{{ hd_src }}" alt="{{ s.image_alt | escape }}" width="1520" height="950" fetchpriority="high"></div>
+          {%- if s.image_caption != blank -%}<p class="mln-hd__cap">{{ s.image_caption }}</p>{%- endif -%}
+        {%- endif -%}
+      </header>
+    </div>
+  {%- endif -%}
+
   {%- if s.index_label != blank and total > 0 -%}
     <div class="mln-wrap">
       <nav class="mln-idx" aria-label="{{ s.index_label | escape }}">
@@ -105,7 +172,7 @@
       {%- when 'need' -%}
         {%- assign n = n | plus: 1 -%}
         <div class="mln-wrap">
-          <article class="mln-n{% if prev == 'need' %} mln-n--rule{% endif %}" id="mln-{{ section.id }}-{{ n }}" {{ block.shopify_attributes }}>
+          <article class="mln-n{% if prev == 'need' or prev == 'text' or prev == 'quote' %} mln-n--rule{% endif %}" id="mln-{{ section.id }}-{{ n }}" {{ block.shopify_attributes }}>
             <p class="mlst-r__n"><b>{{ n }}</b>{{ s.count_label | default: 'Essential' }} {{ n }} of {{ total }}</p>
             <h2>{{ b.title }}</h2>
             {%- if b.dose != blank -%}
@@ -141,6 +208,25 @@
               </div>
             {%- endif -%}
           </article>
+        </div>
+
+      {%- when 'text' -%}
+        <div class="mln-wrap">
+          <div class="mln-p{% if first_text and n == 0 %} mln-p--first{% endif %}" {{ block.shopify_attributes }}>
+            {%- if b.kicker != blank -%}<p class="mlst__lab mlst__lab--dot">{{ b.kicker }}</p>{%- endif -%}
+            {%- if b.heading != blank -%}<h2>{{ b.heading }}</h2>{%- endif -%}
+            {%- if b.body != blank -%}<div class="mlst-r__body">{{ b.body }}</div>{%- endif -%}
+          </div>
+        </div>
+        {%- assign first_text = false -%}
+
+      {%- when 'quote' -%}
+        <div class="mln-wrap">
+          <blockquote class="mln-q" {{ block.shopify_attributes }}>
+            {%- if b.stars -%}<span class="mln-stars" aria-label="5 out of 5 stars">★★★★★</span>{%- endif -%}
+            <p>{{ b.text }}</p>
+            {%- if b.name != blank -%}<footer><b>{{ b.name }}</b>{% if b.note != blank %} · {{ b.note }}{% endif %}</footer>{%- endif -%}
+          </blockquote>
         </div>
 
       {%- when 'dark' -%}
@@ -243,7 +329,22 @@
   "class": "muto-lst-needs",
   "settings": [
     { "type": "paragraph", "content": "Numbered ingredients with the science and sources for each. Drag a Dark panel between two essentials; end with the Answer. Essentials number themselves in order." },
-    { "type": "text", "id": "index_label", "label": "List label", "default": "The 7 essentials", "info": "Heads the at-a-glance list at the top. Blank hides the list." },
+    { "type": "header", "content": "Article header" },
+    { "type": "checkbox", "id": "article", "label": "Article style", "default": false, "info": "Headings in sentence case, like the other advertorials" },
+    { "type": "text", "id": "kicker", "label": "Kicker" },
+    { "type": "textarea", "id": "headline", "label": "Headline", "info": "Blank hides the article header" },
+    { "type": "textarea", "id": "standfirst", "label": "Standfirst" },
+    { "type": "text", "id": "author_name", "label": "Byline", "info": "e.g. By Dr Richie Barclay. Blank hides the byline." },
+    { "type": "text", "id": "author_role", "label": "Byline second line" },
+    { "type": "image_picker", "id": "author_image", "label": "Author photo" },
+    { "type": "text", "id": "author_image_url", "label": "Author photo URL", "info": "Used when no photo is picked" },
+    { "type": "text", "id": "author_image_position", "label": "Author photo focus", "info": "e.g. 50% 20% to keep the face in the circle" },
+    { "type": "image_picker", "id": "image", "label": "Lead image" },
+    { "type": "text", "id": "image_url", "label": "Lead image URL", "info": "Used when no image is picked" },
+    { "type": "text", "id": "image_alt", "label": "Lead image alt text" },
+    { "type": "text", "id": "image_caption", "label": "Lead image caption" },
+    { "type": "header", "content": "Essentials" },
+    { "type": "text", "id": "index_label", "label": "List label", "info": "Heads an at-a-glance list of the essentials, e.g. The 7 essentials. Blank hides the list." },
     { "type": "text", "id": "count_label", "label": "Counter word", "default": "Essential", "info": "As in: Essential 1 of 7" },
     { "type": "text", "id": "science_label", "label": "Research box label", "default": "What the research says" },
     { "type": "text", "id": "sources_label", "label": "Sources label", "default": "Sources" }
@@ -261,6 +362,25 @@
         { "type": "textarea", "id": "science", "label": "Research findings", "info": "One finding per line. To cite a source, end the line with | and its number, e.g. NAD+ falls with age. | 1" },
         { "type": "textarea", "id": "claim", "label": "Claims note", "info": "The authorised health claim, worded exactly" },
         { "type": "textarea", "id": "refs", "label": "Sources", "info": "One per line, in the order they are numbered above" }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        { "type": "text", "id": "kicker", "label": "Kicker" },
+        { "type": "textarea", "id": "heading", "label": "Heading" },
+        { "type": "richtext", "id": "body", "label": "Copy" }
+      ]
+    },
+    {
+      "type": "quote",
+      "name": "Quote",
+      "settings": [
+        { "type": "checkbox", "id": "stars", "label": "Show five stars", "default": false, "info": "For a customer review" },
+        { "type": "textarea", "id": "text", "label": "Quote" },
+        { "type": "text", "id": "name", "label": "Name" },
+        { "type": "text", "id": "note", "label": "Note after the name", "info": "e.g. MUTO customer. Results vary." }
       ]
     },
     {

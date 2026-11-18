@@ -25,70 +25,25 @@
         "padding_bottom": 0
       }
     },
-    "hero": {
-      "type": "muto-lst-article",
-      "settings": {
-        "eyebrow": "Energy after 35 · What the research says",
-        "heading": "After 35, your energy runs on 7 things. Here’s what they are.",
-        "sub": "If your afternoons fade faster than they used to, it isn’t in your head and it isn’t laziness. The way your cells make energy starts to change from your mid-30s. This is what the research says your body needs now, and why.",
-        "meta": "4.8 from 100+ reviews · 90-day money-back guarantee",
-        "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-step-morning.jpg?v=1793455074",
-        "image_alt": "A woman drinking coffee at her kitchen table in the morning light",
-        "total": 7,
-        "note": "",
-        "offer_eyebrow": "",
-        "offer_title": "",
-        "offer_text": "",
-        "offer_cta": "",
-        "offer_note": "",
-        "offer_image_url": "",
-        "offer_image_alt": ""
-      }
-    },
-    "trust": {
-      "type": "muto-lst-trust",
-      "blocks": {
-        "l1": {
-          "type": "logo",
-          "settings": {
-            "name": "Men's Fitness",
-            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/mens-fitness-magazine-logo-blue_1.jpg?v=1769537356"
-          }
-        },
-        "l3": {
-          "type": "logo",
-          "settings": {
-            "name": "Women's Fitness",
-            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/womens-fitness-magazine-logo-blue_1.jpg?v=1769537339"
-          }
-        }
-      },
-      "block_order": [
-        "l1",
-        "l3"
-      ],
-      "settings": {
-        "label": "Featured in",
-        "face_1": "shopify://shop_images/Dr_James_Cover_Final.png",
-        "face_2": "shopify://shop_images/Dr_Alka_Cover_Final.png",
-        "face_3": "shopify://shop_images/Dr_Richard_Cover_Final.png",
-        "face_4": "shopify://shop_images/Dr_Matt.png",
-        "doc_title": "Formulated with leading doctors and scientists",
-        "doc_text": "Our scientific advisory board reviews the formula",
-        "doc_link": ""
-      }
-    },
     "needs": {
       "type": "muto-lst-needs",
       "blocks": {
+        "opening": {
+          "type": "text",
+          "settings": {
+            "kicker": "",
+            "heading": "",
+            "body": "<p>There’s a question I hear more than any other. It usually comes from someone in their late 30s or 40s who is doing most things right. <strong>“Why am I so tired? Nothing’s actually wrong with me.”</strong></p><p>They sleep reasonably well. They exercise. Their blood tests come back fine. And yet by mid-afternoon they’re running on coffee and willpower, and a hard week takes longer to shake off than it used to.</p><p>I’m a cell biologist, so I’ll tell you what I tell them. You’re not lazy, and you’re not imagining it. The way your cells make energy changes as you get older.</p><p>Here are the seven things I’d look at, in order. For each one I’ll tell you what it does, what to look for on a label, and what the research actually shows, including where it’s still thin.</p>"
+          }
+        },
         "nad": {
           "type": "need",
           "settings": {
             "short": "NAD+",
             "title": "NAD+: the molecule every cell needs to make energy",
-            "dose_label": "In MUTO",
-            "dose": "300mg nicotinamide riboside (NR), with 450mg TMG",
-            "body": "<p>NAD+ is in every cell you have. Your mitochondria, the parts of each cell that turn food into energy, can’t do their job without it. <strong>And you have less of it with every decade.</strong></p><p>NAD+ itself isn’t well absorbed when you swallow it. So the practical route is nicotinamide riboside (NR): a form of vitamin B3 that your body turns into NAD+.</p>",
+            "dose_label": "What to look for",
+            "dose": "300mg of nicotinamide riboside (NR), the most the UK allows",
+            "body": "<p>If I had to pick one molecule to explain why 45 feels different from 25, it would be this one. NAD+ is in every cell you have. Your mitochondria, the parts of each cell that turn food into energy, can’t do their job without it. <strong>And you have less of it with every decade.</strong></p><p>NAD+ itself isn’t well absorbed when you swallow it, which is why I’d skip products that list it as an ingredient. The practical route is nicotinamide riboside (NR): a form of vitamin B3 that your body turns into NAD+.</p>",
             "science": "NAD+ levels measured in human skin fall steadily with age, from newborns to people in their 70s. | 1\nIn a placebo-controlled trial, 300mg of NR a day raised NAD+ in the blood by about 51% within two weeks. | 2\nStill being studied: whether more NAD+ changes how energetic people feel. The trials so far measure levels in the body.",
             "claim": "Niacin (vitamin B3) contributes to normal energy-yielding metabolism and to the reduction of tiredness and fatigue.",
             "refs": "Massudi H, et al. Age-associated changes in oxidative stress and NAD+ metabolism in human tissue. PLoS One. 2012.\nConze D, Brenner C, Kruger CL. Safety and metabolism of long-term administration of NIAGEN (nicotinamide riboside chloride) in a randomized, double-blind, placebo-controlled clinical trial of healthy overweight adults. Sci Rep. 2019.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
@@ -99,10 +54,10 @@
           "settings": {
             "short": "CoQ10",
             "title": "CoQ10: the spark inside your mitochondria",
-            "dose_label": "In MUTO",
-            "dose": "150mg CoQ10",
-            "body": "<p>CoQ10 sits inside your mitochondria and carries electrons along the chain that makes ATP, the energy your cells actually spend. It’s part of the machinery itself.</p><p>Your body makes its own, but production peaks in your twenties and falls from there, and food provides very little.</p>",
-            "science": "CoQ10 levels in human organs, including the heart, are highest at around age 20 and then decline. | 1\nA 2022 analysis that pooled 13 randomised trials and 1,126 people found CoQ10 reduced fatigue scores compared with placebo. | 2\nCoQ10 is fat-soluble, so it’s absorbed better with food. That’s why MUTO is taken with breakfast. | 3",
+            "dose_label": "What to look for",
+            "dose": "150mg, taken with food",
+            "body": "<p>CoQ10 is the one I’m most surprised people haven’t heard of. It sits inside your mitochondria and carries electrons along the chain that makes ATP, the energy your cells actually spend. It’s part of the machinery itself.</p><p>Your body makes its own, but production peaks in your twenties and falls from there, and food provides very little.</p>",
+            "science": "CoQ10 levels in human organs, including the heart, are highest at around age 20 and then decline. | 1\nA 2022 analysis that pooled 13 randomised trials and 1,126 people found CoQ10 reduced fatigue scores compared with placebo. | 2\nCoQ10 is fat-soluble, so it’s absorbed better with food. Take it with breakfast, not on an empty stomach. | 3",
             "claim": "",
             "refs": "Kalén A, Appelkvist EL, Dallner G. Age-related changes in the lipid compositions of rat and human tissues. Lipids. 1989.\nTsai IC, et al. Effectiveness of coenzyme Q10 supplementation for reducing fatigue: a systematic review and meta-analysis of randomized controlled trials. Front Pharmacol. 2022.\nBhagavan HN, Chopra RK. Coenzyme Q10: absorption, tissue uptake, metabolism and pharmacokinetics. Free Radic Res. 2006."
           }
@@ -128,9 +83,9 @@
           "settings": {
             "short": "Methylated B vitamins",
             "title": "Methylated B vitamins: the form your body can use straight away",
-            "dose_label": "In MUTO",
-            "dose": "All 8 B vitamins. B12 as methylcobalamin, folate as 5-MTHF, B6 as P5P",
-            "body": "<p>B vitamins are the workers on your energy production line. Almost every step that releases energy from food needs one of them, and your body can’t store most of them for long.</p><p>Ordinary B vitamins have to be converted before your body can use them. Methylated, or “active”, forms skip that step. That matters more as you get older, and for the many people whose genes make the conversion less efficient.</p>",
+            "dose_label": "What to look for",
+            "dose": "All 8 B vitamins, with B12 as methylcobalamin, folate as 5-MTHF and B6 as P5P",
+            "body": "<p>Most people have taken a B complex at some point. Far fewer have checked which form was in it, and that’s the part I care about.</p><p>B vitamins are the workers on your energy production line. Almost every step that releases energy from food needs one of them, and your body can’t store most of them for long.</p><p>Ordinary B vitamins have to be converted before your body can use them. Methylated, or “active”, forms skip that step. That matters more as you get older, and for the many people whose genes make the conversion less efficient.</p>",
             "science": "Absorbing vitamin B12 from food gets harder with age, mainly because the stomach makes less acid. | 1\nA common variant of the MTHFR gene makes the enzyme that activates folic acid less efficient. | 2\n5-MTHF, the active form of folate, raises folate levels at least as well as folic acid. | 3",
             "claim": "Vitamins B2, B3, B5, B6, B12 and folate contribute to the reduction of tiredness and fatigue. Thiamin, riboflavin, niacin, pantothenic acid, vitamin B6, vitamin B12 and biotin contribute to normal energy-yielding metabolism.",
             "refs": "Baik HW, Russell RM. Vitamin B12 deficiency in the elderly. Annu Rev Nutr. 1999.\nFrosst P, et al. A candidate genetic risk factor for vascular disease: a common mutation in methylenetetrahydrofolate reductase. Nat Genet. 1995.\nPietrzik K, Bailey L, Shane B. Folic acid and L-5-methyltetrahydrofolate: comparison of clinical pharmacokinetics and pharmacodynamics. Clin Pharmacokinet. 2010.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
@@ -141,9 +96,9 @@
           "settings": {
             "short": "Creatine",
             "title": "Creatine: your muscles’ fastest energy reserve",
-            "dose_label": "With MUTO",
-            "dose": "A free 250g pouch of Ultrapure Creatine in your welcome kit. One scoop a day",
-            "body": "<p>Creatine isn’t only for bodybuilders. Your muscles store it as a rapid reserve that recharges ATP in seconds whenever demand spikes: the stairs, a run for the train, the last few reps.</p><p>You make about a gram a day and get the rest from meat and fish. And from your 30s, muscle itself starts to slip unless you keep using it.</p>",
+            "dose_label": "What to look for",
+            "dose": "3 to 5g of creatine monohydrate a day. Nothing fancier",
+            "body": "<p>This is the one that surprises people, because they think of it as a gym supplement. Creatine isn’t only for bodybuilders. Your muscles store it as a rapid reserve that recharges ATP in seconds whenever demand spikes: the stairs, a run for the train, the last few reps.</p><p>You make about a gram a day and get the rest from meat and fish. And from your 30s, muscle itself starts to slip unless you keep using it.</p>",
             "science": "It’s one of the most studied supplements there is. Sports scientists rate creatine monohydrate the most effective supplement for high-intensity exercise. | 1\nOn a normal diet, your muscles’ creatine stores are only around 60 to 80% full. | 1\nAdults lose roughly 3 to 8% of their muscle each decade after 30. | 2",
             "claim": "Creatine increases physical performance in successive bursts of short-term, high-intensity exercise. The beneficial effect is obtained with a daily intake of 3g of creatine.",
             "refs": "Kreider RB, et al. International Society of Sports Nutrition position stand: safety and efficacy of creatine supplementation in exercise, sport, and medicine. J Int Soc Sports Nutr. 2017.\nVolpi E, Nazemi R, Fujita S. Muscle tissue changes with aging. Curr Opin Clin Nutr Metab Care. 2004.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
@@ -154,9 +109,9 @@
           "settings": {
             "short": "Zinc and copper",
             "title": "Zinc and copper: small doses, big jobs, and they have to be balanced",
-            "dose_label": "In MUTO",
-            "dose": "15mg zinc and 1mg copper, both as bisglycinate",
-            "body": "<p>Zinc helps your body process the carbohydrate, fat and protein you eat. Copper is part of the final step of energy production inside your mitochondria. You only need a little of each, but you do need both.</p><p>Here’s the catch: they compete. Take zinc on its own for months and your copper can drop. That’s why they belong in the same formula, in the right balance.</p>",
+            "dose_label": "What to look for",
+            "dose": "15mg of zinc with 1mg of copper, both as bisglycinate",
+            "body": "<p>Zinc helps your body process the carbohydrate, fat and protein you eat. Copper is part of the final step of energy production inside your mitochondria. You only need a little of each, but you do need both.</p><p>Here’s the catch, and it’s the mistake I see most often: they compete. Take zinc on its own for months and your copper can drop. If a product gives you one without the other, put it back on the shelf.</p>",
             "science": "Zinc taken long-term without copper can lower the body’s copper levels. | 1\nIn a crossover study, zinc bisglycinate was absorbed 43% better than zinc gluconate, a common form. | 2\nZinc levels tend to fall as we get older. | 3",
             "claim": "Copper contributes to normal energy-yielding metabolism. Zinc contributes to normal macronutrient metabolism and to the protection of cells from oxidative stress.",
             "refs": "Fosmire GJ. Zinc toxicity. Am J Clin Nutr. 1990.\nGandia P, et al. A bioavailability study comparing two oral formulations containing zinc (Zn bis-glycinate vs. Zn gluconate) after a single administration to twelve healthy female volunteers. Int J Vitam Nutr Res. 2007.\nHaase H, Rink L. The immune system and the impact of zinc during aging. Immun Ageing. 2009.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
@@ -167,8 +122,8 @@
           "settings": {
             "short": "Vitamin D3 and K2",
             "title": "Vitamin D3 and K2: the sunshine pair your muscles rely on",
-            "dose_label": "In MUTO",
-            "dose": "50µg (2,000 IU) vegan vitamin D3 and 100µg vitamin K2 (MK-7)",
+            "dose_label": "What to look for",
+            "dose": "2,000 IU of vitamin D3 with 100µg of vitamin K2 as MK-7",
             "body": "<p>Your muscles need vitamin D to work normally, and how strong you feel is a big part of how energetic you feel. Your skin makes it from sunlight, but from October to March the UK sun isn’t strong enough.</p><p>K2 is its partner. Vitamin D helps your body absorb calcium, and K2 works alongside it for your bones.</p>",
             "science": "Skin from people in their late 70s and 80s made less than half the vitamin D that young skin did. | 1\nUK health advice is for everyone to consider a daily vitamin D supplement in autumn and winter. | 2\nD3 raises vitamin D levels in the blood more effectively than D2. | 3\nMK-7 stays in the body longer than vitamin K1, so once a day is enough. | 4",
             "claim": "Vitamin D contributes to the maintenance of normal muscle function and normal bones. Vitamin K contributes to the maintenance of normal bones.",
@@ -180,20 +135,37 @@
           "settings": {
             "short": "PQQ and trans-resveratrol",
             "title": "PQQ and trans-resveratrol: the two that mitochondria researchers are watching",
-            "dose_label": "In MUTO",
-            "dose": "20mg PQQ and 50mg trans-resveratrol, with 150mg grape seed extract",
-            "body": "<p>These are the newest names on the list, and we’ll be straight with you: the research is at an earlier stage than for the vitamins above.</p><p>PQQ is found in tiny amounts in kiwi, parsley and green tea. Resveratrol comes from grape skins. Both are studied for the same reason: what they do in the mitochondria, the power stations this whole page is about.</p>",
+            "dose_label": "What to look for",
+            "dose": "20mg of PQQ and 50mg of trans-resveratrol, the stable form",
+            "body": "<p>These are the newest names on my list, and I’ll be straight with you: the research is at an earlier stage than for the vitamins above. I include them because of where that research is pointing.</p><p>PQQ is found in tiny amounts in kiwi, parsley and green tea. Resveratrol comes from grape skins. Both are studied for the same reason: what they do in the mitochondria, the power stations this whole article is about.</p>",
             "science": "In cell studies, PQQ switched on the signal that tells cells to build new mitochondria. | 1\nIn a small human study, PQQ changed markers in blood and urine that are linked to mitochondrial activity. | 2\nResveratrol is one of the most studied plant compounds in healthy-ageing research, including the cell pathways that depend on NAD+. | 3",
             "claim": "",
             "refs": "Chowanadisai W, et al. Pyrroloquinoline quinone stimulates mitochondrial biogenesis through cAMP response element-binding protein phosphorylation and increased PGC-1α expression. J Biol Chem. 2010.\nHarris CB, et al. Dietary pyrroloquinoline quinone (PQQ) alters indicators of inflammation and mitochondrial-related metabolism in human subjects. J Nutr Biochem. 2013.\nBaur JA, Sinclair DA. Therapeutic potential of resveratrol: the in vivo evidence. Nat Rev Drug Discov. 2006."
           }
         },
+        "reveal": {
+          "type": "text",
+          "settings": {
+            "kicker": "The problem with a list like this",
+            "heading": "Knowing what to take is the easy part.",
+            "body": "<p>Seven essentials means seven or more separate pots, each from a different brand, each with its own dose and its own reorder date. Most people manage it for a month. Then the routine quietly falls apart.</p><p>The best formula in the world does nothing if you stop taking it. So the real question isn’t only what to take. It’s what you’ll still be taking in six months.</p>"
+          }
+        },
+        "customer": {
+          "type": "quote",
+          "settings": {
+            "stars": true,
+            "text": "“Being in my mid 30s, everything has started to slow down. Muto is providing me with a sense of vitality which I haven’t experienced since my mid 20s”",
+            "name": "Jonathon R",
+            "note": "MUTO customer. Individual experience; results vary."
+          }
+        },
         "answer": {
           "type": "answer",
           "settings": {
-            "label": "All seven, one routine",
-            "heading": "You could buy seven separate pots. Or take two capsules with breakfast.",
-            "text": "<p>MUTO NAD+ Cellular Complex was formulated by a cell biologist to cover this list. <strong>Six of the seven are in two capsules a day</strong>, with every dose printed on the label. The seventh, creatine, comes free in your welcome kit.</p>",
+            "label": "What I built",
+            "heading": "So I put all seven into one daily routine.",
+            "text": "<p>I couldn’t find one product that covered this list at these doses, with every dose printed on the label. So I formulated it. <strong>MUTO NAD+ Cellular Complex puts six of the seven into two capsules with breakfast.</strong> The seventh, creatine, comes free in your welcome kit.</p>",
             "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-menu-offer.jpg?v=1793615475",
             "image_alt": "A jar of MUTO NAD+ Cellular Complex beside its box, with every ingredient and dose printed on the side",
             "image_position": "50% 70%",
@@ -206,6 +178,7 @@
         }
       },
       "block_order": [
+        "opening",
         "nad",
         "coq10",
         "why",
@@ -214,10 +187,23 @@
         "zinc",
         "d3k2",
         "pqq",
+        "reveal",
+        "customer",
         "answer"
       ],
       "settings": {
-        "index_label": "The 7 essentials",
+        "article": true,
+        "kicker": "Energy and healthy ageing",
+        "headline": "I’m a cell biologist. These are the 7 things I’d take for energy after 35.",
+        "standfirst": "Most people over 35 blame themselves for the 3pm slump. The real cause is in your cells, and the research on what they need is clearer than the supplement aisle makes it look.",
+        "author_name": "By Dr Richie Barclay",
+        "author_role": "PhD cell biologist · Founder of MUTO · 6 min read",
+        "author_image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-founder.jpg?v=1790751995",
+        "author_image_position": "50% 20%",
+        "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-step-morning.jpg?v=1793455074",
+        "image_alt": "A woman drinking coffee at her kitchen table in the morning light",
+        "image_caption": "",
+        "index_label": "",
         "count_label": "Essential",
         "science_label": "What the research says",
         "sources_label": "Sources"
@@ -1233,8 +1219,6 @@
     "bf_style",
     "head_styles",
     "bf_bar",
-    "hero",
-    "trust",
     "needs",
     "buy",
     "early",
