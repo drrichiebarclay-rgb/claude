@@ -255,6 +255,19 @@
   .mln-label__x{position:sticky;top:10px;float:right;margin:10px 10px -50px 0;z-index:1;display:grid;place-items:center;width:40px;height:40px;padding:0;border:1px solid rgba(36,34,35,.2);border-radius:50%;background:#fff;color:#242223;font-size:22px;line-height:1;cursor:pointer}
   html.mln-lock{overflow:hidden}
 
+  /* The "why it happens" panel in grey with dark text (the default; tick "Black background" on the block for the dark one) */
+  .mln .mln-dark.mln-dark--grey{background:#efefec;color:var(--ink)}
+  .mln .mln-dark.mln-dark--grey .mlst__lab{color:var(--ink-2)}
+  .mln .mln-dark.mln-dark--grey h2{color:var(--ink)}
+  .mln .mln-dark.mln-dark--grey .mln-dark__txt{color:var(--ink)}
+  .mln .mln-dark.mln-dark--grey .mln-dark__txt strong{color:var(--ink)}
+  .mln .mln-dark.mln-dark--grey .mln-steps li{border-color:var(--hair);background:#fff}
+  .mln .mln-dark.mln-dark--grey .mln-steps i{color:var(--acc,var(--ink))}
+  .mln .mln-dark.mln-dark--grey .mln-steps b{color:var(--ink)}
+  .mln .mln-dark.mln-dark--grey .mln-steps span{color:var(--ink)}
+  html:root body #MainContent .mln .mln-dark.mln-dark--grey .mln-dark__end{border-left-color:var(--acc,var(--ink));color:var(--ink)}
+  .mln .mln-dark.mln-dark--grey .mln-src{color:var(--ink-3)}
+
   /* The seven at a glance */
   .mln .mln-idx{margin:28px 0 0;padding:20px 22px 22px;border:1px solid var(--hair);border-radius:12px;background:var(--ground)}
   .mln .mln-idx ol{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;margin:14px 0 0;padding:0;list-style:none;counter-reset:mln}
@@ -666,7 +679,7 @@
         </div>
 
       {%- when 'dark' -%}
-        <section class="mln-dark" {{ block.shopify_attributes }}>
+        <section class="mln-dark{% unless b.dark %} mln-dark--grey{% endunless %}" {{ block.shopify_attributes }}>
           <div class="mln-wrap">
             {%- if b.label != blank -%}<p class="mlst__lab mlst__lab--dot">{{ b.label }}</p>{%- endif -%}
             {%- if b.heading != blank -%}<h2>{{ b.heading }}</h2>{%- endif -%}
@@ -1001,8 +1014,9 @@
     },
     {
       "type": "dark",
-      "name": "Dark panel",
+      "name": "Panel",
       "settings": [
+        { "type": "checkbox", "id": "dark", "label": "Black background", "default": false, "info": "Off: grey with dark text" },
         { "type": "text", "id": "label", "label": "Label" },
         { "type": "textarea", "id": "heading", "label": "Heading" },
         { "type": "richtext", "id": "text", "label": "Copy" },
