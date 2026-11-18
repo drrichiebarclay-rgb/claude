@@ -13,57 +13,45 @@ Unlike the reference there is no before-and-after photo, no invented narrator an
 the byline is Richie's, the review is a real one, the timeline is the product page's own, and every figure
 has a source.
 
-## Two versions
+## Two versions, both Shopify pages
 
 | | Version A: the science | Version B: the feeling |
 |---|---|---|
-| Template | `product.muto-nad-bf-lp-energy-35` | `product.muto-nad-bf-lp-energy-35-feel` |
+| Page | `/pages/running-on-empty-after-35` | `/pages/not-lazy-running-on-empty` |
+| Template | `page.lp-energy-35` | `page.lp-energy-35-feel` |
 | Builder | `build.py` | `build_feel.py` (imports `build.py`) |
-| Headline | "You're doing everything right. So why are you still running on empty after 35?" | "You're not lazy. You're running on empty." |
-| Middle | Chart, seven nutrient cards with research notes and sources | Five "Sound familiar?" cards, three customer reviews, "Two capsules. Every morning.", what's inside in plain English, the guarantee |
+| Headline | "You're doing everything right. So why are you still running on empty after 35?" | "You're not lazy, you're running on empty, and it isn't your fault." |
+| Middle | Chart, seven nutrient cards with research notes and sources | Five "sound familiar?" cards, three customer reviews, "Two capsules, every morning", what's inside in plain English, the guarantee |
 | Shared | Offer with countdown, trust section, reviews, test-results panel | Same |
 
-Version B's address is the same with `?view=muto-nad-bf-lp-energy-35-feel`. Both use the one section file;
-copy that plus whichever template(s) you want live. Everything below applies to both unless it says otherwise.
+Both pages exist in Shopify (created 18 November 2026): published, hidden from search (`seo.hidden`), each
+assigned its template, each with its own SEO title and description. Until the files below are on the live
+theme the public addresses show an empty page, because the live theme doesn't have the templates yet.
 
-Page address once the files are on the live theme:
+Preview on the unpublished theme "Clone Of Live | load flash fix [12-11]" (ID 204807176539), where the files
+already are: add `?preview_theme_id=204807176539` to either address.
 
-    https://muto.co/products/muto-nad-cellular-complex?view=muto-nad-bf-lp-energy-35
+## Files to copy to the live theme (3)
 
-Previews (the new sections rendered into the live product page's own HTML and CSS, 18 November 2026):
-`previews/mobile-390.jpg` and `previews/desktop-1440.jpg`. The reviews widget looks unstyled in them only
-because the preview machine can't load REVIEWS.io's stylesheet; the section is the live page's, unchanged.
-
-## Files to copy to the live theme (2)
-
-Copy the section first: a template that names a section the theme doesn't have is rejected.
+Copy the section first: a template that names a section, or a setting, the theme doesn't have is rejected.
 
 | File | What it is |
 |---|---|
 | `theme/sections/muto-lst-needs.liquid` | New section, "MUTO listicle essentials". Nothing existing is changed. |
-| `theme/templates/product.muto-nad-bf-lp-energy-35.json` | New product template. |
+| `theme/templates/page.lp-energy-35.json` | Version A |
+| `theme/templates/page.lp-energy-35-feel.json` | Version B |
 
-Nothing else is needed. The template uses sections, snippets and stylesheets already on the live theme
-(Clone Of Live | sticky bar [12-11], ID 204801016155), and every image is already in Shopify Files.
+Everything else the pages use is already on the live theme: `muto-lst.css`, the reviews section
+(`custom-reviews`), the test-results section (`muto-test-results`) and the Black Friday bar in the header.
 
-To try it on an unpublished theme first, copy both files there and add `&preview_theme_id=<theme id>` to the
-address above.
+The earlier product-template versions (`product.muto-nad-bf-lp-energy-35*.json`) are still on the preview
+theme and can be deleted there; they are no longer in this folder.
 
-## Why a product template, and why this name
+## Why these work as pages
 
-- **Product template:** the offer's button needs the product in scope to find the 3-month plan, so the page
-  is the main product shown through a second template (`?view=`). No product's template assignment changes.
-- **The name** is kept so the address already shared keeps working.
-
-## The trust section
-
-Under the offer: six icon tiles (third-party tested, scientific board, made in the UK, GMP, ISO,
-filler-free), the scientific board strip, and two buttons.
-
-- **View nutrition table** opens the product page's nutrition label image in a pop-up.
-- **View third-party test results** opens the product page's test-results panel. That panel is the
-  `tests` section on the template, copied unchanged from the live product page, so update it there and
-  rebuild when a new batch is tested.
+A page has no product in scope, so the section has a **Product for the offer button** setting, set to NAD+
+Cellular Complex. The Claim button reads that product's 3-month plan from it. The reviews widget is the one
+the other landing pages use, which is already set up for a page.
 
 ## How the Claim button works
 
@@ -141,7 +129,7 @@ Before ads go live:
 
 ## Check after copying
 
-1. Open the address on a phone. No black bar at the top, no store header, no sticky add to cart.
+1. Open each page on a phone. No black bar at the top, no store header, no sticky add to cart.
 2. Seven numbered cards, the black panel, the timeline.
 3. Every green button scrolls to "Today's special offer".
 4. The countdown is running.
