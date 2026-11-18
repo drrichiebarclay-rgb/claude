@@ -13,6 +13,19 @@ Unlike the reference there is no before-and-after photo, no invented narrator an
 the byline is Richie's, the review is a real one, the timeline is the product page's own, and every figure
 has a source.
 
+## Two versions
+
+| | Version A: the science | Version B: the feeling |
+|---|---|---|
+| Template | `product.muto-nad-bf-lp-energy-35` | `product.muto-nad-bf-lp-energy-35-feel` |
+| Builder | `build.py` | `build_feel.py` (imports `build.py`) |
+| Headline | "You're doing everything right. So why are you still running on empty after 35?" | "You're not lazy. You're running on empty." |
+| Middle | Chart, seven nutrient cards with research notes and sources | Five "Sound familiar?" cards, three customer reviews, "Two capsules. Every morning.", what's inside in plain English, the guarantee |
+| Shared | Offer with countdown, trust section, reviews, test-results panel | Same |
+
+Version B's address is the same with `?view=muto-nad-bf-lp-energy-35-feel`. Both use the one section file;
+copy that plus whichever template(s) you want live. Everything below applies to both unless it says otherwise.
+
 Page address once the files are on the live theme:
 
     https://muto.co/products/muto-nad-cellular-complex?view=muto-nad-bf-lp-energy-35
