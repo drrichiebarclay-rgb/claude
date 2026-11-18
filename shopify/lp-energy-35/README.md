@@ -1,12 +1,16 @@
-# Advertorial: "Why you're more tired after 35: a cell biologist on the seven nutrients that matter"
+# Advertorial: "Most people over 35 think they're just tired. Here's what may really be happening inside your cells."
 
-An advertorial for paid traffic, laid out like a news article and written in Richie's voice: category line,
-headline, standfirst, byline, lead photo with a caption, then a single serif reading column. Seven numbered
-subheads (NAD+, CoQ10, B vitamins, creatine, zinc and copper, D3 and K2, PQQ and trans-resveratrol), each
-with a few plain paragraphs, what to look for on a label, the evidence as a short list and its sources. A
-black "Why energy falls with age" explainer sits between 2 and 3. MUTO isn't named until "Getting all seven"
-at the end, followed by a customer review, what's in MUTO, the **live main product page's buy box** and the
-reviews widget.
+A direct-response advertorial for paid traffic, modelled on the format Richie supplied as a reference:
+bold headline with one phrase in green, "Sponsored content" label, byline, lead photo and a read-time pill;
+one-line paragraphs; a bar chart; a black "Why energy falls with age" panel; seven numbered cards, one per
+nutrient, each with research notes, what to look for and its sources (tap "Sources"); MUTO introduced as the
+one routine that holds all seven; a customer review; "What's in MUTO"; a timeline of what customers report;
+and a green "Try MUTO risk-free for 90 days" button after each part. Then the **live main product page's
+buy box** and the reviews widget.
+
+Unlike the reference there is no before-and-after photo, no invented narrator and no symptom checklist:
+the byline is Richie's, the review is a real one, the timeline is the product page's own, and every figure
+has a source.
 
 Page address once the files are on the live theme:
 
@@ -68,9 +72,11 @@ template from the menu at the top); tell me about editor changes so the script k
 ## Editing in the theme editor
 
 - **Article header:** headline, standfirst, byline, lead photo and caption are in the section's settings.
-- **News article layout** (ticked on this page): serif reading column, numbered subheads, plain lists. Untick
-  it for the card design with "Essential 1 of 7" badges. "Article style" on its own only sets headings in
-  sentence case.
+- **Direct layout** (ticked on this page) gives the look above. Wrap a phrase in `<em>…</em>` in any heading to
+  turn it green. "News article layout" is the earlier serif version; with both unticked you get the card
+  design with "Essential 1 of 7" badges.
+- **Button**, **Bar chart**, **Image** and **Timeline** are blocks you can add, move or remove. Bars are one
+  per line: `Label | number 0-100 | text beside the bar`. Timeline stages are `Stage title | What people report`.
 - **Text** blocks carry the story. The first one, above essential 1, opens with a large first letter.
 - **Quote** blocks are a pull quote or a customer review (tick "Show five stars").
 
