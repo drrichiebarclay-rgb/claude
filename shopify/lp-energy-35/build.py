@@ -54,8 +54,8 @@ header = {
     "article": True, "news": False, "direct": True,
     "kicker": "",
     "headline": "You’re doing everything right. So why are you still <em>running on empty</em> after 35?",
-    "standfirst": "What researchers are finding about afternoon crashes, slow recovery and how your cells make "
-                  "energy as you age, and why one cell biologist put seven nutrients into a single daily formula.",
+    "standfirst": "A cell biologist explains why your afternoons fade and your body takes longer to bounce back "
+                  "as you get older, and how he came to put the seven nutrients he looks for into one daily formula.",
     "sponsored": "Sponsored content",
     "author_name": "By Dr Richie Barclay",
     "author_role": "Cell biologist and founder of MUTO | November 2026",
@@ -82,14 +82,18 @@ def quote(words, name="", note="", stars=False):
 
 
 opening = text(
-    "<p>You train. You eat well. You get to bed at a sensible time.</p>"
-    "<p><strong>And by mid-afternoon you’re still running on empty.</strong></p>"
-    "<p>Afternoon crashes. Brain fog. Slow thinking, right when you need to be 100% there.</p>"
-    "<p>Heavy legs on the stairs the morning after a session you used to shake off.</p>"
-    "<p>You’ve tried the obvious things, and nothing has had a lasting impact. Another coffee is more of a "
-    "Band-Aid than a fix.</p>"
-    "<p>And life doesn’t stop. Work, kids, travel. You can’t just lie on the sofa.</p>"
-    "<p>According to researchers, part of the explanation may be somewhere less obvious:</p>",
+    "<p>You train when you can, you eat well most of the time and you get to bed at a sensible hour, and yet by "
+    "the middle of the afternoon you still feel as though you’re running on empty.</p>"
+    "<p><strong>It tends to show up as an afternoon crash, a bit of brain fog and slower thinking at exactly the "
+    "moment you need to be 100% there.</strong></p>"
+    "<p>It shows up in your body too, as heavy legs on the stairs the morning after a session you would once "
+    "have shaken off without noticing.</p>"
+    "<p>You’ve probably tried the obvious things already and found that nothing had a lasting impact, and that "
+    "another coffee was more of a Band-Aid than a fix.</p>"
+    "<p>Meanwhile life doesn’t stop for any of it, because there is still work, children and travel to manage, "
+    "and you can’t simply lie on the sofa until you feel better.</p>"
+    "<p>According to researchers, at least part of the explanation may be somewhere a little less obvious "
+    "than your diary:</p>",
     heading="Doing everything right, and <em>still not feeling it</em>",
     key="The mitochondria in your cells make less energy as you get older.")
 
@@ -98,11 +102,13 @@ photo = {"type": "image", "settings": {
     "image_alt": "A man in his fifties tying his trainers before a run", "image_position": "50% 35%", "caption": ""}}
 
 mito = text(
-    "<p>Mitochondria are the parts of your cells that turn food into ATP, the fuel every cell runs on.</p>"
-    "<p>In one study, researchers compared the muscles of adults in their late 30s with adults in their late "
-    "60s. <strong>The older group’s capacity to make energy was roughly half.</strong></p>"
-    "<p>It may be part of why your body takes longer to bounce back, and why you can’t just go again the "
-    "next day the way you used to.</p>")
+    "<p>Mitochondria are the parts of your cells that turn the food you eat into ATP, which is the fuel that "
+    "every cell in your body runs on.</p>"
+    "<p>When researchers compared the muscles of adults in their late 30s with those of adults in their late "
+    "60s, <strong>they found that the older group’s capacity to make energy was roughly half that of the "
+    "younger group.</strong></p>"
+    "<p>That may be part of the reason your body takes longer to bounce back than it used to, and why you "
+    "can’t simply go again the next day in the way you once could.</p>")
 
 chart = {"type": "chart", "settings": {
     "title": "Muscle’s capacity to make energy, by age",
@@ -111,9 +117,10 @@ chart = {"type": "chart", "settings": {
               "Oxidative capacity per volume of muscle, shown relative to the younger group."}}
 
 seven = text(
-    "<p>People tell me they’re lost as to what really matters. So I’d rather explain this than justify it.</p>"
-    "<p>These are the seven I look for as a cell biologist: what each one does, in plain English, what the "
-    "research says, and where it’s still thin.</p>",
+    "<p>People often tell me they feel lost as to what really matters, so I would rather explain this properly "
+    "than try to justify it.</p>"
+    "<p>These are the seven nutrients I look for as a cell biologist, with a plain-English account of what "
+    "each one does, what the research says about it and where the evidence is still thin.</p>",
     heading="7 nutrients your cells <em>rely on</em> for energy")
 
 # ------------------------------------------------------------------ the seven
@@ -122,9 +129,10 @@ REG = "Regulation (EU) No 432/2012, as retained in UK law: list of permitted hea
 nad = need(
     "NAD+", "NAD+",
     "300mg of nicotinamide riboside (NR), the maximum permitted in UK supplements",
-    "<p>It’s in every cell, your mitochondria can’t turn food into energy without it, and you have less of it "
-    "as you get older. You can’t just swallow NAD+, so you take something your body builds it from: "
-    "nicotinamide riboside (NR), a form of vitamin B3.</p>",
+    "<p>NAD+ is found in every cell you have, and your mitochondria can’t turn food into energy without it, "
+    "yet the amount in your tissues falls steadily as you get older. You can’t simply swallow NAD+ itself "
+    "because it is poorly absorbed, so what you take instead is something your body can build it from, which "
+    "is usually nicotinamide riboside (NR), a form of vitamin B3.</p>",
     ["In samples of human skin, NAD+ levels were lower with age, from newborns to people in their 70s. | 1",
      "In a placebo-controlled trial, 300mg of NR a day raised NAD+ in the blood by about 51% within two weeks. | 2",
      "What we don’t know yet is whether raising NAD+ makes people feel more energetic. The trials so far have measured levels in the body."],
@@ -137,8 +145,9 @@ nad = need(
 coq10 = need(
     "CoQ10", "CoQ10",
     "150mg, taken with food",
-    "<p>CoQ10 does one of the jobs in the chain that makes ATP inside your mitochondria. You make your own, "
-    "but less of it after your twenties, and you don’t get much from food.</p>",
+    "<p>CoQ10 does one of the jobs in the chain of reactions that makes ATP inside your mitochondria, and "
+    "although your body makes its own supply, it makes less of it after your twenties and you get very little "
+    "from food.</p>",
     ["CoQ10 levels in human organs, including the heart, are highest at around age 20 and then decline. | 1",
      "A 2022 analysis of 13 randomised trials involving 1,126 people found that CoQ10 reduced fatigue scores compared with placebo. | 2",
      "CoQ10 is fat-soluble and is absorbed better when taken with food. | 3"],
@@ -150,17 +159,19 @@ coq10 = need(
 dark = {"type": "dark", "settings": {
     "label": "Why it happens",
     "heading": "Why energy falls with age",
-    "text": "<p>Cells run on ATP, which is made in the mitochondria. Three changes that come with age affect "
-            "how much of it they produce.</p>",
-    "step_1_title": "Mitochondria produce less",
-    "step_1_text": "Between the late 30s and the late 60s, the capacity of muscle to make energy roughly halves.",
+    "text": "<p>Your cells run on ATP, which is made inside the mitochondria, and there are three changes that "
+            "come with age which affect how much of it they are able to produce.</p>",
+    "step_1_title": "Your mitochondria produce less",
+    "step_1_text": "Between your late 30s and your late 60s, the capacity of your muscles to make energy falls "
+                   "by roughly half.",
     "step_2_title": "NAD+ and CoQ10 decline",
-    "step_2_text": "Mitochondria depend on both, and levels of both fall with age in human tissue.",
-    "step_3_title": "Absorption gets worse",
-    "step_3_text": "The stomach makes less acid, which makes vitamin B12 from food harder to absorb. "
-                   "Skin makes less vitamin D from the same amount of sunlight.",
-    "end": "Caffeine doesn’t reverse any of this. It blocks the signal that tells your brain you’re tired, "
-           "which is why the crash comes back when it wears off.",
+    "step_2_text": "Your mitochondria depend on both of these molecules to do their work, and the levels of "
+                   "both fall with age in human tissue.",
+    "step_3_title": "You absorb and make less",
+    "step_3_text": "Your stomach makes less acid as you get older, which makes vitamin B12 from food harder to "
+                   "absorb, and your skin makes less vitamin D from the same amount of sunlight.",
+    "end": "Caffeine doesn’t reverse any of this, because all it does is block the signal that tells your "
+           "brain you’re tired, which is why the crash comes back as soon as it wears off.",
     "refs": lines(
         "Conley KE, Jubrias SA, Esselman PC. Oxidative capacity and ageing in human muscle. J Physiol. 2000.",
         "Short KR, et al. Decline in skeletal muscle mitochondrial function with aging in humans. Proc Natl Acad Sci USA. 2005.",
@@ -171,8 +182,9 @@ dark = {"type": "dark", "settings": {
 b_vits = need(
     "B vitamins", "B vitamins, in their active forms",
     "all eight B vitamins, with B12 as methylcobalamin, folate as 5-MTHF and B6 as P5P",
-    "<p>Nearly every step of getting energy out of food needs a B vitamin. Many products use forms your body "
-    "has to convert first. The methylated versions, 5-MTHF and methylcobalamin, don’t need that step.</p>",
+    "<p>Nearly every step of getting energy out of your food needs a B vitamin, and because many products use "
+    "forms that your body has to convert before it can use them, I look for the methylated versions, 5-MTHF "
+    "and methylcobalamin, which don’t need that extra step.</p>",
     ["Absorbing vitamin B12 from food becomes harder with age, mainly because the stomach makes less acid. | 1",
      "A common variant of the MTHFR gene makes the enzyme that activates folic acid less efficient. | 2",
      "5-MTHF raises folate levels at least as well as folic acid. | 3"],
@@ -189,8 +201,9 @@ b_vits = need(
 creatine = need(
     "Creatine", "Creatine",
     "3 to 5g of creatine monohydrate a day",
-    "<p>Think it’s just for the gym? All creatine does is help your muscles remake ATP quickly when you ask a "
-    "lot of them, whether that’s a set of squats or two flights of stairs.</p>",
+    "<p>People are often surprised to see creatine on this list because they think of it as something for the "
+    "gym, but all it really does is help your muscles remake ATP quickly when you ask a lot of them, whether "
+    "that is a set of squats or two flights of stairs.</p>",
     ["The International Society of Sports Nutrition describes creatine monohydrate as the most effective "
      "supplement available for high-intensity exercise capacity. | 1",
      "On a normal diet, creatine stores in muscle are around 60 to 80% full. | 1",
@@ -205,8 +218,9 @@ creatine = need(
 zinc = need(
     "Zinc and copper", "Zinc and copper, together",
     "15mg of zinc with 1mg of copper, both as bisglycinate",
-    "<p>Zinc helps you process carbohydrate, fat and protein. Copper is part of one of the final enzymes in "
-    "your mitochondria’s energy chain. They compete for absorption, so take them together.</p>",
+    "<p>Zinc helps your body process the carbohydrate, fat and protein you eat, and copper is part of one of "
+    "the final enzymes in your mitochondria’s energy chain, but because the two compete with each other for "
+    "absorption they are best taken together.</p>",
     ["Zinc taken long-term without copper can lower the body’s copper levels. | 1",
      "In a crossover study, zinc bisglycinate was absorbed 43% better than zinc gluconate. | 2",
      "Zinc levels tend to fall with age. | 3"],
@@ -221,8 +235,9 @@ zinc = need(
 d3k2 = need(
     "Vitamin D3 and K2", "Vitamin D3 and K2",
     "2,000 IU of vitamin D3 with 100µg of vitamin K2 as MK-7",
-    "<p>Your muscles need vitamin D to work normally. You make it from sunlight, which is a problem in "
-    "Britain from October to March, and older skin makes less anyway. K2 is its usual partner.</p>",
+    "<p>Your muscles need vitamin D to work normally and your body makes it from sunlight, which is a problem "
+    "in Britain between October and March and becomes more of one as you age, because older skin makes less "
+    "of it anyway. Vitamin K2 is its usual partner.</p>",
     ["Skin from people in their late 70s and 80s produced less than half the vitamin D of skin from young people. | 1",
      "UK health advice is that everyone should consider a daily vitamin D supplement in autumn and winter. | 2",
      "Vitamin D3 raises blood levels of vitamin D more effectively than D2. | 3",
@@ -240,8 +255,9 @@ d3k2 = need(
 pqq = need(
     "PQQ and trans-resveratrol", "PQQ and trans-resveratrol",
     "20mg of PQQ and 50mg of trans-resveratrol",
-    "<p>I’ll be upfront: these two are the least proven on the list. Most of the research is in cells or in "
-    "small groups of people. Both are being studied for what they do in mitochondria.</p>",
+    "<p>I’ll be upfront and say that these two are the least proven nutrients on the list, because most of the "
+    "research so far has been done in cells or in small groups of people, although both are being studied "
+    "for what they do in the mitochondria.</p>",
     ["In cell studies, PQQ activated a pathway that leads cells to build new mitochondria. | 1",
      "In a small human study, PQQ changed markers in blood and urine linked to mitochondrial activity. | 2",
      "Resveratrol has been widely studied in ageing research, including for its effect on cell pathways that depend on NAD+. | 3"],
@@ -252,14 +268,17 @@ pqq = need(
      "Baur JA, Sinclair DA. Therapeutic potential of resveratrol: the in vivo evidence. Nat Rev Drug Discov. 2006."])
 
 reveal = text(
-    "<p>Bought separately, that’s seven or eight pots on the kitchen counter, all running out at different "
-    "times. Forget a few days and you’re back where you started.</p>"
-    "<p>And not everybody is a 25-year-old PT who can build their life around a routine.</p>"
-    "<p>That’s the reason I made <strong>MUTO NAD+ Cellular Complex</strong>: a one-stop shop for this list.</p>"
-    "<p>Six of the seven are in two capsules you take with breakfast. No mixing, nothing to carry around. "
-    "A habit like brushing your teeth.</p>"
-    "<p>Creatine doesn’t fit in a capsule at a useful dose, so it comes as a separate pouch, free with your "
-    "first subscription order.</p>",
+    "<p>If you bought all seven separately you would end up with seven or eight pots on the kitchen counter, "
+    "each running out at a different time, and it only takes a few forgotten days to find yourself back "
+    "where you started.</p>"
+    "<p>It’s also worth saying that not everybody is a 25-year-old PT who can build their whole life around "
+    "a routine.</p>"
+    "<p>That is the reason I made <strong>MUTO NAD+ Cellular Complex</strong>, which I think of as a one-stop "
+    "shop for this list.</p>"
+    "<p>Six of the seven are in two capsules that you take with breakfast, with nothing to mix and nothing to "
+    "carry around, so it becomes a habit as easy as brushing your teeth.</p>"
+    "<p>Creatine doesn’t fit into a capsule at a useful dose, so it comes as a separate pouch, which is free "
+    "with your first subscription order.</p>",
     heading="How to get all seven <em>in one routine</em>")
 
 customer = quote(
@@ -292,13 +311,14 @@ answer = {"type": "answer", "settings": {
 timeline = {"type": "timeline", "settings": {
     "heading": "Don’t take it on trust. <em>Track it.</em>",
     "sub": "What customers tell us they notice. Individual results vary.",
-    "intro": "This is a long burn, not a quadruple espresso. So score your afternoons, sleep and recovery out of 10 on day 1, or note your wearable’s numbers, then compare.",
+    "intro": "This is a long burn rather than a quadruple espresso, so it helps to score your afternoons, sleep "
+             "and recovery out of 10 on day 1, or to note your wearable’s numbers, and then compare them as you go.",
     "items": lines(
-        "Day 1: Your starting point | Two capsules with breakfast. CoQ10 and vitamins D3 and K2 dissolve in fat, so food helps your body take them in.",
-        "Days 3–7: More energy, within days | The first thing most people tell us they notice: less of the 3pm wall, and energy left for the evening. B vitamins contribute to the reduction of tiredness and fatigue.",
-        "Day 30: Afternoons that hold | The lift stops being a good day and becomes your normal. Compare your afternoon score with day 1.",
-        "Day 60: Ready to go again | A walk, a round of golf or a gym session stops hanging around for days. Vitamin D contributes to normal muscle function.",
-        "Day 90: Feeling like yourself | Many people say they hadn’t realised how flat they’d been. Not for you? Every subscription payment back, less delivery."),
+        "Day 1: Your starting point | Take two capsules with breakfast, because CoQ10 and vitamins D3 and K2 dissolve in fat and food helps your body take them in.",
+        "Days 3–7: More energy, within days | The first thing most people tell us they notice is that the 3pm wall is lower and there is still some energy left for the evening. B vitamins contribute to the reduction of tiredness and fatigue.",
+        "Day 30: Afternoons that hold | People tell us the lift stops feeling like one good day and starts to feel like their normal, which makes this a good moment to compare your afternoon score with day 1.",
+        "Day 60: Ready to go again | A walk, a round of golf or a gym session no longer seems to hang around in your legs for days afterwards. Vitamin D contributes to normal muscle function.",
+        "Day 90: Feeling like yourself | Many people say they hadn’t realised how flat they had been feeling, and if it isn’t for you, we refund every subscription payment, less delivery."),
     "foot": "What customers tell us, not a clinical study, and not a guaranteed outcome. Our first UK clinical trial starts this December."}}
 
 G = CDN
