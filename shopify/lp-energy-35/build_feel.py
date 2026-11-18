@@ -107,20 +107,26 @@ jar = {"type": "image", "settings": {
 inside = {"type": "answer", "settings": {
     "label": "",
     "heading": "What’s inside, <em>in plain English</em>",
-    "text": "<p>19 ingredients, every dose printed on the label. Here’s what the main ones are there for.</p>",
+    "text": "<p>19 ingredients in two capsules. You don’t need to remember the names. Here’s what the main "
+            "ones do.</p>",
     "image_url": "", "image_alt": "", "image_position": "",
     "rows": lines(
-        "B vitamins and folate | Contribute to the reduction of tiredness and fatigue",
-        "Vitamin D | Contributes to normal muscle function",
-        "Zinc and copper | Contribute to the protection of cells from oxidative stress",
-        "NR, the NAD+ ingredient | 300mg, the most the UK allows",
-        "CoQ10 | 150mg, with nothing hidden in a blend",
-        "Free creatine | A separate pouch, free with your first subscription order"),
+        "B vitamins | Help reduce tiredness and fatigue. All eight are in here, in forms your body can use straight away.",
+        "Vitamin D | Supports normal muscle function. Most of us in the UK get too little sun from October to March.",
+        "Zinc and copper | Help protect your cells from oxidative stress, which is everyday wear and tear inside your cells.",
+        "NR (a form of vitamin B3) | Your body turns it into NAD+, which every cell uses to make energy. You have less NAD+ as you get older.",
+        "CoQ10 | Part of how your cells make energy. Your body makes less of it after your twenties.",
+        "Creatine (free) | For short bursts of hard effort, like the stairs or a sprint. It comes as a separate pouch, free with your first subscription order."),
     "ticks": "",
     "cta": A.CTA, "cta_link": "",
-    "foot": "Food supplements are not a substitute for a varied, balanced diet and a healthy lifestyle. "
-            "If your tiredness is new, severe or doesn’t lift, speak to your GP. If you take medication, "
-            "or are pregnant or breastfeeding, check with your doctor before taking supplements."}}
+    "foot": "Vitamins B2, B3, B5, B6, B12 and folate contribute to the reduction of tiredness and fatigue. "
+            "Vitamin D contributes to the maintenance of normal muscle function. Zinc and copper contribute to "
+            "the protection of cells from oxidative stress. Creatine increases physical performance in "
+            "successive bursts of short-term, high-intensity exercise; the beneficial effect is obtained with "
+            "a daily intake of 3g of creatine. Food supplements are not a substitute for a varied, balanced "
+            "diet and a healthy lifestyle. If your tiredness is new, severe or doesn’t lift, speak to your GP. "
+            "If you take medication, or are pregnant or breastfeeding, check with your doctor before taking "
+            "supplements."}}
 
 timeline = json.loads(json.dumps(A.timeline))
 timeline["settings"]["heading"] = "What to expect, <em>week by week</em>"
