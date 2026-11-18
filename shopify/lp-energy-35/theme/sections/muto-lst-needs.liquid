@@ -243,10 +243,13 @@
   .mln .mln-trust__links :is(a,button){display:flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:8px 12px;border:1.5px solid var(--ink);border-radius:8px;background:#fff;color:var(--ink);font-family:var(--font);font-size:14.5px;font-weight:600;line-height:1.2;text-align:center;text-decoration:none;cursor:pointer}
   .mln .mln-trust__links :is(a,button):hover{background:var(--ink);color:#fff}
   @media (max-width:480px){.mln .mln-trust__grid{grid-template-columns:repeat(2,minmax(0,1fr))}.mln .mln-trust__links{grid-template-columns:1fr}}
-  .mln-label{width:min(760px,calc(100% - 24px));max-height:calc(100% - 24px);margin:auto;padding:0;border:0;border-radius:10px;background:#fff;overflow:auto;box-shadow:0 24px 64px rgba(36,34,35,.25)}
-  .mln-label::backdrop{background:rgba(18,17,17,.6)}
-  .mln-label img{display:block;width:100%;height:auto}
-  .mln-label__x{position:sticky;top:10px;float:right;margin:10px 10px -50px 0;z-index:1;display:grid;place-items:center;width:40px;height:40px;border:1px solid rgba(36,34,35,.2);border-radius:50%;background:#fff;color:#242223;font-size:20px;line-height:1;cursor:pointer}
+  /* Nutrition label pop-up: a plain fixed layer (not a <dialog>), moved to the end of the page when opened */
+  .mln-label{position:fixed;inset:0;z-index:2147483000;display:flex;align-items:center;justify-content:center;padding:12px;background:rgba(18,17,17,.62);-webkit-overflow-scrolling:touch}
+  .mln-label[hidden]{display:none}
+  .mln-label__box{position:relative;width:min(760px,100%);max-height:100%;border-radius:10px;background:#fff;overflow:auto;box-shadow:0 24px 64px rgba(36,34,35,.3)}
+  .mln-label__box img{display:block;width:100%;height:auto;min-height:120px}
+  .mln-label__x{position:sticky;top:10px;float:right;margin:10px 10px -50px 0;z-index:1;display:grid;place-items:center;width:40px;height:40px;padding:0;border:1px solid rgba(36,34,35,.2);border-radius:50%;background:#fff;color:#242223;font-size:22px;line-height:1;cursor:pointer}
+  html.mln-lock{overflow:hidden}
 
   /* The seven at a glance */
   .mln .mln-idx{margin:28px 0 0;padding:20px 22px 22px;border:1px solid var(--hair);border-radius:12px;background:var(--ground)}
@@ -630,13 +633,12 @@
               </div>
             {%- endif -%}
             {%- if b.label_image != blank -%}
-              <dialog class="mln-label" data-mln-label aria-label="{{ b.label_link | escape }}">
-                <button type="button" class="mln-label__x" data-mln-label-close aria-label="Close">×</button>
-                <picture>
-                  {%- if b.label_image_phone != blank -%}<source media="(max-width: 749px)" srcset="{{ b.label_image_phone }}">{%- endif -%}
-                  <img src="{{ b.label_image }}" alt="{{ b.label_alt | escape }}" loading="lazy">
-                </picture>
-              </dialog>
+              <div class="mln-label" data-mln-label role="dialog" aria-modal="true" aria-label="{{ b.label_link | escape }}" hidden>
+                <div class="mln-label__box">
+                  <button type="button" class="mln-label__x" data-mln-label-close aria-label="Close">&times;</button>
+                  <img alt="{{ b.label_alt | escape }}" data-src="{{ b.label_image }}" data-src-phone="{{ b.label_image_phone | default: b.label_image }}">
+                </div>
+              </div>
             {%- endif -%}
           </section>
         </div>
@@ -763,12 +765,47 @@
       bar.click();
     });
 
-    /* Nutrition label: opens in a pop-up; a tap on the dimmed area or the cross closes it */
+    /* Nutrition label: a plain layer over the page. Opens from its button; the cross, a tap outside the label
+       or Escape closes it. The image is only fetched when first opened. */
     var lab = root.querySelector('[data-mln-label]');
-    if (lab) {
-      root.addEventListener('click', function (e) {
-        if (e.target.closest && e.target.closest('[data-mln-label-open]')) { if (lab.showModal) lab.showModal(); else lab.setAttribute('open', ''); }
-        if (e.target === lab || (e.target.closest && e.target.closest('[data-mln-label-close]'))) { if (lab.close) lab.close(); else lab.removeAttribute('open'); }
+    var labBtn = root.querySelector('[data-mln-label-open]');
+    if (lab && labBtn) {
+      var labImg = lab.querySelector('img');
+      var openLabel = function (e) {
+        if (e) e.preventDefault();
+        if (lab.parentNode !== document.body) document.body.appendChild(lab);
+        if (labImg && !labImg.getAttribute('src')) {
+          var phone = window.matchMedia && window.matchMedia('(max-width: 749px)').matches;
+          labImg.setAttribute('src', labImg.getAttribute(phone ? 'data-src-phone' : 'data-src'));
+        }
+        lab.hidden = false;
+        lab.removeAttribute('hidden');
+        document.documentElement.classList.add('mln-lock');
+      };
+      var closeLabel = function () {
+        lab.hidden = true;
+        lab.setAttribute('hidden', '');
+        document.documentElement.classList.remove('mln-lock');
+        try { labBtn.focus(); } catch (err) {}
+      };
+      labBtn.addEventListener('click', openLabel);
+      lab.addEventListener('click', function (e) {
+        if (e.target === lab || (e.target.closest && e.target.closest('[data-mln-label-close]'))) closeLabel();
+      });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lab.hidden) closeLabel(); });
+    }
+
+    /* Test results: the panel is the page's "MUTO — Test results" section, which opens itself from this link.
+       If it hasn't opened a moment after the tap, open it here. */
+    var testsLink = root.querySelector('.mln-trust__links a[href="#test-results"]');
+    if (testsLink) {
+      testsLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        setTimeout(function () {
+          var d = document.getElementById('test-results');
+          if (!d || d.open) return;
+          try { d.showModal(); } catch (err) { d.setAttribute('open', ''); }
+        }, 250);
       });
     }
 
