@@ -7,8 +7,8 @@
           "type": "text",
           "settings": {
             "kicker": "",
-            "heading": "The hidden <em>slowdown</em> no one talks about",
-            "body": "<p>A lot of people over 35 walk around feeling “off”. <strong>Tired by mid-afternoon, slower to recover, reaching for another coffee.</strong></p><p>Without ever getting a clear answer.</p><p>They put it down to stress, age or a busy life.</p><p>But according to researchers, part of the explanation may be somewhere less obvious:</p>",
+            "heading": "Doing everything right, and <em>still not feeling it</em>",
+            "body": "<p>You train. You eat well. You get to bed at a sensible time.</p><p><strong>And by mid-afternoon you’re still running on empty.</strong></p><p>Afternoon crashes. Brain fog. Slow thinking, right when you need to be 100% there.</p><p>Heavy legs on the stairs the morning after a session you used to shake off.</p><p>You’ve tried the obvious things, and nothing has had a lasting impact. Another coffee is more of a Band-Aid than a fix.</p><p>And life doesn’t stop. Work, kids, travel. You can’t just lie on the sofa.</p><p>According to researchers, part of the explanation may be somewhere less obvious:</p>",
             "key": "The mitochondria in your cells make less energy as you get older."
           }
         },
@@ -26,7 +26,7 @@
           "settings": {
             "kicker": "",
             "heading": "",
-            "body": "<p>Mitochondria are the parts of your cells that turn food into ATP, the fuel every cell runs on.</p><p>In one study, researchers compared the muscles of adults in their late 30s with adults in their late 60s. <strong>The older group’s capacity to make energy was roughly half.</strong></p>",
+            "body": "<p>Mitochondria are the parts of your cells that turn food into ATP, the fuel every cell runs on.</p><p>In one study, researchers compared the muscles of adults in their late 30s with adults in their late 60s. <strong>The older group’s capacity to make energy was roughly half.</strong></p><p>It may be part of why your body takes longer to bounce back, and why you can’t just go again the next day the way you used to.</p>",
             "key": ""
           }
         },
@@ -50,7 +50,7 @@
             "step_2_text": "Mitochondria depend on both, and levels of both fall with age in human tissue.",
             "step_3_title": "Absorption gets worse",
             "step_3_text": "The stomach makes less acid, which makes vitamin B12 from food harder to absorb. Skin makes less vitamin D from the same amount of sunlight.",
-            "end": "Caffeine does not reverse any of this. It blocks the signal that tells the brain it is tired, which is why the tiredness comes back when it wears off.",
+            "end": "Caffeine doesn’t reverse any of this. It blocks the signal that tells your brain you’re tired, which is why the crash comes back when it wears off.",
             "refs": "Conley KE, Jubrias SA, Esselman PC. Oxidative capacity and ageing in human muscle. J Physiol. 2000.\nShort KR, et al. Decline in skeletal muscle mitochondrial function with aging in humans. Proc Natl Acad Sci USA. 2005.\nMassudi H, et al. PLoS One. 2012. Kalén A, et al. Lipids. 1989.\nBaik HW, Russell RM. Vitamin B12 deficiency in the elderly. Annu Rev Nutr. 1999.\nMacLaughlin J, Holick MF. Aging decreases the capacity of human skin to produce vitamin D3. J Clin Invest. 1985."
           }
         },
@@ -67,7 +67,7 @@
           "settings": {
             "kicker": "",
             "heading": "7 nutrients your cells <em>rely on</em> for energy",
-            "body": "<p>These are the seven I look for as a cell biologist, with what the research says about each and where it’s still thin.</p>",
+            "body": "<p>People tell me they’re lost as to what really matters. So I’d rather explain this than justify it.</p><p>These are the seven I look for as a cell biologist: what each one does, in plain English, what the research says, and where it’s still thin.</p>",
             "key": ""
           }
         },
@@ -175,7 +175,7 @@
           "settings": {
             "kicker": "",
             "heading": "How to get all seven <em>in one routine</em>",
-            "body": "<p>Bought separately, that’s seven or eight pots on the kitchen counter, from different brands, all running out at different times.</p><p>Almost nobody keeps that up.</p><p>That’s the reason I made <strong>MUTO NAD+ Cellular Complex</strong>.</p><p>Six of the seven are in two capsules you take with breakfast, with every dose on the label. Creatine doesn’t fit in a capsule at a useful dose, so it comes as a separate pouch, free with your first subscription order.</p>",
+            "body": "<p>Bought separately, that’s seven or eight pots on the kitchen counter, all running out at different times. Forget a few days and you’re back where you started.</p><p>And not everybody is a 25-year-old PT who can build their life around a routine.</p><p>That’s the reason I made <strong>MUTO NAD+ Cellular Complex</strong>: a one-stop shop for this list.</p><p>Six of the seven are in two capsules you take with breakfast. No mixing, nothing to carry around. A habit like brushing your teeth.</p><p>Creatine doesn’t fit in a capsule at a useful dose, so it comes as a separate pouch, free with your first subscription order.</p>",
             "key": ""
           }
         },
@@ -207,10 +207,10 @@
         "timeline": {
           "type": "timeline",
           "settings": {
-            "heading": "Your MUTO <em>timeline</em>",
+            "heading": "Don’t take it on trust. <em>Track it.</em>",
             "sub": "What customers tell us they notice. Individual results vary.",
-            "intro": "Everyone’s different, so score your afternoons, sleep and recovery out of 10 on day 1, then compare.",
-            "items": "Day 1: Your starting point | Two capsules with breakfast. CoQ10 and vitamins D3 and K2 dissolve in fat, so food helps your body take them in.\nDays 3–7: More energy, within days | The first thing most people tell us they notice: less of the 3pm wall, and energy left for the evening. B vitamins contribute to the reduction of tiredness and fatigue.\nDay 30: Afternoons that hold | The lift stops being a good day and becomes your normal. Compare your afternoon score with day 1.\nDay 60: Bouncing back sooner | A walk, a round of golf or a gym session stops hanging around for days. Vitamin D contributes to normal muscle function.\nDay 90: Feeling like yourself | Many people say they hadn’t realised how flat they’d been. Not for you? Every subscription payment back, less delivery.",
+            "intro": "This is a long burn, not a quadruple espresso. So score your afternoons, sleep and recovery out of 10 on day 1, or note your wearable’s numbers, then compare.",
+            "items": "Day 1: Your starting point | Two capsules with breakfast. CoQ10 and vitamins D3 and K2 dissolve in fat, so food helps your body take them in.\nDays 3–7: More energy, within days | The first thing most people tell us they notice: less of the 3pm wall, and energy left for the evening. B vitamins contribute to the reduction of tiredness and fatigue.\nDay 30: Afternoons that hold | The lift stops being a good day and becomes your normal. Compare your afternoon score with day 1.\nDay 60: Ready to go again | A walk, a round of golf or a gym session stops hanging around for days. Vitamin D contributes to normal muscle function.\nDay 90: Feeling like yourself | Many people say they hadn’t realised how flat they’d been. Not for you? Every subscription payment back, less delivery.",
             "foot": "What customers tell us, not a clinical study, and not a guaranteed outcome. Our first UK clinical trial starts this December."
           }
         },
@@ -229,7 +229,7 @@
             "price_note": "/mo",
             "was": "£70",
             "badge": "Save 53%",
-            "bill": "£1.10 a day. £99 today for your first 3 months, then £125 for your next 3 months, then £150 every 3 months. Skip, pause or cancel online.",
+            "bill": "£1.10 a day, less than a coffee. £99 today for your first 3 months, then £125 for your next 3 months, then £150 every 3 months. Skip, pause or cancel online.",
             "list_label": "What’s included",
             "list_note": "£72 of free gifts",
             "items": "NAD+ Cellular Complex, 3-month supply | Included | https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-menu-nad-jar.jpg?v=1793615985&width=120\nUltrapure creatine (250g) | <s>£30</s> Free | https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787&width=120\nSocks | <s>£12</s> Free | https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-socks.jpg?v=1791023071&width=120\nTravel vial | <s>£10</s> Free | https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-travel-vial.jpg?v=1793355262&width=120\nForever jar to keep | <s>£10</s> Free | https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-forever-jar.jpg?v=1791023224&width=120\n12-week guide | <s>£10</s> Free | https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-gift-guide-v2.jpg?v=1791392560&width=120\nEntry to win an Apple Watch | Free entry | https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-sq-apple-watch.jpg?v=1794477407&width=120",
@@ -266,8 +266,8 @@
         "news": false,
         "direct": true,
         "kicker": "",
-        "headline": "Most people over 35 think they’re just tired. Here’s what may really <em>be happening</em> inside your cells.",
-        "standfirst": "What researchers are finding about how cells make energy as we age, and why one cell biologist put seven nutrients into a single daily formula.",
+        "headline": "You’re doing everything right. So why are you still <em>running on empty</em> after 35?",
+        "standfirst": "What researchers are finding about afternoon crashes, slow recovery and how your cells make energy as you age, and why one cell biologist put seven nutrients into a single daily formula.",
         "sponsored": "Sponsored content",
         "author_name": "By Dr Richie Barclay",
         "author_role": "Cell biologist and founder of MUTO | November 2026",
