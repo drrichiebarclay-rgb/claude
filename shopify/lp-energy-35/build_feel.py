@@ -78,7 +78,7 @@ life = text(
 
 photo = {"type": "image", "settings": {
     "image_url": CDN + "Golden_Hour_Family_Beach_Walk.png?v=1792566215",
-    "image_alt": "A family walking along a beach at sunset with their dog", "image_position": "50% 50%", "caption": ""}}
+    "image_alt": "A family walking along a beach at sunset with their dog", "image_position": "50% 0%", "caption": ""}}
 
 back = text(
     "<p>We asked. These are their words, not ours.</p>",
@@ -102,7 +102,7 @@ simple = text(
 jar = {"type": "image", "settings": {
     "image_url": CDN + "lp-over-35-hero.jpg?v=1794239299",
     "image_alt": "A woman at her kitchen table in morning light, taking a capsule beside a glass of water and a jar "
-                 "of MUTO NAD+ Cellular Complex", "image_position": "50% 40%", "caption": ""}}
+                 "of MUTO NAD+ Cellular Complex", "image_position": "50% 100%", "caption": ""}}
 
 inside = {"type": "answer", "settings": {
     "label": "",

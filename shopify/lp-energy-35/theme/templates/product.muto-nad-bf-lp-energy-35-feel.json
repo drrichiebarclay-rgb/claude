@@ -160,7 +160,7 @@
           "settings": {
             "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/Golden_Hour_Family_Beach_Walk.png?v=1792566215",
             "image_alt": "A family walking along a beach at sunset with their dog",
-            "image_position": "50% 50%",
+            "image_position": "50% 0%",
             "caption": ""
           }
         },
@@ -178,7 +178,7 @@
           "settings": {
             "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/lp-over-35-hero.jpg?v=1794239299",
             "image_alt": "A woman at her kitchen table in morning light, taking a capsule beside a glass of water and a jar of MUTO NAD+ Cellular Complex",
-            "image_position": "50% 40%",
+            "image_position": "50% 100%",
             "caption": ""
           }
         },
