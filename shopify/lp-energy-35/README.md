@@ -21,7 +21,7 @@ Copy the section first: a template that names a section the theme doesn't have i
 
 | File | What it is |
 |---|---|
-| `theme/sections/muto-lst-needs.liquid` | New section, "MUTO listicle — essentials". Nothing existing is changed. |
+| `theme/sections/muto-lst-needs.liquid` | New section, "MUTO listicle essentials". Nothing existing is changed. |
 | `theme/templates/product.muto-nad-bf-lp-energy-35.json` | New product template. |
 
 Nothing else is needed. The template uses sections, snippets and stylesheets already on the live theme
