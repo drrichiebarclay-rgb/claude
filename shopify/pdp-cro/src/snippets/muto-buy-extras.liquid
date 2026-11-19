@@ -14,7 +14,8 @@
        phones both sit in the buy block: the value line at its top, the control line above the button.
        The list of what the jar replaces must match the FAQ answer "What does it replace…".
     4. The payment icons under the "Arrives by … Tracked 24h" line: every card and payment type the shop
-       has switched on (Shopify's own list, shop.enabled_payment_types), plus Klarna if it is not already in
+       has switched on (Shopify's own list, shop.enabled_payment_types) except the five in mpay_skip
+       (Bancontact, Diners Club, Discover, JCB, UnionPay), kept to one row, plus Klarna if it is not already in
        that list (asked for by Richie, 19 Nov; take the Klarna line out below if Klarna is not offered).
   They are placed by the script below because the buy box's parts are arranged by other files.
 {%- endcomment -%}
@@ -59,10 +60,10 @@
   html:root body #MainContent#MainContent .mc .mc__buy-copy > .mbf--plans{order:2!important}
 
   /* Payment icons under the "Arrives by" line */
-  .mpay{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;width:100%;margin:14px 0 0;padding:0;list-style:none}
-  .mpay li{margin:0;padding:0;line-height:0}
+  .mpay{display:flex;flex-wrap:nowrap;justify-content:center;gap:5px;width:100%;margin:14px 0 0;padding:0;list-style:none}
+  .mpay li{flex:0 1 38px;min-width:0;margin:0;padding:0;line-height:0}
   .mpay li::before{content:none!important}
-  .mpay__i{display:block;width:38px;height:24px}
+  .mpay__i{display:block;width:100%;height:auto}
   /* Subscription flexibility, beside the plan selector */
   .mbf{order:2;display:flex;align-items:flex-start;gap:10px;width:100%;box-sizing:border-box;margin:12px 0 0;padding:12px 14px;border-radius:10px;background:#f4f2ef;color:#242223;font-size:14px;line-height:1.45}
   .mbf svg{flex:0 0 auto;width:18px;height:18px;margin-top:1px}
@@ -102,7 +103,9 @@
 <template data-mpay-tpl>
   <ul class="mpay" aria-label="Payment methods we accept">
     {%- assign mpay_has_klarna = false -%}
+    {%- assign mpay_skip = 'bancontact,diners_club,discover,jcb,unionpay' | split: ',' -%}
     {%- for type in shop.enabled_payment_types -%}
+      {%- if mpay_skip contains type -%}{%- continue -%}{%- endif -%}
       {%- if type == 'klarna' or type == 'klarna-pay-later' or type == 'klarna-slice-it' or type == 'klarna-pay-now' -%}{%- assign mpay_has_klarna = true -%}{%- endif -%}
       <li>{{ type | payment_type_svg_tag: class: 'mpay__i' }}</li>
     {%- endfor -%}
