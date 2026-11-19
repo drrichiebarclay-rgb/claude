@@ -1,9 +1,7 @@
 {%- comment -%}
   MUTO — buy box extras (muto-buy-extras). Rendered once by the "MUTO BF style" section.
   Adds three things to the product page's buy box:
-    1. "High demand" pill. If the shop metafield muto.bf_orders_left holds a number above 0 it reads
-       "only N welcome kits left"; otherwise "few welcome kits left". This file only READS the metafield.
-       The claim must be true: remove the pill (delete .mbx__hot below) when kits are not running low.
+    1. (The "High demand … welcome kits left" pill was removed at Richie's request, 19 Nov.)
     2. "Black Friday is live" banner with a countdown that runs out at the end of each day: it counts to
        9pm UK time, the real cut-off for next-day delivery ("Order before 9pm and receive it next day"), and
        starts again for the next day's cut-off. The line under the offer says "Order by 9pm for next-day
@@ -85,7 +83,6 @@
 </style>
 <template data-mbx-tpl>
   <div class="mbx" data-mbx>
-    <p class="mbx__hot"><span class="mbx__dot" aria-hidden="true"></span>High demand: {% if bx_left_n > 0 %}only {{ bx_left_n }}{% else %}few{% endif %} welcome kits left</p>
     <div class="mbx__bar">
       <p class="mbx__t"><b>Black Friday is live</b><span><i>53% off</i> your first 3 months<em class="mbx__by">Order by 9pm for next-day delivery</em></span></p>
       <div class="mbx__cd" data-mbx-cd role="timer" aria-label="Time left to order for next-day delivery" hidden>
