@@ -157,7 +157,7 @@
           if (seen.closest('.msv-seen') || !(sec.compareDocumentPosition(seen) & Node.DOCUMENT_POSITION_FOLLOWING)) return;
           var wrap = document.createElement('div');
           wrap.className = 'msv-seen';
-          wrap.style.cssText = 'background:#fff;padding:28px 20px 30px';
+          wrap.style.cssText = 'background:#fafafa;padding:8px 20px 14px';
           sec.parentNode.insertBefore(wrap, sec);
           wrap.appendChild(seen);
           return;
