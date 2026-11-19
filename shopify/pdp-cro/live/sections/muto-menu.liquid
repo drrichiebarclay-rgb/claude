@@ -1,0 +1,279 @@
+{%- comment -%}
+  MUTO — Menu (muto-menu). In the header group. Replaces the contents of the theme's menu drawer (Dawn's
+  #menu-drawer, opened by the header's menu icon) with the MUTO menu:
+  - a "MENU" heading and close button, as the side cart has,
+  - Shop: the products in the menu's "Shop" link, each with its photo,
+  - the other links grouped under their parent (Science, Support) or "Explore" (single links),
+  - an offer card (Black Friday by default; switch it off after),
+  - account and social links.
+  The panel is its own element on the page body (like the cart drawer): the header's menu icon opens it; its X,
+  the dimmed page and Esc close it. Remove this section and the theme's plain drawer comes back.
+{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign m = s.menu
+  if m == blank
+    assign m = linklists['main-menu-new-drawer']
+  endif
+  assign shop_link = nil
+  assign shop_title = ''
+  for l in m.links
+    assign t = l.title | downcase
+    if t contains 'shop' and l.links.size > 0
+      assign shop_link = l
+      assign shop_title = l.title
+      break
+    endif
+  endfor
+  assign promo_url = s.promo_url
+  if promo_url == blank
+    assign promo_url = all_products['muto-nad-cellular-complex'].url | default: routes.all_products_collection_url
+  endif
+  assign promo_img = s.promo_image
+  if promo_img == blank
+    assign promo_img = all_products['muto-nad-cellular-complex'].featured_image
+  endif
+-%}
+<style>
+  /* Same panel as the side cart (assets/muto-cart.css): white, full height, sliding in from the right over a dimmed
+     page; hairline rules, Neue Haas text, Sometype Mono labels, black uppercase buttons. The panel is its own
+     element on the page body (like the cart drawer), so nothing in the header can cover or clip it. */
+  .mmd-root{position:fixed;inset:0;z-index:2147483000;visibility:hidden;pointer-events:none;transition:visibility 0s linear .32s}
+  .mmd-root.is-open{visibility:visible;pointer-events:auto;transition:none}
+  .mmd-ovl{position:absolute;inset:0;background:rgba(36,34,35,.45);opacity:0;transition:opacity .3s ease}
+  .mmd-root.is-open .mmd-ovl{opacity:1}
+  .mmd-panel{position:absolute;top:0;right:0;bottom:0;width:40rem;max-width:calc(100vw - 3rem);overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;
+    background:#fff;color:#242223;font-family:var(--mc-font);box-shadow:-24px 0 60px rgba(20,24,30,.12);transform:translateX(100%);transition:transform .32s cubic-bezier(.2,0,.2,1);outline:0}
+  .mmd-root.is-open .mmd-panel{transform:none}
+  @media (prefers-reduced-motion:reduce){.mmd-ovl,.mmd-panel{transition:none}}
+  html.mmd-lock,html.mmd-lock body{overflow:hidden!important}
+  /* Fonts as the side cart: Neue Haas Grotesk Display for everything, Sometype Mono for the small capitals labels,
+     forced so the theme's heading and body fonts never reach the panel */
+  .mmd-root,.mmd-root :where(*){font-family:var(--mc-font)!important;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+  .mmd-root :is(.mmd__label,.mmd__label *,.mmd__promo-eye){font-family:var(--mc-mono)!important}
+  /* The theme's own drawer is not used while this section is on */
+  html body:has(.mmd-root) #menu-drawer{display:none!important}
+  .mmd__in{display:flex;flex-direction:column;min-height:100%;padding:0 28px calc(28px + env(safe-area-inset-bottom));box-sizing:border-box}
+  .mmd a{color:inherit;text-decoration:none}
+  .mmd__head{position:sticky;top:0;z-index:2;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:28px 0 20px;border-bottom:1px solid rgba(36,34,35,.1);margin-bottom:24px}
+  .mmd__title{margin:0;font-size:22px;line-height:1;font-weight:500;letter-spacing:-.01em;text-transform:uppercase;color:#242223}
+  .mmd__x{flex:0 0 auto;display:flex!important;visibility:visible!important;align-items:center;justify-content:center;width:40px;height:40px;margin:-8px -10px -8px 0;padding:0;border:0;background:none;color:#242223;cursor:pointer}
+  .mmd__x svg{width:20px;height:20px}
+  .mmd__label{display:flex;justify-content:space-between;align-items:baseline;margin:0 0 4px;font-family:var(--mc-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#5c5a5b}
+  .mmd__label a{color:#5c5a5b;text-decoration:underline;text-underline-offset:3px}
+  /* Shop: like the cart's lines, photo + name */
+  .mmd__prods{list-style:none;margin:0 0 28px;padding:0}
+  .mmd__prod{display:flex;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid rgba(36,34,35,.1)}
+  .mmd__img{flex:0 0 64px;width:64px;height:64px;border-radius:8px;border:1px solid rgba(36,34,35,.1);background:#fff;overflow:hidden;display:flex;align-items:center;justify-content:center}
+  .mmd__img img{width:100%;height:100%;object-fit:cover;display:block}
+  .mmd__name{flex:1;min-width:0;font-size:16px;line-height:1.3;font-weight:500;letter-spacing:-.01em;color:#242223}
+  .mmd__go{flex:0 0 auto;display:flex;color:#242223;opacity:.5;transition:opacity .2s,transform .2s}
+  .mmd__go svg{width:14px;height:14px}
+  .mmd__prod:hover .mmd__go,.mmd__prod:focus-visible .mmd__go{opacity:1;transform:translateX(3px)}
+  /* Offer card: the photo runs the full card; the text sits in its dark top */
+  .mmd__promo{position:relative;display:block;margin:0 0 28px;border-radius:8px;overflow:hidden;background:#1b1a1f}
+  .mmd__promo-in{position:relative;z-index:1;display:block;padding:22px 22px 0}
+  .mmd__promo-in > span{display:block}
+  .mmd__promo-eye{display:flex!important;align-items:center;gap:8px;margin:0 0 10px;font-family:var(--mc-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#5efaff;white-space:nowrap}
+  .mmd__promo-eye::before{content:"";flex:0 0 7px;width:7px;height:7px;border-radius:50%;background:#5efaff;animation:mmdPulse 2s infinite}
+  @keyframes mmdPulse{0%{box-shadow:0 0 0 0 rgba(94,250,255,.6)}70%{box-shadow:0 0 0 8px rgba(94,250,255,0)}100%{box-shadow:0 0 0 0 rgba(94,250,255,0)}}
+  @media (prefers-reduced-motion:reduce){.mmd__promo-eye::before{animation:none}}
+  .mmd__promo-h{margin:0;font-size:26px;line-height:1.05;font-weight:500;letter-spacing:-.015em;text-transform:uppercase;color:#fff}
+  .mmd__promo-sub{margin:8px 0 16px;font-size:14px;line-height:1.4;color:rgba(255,255,255,.75)}
+  .mmd__promo-in > .mmd__promo-cta{display:inline-flex}
+  .mmd__promo-cta{align-items:center;gap:10px;height:42px;padding:0 18px;border-radius:2px;background:#fff;color:#242223;font-size:13px;font-weight:400;letter-spacing:.14em;text-transform:uppercase}
+  .mmd__promo-cta svg{width:13px;height:13px}
+  .mmd__promo-img{position:relative;display:block;margin-top:-22%}
+  .mmd__promo-img img{display:block;width:100%;height:auto}
+  .mmd__promo-img::before{content:"";position:absolute;inset:0 0 auto;height:45%;background:linear-gradient(#1b1a1f,rgba(27,26,31,0))}
+  /* Other links: grouped, two columns */
+  .mmd__groups{display:grid;grid-template-columns:1fr 1fr;gap:24px 20px;padding-top:4px;margin:0 0 28px}
+  .mmd__group:last-child:nth-child(odd){grid-column:1/-1}
+  .mmd__group:last-child:nth-child(odd) ul{columns:2;column-gap:20px}
+  .mmd__group li{break-inside:avoid}
+  .mmd__group .mmd__label{margin-bottom:8px}
+  .mmd__group ul{list-style:none;margin:0;padding:0}
+  .mmd__group li a{display:block;padding:5px 0;font-size:15px;line-height:1.35;color:#3d3b3c}
+  .mmd__group li a:hover{color:#242223;text-decoration:underline;text-underline-offset:3px}
+  /* Foot: Log in as the cart's checkout button, social icons under it */
+  .mmd__foot{margin-top:auto;padding-top:22px;border-top:1px solid rgba(36,34,35,.1)}
+  .mmd__acct{display:flex;align-items:center;justify-content:center;height:54px;border-radius:2px;background:#242223;color:#fff!important;font-size:14px;font-weight:400;letter-spacing:.14em;text-transform:uppercase}
+  .mmd__acct:hover{background:#000}
+  .mmd__social{display:flex;justify-content:center;gap:4px;margin:14px 0 0;padding:0;list-style:none}
+  .mmd__social a{display:flex;padding:4px;color:#5c5a5b}
+  .mmd__social a:hover{color:#242223}
+  .mmd__social svg{width:30px;height:30px}
+  .mmd__social svg path:last-child:not(:first-child){display:none}
+  @media (max-width:749px){.mmd__in{padding:0 20px calc(22px + env(safe-area-inset-bottom))}.mmd__head{padding:22px 0 16px;margin-bottom:20px}}
+</style>
+<template id="mmd-tpl">
+  <div class="mmd__in">
+    <div class="mmd__head">
+      <p class="mmd__title">{{ s.title | default: 'Menu' }}</p>
+      <button type="button" class="mmd__x" data-mmd-close aria-label="Close menu"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 3l14 14M17 3 3 17" stroke="currentColor" stroke-width="1.4"/></svg></button>
+    </div>
+
+    {%- if shop_link -%}
+      <p class="mmd__label"><span>{{ shop_link.title }} ({{ shop_link.links.size }})</span>{%- if s.shop_all_url != blank -%}<a href="{{ s.shop_all_url }}">Shop all</a>{%- endif -%}</p>
+      <ul class="mmd__prods" role="list">
+        {%- for c in shop_link.links -%}
+          {%- liquid
+            assign photo_key = 'photo_' | append: forloop.index
+            assign img = s[photo_key]
+            if img == blank and c.type == 'product_link' and c.object
+              assign img = c.object.featured_image
+            endif
+          -%}
+          <li>
+            <a class="mmd__prod" href="{{ c.url }}"{% if c.current %} aria-current="page"{% endif %}>
+              <span class="mmd__img">{%- if img -%}{{ img | image_url: width: 400 | image_tag: loading: 'lazy', alt: '', widths: '192, 256, 400', sizes: '64px' }}{%- endif -%}</span>
+              <span class="mmd__name">{{ c.title | escape }}</span>
+              <span class="mmd__go" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none"><path d="M1 7h11M7.5 2.5 12 7l-4.5 4.5" stroke="currentColor" stroke-width="1.3"/></svg></span>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    {%- if s.promo_on -%}
+      <a class="mmd__promo" href="{{ promo_url }}">
+        <span class="mmd__promo-in">
+          {%- if s.promo_eyebrow != blank -%}<span class="mmd__promo-eye">{{ s.promo_eyebrow }}</span>{%- endif -%}
+          <span class="mmd__promo-h" style="display:block">{{ s.promo_heading }}</span>
+          {%- if s.promo_sub != blank -%}<span class="mmd__promo-sub" style="display:block">{{ s.promo_sub }}</span>{%- endif -%}
+          <span class="mmd__promo-cta">{{ s.promo_cta | default: 'Claim offer' }}<svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11M7.5 2.5 12 7l-4.5 4.5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </span>
+        {%- if promo_img -%}<span class="mmd__promo-img">{{ promo_img | image_url: width: 1200 | image_tag: loading: 'lazy', alt: '', widths: '600, 900, 1200', sizes: '(min-width: 750px) 344px, calc(100vw - 88px)' }}</span>{%- endif -%}
+      </a>
+    {%- endif -%}
+
+    {%- liquid
+      assign singles = ''
+      for l in m.links
+        if l.title == shop_title
+          continue
+        endif
+        if l.links.size == 0
+          assign singles = singles | append: 'x'
+        endif
+      endfor
+    -%}
+    <div class="mmd__groups">
+      {%- if singles != blank -%}
+        <div class="mmd__group">
+          <p class="mmd__label">{{ s.explore_label | default: 'Explore' }}</p>
+          <ul role="list">
+            {%- for l in m.links -%}
+              {%- if l.title == shop_title or l.links.size > 0 -%}{%- continue -%}{%- endif -%}
+              <li><a href="{{ l.url }}"{% if l.current %} aria-current="page"{% endif %}>{{ l.title | escape }}</a></li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+      {%- for l in m.links -%}
+        {%- if l.title == shop_title or l.links.size == 0 -%}{%- continue -%}{%- endif -%}
+        <div class="mmd__group">
+          <p class="mmd__label">{{ l.title | escape }}</p>
+          <ul role="list">
+            {%- for c in l.links -%}
+              <li><a href="{{ c.url }}"{% if c.current %} aria-current="page"{% endif %}>{{ c.title | strip | escape }}</a></li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    <div class="mmd__foot">
+      {%- if shop.customer_accounts_enabled -%}
+        <a class="mmd__acct" href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ s.login_url | default: routes.account_login_url }}{%- endif -%}" rel="nofollow">
+          {%- if customer -%}My account{%- else -%}Log in{%- endif -%}
+        </a>
+      {%- else -%}<span></span>{%- endif -%}
+      <ul class="mmd__social" role="list">
+        {%- if settings.social_instagram_link != blank -%}<li><a href="{{ settings.social_instagram_link }}" aria-label="Instagram">{{- 'icon-instagram.svg' | inline_asset_content -}}</a></li>{%- endif -%}
+        {%- if settings.social_tiktok_link != blank -%}<li><a href="{{ settings.social_tiktok_link }}" aria-label="TikTok">{{- 'icon-tiktok.svg' | inline_asset_content -}}</a></li>{%- endif -%}
+        {%- if settings.social_linkedin_link != blank -%}<li><a href="{{ settings.social_linkedin_link }}" aria-label="LinkedIn">{{- 'icon-linkedin.svg' | inline_asset_content -}}</a></li>{%- endif -%}
+        {%- if settings.social_facebook_link != blank -%}<li><a href="{{ settings.social_facebook_link }}" aria-label="Facebook">{{- 'icon-facebook.svg' | inline_asset_content -}}</a></li>{%- endif -%}
+      </ul>
+    </div>
+  </div>
+</template>
+<script>
+  /* The MUTO menu panel. The header's menu icon opens it (the theme's own drawer stays closed); the X, the dimmed
+     page and Esc close it. */
+  (function () {
+    var root, panel, last = null;
+    function summary() { return document.querySelector('#Details-menu-drawer-container > summary'); }
+    function open() {
+      last = document.activeElement;
+      root.classList.add('is-open'); root.removeAttribute('inert'); root.setAttribute('aria-hidden', 'false');
+      document.documentElement.classList.add('mmd-lock');
+      var sm = summary(); if (sm) sm.setAttribute('aria-expanded', 'true');
+      var x = panel.querySelector('.mmd__x'); if (x) x.focus({ preventScroll: true });
+    }
+    function close() {
+      if (!root.classList.contains('is-open')) return;
+      root.classList.remove('is-open'); root.setAttribute('inert', ''); root.setAttribute('aria-hidden', 'true');
+      document.documentElement.classList.remove('mmd-lock');
+      var sm = summary(); if (sm) sm.setAttribute('aria-expanded', 'false');
+      if (last && last.focus) last.focus({ preventScroll: true });
+    }
+    function build() {
+      var t = document.getElementById('mmd-tpl');
+      if (!t) return;
+      var old = document.querySelector('.mmd-root'); if (old) old.remove();
+      root = document.createElement('div');
+      root.className = 'mmd-root'; root.setAttribute('aria-hidden', 'true'); root.setAttribute('inert', '');
+      root.innerHTML = '<div class="mmd-ovl" data-mmd-close></div><div class="mmd-panel mmd" role="dialog" aria-modal="true" aria-label="Menu" tabindex="-1"></div>';
+      panel = root.querySelector('.mmd-panel');
+      panel.appendChild(t.content.cloneNode(true));
+      document.body.appendChild(root);
+      root.addEventListener('click', function (e) {
+        if (e.target.closest('[data-mmd-close]')) { e.preventDefault(); close(); }
+        else if (e.target.closest('a[href]')) close();
+      });
+    }
+    /* The header's menu icon: open this panel instead of the theme's drawer */
+    document.addEventListener('click', function (e) {
+      var sm = e.target.closest && e.target.closest('#Details-menu-drawer-container > summary');
+      if (!sm || !root) return;
+      e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation();
+      if (root.classList.contains('is-open')) close(); else open();
+    }, true);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && root) close(); });
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build); else build();
+    document.addEventListener('shopify:section:load', build);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "MUTO — Menu",
+  "tag": "div",
+  "class": "muto-menu",
+  "settings": [
+    { "type": "paragraph", "content": "The menu drawer (menu icon in the header). Shop products come from the menu's Shop link; other links are grouped under their parent." },
+    { "type": "link_list", "id": "menu", "label": "Menu", "info": "Blank: Main Menu New Drawer" },
+    { "type": "text", "id": "title", "label": "Heading", "default": "Menu" },
+    { "type": "url", "id": "shop_all_url", "label": "Shop all link (optional)" },
+    { "type": "text", "id": "explore_label", "label": "Label for single links", "default": "Explore" },
+    { "type": "url", "id": "login_url", "label": "Log in link", "info": "Blank: the store's log in page" },
+    { "type": "header", "content": "Shop photos" },
+    { "type": "paragraph", "content": "Optional: a photo for each Shop item, in menu order. Blank: the product's own photo." },
+    { "type": "image_picker", "id": "photo_1", "label": "Shop item 1" },
+    { "type": "image_picker", "id": "photo_2", "label": "Shop item 2" },
+    { "type": "image_picker", "id": "photo_3", "label": "Shop item 3" },
+    { "type": "image_picker", "id": "photo_4", "label": "Shop item 4" },
+    { "type": "header", "content": "Offer card" },
+    { "type": "checkbox", "id": "promo_on", "label": "Show the offer card", "default": true },
+    { "type": "text", "id": "promo_eyebrow", "label": "Small line", "default": "Black Friday · Live now" },
+    { "type": "text", "id": "promo_heading", "label": "Heading", "default": "3 months for £99" },
+    { "type": "text", "id": "promo_sub", "label": "Line under", "default": "Save 53% + a welcome kit worth £87" },
+    { "type": "text", "id": "promo_cta", "label": "Button", "default": "Claim offer" },
+    { "type": "url", "id": "promo_url", "label": "Link", "info": "Blank: NAD+ Cellular Complex" },
+    { "type": "image_picker", "id": "promo_image", "label": "Image", "info": "Blank: the NAD+ product photo. Best: a photo with a dark top, for the text." }
+  ],
+  "presets": [{ "name": "MUTO — Menu" }],
+  "enabled_on": { "groups": ["header"] }
+}
+{% endschema %}

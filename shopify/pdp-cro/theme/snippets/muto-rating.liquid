@@ -1,0 +1,25 @@
+{%- comment -%}
+  MUTO — rating line (muto-rating). Prints "4.8 from 106 reviews" from the numbers REVIEWS.io saves on the
+  product (metafields reviews.rating and reviews.rating_count), so the line under the stars is never typed.
+  `fallback` is printed if the product has no numbers yet.
+
+    <span data-muto-rating>{%- render 'muto-rating', fallback: '4.8 from 103 reviews' -%}</span>
+
+  The data-muto-rating attribute lets the page bring the line into step with the reviews widget once the
+  widget has loaded (script in sections/muto-bf-style.liquid): the widget counts reviews of every product in
+  its list, so it can be one or two ahead of this product's own count.
+{%- endcomment -%}
+{%- liquid
+  assign mr_product = product
+  if mr_product == blank
+    assign mr_product = all_products['muto-nad-cellular-complex']
+  endif
+  assign mr_rating = mr_product.metafields.reviews.rating.value
+  assign mr_count = mr_product.metafields.reviews.rating_count.value
+  if mr_rating != blank and mr_count != blank and mr_count > 0
+    assign mr_score = mr_rating.rating | default: mr_rating | times: 1.0 | round: 1
+    echo mr_score | append: ' from ' | append: mr_count | append: ' reviews'
+  else
+    echo fallback
+  endif
+-%}
