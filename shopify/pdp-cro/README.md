@@ -54,3 +54,14 @@ To go live, copy the files in `theme/` to the live theme.
 - `sections/muto-expect.liquid` rewritten as an interactive timeline: the dots are tabs and one card shows the selected step. New setting "Open at" (the template opens at step 2, "Weeks 1-2"). Source in `src/`.
 - `snippets/muto-informed-sport.liquid` (new) and `assets/muto-informed-sport.png` (new): the Informed Sport badge, placed in the buy box under the testing and nutrition links and in the test results panel's overview. Rendered from `sections/muto-bf-style.liquid`.
 - `sections/muto-test-results.liquid`: a fifth tab, "Informed Sport", with the certificate details (LMS-PSRM-09495, 18 Nov 2026) and a link to the PDF (`assets/muto-informed-sport-certificate.pdf`). The buy box badge opens the panel at this tab.
+
+## Third pass (19 Nov): survey block, Black Friday widget, notes, cart steps
+
+- `sections/muto-survey.liquid` (new): the dark "wearable style" survey card under the buy box. Results are blocks; the NAD+ study figure is a separate setting with its own source.
+- `snippets/muto-buy-extras.liquid` (new): "High demand" pill (reads shop metafield `muto.bf_orders_left`, never writes it), "Black Friday is live" banner with a countdown to the "Black Friday ends" setting on the "MUTO BF style" section (default 2026-11-30T23:59:59, UK time: confirm it), the "Replaces 5 supplements" value note and the subscription flexibility note.
+- `snippets/muto-offer.liquid`: adds the "Over 2,000 loyal subscribers" line used beside the stars.
+- 1-Month plan now shown in plain pounds (no percentage, no kit value) so the page has one discount figure and one kit value.
+- `snippets/cart-drawer.liquid` + `assets/muto-cart.css`: Cart > Delivery > Payment steps above the checkout button.
+- "What to expect": each step now has a tinted "On your wearable" line (block setting "Wearable line").
+- Template: the disabled "statement" section was removed, because Shopify allows 25 sections per template and the survey block was the 26th.
+- A test file `templates/page.zz-survey-test.json` is on the duplicate theme and can be deleted in the code editor.
