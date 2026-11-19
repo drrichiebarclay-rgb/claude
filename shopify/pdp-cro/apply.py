@@ -485,6 +485,16 @@ edit("sections/muto-test-results.liquid", [
       </section>"""),
 ])
 
+# Shopify allows 25 sections in a template. The survey block is the 26th, so the "statement" section, which
+# was switched off (disabled) and not shown on the page, is taken out of the template to make room.
+_p = os.path.join(HERE, "theme", T)
+_t = open(_p, encoding="utf-8", newline="").read()
+_a = _t.index('    "statement": {')
+_b = _t.index('\n    },\n', _a) + len('\n    },\n')
+assert '"disabled": true' in _t[_a:_b] and _t.count('    "statement",\n') == 1
+_t = (_t[:_a] + _t[_b:]).replace('    "statement",\n', '')
+open(_p, "w", encoding="utf-8", newline="").write(_t)
+
 # ---------------------------------------------------------------- whole files kept in src/ (rewritten or new)
 # "What to expect" as an interactive timeline (dots as tabs, one card), and the Informed Sport badge.
 for rel in ("sections/muto-expect.liquid", "snippets/muto-informed-sport.liquid", "snippets/muto-buy-extras.liquid", "sections/muto-survey.liquid", "assets/muto-informed-sport.png", "assets/muto-informed-sport-certificate.pdf"):
