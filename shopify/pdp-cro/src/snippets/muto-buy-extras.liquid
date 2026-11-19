@@ -15,7 +15,7 @@
        The list of what the jar replaces must match the FAQ answer "What does it replace…".
     4. The payment icons under the "Arrives by … Tracked 24h" line: every card and payment type the shop
        has switched on (Shopify's own list, shop.enabled_payment_types) except those in mpay_skip
-       (Bancontact, Diners Club, Discover, JCB, UnionPay, MB WAY), kept to one row, plus Klarna if it is not already in
+       (Bancontact, Diners Club, Discover, JCB, UnionPay, MB WAY, Satispay), kept to one row, plus Klarna if it is not already in
        that list (asked for by Richie, 19 Nov; take the Klarna line out below if Klarna is not offered).
   They are placed by the script below because the buy box's parts are arranged by other files.
 {%- endcomment -%}
@@ -103,7 +103,7 @@
 <template data-mpay-tpl>
   <ul class="mpay" aria-label="Payment methods we accept">
     {%- assign mpay_has_klarna = false -%}
-    {%- assign mpay_skip = 'bancontact,diners_club,discover,jcb,unionpay,mbway' | split: ',' -%}
+    {%- assign mpay_skip = 'bancontact,diners_club,discover,jcb,unionpay,mbway,satispay' | split: ',' -%}
     {%- for type in shop.enabled_payment_types -%}
       {%- if mpay_skip contains type -%}{%- continue -%}{%- endif -%}
       {%- if type == 'klarna' or type == 'klarna-pay-later' or type == 'klarna-slice-it' or type == 'klarna-pay-now' -%}{%- assign mpay_has_klarna = true -%}{%- endif -%}
