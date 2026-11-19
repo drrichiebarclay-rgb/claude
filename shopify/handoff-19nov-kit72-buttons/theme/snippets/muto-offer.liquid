@@ -1,0 +1,38 @@
+{%- comment -%}
+  MUTO — offer values (muto-offer). ONE place for the numbers and the button label that used to be typed
+  into many files. Change a value here and every bar, card, tile, menu card and script that shows it changes.
+
+    {%- render 'muto-offer', key: 'kit3' -%}   what the 3-Month Supply's welcome kit is worth
+    {%- render 'muto-offer', key: 'kit1' -%}   what the 1-Month Supply's welcome kit is worth
+    {%- render 'muto-offer', key: 'cta' -%}    the buy button's label on the product page ("Add to Cart")
+    {%- render 'muto-offer', key: 'cta_bar' -%} the label on the bars: sticky bar, top bar, menu card ("Claim now")
+    {%- render 'muto-offer', key: 'subs' -%}   the line beside the star rating ("Over 2,000 loyal subscribers")
+    {%- render 'muto-offer', key: 'vars' -%}   the same values for stylesheets and scripts: CSS variables
+                                               (--muto-kit3, --muto-kit1) and window.MUTO_OFFER
+
+  The 3-Month kit is creatine £30, socks £12, travel vial £10, Forever Jar £10 and the 12-week guide £10: £72.
+  The Performance Bottle (£15) comes with box 2, so it is not in this figure. The 1-Month kit has no vial: £62.
+{%- endcomment -%}
+{%- liquid
+  assign mo_kit3 = '£72'
+  assign mo_kit1 = '£62'
+  assign mo_cta = 'Add to Cart'
+  assign mo_cta_bar = 'Claim now'
+  assign mo_subs = 'Over 2,000 loyal subscribers'
+  case key
+    when 'kit3'
+      echo mo_kit3
+    when 'kit1'
+      echo mo_kit1
+    when 'cta'
+      echo mo_cta
+    when 'cta_bar'
+      echo mo_cta_bar
+    when 'subs'
+      echo mo_subs
+  endcase
+-%}
+{%- if key == 'vars' -%}
+  <style>:root{--muto-kit3:"{{ mo_kit3 }}";--muto-kit1:"{{ mo_kit1 }}"}</style>
+  <script>window.MUTO_OFFER = { kit3: {{ mo_kit3 | json }}, kit1: {{ mo_kit1 | json }}, cta: {{ mo_cta | json }}, cta_bar: {{ mo_cta_bar | json }}, subs: {{ mo_subs | json }} };</script>
+{%- endif -%}
