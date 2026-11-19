@@ -15,7 +15,7 @@
 {%- comment -%} The offer's numbers for the stylesheets and scripts below (one place: snippets/muto-offer.liquid) {%- endcomment -%}
 {%- render 'muto-offer', key: 'vars' -%}
 {%- render 'muto-informed-sport' -%}
-{%- render 'muto-buy-extras', end: section.settings.bf_end -%}
+{%- render 'muto-buy-extras' -%}
 {%- comment -%}
   Hero test. "Hero version" below picks A (as live) or B (adds "Track it on the wearable you already wear." and a
   support line under the headline). An A/B tool, or anyone previewing, can force one with ?hero=a or ?hero=b on
@@ -27,6 +27,23 @@
     var m = /[?&]hero=([ab])\b/i.exec(location.search);
     if (m) v = m[1].toLowerCase();
     document.documentElement.setAttribute('data-hero', v === 'b' ? 'b' : 'a');
+    /* The variant is exposed for analytics: data-hero-variant on the buy box, and a dataLayer event on page
+       view and on every tap of an add-to-cart button, so add-to-cart can be split by variant. */
+    var V = v === 'b' ? 'B' : 'A';
+    window.MUTO_HERO_VARIANT = V;
+    function send(name) {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: name, hero_variant: V });
+      try { if (window.Shopify && Shopify.analytics && Shopify.analytics.publish) Shopify.analytics.publish(name, { hero_variant: V }); } catch (e) {}
+    }
+    send('muto_hero_view');
+    document.addEventListener('DOMContentLoaded', function () {
+      [].forEach.call(document.querySelectorAll('#MainContent .mc, #mc-sbar'), function (el) { el.setAttribute('data-hero-variant', V); });
+    });
+    document.addEventListener('click', function (e) {
+      var b = e.target.closest && e.target.closest('.mm-o__btn, .mc__buy-cta, #mc-sbar button, #mc-bfx a, form[action*="/cart/add"] [type="submit"]');
+      if (b && /90-day test|add to cart/i.test((b.textContent || '') + ' ' + (b.getAttribute('aria-label') || ''))) send('muto_add_to_cart');
+    }, true);
   })();
 </script>
 <style>html:not([data-hero="b"]) [data-hero-b]{display:none!important}</style>
@@ -129,7 +146,6 @@ document.addEventListener('DOMContentLoaded', function () {
       { "value": "standard", "label": "Standard (premium on the premium template)" },
       { "value": "premium", "label": "Premium" }
     ] },
-    { "type": "text", "id": "bf_end", "label": "Black Friday ends", "default": "2026-11-30T23:59:59", "info": "UK time, as YYYY-MM-DDTHH:MM:SS. The countdown in the buy box runs to this moment and never resets. It must be the offer's real end. Empty: no countdown." },
     { "type": "select", "id": "hero_variant", "label": "Hero version", "default": "B", "info": "B (default): the designed-to-be-tracked line and a support line under the headline. A: without them. Add ?hero=a or ?hero=b to the page address to force one.", "options": [
       { "value": "A", "label": "A (no wearable line)" },
       { "value": "B", "label": "B (designed to be tracked)" }

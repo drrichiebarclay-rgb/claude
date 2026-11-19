@@ -632,20 +632,20 @@
       "type": "muto-survey",
       "blocks": {
         "r1": { "type": "result", "settings": { "label": "Energy", "value": 92, "text": "report improved energy", "detail": "The thing people mention most is that their afternoons stop fading, so there is still something left for the evening." } },
-        "r2": { "type": "result", "settings": { "label": "Recovery", "value": 94, "text": "report better recovery", "detail": "People told us they felt ready to go again sooner, whether that was after training or after a long week." } },
+        "r2": { "type": "result", "settings": { "label": "Recovery", "value": 87, "text": "report better recovery", "detail": "People told us they felt ready to go again sooner, whether that was after training or after a long week." } },
         "r3": { "type": "result", "settings": { "label": "Strain", "value": 93, "text": "bounce back quicker from strain", "detail": "After a hard session, a late night or a heavy week, most said they were back to themselves faster." } },
         "r4": { "type": "result", "settings": { "label": "HRV", "value": 89, "text": "report improved HRV", "detail": "Most said their HRV had improved on their own wearable. This is what customers told us, not a clinical measurement, and your own numbers may differ." } }
       },
       "block_order": ["r1", "r2", "r3", "r4"],
       "settings": {
         "anchor": "survey",
-        "eyebrow": "Customer survey",
-        "heading": "Designed to be tracked.\nHere’s what people report.",
+        "eyebrow": "12-week customer trial results",
+        "heading": "Studied in real people.",
         "lede": "We asked 87 men and women aged 30 to 50 who take MUTO what had changed for them. Tap a result to see it.",
         "extra_value": "51%",
         "extra_text": "rise in blood NAD+ after two weeks of 300mg NR a day, the amount in MUTO, in a published clinical study.",
         "extra_source": "Conze et al., Scientific Reports, 2019. A study of NR, not of MUTO.",
-        "foot": "Survey of 87 men and women taking MUTO between the ages of 30 and 50. Self-reported, not a clinical trial. Individual results may vary."
+        "foot": "Survey of 87 men and women taking MUTO between the ages of 30 and 50. Self-reported by customers, not a clinical study. Individual results may vary."
       }
     },
     "reviews_ticker": {
@@ -2514,8 +2514,8 @@
     "head_styles",
     "bf_bar",
     "buy",
-    "survey",
     "reviews_ticker",
+    "survey",
     "ag1_plans",
     "early",
     "nav",

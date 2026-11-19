@@ -1,16 +1,18 @@
 {%- comment -%}
-  MUTO — buy box extras (muto-buy-extras). Rendered once by the "MUTO BF style" section, which passes `end`.
+  MUTO — buy box extras (muto-buy-extras). Rendered once by the "MUTO BF style" section.
   Adds three things to the product page's buy box:
     1. "High demand" pill. If the shop metafield muto.bf_orders_left holds a number above 0 it reads
        "only N welcome kits left"; otherwise "few welcome kits left". This file only READS the metafield.
        The claim must be true: remove the pill (delete .mbx__hot below) when kits are not running low.
-    2. "Black Friday is live" banner with a countdown to `end` (section setting "Black Friday ends",
-       UK time, e.g. 2026-11-30T23:59:59). It counts down to that one moment and never resets. With no end
-       set, or once it has passed, the banner shows without a countdown. The end must be the offer's real end.
-    3. The value note ("Replaces 5 supplements", with the honest price per day now and after the
-       introductory price) and the subscription flexibility note, beside the plan selector (under the plan
-       cards on desktop, under the buy button on phones). The per-day figures are £99, £125 and £150 over
-       90 days: change them here if the prices change.
+    2. "Black Friday is live" banner with a countdown that runs out at the end of each day: it counts to
+       9pm UK time, the real cut-off for next-day delivery ("Order before 9pm and receive it next day"), and
+       starts again for the next day's cut-off. It is labelled as the delivery cut-off, NOT as the end of the
+       offer: a timer that says the offer ends tonight and then resets is false urgency (banned in the UK
+       under the DMCC Act 2024). If the cut-off time changes, change CUTOFF_HOUR in the script.
+    3. The value line ("One jar instead of five", with the price per day for the first 3 months) above the
+       plan cards, and the control line ("You're in charge…") under them and above the buy button. On
+       phones both sit in the buy block: the value line at its top, the control line above the button.
+       The list of what the jar replaces must match the FAQ answer "What does it replace…".
   They are placed by the script below because the buy box's parts are arranged by other files.
 {%- endcomment -%}
 {%- liquid
@@ -29,7 +31,8 @@
   .mbx__t b{font-size:19px;font-weight:500;line-height:1.15;letter-spacing:-.01em;text-transform:uppercase}
   .mbx__t span{font-size:13.5px;line-height:1.3;color:rgba(255,255,255,.78)}
   .mbx__t i{font-style:normal;color:#5efaff}
-  .mbx__cd{flex:0 0 auto;display:flex;gap:6px}
+  .mbx__cd{flex:0 0 auto;display:flex;align-items:center;gap:6px}
+  .mbx__cap{margin-right:4px;font-size:11.5px;line-height:1.25;text-align:right;color:rgba(255,255,255,.78)}
   .mbx__cd[hidden]{display:none}
   .mbx__u{display:grid;justify-items:center;gap:1px;min-width:44px;padding:7px 4px 6px;border-radius:8px;background:#fff;color:#242223}
   .mbx__u b{font-family:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace;font-size:18px;font-weight:600;line-height:1;font-variant-numeric:tabular-nums}
@@ -40,6 +43,7 @@
     .mbx__t b{font-size:15.5px}
     .mbx__t span{font-size:12px}
     .mbx__cd{gap:4px}
+    .mbx__cap{font-size:10px;margin-right:2px}
     .mbx__u{min-width:36px;padding:6px 2px 5px}
     .mbx__u b{font-size:15px}
     .mbx__u span{font-size:8px}
@@ -56,8 +60,8 @@
   .mbf p{margin:0}
   .mbf b{font-weight:500}
   .mbf--o{margin:12px 0 0}
-  .mbf--v{background:#fff;border:1px solid rgba(36,34,35,.14)}
-  .mbf--v + .mbf{margin-top:8px}
+  .mbf--v{background:#fff;border:1px solid rgba(36,34,35,.14);margin:0 0 12px}
+  .mbf--o:not(.mbf--v){margin:0 0 12px}
   @media (max-width:749px){.mbf--plans{display:none}.mbf{font-size:13.5px}}
   @media (min-width:750px){.mbf--o{display:none}}
 </style>
@@ -66,8 +70,8 @@
     <p class="mbx__hot"><span class="mbx__dot" aria-hidden="true"></span>High demand: {% if bx_left_n > 0 %}only {{ bx_left_n }}{% else %}few{% endif %} welcome kits left</p>
     <div class="mbx__bar">
       <p class="mbx__t"><b>Black Friday is live</b><span><i>53% off</i> your first 3 months</span></p>
-      <div class="mbx__cd" data-mbx-cd data-end="{{ end | strip | escape }}" role="timer" aria-label="Time left on the Black Friday offer" hidden>
-        <span class="mbx__u"><b data-u="d">00</b><span>Days</span></span>
+      <div class="mbx__cd" data-mbx-cd role="timer" aria-label="Time left to order for next-day delivery" hidden>
+        <span class="mbx__cap">Next-day delivery<br>cut-off in</span>
         <span class="mbx__u"><b data-u="h">00</b><span>Hrs</span></span>
         <span class="mbx__u"><b data-u="m">00</b><span>Min</span></span>
         <span class="mbx__u"><b data-u="s">00</b><span>Sec</span></span>
@@ -77,21 +81,29 @@
 </template>
 <template data-mbv-tpl>
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/><path d="M17 15l2 2 3-4"/></svg>
-  <p><b>Replaces 5 supplements in one jar.</b> A separate NAD+ supplement, CoQ10, resveratrol, vitamin D3 with K2 and a B complex. <b>£1.10 a day</b> for your first 3 months, then £1.39 to £1.67 a day.</p>
+  <p><b>One jar instead of five.</b> NR, CoQ10, resveratrol, vitamin D3 + K2 and a B complex, in two capsules. <b>£1.10 a day</b> for your first 3 months.</p>
 </template>
 <template data-mbf-tpl>
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v5h-5"/></svg>
-  <p><b>Skip, pause or cancel online with 2 clicks.</b> No phone calls. We email you 5 days before every payment.</p>
+  <p><b>You’re in charge.</b> Skip, pause or cancel online with 2 clicks. No phone calls. We email you 5 days before every payment.</p>
 </template>
 <script>
   (function () {
     var tx = document.querySelector('template[data-mbx-tpl]'), tf = document.querySelector('template[data-mbf-tpl]');
     var tv = document.querySelector('template[data-mbv-tpl]');
     function note(cls, t) { var d = document.createElement('div'); d.className = 'mbf ' + cls; d.appendChild((t || tf).content.cloneNode(true)); return d; }
-    function tick(cd, end) {
-      var left = Math.floor((end - Date.now()) / 1000);
-      if (left <= 0) { cd.hidden = true; return false; }
-      var v = { d: Math.floor(left / 86400), h: Math.floor(left % 86400 / 3600), m: Math.floor(left % 3600 / 60), s: left % 60 };
+    var CUTOFF_HOUR = 21; /* 9pm UK time: the next-day delivery cut-off */
+    function ukSeconds() {
+      /* Seconds since midnight in the UK, whatever the visitor's own time zone */
+      try {
+        var p = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', hour: '2-digit', minute: '2-digit', second: '2-digit', hourCycle: 'h23' }).formatToParts(new Date()), o = {};
+        p.forEach(function (x) { o[x.type] = parseInt(x.value, 10); });
+        return o.hour * 3600 + o.minute * 60 + o.second;
+      } catch (e) { var d = new Date(); return d.getUTCHours() * 3600 + d.getUTCMinutes() * 60 + d.getUTCSeconds(); }
+    }
+    function tick(cd) {
+      var left = (CUTOFF_HOUR * 3600 - ukSeconds() + 86400) % 86400;
+      var v = { h: Math.floor(left / 3600), m: Math.floor(left % 3600 / 60), s: left % 60 };
       Object.keys(v).forEach(function (k) { cd.querySelector('[data-u="' + k + '"]').textContent = (v[k] < 10 ? '0' : '') + v[k]; });
       cd.hidden = false;
       return true;
@@ -103,16 +115,14 @@
         var before = copy.querySelector(':scope > .mc-for') || copy.querySelector(':scope > .mc__h1');
         if (before) {
           copy.insertBefore(tx.content.cloneNode(true), before);
-          var cd = copy.querySelector('[data-mbx-cd]'), raw = cd.getAttribute('data-end');
-          /* The end is typed in UK time; in late November the UK is on GMT, so it is read as UTC */
-          var end = raw ? Date.parse(/[zZ]|[+-]\d\d:?\d\d$/.test(raw) ? raw : raw + 'Z') : NaN;
-          if (!isNaN(end) && tick(cd, end)) { var t = setInterval(function () { if (!tick(cd, end)) clearInterval(t); }, 1000); }
+          var cd = copy.querySelector('[data-mbx-cd]');
+          tick(cd); setInterval(function () { tick(cd); }, 1000);
         }
       }
       var plans = copy.querySelector(':scope > .mc__plans');
-      if (tf && plans && !copy.querySelector('.mbf--plans')) { plans.insertAdjacentElement('afterend', note('mbf--plans')); if (tv) plans.insertAdjacentElement('afterend', note('mbf--plans mbf--v', tv)); }
+      if (tf && plans && !copy.querySelector('.mbf--plans')) { plans.insertAdjacentElement('afterend', note('mbf--plans')); if (tv) plans.insertAdjacentElement('beforebegin', note('mbf--plans mbf--v', tv)); }
       var o = copy.querySelector('.mm-o'), btn = o && o.querySelector('.mm-o__btn');
-      if (tf && btn && !o.querySelector('.mbf--o')) { btn.insertAdjacentElement('afterend', note('mbf--o')); if (tv) btn.insertAdjacentElement('afterend', note('mbf--o mbf--v', tv)); }
+      if (tf && btn && !o.querySelector('.mbf--o')) { btn.insertAdjacentElement('beforebegin', note('mbf--o')); if (tv) o.insertBefore(note('mbf--o mbf--v', tv), o.firstChild); }
       return true;
     }
     function run() { var n = 0; (function again() { if (!place() && n++ < 20) setTimeout(again, 300); })(); }

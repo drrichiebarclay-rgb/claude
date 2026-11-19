@@ -1,11 +1,12 @@
 {%- comment -%}
-  MUTO — Survey results. A dark, wearable-style card for the product page, under the buy box. One ring shows
-  the selected result; the rows beside it are the results (one "Result" block each). Tap a row, or use the
-  arrow keys, and the ring fills to that number and the line under it changes. An optional separate figure
-  (the NAD+ study number) sits under the rows, with its own source, because it is not from the survey.
-  The small print names the survey. These are what customers reported, not clinical measurements: keep the
-  wording as "report" / "said". Without JavaScript the first result shows and every row still reads in full.
-  MOBILE: the ring sits above the rows.
+  MUTO — Survey results. A dark, wearable-style band for the product page, full width and kept short so
+  it fits on one desktop screen: the heading and the separate study figure on the left, one ring in the
+  middle, the results (one "Result" block each) in a two-by-two grid on the right. Tap a result, or use
+  the arrow keys, and the ring fills to that number and the line under it changes. The separate figure
+  (the NAD+ study number) has its own source, because it is not from the survey. The small print names
+  the survey. These are what customers reported, not clinical measurements: keep the wording as
+  "report" / "said". Without JavaScript the first result shows and every result still reads in full.
+  MOBILE: one column: heading, ring, results, study figure.
 {%- endcomment -%}
 {%- liquid
   assign s = section.settings
@@ -15,72 +16,75 @@
 -%}
 <style>
   #shopify-section-{{ sid }} .msv,#shopify-section-{{ sid }} .msv h2,#shopify-section-{{ sid }} .msv p,#shopify-section-{{ sid }} .msv button{font-family:var(--mc-font,"Neue Haas Grotesk Display Pro"),sans-serif;-webkit-font-smoothing:antialiased}
-  #shopify-section-{{ sid }} .msv{--msv-mono:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace;--msv-cy:#5efaff;background:#fff;padding:{{ s.space_top }}px 20px {{ s.space_bottom }}px}
-  #shopify-section-{{ sid }} .msv__card{max-width:1120px;margin:0 auto;box-sizing:border-box;padding:48px 56px 36px;border-radius:20px;background:#1b1a1a;color:#fff}
-  #shopify-section-{{ sid }} .msv__head{display:grid;gap:12px;max-width:640px}
+  #shopify-section-{{ sid }} .msv{--msv-mono:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace;--msv-cy:#5efaff;background:#1b1a1a;color:#fff;margin:{{ s.space_top }}px 0 {{ s.space_bottom }}px}
+  #shopify-section-{{ sid }} .msv__card{max-width:1400px;margin:0 auto;box-sizing:border-box;padding:40px 40px 22px}
+  #shopify-section-{{ sid }} .msv__grid{display:grid;grid-template-columns:minmax(0,1fr) 250px minmax(0,1.25fr);gap:44px;align-items:center}
+  #shopify-section-{{ sid }} .msv__head{display:grid;gap:12px}
   #shopify-section-{{ sid }} .msv__eye{display:flex;align-items:center;gap:10px;margin:0;font-family:var(--msv-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7)}
   #shopify-section-{{ sid }} .msv__eye::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--msv-cy)}
-  #shopify-section-{{ sid }} .msv .msv__h{margin:0;color:#fff;font-weight:500;font-size:clamp(28px,3.2vw,44px);line-height:.95;letter-spacing:-.014em;text-transform:uppercase;text-wrap:balance}
-  #shopify-section-{{ sid }} .msv__lede{margin:0;font-size:16.5px;line-height:1.5;color:rgba(255,255,255,.78)}
-  #shopify-section-{{ sid }} .msv__grid{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:56px;align-items:center;margin-top:40px}
+  #shopify-section-{{ sid }} .msv .msv__h{margin:0;color:#fff;font-weight:500;font-size:clamp(26px,2.5vw,36px);line-height:.96;letter-spacing:-.014em;text-transform:uppercase;text-wrap:balance}
+  #shopify-section-{{ sid }} .msv__lede{margin:0;font-size:15px;line-height:1.45;color:rgba(255,255,255,.78)}
   /* The ring */
-  #shopify-section-{{ sid }} .msv__dial{display:grid;justify-items:center;gap:18px;text-align:center}
-  #shopify-section-{{ sid }} .msv__ring{position:relative;width:220px;height:220px}
+  #shopify-section-{{ sid }} .msv__dial{display:grid;justify-items:center;gap:10px;text-align:center}
+  #shopify-section-{{ sid }} .msv__ring{position:relative;width:150px;height:150px}
   #shopify-section-{{ sid }} .msv__ring svg{display:block;width:100%;height:100%;transform:rotate(-90deg)}
   #shopify-section-{{ sid }} .msv__ring circle{fill:none;stroke-width:9}
   #shopify-section-{{ sid }} .msv__track{stroke:rgba(255,255,255,.12)}
   #shopify-section-{{ sid }} .msv__arc{stroke:var(--msv-cy);stroke-linecap:round;stroke-dasharray:{{ circ }};transition:stroke-dashoffset .9s cubic-bezier(.2,0,.2,1)}
-  #shopify-section-{{ sid }} .msv__num{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:6px}
-  #shopify-section-{{ sid }} .msv__num b{font-size:60px;font-weight:500;line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+  #shopify-section-{{ sid }} .msv__num{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:4px;margin:0}
+  #shopify-section-{{ sid }} .msv__num b{font-size:42px;font-weight:500;line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
   #shopify-section-{{ sid }} .msv__num b small{font-size:.5em;letter-spacing:0;margin-left:2px}
-  #shopify-section-{{ sid }} .msv__num > span{font-family:var(--msv-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7)}
-  #shopify-section-{{ sid }} .msv__say{margin:0;max-width:30ch;font-size:19px;font-weight:500;line-height:1.25;letter-spacing:-.005em}
-  #shopify-section-{{ sid }} .msv__more{margin:0;max-width:36ch;min-height:4.5em;font-size:14.5px;line-height:1.5;color:rgba(255,255,255,.72)}
-  /* The rows */
-  #shopify-section-{{ sid }} .msv__rows{display:grid;gap:8px}
-  #shopify-section-{{ sid }} .msv__row{all:unset;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 16px;align-items:baseline;padding:16px 18px 14px;border:1px solid rgba(255,255,255,.12);border-radius:12px;cursor:pointer;transition:border-color .2s,background .2s;-webkit-tap-highlight-color:transparent}
+  #shopify-section-{{ sid }} .msv__num > span{font-family:var(--msv-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+  #shopify-section-{{ sid }} .msv__say{margin:4px 0 0;font-size:16.5px;font-weight:500;line-height:1.25;letter-spacing:-.005em}
+  #shopify-section-{{ sid }} .msv__more{margin:0;min-height:4.4em;font-size:13.5px;line-height:1.45;color:rgba(255,255,255,.72)}
+  /* The results */
+  #shopify-section-{{ sid }} .msv__rows{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  #shopify-section-{{ sid }} .msv__row{all:unset;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:5px 12px;align-items:baseline;padding:14px 16px 12px;border:1px solid rgba(255,255,255,.12);border-radius:12px;cursor:pointer;transition:border-color .2s,background .2s;-webkit-tap-highlight-color:transparent}
   #shopify-section-{{ sid }} .msv__row:hover{border-color:rgba(255,255,255,.4)}
   #shopify-section-{{ sid }} .msv__row[aria-selected="true"]{border-color:var(--msv-cy);background:rgba(94,250,255,.07)}
   #shopify-section-{{ sid }} .msv__row:focus-visible{outline:2px solid var(--msv-cy);outline-offset:2px}
-  #shopify-section-{{ sid }} .msv__lab{font-family:var(--msv-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7)}
-  #shopify-section-{{ sid }} .msv__val{grid-row:span 2;align-self:center;font-size:30px;font-weight:500;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
-  #shopify-section-{{ sid }} .msv__txt{font-size:16px;line-height:1.3}
-  #shopify-section-{{ sid }} .msv__bar{grid-column:1 / -1;height:3px;margin-top:6px;border-radius:2px;background:rgba(255,255,255,.12);overflow:hidden}
+  #shopify-section-{{ sid }} .msv__lab{font-family:var(--msv-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+  #shopify-section-{{ sid }} .msv__val{grid-row:span 2;align-self:center;font-size:27px;font-weight:500;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+  #shopify-section-{{ sid }} .msv__txt{font-size:14.5px;line-height:1.3}
+  #shopify-section-{{ sid }} .msv__bar{grid-column:1 / -1;height:3px;margin-top:5px;border-radius:2px;background:rgba(255,255,255,.12);overflow:hidden}
   #shopify-section-{{ sid }} .msv__bar i{display:block;height:100%;width:0;border-radius:2px;background:var(--msv-cy);transition:width 1s cubic-bezier(.2,0,.2,1)}
   #shopify-section-{{ sid }} .msv.is-in .msv__bar i,#shopify-section-{{ sid }} .msv:not(.is-js) .msv__bar i{width:var(--v)}
   /* The separate study figure */
-  #shopify-section-{{ sid }} .msv__extra{display:flex;align-items:center;gap:20px;margin-top:8px;padding:16px 18px;border-radius:12px;background:rgba(255,255,255,.06)}
-  #shopify-section-{{ sid }} .msv__extra b{flex:0 0 auto;font-size:30px;font-weight:500;line-height:1;letter-spacing:-.03em;color:var(--msv-cy)}
-  #shopify-section-{{ sid }} .msv__extra p{margin:0;font-size:14.5px;line-height:1.45;color:rgba(255,255,255,.82)}
-  #shopify-section-{{ sid }} .msv__extra small{display:block;margin-top:4px;font-size:12px;color:rgba(255,255,255,.55)}
-  #shopify-section-{{ sid }} .msv__foot{margin:32px 0 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);font-family:var(--msv-mono);font-size:11px;line-height:1.6;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.55)}
-  @media (max-width:899px){
-    #shopify-section-{{ sid }} .msv{padding:{{ s.space_top | times: 0.6 | round }}px 12px {{ s.space_bottom | times: 0.6 | round }}px}
-    #shopify-section-{{ sid }} .msv__card{padding:28px 16px 22px;border-radius:16px}
-    #shopify-section-{{ sid }} .msv__lede{font-size:15px}
-    #shopify-section-{{ sid }} .msv__grid{grid-template-columns:1fr;gap:24px;margin-top:28px}
-    #shopify-section-{{ sid }} .msv__ring{width:176px;height:176px}
-    #shopify-section-{{ sid }} .msv__num b{font-size:48px}
-    #shopify-section-{{ sid }} .msv__say{font-size:17px}
-    #shopify-section-{{ sid }} .msv__more{min-height:6em;font-size:14px}
-    #shopify-section-{{ sid }} .msv__row{padding:13px 14px 12px}
-    #shopify-section-{{ sid }} .msv__val{font-size:26px}
-    #shopify-section-{{ sid }} .msv__txt{font-size:15px}
-    #shopify-section-{{ sid }} .msv__extra{gap:14px;padding:14px}
-    #shopify-section-{{ sid }} .msv__extra b{font-size:26px}
-    #shopify-section-{{ sid }} .msv__foot{margin-top:22px;font-size:10px}
+  #shopify-section-{{ sid }} .msv__extra{display:flex;align-items:center;gap:16px;margin-top:6px;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.06)}
+  #shopify-section-{{ sid }} .msv__extra b{flex:0 0 auto;font-size:26px;font-weight:500;line-height:1;letter-spacing:-.03em;color:var(--msv-cy)}
+  #shopify-section-{{ sid }} .msv__extra p{margin:0;font-size:13px;line-height:1.4;color:rgba(255,255,255,.82)}
+  #shopify-section-{{ sid }} .msv__extra small{display:block;margin-top:3px;font-size:11.5px;color:rgba(255,255,255,.55)}
+  #shopify-section-{{ sid }} .msv__foot{margin:22px 0 0;padding-top:14px;border-top:1px solid rgba(255,255,255,.12);font-family:var(--msv-mono);font-size:10.5px;line-height:1.6;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+  @media (max-width:1099px){
+    #shopify-section-{{ sid }} .msv__grid{grid-template-columns:minmax(0,1fr) 220px;gap:28px 36px}
+    #shopify-section-{{ sid }} .msv__rows{grid-column:1 / -1}
+  }
+  @media (max-width:749px){
+    #shopify-section-{{ sid }} .msv{margin:{{ s.space_top | times: 0.6 | round }}px 0 {{ s.space_bottom | times: 0.6 | round }}px}
+    #shopify-section-{{ sid }} .msv__card{padding:28px 16px 18px}
+    #shopify-section-{{ sid }} .msv__grid{grid-template-columns:1fr;gap:22px}
+    #shopify-section-{{ sid }} .msv__rows{grid-column:auto;grid-template-columns:1fr}
+    #shopify-section-{{ sid }} .msv__ring{width:160px;height:160px}
+    #shopify-section-{{ sid }} .msv__more{min-height:4.5em;max-width:34ch}
+    #shopify-section-{{ sid }} .msv__row{padding:12px 14px 11px}
+    #shopify-section-{{ sid }} .msv__foot{margin-top:18px;font-size:10px}
   }
   @media (prefers-reduced-motion:reduce){#shopify-section-{{ sid }} .msv__arc,#shopify-section-{{ sid }} .msv__bar i{transition:none!important}}
 </style>
 
 <div class="msv"{% if s.anchor != blank %} id="{{ s.anchor }}"{% endif %} data-msv>
   <div class="msv__card">
-    <header class="msv__head">
-      {%- if s.eyebrow != blank -%}<p class="msv__eye">{{ s.eyebrow }}</p>{%- endif -%}
-      {%- if s.heading != blank -%}<h2 class="msv__h">{{ s.heading | escape | newline_to_br }}</h2>{%- endif -%}
-      {%- if s.lede != blank -%}<p class="msv__lede">{{ s.lede }}</p>{%- endif -%}
-    </header>
     <div class="msv__grid">
+      <div>
+        <header class="msv__head">
+          {%- if s.eyebrow != blank -%}<p class="msv__eye">{{ s.eyebrow }}</p>{%- endif -%}
+          {%- if s.heading != blank -%}<h2 class="msv__h">{{ s.heading | escape | newline_to_br }}</h2>{%- endif -%}
+          {%- if s.lede != blank -%}<p class="msv__lede">{{ s.lede }}</p>{%- endif -%}
+        </header>
+        {%- if s.extra_value != blank -%}
+          <div class="msv__extra" style="margin-top:18px"><b>{{ s.extra_value }}</b><p>{{ s.extra_text }}{%- if s.extra_source != blank -%}<small>{{ s.extra_source }}</small>{%- endif -%}</p></div>
+        {%- endif -%}
+      </div>
       <div class="msv__dial" aria-live="polite">
         <div class="msv__ring">
           <svg viewBox="0 0 120 120" aria-hidden="true"><circle class="msv__track" cx="60" cy="60" r="54"/><circle class="msv__arc" data-msv-arc cx="60" cy="60" r="54" style="stroke-dashoffset:{{ 100 | minus: first.value | times: circ | divided_by: 100.0 }}"/></svg>
@@ -89,21 +93,16 @@
         <p class="msv__say" data-msv-say>{{ first.value }}% {{ first.text }}</p>
         <p class="msv__more" data-msv-more>{{ first.detail }}</p>
       </div>
-      <div>
-        <div class="msv__rows" role="tablist" aria-label="{{ s.eyebrow | default: 'Survey results' | escape }}">
-          {%- for b in section.blocks -%}
-            {%- assign bs = b.settings -%}
-            <button type="button" class="msv__row" role="tab" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"{% unless forloop.first %} tabindex="-1"{% endunless %} data-value="{{ bs.value }}" data-label="{{ bs.label | escape }}" data-text="{{ bs.text | escape }}" data-detail="{{ bs.detail | escape }}" {{ b.shopify_attributes }}>
-              <span class="msv__lab">{{ bs.label }}</span>
-              <span class="msv__val">{{ bs.value }}%</span>
-              <span class="msv__txt">{{ bs.text }}</span>
-              <span class="msv__bar" aria-hidden="true"><i style="--v:{{ bs.value }}%"></i></span>
-            </button>
-          {%- endfor -%}
-        </div>
-        {%- if s.extra_value != blank -%}
-          <div class="msv__extra"><b>{{ s.extra_value }}</b><p>{{ s.extra_text }}{%- if s.extra_source != blank -%}<small>{{ s.extra_source }}</small>{%- endif -%}</p></div>
-        {%- endif -%}
+      <div class="msv__rows" role="tablist" aria-label="{{ s.eyebrow | default: 'Survey results' | escape }}">
+        {%- for b in section.blocks -%}
+          {%- assign bs = b.settings -%}
+          <button type="button" class="msv__row" role="tab" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"{% unless forloop.first %} tabindex="-1"{% endunless %} data-value="{{ bs.value }}" data-label="{{ bs.label | escape }}" data-text="{{ bs.text | escape }}" data-detail="{{ bs.detail | escape }}" {{ b.shopify_attributes }}>
+            <span class="msv__lab">{{ bs.label }}</span>
+            <span class="msv__val">{{ bs.value }}%</span>
+            <span class="msv__txt">{{ bs.text }}</span>
+            <span class="msv__bar" aria-hidden="true"><i style="--v:{{ bs.value }}%"></i></span>
+          </button>
+        {%- endfor -%}
       </div>
     </div>
     {%- if s.foot != blank -%}<p class="msv__foot">{{ s.foot }}</p>{%- endif -%}
@@ -170,8 +169,8 @@
     { "type": "textarea", "id": "extra_text", "label": "What it is" },
     { "type": "text", "id": "extra_source", "label": "Source" },
     { "type": "textarea", "id": "foot", "label": "Small print" },
-    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 40 },
-    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 64 }
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 0 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 0 }
   ],
   "blocks": [
     { "type": "result", "name": "Result", "settings": [

@@ -114,7 +114,7 @@ edit("sections/muto-bf-style.liquid", [
      """{%- comment -%} The offer's numbers for the stylesheets and scripts below (one place: snippets/muto-offer.liquid) {%- endcomment -%}
 {%- render 'muto-offer', key: 'vars' -%}
 {%- render 'muto-informed-sport' -%}
-{%- render 'muto-buy-extras', end: section.settings.bf_end -%}
+{%- render 'muto-buy-extras' -%}
 {%- comment -%}
   Hero test. "Hero version" below picks A (as live) or B (adds "Track it on the wearable you already wear." and a
   support line under the headline). An A/B tool, or anyone previewing, can force one with ?hero=a or ?hero=b on
@@ -126,6 +126,23 @@ edit("sections/muto-bf-style.liquid", [
     var m = /[?&]hero=([ab])\\b/i.exec(location.search);
     if (m) v = m[1].toLowerCase();
     document.documentElement.setAttribute('data-hero', v === 'b' ? 'b' : 'a');
+    /* The variant is exposed for analytics: data-hero-variant on the buy box, and a dataLayer event on page
+       view and on every tap of an add-to-cart button, so add-to-cart can be split by variant. */
+    var V = v === 'b' ? 'B' : 'A';
+    window.MUTO_HERO_VARIANT = V;
+    function send(name) {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: name, hero_variant: V });
+      try { if (window.Shopify && Shopify.analytics && Shopify.analytics.publish) Shopify.analytics.publish(name, { hero_variant: V }); } catch (e) {}
+    }
+    send('muto_hero_view');
+    document.addEventListener('DOMContentLoaded', function () {
+      [].forEach.call(document.querySelectorAll('#MainContent .mc, #mc-sbar'), function (el) { el.setAttribute('data-hero-variant', V); });
+    });
+    document.addEventListener('click', function (e) {
+      var b = e.target.closest && e.target.closest('.mm-o__btn, .mc__buy-cta, #mc-sbar button, #mc-bfx a, form[action*="/cart/add"] [type="submit"]');
+      if (b && /90-day test|add to cart/i.test((b.textContent || '') + ' ' + (b.getAttribute('aria-label') || ''))) send('muto_add_to_cart');
+    }, true);
   })();
 </script>
 <style>html:not([data-hero="b"]) [data-hero-b]{display:none!important}</style>
@@ -160,8 +177,7 @@ edit("sections/muto-bf-style.liquid", [
 </script>
 <script>"""),
     ("""    { "type": "checkbox", "id": "extras",""",
-     """    { "type": "text", "id": "bf_end", "label": "Black Friday ends", "default": "2026-11-30T23:59:59", "info": "UK time, as YYYY-MM-DDTHH:MM:SS. The countdown in the buy box runs to this moment and never resets. It must be the offer's real end. Empty: no countdown." },
-    { "type": "select", "id": "hero_variant", "label": "Hero version", "default": "B", "info": "B (default): the designed-to-be-tracked line and a support line under the headline. A: without them. Add ?hero=a or ?hero=b to the page address to force one.", "options": [
+     """    { "type": "select", "id": "hero_variant", "label": "Hero version", "default": "B", "info": "B (default): the designed-to-be-tracked line and a support line under the headline. A: without them. Add ?hero=a or ?hero=b to the page address to force one.", "options": [
       { "value": "A", "label": "A (no wearable line)" },
       { "value": "B", "label": "B (designed to be tracked)" }
     ] },
@@ -170,6 +186,7 @@ edit("sections/muto-bf-style.liquid", [
 
 # ---------------------------------------------------------------- hero copy (subhead, hero test B, flag on the photo)
 edit("snippets/muto-bf-buybox-copy.liquid", [
+    ("""<p class="mc-for" data-mc-for hidden>Now with free creatine</p>""", """<p class="mc-for" data-mc-for hidden>Designed for over 35s</p>"""),
     ("""created by scientists to support your energy, recovery and healthy ageing.</p>""",
      """created by scientists to support your energy, recovery and healthy ageing.<span data-hero-b> <b>Designed to be tracked on your wearable, so you don’t have to take our word for it.</b></span><span class="mc-sub__support" data-hero-b>No wearable? A 30-second weekly score works just as well. And if it isn’t for you by day 90, you get every subscription payment back.</span></p>"""),
     ("""<span class="mc-heroflag__price"><b>£33/mo</b> Save 53%</span>
@@ -184,6 +201,8 @@ edit("snippets/muto-bf-buybox-copy.liquid", [
 
 # ---------------------------------------------------------------- phone buy block
 edit("snippets/muto-bf-mars.liquid", [
+    # P0.12: the bullet loosened the authorised claim
+    ("""Protect your cells as you age""", """Built for the years ahead"""),
     ("""<span aria-hidden="true">★★★★★</span> 4.8 from 103 reviews</a>""",
      """<span aria-hidden="true">★★★★★</span> <span data-muto-rating>{%- render 'muto-rating', fallback: '4.8 from 103 reviews' -%}</span></a>"""),
     ("""<span data-mm-gifts>+ £72 free gifts</span><small>No code required</small>""",
@@ -352,20 +371,20 @@ SURVEY = """    "survey": {
       "type": "muto-survey",
       "blocks": {
         "r1": { "type": "result", "settings": { "label": "Energy", "value": 92, "text": "report improved energy", "detail": "The thing people mention most is that their afternoons stop fading, so there is still something left for the evening." } },
-        "r2": { "type": "result", "settings": { "label": "Recovery", "value": 94, "text": "report better recovery", "detail": "People told us they felt ready to go again sooner, whether that was after training or after a long week." } },
+        "r2": { "type": "result", "settings": { "label": "Recovery", "value": 87, "text": "report better recovery", "detail": "People told us they felt ready to go again sooner, whether that was after training or after a long week." } },
         "r3": { "type": "result", "settings": { "label": "Strain", "value": 93, "text": "bounce back quicker from strain", "detail": "After a hard session, a late night or a heavy week, most said they were back to themselves faster." } },
         "r4": { "type": "result", "settings": { "label": "HRV", "value": 89, "text": "report improved HRV", "detail": "Most said their HRV had improved on their own wearable. This is what customers told us, not a clinical measurement, and your own numbers may differ." } }
       },
       "block_order": ["r1", "r2", "r3", "r4"],
       "settings": {
         "anchor": "survey",
-        "eyebrow": "Customer survey",
-        "heading": "Designed to be tracked.\\nHere’s what people report.",
+        "eyebrow": "12-week customer trial results",
+        "heading": "Studied in real people.",
         "lede": "We asked 87 men and women aged 30 to 50 who take MUTO what had changed for them. Tap a result to see it.",
         "extra_value": "51%",
         "extra_text": "rise in blood NAD+ after two weeks of 300mg NR a day, the amount in MUTO, in a published clinical study.",
         "extra_source": "Conze et al., Scientific Reports, 2019. A study of NR, not of MUTO.",
-        "foot": "Survey of 87 men and women taking MUTO between the ages of 30 and 50. Self-reported, not a clinical trial. Individual results may vary."
+        "foot": "Survey of 87 men and women taking MUTO between the ages of 30 and 50. Self-reported by customers, not a clinical study. Individual results may vary."
       }
     },
 """
@@ -434,8 +453,8 @@ edit(T, [
     (""""save": "Save 28%",""", """"save": "","""),
     ("""Free welcome kit worth £62, then thank-you gifts""", """Free welcome kit, then thank-you gifts"""),
     ("""    "reviews_ticker": {""", SURVEY + """    "reviews_ticker": {"""),
-    ("""    "buy",
-""", """    "buy",
+    ("""    "reviews_ticker",
+""", """    "reviews_ticker",
     "survey",
 """),
     # the timeline opens at "Weeks 1–2: the first signs"
@@ -493,6 +512,39 @@ _a = _t.index('    "statement": {')
 _b = _t.index('\n    },\n', _a) + len('\n    },\n')
 assert '"disabled": true' in _t[_a:_b] and _t.count('    "statement",\n') == 1
 _t = (_t[:_a] + _t[_b:]).replace('    "statement",\n', '')
+open(_p, "w", encoding="utf-8", newline="").write(_t)
+
+# ---------------------------------------------------------------- brief v2 (Fairing): bullet, persona chip, review order
+edit("snippets/muto-bf-review-box.liquid", [
+    # 4.5: the longevity persona first; it takes the place of "Too many pots on the shelf" (four chips wrap
+    # to a second row in the box, and the value line in the buy box now covers that point)
+    ("""    <button type="button" class="mc-rv__chip" data-f="Energy" aria-pressed="false">Flat by 3pm</button>""",
+     """    <button type="button" class="mc-rv__chip" data-f="Ageing" aria-pressed="false">Thinking about the next 20 years</button>
+    <button type="button" class="mc-rv__chip" data-f="Energy" aria-pressed="false">Flat by 3pm</button>"""),
+    ("""    <button type="button" class="mc-rv__chip" data-f="Pots" aria-pressed="false">Too many pots on the shelf</button>
+""", """"""),
+    ("""Slower to bounce back, Too many pots on the shelf;""", """Slower to bounce back; Thinking about the next 20 years comes first;"""),
+])
+# the reviews that speak to the longevity persona get its tag, so the new chip filters to them
+_p = os.path.join(HERE, "theme", "snippets/muto-bf-review-box.liquid")
+_t = open(_p, encoding="utf-8", newline="").read()
+import re as _re
+_figs = _re.findall(r'    <figure class="mc-rv__slide".*?</figure>\n', _t, flags=_re.S)
+assert len(_figs) >= 6
+_new = []
+for _f in _figs:
+    if _re.search(r'healthy ageing|age well|Mid 30s|as resilient as my 20s|since my mid 20s', _f):
+        _f = _re.sub(r'data-tags="\|', 'data-tags="|Ageing|', _f, count=1)
+    _new.append(_f)
+assert sum('|Ageing|' in _f for _f in _new) >= 2
+# 4.6: the first five slides show an age of 40 or over where an age is shown, so Kevin, 36 moves to sixth
+_k = [i for i, _f in enumerate(_new) if '<b>Kevin, 36</b>' in _f]
+assert _k == [2]
+_new.insert(5, _new.pop(2))
+_a = _t.index(_figs[0]); _b = _t.index(_figs[-1]) + len(_figs[-1])
+assert _t[_a:_b] == "".join(_figs)
+_first = _new[0]
+_t = _t[:_a] + "".join(_new) + _t[_b:]
 open(_p, "w", encoding="utf-8", newline="").write(_t)
 
 # ---------------------------------------------------------------- whole files kept in src/ (rewritten or new)
