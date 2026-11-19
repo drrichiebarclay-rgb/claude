@@ -53,3 +53,4 @@ To go live, copy the files in `theme/` to the live theme.
 
 - `sections/muto-expect.liquid` rewritten as an interactive timeline: the dots are tabs and one card shows the selected step. New setting "Open at" (the template opens at step 2, "Weeks 1-2"). Source in `src/`.
 - `snippets/muto-informed-sport.liquid` (new) and `assets/muto-informed-sport.png` (new): the Informed Sport badge, placed in the buy box under the testing and nutrition links and in the test results panel's overview. Rendered from `sections/muto-bf-style.liquid`.
+- `sections/muto-test-results.liquid`: a fifth tab, "Informed Sport", with the certificate details (LMS-PSRM-09495, 18 Nov 2026) and a link to the PDF (`assets/muto-informed-sport-certificate.pdf`). The buy box badge opens the panel at this tab.
