@@ -41,6 +41,7 @@ shutil.rmtree(os.path.join(HERE, "theme"), ignore_errors=True)
 KIT3 = "{% render 'muto-offer', key: 'kit3' %}"
 KIT1 = "{% render 'muto-offer', key: 'kit1' %}"
 CTA = "{% render 'muto-offer', key: 'cta' %}"
+BAR = "{% render 'muto-offer', key: 'cta_bar' %}"
 
 # ---------------------------------------------------------------- one place for the offer's words and numbers
 new("snippets/muto-offer.liquid", """{%- comment -%}
@@ -49,7 +50,8 @@ new("snippets/muto-offer.liquid", """{%- comment -%}
 
     {%- render 'muto-offer', key: 'kit3' -%}   what the 3-Month Supply's welcome kit is worth
     {%- render 'muto-offer', key: 'kit1' -%}   what the 1-Month Supply's welcome kit is worth
-    {%- render 'muto-offer', key: 'cta' -%}    the one button label
+    {%- render 'muto-offer', key: 'cta' -%}    the buy button's label on the product page ("Add to Cart")
+    {%- render 'muto-offer', key: 'cta_bar' -%} the label on the bars: sticky bar, top bar, menu card ("Claim now")
     {%- render 'muto-offer', key: 'subs' -%}   the line beside the star rating ("Over 2,000 loyal subscribers")
     {%- render 'muto-offer', key: 'vars' -%}   the same values for stylesheets and scripts: CSS variables
                                                (--muto-kit3, --muto-kit1) and window.MUTO_OFFER
@@ -60,7 +62,8 @@ new("snippets/muto-offer.liquid", """{%- comment -%}
 {%- liquid
   assign mo_kit3 = '£72'
   assign mo_kit1 = '£62'
-  assign mo_cta = 'Start your 90-day test'
+  assign mo_cta = 'Add to Cart'
+  assign mo_cta_bar = 'Claim now'
   assign mo_subs = 'Over 2,000 loyal subscribers'
   case key
     when 'kit3'
@@ -69,13 +72,15 @@ new("snippets/muto-offer.liquid", """{%- comment -%}
       echo mo_kit1
     when 'cta'
       echo mo_cta
+    when 'cta_bar'
+      echo mo_cta_bar
     when 'subs'
       echo mo_subs
   endcase
 -%}
 {%- if key == 'vars' -%}
   <style>:root{--muto-kit3:"{{ mo_kit3 }}";--muto-kit1:"{{ mo_kit1 }}"}</style>
-  <script>window.MUTO_OFFER = { kit3: {{ mo_kit3 | json }}, kit1: {{ mo_kit1 | json }}, cta: {{ mo_cta | json }}, subs: {{ mo_subs | json }} };</script>
+  <script>window.MUTO_OFFER = { kit3: {{ mo_kit3 | json }}, kit1: {{ mo_kit1 | json }}, cta: {{ mo_cta | json }}, cta_bar: {{ mo_cta_bar | json }}, subs: {{ mo_subs | json }} };</script>
 {%- endif -%}
 """)
 
@@ -141,7 +146,7 @@ edit("sections/muto-bf-style.liquid", [
     });
     document.addEventListener('click', function (e) {
       var b = e.target.closest && e.target.closest('.mm-o__btn, .mc__buy-cta, #mc-sbar button, #mc-bfx a, form[action*="/cart/add"] [type="submit"]');
-      if (b && /90-day test|add to cart/i.test((b.textContent || '') + ' ' + (b.getAttribute('aria-label') || ''))) send('muto_add_to_cart');
+      if (b && /90-day test|add to cart|claim now/i.test((b.textContent || '') + ' ' + (b.getAttribute('aria-label') || ''))) send('muto_add_to_cart');
     }, true);
   })();
 </script>
@@ -244,13 +249,13 @@ edit("snippets/muto-bf-kit-grid.liquid", [
 # ---------------------------------------------------------------- top bar (every page)
 edit("snippets/muto-bf-bar.liquid", [
     ("""aria-label="Black Friday: 3-Month Supply for £33 a month, save 53%, £1.10 a day, plus a free welcome kit worth £72, while stock lasts. Claim: adds the 3-month plan and opens the cart.">""",
-     """aria-label="Black Friday: 3-Month Supply for £33 a month for your first 3 months, save 53%, plus a free welcome kit worth """ + KIT3 + """, while stock lasts. """ + CTA + """: adds the 3-Month Supply to the cart and opens it.">"""),
+     """aria-label="Black Friday: 3-Month Supply for £33 a month for your first 3 months, save 53%, plus a free welcome kit worth """ + KIT3 + """, while stock lasts. """ + BAR + """: adds the 3-Month Supply to the cart and opens it.">"""),
     ("""<span class="mc-bfx__d"><b>£33/mo (save 53%)</b> · £1.10 a day + free welcome kit worth £72</span>""",
      """<span class="mc-bfx__d"><b>£33/mo for your first 3 months (save 53%)</b> + free welcome kit worth """ + KIT3 + """</span>"""),
     ("""<span class="mc-bfx__m"><b>£33/mo</b> · Save 53% + free kit</span>""",
      """<span class="mc-bfx__m"><b>£33/mo</b> first 3 months</span>"""),
     ("""<span class="mc-bfx__cta">Claim&nbsp;&rarr;</span>""",
-     """<span class="mc-bfx__cta">""" + CTA + """&nbsp;&rarr;</span>"""),
+     """<span class="mc-bfx__cta">""" + BAR + """&nbsp;&rarr;</span>"""),
 ])
 
 # ---------------------------------------------------------------- comparison table
@@ -272,7 +277,7 @@ edit("sections/muto-bf-offer.liquid", [
     ("""<button type="button" class="mc-sbar__btn" data-sbar-add>
         <span class="mc-sbar__btn-full">Add to cart</span><span class="mc-sbar__btn-short">Add</span>""",
      """<button type="button" class="mc-sbar__btn" data-sbar-add aria-label="Add the chosen plan to cart">
-        <span class="mc-sbar__btn-full">""" + CTA + """</span><span class="mc-sbar__btn-short">""" + CTA + """</span>"""),
+        <span class="mc-sbar__btn-full">""" + BAR + """</span><span class="mc-sbar__btn-short">""" + BAR + """</span>"""),
 ])
 edit("assets/muto-bf-sticky.js", [
     ("""  function sub(i) { return [i.day, i.month].filter(Boolean).join(' · '); }""",
@@ -292,7 +297,7 @@ edit("sections/muto-menu.liquid", [
      """{%- capture promo_kit -%}""" + KIT3 + """{%- endcapture -%}
           {%- if s.promo_sub != blank -%}<span class="mmd__promo-sub" style="display:block">{{ s.promo_sub | replace: '[kit]', promo_kit }}</span>{%- endif -%}"""),
     ("""<span class="mmd__promo-cta">{{ s.promo_cta | default: 'Claim offer' }}<svg""",
-     """{%- capture promo_cta -%}""" + CTA + """{%- endcapture -%}
+     """{%- capture promo_cta -%}""" + BAR + """{%- endcapture -%}
           <span class="mmd__promo-cta">{{ s.promo_cta | default: promo_cta }}<svg"""),
     ("""{ "type": "text", "id": "promo_cta", "label": "Button", "default": "Claim offer" },""",
      """{ "type": "text", "id": "promo_cta", "label": "Button", "info": "Blank: the shared button label, from snippets/muto-offer.liquid" },"""),
@@ -447,7 +452,7 @@ edit(T, [
     ("""<p>Before you start, score your energy, sleep and recovery out of 10. Do it again at day 30 and day 90, then compare. A pen and paper is fine. Got a wearable? Track the shift yourself, on 30-day averages.</p>""",
      """<p>MUTO is designed to be tracked on your wearable, so you don’t have to take our word for it. Before you start, note your wearable’s 7-day averages, or score your energy, sleep and recovery out of 10 if you don’t wear one: that’s your baseline. Do it again at day 30 and day 90, then compare. A pen and paper is fine. Got a wearable? Compare your 30-day averages with your baseline, and look at the trend, not single nights.</p>"""),
     # §3.4 one button label (the desktop buy button; its price follows it)
-    (""""cta_label": "Add to cart",""", """"cta_label": "Start your 90-day test","""),
+    (""""cta_label": "Add to cart",""", """"cta_label": "Add to Cart","""),
     # P0.11 the reviews widget's AI summary ("Our customers say…")
     (""""save": "Save 28%",""", """"save": "","""),
     ("""Free welcome kit worth £62, then thank-you gifts""", """Free welcome kit, then thank-you gifts"""),
@@ -476,7 +481,7 @@ edit(T, [
     # the hidden in-page bar and the offer box, kept in step with the rest
     ("""plus a welcome kit worth £72. See the offer.""", """plus a welcome kit worth {% render 'muto-offer', key: 'kit3' %}. See the offer."""),
     ("""<span class=\\"mc-bfbar__more\\"> plus a welcome kit worth £72</span>""", """<span class=\\"mc-bfbar__more\\"> plus a welcome kit worth {% render 'muto-offer', key: 'kit3' %}</span>"""),
-    ("""<span class=\\"mc-bfbar__cta\\">Claim offer</span>""", """<span class=\\"mc-bfbar__cta\\">{% render 'muto-offer', key: 'cta' %}</span>"""),
+    ("""<span class=\\"mc-bfbar__cta\\">Claim offer</span>""", """<span class=\\"mc-bfbar__cta\\">{% render 'muto-offer', key: 'cta_bar' %}</span>"""),
     ("""'<p class=\\"mc-bf__kit\\">plus a welcome kit worth £72</p>' +""", """'<p class=\\"mc-bf__kit\\">plus a welcome kit worth {% render 'muto-offer', key: 'kit3' %}</p>' +"""),
 ])
 

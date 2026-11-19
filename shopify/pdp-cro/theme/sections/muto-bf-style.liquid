@@ -42,7 +42,7 @@
     });
     document.addEventListener('click', function (e) {
       var b = e.target.closest && e.target.closest('.mm-o__btn, .mc__buy-cta, #mc-sbar button, #mc-bfx a, form[action*="/cart/add"] [type="submit"]');
-      if (b && /90-day test|add to cart/i.test((b.textContent || '') + ' ' + (b.getAttribute('aria-label') || ''))) send('muto_add_to_cart');
+      if (b && /90-day test|add to cart|claim now/i.test((b.textContent || '') + ' ' + (b.getAttribute('aria-label') || ''))) send('muto_add_to_cart');
     }, true);
   })();
 </script>

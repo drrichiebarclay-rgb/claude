@@ -142,7 +142,7 @@
           <span class="mmd__promo-h" style="display:block">{{ s.promo_heading }}</span>
           {%- capture promo_kit -%}{% render 'muto-offer', key: 'kit3' %}{%- endcapture -%}
           {%- if s.promo_sub != blank -%}<span class="mmd__promo-sub" style="display:block">{{ s.promo_sub | replace: '[kit]', promo_kit }}</span>{%- endif -%}
-          {%- capture promo_cta -%}{% render 'muto-offer', key: 'cta' %}{%- endcapture -%}
+          {%- capture promo_cta -%}{% render 'muto-offer', key: 'cta_bar' %}{%- endcapture -%}
           <span class="mmd__promo-cta">{{ s.promo_cta | default: promo_cta }}<svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11M7.5 2.5 12 7l-4.5 4.5" stroke="currentColor" stroke-width="1.6"/></svg></span>
         </span>
         {%- if promo_img -%}<span class="mmd__promo-img">{{ promo_img | image_url: width: 1200 | image_tag: loading: 'lazy', alt: '', widths: '600, 900, 1200', sizes: '(min-width: 750px) 344px, calc(100vw - 88px)' }}</span>{%- endif -%}
