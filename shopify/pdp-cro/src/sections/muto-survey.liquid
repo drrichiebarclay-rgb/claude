@@ -147,6 +147,17 @@
         if (n !== null) { e.preventDefault(); show(n, true); }
       });
     });
+    /* The "As seen in" press strip (Men's Fitness, Women's Fitness) is the first thing in the section that
+       follows this one. It is lifted to sit just above this band, so the band reads directly below it. */
+    (function () {
+      var sec = root.closest('.shopify-section'), seen = document.querySelector('#MainContent .mc-seen');
+      if (!sec || !seen || !(sec.compareDocumentPosition(seen) & Node.DOCUMENT_POSITION_FOLLOWING)) return;
+      var wrap = document.createElement('div');
+      wrap.className = 'msv-seen';
+      wrap.style.cssText = 'background:#fff;padding:28px 20px 30px';
+      sec.parentNode.insertBefore(wrap, sec);
+      wrap.appendChild(seen);
+    })();
     root.classList.add('is-js');
     /* The ring and the bars fill when the card comes into view */
     arc.style.strokeDashoffset = C;
