@@ -195,7 +195,7 @@ edit("snippets/muto-bf-buybox-copy.liquid", [
     (""".mc__buy-cta::after{content:"Skip, pause or cancel online · cancel in 2 clicks"!important;""", """.mc__buy-cta::after{content:"90-day money-back guarantee"!important;"""),
     ("""<p class="mc-for" data-mc-for hidden>Now with free creatine</p>""", """<p class="mc-for" data-mc-for hidden>Designed for over 35s</p>"""),
     ("""created by scientists to support your energy, recovery and healthy ageing.</p>""",
-     """created by scientists to support your energy, recovery and healthy ageing.<span data-hero-b> <b>Designed to be tracked on your wearable, so you don’t have to take our word for it.</b></span><span class="mc-sub__support" data-hero-b>No wearable? A 30-second weekly score works just as well. And if it isn’t for you by day 90, you get every subscription payment back.</span></p>"""),
+     """created by scientists to support your energy, recovery and healthy ageing.<span data-hero-b> <b>Got a wearable device? Track the shift on your metrics over weeks and months.</b></span><span class="mc-sub__support" data-hero-b>No wearable? Tracking isn’t for everyone. A weekly check-in with yourself works too. Set a reminder, notice the difference, and if you don’t by day 90, you get every payment back.</span></p>"""),
     ("""<span class="mc-heroflag__price"><b>£33/mo</b> Save 53%</span>
   <span class="mc-heroflag__line">+ Free welcome kit worth £72</span>""",
      """<span class="mc-heroflag__price"><b>£33/mo</b> for your first 3 months</span>
