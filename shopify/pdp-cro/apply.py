@@ -304,11 +304,10 @@ edit("sections/muto-loved.liquid", [
 # the cart template are hidden by the theme's CSS; their wording is corrected too, in case they are shown again.
 edit("assets/muto-cart.css", [
     ("""content:"Free UK delivery on subscriptions  \\00b7  90-day money-back guarantee\\AOrder before 9pm and receive it next day.";""",
-     """content:"90-day money-back guarantee on subscriptions. Fewer than 1 in 1,000 people ask for a refund.\\A Skip, pause or cancel online, and we email you 5 days before every payment.\\A Free UK delivery on subscriptions. Order before 9pm and receive it next day.";"""),
-    # where you are in the checkout (audit, recommendation 5)
-    (""":is(#main-cart-footer,cart-drawer) .cart__ctas::after{""",
-     """:is(#main-cart-footer,cart-drawer) .cart__ctas::before{content:"Step 1 of 3  \\00b7  Cart  \\203A  Delivery  \\203A  Payment";display:block;width:100%;order:-1;margin:0 0 10px;text-align:center;font-family:var(--mc-font);font-size:12px;letter-spacing:.04em;color:rgba(36,34,35,.6)}
-:is(#main-cart-footer,cart-drawer) .cart__ctas::after{"""),
+     """content:"\\2713\\2002 90-day money-back guarantee on subscriptions\\A\\2713\\2002 Fewer than 1 in 1,000 people ask for a refund\\A\\2713\\2002 Skip, pause or cancel online, anytime\\A\\2713\\2002 A reminder email 5 days before every payment\\A\\2713\\2002 Free next-day UK delivery, order by 9pm";"""),
+    # a tidy tinted panel with one reassurance per line, instead of a centred paragraph
+    ("""white-space:pre-line;display:block;width:100%;margin-top:14px;text-align:center;font-family:var(--mc-font);font-size:14px;line-height:1.4;color:#242223}""",
+     """white-space:pre-line;display:block;width:100%;box-sizing:border-box;margin-top:14px;padding:12px 16px;border-radius:10px;background:#f4f2ef;text-align:left;font-family:var(--mc-font);font-size:13.5px;line-height:1.75;color:#242223}"""),
 ])
 edit("snippets/cart-drawer.liquid", [
     ("""<p>90 DAY MONEY-BACK POLICY</p>""", """<p>90-DAY MONEY-BACK GUARANTEE ON SUBSCRIPTIONS</p>""", 2),
