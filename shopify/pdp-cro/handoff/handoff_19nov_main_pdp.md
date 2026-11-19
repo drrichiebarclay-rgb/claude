@@ -136,4 +136,4 @@ Run at 375px and 1440px.
 9. Top bar and sticky bar fit without sideways scroll at 375px.
 10. Search the theme: no "£87", no "within days".
 
-Last verified on the preview on 19 Nov: items 1, 2, 4 (values), 7, 9 and 10. Items 3, 5 and 6 were verified earlier in the day, before later changes.
+Last verified on the preview on 19 Nov: items 1, 2, 4 (values), 7, 9 and 10. Items 5, 6 and 8 were verified earlier in the day, before later changes. Item 3 (adding the 1-Month plan) has not been tested.
