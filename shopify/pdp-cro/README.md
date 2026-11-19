@@ -74,3 +74,9 @@ To go live, copy the files in `theme/` to the live theme.
 - `snippets/muto-bf-review-box.liquid`: chip "Thinking about the next 20 years" first, replacing "Too many pots on the shelf" (option 2 of 4.5); Kevin, 36 moved from third to sixth slide (4.6; the order is set in the theme).
 - Hero variant analytics (4.1): `data-hero-variant` on the buy box and sticky bar; dataLayer events `muto_hero_view` and `muto_add_to_cart` carry `hero_variant`.
 - One-time line is back to "(no gifts)".
+
+## Fifth pass (19 Nov)
+
+- Phones show the same plan cards with gifts as desktop; the compact phone price-and-button block (`.mm-o` in `snippets/muto-bf-mars.liquid`) is switched off.
+- Survey band: its own background (section setting "Background", default pale teal #eef6f7); the "As seen in" press strip is lifted to sit directly above it.
+- Future gifts: 3-Month "Box 4 on" reads "Box 4"; on the 1-Month plan the bottle is labelled Box 3.
