@@ -115,7 +115,7 @@ edit("sections/muto-bf-style.liquid", [
 {%- endcomment -%}
 <script>
   (function () {
-    var v = {{ section.settings.hero_variant | default: 'A' | downcase | json }};
+    var v = {{ section.settings.hero_variant | default: 'B' | downcase | json }};
     var m = /[?&]hero=([ab])\\b/i.exec(location.search);
     if (m) v = m[1].toLowerCase();
     document.documentElement.setAttribute('data-hero', v === 'b' ? 'b' : 'a');
@@ -153,9 +153,9 @@ edit("sections/muto-bf-style.liquid", [
 </script>
 <script>"""),
     ("""    { "type": "checkbox", "id": "extras",""",
-     """    { "type": "select", "id": "hero_variant", "label": "Hero version", "default": "A", "info": "A: as live. B: adds the track-it line and a support line under the headline. Add ?hero=a or ?hero=b to the page address to force one.", "options": [
-      { "value": "A", "label": "A (control)" },
-      { "value": "B", "label": "B (track it)" }
+     """    { "type": "select", "id": "hero_variant", "label": "Hero version", "default": "B", "info": "B (default): the designed-to-be-tracked line and a support line under the headline. A: without them. Add ?hero=a or ?hero=b to the page address to force one.", "options": [
+      { "value": "A", "label": "A (no wearable line)" },
+      { "value": "B", "label": "B (designed to be tracked)" }
     ] },
     { "type": "checkbox", "id": "extras","""),
 ])
@@ -163,7 +163,7 @@ edit("sections/muto-bf-style.liquid", [
 # ---------------------------------------------------------------- hero copy (subhead, hero test B, flag on the photo)
 edit("snippets/muto-bf-buybox-copy.liquid", [
     ("""created by scientists to support your energy, recovery and healthy ageing.</p>""",
-     """created by scientists to support your energy, recovery and healthy ageing.<span data-hero-b> <b>Track it on the wearable you already wear.</b></span><span class="mc-sub__support" data-hero-b>No wearable? A 30-second weekly score works too. Not for you by day 90? Every subscription payment back.</span></p>"""),
+     """created by scientists to support your energy, recovery and healthy ageing.<span data-hero-b> <b>Designed to be tracked on your wearable, so you don’t have to take our word for it.</b></span><span class="mc-sub__support" data-hero-b>No wearable? A 30-second weekly score works just as well. And if it isn’t for you by day 90, you get every subscription payment back.</span></p>"""),
     ("""<span class="mc-heroflag__price"><b>£33/mo</b> Save 53%</span>
   <span class="mc-heroflag__line">+ Free welcome kit worth £72</span>""",
      """<span class="mc-heroflag__price"><b>£33/mo</b> for your first 3 months</span>
@@ -304,7 +304,11 @@ edit("sections/muto-loved.liquid", [
 # the cart template are hidden by the theme's CSS; their wording is corrected too, in case they are shown again.
 edit("assets/muto-cart.css", [
     ("""content:"Free UK delivery on subscriptions  \\00b7  90-day money-back guarantee\\AOrder before 9pm and receive it next day.";""",
-     """content:"90-day money-back guarantee on subscriptions. Skip, pause or cancel online, and we email you 5 days before every payment.\\A Free UK delivery on subscriptions. Order before 9pm and receive it next day.";"""),
+     """content:"90-day money-back guarantee on subscriptions. Fewer than 1 in 1,000 people ask for a refund.\\A Skip, pause or cancel online, and we email you 5 days before every payment.\\A Free UK delivery on subscriptions. Order before 9pm and receive it next day.";"""),
+    # where you are in the checkout (audit, recommendation 5)
+    (""":is(#main-cart-footer,cart-drawer) .cart__ctas::after{""",
+     """:is(#main-cart-footer,cart-drawer) .cart__ctas::before{content:"Step 1 of 3  \\00b7  Cart  \\203A  Delivery  \\203A  Payment";display:block;width:100%;order:-1;margin:0 0 10px;text-align:center;font-family:var(--mc-font);font-size:12px;letter-spacing:.04em;color:rgba(36,34,35,.6)}
+:is(#main-cart-footer,cart-drawer) .cart__ctas::after{"""),
 ])
 edit("snippets/cart-drawer.liquid", [
     ("""<p>90 DAY MONEY-BACK POLICY</p>""", """<p>90-DAY MONEY-BACK GUARANTEE ON SUBSCRIPTIONS</p>""", 2),
@@ -316,36 +320,57 @@ T = "templates/product.muto-nad-bf-premium.json"
 edit(T, [
     # P0.3 / P0.4 / §3.2 "What to expect"
     ("""Most people tell us they notice more energy within days. Everyone’s different, so score yourself on day 1 and compare. Got a wearable? Track the shift yourself.""",
-     """Give it 90 days. Many people notice their afternoons first, sometimes within a few weeks. Score yourself on day 1 so you can compare."""),
+     """You’ll usually feel it before you can measure it, and afternoons tend to come first, often within the first couple of weeks. MUTO is designed to be tracked on your wearable, so take a baseline on day 1 and check it for yourself."""),
+    (""""heading": "What people tell us they notice.",""", """"heading": "First you feel it.\\nThen you check it.","""),
+    ("""People tell us they notice it around day 60.""", """Many people tell us they start to notice it within the first month."""),
+    ("""<p>Give it 60 to 90 days. Many people notice their afternoons first, sometimes within a few weeks. For others it takes longer.</p>""",
+     """<p>Most people who feel a difference notice it within the first two to four weeks, and afternoons usually come first: fewer 3pm crashes, and more left for the evening. Some people take longer, which is completely normal, so give it the full 90 days before you decide. That’s exactly why our guarantee runs for 90 days.</p>"""),
+    ("""        "q6": {
+          "type": "q",""",
+     """        "q16": {
+          "type": "q",
+          "settings": {
+            "title": "How do I know this isn’t a £99 placebo?",
+            "text": "<p>It’s a fair question, and it’s the one we’d ask too. You can’t tell from a product page, which is why we built MUTO to be checked rather than believed.</p><p>Every dose is on the label, every batch is tested by an independent lab, and MUTO is designed to be tracked on your wearable. Take a baseline on day 1, compare at day 30 and day 90, and judge it on your own afternoons and your own data. If you’re not convinced by day 90, you get every subscription payment back, less delivery. Fewer than 1 in 1,000 people ask for a refund.</p>"
+          }
+        },
+        "q6": {
+          "type": "q","""),
+    ("""        "q5",
+        "q6",
+        "q14",""", """        "q5",
+        "q16",
+        "q6",
+        "q14","""),
     (""""title": "Your starting point",
             "text": "<p>Score your afternoons, sleep and recovery out of 10, or note your wearable’s 30-day averages. Then two capsules with breakfast: CoQ10, vitamins D3 and K2 dissolve in fat, so food helps your body take them in.</p>\"""",
      """"title": "Your baseline",
-            "text": "<p>Note your wearable’s 7-day averages for HRV, resting heart rate and recovery, or score your afternoons, sleep and recovery out of 10. Then two capsules with breakfast: CoQ10, vitamins D3 and K2 dissolve in fat, so food helps your body take them in.</p>\""""),
+            "text": "<p>Open your wearable and note your 7-day averages for HRV, resting heart rate and recovery. No wearable? Score your afternoons, sleep and recovery out of 10, which takes about thirty seconds. Then take two capsules with breakfast, because CoQ10 and vitamins D3 and K2 dissolve in fat, so food helps your body take them in.</p>\""""),
     (""""label": "Days 3–7",
             "title": "More energy, within days",
             "text": "<p>The first thing most people notice: less of the 3pm wall, and energy left for the evening. B vitamins contribute to the reduction of tiredness and fatigue.</p>\"""",
-     """"label": "Weeks 1–4",
-            "title": "What people notice first",
-            "text": "<p>Often the 3pm wall. B vitamins contribute to the reduction of tiredness and fatigue. Nothing yet? That’s normal.</p>\""""),
+     """"label": "Weeks 1–2",
+            "title": "The first signs",
+            "text": "<p>For most people it starts with the 3pm wall: you reach the end of the afternoon and realise you never went looking for that second coffee. B vitamins contribute to the reduction of tiredness and fatigue. If you haven’t noticed anything yet, that’s normal, because every body runs on its own clock.</p>\""""),
     (""""title": "Afternoons that hold",
             "text": "<p>The lift stops being a good day and becomes your normal. Compare your afternoon score with day 1.</p>\"""",
      """"title": "First check-in",
-            "text": "<p>Compare your 30-day averages with your baseline. Look at the trend, not single nights.</p>\""""),
+            "text": "<p>Compare your wearable’s 30-day averages with your baseline, and look at the trend rather than any single night. This is where you put what you’ve been feeling next to what your own data shows.</p>\""""),
     (""""title": "Bouncing back sooner",
             "text": "<p>A walk, a round of golf or a gym session stops hanging around for days. Vitamin D contributes to normal muscle function.</p>\"""",
      """"title": "Read the whole picture",
-            "text": "<p>Sleep, training, alcohol, travel and illness all move your numbers. Check those before you judge. Vitamin D contributes to normal muscle function.</p>\""""),
+            "text": "<p>Sleep, training, alcohol, travel and illness all move your numbers, so check those before you judge. By now, many people tell us they’re bouncing back sooner after a hard session or a long week. Vitamin D contributes to normal muscle function.</p>\""""),
     (""""title": "Feeling like yourself",
             "text": "<p>Compare your scores with day 1. Many people say they hadn’t realised how flat they’d been. Not for you? Every subscription payment back, less delivery.</p>\"""",
      """"title": "Your verdict",
-            "text": "<p>Compare with day 1. Keep going, or email us within 14 days for every subscription payment back, less delivery.</p>\""""),
+            "text": "<p>Put day 90 next to day 1, in your own scores and on your own wearable. If you’re glad you did it, keep going. If it isn’t for you, email us within 14 days and you get every subscription payment back, less delivery.</p>\""""),
     # P0.5 energy panel
-    ("""Usually the first thing people notice, around day 30.""", """Often the first thing people notice, sometimes within a few weeks."""),
+    ("""Usually the first thing people notice, around day 30.""", """It’s often the first thing people notice, and for many it comes within the first couple of weeks."""),
     # P0.8 one-time line
     ("""Prefer to try one jar first? Buy once – [price] (no gifts)""", """Prefer to try one jar first? Buy once – [price] (no gifts, no money-back guarantee)"""),
     # §3.3 FAQ
     ("""<p>Before you start, score your energy, sleep and recovery out of 10. Do it again at day 30 and day 90, then compare. A pen and paper is fine. Got a wearable? Track the shift yourself, on 30-day averages.</p>""",
-     """<p>Before you start, score your energy, sleep and recovery out of 10, or note your wearable’s 7-day averages: that’s your baseline. Do it again at day 30 and day 90, then compare. A pen and paper is fine. Got a wearable? Compare your 30-day averages with your baseline, and look at the trend, not single nights.</p>"""),
+     """<p>MUTO is designed to be tracked on your wearable, so you don’t have to take our word for it. Before you start, note your wearable’s 7-day averages, or score your energy, sleep and recovery out of 10 if you don’t wear one: that’s your baseline. Do it again at day 30 and day 90, then compare. A pen and paper is fine. Got a wearable? Compare your 30-day averages with your baseline, and look at the trend, not single nights.</p>"""),
     # §3.4 one button label (the desktop buy button; its price follows it)
     (""""cta_label": "Add to cart",""", """"cta_label": "Start your 90-day test","""),
     # P0.11 the reviews widget's AI summary ("Our customers say…")

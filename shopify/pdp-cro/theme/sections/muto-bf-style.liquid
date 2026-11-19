@@ -21,7 +21,7 @@
 {%- endcomment -%}
 <script>
   (function () {
-    var v = {{ section.settings.hero_variant | default: 'A' | downcase | json }};
+    var v = {{ section.settings.hero_variant | default: 'B' | downcase | json }};
     var m = /[?&]hero=([ab])\b/i.exec(location.search);
     if (m) v = m[1].toLowerCase();
     document.documentElement.setAttribute('data-hero', v === 'b' ? 'b' : 'a');
@@ -127,9 +127,9 @@ document.addEventListener('DOMContentLoaded', function () {
       { "value": "standard", "label": "Standard (premium on the premium template)" },
       { "value": "premium", "label": "Premium" }
     ] },
-    { "type": "select", "id": "hero_variant", "label": "Hero version", "default": "A", "info": "A: as live. B: adds the track-it line and a support line under the headline. Add ?hero=a or ?hero=b to the page address to force one.", "options": [
-      { "value": "A", "label": "A (control)" },
-      { "value": "B", "label": "B (track it)" }
+    { "type": "select", "id": "hero_variant", "label": "Hero version", "default": "B", "info": "B (default): the designed-to-be-tracked line and a support line under the headline. A: without them. Add ?hero=a or ?hero=b to the page address to force one.", "options": [
+      { "value": "A", "label": "A (no wearable line)" },
+      { "value": "B", "label": "B (designed to be tracked)" }
     ] },
     { "type": "checkbox", "id": "extras", "label": "Extras (no longer used)", "default": true, "info": "The extras always load now; this setting is kept so existing templates stay valid." }
   ],
