@@ -1,0 +1,169 @@
+{%- comment -%}
+  MUTO — What to expect. A centred mono eyebrow, the site's uppercase heading and a short line, then an
+  interactive timeline: one hairline with a dot and a label per milestone, and ONE card underneath showing
+  the milestone that is selected. Tap a dot (or use the arrow keys, or the "Next" button in the card) to
+  move along. The turquoise line fills up to the selected milestone.
+  "Open at" picks the milestone shown first. Without JavaScript every milestone's card is shown, one
+  under the other. MOBILE: the same row of dots, with smaller labels, and the card full width.
+{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign sid = section.id
+  assign count = section.blocks.size | at_least: 1
+  assign open = s.open | default: 1 | at_most: count | at_least: 1
+-%}
+<style>
+  #shopify-section-{{ sid }}{--mex-ink:#242223;--mex-head:#242223;--mex-muted:#5c5a5b;--mex-rule:rgba(36,34,35,.14);--mex-accent:#2f8fa0;--mex-mono:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace}
+  #shopify-section-{{ sid }} .mex,#shopify-section-{{ sid }} .mex h2,#shopify-section-{{ sid }} .mex h3,#shopify-section-{{ sid }} .mex p,#shopify-section-{{ sid }} .mex button{font-family:var(--mc-font,"Neue Haas Grotesk Display Pro"),sans-serif;-webkit-font-smoothing:antialiased}
+  #shopify-section-{{ sid }} .mex{background:#fff;color:var(--mex-ink)}
+  #shopify-section-{{ sid }} .mex__wrap{max-width:1320px;margin:0 auto;padding:{{ s.space_top }}px 20px {{ s.space_bottom }}px}
+  #shopify-section-{{ sid }} .mex__head{display:grid;justify-items:center;text-align:center;gap:20px}
+  #shopify-section-{{ sid }} .mex__eye{margin:0;font-family:var(--mex-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mex-muted)}
+  #shopify-section-{{ sid }} .mex .mex__h{margin:0;text-wrap:balance;color:var(--mex-head);font-weight:500;font-size:clamp(34px,4.444vw,64px);line-height:.906;letter-spacing:-.014em;text-transform:uppercase}
+  #shopify-section-{{ sid }} .mex__lede{margin:0;max-width:48ch;font-size:clamp(17px,1.4vw,20px);line-height:1.4;text-wrap:balance}
+
+  /* The row of milestones: a hairline, a dot and a label each. The buttons are the tabs. */
+  #shopify-section-{{ sid }} .mex__tabs{position:relative;max-width:980px;margin:56px auto 0;display:grid;grid-template-columns:repeat({{ count }},minmax(0,1fr))}
+  #shopify-section-{{ sid }} .mex__tabs::before{content:"";position:absolute;left:calc(50% / {{ count }});right:calc(50% / {{ count }});top:11px;height:1px;background:var(--mex-ink)}
+  #shopify-section-{{ sid }} .mex__tabs::after{content:"";position:absolute;left:calc(50% / {{ count }});top:10px;height:3px;width:calc((100% - 100% / {{ count }}) * var(--mex-at,0));background:#5efaff;transition:width .45s cubic-bezier(.2,0,.2,1)}
+  #shopify-section-{{ sid }} .mex__tab{all:unset;box-sizing:border-box;position:relative;z-index:1;display:grid;justify-items:center;gap:12px;padding:4px 2px 6px;cursor:pointer;text-align:center;-webkit-tap-highlight-color:transparent}
+  #shopify-section-{{ sid }} .mex__dot{width:15px;height:15px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 1.5px var(--mex-ink);transition:background .25s,transform .25s,box-shadow .25s}
+  #shopify-section-{{ sid }} .mex__tab.is-done .mex__dot{background:#5efaff}
+  #shopify-section-{{ sid }} .mex__tab[aria-selected="true"] .mex__dot{background:var(--mex-ink);transform:scale(1.25);box-shadow:0 0 0 5px rgba(94,250,255,.55)}
+  #shopify-section-{{ sid }} .mex__tab:hover .mex__dot{transform:scale(1.25)}
+  #shopify-section-{{ sid }} .mex__tab:focus-visible{outline:2px solid var(--mex-ink);outline-offset:2px;border-radius:6px}
+  #shopify-section-{{ sid }} .mex__day{font-family:var(--mex-mono);font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--mex-muted);transition:color .2s}
+  #shopify-section-{{ sid }} .mex__tab[aria-selected="true"] .mex__day{color:var(--mex-ink)}
+
+  /* The card for the selected milestone */
+  #shopify-section-{{ sid }} .mex__panels{max-width:760px;margin:28px auto 0}
+  #shopify-section-{{ sid }} .mex__panel{box-sizing:border-box;display:grid;gap:14px;padding:36px 40px;border:1px solid var(--mex-rule);border-radius:14px;background:#fff}
+  #shopify-section-{{ sid }} .mex__panel + .mex__panel{margin-top:16px}
+  #shopify-section-{{ sid }} .mex__panel[hidden]{display:none}
+  #shopify-section-{{ sid }} .mex.is-js .mex__panel{animation:mex-in .3s ease both}
+  @keyframes mex-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  #shopify-section-{{ sid }} .mex__when{margin:0;font-family:var(--mex-mono);font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--mex-accent)}
+  #shopify-section-{{ sid }} .mex .mex__t{margin:0;font-weight:500;font-size:28px;line-height:1.15;letter-spacing:-.015em;color:var(--mex-ink)}
+  #shopify-section-{{ sid }} .mex__x{max-width:60ch;font-size:17px;line-height:1.55;color:var(--mex-ink)}
+  #shopify-section-{{ sid }} .mex__x p{margin:0}
+  #shopify-section-{{ sid }} .mex__next{all:unset;box-sizing:border-box;justify-self:start;display:inline-flex;align-items:center;gap:8px;margin-top:6px;padding:10px 0 2px;font-size:15px;font-weight:500;color:var(--mex-ink);cursor:pointer;border-bottom:1px solid var(--mex-ink)}
+  #shopify-section-{{ sid }} .mex__next:focus-visible{outline:2px solid var(--mex-ink);outline-offset:3px}
+  #shopify-section-{{ sid }} .mex:not(.is-js) .mex__next{display:none}
+  #shopify-section-{{ sid }} .mex__foot{margin:40px auto 0;max-width:62ch;text-align:center;font-size:14px;line-height:1.5;color:var(--mex-muted)}
+  #shopify-section-{{ sid }} .mex__foot a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+
+  @media (max-width:749px){
+    #shopify-section-{{ sid }} .mex__wrap{padding:{{ s.space_top | times: 0.66 | round }}px 16px {{ s.space_bottom | times: 0.66 | round }}px}
+    #shopify-section-{{ sid }} .mex__head{gap:16px}
+    #shopify-section-{{ sid }} .mex__tabs{margin-top:36px}
+    #shopify-section-{{ sid }} .mex__tab{gap:10px;min-height:56px;align-content:start}
+    #shopify-section-{{ sid }} .mex__day{font-size:10.5px;letter-spacing:.04em;line-height:1.25}
+    #shopify-section-{{ sid }} .mex__panels{margin-top:16px}
+    #shopify-section-{{ sid }} .mex__panel{gap:12px;padding:24px 20px}
+    #shopify-section-{{ sid }} .mex__when{font-size:12px}
+    #shopify-section-{{ sid }} .mex .mex__t{font-size:22px}
+    #shopify-section-{{ sid }} .mex__x{font-size:16px}
+    #shopify-section-{{ sid }} .mex__foot{margin-top:28px;font-size:13px}
+  }
+  @media (prefers-reduced-motion:reduce){#shopify-section-{{ sid }} .mex__tabs::after,#shopify-section-{{ sid }} .mex__dot{transition:none!important}#shopify-section-{{ sid }} .mex.is-js .mex__panel{animation:none!important}}
+</style>
+
+<div class="mex"{% if s.anchor != blank %} id="{{ s.anchor }}"{% endif %} data-mex data-open="{{ open }}">
+  <div class="mex__wrap">
+    <header class="mex__head">
+      {%- if s.eyebrow != blank -%}<p class="mex__eye">{{ s.eyebrow }}</p>{%- endif -%}
+      {%- if s.heading != blank -%}<h2 class="mex__h">{{ s.heading | escape | newline_to_br }}</h2>{%- endif -%}
+      {%- if s.lede != blank -%}<p class="mex__lede">{{ s.lede }}</p>{%- endif -%}
+    </header>
+    <div class="mex__tabs" role="tablist" aria-label="{{ s.eyebrow | default: 'What to expect' | escape }}" style="--mex-at:0">
+      {%- for b in section.blocks -%}
+        {%- assign bs = b.settings -%}
+        {%- capture when -%}{% if bs.label != blank %}{{ bs.label }}{% else %}Day {{ bs.day }}{% endif %}{%- endcapture -%}
+        <button type="button" class="mex__tab" role="tab" id="mex-tab-{{ sid }}-{{ forloop.index }}" aria-controls="mex-p-{{ sid }}-{{ forloop.index }}" aria-selected="false" tabindex="-1"><span class="mex__dot" aria-hidden="true"></span><span class="mex__day">{{ when }}</span></button>
+      {%- endfor -%}
+    </div>
+    <div class="mex__panels">
+      {%- for b in section.blocks -%}
+        {%- assign bs = b.settings -%}
+        {%- capture when -%}{% if bs.label != blank %}{{ bs.label }}{% else %}Day {{ bs.day }}{% endif %}{%- endcapture -%}
+        <section class="mex__panel" role="tabpanel" id="mex-p-{{ sid }}-{{ forloop.index }}" aria-labelledby="mex-tab-{{ sid }}-{{ forloop.index }}" {{ b.shopify_attributes }}>
+          <p class="mex__when">{{ when }}</p>
+          <h3 class="mex__t">{{ bs.title }}</h3>
+          {%- if bs.text != blank -%}<div class="mex__x">{{ bs.text }}</div>{%- endif -%}
+          {%- unless forloop.last -%}
+            {%- assign nb = section.blocks[forloop.index] -%}
+            <button type="button" class="mex__next" data-mex-next>Next: {% if nb.settings.label != blank %}{{ nb.settings.label }}{% else %}Day {{ nb.settings.day }}{% endif %} <span aria-hidden="true">→</span></button>
+          {%- endunless -%}
+        </section>
+      {%- endfor -%}
+    </div>
+    {%- if s.foot != blank -%}<p class="mex__foot">{{ s.foot }}</p>{%- endif -%}
+  </div>
+</div>
+<script>
+  (function () {
+    var root = document.querySelector('#shopify-section-{{ sid }} [data-mex]');
+    if (!root) return;
+    var list = root.querySelector('.mex__tabs');
+    var tabs = [].slice.call(root.querySelectorAll('.mex__tab'));
+    var panels = [].slice.call(root.querySelectorAll('.mex__panel'));
+    if (!tabs.length) return;
+    function show(i, focus) {
+      tabs.forEach(function (t, n) {
+        var on = n === i;
+        t.setAttribute('aria-selected', on);
+        t.tabIndex = on ? 0 : -1;
+        t.classList.toggle('is-done', n < i);
+        panels[n].hidden = !on;
+      });
+      /* The turquoise line fills up to the selected milestone */
+      list.style.setProperty('--mex-at', tabs.length > 1 ? i / (tabs.length - 1) : 0);
+      if (focus) tabs[i].focus();
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { show(i); });
+      t.addEventListener('keydown', function (e) {
+        var n = null;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') n = (i + 1) % tabs.length;
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') n = (i - 1 + tabs.length) % tabs.length;
+        if (e.key === 'Home') n = 0;
+        if (e.key === 'End') n = tabs.length - 1;
+        if (n !== null) { e.preventDefault(); show(n, true); }
+      });
+    });
+    panels.forEach(function (p, i) {
+      var nx = p.querySelector('[data-mex-next]');
+      if (nx) nx.addEventListener('click', function () { show(i + 1, true); });
+    });
+    root.classList.add('is-js');
+    show(Math.max(0, Math.min(tabs.length - 1, (parseInt(root.getAttribute('data-open'), 10) || 1) - 1)));
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "MUTO — What to expect",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "Anchor" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "What to expect" },
+    { "type": "textarea", "id": "heading", "label": "Heading" },
+    { "type": "textarea", "id": "lede", "label": "Intro" },
+    { "type": "text", "id": "foot", "label": "Small line below" },
+    { "type": "range", "id": "open", "label": "Open at", "info": "Which milestone is shown first.", "min": 1, "max": 6, "step": 1, "default": 1 },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 96 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 96 }
+  ],
+  "blocks": [
+    { "type": "milestone", "name": "Milestone", "settings": [
+      { "type": "number", "id": "day", "label": "Day", "default": 30 },
+      { "type": "text", "id": "label", "label": "Label instead of the day", "info": "e.g. Weeks 2–4" },
+      { "type": "text", "id": "title", "label": "Title" },
+      { "type": "richtext", "id": "text", "label": "Text" }
+    ] }
+  ],
+  "max_blocks": 6,
+  "presets": [{ "name": "MUTO — What to expect" }],
+  "enabled_on": { "templates": ["product", "page"] }
+}
+{% endschema %}

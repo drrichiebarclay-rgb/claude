@@ -108,6 +108,7 @@ edit("sections/muto-bf-style.liquid", [
     ("{{ 'muto-bf-compact.css' | asset_url | stylesheet_tag }}",
      """{%- comment -%} The offer's numbers for the stylesheets and scripts below (one place: snippets/muto-offer.liquid) {%- endcomment -%}
 {%- render 'muto-offer', key: 'vars' -%}
+{%- render 'muto-informed-sport' -%}
 {%- comment -%}
   Hero test. "Hero version" below picks A (as live) or B (adds "Track it on the wearable you already wear." and a
   support line under the headline). An A/B tool, or anyone previewing, can force one with ?hero=a or ?hero=b on
@@ -374,6 +375,9 @@ edit(T, [
     # §3.4 one button label (the desktop buy button; its price follows it)
     (""""cta_label": "Add to cart",""", """"cta_label": "Start your 90-day test","""),
     # P0.11 the reviews widget's AI summary ("Our customers say…")
+    # the timeline opens at "Weeks 1–2: the first signs"
+    (""""anchor": "what-to-expect",""", """"anchor": "what-to-expect",
+        "open": 2,"""),
     ("""enable_sentiment_analysis: true,""", """enable_sentiment_analysis: false,"""),
     # the hidden in-page bar and the offer box, kept in step with the rest
     ("""plus a welcome kit worth £72. See the offer.""", """plus a welcome kit worth {% render 'muto-offer', key: 'kit3' %}. See the offer."""),
@@ -381,6 +385,14 @@ edit(T, [
     ("""<span class=\\"mc-bfbar__cta\\">Claim offer</span>""", """<span class=\\"mc-bfbar__cta\\">{% render 'muto-offer', key: 'cta' %}</span>"""),
     ("""'<p class=\\"mc-bf__kit\\">plus a welcome kit worth £72</p>' +""", """'<p class=\\"mc-bf__kit\\">plus a welcome kit worth {% render 'muto-offer', key: 'kit3' %}</p>' +"""),
 ])
+
+# ---------------------------------------------------------------- whole files kept in src/ (rewritten or new)
+# "What to expect" as an interactive timeline (dots as tabs, one card), and the Informed Sport badge.
+for rel in ("sections/muto-expect.liquid", "snippets/muto-informed-sport.liquid", "assets/muto-informed-sport.png"):
+    out = os.path.join(HERE, "theme", rel)
+    os.makedirs(os.path.dirname(out), exist_ok=True)
+    shutil.copyfile(os.path.join(HERE, "src", rel), out)
+    CHANGED[rel] = "from src/"
 
 for path, n in sorted(CHANGED.items()):
     print(f"{path}: {n}")

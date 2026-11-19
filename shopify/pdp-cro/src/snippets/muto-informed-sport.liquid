@@ -1,0 +1,53 @@
+{%- comment -%}
+  MUTO — Informed Sport badge (muto-informed-sport). Rendered once by the "MUTO BF style" section.
+  It places the Informed Sport mark in two spots on the product page:
+    1. the buy box, with the "View third-party testing results" and "View nutrition label" links
+       (tapping it opens the test results panel);
+    2. the test results panel's overview, under the headline figures.
+  The logo is assets/muto-informed-sport.png. To remove the badge everywhere, delete the render line in
+  sections/muto-bf-style.liquid. Both spots are filled by the small script below because the links row and
+  the panel are built by other files that move them around the page.
+{%- endcomment -%}
+<style>
+  .mis{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:12px;flex:0 0 100%;width:100%;margin:14px 0 0;padding:10px 14px 10px 10px;border:1px solid rgba(36,34,35,.14);border-radius:10px;background:#fff;font-family:var(--mc-font,"Neue Haas Grotesk Display Pro"),sans-serif;color:#242223;text-align:left;cursor:pointer;-webkit-font-smoothing:antialiased}
+  .mis:hover{border-color:#242223}
+  .mis:focus-visible{outline:2px solid #242223;outline-offset:2px}
+  .mis img{flex:0 0 auto;display:block;width:auto;height:40px;border-radius:4px}
+  .mis__t{display:grid;gap:2px;min-width:0}
+  .mis__t b{font-size:14.5px;font-weight:500;line-height:1.25}
+  .mis__t span{font-size:13px;line-height:1.35;color:rgba(36,34,35,.72)}
+  .mis--panel{cursor:default;max-width:520px;margin:28px 0 0}
+  .mis--panel:hover{border-color:rgba(36,34,35,.14)}
+  .mis--panel img{height:48px}
+  @media (min-width:750px){.mc__gallery .mis{max-width:420px;margin-left:auto;margin-right:auto}}
+</style>
+<template data-mis-tpl>
+  <img src="{{ 'muto-informed-sport.png' | asset_url }}" alt="Informed Sport: banned substance tested, every batch" width="82" height="40" loading="lazy">
+  <span class="mis__t"><b>Informed Sport certified</b><span>Every batch is tested for banned substances.</span></span>
+</template>
+<script>
+  (function () {
+    var tpl = document.querySelector('template[data-mis-tpl]');
+    if (!tpl) return;
+    function make(tag, cls) { var e = document.createElement(tag); e.className = cls; e.appendChild(tpl.content.cloneNode(true)); return e; }
+    function place() {
+      var links = document.querySelector('.mc-links');
+      if (links && !links.querySelector('.mis')) {
+        var b = make('button', 'mis');
+        b.type = 'button';
+        b.setAttribute('data-mtr-open', '');
+        b.setAttribute('aria-label', 'Informed Sport certified: every batch is tested for banned substances. View third-party testing results');
+        links.appendChild(b);
+      }
+      var panel = document.querySelector('#test-results .mtr__panel');
+      if (panel && !panel.querySelector('.mis')) {
+        var d = make('div', 'mis mis--panel');
+        var after = panel.querySelector('.mtr__chip') || panel.querySelector('.mtr__stats');
+        if (after) after.insertAdjacentElement('afterend', d); else panel.appendChild(d);
+      }
+      return links && panel;
+    }
+    function run() { var n = 0; (function again() { if (!place() && n++ < 20) setTimeout(again, 300); })(); }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
+  })();
+</script>

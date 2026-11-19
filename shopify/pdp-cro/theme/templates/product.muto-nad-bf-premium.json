@@ -1137,6 +1137,7 @@
       ],
       "settings": {
         "anchor": "what-to-expect",
+        "open": 2,
         "eyebrow": "What to expect",
         "heading": "First you feel it.\nThen you check it.",
         "lede": "You’ll usually feel it before you can measure it, and afternoons tend to come first, often within the first couple of weeks. MUTO is designed to be tracked on your wearable, so take a baseline on day 1 and check it for yourself.",

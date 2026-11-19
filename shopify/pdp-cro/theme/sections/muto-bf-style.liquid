@@ -14,6 +14,7 @@
 {%- if section.settings.design == 'premium' or template.suffix == 'muto-nad-bf-premium' -%}{%- assign premium = true -%}{%- endif -%}
 {%- comment -%} The offer's numbers for the stylesheets and scripts below (one place: snippets/muto-offer.liquid) {%- endcomment -%}
 {%- render 'muto-offer', key: 'vars' -%}
+{%- render 'muto-informed-sport' -%}
 {%- comment -%}
   Hero test. "Hero version" below picks A (as live) or B (adds "Track it on the wearable you already wear." and a
   support line under the headline). An A/B tool, or anyone previewing, can force one with ?hero=a or ?hero=b on
