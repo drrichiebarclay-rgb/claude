@@ -578,6 +578,20 @@ edit("snippets/muto-bf-jobs.liquid", [
     ("""        <h3>One jar, not ten</h3>""", """        <h3>Replaces 5 supplements in one</h3>"""),
 ])
 
+# ---------------------------------------------------------------- buy box customer videos: order (Richie, 19 Nov)
+# David Mercado, Adam Hamilton, Kate Bright, Adam Facey, Lucy Halliday. Only the order of the VIDEOS list changes.
+import re as _re2
+_src = open(os.path.join(HERE, "live", "snippets/muto-bf-video-reviews.liquid"), encoding="utf-8", newline="").read()
+_m = _re2.search(r"assign V = '([^']*)'", _src)
+_items = _m.group(1).split(";")
+_want = ["David Mercado", "Adam Hamilton", "Kate Bright", "Adam Facey", "Lucy Halliday"]
+_by = {i.split("|")[0]: i for i in _items}
+assert sorted(_by) == sorted(_want) and len(_items) == 5, list(_by)
+_out = _src[:_m.start(1)] + ";".join(_by[n] for n in _want) + _src[_m.end(1):]
+_p = os.path.join(HERE, "theme", "snippets/muto-bf-video-reviews.liquid")
+open(_p, "w", encoding="utf-8", newline="").write(_out)
+CHANGED["snippets/muto-bf-video-reviews.liquid"] = "order"
+
 # ---------------------------------------------------------------- whole files kept in src/ (rewritten or new)
 # "What to expect" as an interactive timeline (dots as tabs, one card), and the Informed Sport badge.
 for rel in ("sections/muto-expect.liquid", "snippets/muto-informed-sport.liquid", "snippets/muto-buy-extras.liquid", "sections/muto-survey.liquid", "assets/muto-informed-sport.png", "assets/muto-informed-sport-certificate.pdf"):
