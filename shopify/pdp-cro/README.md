@@ -65,3 +65,12 @@ To go live, copy the files in `theme/` to the live theme.
 - "What to expect": each step now has a tinted "On your wearable" line (block setting "Wearable line").
 - Template: the disabled "statement" section was removed, because Shopify allows 25 sections per template and the survey block was the 26th.
 - A test file `templates/page.zz-survey-test.json` is on the duplicate theme and can be deleted in the code editor.
+
+## Fourth pass (19 Nov): brief v2 and survey band
+
+- Survey band: now a white, clinical, full-width band about 365px tall on desktop, placed after the press and reviews ticker. Eyebrow "12-week customer trial results", heading "Studied in real people.", Recovery 87%.
+- Countdown: runs to 9pm UK time each day, the next-day delivery cut-off, and is labelled as that (not as the end of the offer).
+- Buy box: "Designed for over 35s" sub-header; bullet "Built for the years ahead" (P0.12); value line "One jar instead of five…" above the plans; control line "You're in charge…" under them and above the button.
+- `snippets/muto-bf-review-box.liquid`: chip "Thinking about the next 20 years" first, replacing "Too many pots on the shelf" (option 2 of 4.5); Kevin, 36 moved from third to sixth slide (4.6; the order is set in the theme).
+- Hero variant analytics (4.1): `data-hero-variant` on the buy box and sticky bar; dataLayer events `muto_hero_view` and `muto_add_to_cart` carry `hero_variant`.
+- One-time line is back to "(no gifts)".
