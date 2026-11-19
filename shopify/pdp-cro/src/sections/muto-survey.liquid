@@ -164,6 +164,13 @@
           wrap.style.cssText = 'background:' + grey + ';padding:8px 20px 28px';
           sec.parentNode.insertBefore(wrap, sec);
           wrap.appendChild(seen);
+          /* Phones: another script lifts the moving reviews strip to the top of the page, above the photo.
+             It is brought back here, directly above the "As seen in" strip, as on desktop. */
+          var tick = document.querySelector('#MainContent .shopify-section[id$="__reviews_ticker"]');
+          if (tick && tick.nextElementSibling !== wrap) {
+            wrap.parentNode.insertBefore(tick, wrap);
+            tick.style.background = grey;
+          }
           return;
         }
         /* The strip is added by a later script, so look again for a few seconds */
