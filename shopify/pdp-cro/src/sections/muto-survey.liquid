@@ -17,7 +17,7 @@
 <style>
   /* Clinical look: white, ink and one teal; hairlines instead of boxes; mono labels; tabular figures */
   #shopify-section-{{ sid }} .msv,#shopify-section-{{ sid }} .msv h2,#shopify-section-{{ sid }} .msv p,#shopify-section-{{ sid }} .msv button{font-family:var(--mc-font,"Neue Haas Grotesk Display Pro"),sans-serif;-webkit-font-smoothing:antialiased}
-  #shopify-section-{{ sid }} .msv{--msv-mono:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace;--msv-ink:#242223;--msv-muted:#5c5a5b;--msv-rule:rgba(36,34,35,.14);--msv-ac:#1f6f7c;background:#fff;color:var(--msv-ink);margin:{{ s.space_top }}px 0 {{ s.space_bottom }}px;border-top:1px solid var(--msv-rule);border-bottom:1px solid var(--msv-rule)}
+  #shopify-section-{{ sid }} .msv{--msv-mono:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace;--msv-ink:#242223;--msv-muted:#5c5a5b;--msv-rule:rgba(36,34,35,.14);--msv-ac:#1f6f7c;background:#fafafa;color:var(--msv-ink);margin:{{ s.space_top }}px 0 {{ s.space_bottom }}px}
   #shopify-section-{{ sid }} .msv__card{max-width:1400px;margin:0 auto;box-sizing:border-box;padding:44px 40px 22px}
   #shopify-section-{{ sid }} .msv__grid{display:grid;grid-template-columns:minmax(0,1fr) 240px minmax(0,1.3fr);gap:48px;align-items:center}
   #shopify-section-{{ sid }} .msv__head{display:grid;gap:14px}
@@ -157,7 +157,12 @@
           if (seen.closest('.msv-seen') || !(sec.compareDocumentPosition(seen) & Node.DOCUMENT_POSITION_FOLLOWING)) return;
           var wrap = document.createElement('div');
           wrap.className = 'msv-seen';
-          wrap.style.cssText = 'background:#fafafa;padding:8px 20px 14px';
+          /* One grey from the reviews ticker down to the dark block: the strip's own grey is used for
+             its surround and for this band */
+          var grey = getComputedStyle(seen).backgroundColor;
+          if (!grey || /rgba\(0, 0, 0, 0\)|transparent/.test(grey)) grey = '#fafafa';
+          wrap.style.cssText = 'background:' + grey + ';padding:8px 20px 4px';
+          root.style.background = grey;
           sec.parentNode.insertBefore(wrap, sec);
           wrap.appendChild(seen);
           return;
