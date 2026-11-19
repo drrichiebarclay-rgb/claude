@@ -307,7 +307,8 @@ edit("assets/muto-cart.css", [
      """content:"\\2713\\2002 90-day money-back guarantee on subscriptions\\A\\2713\\2002 Fewer than 1 in 1,000 people ask for a refund\\A\\2713\\2002 Skip, pause or cancel online, anytime\\A\\2713\\2002 A reminder email 5 days before every payment\\A\\2713\\2002 Free next-day UK delivery, order by 9pm";"""),
     # a tidy tinted panel with one reassurance per line, instead of a centred paragraph
     ("""white-space:pre-line;display:block;width:100%;margin-top:14px;text-align:center;font-family:var(--mc-font);font-size:14px;line-height:1.4;color:#242223}""",
-     """white-space:pre-line;display:block;width:100%;box-sizing:border-box;margin-top:14px;padding:12px 16px;border-radius:10px;background:#f4f2ef;text-align:left;font-family:var(--mc-font);font-size:13.5px;line-height:1.75;color:#242223}"""),
+     """white-space:pre-line;display:block;width:100%;box-sizing:border-box;margin-top:14px;padding:12px 14px;border-radius:10px;background:#f4f2ef;text-align:left;font-family:var(--mc-font);font-size:13.5px;line-height:1.75;letter-spacing:-.01em;color:#242223}
+@media (max-width:480px){:is(#main-cart-footer,cart-drawer) .cart__ctas::after{padding:11px 12px;font-size:12.5px}}"""),
 ])
 edit("snippets/cart-drawer.liquid", [
     ("""<p>90 DAY MONEY-BACK POLICY</p>""", """<p>90-DAY MONEY-BACK GUARANTEE ON SUBSCRIPTIONS</p>""", 2),
