@@ -62,7 +62,14 @@
   .mbf--o{margin:12px 0 0}
   .mbf--v{background:#fff;border:1px solid rgba(36,34,35,.14);margin:0 0 12px}
   .mbf--o:not(.mbf--v){margin:0 0 12px}
-  @media (max-width:749px){.mbf{font-size:13.5px}}
+  @media (max-width:749px){
+    .mbf{font-size:13.5px}
+    /* Phones: the value line follows the Informed Sport box, so it gets the same gap above as below, and
+       the plan cards sit closer underneath */
+    html:root body #MainContent#MainContent .mc .mc__buy-copy > .mbf--plans.mbf--v{margin:12px 0 0!important}
+    html:root body #MainContent#MainContent#MainContent#MainContent#MainContent [id$="__buy"] .mc .mc__buy-copy > .mbf--v + .mc__plans{margin-top:16px!important}
+    html:root body #MainContent#MainContent .mc .mc__buy-copy > .mc-links .mis{margin-top:16px}
+  }
   /* The copies made for the compact phone block are not used now that phones show the plan cards */
   .mbf--o{display:none}
 </style>
