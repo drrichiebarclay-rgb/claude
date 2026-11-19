@@ -46,5 +46,5 @@ To go live, copy the files in `theme/` to the live theme.
 - Hero: "Designed to be tracked on your wearable, so you don't have to take our word for it." No promise that any wearable metric improves.
 - "What to expect": first signs moved to weeks 1-2, each step tied to checking your own wearable or scores.
 - FAQ: new "How do I know this isn't a £99 placebo?"; "When will I notice something?" leads with two to four weeks.
-- Cart: guarantee line with "Fewer than 1 in 1,000 people ask for a refund" and a "Step 1 of 3" line above the checkout button.
+- Cart: a five-line checklist panel under checkout, including "Fewer than 1 in 1,000 people ask for a refund".
 - Not built: wearable screenshots (needs real customer data), Klarna/instalments, persona pages.
