@@ -13,6 +13,9 @@
        plan cards, and the control line ("You're in charge…") under them and above the buy button. On
        phones both sit in the buy block: the value line at its top, the control line above the button.
        The list of what the jar replaces must match the FAQ answer "What does it replace…".
+    4. The payment icons under the "Arrives by … Tracked 24h" line: every card and payment type the shop
+       has switched on (Shopify's own list, shop.enabled_payment_types), plus Klarna if it is not already in
+       that list (asked for by Richie, 19 Nov; take the Klarna line out below if Klarna is not offered).
   They are placed by the script below because the buy box's parts are arranged by other files.
 {%- endcomment -%}
 {%- liquid
@@ -55,6 +58,11 @@
   html:root body #MainContent#MainContent .mc .mc__buy-copy > .mbx{order:-4!important}
   html:root body #MainContent#MainContent .mc .mc__buy-copy > .mbf--plans{order:2!important}
 
+  /* Payment icons under the "Arrives by" line */
+  .mpay{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;width:100%;margin:14px 0 0;padding:0;list-style:none}
+  .mpay li{margin:0;padding:0;line-height:0}
+  .mpay li::before{content:none!important}
+  .mpay__i{display:block;width:38px;height:24px}
   /* Subscription flexibility, beside the plan selector */
   .mbf{order:2;display:flex;align-items:flex-start;gap:10px;width:100%;box-sizing:border-box;margin:12px 0 0;padding:12px 14px;border-radius:10px;background:#f4f2ef;color:#242223;font-size:14px;line-height:1.45}
   .mbf svg{flex:0 0 auto;width:18px;height:18px;margin-top:1px}
@@ -90,6 +98,16 @@
 <template data-mbv-tpl>
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/><path d="M17 15l2 2 3-4"/></svg>
   <p><b>Replaces 5 supplements in one.</b> NR, CoQ10, resveratrol, vitamin D3 + K2 and a B complex, in two capsules. <b>£1.10 a day</b> for your first 3 months.</p>
+</template>
+<template data-mpay-tpl>
+  <ul class="mpay" aria-label="Payment methods we accept">
+    {%- assign mpay_has_klarna = false -%}
+    {%- for type in shop.enabled_payment_types -%}
+      {%- if type == 'klarna' or type == 'klarna-pay-later' or type == 'klarna-slice-it' or type == 'klarna-pay-now' -%}{%- assign mpay_has_klarna = true -%}{%- endif -%}
+      <li>{{ type | payment_type_svg_tag: class: 'mpay__i' }}</li>
+    {%- endfor -%}
+    {%- unless mpay_has_klarna -%}<li>{{ 'klarna' | payment_type_svg_tag: class: 'mpay__i' }}</li>{%- endunless -%}
+  </ul>
 </template>
 <template data-mbf-tpl>
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v5h-5"/></svg>
@@ -127,6 +145,8 @@
           tick(cd); setInterval(function () { tick(cd); }, 1000);
         }
       }
+      var tp = document.querySelector('template[data-mpay-tpl]'), del = copy.querySelector('.mpb-x .mpb-del');
+      if (tp && del && !copy.querySelector('.mpay')) del.insertAdjacentElement('afterend', tp.content.firstElementChild.cloneNode(true));
       var plans = copy.querySelector(':scope > .mc__plans');
       if (tf && plans && !copy.querySelector('.mbf--plans')) { plans.insertAdjacentElement('afterend', note('mbf--plans')); if (tv) plans.insertAdjacentElement('beforebegin', note('mbf--plans mbf--v', tv)); }
       var o = copy.querySelector('.mm-o'), btn = o && o.querySelector('.mm-o__btn');
