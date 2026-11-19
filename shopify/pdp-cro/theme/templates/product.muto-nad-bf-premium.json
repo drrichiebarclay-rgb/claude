@@ -602,7 +602,7 @@
         "kit_foot_4_pop": "<p>You’re never tied in. Pause, start again or stop your plan whenever you like, from your account. No questions asked.</p>",
         "gifts_label": "Thank-you gifts in later boxes",
         "gifts_text": "",
-        "onetime_label": "Prefer to try one jar first? Buy once – [price] (no gifts, no money-back guarantee)",
+        "onetime_label": "Prefer to try one jar first? Buy once – [price] (no gifts)",
         "onetime_link": "",
         "cta_label": "Start your 90-day test",
         "show_quantity": false,

@@ -315,9 +315,7 @@ edit("assets/muto-bf-premium.css", [
     ("""content:"£1.79 per day  \\00b7  Save 28%"!important}""", """content:"£1.79 a day for your first month"!important}"""),
     ("""content:"Best value \\00b7  Save 53% + free gifts worth £87";""", """content:"Best value \\00b7  Save 53% + free gifts worth " var(--muto-kit3);"""),
 ])
-edit("assets/muto-bf-copy.css", [
-    ("""content:"One-Time Purchase - £70 (no gifts)";""", """content:"One-Time Purchase - £70 (no gifts, no money-back guarantee)";"""),
-])
+# (The one-time line stays "(no gifts)": the "no money-back guarantee" wording was added, then removed at Richie's request.)
 
 # ---------------------------------------------------------------- rating lines printed by sections
 edit("sections/muto-pdp-v2-buy.liquid", [
@@ -443,7 +441,6 @@ edit(T, [
     # P0.5 energy panel
     ("""Usually the first thing people notice, around day 30.""", """It’s often the first thing people notice, and for many it comes within the first couple of weeks."""),
     # P0.8 one-time line
-    ("""Prefer to try one jar first? Buy once – [price] (no gifts)""", """Prefer to try one jar first? Buy once – [price] (no gifts, no money-back guarantee)"""),
     # §3.3 FAQ
     ("""<p>Before you start, score your energy, sleep and recovery out of 10. Do it again at day 30 and day 90, then compare. A pen and paper is fine. Got a wearable? Track the shift yourself, on 30-day averages.</p>""",
      """<p>MUTO is designed to be tracked on your wearable, so you don’t have to take our word for it. Before you start, note your wearable’s 7-day averages, or score your energy, sleep and recovery out of 10 if you don’t wear one: that’s your baseline. Do it again at day 30 and day 90, then compare. A pen and paper is fine. Got a wearable? Compare your 30-day averages with your baseline, and look at the trend, not single nights.</p>"""),
