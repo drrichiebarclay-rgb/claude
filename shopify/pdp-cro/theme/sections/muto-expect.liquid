@@ -1,7 +1,7 @@
 {%- comment -%}
   MUTO — What to expect. A centred mono eyebrow, the site's uppercase heading and a short line, then an
   interactive timeline: one hairline with a dot and a label per milestone, and ONE card underneath showing
-  the milestone that is selected. Tap a dot (or use the arrow keys, or the "Next" button in the card) to
+  the milestone that is selected, with what people feel and, in a tinted box, what to check on a wearable. Tap a dot (or use the arrow keys, or the "Next" button in the card) to
   move along. The turquoise line fills up to the selected milestone.
   "Open at" picks the milestone shown first. Without JavaScript every milestone's card is shown, one
   under the other. MOBILE: the same row of dots, with smaller labels, and the card full width.
@@ -46,6 +46,9 @@
   #shopify-section-{{ sid }} .mex .mex__t{margin:0;font-weight:500;font-size:28px;line-height:1.15;letter-spacing:-.015em;color:var(--mex-ink)}
   #shopify-section-{{ sid }} .mex__x{max-width:60ch;font-size:17px;line-height:1.55;color:var(--mex-ink)}
   #shopify-section-{{ sid }} .mex__x p{margin:0}
+  #shopify-section-{{ sid }} .mex__proof{display:flex;align-items:flex-start;gap:12px;max-width:60ch;margin:4px 0 0;padding:14px 16px;border-radius:10px;background:#f1fbfc;border:1px solid rgba(47,143,160,.28);font-size:15px;line-height:1.5;color:var(--mex-ink)}
+  #shopify-section-{{ sid }} .mex__proof svg{flex:0 0 auto;width:22px;height:22px;margin-top:1px;color:var(--mex-accent)}
+  #shopify-section-{{ sid }} .mex__proof b{display:block;margin-bottom:2px;font-family:var(--mex-mono);font-size:11.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--mex-accent)}
   #shopify-section-{{ sid }} .mex__next{all:unset;box-sizing:border-box;justify-self:start;display:inline-flex;align-items:center;gap:8px;margin-top:6px;padding:10px 0 2px;font-size:15px;font-weight:500;color:var(--mex-ink);cursor:pointer;border-bottom:1px solid var(--mex-ink)}
   #shopify-section-{{ sid }} .mex__next:focus-visible{outline:2px solid var(--mex-ink);outline-offset:3px}
   #shopify-section-{{ sid }} .mex:not(.is-js) .mex__next{display:none}
@@ -90,6 +93,9 @@
           <p class="mex__when">{{ when }}</p>
           <h3 class="mex__t">{{ bs.title }}</h3>
           {%- if bs.text != blank -%}<div class="mex__x">{{ bs.text }}</div>{%- endif -%}
+          {%- if bs.proof != blank -%}
+            <p class="mex__proof"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="6" width="10" height="12" rx="3"/><path d="M9 6l.6-3h4.8L15 6M9 18l.6 3h4.8l.6-3M9.5 12h1.5l1-2 1.2 4 .8-2h1"/></svg><span><b>{{ s.proof_label | default: 'On your wearable' }}</b>{{ bs.proof }}</span></p>
+          {%- endif -%}
           {%- unless forloop.last -%}
             {%- assign nb = section.blocks[forloop.index] -%}
             <button type="button" class="mex__next" data-mex-next>Next: {% if nb.settings.label != blank %}{{ nb.settings.label }}{% else %}Day {{ nb.settings.day }}{% endif %} <span aria-hidden="true">→</span></button>
@@ -150,6 +156,7 @@
     { "type": "textarea", "id": "heading", "label": "Heading" },
     { "type": "textarea", "id": "lede", "label": "Intro" },
     { "type": "text", "id": "foot", "label": "Small line below" },
+    { "type": "text", "id": "proof_label", "label": "Wearable line: label", "default": "On your wearable" },
     { "type": "range", "id": "open", "label": "Open at", "info": "Which milestone is shown first.", "min": 1, "max": 6, "step": 1, "default": 1 },
     { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 96 },
     { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 96 }
@@ -159,7 +166,8 @@
       { "type": "number", "id": "day", "label": "Day", "default": 30 },
       { "type": "text", "id": "label", "label": "Label instead of the day", "info": "e.g. Weeks 2–4" },
       { "type": "text", "id": "title", "label": "Title" },
-      { "type": "richtext", "id": "text", "label": "Text" }
+      { "type": "richtext", "id": "text", "label": "Text" },
+      { "type": "text", "id": "proof", "label": "Wearable line", "info": "Shown in a tinted box under the text. What to check on a wearable at this point: something to track, never a promised result." }
     ] }
   ],
   "max_blocks": 6,

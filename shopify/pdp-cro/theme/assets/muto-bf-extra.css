@@ -94,7 +94,7 @@ html:root body .mc .mc-subhead::before{font-weight:400!important;color:#3d3b3c!i
 /* What the gifts are worth, for the plan that's selected (the values are set once, in snippets/muto-offer.liquid) */
 html:root body .mc .mc__inc::after{display:flex;justify-content:space-between;margin-top:6px;padding-top:10px;border-top:1px solid rgba(36,34,35,.16);font-size:15px;font-weight:500;color:#242223;white-space:pre}
 html:root body .mc .mc__plans:has(> label.mc__plan:nth-of-type(2).is-selected) .mc__inc::after{content:"Free gifts worth " var(--muto-kit3)}
-html:root body .mc .mc__plans:has(> label.mc__plan:nth-of-type(1).is-selected) .mc__inc::after{content:"Free gifts worth " var(--muto-kit1)}
+html:root body .mc .mc__plans:has(> label.mc__plan:nth-of-type(1).is-selected) .mc__inc::after{content:"Free welcome kit included"}
 @media (max-width:749px){html:root body .mc .mc__inc::after{font-size:14px}}
 /* Mobile: photo first, no product label, headline with more air */
 @media (max-width:749px){

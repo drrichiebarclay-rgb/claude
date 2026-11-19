@@ -143,7 +143,7 @@
 (function () {
   var PLANS = {
     three: { plan: '3-Month Supply', tag: 'Best value', price: '£33', save: '53% off', gifts: '+ {% render 'muto-offer', key: 'kit3' %} free gifts', refill: '£125 refill ships in 3 months', terms: '£99 today for your first 3 months. By default you’ll then receive NAD+ Cellular Complex every 3 months: £125 for the next 3 months, then £150. Skip, pause or cancel online anytime. Subscribers get discounted pricing and free gifts.' },
-    one: { plan: '1-Month Supply', tag: '', price: '£49.99', save: '28% off', gifts: '+ {% render 'muto-offer', key: 'kit1' %} free gifts', refill: '£60 refill ships in 1 month', terms: '£49.99 today for your first month. By default you’ll then receive NAD+ Cellular Complex every month for £60. Skip, pause or cancel online anytime. Subscribers get discounted pricing and free gifts.' }
+    one: { plan: '1-Month Supply', tag: '', price: '£49.99', save: 'First month', gifts: '+ free welcome kit', refill: '£60 refill ships in 1 month', terms: '£49.99 today for your first month. By default you’ll then receive NAD+ Cellular Complex every month for £60. Skip, pause or cancel online anytime. Subscribers get discounted pricing and free gifts.' }
   };
   function paint() {
     var o = document.querySelector('[data-mm-o]'), sel = document.querySelector('#MainContent .mc__plans > label.mc__plan.is-selected');

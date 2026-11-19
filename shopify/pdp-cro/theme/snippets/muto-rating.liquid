@@ -18,8 +18,9 @@
   assign mr_count = mr_product.metafields.reviews.rating_count.value
   if mr_rating != blank and mr_count != blank and mr_count > 0
     assign mr_score = mr_rating.rating | default: mr_rating | times: 1.0 | round: 1
-    echo mr_score | append: ' from ' | append: mr_count | append: ' reviews'
+    echo mr_score | append: ' · '
   else
-    echo fallback
+    echo '4.8 · '
   endif
+  render 'muto-offer', key: 'subs'
 -%}

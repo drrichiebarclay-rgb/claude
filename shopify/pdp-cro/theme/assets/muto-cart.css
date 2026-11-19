@@ -164,6 +164,14 @@ cart-items .title--primary{font-size:clamp(30px,3.4vw,48px)!important}
 /* Delivery promise under the checkout button */
 :is(#main-cart-footer,cart-drawer) .cart__ctas::after{content:"\2713\2002 90-day money-back guarantee on subscriptions\A\2713\2002 Fewer than 1 in 1,000 people ask for a refund\A\2713\2002 Skip, pause or cancel online, anytime\A\2713\2002 A reminder email 5 days before every payment\A\2713\2002 Free next-day UK delivery, order by 9pm";white-space:pre-line;display:block;width:100%;box-sizing:border-box;margin-top:14px;padding:12px 14px;border-radius:10px;background:#f4f2ef;text-align:left;font-family:var(--mc-font);font-size:13.5px;line-height:1.75;letter-spacing:-.01em;color:#242223}
 @media (max-width:480px){:is(#main-cart-footer,cart-drawer) .cart__ctas::after{padding:11px 12px;font-size:12.5px}}
+/* Checkout steps above the checkout button: numbered dots on a line, the first one filled */
+.mcs{display:flex;align-items:center;gap:0;margin:14px 0 12px;padding:0;list-style:none;font-family:var(--mc-font);font-size:12.5px;line-height:1;color:rgba(36,34,35,.55)}
+.mcs__s{display:flex;align-items:center;gap:7px;margin:0;padding:0;white-space:nowrap}
+.mcs__s + .mcs__s{flex:1 1 0;justify-content:flex-end}
+.mcs__s + .mcs__s::before{content:"";flex:1 1 auto;height:1px;margin:0 10px;background:rgba(36,34,35,.2)}
+.mcs__n{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;border:1px solid rgba(36,34,35,.3);font-size:11px;font-weight:500}
+.mcs__s.is-on{color:#242223;font-weight:500}
+.mcs__s.is-on .mcs__n{border-color:#242223;background:#242223;color:#fff}
 
 /* ---- Supply line under the product name: "3-month supply" / "1-month supply" (mono capitals) ---- */
 :is(cart-items,cart-drawer) .mc-supply{display:block!important;margin:6px 0 4px!important;font-family:var(--mc-mono)!important;font-size:12px!important;font-weight:500!important;letter-spacing:.1em!important;text-transform:uppercase!important;color:#242223!important}

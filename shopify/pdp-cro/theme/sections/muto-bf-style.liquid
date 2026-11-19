@@ -15,6 +15,7 @@
 {%- comment -%} The offer's numbers for the stylesheets and scripts below (one place: snippets/muto-offer.liquid) {%- endcomment -%}
 {%- render 'muto-offer', key: 'vars' -%}
 {%- render 'muto-informed-sport' -%}
+{%- render 'muto-buy-extras', end: section.settings.bf_end -%}
 {%- comment -%}
   Hero test. "Hero version" below picks A (as live) or B (adds "Track it on the wearable you already wear." and a
   support line under the headline). An A/B tool, or anyone previewing, can force one with ?hero=a or ?hero=b on
@@ -72,7 +73,7 @@
     var h = w.querySelector('.R-TextHeading');
     var score = h ? parseFloat(h.textContent) : NaN;
     if (!m || !(score > 0)) return false;
-    var line = (Math.round(score * 10) / 10).toFixed(1) + ' from ' + m[1] + ' reviews';
+    var line = (Math.round(score * 10) / 10).toFixed(1) + ' · ' + ((window.MUTO_OFFER && window.MUTO_OFFER.subs) || '');
     [].forEach.call(document.querySelectorAll('[data-muto-rating]'), function (el) { el.textContent = line; });
     return true;
   }
@@ -128,6 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
       { "value": "standard", "label": "Standard (premium on the premium template)" },
       { "value": "premium", "label": "Premium" }
     ] },
+    { "type": "text", "id": "bf_end", "label": "Black Friday ends", "default": "2026-11-30T23:59:59", "info": "UK time, as YYYY-MM-DDTHH:MM:SS. The countdown in the buy box runs to this moment and never resets. It must be the offer's real end. Empty: no countdown." },
     { "type": "select", "id": "hero_variant", "label": "Hero version", "default": "B", "info": "B (default): the designed-to-be-tracked line and a support line under the headline. A: without them. Add ?hero=a or ?hero=b to the page address to force one.", "options": [
       { "value": "A", "label": "A (no wearable line)" },
       { "value": "B", "label": "B (designed to be tracked)" }

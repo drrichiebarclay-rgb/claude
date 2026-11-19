@@ -50,6 +50,7 @@ new("snippets/muto-offer.liquid", """{%- comment -%}
     {%- render 'muto-offer', key: 'kit3' -%}   what the 3-Month Supply's welcome kit is worth
     {%- render 'muto-offer', key: 'kit1' -%}   what the 1-Month Supply's welcome kit is worth
     {%- render 'muto-offer', key: 'cta' -%}    the one button label
+    {%- render 'muto-offer', key: 'subs' -%}   the line beside the star rating ("Over 2,000 loyal subscribers")
     {%- render 'muto-offer', key: 'vars' -%}   the same values for stylesheets and scripts: CSS variables
                                                (--muto-kit3, --muto-kit1) and window.MUTO_OFFER
 
@@ -60,6 +61,7 @@ new("snippets/muto-offer.liquid", """{%- comment -%}
   assign mo_kit3 = '£72'
   assign mo_kit1 = '£62'
   assign mo_cta = 'Start your 90-day test'
+  assign mo_subs = 'Over 2,000 loyal subscribers'
   case key
     when 'kit3'
       echo mo_kit3
@@ -67,11 +69,13 @@ new("snippets/muto-offer.liquid", """{%- comment -%}
       echo mo_kit1
     when 'cta'
       echo mo_cta
+    when 'subs'
+      echo mo_subs
   endcase
 -%}
 {%- if key == 'vars' -%}
   <style>:root{--muto-kit3:"{{ mo_kit3 }}";--muto-kit1:"{{ mo_kit1 }}"}</style>
-  <script>window.MUTO_OFFER = { kit3: {{ mo_kit3 | json }}, kit1: {{ mo_kit1 | json }}, cta: {{ mo_cta | json }} };</script>
+  <script>window.MUTO_OFFER = { kit3: {{ mo_kit3 | json }}, kit1: {{ mo_kit1 | json }}, cta: {{ mo_cta | json }}, subs: {{ mo_subs | json }} };</script>
 {%- endif -%}
 """)
 
@@ -96,10 +100,11 @@ new("snippets/muto-rating.liquid", """{%- comment -%}
   assign mr_count = mr_product.metafields.reviews.rating_count.value
   if mr_rating != blank and mr_count != blank and mr_count > 0
     assign mr_score = mr_rating.rating | default: mr_rating | times: 1.0 | round: 1
-    echo mr_score | append: ' from ' | append: mr_count | append: ' reviews'
+    echo mr_score | append: ' · '
   else
-    echo fallback
+    echo '4.8 · '
   endif
+  render 'muto-offer', key: 'subs'
 -%}
 """)
 
@@ -109,6 +114,7 @@ edit("sections/muto-bf-style.liquid", [
      """{%- comment -%} The offer's numbers for the stylesheets and scripts below (one place: snippets/muto-offer.liquid) {%- endcomment -%}
 {%- render 'muto-offer', key: 'vars' -%}
 {%- render 'muto-informed-sport' -%}
+{%- render 'muto-buy-extras', end: section.settings.bf_end -%}
 {%- comment -%}
   Hero test. "Hero version" below picks A (as live) or B (adds "Track it on the wearable you already wear." and a
   support line under the headline). An A/B tool, or anyone previewing, can force one with ?hero=a or ?hero=b on
@@ -139,7 +145,7 @@ edit("sections/muto-bf-style.liquid", [
     var h = w.querySelector('.R-TextHeading');
     var score = h ? parseFloat(h.textContent) : NaN;
     if (!m || !(score > 0)) return false;
-    var line = (Math.round(score * 10) / 10).toFixed(1) + ' from ' + m[1] + ' reviews';
+    var line = (Math.round(score * 10) / 10).toFixed(1) + ' \u00b7 ' + ((window.MUTO_OFFER && window.MUTO_OFFER.subs) || '');
     [].forEach.call(document.querySelectorAll('[data-muto-rating]'), function (el) { el.textContent = line; });
     return true;
   }
@@ -154,7 +160,8 @@ edit("sections/muto-bf-style.liquid", [
 </script>
 <script>"""),
     ("""    { "type": "checkbox", "id": "extras",""",
-     """    { "type": "select", "id": "hero_variant", "label": "Hero version", "default": "B", "info": "B (default): the designed-to-be-tracked line and a support line under the headline. A: without them. Add ?hero=a or ?hero=b to the page address to force one.", "options": [
+     """    { "type": "text", "id": "bf_end", "label": "Black Friday ends", "default": "2026-11-30T23:59:59", "info": "UK time, as YYYY-MM-DDTHH:MM:SS. The countdown in the buy box runs to this moment and never resets. It must be the offer's real end. Empty: no countdown." },
+    { "type": "select", "id": "hero_variant", "label": "Hero version", "default": "B", "info": "B (default): the designed-to-be-tracked line and a support line under the headline. A: without them. Add ?hero=a or ?hero=b to the page address to force one.", "options": [
       { "value": "A", "label": "A (no wearable line)" },
       { "value": "B", "label": "B (designed to be tracked)" }
     ] },
@@ -187,7 +194,7 @@ edit("snippets/muto-bf-mars.liquid", [
      """'american_express,apple_pay,google_pay,master,paypal,shopify_pay,visa'"""),
     (""""Try it now" presses it""", """the big button presses it"""),
     ("""save: '53% off', gifts: '+ £72 free gifts',""", """save: '53% off', gifts: '+ """ + KIT3 + """ free gifts',"""),
-    ("""save: '28% off', gifts: '+ £62 free gifts',""", """save: '28% off', gifts: '+ """ + KIT1 + """ free gifts',"""),
+    ("""save: '28% off', gifts: '+ £62 free gifts',""", """save: 'First month', gifts: '+ free welcome kit',"""),
 ])
 
 # ---------------------------------------------------------------- plan cards (desktop)
@@ -195,7 +202,8 @@ edit("snippets/muto-bf-ag1-plans.liquid", [
     ("""    £1.10 a day, less than half a coffee""", """    £1.10 a day for your first 3 months"""),
     ("""band: 'Best value: £111 off + £72 free gifts',""", """band: 'Best value: £111 off + """ + KIT3 + """ free gifts',"""),
     ("""line: '', per: '£1.10 a day', cup: 'less than half a coffee',""", """line: '', per: '£1.10 a day', cup: ' for your first 3 months',"""),
-    ("""line: '', per: '£1.79 a day', cup: 'less than a coffee',""", """line: '', per: '£1.79 a day', cup: ', less than a coffee',"""),
+    ("""line: '', per: '£1.79 a day', cup: 'less than a coffee',""", """line: '', per: '£1.79 a day', cup: ' for your first month',"""),
+    ("""name: '1-Month Supply', save: 'Save 28%',""", """name: '1-Month Supply', save: '',"""),
     ("""'<b>' + p.per + '</b>' + (p.cup ? ', ' + p.cup : '')""", """'<b>' + p.per + '</b>' + (p.cup || '')"""),
 ])
 
@@ -204,7 +212,7 @@ edit("snippets/muto-bf-kit-grid.liquid", [
     ("""  html:root body #MainContent [id$="__buy"] .mc__kit[data-kt-worth="£72"] .mc__inc::after{content:"Free gifts worth £72"!important}
   html:root body #MainContent [id$="__buy"] .mc__kit[data-kt-worth="£62"] .mc__inc::after{content:"Free gifts worth £62"!important}""",
      """  html:root body #MainContent [id$="__buy"] .mc__kit[data-kt-plan="three"] .mc__inc::after{content:"Free gifts worth " var(--muto-kit3)!important}
-  html:root body #MainContent [id$="__buy"] .mc__kit[data-kt-plan="one"] .mc__inc::after{content:"Free gifts worth " var(--muto-kit1)!important}"""),
+  html:root body #MainContent [id$="__buy"] .mc__kit[data-kt-plan="one"] .mc__inc::after{content:"Free welcome kit included"!important}"""),
     ("""  var WORTH = { three: '£72', one: '£62' };""",
      """  var WORTH = { three: '""" + KIT3 + """', one: '""" + KIT1 + """' };"""),
     ("""    kit.setAttribute('data-kt-worth', one ? WORTH.one : WORTH.three);""",
@@ -281,9 +289,11 @@ edit("sections/muto-bf-topbar.liquid", [
 edit("assets/muto-bf-extra.css", [
     ("""(3-Month: £87 incl. the bottle; 1-Month: £72) */""", """(the values are set once, in snippets/muto-offer.liquid) */"""),
     (""".mc__inc::after{content:"Free gifts worth £87"}""", """.mc__inc::after{content:"Free gifts worth " var(--muto-kit3)}"""),
-    (""".mc__inc::after{content:"Free gifts worth £72"}""", """.mc__inc::after{content:"Free gifts worth " var(--muto-kit1)}"""),
+    (""".mc__inc::after{content:"Free gifts worth £72"}""", """.mc__inc::after{content:"Free welcome kit included"}"""),
 ])
 edit("assets/muto-bf-premium.css", [
+    ("""content:"£1.79 a day  \\00b7  Save 28%"}""", """content:"£1.79 a day for your first month"}"""),
+    ("""content:"£1.79 per day  \\00b7  Save 28%"!important}""", """content:"£1.79 a day for your first month"!important}"""),
     ("""content:"Best value \\00b7  Save 53% + free gifts worth £87";""", """content:"Best value \\00b7  Save 53% + free gifts worth " var(--muto-kit3);"""),
 ])
 edit("assets/muto-bf-copy.css", [
@@ -309,19 +319,60 @@ edit("assets/muto-cart.css", [
     # a tidy tinted panel with one reassurance per line, instead of a centred paragraph
     ("""white-space:pre-line;display:block;width:100%;margin-top:14px;text-align:center;font-family:var(--mc-font);font-size:14px;line-height:1.4;color:#242223}""",
      """white-space:pre-line;display:block;width:100%;box-sizing:border-box;margin-top:14px;padding:12px 14px;border-radius:10px;background:#f4f2ef;text-align:left;font-family:var(--mc-font);font-size:13.5px;line-height:1.75;letter-spacing:-.01em;color:#242223}
-@media (max-width:480px){:is(#main-cart-footer,cart-drawer) .cart__ctas::after{padding:11px 12px;font-size:12.5px}}"""),
+@media (max-width:480px){:is(#main-cart-footer,cart-drawer) .cart__ctas::after{padding:11px 12px;font-size:12.5px}}
+/* Checkout steps above the checkout button: numbered dots on a line, the first one filled */
+.mcs{display:flex;align-items:center;gap:0;margin:14px 0 12px;padding:0;list-style:none;font-family:var(--mc-font);font-size:12.5px;line-height:1;color:rgba(36,34,35,.55)}
+.mcs__s{display:flex;align-items:center;gap:7px;margin:0;padding:0;white-space:nowrap}
+.mcs__s + .mcs__s{flex:1 1 0;justify-content:flex-end}
+.mcs__s + .mcs__s::before{content:"";flex:1 1 auto;height:1px;margin:0 10px;background:rgba(36,34,35,.2)}
+.mcs__n{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;border:1px solid rgba(36,34,35,.3);font-size:11px;font-weight:500}
+.mcs__s.is-on{color:#242223;font-weight:500}
+.mcs__s.is-on .mcs__n{border-color:#242223;background:#242223;color:#fff}"""),
 ])
 edit("snippets/cart-drawer.liquid", [
+    ("""        <div class="cart__ctas" {{ block.shopify_attributes }}>""",
+     """        {%- comment -%} Where you are in the checkout: Cart, Delivery, Payment {%- endcomment -%}
+        {%- if cart != empty -%}
+          <ol class="mcs" aria-label="Checkout steps">
+            <li class="mcs__s is-on" aria-current="step"><span class="mcs__n">1</span>Cart</li>
+            <li class="mcs__s"><span class="mcs__n">2</span>Delivery</li>
+            <li class="mcs__s"><span class="mcs__n">3</span>Payment</li>
+          </ol>
+        {%- endif -%}
+        <div class="cart__ctas" {{ block.shopify_attributes }}>"""),
     ("""<p>90 DAY MONEY-BACK POLICY</p>""", """<p>90-DAY MONEY-BACK GUARANTEE ON SUBSCRIPTIONS</p>""", 2),
     ("""# shown as "+ £87 of free gifts" underneath.""", """# shown as "+ £72 of free gifts" underneath."""),
 ])
 
 # ---------------------------------------------------------------- the product template: copy and settings only
 T = "templates/product.muto-nad-bf-premium.json"
+# The survey block under the buy box (sections/muto-survey.liquid). Figures from MUTO's customer survey
+# (87 men and women aged 30-50); the NAD+ figure is from a published study of NR, so it is shown apart.
+SURVEY = """    "survey": {
+      "type": "muto-survey",
+      "blocks": {
+        "r1": { "type": "result", "settings": { "label": "Energy", "value": 92, "text": "report improved energy", "detail": "The thing people mention most is that their afternoons stop fading, so there is still something left for the evening." } },
+        "r2": { "type": "result", "settings": { "label": "Recovery", "value": 94, "text": "report better recovery", "detail": "People told us they felt ready to go again sooner, whether that was after training or after a long week." } },
+        "r3": { "type": "result", "settings": { "label": "Strain", "value": 93, "text": "bounce back quicker from strain", "detail": "After a hard session, a late night or a heavy week, most said they were back to themselves faster." } },
+        "r4": { "type": "result", "settings": { "label": "HRV", "value": 89, "text": "report improved HRV", "detail": "Most said their HRV had improved on their own wearable. This is what customers told us, not a clinical measurement, and your own numbers may differ." } }
+      },
+      "block_order": ["r1", "r2", "r3", "r4"],
+      "settings": {
+        "anchor": "survey",
+        "eyebrow": "Customer survey",
+        "heading": "Designed to be tracked.\\nHere’s what people report.",
+        "lede": "We asked 87 men and women aged 30 to 50 who take MUTO what had changed for them. Tap a result to see it.",
+        "extra_value": "51%",
+        "extra_text": "rise in blood NAD+ after two weeks of 300mg NR a day, the amount in MUTO, in a published clinical study.",
+        "extra_source": "Conze et al., Scientific Reports, 2019. A study of NR, not of MUTO.",
+        "foot": "Survey of 87 men and women taking MUTO between the ages of 30 and 50. Self-reported, not a clinical trial. Individual results may vary."
+      }
+    },
+"""
 edit(T, [
     # P0.3 / P0.4 / §3.2 "What to expect"
     ("""Most people tell us they notice more energy within days. Everyone’s different, so score yourself on day 1 and compare. Got a wearable? Track the shift yourself.""",
-     """You’ll usually feel it before you can measure it, and afternoons tend to come first, often within the first couple of weeks. MUTO is designed to be tracked on your wearable, so take a baseline on day 1 and check it for yourself."""),
+     """You’ll usually feel it before you can measure it: energy that lasts the afternoon comes first, and a body that’s ready to go again follows. MUTO is designed to be tracked on your wearable, so you can check what you feel against your own data."""),
     (""""heading": "What people tell us they notice.",""", """"heading": "First you feel it.\\nThen you check it.","""),
     ("""People tell us they notice it around day 60.""", """Many people tell us they start to notice it within the first month."""),
     ("""<p>Give it 60 to 90 days. Many people notice their afternoons first, sometimes within a few weeks. For others it takes longer.</p>""",
@@ -345,26 +396,31 @@ edit(T, [
         "q14","""),
     (""""title": "Your starting point",
             "text": "<p>Score your afternoons, sleep and recovery out of 10, or note your wearable’s 30-day averages. Then two capsules with breakfast: CoQ10, vitamins D3 and K2 dissolve in fat, so food helps your body take them in.</p>\"""",
-     """"title": "Your baseline",
-            "text": "<p>Open your wearable and note your 7-day averages for HRV, resting heart rate and recovery. No wearable? Score your afternoons, sleep and recovery out of 10, which takes about thirty seconds. Then take two capsules with breakfast, because CoQ10 and vitamins D3 and K2 dissolve in fat, so food helps your body take them in.</p>\""""),
+     """"title": "Know where you’re starting",
+            "text": "<p>Notice how today actually feels: how your afternoons go, how your legs feel on the stairs the morning after training, and how long a hard week takes to shake off. Score each out of 10, which takes about thirty seconds. Then take two capsules with breakfast, because CoQ10 and vitamins D3 and K2 dissolve in fat, so food helps your body take them in.</p>",
+            "proof": "Note your 7-day averages for HRV, resting heart rate and recovery. That’s your baseline.\""""),
     (""""label": "Days 3–7",
             "title": "More energy, within days",
             "text": "<p>The first thing most people notice: less of the 3pm wall, and energy left for the evening. B vitamins contribute to the reduction of tiredness and fatigue.</p>\"""",
      """"label": "Weeks 1–2",
-            "title": "The first signs",
-            "text": "<p>For most people it starts with the 3pm wall: you reach the end of the afternoon and realise you never went looking for that second coffee. B vitamins contribute to the reduction of tiredness and fatigue. If you haven’t noticed anything yet, that’s normal, because every body runs on its own clock.</p>\""""),
+            "title": "Your afternoons come back",
+            "text": "<p>Energy is usually the first thing people feel. The 3pm wall softens, you stop going looking for that second coffee, and there’s something left for the evening and the people in it. B vitamins contribute to the reduction of tiredness and fatigue. If you haven’t noticed anything yet, that’s normal, because every body runs on its own clock.</p>",
+            "proof": "Keep wearing it. It’s too early to read a trend, so go by how your afternoons feel.\""""),
     (""""title": "Afternoons that hold",
             "text": "<p>The lift stops being a good day and becomes your normal. Compare your afternoon score with day 1.</p>\"""",
-     """"title": "First check-in",
-            "text": "<p>Compare your wearable’s 30-day averages with your baseline, and look at the trend rather than any single night. This is where you put what you’ve been feeling next to what your own data shows.</p>\""""),
+     """"title": "Ready to go again",
+            "text": "<p>By now, many people tell us their legs feel less heavy the morning after a session, and that they’re ready to train, play or simply get on with the week sooner than they used to be. The steadier afternoons tend to have stopped feeling like a lucky day.</p>",
+            "proof": "Your first check-in. Compare your 30-day averages with your baseline, and look at the trend rather than any single night.\""""),
     (""""title": "Bouncing back sooner",
             "text": "<p>A walk, a round of golf or a gym session stops hanging around for days. Vitamin D contributes to normal muscle function.</p>\"""",
-     """"title": "Read the whole picture",
-            "text": "<p>Sleep, training, alcohol, travel and illness all move your numbers, so check those before you judge. By now, many people tell us they’re bouncing back sooner after a hard session or a long week. Vitamin D contributes to normal muscle function.</p>\""""),
+     """"title": "It becomes your normal",
+            "text": "<p>Energy that holds from morning to evening, and bouncing back from a hard session or a long week, stop being things you notice and become how you feel. People often tell us this is when they say yes to more: the extra session, the late dinner, the weekend plans. Vitamin D contributes to normal muscle function.</p>",
+            "proof": "Read the whole picture. Sleep, training, alcohol, travel and illness all move your numbers, so check those before you judge.\""""),
     (""""title": "Feeling like yourself",
             "text": "<p>Compare your scores with day 1. Many people say they hadn’t realised how flat they’d been. Not for you? Every subscription payment back, less delivery.</p>\"""",
-     """"title": "Your verdict",
-            "text": "<p>Put day 90 next to day 1, in your own scores and on your own wearable. If you’re glad you did it, keep going. If it isn’t for you, email us within 14 days and you get every subscription payment back, less delivery.</p>\""""),
+     """"title": "Feeling like yourself again",
+            "text": "<p>Many people tell us they hadn’t realised how flat they’d been until it lifted. This is your verdict: if you’re glad you did it, keep going. If it isn’t for you, email us within 14 days and you get every subscription payment back, less delivery.</p>",
+            "proof": "Put day 90 next to day 1, in your own scores and in your own data, and judge it for yourself.\""""),
     # P0.5 energy panel
     ("""Usually the first thing people notice, around day 30.""", """It’s often the first thing people notice, and for many it comes within the first couple of weeks."""),
     # P0.8 one-time line
@@ -375,6 +431,13 @@ edit(T, [
     # §3.4 one button label (the desktop buy button; its price follows it)
     (""""cta_label": "Add to cart",""", """"cta_label": "Start your 90-day test","""),
     # P0.11 the reviews widget's AI summary ("Our customers say…")
+    (""""save": "Save 28%",""", """"save": "","""),
+    ("""Free welcome kit worth £62, then thank-you gifts""", """Free welcome kit, then thank-you gifts"""),
+    ("""    "reviews_ticker": {""", SURVEY + """    "reviews_ticker": {"""),
+    ("""    "buy",
+""", """    "buy",
+    "survey",
+"""),
     # the timeline opens at "Weeks 1–2: the first signs"
     (""""anchor": "what-to-expect",""", """"anchor": "what-to-expect",
         "open": 2,"""),
@@ -424,7 +487,7 @@ edit("sections/muto-test-results.liquid", [
 
 # ---------------------------------------------------------------- whole files kept in src/ (rewritten or new)
 # "What to expect" as an interactive timeline (dots as tabs, one card), and the Informed Sport badge.
-for rel in ("sections/muto-expect.liquid", "snippets/muto-informed-sport.liquid", "assets/muto-informed-sport.png", "assets/muto-informed-sport-certificate.pdf"):
+for rel in ("sections/muto-expect.liquid", "snippets/muto-informed-sport.liquid", "snippets/muto-buy-extras.liquid", "sections/muto-survey.liquid", "assets/muto-informed-sport.png", "assets/muto-informed-sport-certificate.pdf"):
     out = os.path.join(HERE, "theme", rel)
     os.makedirs(os.path.dirname(out), exist_ok=True)
     shutil.copyfile(os.path.join(HERE, "src", rel), out)

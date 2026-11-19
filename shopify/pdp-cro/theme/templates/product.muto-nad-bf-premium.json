@@ -137,9 +137,9 @@
             "price": "£60",
             "price_suffix": "",
             "was": "£70",
-            "save": "Save 28%",
+            "save": "",
             "note": "£49.99 for your first month, then £60 every month",
-            "detail": "<ul><li>Free welcome kit worth £62, then thank-you gifts in boxes 2 to 6</li><li>90-day money-back guarantee</li><li>Skip, pause or cancel online, no phone calls</li><li>Free UK delivery</li></ul>"
+            "detail": "<ul><li>Free welcome kit, then thank-you gifts in boxes 2 to 6</li><li>90-day money-back guarantee</li><li>Skip, pause or cancel online, no phone calls</li><li>Free UK delivery</li></ul>"
           }
         },
         "qk_vial": {
@@ -628,6 +628,26 @@
         "custom_liquid": "{%- render 'muto-bf-jobs' -%}"
       }
     },
+    "survey": {
+      "type": "muto-survey",
+      "blocks": {
+        "r1": { "type": "result", "settings": { "label": "Energy", "value": 92, "text": "report improved energy", "detail": "The thing people mention most is that their afternoons stop fading, so there is still something left for the evening." } },
+        "r2": { "type": "result", "settings": { "label": "Recovery", "value": 94, "text": "report better recovery", "detail": "People told us they felt ready to go again sooner, whether that was after training or after a long week." } },
+        "r3": { "type": "result", "settings": { "label": "Strain", "value": 93, "text": "bounce back quicker from strain", "detail": "After a hard session, a late night or a heavy week, most said they were back to themselves faster." } },
+        "r4": { "type": "result", "settings": { "label": "HRV", "value": 89, "text": "report improved HRV", "detail": "Most said their HRV had improved on their own wearable. This is what customers told us, not a clinical measurement, and your own numbers may differ." } }
+      },
+      "block_order": ["r1", "r2", "r3", "r4"],
+      "settings": {
+        "anchor": "survey",
+        "eyebrow": "Customer survey",
+        "heading": "Designed to be tracked.\nHere’s what people report.",
+        "lede": "We asked 87 men and women aged 30 to 50 who take MUTO what had changed for them. Tap a result to see it.",
+        "extra_value": "51%",
+        "extra_text": "rise in blood NAD+ after two weeks of 300mg NR a day, the amount in MUTO, in a published clinical study.",
+        "extra_source": "Conze et al., Scientific Reports, 2019. A study of NR, not of MUTO.",
+        "foot": "Survey of 87 men and women taking MUTO between the ages of 30 and 50. Self-reported, not a clinical trial. Individual results may vary."
+      }
+    },
     "reviews_ticker": {
       "type": "muto-ticker",
       "blocks": {
@@ -1087,8 +1107,9 @@
           "settings": {
             "day": 1,
             "label": "",
-            "title": "Your baseline",
-            "text": "<p>Open your wearable and note your 7-day averages for HRV, resting heart rate and recovery. No wearable? Score your afternoons, sleep and recovery out of 10, which takes about thirty seconds. Then take two capsules with breakfast, because CoQ10 and vitamins D3 and K2 dissolve in fat, so food helps your body take them in.</p>"
+            "title": "Know where you’re starting",
+            "text": "<p>Notice how today actually feels: how your afternoons go, how your legs feel on the stairs the morning after training, and how long a hard week takes to shake off. Score each out of 10, which takes about thirty seconds. Then take two capsules with breakfast, because CoQ10 and vitamins D3 and K2 dissolve in fat, so food helps your body take them in.</p>",
+            "proof": "Note your 7-day averages for HRV, resting heart rate and recovery. That’s your baseline."
           }
         },
         "m1b": {
@@ -1096,8 +1117,9 @@
           "settings": {
             "day": 7,
             "label": "Weeks 1–2",
-            "title": "The first signs",
-            "text": "<p>For most people it starts with the 3pm wall: you reach the end of the afternoon and realise you never went looking for that second coffee. B vitamins contribute to the reduction of tiredness and fatigue. If you haven’t noticed anything yet, that’s normal, because every body runs on its own clock.</p>"
+            "title": "Your afternoons come back",
+            "text": "<p>Energy is usually the first thing people feel. The 3pm wall softens, you stop going looking for that second coffee, and there’s something left for the evening and the people in it. B vitamins contribute to the reduction of tiredness and fatigue. If you haven’t noticed anything yet, that’s normal, because every body runs on its own clock.</p>",
+            "proof": "Keep wearing it. It’s too early to read a trend, so go by how your afternoons feel."
           }
         },
         "m2": {
@@ -1105,8 +1127,9 @@
           "settings": {
             "day": 30,
             "label": "",
-            "title": "First check-in",
-            "text": "<p>Compare your wearable’s 30-day averages with your baseline, and look at the trend rather than any single night. This is where you put what you’ve been feeling next to what your own data shows.</p>"
+            "title": "Ready to go again",
+            "text": "<p>By now, many people tell us their legs feel less heavy the morning after a session, and that they’re ready to train, play or simply get on with the week sooner than they used to be. The steadier afternoons tend to have stopped feeling like a lucky day.</p>",
+            "proof": "Your first check-in. Compare your 30-day averages with your baseline, and look at the trend rather than any single night."
           }
         },
         "m3": {
@@ -1114,8 +1137,9 @@
           "settings": {
             "day": 60,
             "label": "",
-            "title": "Read the whole picture",
-            "text": "<p>Sleep, training, alcohol, travel and illness all move your numbers, so check those before you judge. By now, many people tell us they’re bouncing back sooner after a hard session or a long week. Vitamin D contributes to normal muscle function.</p>"
+            "title": "It becomes your normal",
+            "text": "<p>Energy that holds from morning to evening, and bouncing back from a hard session or a long week, stop being things you notice and become how you feel. People often tell us this is when they say yes to more: the extra session, the late dinner, the weekend plans. Vitamin D contributes to normal muscle function.</p>",
+            "proof": "Read the whole picture. Sleep, training, alcohol, travel and illness all move your numbers, so check those before you judge."
           }
         },
         "m4": {
@@ -1123,8 +1147,9 @@
           "settings": {
             "day": 90,
             "label": "",
-            "title": "Your verdict",
-            "text": "<p>Put day 90 next to day 1, in your own scores and on your own wearable. If you’re glad you did it, keep going. If it isn’t for you, email us within 14 days and you get every subscription payment back, less delivery.</p>"
+            "title": "Feeling like yourself again",
+            "text": "<p>Many people tell us they hadn’t realised how flat they’d been until it lifted. This is your verdict: if you’re glad you did it, keep going. If it isn’t for you, email us within 14 days and you get every subscription payment back, less delivery.</p>",
+            "proof": "Put day 90 next to day 1, in your own scores and in your own data, and judge it for yourself."
           }
         }
       },
@@ -1140,7 +1165,7 @@
         "open": 2,
         "eyebrow": "What to expect",
         "heading": "First you feel it.\nThen you check it.",
-        "lede": "You’ll usually feel it before you can measure it, and afternoons tend to come first, often within the first couple of weeks. MUTO is designed to be tracked on your wearable, so take a baseline on day 1 and check it for yourself.",
+        "lede": "You’ll usually feel it before you can measure it: energy that lasts the afternoon comes first, and a body that’s ready to go again follows. MUTO is designed to be tracked on your wearable, so you can check what you feel against your own data.",
         "foot": "What customers tell us, not a clinical study. Our first UK clinical trial starts this December.",
         "space_top": 96,
         "space_bottom": 96
@@ -2501,6 +2526,7 @@
     "head_styles",
     "bf_bar",
     "buy",
+    "survey",
     "reviews_ticker",
     "ag1_plans",
     "early",

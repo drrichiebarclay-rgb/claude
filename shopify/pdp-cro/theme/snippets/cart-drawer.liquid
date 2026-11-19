@@ -862,6 +862,14 @@
 
         <!-- CTAs -->
 
+        {%- comment -%} Where you are in the checkout: Cart, Delivery, Payment {%- endcomment -%}
+        {%- if cart != empty -%}
+          <ol class="mcs" aria-label="Checkout steps">
+            <li class="mcs__s is-on" aria-current="step"><span class="mcs__n">1</span>Cart</li>
+            <li class="mcs__s"><span class="mcs__n">2</span>Delivery</li>
+            <li class="mcs__s"><span class="mcs__n">3</span>Payment</li>
+          </ol>
+        {%- endif -%}
         <div class="cart__ctas" {{ block.shopify_attributes }}>
           <button
             type="submit"
