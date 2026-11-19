@@ -554,6 +554,19 @@ _first = _new[0]
 _t = _t[:_a] + "".join(_new) + _t[_b:]
 open(_p, "w", encoding="utf-8", newline="").write(_t)
 
+# ---------------------------------------------------------------- phones: back to the plan cards with the gifts
+# (Richie, 19 Nov) On phones the compact price-and-button block (.mm-o) had replaced the plan cards. It is
+# switched off, and the phone-only rules that hid the plan cards, the kit inside the card, the Add to cart
+# button and the one-time link are removed, so phones show the same buy box as desktop. The review quotes,
+# rating, ticks and links at the top of the phone layout stay.
+_p = os.path.join(HERE, "theme", "snippets/muto-bf-mars.liquid")
+_t = open(_p, encoding="utf-8", newline="").read()
+_a = _t.index("    /* The welcome kit: its own block under the two plan cards, the gifts in one row to swipe */")
+_b = _t.index("    /* The moving reviews strip: above the photo, slim */")
+assert 0 < _a < _b and _t[_a:_b].count("mc__plans > label.mc__plan{display:none!important}") == 1
+_t = _t[:_a] + "    /* The compact price-and-button block is off: phones show the plan cards with the gifts, as desktop does */\n    html body #MainContent .mc .mm-o{display:none!important}\n" + _t[_b:]
+open(_p, "w", encoding="utf-8", newline="").write(_t)
+
 # ---------------------------------------------------------------- whole files kept in src/ (rewritten or new)
 # "What to expect" as an interactive timeline (dots as tabs, one card), and the Informed Sport badge.
 for rel in ("sections/muto-expect.liquid", "snippets/muto-informed-sport.liquid", "snippets/muto-buy-extras.liquid", "sections/muto-survey.liquid", "assets/muto-informed-sport.png", "assets/muto-informed-sport-certificate.pdf"):

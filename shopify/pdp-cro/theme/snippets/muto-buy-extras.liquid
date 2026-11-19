@@ -62,8 +62,9 @@
   .mbf--o{margin:12px 0 0}
   .mbf--v{background:#fff;border:1px solid rgba(36,34,35,.14);margin:0 0 12px}
   .mbf--o:not(.mbf--v){margin:0 0 12px}
-  @media (max-width:749px){.mbf--plans{display:none}.mbf{font-size:13.5px}}
-  @media (min-width:750px){.mbf--o{display:none}}
+  @media (max-width:749px){.mbf{font-size:13.5px}}
+  /* The copies made for the compact phone block are not used now that phones show the plan cards */
+  .mbf--o{display:none}
 </style>
 <template data-mbx-tpl>
   <div class="mbx" data-mbx>
