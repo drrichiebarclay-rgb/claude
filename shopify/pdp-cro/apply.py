@@ -466,6 +466,9 @@ edit(T, [
           "settings": {
             "label": "Box 3","""),
     ("""The MUTO Performance Bottle, free with order 2""", """The MUTO Performance Bottle, free with order 3"""),
+    # one message for simplicity (Richie, 19 Nov): "Replaces 5 supplements in one"
+    ("""<strong>One jar, not ten.</strong> 19 ingredients at full dose, every one on the label.""", """<strong>Replaces 5 supplements in one.</strong> 19 ingredients at full dose, every one on the label."""),
+    (""""title": "One jar replaces five""", """"title": "Replaces 5 supplements in one"""),
     # the timeline opens at "Weeks 1–2: the first signs"
     (""""anchor": "what-to-expect",""", """"anchor": "what-to-expect",
         "open": 2,"""),
