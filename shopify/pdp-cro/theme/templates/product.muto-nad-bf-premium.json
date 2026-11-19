@@ -229,11 +229,11 @@
         "mg2": {
           "type": "month",
           "settings": {
-            "label": "Box 2",
+            "label": "Box 3",
             "text": "Bottle",
             "value": "£15",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-bottle.jpg?v=1791022787",
-            "image_alt": "The MUTO Performance Bottle, free with order 2",
+            "image_alt": "The MUTO Performance Bottle, free with order 3",
             "plans": "1"
           }
         },
@@ -350,7 +350,7 @@
         "qm4": {
           "type": "month",
           "settings": {
-            "label": "Box 4 on",
+            "label": "Box 4",
             "text": "Creatine (250g, 50 servings), every box",
             "value": "£30",
             "image_fallback": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787",

@@ -454,6 +454,16 @@ edit(T, [
 """, """    "reviews_ticker",
     "survey",
 """),
+    # future gifts (Richie, 19 Nov): 3-Month plan's "Box 4 on" reads "Box 4"; on the 1-Month plan the bottle comes with box 3
+    (""""label": "Box 4 on",""", """"label": "Box 4","""),
+    ("""        "mg2": {
+          "type": "month",
+          "settings": {
+            "label": "Box 2",""", """        "mg2": {
+          "type": "month",
+          "settings": {
+            "label": "Box 3","""),
+    ("""The MUTO Performance Bottle, free with order 2""", """The MUTO Performance Bottle, free with order 3"""),
     # the timeline opens at "Weeks 1–2: the first signs"
     (""""anchor": "what-to-expect",""", """"anchor": "what-to-expect",
         "open": 2,"""),
