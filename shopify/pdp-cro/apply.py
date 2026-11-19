@@ -572,6 +572,12 @@ assert 0 < _a < _b and _t[_a:_b].count("mc__plans > label.mc__plan{display:none!
 _t = _t[:_a] + "    /* The compact price-and-button block is off: phones show the plan cards with the gifts, as desktop does */\n    html body #MainContent .mc .mm-o{display:none!important}\n" + _t[_b:]
 open(_p, "w", encoding="utf-8", newline="").write(_t)
 
+# ---------------------------------------------------------------- "Your life won't fit a perfect routine" block
+edit("snippets/muto-bf-jobs.liquid", [
+    # one message for simplicity (Richie, 19 Nov)
+    ("""        <h3>One jar, not ten</h3>""", """        <h3>Replaces 5 supplements in one</h3>"""),
+])
+
 # ---------------------------------------------------------------- whole files kept in src/ (rewritten or new)
 # "What to expect" as an interactive timeline (dots as tabs, one card), and the Informed Sport badge.
 for rel in ("sections/muto-expect.liquid", "snippets/muto-informed-sport.liquid", "snippets/muto-buy-extras.liquid", "sections/muto-survey.liquid", "assets/muto-informed-sport.png", "assets/muto-informed-sport-certificate.pdf"):
