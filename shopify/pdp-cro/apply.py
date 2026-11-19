@@ -300,17 +300,14 @@ edit("sections/muto-loved.liquid", [
 ])
 
 # ---------------------------------------------------------------- cart drawer
-REASSURE = ("90-day money-back guarantee on subscriptions. Skip, pause or cancel online, and we email you "
-            "5 days before every payment.")
+# The line under the checkout button is drawn by assets/muto-cart.css (cart drawer and cart page). The icon rows in
+# the cart template are hidden by the theme's CSS; their wording is corrected too, in case they are shown again.
+edit("assets/muto-cart.css", [
+    ("""content:"Free UK delivery on subscriptions  \\00b7  90-day money-back guarantee\\AOrder before 9pm and receive it next day.";""",
+     """content:"90-day money-back guarantee on subscriptions. Skip, pause or cancel online, and we email you 5 days before every payment.\\A Free UK delivery on subscriptions. Order before 9pm and receive it next day.";"""),
+])
 edit("snippets/cart-drawer.liquid", [
-    ("""                <p>90 DAY MONEY-BACK POLICY</p>""", """                <p>90-DAY MONEY-BACK GUARANTEE ON SUBSCRIPTIONS</p>"""),
-    ("""            <div class="cart-custom-icon">
-              <img src="https://mutolongevity.com/cdn/shop/files/moneyback_small.png" alt="moneyback">
-              <p>90 DAY MONEY-BACK POLICY</p>
-            </div>
-          </div>""",
-     """          </div>
-          <p class="mc-cart-reassure" style="margin:10px 0 0;font-size:13px;line-height:1.45;text-align:center">""" + REASSURE + """</p>"""),
+    ("""<p>90 DAY MONEY-BACK POLICY</p>""", """<p>90-DAY MONEY-BACK GUARANTEE ON SUBSCRIPTIONS</p>""", 2),
     ("""# shown as "+ £87 of free gifts" underneath.""", """# shown as "+ £72 of free gifts" underneath."""),
 ])
 
