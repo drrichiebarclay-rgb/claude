@@ -1,0 +1,796 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_fdQ9ib": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_BkPhbW": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>The cell is the future of human performance.</p>",
+            "heading_size": "hxl",
+            "heading_tag": "h2",
+            "heading_color": "#5efaff"
+          }
+        },
+        "text_R3yhfD": {
+          "type": "text",
+          "settings": {
+            "text": "Everything you feel - energy, recovery, focus, sleep is determined by what happens at the cellular level. MUTO is built around the science that most supplement brands have never reached.",
+            "text_style": "body"
+          }
+        },
+        "buttons_YzxptY": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop now",
+            "button_link_1": "shopify://products/muto-nad-cellular-complex",
+            "button_style_1": "gradient-primary",
+            "button_label_2": "",
+            "button_link_2": "#",
+            "button_style_2": "gradient-link"
+          }
+        }
+      },
+      "block_order": [
+        "heading_BkPhbW",
+        "text_R3yhfD",
+        "buttons_YzxptY"
+      ],
+      "custom_css": [],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "allow_transparent_header": true,
+        "image": "shopify://shop_images/059A8533Muto-day1-JakeBaggaley.jpg",
+        "image_overlay_opacity": 30,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-1",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "left",
+        "show_text_below": false
+      }
+    },
+    "custom_sticky_product_bar_8Uepci": {
+      "type": "custom-sticky-product-bar",
+      "name": "Custom Sticky Product Bar",
+      "settings": {
+        "selected_product": "muto-nad-cellular-complex",
+        "button_label": "Shop now",
+        "sticky_position": "bottom"
+      }
+    },
+    "custom_advisory_board_explains_8HLJeB": {
+      "type": "custom-advisory-board-explains",
+      "blocks": {
+        "tabs_NpyDFU": {
+          "type": "tabs",
+          "disabled": true,
+          "settings": {
+            "title": "Energy",
+            "suffix_icon": "shopify://shop_images/Energy-Icon.svg"
+          }
+        },
+        "tabs_ixzNAk": {
+          "type": "tabs",
+          "disabled": true,
+          "settings": {
+            "title": "Performance",
+            "suffix_icon": "shopify://shop_images/Performance-Icon.svg"
+          }
+        },
+        "tabs_HMMUCh": {
+          "type": "tabs",
+          "disabled": true,
+          "settings": {
+            "title": "Recovery",
+            "suffix_icon": "shopify://shop_images/Recovery-Icon.svg"
+          }
+        },
+        "tabs_7inHkd": {
+          "type": "tabs",
+          "disabled": true,
+          "settings": {
+            "title": "Wearables",
+            "suffix_icon": "shopify://shop_images/WEARABLES-ICON.svg"
+          }
+        },
+        "tabs_content_VqpPee": {
+          "type": "tabs_content",
+          "disabled": true,
+          "settings": {
+            "tab_title": "Energy",
+            "title": "Why NAD⁺ is the missing variable in elite sport nutrition",
+            "sub_title": "Dr James Morehen",
+            "explain_video": "shopify://files/videos/MATT CROSSFIT (1).mp4",
+            "explain_video_cover_image": "shopify://shop_images/Dr_James_Morehen.png"
+          }
+        },
+        "tabs_content_gB9NcJ": {
+          "type": "tabs_content",
+          "disabled": true,
+          "settings": {
+            "tab_title": "Energy",
+            "title": "Why NAD⁺ is the missing variable in elite sport nutrition",
+            "sub_title": "Dr James Morehen",
+            "explain_video": "shopify://files/videos/MATT CROSSFIT (1).mp4",
+            "explain_video_cover_image": "shopify://shop_images/Dr_Richie_s_New.png"
+          }
+        },
+        "tabs_content_GK94yi": {
+          "type": "tabs_content",
+          "disabled": true,
+          "settings": {
+            "tab_title": "Energy",
+            "title": "Why NAD⁺ is the missing variable in elite sport nutrition",
+            "sub_title": "Dr James Morehen",
+            "explain_video": "shopify://files/videos/kate v4.mp4",
+            "explain_video_cover_image": "shopify://shop_images/Dr_Alka_s_New.png"
+          }
+        },
+        "tabs_content_BP9NiN": {
+          "type": "tabs_content",
+          "disabled": true,
+          "settings": {
+            "tab_title": "Performance",
+            "title": "Why NAD⁺ is the missing variable in elite sport nutrition",
+            "sub_title": "Dr James Morehen",
+            "explain_video": "shopify://files/videos/simpleexplorer I Energy crash at 3pm.mov",
+            "explain_video_cover_image": "shopify://shop_images/Dr_Alka_s_New.png"
+          }
+        },
+        "tabs_content_phVAaX": {
+          "type": "tabs_content",
+          "disabled": true,
+          "settings": {
+            "tab_title": "Recovery",
+            "title": "Why NAD⁺ is the missing variable in elite sport nutrition",
+            "sub_title": "Dr James Morehen",
+            "explain_video": "shopify://files/videos/kate v4.mp4",
+            "explain_video_cover_image": "shopify://shop_images/Dr_James_New.png"
+          }
+        },
+        "tabs_content_Pqf9KR": {
+          "type": "tabs_content",
+          "disabled": true,
+          "settings": {
+            "tab_title": "Wearables",
+            "title": "Why NAD⁺ is the missing variable in elite sport nutrition",
+            "sub_title": "Dr James Morehen",
+            "explain_video": "shopify://files/videos/michaelbssada.mov",
+            "explain_video_cover_image": "shopify://shop_images/Dr_Matt_s_New.png"
+          }
+        }
+      },
+      "block_order": [
+        "tabs_NpyDFU",
+        "tabs_ixzNAk",
+        "tabs_HMMUCh",
+        "tabs_7inHkd",
+        "tabs_content_VqpPee",
+        "tabs_content_gB9NcJ",
+        "tabs_content_GK94yi",
+        "tabs_content_BP9NiN",
+        "tabs_content_phVAaX",
+        "tabs_content_Pqf9KR"
+      ],
+      "name": "Custom Advisory Board Explains",
+      "settings": {
+        "bg_color": "#fafafa",
+        "background_image": "shopify://shop_images/boxer-blur-bg.png",
+        "padding_top": 160,
+        "padding_bottom": 70,
+        "custom_class": "",
+        "top_heading": "<h2>Most supplements<br/>work above the<br/>surface. </h2><h2>Your cells <br/>barely notice.</h2>",
+        "bottom_heading": "<h3>WHAT IS NAD⁺?</h3><h2>NAD⁺ is what your<br/>cells use to make<br/>energy, repair<br/>damage, and recover.</h2><h2>BY AGE 40, YOUR NAD⁺<br/>SUPPLY DROPS BY<br/>HALF. </h2>",
+        "show_button": false,
+        "button_label": "View More",
+        "button_link": "#",
+        "button_style": "gradient-secondary"
+      }
+    },
+    "custom_product_reality_MGHrrt": {
+      "type": "custom-product-reality",
+      "name": "Custom Product Reality",
+      "settings": {
+        "bg_color": "#fafafa",
+        "padding_top": 65,
+        "padding_bottom": 200,
+        "custom_class": "",
+        "image": "shopify://shop_images/medicine-hand.jpg",
+        "title": "<p>The NAD⁺ Reality Check</p>",
+        "bullet_point_heading_1": "<p>By age 40, your NAD⁺ supply drops by half.</p>",
+        "bullet_point_content_1": "<p>Systems fall behind, afternoons flatten, and recoveries lengthen. Most supplements work on the surface. Spike. Fade. Reset. </p>",
+        "bullet_point_image_1": "shopify://shop_images/pills-trimed.png",
+        "bullet_point_heading_2": "<p>MUTO works underneath, at a cellular level. </p>",
+        "bullet_point_content_2": "<p>Built to support the fundamental system beneath body from basic maintenance, to peak cellular performance. Two capsules replace your entire stack and compound daily.</p>",
+        "bullet_point_image_2": "shopify://shop_images/pills-trimed.png"
+      }
+    },
+    "custom_text_with_image_banner_3_grQePf": {
+      "type": "custom-text-with-image-banner-3",
+      "name": "Custom Text With Image Banner 3",
+      "settings": {
+        "bg_color": "#242223",
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "custom_class": "",
+        "main_image": "shopify://shop_images/magnific_generate-this-man.png",
+        "heading": "<p>CELLULAR ENERGY,<br/>RECOVERY &<br/>PERFORMANCE<br/>EXPLAINED</p>",
+        "heading_tag": "h2",
+        "content": "<p>Every cell runs its own daily protocol: produce, protect, put to work - and the mitochondria are the engines behind it, converting what you eat into the energy currency every cell runs on.</p><p>With enough NAD⁺ to draw on, that protocol runs properly: energy gets made, damage gets repaired, recovery happens overnight, and performance keeps building instead of resetting.</p><p>NAD⁺ supply starts falling from your mid-thirties, and by 40 it's roughly half what it was - so the rebuild slows, afternoons flatten, and recovery quietly takes longer. </p><p>Most people feel it before a blood test ever would.</p>",
+        "show_button": false,
+        "button_label": "",
+        "button_link": "",
+        "button_style": "gradient-secondary"
+      }
+    },
+    "custom_energy_card_slider_97eYFY": {
+      "type": "custom-energy-card-slider",
+      "blocks": {
+        "item_RXMBMR": {
+          "type": "item",
+          "settings": {
+            "card_type": "default",
+            "image": "shopify://shop_images/energy-hold.jpg",
+            "heading": "<p>ENERGY THAT HOLDS.</p>",
+            "sub_heading": "<p>No spike, no crash.<br/>Just the next hour, and the one after.</p>",
+            "show_badge": true,
+            "badge_icon": "shopify://shop_images/Energy-Icon.svg",
+            "badge_label": "Energy",
+            "show_more_modal": true,
+            "description": "<p>Most energy is borrowed - caffeine and stimulants that spike fast and fade faster, then cost your recovery and readiness tomorrow. NAD+ Cellular Complex feeds the system that makes your own energy, so the afternoon doesn't flatten and the crash never shows up in the first place.</p>"
+          }
+        },
+        "item_RetjCE": {
+          "type": "item",
+          "settings": {
+            "card_type": "default",
+            "image": "shopify://shop_images/compundes.jpg",
+            "heading": "<p>OUTPUT THAT COMPOUNDS.</p>",
+            "sub_heading": "<p>Greater output, day after<br/>day - not just today.</p>",
+            "show_badge": true,
+            "badge_icon": "shopify://shop_images/Performance-Icon.svg",
+            "badge_label": "Performance",
+            "show_more_modal": true,
+            "description": "<p>One good session is luck, a pattern of them is a system. NAD+ Cellular Complex supports the cellular engines behind output, so the work you put in today is still paying off in week twelve, not reset back to zero tomorrow.</p>"
+          }
+        },
+        "item_Np4PbA": {
+          "type": "item",
+          "settings": {
+            "card_type": "default",
+            "image": "shopify://shop_images/recovery-card.jpg",
+            "heading": "<p>ADAPT FASTER.</p>",
+            "sub_heading": "<p>Get back to full output sooner.</p>",
+            "show_badge": true,
+            "badge_icon": "shopify://shop_images/Recovery-Icon.svg",
+            "badge_label": "Recovery",
+            "show_more_modal": true,
+            "description": "<p>Recovery happens overnight, at cellular level, not just in bed. NAD+ Cellular Complex supports the repair systems your body relies on while you sleep, so the next session starts from a stronger baseline - not from behind.</p>"
+          }
+        },
+        "item_wt7EJy": {
+          "type": "item",
+          "settings": {
+            "card_type": "default",
+            "image": "shopify://shop_images/shift-energy.jpg",
+            "heading": "<p>SEE THE SHIFT.</p>",
+            "sub_heading": "<p>HRV up. Sleep score up.<br/>Recovery trend up.</p>",
+            "show_badge": true,
+            "badge_icon": "shopify://shop_images/WEARABLES-ICON.svg",
+            "badge_label": "Wearables",
+            "show_more_modal": true,
+            "description": "<p>This is the proof you don't have to take our word for. NAD+ Cellular Complex supports the same systems your wearable is already measuring - HRV, resting heart rate, sleep and recovery score. Watch your own baseline move, day by day.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_RXMBMR",
+        "item_RetjCE",
+        "item_Np4PbA",
+        "item_wt7EJy"
+      ],
+      "name": "Custom Energy Cards",
+      "settings": {
+        "bg_color": "#fafafa",
+        "padding_top": 50,
+        "padding_bottom": 110,
+        "custom_class": "pdp-energy",
+        "heading": "<p>Your cells run <br/>on NAD⁺</p>",
+        "headingTag": "h2",
+        "heading_color": "#242223",
+        "sub_heading": "<p>MUTO NAD⁺ cellular complex helps your cells make energy, repair damage, and recover from stress, so the work underneath can keep pace with the standard above.</p>"
+      }
+    },
+    "custom_why_muto_VFC7Me": {
+      "type": "custom-why-muto",
+      "blocks": {
+        "steps_GbPXw7": {
+          "type": "steps",
+          "settings": {
+            "title": " Building new NAD⁺"
+          }
+        },
+        "steps_eCPpN8": {
+          "type": "steps",
+          "settings": {
+            "title": "Recycling used NAD⁺"
+          }
+        },
+        "steps_8QiETH": {
+          "type": "steps",
+          "settings": {
+            "title": "Converting other nutrients into NAD⁺"
+          }
+        },
+        "steps_DdJCMG": {
+          "type": "steps",
+          "settings": {
+            "title": "Turning NAD⁺ into energy your cells can use"
+          }
+        },
+        "steps_j3xfVU": {
+          "type": "steps",
+          "settings": {
+            "title": "Activating the proteins that repair DNA"
+          }
+        },
+        "steps_rCTMXA": {
+          "type": "steps",
+          "settings": {
+            "title": "Stopping NAD⁺ from breaking down too quickly"
+          }
+        }
+      },
+      "block_order": [
+        "steps_GbPXw7",
+        "steps_eCPpN8",
+        "steps_8QiETH",
+        "steps_DdJCMG",
+        "steps_j3xfVU",
+        "steps_rCTMXA"
+      ],
+      "name": "Custom Why Muto",
+      "settings": {
+        "bg_color": "#ffffff",
+        "background_image": "shopify://shop_images/boxer-blur-bg.png",
+        "padding_top": 75,
+        "padding_bottom": 65,
+        "custom_class": "",
+        "heading": "<p>Why 15 ingredients <br/>and not one</p>",
+        "heading_tag": "h2",
+        "heading_color": "#242223",
+        "sub_heading": "<p>A single NR capsule only addresses one part of how your body actually makes NAD⁺ - MUTO is built to cover every part instead, with each of the fifteen ingredients earning its place by doing something none of the others can</p>",
+        "steps_heading": "<p>How your body makes NAD⁺ <br/>six steps, all covered</p>"
+      }
+    },
+    "custom_muto_insides_ReWFNz": {
+      "type": "custom-muto-insides",
+      "blocks": {
+        "item_drbzRY": {
+          "type": "item",
+          "settings": {
+            "title": "NR (Nicotinamide Riboside)",
+            "sub_title": "The core ingredient.",
+            "content": "<p>NR is the ingredient your body converts directly into NAD⁺, the fuel every cell runs on - and since NAD⁺ levels are roughly halved by 40, NR is the most direct way to start restoring what's been lost.</p>"
+          }
+        },
+        "item_9bLpAc": {
+          "type": "item",
+          "settings": {
+            "title": "CoQ10",
+            "sub_title": "The engine support.",
+            "content": "<p>Think of the mitochondria as the tiny engine inside every cell - CoQ10 is the spark plug that helps it actually turn fuel into usable energy, rather than just sitting there unused.</p>"
+          }
+        },
+        "item_VaxhWc": {
+          "type": "item",
+          "settings": {
+            "title": "Pterostilbene",
+            "sub_title": "The amplifier.",
+            "content": "<p>Pterostilbene works alongside NR to raise NAD⁺ further than either ingredient manages alone - which is exactly why a single-ingredient NAD⁺ supplement leaves real performance on the table.</p>"
+          }
+        },
+        "item_zeMV8W": {
+          "type": "item",
+          "settings": {
+            "title": "Quercetin",
+            "sub_title": "The clean-up crew.",
+            "content": "<p>Over time, the body accumulates damaged cells that just sit there taking up space. Quercetin helps clear them out, which keeps the cellular environment clean enough for the rest of the formula to actually do its job.</p>"
+          }
+        },
+        "item_jNganj": {
+          "type": "item",
+          "settings": {
+            "title": "Bioperine®",
+            "sub_title": "The delivery driver.",
+            "content": "<p>Without BioPerine, a meaningful share of what you're taking never makes it past the stomach. It's a small ingredient with an outsized job - it makes everything else in the formula more effective, and there's no real substitute for it.</p>"
+          }
+        },
+        "item_B7VpRY": {
+          "type": "item",
+          "settings": {
+            "title": "Methylated B Complex + D3 + K2",
+            "sub_title": "The foundation.",
+            "content": "<p>Energy production, cellular communication, immune function - these are the basics, and they're also where most people are quietly running short. Without them in place, the rest of the formula has nothing solid to build on.</p>"
+          }
+        },
+        "item_7eynDw": {
+          "type": "item",
+          "settings": {
+            "title": "Turmeric Extract",
+            "sub_title": "The inflammation defence.",
+            "content": "<p>Inflammation is a normal response to effort - the problem is when it doesn't fully resolve afterwards. Turmeric supports that daily repair process, helping the body actually come back from effort rather than carrying it forward.</p>"
+          }
+        },
+        "item_e99hKM": {
+          "type": "item",
+          "settings": {
+            "title": "Grape Seed Extract",
+            "sub_title": "The circulation layer.",
+            "content": "<p>None of this works if it never reaches the cell - Grape Seed Extract supports healthy blood flow, which is simply how the rest of the formula gets to where it needs to go.</p>"
+          }
+        },
+        "item_NUgehb": {
+          "type": "item",
+          "settings": {
+            "title": "Zinc & Copper",
+            "sub_title": "The repair minerals.",
+            "content": "<p>Zinc plays a direct role in cellular repair and immune function, and it's one of the minerals most commonly depleted in people who train regularly. Copper works alongside it - supporting energy production and keeping zinc properly balanced, rather than left to run unchecked on its own.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_drbzRY",
+        "item_9bLpAc",
+        "item_VaxhWc",
+        "item_zeMV8W",
+        "item_jNganj",
+        "item_B7VpRY",
+        "item_7eynDw",
+        "item_e99hKM",
+        "item_NUgehb"
+      ],
+      "name": "Custom Muto Insides",
+      "settings": {
+        "bg_color": "#e8e8e8",
+        "padding_top": 65,
+        "padding_bottom": 65,
+        "custom_class": "",
+        "heading": "<p>WHAT'S INSIDE,<br/>AND WHY</p>",
+        "heading_tag": "h2",
+        "heading_color": "#242223",
+        "sub_heading": "<p>Fifteen ingredients. Each one in the formula for a reason. Here are the ones that matter most — what they are, what they do, and why they're in MUTO.</p>"
+      }
+    },
+    "custom_pathways_aFKW8F": {
+      "type": "custom-pathways",
+      "blocks": {
+        "pathway_k9Bfym": {
+          "type": "pathway",
+          "settings": {
+            "title": "PRODUCE - the fuel your cells need",
+            "sub_title": "Your cells need raw material to make NAD+, plus a few essentials to turn it into energy.",
+            "content": "<p>Key ingredients</p><ul><li><strong>Nicotinamide Riboside (NR), 300mg<br/></strong>the building block your cells turn into NAD+.</li><li><strong>B1, B2, B3, B6, Folate, B12</strong><br/>the vitamins that power energy production. We use the active forms of folate and B12, so your body can use them straight away.</li><li><strong>Zinc, 15mg</strong><br/>a key mineral your cells rely on to turn raw material into usable NAD+.</li><li><strong>Copper, 1mg</strong><br/>works alongside zinc to keep that energy-making process running smoothly.</li></ul>"
+          }
+        },
+        "pathway_qHPpVM": {
+          "type": "pathway",
+          "settings": {
+            "title": "PROTECT - keeping your NAD+ working",
+            "sub_title": "Your body breaks NAD+ down as fast as it makes it. Protecting it matters as much as producing it.",
+            "content": "<p>Key ingredients</p><ul><li><strong>Quercetin, 250mg<br/></strong>helps block the enzyme that breaks NAD+ down, so more of it sticks around.</li><li><strong>Pterostilbene, 100mg</strong><br/>supports your cells' natural defences.</li><li><strong>Grapeseed Extract, 200mg</strong><br/>a plant antioxidant that helps shield your cells from everyday wear and tear.</li><li><strong>Turmeric Extract, 200mg</strong><br/>supports your cells' natural defences, so they can keep protecting your NAD+ over time.</li></ul>"
+          }
+        },
+        "pathway_D6Q3Pc": {
+          "type": "pathway",
+          "settings": {
+            "title": "PUT TO WORK - turning it into energy you feel",
+            "sub_title": "The final step: making sure that energy actually gets used.",
+            "content": "<p>Key ingredients</p><ul><li><strong>Coenzyme Q10, 50mg<br/></strong>works inside the mitochondria, where energy is actually made.</li><li><strong>BioPerine®️, 20mg</strong><br/>helps your body absorb everything above, instead of losing it.</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "pathway_k9Bfym",
+        "pathway_qHPpVM",
+        "pathway_D6Q3Pc"
+      ],
+      "name": "Custom Pathways",
+      "settings": {
+        "bg_color": "#e8e8e8",
+        "padding_top": 110,
+        "padding_bottom": 90,
+        "custom_class": "",
+        "heading": "<p>THREE ACTIONS.<br/>ONE COMPLETE NAD+ PROTOCOL.</p>",
+        "heading_tag": "h2",
+        "heading_color": "#242223",
+        "sub_copyHeading": "<p>Formulated to help your body produce, protect and put NAD+ to work</p>",
+        "sub_heading": "<p>View full ingredients</p>",
+        "sub_link": "https://mutolongevity.com/pages/science#ingredients",
+        "main_image": "shopify://shop_images/pathways.jpg",
+        "image_description": "<p>MUTO combines NAD⁺ support, mitochondrial nutrients, active vitamins, minerals, and polyphenols to support energy, recovery, and performance.</p>"
+      }
+    },
+    "custom_muto_statistics_43gcw3": {
+      "type": "custom-muto-statistics",
+      "blocks": {
+        "graph_content_iBLfij": {
+          "type": "graph_content",
+          "settings": {
+            "title": "Day 1",
+            "heading": "STEADY ENERGY",
+            "content": "<p>Supports consistent energy<br/>without the spikes.</p>"
+          }
+        },
+        "graph_content_7jpBEk": {
+          "type": "graph_content",
+          "settings": {
+            "title": "Day 30",
+            "heading": "stronger recovery",
+            "content": "<p>Supports your body<br/>day and night.</p>"
+          }
+        },
+        "graph_content_QiJ8Un": {
+          "type": "graph_content",
+          "settings": {
+            "title": "Day 60",
+            "heading": "COMPOUNDING PERFORMANCE",
+            "content": "<p>Supports output that builds,<br/>not resets, day after day</p>"
+          }
+        },
+        "graph_content_6Q7KwG": {
+          "type": "graph_content",
+          "settings": {
+            "title": "Day 90",
+            "heading": "",
+            "content": ""
+          }
+        }
+      },
+      "block_order": [
+        "graph_content_iBLfij",
+        "graph_content_7jpBEk",
+        "graph_content_QiJ8Un",
+        "graph_content_6Q7KwG"
+      ],
+      "name": "Custom Muto Statistics",
+      "settings": {
+        "bg_color": "#fafafa",
+        "padding_top": 65,
+        "padding_bottom": 65,
+        "custom_class": "",
+        "heading": "<p>Two lines. <br/>Two ceilings.</p>",
+        "heading_tag": "h2",
+        "heading_color": "#242223",
+        "description": "<p>There's the energy you borrow - caffeine, stimulants, short-term hits that peak fast and drop just as quickly - and there's the energy that actually builds: cellular, compounding, verified in your own wearable data over 90 days.</p>",
+        "point_1_title": "with MUTO",
+        "point_1_description": "<p>balanced energy, recovered the next morning, & greater output</p>",
+        "point_1_graph": "shopify://shop_images/chart-with-muto.png",
+        "point_2_title": "without MUTO",
+        "point_2_description": "<p>energy spikes and crashes, recovery that doesn’t happen, & stagnant performance</p>",
+        "point_2_graph": "shopify://shop_images/chart-without-muto.png",
+        "point_3_title": "",
+        "point_3_description": "",
+        "bottom_content": "<p>This is not about what you have been doing wrong. It is about what becomes possible when your cells work properly.</p>"
+      }
+    },
+    "custom_product_statistics_dgENtM": {
+      "type": "custom-product-statistics",
+      "blocks": {
+        "metrics_8djVJg": {
+          "type": "metrics",
+          "settings": {
+            "title": "<p>94%</p>",
+            "sub_title": "<p>Report faster recovery between sessions²</p>"
+          }
+        },
+        "metrics_iGfmUK": {
+          "type": "metrics",
+          "settings": {
+            "title": "<p>93%</p>",
+            "sub_title": "<p>Bounce back quicker from strain²</p>"
+          }
+        },
+        "metrics_pQmMMe": {
+          "type": "metrics",
+          "settings": {
+            "title": "<p>92%</p>",
+            "sub_title": "<p>Report more energy throughout the day²</p>"
+          }
+        },
+        "metrics_EAzayh": {
+          "type": "metrics",
+          "settings": {
+            "title": "<p>+51%</p>",
+            "sub_title": "<p>Increase in cellular fuel vs baseline within 14 days¹</p>"
+          }
+        },
+        "certified_9WgMqG": {
+          "type": "certified",
+          "settings": {
+            "certified_by": "shopify://shop_images/gmp-without-bg.png",
+            "custom_title": ""
+          }
+        },
+        "certified_qN8HHJ": {
+          "type": "certified",
+          "settings": {
+            "certified_by": "shopify://shop_images/Healf_NewLogo-17-blue_1.svg",
+            "custom_title": ""
+          }
+        },
+        "certified_eCmkie": {
+          "type": "certified",
+          "settings": {
+            "certified_by": "shopify://shop_images/scientific-advisory-board.png",
+            "custom_title": ""
+          }
+        },
+        "certified_bXGDiH": {
+          "type": "certified",
+          "settings": {
+            "custom_title": "<p>300+<br/>Studies</p>"
+          }
+        },
+        "certified_LTrQTb": {
+          "type": "certified",
+          "settings": {
+            "custom_title": "<p>Independent<br/>clinical trials</p>"
+          }
+        },
+        "certified_mfdygk": {
+          "type": "certified",
+          "settings": {
+            "custom_title": "<p>Third-party<br/>tested</p>"
+          }
+        }
+      },
+      "block_order": [
+        "metrics_8djVJg",
+        "metrics_iGfmUK",
+        "metrics_pQmMMe",
+        "metrics_EAzayh",
+        "certified_9WgMqG",
+        "certified_qN8HHJ",
+        "certified_eCmkie",
+        "certified_bXGDiH",
+        "certified_LTrQTb",
+        "certified_mfdygk"
+      ],
+      "name": "Custom Product Statistics",
+      "settings": {
+        "bg_color": "#fafafa",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "custom_class": "",
+        "heading": "<p>Above the standard.<br/>Beneath the surface.</p>",
+        "heading_tag": "h2",
+        "heading_color": "#242624",
+        "main_image": "shopify://shop_images/beneth-surface.jpg",
+        "content_1": "<p><strong>In clinical research and customer reporting,</strong> the shift starts beneath the surface before it shows up in how you feel, train, and recover.</p>",
+        "content_2": "<p>¹Conze, D., Brenner, C., & Kruger, C. L. (2019). Scientific reports, 9(1), 9772.<br/>²Survey of 87 men and women taking MUTO between the ages of 30–50. Individual results may vary.</p>",
+        "content_3": "",
+        "show_graph": false,
+        "point_1_title": "with MUTO",
+        "point_1_description": "<p>balanced energy, recovered the next morning, & greater output</p>",
+        "point_1_graph": "shopify://shop_images/chart-with-muto.png",
+        "point_2_title": "without MUTO",
+        "point_2_description": "<p>energy spikes and crashes, recovery that doesn’t happen, & stagnant performance</p>",
+        "point_2_graph": "shopify://shop_images/chart-without-muto.png"
+      }
+    },
+    "custom_product_showcase_rHtd7K": {
+      "type": "custom-product-showcase",
+      "name": "Custom Product Showcase",
+      "settings": {
+        "bg_color": "#ffffff",
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "custom_class": "",
+        "heading": "<p><em>NAD⁺</em>  <br/>Cellular <br/>Complex</p>",
+        "heading_tag": "h2",
+        "heading_color": "#000000",
+        "heading_highlight_color": "#5efaff",
+        "select_product": "muto-nad-cellular-complex",
+        "show_vendor": true,
+        "show_rating": true,
+        "show_badges": true,
+        "show_button": true,
+        "button_label": "Start the protocol",
+        "button_style": "gradient-secondary"
+      }
+    },
+    "custom_faqs_7VcJGf": {
+      "type": "custom-faqs",
+      "blocks": {
+        "faq_BQAJKd": {
+          "type": "faq",
+          "settings": {
+            "heading": "What ingredients does MUTO contain?",
+            "content": "<p>Fifteen ingredients, working as one system rather than fifteen separate add-ons. At the core is Nicotinamide Riboside, the ingredient your body converts directly into NAD+, supported by CoQ10, Pterostilbene, Quercetin, Grape Seed Extract, Turmeric Extract, a methylated B-complex, Zinc, Copper, Vitamin D3, K2 and BioPerine for absorption, together feeding all six of the body's NAD+ pathways. Full doses are disclosed on our Science page. Nothing hidden behind a proprietary blend.</p>"
+          }
+        },
+        "faq_FbwF6B": {
+          "type": "faq",
+          "settings": {
+            "heading": "Can MUTO replace my current supplement stack?",
+            "content": "<p>For most people, yes. MUTO is built to replace a typical seven-product cellular stack, NAD+ support, B vitamins, minerals, antioxidants, polyphenols, vitamins D3 & K2, in two capsules a day. That works out to around £45 a month versus £120 a month buying each one separately, a saving of roughly £75 a month. If you're taking something specific to a medical condition, check with your doctor before stopping it.</p>"
+          }
+        },
+        "faq_RcHdm7": {
+          "type": "faq",
+          "settings": {
+            "heading": "When will I feel a difference?",
+            "content": "<p>Most people notice steadier energy within the first week, with recovery starting to improve by around day 30. By day 60 to 90, the shift usually shows up in your wearable data too: HRV and resting heart rate are validated markers of cellular recovery. MUTO compounds rather than resets, so the longer you stay on it, the stronger your baseline gets.</p>"
+          }
+        },
+        "faq_KFUWda": {
+          "type": "faq",
+          "settings": {
+            "heading": "Do I need to cycle on and off MUTO?",
+            "content": "<p>No. MUTO isn't a stimulant, so there's no tolerance to build and nothing to cycle off from. It's designed for daily, ongoing use. The benefits build the longer you stay consistent, not fade the longer you take it.</p>"
+          }
+        },
+        "faq_VVKQgq": {
+          "type": "faq",
+          "settings": {
+            "heading": "Can I take MUTO with other supplements?",
+            "content": "<p>Generally, yes. MUTO is formulated to work alongside most everyday supplements. The one thing to watch is significant overlap, like a separate NAD+ or B-vitamin product, where you'd risk doubling up rather than adding anything. If you're on prescription medication, check with your doctor first.</p>"
+          }
+        },
+        "faq_VOKQnj": {
+          "type": "faq",
+          "settings": {
+            "heading": "Is MUTO safe for children or pregnant women?",
+            "content": "<p>MUTO is formulated for adults and isn't intended for anyone under 18. If you're pregnant, breastfeeding, or trying to conceive, please speak to your doctor before taking MUTO or any new supplement.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_BQAJKd",
+        "faq_FbwF6B",
+        "faq_RcHdm7",
+        "faq_KFUWda",
+        "faq_VVKQgq",
+        "faq_VOKQnj"
+      ],
+      "name": "Custom FAQs",
+      "settings": {
+        "bg_color": "#fafafa",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_class": "",
+        "heading": "",
+        "bottom_text": "<p>Have more questions? Explore our full <a href=\"/pages/faqs\" title=\"FAQs\">FAQ</a> for more on information, or <a href=\"/pages/contact\" title=\"Contact\">Contact Us</a>.</p>"
+      }
+    }
+  },
+  "order": [
+    "image_banner_fdQ9ib",
+    "custom_sticky_product_bar_8Uepci",
+    "custom_advisory_board_explains_8HLJeB",
+    "custom_product_reality_MGHrrt",
+    "custom_text_with_image_banner_3_grQePf",
+    "custom_energy_card_slider_97eYFY",
+    "custom_why_muto_VFC7Me",
+    "custom_muto_insides_ReWFNz",
+    "custom_pathways_aFKW8F",
+    "custom_muto_statistics_43gcw3",
+    "custom_product_statistics_dgENtM",
+    "custom_product_showcase_rHtd7K",
+    "custom_faqs_7VcJGf"
+  ]
+}

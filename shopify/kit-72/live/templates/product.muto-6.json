@@ -1,0 +1,1878 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "reviews_io_reviewsio_rating_bar_GXmhkJ": {
+          "type": "shopify://apps/reviews-io/blocks/reviewsio-rating-bar/92a082e5-b297-4e88-b428-ac96cbc505f9",
+          "settings": {
+            "widget_id": "dnK8hvyBO6kDafu9"
+          }
+        },
+        "vendor": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>{{ product.vendor }}</p>",
+            "custom_class": ""
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "text_zVNyed": {
+          "type": "text",
+          "settings": {
+            "text": "<p>2 CAPSULES PER DAY | 60 CAPSULES</p>",
+            "custom_class": "mono-regular"
+          }
+        },
+        "custom_liquid_6c8ctX": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"product-benifits\">\n  <div class=\"product-benifits-item\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0976/2724/2843/files/Muto_Energy.svg\" alt=\"HRV\" width=\"26\" />\n    <div class=\"product-benifits-info\">\n      <strong>HRV</strong>\n      <p>Stress shows up here first. MUTO supports the cellular system HRV is reporting on.</p>\n    </div>\n  </div>\n  <div class=\"product-benifits-item\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0976/2724/2843/files/Muto_Recovery_Score.svg\" alt=\"Recovery score\" width=\"26\" />\n    <div class=\"product-benifits-info\">\n      <strong>Recovery score</strong>\n      <p>Cellular work, not rest. MUTO supports the repair your body runs overnight.</p>\n    </div>\n  </div>\n  <div class=\"product-benifits-item\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0976/2724/2843/files/Muto_Readiness_Score.svg\" alt=\"Readiness score\" width=\"26\" />\n    <div class=\"product-benifits-info\">\n      <strong>Readiness score</strong>\n      <p>Built from the night before. MUTO works on the inputs to that forecast, every day.</p>\n    </div>\n  </div>\n  <div class=\"product-benifits-item\">\n    \n    <img src=\"https://cdn.shopify.com/s/files/1/0976/2724/2843/files/Muto_HRV.svg\" alt=\"Energy\" width=\"26\" />\n    <div class=\"product-benifits-info\">\n      <strong>Energy</strong>\n      <p>Your energy engines, not a spike. All-day energy without the crash of borrowed fuel.</p>\n    </div>\n  </div>\n</div>"
+          }
+        },
+        "custom_liquid_J6VrWn": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<ul class=\"guarantees\">\n  <li class=\"guarantee__pill\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0976/2724/2843/files/Muto_Thrid_Party.svg\" alt=\"Third-party tested\" width=\"24\" />\n    <span>90-day money-back guarantee</span>\n  </li>\n  <li class=\"guarantee__pill\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0976/2724/2843/files/Muto_Thrid_Party.svg\" alt=\"Third-party tested\" width=\"24\" />\n    <span>Third-party tested</span>\n  </li>\n  <li class=\"guarantee__pill\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0976/2724/2843/files/Muto_ISO_manufacturing.svg\" alt=\"UK GMP ISO manufacturing\" width=\"24\" />\n    <span>UK GMP ISO manufacturing</span>\n  </li>\n  <li class=\"guarantee__pill\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0976/2724/2843/files/Muto_6_person_board.svg\" alt=\"6-person Scientific Advisory Board\" width=\"24\" />\n    <span>6-person Scientific Advisory Board</span>\n  </li>\n  <li class=\"guarantee__pill\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0976/2724/2843/files/Muto_Research.svg\" alt=\"Independent research\" width=\"24\" />\n    <span>Independent research with Coventry, Westminster & Newcastle Australia Universities</span>\n  </li>\n</ul>"
+          }
+        },
+        "skio_plans_tabs_mmnyHj": {
+          "type": "skio_plans_tabs",
+          "settings": {}
+        },
+        "skio_plan_content_AAhrCA": {
+          "type": "skio_plan_content",
+          "settings": {
+            "skio_plan_interval": 1,
+            "skio_plan_heading": "1-MONTH SUBSCRIPTION",
+            "custom_plan_name": "Try One Month",
+            "content_plan_name": "",
+            "plan_sub_text": "",
+            "skio_plan_points": "<ul><li>Ōura Ring 5 giveaway entry</li><li>Replaces £120/month of separate supplements</li><li>Free next day delivery</li><li>Cancel, pause or skip anytime</li></ul>",
+            "skio_plan_html": "£29 today Then £55/month renewals, cancel or change anytime. Save £41 on your first order.",
+            "skio_plan_tag": "",
+            "billing_interval_plan": "Billed Monthly",
+            "plan_discount_text": "OFF FIRST MONTH",
+            "plan_serve_text": ""
+          }
+        },
+        "skio_plan_content_wGxchz": {
+          "type": "skio_plan_content",
+          "settings": {
+            "skio_plan_interval": 3,
+            "skio_plan_heading": "3-MONTH SUBSCRIPTION",
+            "custom_plan_name": "90 Day Supply",
+            "content_plan_name": "",
+            "plan_sub_text": "",
+            "skio_plan_points": "<ul><li>Ōura Ring 5 giveaway entry</li><li>Replaces £120/month of separate supplements</li><li>Free next day delivery</li><li>Cancel, pause or skip anytime</li></ul>",
+            "skio_plan_html": "£135 every 3 months. Renews every 3-months - save £75 vs. 3 pouches separately",
+            "skio_plan_tag": "Recommended",
+            "billing_interval_plan": "Billed Quarterly",
+            "plan_discount_text": "OFF FOR LIFE",
+            "plan_serve_text": ""
+          }
+        },
+        "custom_liquid_fkjcFM": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"pdp-money-back-box-wrapper\">\n\t<img class=\"cart-payment-icons\" src=\"https://cdn.shopify.com/s/files/1/0976/2724/2843/files/payment_icons_new.png\" alt=\"payment\">\n\t<div class=\"pdp-money-back-box hidden\">\n\t\t<h4>90-DAY MONEY-BACK GUARANTEE</h4>\n\t\t<p>Try it with complete peace of mind, and if you're not convinced, we'll give you 100% of your money back.</p>\n\t</div>\n</div>"
+          }
+        },
+        "custom_liquid_AybADd": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"transition-slider\">\n    <p class=\"transition-title\">Your 90-day MUTO journey</p>\n    <div class=\"weekly-transition-wrapper\">\n        <div class=\"weekly-transition-box\">\n            <div class=\"transition-icon\">\n                <img src=\"https://cdn.shopify.com/s/files/1/0976/2724/2843/files/Frame_2147229974.png\" alt=\"Weeks 1-2\">\n                <div class=\"transtion-headings\">\n                    <span class=\"transtion-title\">Weeks 1-2</span>\n                    <span class=\"transtion-subtitle\">The quiet start</span>\n                </div>\n            </div>\n            <div class=\"transition-content\">\n                <p>MUTO starts working from day one - beneath the surface, before your wearable has anything to show. This is the input building.</p>\n            </div>\n        </div>\n        <div class=\"weekly-transition-box\">\n            <div class=\"transition-icon\">\n                <img src=\"https://cdn.shopify.com/s/files/1/0976/2724/2843/files/Frame_2147229974_1.png\"\n                    alt=\"Weeks 3-4\">\n                <div class=\"transtion-headings\">\n                    <span class=\"transtion-title\">Weeks 3-4</span>\n                    <span class=\"transtion-subtitle\">Felt, before it's measured</span>\n                </div>\n            </div>\n            <div class=\"transition-content\">\n                <p>Steadier energy. Fewer crashes. A calmer baseline to train from. The system's compounding - you'll feel it first.</p>\n            </div>\n        </div>\n        <div class=\"weekly-transition-box\">\n            <div class=\"transition-icon\">\n                <img src=\"https://cdn.shopify.com/s/files/1/0976/2724/2843/files/Frame_2147229974_2.png\" alt=\"Month 2\">\n                <div class=\"transtion-headings\">\n                    <span class=\"transtion-title\">Month 2</span>\n                    <span class=\"transtion-subtitle\">HRV starts to tell the story</span>\n                </div>\n            </div>\n            <div class=\"transition-content\">\n                <p>HRV is the honest number - your nervous system reporting on your cells. This is where the system beneath starts to show.</p>\n            </div>\n        </div>\n        <div class=\"weekly-transition-box\">\n            <div class=\"transition-icon\">\n                <img src=\"https://cdn.shopify.com/s/files/1/0976/2724/2843/files/Frame_2147229974_4.png\" alt=\"Month 3\">\n                <div class=\"transtion-headings\">\n                    <span class=\"transtion-title\">Month 3</span>\n                    <span class=\"transtion-subtitle\">The new baseline, measurable</span>\n                </div>\n            </div>\n            <div class=\"transition-content\">\n                <p>By day 90, it's not just felt - it's on the screen. The standard you hold above starts to show in the system beneath.</p>\n            </div>\n        </div>\n    </div>\n</div>"
+          }
+        },
+        "custom_liquid_6Xm6Hk": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"muto-report-box\">\n  <p class=\"box-title\">We&rsquo;ve run the numbers</p>\n\n  <div class=\"stat-row\">\n    <div class=\"stat-info\">\n      <div class=\"stat-icon\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0976/2724/2843/files/Frame_2147229974.png\"\n          alt=\"NAD boost in 2 weeks\" />\n      </div>\n      <div class=\"stat-label\">\n        <span class=\"stat-label-heading\">NAD+ boost in 2 weeks</span>\n        <span class=\"stat-label-subheading\">51% Increase in NAD+ in two weeks</span>\n      </div>\n    </div>\n    <span class=\"stat-value\">51%</span>\n  </div>\n\n  <div class=\"stat-row\">\n    <div class=\"stat-info\">\n      <div class=\"stat-icon\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0976/2724/2843/files/Frame_2147229974_1.png\"\n          alt=\"Better recovery\" />\n      </div>\n      <div class=\"stat-label\">\n        <span class=\"stat-label-heading\">Better recovery</span>\n        <span class=\"stat-label-subheading\">94% report better recovery</span>\n      </div>\n    </div>\n    <span class=\"stat-value\">94%</span>\n  </div>\n\n  <div class=\"stat-row\">\n    <div class=\"stat-info\">\n      <div class=\"stat-icon\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0976/2724/2843/files/Frame_2147229974_2.png\"\n          alt=\"Improved HRV\" />\n      </div>\n      <div class=\"stat-label\">\n        <span class=\"stat-label-heading\">Improved HRV</span>\n        <span class=\"stat-label-subheading\">89% report improved HRV</span>\n      </div>\n    </div>\n    <span class=\"stat-value\">89%</span>\n  </div>\n\n  <div class=\"stat-row\">\n    <div class=\"stat-info\">\n      <div class=\"stat-icon\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0976/2724/2843/files/Frame_2147229974_3.png\"\n          alt=\"Bounce back quicker from strain\" />\n      </div>\n      <div class=\"stat-label\">\n        <span class=\"stat-label-heading\">Bounce back quicker from strain</span>\n        <span class=\"stat-label-subheading\">93% bounced back quicker from strain</span>\n      </div>\n    </div>\n    <span class=\"stat-value\">93%</span>\n  </div>\n\n  <div class=\"stat-row\">\n    <div class=\"stat-info\">\n      <div class=\"stat-icon\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0976/2724/2843/files/Frame_2147229974_4.png\"\n          alt=\"Improved energy\" />\n      </div>\n      <div class=\"stat-label\">\n        <span class=\"stat-label-heading\">Improved energy</span>\n        <span class=\"stat-label-subheading\">92% reported improved energy</span>\n      </div>\n    </div>\n    <span class=\"stat-value\">92%</span>\n  </div>\n\n  <div class=\"footnotes\">\n    <p>1. Conze, D., Brenner, C., and Kruger, C. L. (2019). Scientific Reports, 9(1), 9772.</p>\n    <p>2. Self-reported survey of 87 men and women taking MUTO, aged 30 to 50, over 12 weeks.</p>\n  </div>\n</div>"
+          }
+        },
+        "custom_liquid_LWLE7y": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"muto-scientific-advisory-box\">\n  <p class=\"board-title\">The Scientists Behind MUTO</p>\n  <p class=\"board-sub\">Seven specialists in sports science, nutrition and clinical medicine review every formula</p>\n\n  <div class=\"board-grid\">\n    <div class=\"member\">\n      <div class=\"avtar\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0976/2724/2843/files/Dr_Alka_Cover_Final.png\" alt=\"Dr Alka Patel\" />\n      </div>\n      <div class=\"member-name\">Dr Alka Patel</div>\n      <p class=\"member-description\">GP, preventative and lifestyle medicine</p>\n    </div>\n    <div class=\"member\">\n      <div class=\"avtar\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0976/2724/2843/files/dr_james_morehen.jpg\" alt=\"Dr James Morehen\" />\n      </div>\n      <div class=\"member-name\">Dr James Morehen</div>\n      <p class=\"member-description\">Sports nutritionist, elite athlete performance</p>\n    </div>\n    <div class=\"member\">\n      <div class=\"avtar\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0976/2724/2843/files/Dr_Richard_Cover_Final.png\"\n          alt=\"Dr Richard Mackenzie\" />\n      </div>\n      <div class=\"member-name\">Dr Richard Mackenzie</div>\n      <p class=\"member-description\">Exercise physiologist, metabolic health</p>\n    </div>\n    <div class=\"member\">\n      <div class=\"avtar\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0976/2724/2843/files/dr_maciej_zatonski.jpg\"\n          alt=\"Dr Maciej Zatonski\" />\n      </div>\n      <div class=\"member-name\">Dr Maciej Zatonski</div>\n      <p class=\"member-description\">Physician, cellular health</p>\n    </div>\n    <div class=\"member\">\n      <div class=\"avtar\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0976/2724/2843/files/Dr_Ash.webp\" alt=\"Dr Ash Kapoor\" />\n      </div>\n      <div class=\"member-name\">Dr Ash Kapoor</div>\n      <p class=\"member-description\">Biochemist, formulation science</p>\n    </div>\n    <div class=\"member\">\n      <div class=\"avtar\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0976/2724/2843/files/dr_richie_barclay.jpg\" alt=\"Dr Richie Barclay\" />\n      </div>\n      <div class=\"member-name\">Dr Richie Barclay</div>\n      <p class=\"member-description\">Molecular Biologist, Nutritionist, Harley St Consultant</p>\n    </div>\n    <div class=\"member\">\n      <div class=\"avtar\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0976/2724/2843/files/Jamie_Paweleck_430x.png\" alt=\"Dr Jamie Paweleck\" />\n      </div>\n      <div class=\"member-name\">Dr Jamie Paweleck</div>\n      <p class=\"member-description\">Longevity doctor and medical educator</p>\n    </div>\n  </div>\n\n  <a href=\"/pages/about\" class=\"button button--gradient-secondary\">\n    <span class=\"button--text\">\n      Meet the board\n    </span>\n  </a>\n</div>"
+          }
+        },
+        "text_RwFHDc": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<ul><li>Free next day uk delivery</li><li>90-Day risk free guarantee</li><li>UK Made, ISO & GMP</li><li>Third-party tested</li></ul>",
+            "custom_class": "suffix-correct-icon desktop-only"
+          }
+        },
+        "reviews_io_reviewsio_card_carousel_dediUr": {
+          "type": "shopify://apps/reviews-io/blocks/reviewsio-card-carousel/92a082e5-b297-4e88-b428-ac96cbc505f9",
+          "settings": {
+            "star": "#242223",
+            "review_type": "product",
+            "reviews_shown": 100,
+            "header_bg_colour": "#000",
+            "header_colour": "#fff",
+            "header_star_colour": "#fff",
+            "heading_text_colour": "#242223",
+            "heading_font": "sans_serif_n4",
+            "body_text_colour": "#242223",
+            "badge_icon_colour": "#242223",
+            "badge_text_colour": "#242223",
+            "bg_start_colour": "#ffffff",
+            "bg_end_colour": "#fafafa",
+            "item_border_width": "0px",
+            "item_border_colour": "#f2f2f2",
+            "item_border_radius": "0px",
+            "item_shadow_size": "10px",
+            "item_shadow_colour": "#f2f2f2",
+            "enable_rich_snippets": false,
+            "disable_same_customer": false,
+            "logo_colour": "var(--logo-inverted)"
+          }
+        },
+        "collapsible_tab_xT6XxF": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "key benefits",
+            "icon": "none",
+            "content": "<ul><li><strong>Wearable data that finally improves</strong><br/>The HRV and recovery trend that's been flat for months - moving. Tracked by the device you already trust.</li><li><strong>All-day energy, no crash</strong><br/>Steady through the 3pm slump, sharp into the evening - without borrowing it from caffeine.</li><li><strong>Wake up actually recovered</strong><br/>Not still paying for yesterday's session, or yesterday's workday.</li><li><strong>One protocol instead of seven bottles</strong><br/>Replaces a typical cellular stack - and around £75/month of separate supplements.</li></ul>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_MJTdHC": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "Does NAD+ really work?",
+            "icon": "none",
+            "content": "<ul><li><strong>Energy</strong><br/>NAD+ fuels your mitochondria, your cells' energy engines, and by 40, most people have roughly half of what they started with. Published research found NAD+ levels rose 51% in 14 days (clinically measured, Conze et al., 2019).</li><li><strong>Recovery</strong><br/>NAD+ drives cellular repair, not just rest. As NAD+ is restored, that repair process is better resourced.</li><li><strong>Performance</strong><br/>Performance runs on energy and recovery. Restore the NAD+ that fuels your mitochondria, and the output above it gets easier to sustain.</li><li><strong>Wearables</strong><br/>HRV, recovery score, and sleep are windows into what's happening inside your mitochondria - including how well they're being replenished.</li></ul>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_bj4rFB": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "Why NAD⁺ Alone Isn't Enough",
+            "icon": "none",
+            "content": "<ul><li>Most NAD⁺ supplements give you a precursor and stop there. But making NAD⁺ is only the first of three jobs - skip the other two and you're paying to produce NAD⁺ your body loses or never turns into energy you feel.</li><li><strong>Produce</strong> - NR gives your cells the building block they turn into NAD⁺. Essential, but on its own it's one third of the job. It's where NMN and NR stop - and where MUTO starts.</li><li><strong>Protect</strong> - An enzyme (CD38) breaks NAD⁺ down almost as fast as you make it. Quercetin, Pterostilbene, Grapeseed and Turmeric slow that leak, so the NAD⁺ you produce actually sticks around.</li><li><strong>Put to Work</strong> - NAD⁺ in your blood isn't energy yet. CoQ10 and BioPerine® help your cells absorb it and turn it into energy you feel - not just a better number on a lab report.</li><li>Produce without Protect is a leaking tank. Produce without Put to Work is fuel you never burn. NR and NMN do one job. MUTO does all three.</li></ul>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_aLCAey": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "How to use",
+            "icon": "none",
+            "content": "<ul><li><strong>Two capsules. Every morning. Same time.</strong><br/>Take with food - healthy fats drive absorption.</li><li><strong>Daily consistency is key for optimal results.<br/></strong>The benefits build daily, weekly and monthly.</li></ul>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_i4nT7m": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What your wearable measures - and what it doesn't",
+            "icon": "none",
+            "content": "<p>HRV. Recovery. Readiness. Sleep quality. Every one of those scores is your cells doing energy work well or badly, converted into a number. MUTO supports how the billions of cells in your body produce that energy - the input behind the output.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_HViNNM": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Rigorous testing standards",
+            "icon": "none",
+            "content": "<p>Our products are tested by independent third-party laboratories for heavy metals, microbes, and purity. We have ongoing research collaborations with three research institutions.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_EbYjR4": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "How it fits your stack - and when it doesn't",
+            "icon": "none",
+            "content": "<p>Runs alongside creatine, electrolytes, protein, and your morning coffee. Don't run it with another NAD⁺ or NMN product - you'd be paying twice for the same pathway.<br/>Replaces a B-complex, zinc, copper, vitamin D3 & K2, a standalone CoQ10 and most \"energy\" or cellular-health blends. For most people, that's £75 a month back.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_gCTxKb": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Clinically dosed, bio-available ingredients",
+            "icon": "none",
+            "content": "<p>Nicotinamide Riboside (NAD+ precursor), quercetin, grapeseed and turmeric extracts, pterostilbene and CoQ10 - with a complete B complex including methylated folate and B12, plus D3, K2, zinc, copper and BioPerine® for absorption.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_wFfKK4": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "How to take it",
+            "icon": "none",
+            "content": "<p>Take two capsules daily with your first meal. Most report a difference between weeks three and six. A daily system that builds a stronger baseline.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_Wk9rAc": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Delivery, subscription and guarantee",
+            "icon": "none",
+            "content": "<p>Free UK next-day delivery. Skip, pause or cancel anytime. 90-day money-back guarantee, <a href=\"/pages/terms-and-conditions\" target=\"_blank\" title=\"Terms and conditions\">click here to learn more</a>.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_XMEJTF": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "How It Works & What’s Inside",
+            "icon": "none",
+            "content": "<ul><li><strong>PRODUCE</strong><br/>By 40, your NAD⁺ has roughly halved. Produce restores it, with NR 300mg, B1, B2, B3, B6, Folate, B12, Zinc and Copper.</li><li><strong>PROTECT</strong><br/>NAD⁺ breaks down almost as fast as it's made. Protect keeps it working, with Quercetin, Pterostilbene, Grapeseed Extract and Turmeric Extract.</li><li><strong>PUT TO WORK</strong><br/>Raw material is nothing if it's not absorbed. Put to Work turns it into energy you feel, with Coenzyme Q10 and BioPerine®.</li></ul>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_ipwcRj": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "Nutritional label",
+            "icon": "none",
+            "image": "shopify://shop_images/Nutritional_label.png",
+            "content": "",
+            "page": ""
+          }
+        },
+        "collapsible_tab_GPXdMy": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "Replaces your stack",
+            "icon": "none",
+            "content": "<ul><li><strong>One protocol instead of multiple bottles<br/></strong>Combines NAD⁺ support, mitochondrial nutrients, antioxidants, active vitamins, and minerals.</li><li><strong>Simplifies monthly cost<br/></strong>Helps reduce the need to buy each cellular support category separately.</li><li><strong>Built as one system</strong><br/>Ingredients are selected to work together, not added as separate one-off supplements.</li></ul>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_VLwJd8": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "shipping, Returns & guarantee",
+            "icon": "none",
+            "content": "<ul><li><strong>Free UK next day delivery<br/></strong>Orders placed before 9pm dispatch for next day delivery. You’ll receive tracking details once your order ships.</li><li><strong>Worldwide shipping available<br/></strong>International delivery options and rates are shown at checkout.</li><li><strong>90 day money-back guarantee<br/></strong>Give it 90 days of consistent use. If you don't notice a difference, in how you feel or in your wearable data, email us and we'll refund you in full.. <a href=\"/pages/shipping-and-return\" title=\"Shipping and Return Policy\"><span style=\"text-decoration:underline\">Learn More</span></a></li></ul>",
+            "page": ""
+          }
+        },
+        "custom_liquid_ibAyPJ": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"giveaway-accordion-box\">\n  <button class=\"giveaway-accordion__header\" type=\"button\" aria-expanded=\"false\">\n    <h3 class=\"giveaway-accordion__title h4\">\n      With every subscription, <strong>you automatically enter our Ōura Ring 5 Giveaway</strong>\n\t\t</h4>\n\n    <span class=\"giveaway-accordion__icon\">\n      <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n        <path d=\"M6 9L12 15L18 9\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n      </svg>\n    </span>\n  </button>\n\n  <div class=\"giveaway-accordion__content\">\n    <p>\n      A tool to support you and help you maintain your commitment.\n    </p>\n\n    <p>\n      Each quarter, one lucky winner will be announced by email and our social channels.\n    </p>\n  </div>\n</div>"
+          }
+        },
+        "collobration_UcXP6G": {
+          "type": "collobration",
+          "settings": {
+            "heading": "<p>PROUDLY IN COLLABORATION WITH LEADING INSTITUTIONS</p>",
+            "image_1": "shopify://shop_images/conventry_university.png",
+            "image_2": "shopify://shop_images/university_newcastle.png"
+          }
+        },
+        "testimonial_RdPdTg": {
+          "type": "testimonial",
+          "settings": {
+            "heading": "<p>Real Customers, Real Reviews</p>",
+            "video_1": "shopify://files/videos/Muto 1.mp4",
+            "video_2": "shopify://files/videos/Muto 2.mp4",
+            "video_3": "shopify://files/videos/Muto 3.mp4",
+            "video_4": "shopify://files/videos/Muto 4.mp4"
+          }
+        },
+        "social_proof_dEYDyb": {
+          "type": "social_proof",
+          "settings": {
+            "heading": "<p>As Seen In</p>",
+            "image_1": "shopify://shop_images/Healf_NewLogo-17-blue_1.svg",
+            "image_2": "shopify://shop_images/mens-fitness-magazine-logo-blue_1.svg",
+            "image_3": "shopify://shop_images/womens-fitness-magazine-logo-blue_1.svg"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "reviews_io_reviewsio_rating_bar_GXmhkJ",
+        "vendor",
+        "description",
+        "text_zVNyed",
+        "custom_liquid_6c8ctX",
+        "custom_liquid_J6VrWn",
+        "skio_plans_tabs_mmnyHj",
+        "skio_plan_content_AAhrCA",
+        "skio_plan_content_wGxchz",
+        "custom_liquid_fkjcFM",
+        "custom_liquid_AybADd",
+        "custom_liquid_6Xm6Hk",
+        "custom_liquid_LWLE7y",
+        "text_RwFHDc",
+        "reviews_io_reviewsio_card_carousel_dediUr",
+        "collapsible_tab_xT6XxF",
+        "collapsible_tab_MJTdHC",
+        "collapsible_tab_bj4rFB",
+        "collapsible_tab_aLCAey",
+        "collapsible_tab_i4nT7m",
+        "collapsible_tab_HViNNM",
+        "collapsible_tab_EbYjR4",
+        "collapsible_tab_gCTxKb",
+        "collapsible_tab_wFfKK4",
+        "collapsible_tab_Wk9rAc",
+        "collapsible_tab_XMEJTF",
+        "collapsible_tab_ipwcRj",
+        "collapsible_tab_GPXdMy",
+        "collapsible_tab_VLwJd8",
+        "custom_liquid_ibAyPJ",
+        "collobration_UcXP6G",
+        "testimonial_RdPdTg",
+        "social_proof_dEYDyb"
+      ],
+      "custom_css": [
+        "div.product__accordion .accordion__content ul li ~ li {margin-top: 20px;}",
+        "div.product__accordion .accordion__content ul li:before {top: 6px;}",
+        ".product-form ~ .product__text_wrapper {display: block !important;}",
+        ".CarouselWidget-prefix .CarouselWidget .R-ReviewsList .R-ReviewsList__item {flex-basis: 100%; width: 100%; flex-shrink: unset;}",
+        ".CarouselWidget-prefix .CarouselWidget .R-ReviewsList {padding: 0;}"
+      ],
+      "settings": {
+        "allow_transparent_header": true,
+        "enable_sticky_info": true,
+        "background_color": "#e8e8e8",
+        "background_image": "shopify://shop_images/image_1000297.png",
+        "button_label": "Checkout",
+        "media_size": "small",
+        "constrain_to_viewport": false,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "none",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 100,
+        "padding_bottom": 60
+      }
+    },
+    "custom_showecase_slider_7TLVAQ": {
+      "type": "custom-showecase-slider",
+      "blocks": {
+        "item_PAeY69": {
+          "type": "item",
+          "settings": {
+            "title": "",
+            "image": "shopify://shop_images/Healf_NewLogo-17-blue_1.svg",
+            "heading": "",
+            "show_button": false,
+            "button_label": "retail partner",
+            "button_link": "/"
+          }
+        },
+        "item_MnEm4i": {
+          "type": "item",
+          "settings": {
+            "title": "",
+            "image": "shopify://shop_images/mens-fitness-magazine-logo-blue_1.svg",
+            "heading": "",
+            "show_button": false,
+            "button_label": "Editorial",
+            "button_link": ""
+          }
+        },
+        "item_Q9PrrM": {
+          "type": "item",
+          "settings": {
+            "title": "",
+            "image": "shopify://shop_images/womens-fitness-magazine-logo-blue_1.svg",
+            "heading": "",
+            "show_button": false,
+            "button_label": "Editorial",
+            "button_link": ""
+          }
+        },
+        "item_AVjxMn": {
+          "type": "item",
+          "settings": {
+            "title": "",
+            "image": "shopify://shop_images/Healf_NewLogo-17-blue_1.svg",
+            "heading": "",
+            "show_button": false,
+            "button_label": "retail partner",
+            "button_link": "/"
+          }
+        },
+        "item_kH7EJx": {
+          "type": "item",
+          "settings": {
+            "title": "",
+            "image": "shopify://shop_images/mens-fitness-magazine-logo-blue_1.svg",
+            "heading": "",
+            "show_button": false,
+            "button_label": "Editorial",
+            "button_link": ""
+          }
+        },
+        "item_U8BH8y": {
+          "type": "item",
+          "settings": {
+            "title": "",
+            "image": "shopify://shop_images/womens-fitness-magazine-logo-blue_1.svg",
+            "heading": "",
+            "show_button": false,
+            "button_label": "Editorial",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_PAeY69",
+        "item_MnEm4i",
+        "item_Q9PrrM",
+        "item_AVjxMn",
+        "item_kH7EJx",
+        "item_U8BH8y"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 990px) {.custom-showcase-items .slick-slide {margin: 0 50px; }}"
+      ],
+      "name": "Custom Showcase Slider",
+      "settings": {
+        "bg_color": "#c8d2cf",
+        "enable_slider": true,
+        "padding_top": 30,
+        "padding_bottom": 30,
+        "custom_class": "",
+        "heading": "",
+        "headingTag": "h2",
+        "heading_color": "#242223"
+      }
+    },
+    "custom_product_highlights_banner_VGbadE": {
+      "type": "custom-product-highlights-banner",
+      "blocks": {
+        "item_qppita": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/circle-dot-dashed.svg",
+            "title": "<p>The gap you can feel</p>",
+            "sub_title": "<p>You train hard, sleep right, track everything - and the 3pm flatline still comes. The recovery score still doesn't match the effort. That gap isn't a discipline problem. It's a fuel problem.</p>"
+          }
+        },
+        "item_KD6caH": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/infinity.svg",
+            "title": "<p>Running on half a tank</p>",
+            "sub_title": "<p>The fuel your cells run on, NAD⁺, has roughly halved since your 20s. Which means every hard session, every early alarm, is being paid for from a shrinking account.</p>"
+          }
+        },
+        "item_8EbF3W": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/orbit.svg",
+            "title": "<p>Refill it. Then watch it.</p>",
+            "sub_title": "<p>MUTO restores it daily - no stimulants, no crash. And because it works on the same systems your wearable measures, you don't have to take our word for it. Your HRV will tell you.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_qppita",
+        "item_KD6caH",
+        "item_8EbF3W"
+      ],
+      "disabled": true,
+      "name": "Custom Product Highlights Banner",
+      "settings": {
+        "bg_color": "#fafafa",
+        "background_image": "shopify://shop_images/product-highlights.jpg",
+        "padding_top": 40,
+        "padding_bottom": 50,
+        "custom_class": "",
+        "heading": "<p>Your discipline <br/>is visible.</p><p>Your cellular <br/>system is not.</p>",
+        "heading_tag": "h2",
+        "heading_color": "#5efaff"
+      }
+    },
+    "custom_benefits_toggle_Wm3xQ7": {
+      "type": "custom-benefits-toggle",
+      "blocks": {
+        "feel_1": {
+          "type": "benefit",
+          "settings": {
+            "panel": "a",
+            "icon": "bolt",
+            "title": "Energy that doesn't spike",
+            "subtitle": "All day, no crash",
+            "text": "<p>Four o'clock stops being the part of the day you dread. Energy your cells produce, instead of energy borrowed from tonight.</p>"
+          }
+        },
+        "feel_2": {
+          "type": "benefit",
+          "settings": {
+            "panel": "a",
+            "icon": "orbit",
+            "title": "Recovery between sessions",
+            "subtitle": "Hard days cost less",
+            "text": "<p>Train hard today, turn up tomorrow. The second session stops being the one that quietly doesn't happen.</p>"
+          }
+        },
+        "feel_3": {
+          "type": "benefit",
+          "settings": {
+            "panel": "a",
+            "icon": "check",
+            "title": "Steadier mornings",
+            "subtitle": "Less fog on waking",
+            "text": "<p>Awake when you wake up, not an hour later. Overnight repair takes fuel, and most people run it on an empty tank.</p>"
+          }
+        },
+        "feel_4": {
+          "type": "benefit",
+          "settings": {
+            "panel": "a",
+            "icon": "dotring",
+            "title": "A calmer baseline",
+            "subtitle": "Fewer peaks and troughs",
+            "text": "<p>Get through a heavy week without the swing between wired and flat. You don't want a bigger peak, you want the floor to stop dropping out.</p>"
+          }
+        },
+        "track_1": {
+          "type": "benefit",
+          "settings": {
+            "panel": "b",
+            "icon": "pulse",
+            "title": "HRV",
+            "subtitle": "A validated recovery marker",
+            "text": "<p>Finally something you can do about the number. NAD+ Cellular Complex supports the cellular energy production your recovery runs on.</p>"
+          }
+        },
+        "track_2": {
+          "type": "benefit",
+          "settings": {
+            "panel": "b",
+            "icon": "gauge",
+            "title": "Recovery score",
+            "subtitle": "Calculated overnight",
+            "text": "<p>Your body did the work. NAD+ Cellular Complex is what it ran on. The score is the summary, not the process.</p>"
+          }
+        },
+        "track_3": {
+          "type": "benefit",
+          "settings": {
+            "panel": "b",
+            "icon": "heart",
+            "title": "Resting heart rate",
+            "subtitle": "Trend, not a single morning",
+            "text": "<p>Screenshot it today. Look again in eight weeks. Slow enough that you can't fake it, honest enough to be worth watching.</p>"
+          }
+        },
+        "track_4": {
+          "type": "benefit",
+          "settings": {
+            "panel": "b",
+            "icon": "node",
+            "title": "Sleep quality",
+            "subtitle": "Depth, not just hours",
+            "text": "<p>Seven hours that actually count for something. Hours in bed and hours of repair were never the same thing.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "feel_1",
+        "feel_2",
+        "feel_3",
+        "feel_4",
+        "track_1",
+        "track_2",
+        "track_3",
+        "track_4"
+      ],
+      "settings": {
+        "bg_color": "#fafafa",
+        "ink_color": "#242223",
+        "card_color": "#c8d2cf",
+        "accent_a": "#e0fca8",
+        "accent_b": "#5efaff",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "custom_class": "",
+        "pill_label": "Benefits",
+        "heading_tag": "h2",
+        "panel_a_tab": "Benefits you'll feel",
+        "panel_a_heading": "Feel it before you see it",
+        "panel_a_intro": "<p>What customers notice first, in the weeks before any trend line moves. Open any of them for the mechanism.</p>",
+        "panel_b_tab": "Benefits you can track",
+        "panel_b_heading": "Then check it against your data",
+        "panel_b_intro": "<p>The same four weeks, read on your own device. Every claim here is one you can verify yourself. Open any of them for the mechanism.</p>"
+      }
+    },
+    "custom_reviews_pAHKzP": {
+      "type": "custom-reviews",
+      "name": "Custom Reviews",
+      "settings": {
+        "bg_color": "#c8d2cf",
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "custom_class": "",
+        "heading": "<p>OUR COMMUNITY ARE <br/>FINALLY MOVING THEIR METRICS</p>",
+        "heading_tag": "h2",
+        "heading_color": "#000000",
+        "show_review_bar": true,
+        "review_content": "<script src=\"https://widget.reviews.io/carousel-inline-iframeless/dist.js?_t=2026062210\"></script>\n<link rel=\"stylesheet\" href=\"https://assets.reviews.io/css/widgets/carousel-widget.css?_t=2026062210\">\n<link rel=\"stylesheet\" href=\"https://assets.reviews.io/iconfont/reviewsio-icons/style.css?_t=2026062210\">\n<div id=\"reviewsio-carousel-widget\"></div>\n<script>\n\nnew carouselInlineWidget('reviewsio-carousel-widget',{\n      /*Your REVIEWS.io account ID:*/\n      store: 'mutolongevity.com',\n      sku: '',\n      lang: 'en',\n      carousel_type: 'topHeader',\n      styles_carousel: 'CarouselWidget--topHeader--withcards',\n\n      /*Widget settings:*/\n      options:{\n        general:{\n          /*What reviews should the widget display? Available options: company, product, third_party. You can choose one type or multiple separated by comma.*/\n          review_type: 'company, product',\n          /*Minimum number of reviews required for widget to be displayed*/\n          min_reviews: '1',\n          /*Maximum number of reviews to include in the carousel widget.*/\n          max_reviews: '20',\n          address_format: 'COUNTRY',\n          /*Carousel auto-scrolling speed. 3000 = 3 seconds. If you want to disable auto-scroll, set this value to false.*/\n          enable_auto_scroll: 10000,\n          /*Enable pause button for auto-scrolling carousel. Only works when auto-scroll is enabled.*/\n          enable_pause_button: false,\n          enable_sorting: false,\n        },\n        header:{\n          /*Show overall rating stars*/\n          enable_overall_stars: false,\n          rating_decimal_places: 2,\n        },\n        reviews: {\n          /*Show customer name*/\n          enable_customer_name: true,\n          /*Show customer location*/\n          enable_customer_location: true,\n          /*Show \"verified review\" badge*/\n          enable_verified_badge: false,\n          /*Show \"verified subscriber\" badge*/\n          enable_subscriber_badge: false,\n          /*Show \"I recommend this product\" badge (Only for product reviews)*/\n          enable_recommends_badge: false,\n          /*Show photos attached to reviews*/\n          enable_photos: false,\n          /*Show videos attached to reviews*/\n          enable_videos: true,\n          /*Show when review was written*/\n          enable_review_date: false,\n          /*Hide reviews written by the same customer (This may occur when customer reviews multiple products)*/\n          disable_same_customer: true,\n          /*Minimum star rating*/\n          min_review_percent: 4,\n          /*Show 3rd party review source*/\n          third_party_source: true,\n          /*Hide reviews without comments (still shows if review has a photo)*/\n          hide_empty_reviews: true,\n          /*Show product name*/\n          enable_product_name: false,\n          /*Show only reviews which have specific tags (multiple semicolon separated tags allowed i.e tag1;tag2)*/\n          tags: \"\",\n          /*Show branch, only one input*/\n          branch: \"\",\n          enable_branch_name: false,\n        },\n        popups: {\n          /*Make review items clickable (When they are clicked, a popup appears with more information about a customer and review)*/\n          enable_review_popups:  false,\n          /*Show \"was this review helpful\" buttons*/\n          enable_helpful_buttons: false,\n          /*Show how many times review was upvoted as helpful*/\n          enable_helpful_count: false,\n          /*Show share buttons*/\n          enable_share_buttons: false,\n        },\n    },\n    translations: {\n      verified_customer:  \"Verified Customer\",\n    },\n    styles:{\n      /*Base font size is a reference size for all text elements. When base value gets changed, all TextHeading and TexBody elements get proportionally adjusted.*/\n      '--base-font-size': '16px',\n      '--base-maxwidth':'100%',\n\n      /*Logo styles:*/\n      '--reviewsio-logo-style':'var(--logo-normal)',\n\n      /*Star styles:*/\n      '--common-star-color':'#242223',\n      '--common-star-disabled-color':' rgba(0,0,0,0.25)',\n      '--medium-star-size':' 22px',\n      '--small-star-size':'19px', /*Modal*/\n      '--x-small-star-size':'12px',\n      '--x-small-star-display':'inline-flex',\n\n      /*Header styles:*/\n      '--header-order':'1',\n      '--header-width':'160px',\n      '--header-bg-start-color':'transparent',\n      '--header-bg-end-color':'transparent',\n      '--header-gradient-direction':'135deg',\n      '--header-padding':'0.5em',\n      '--header-border-width':'0px',\n      '--header-border-color':'rgba(0,0,0,0.1)',\n      '--header-border-radius':'25px',\n      '--header-shadow-size':'0px',\n      '--header-shadow-color':'rgba(0, 0, 0, 0.1)',\n\n      /*Header content styles:*/\n      '--header-star-color':'inherit',\n      '--header-disabled-star-color':'inherit',\n      '--header-heading-text-color':'inherit',\n      '--header-heading-font-size':'inherit',\n      '--header-heading-font-weight':'inherit',\n      '--header-heading-line-height':'inherit',\n      '--header-heading-text-transform':'inherit',\n      '--header-subheading-text-color':'inherit',\n      '--header-subheading-font-size':'inherit',\n      '--header-subheading-font-weight':'inherit',\n      '--header-subheading-line-height':'inherit',\n      '--header-subheading-text-transform':'inherit',\n\n      /*Review item styles:*/\n      '--item-maximum-columns':'5',/*Must be 3 or larger*/\n      '--item-background-start-color':'#FAFAFA99',\n      '--item-background-end-color':'#FAFAFA40',\n      '--item-gradient-direction':'135deg',\n      '--item-padding':'1.5em',\n      '--item-border-width':'1px',\n      '--item-border-color':'#FFFFFF',\n      '--item-border-radius':'25px',\n      '--item-shadow-size':'10px',\n      '--item-shadow-color':'rgba(0,0,0,0.05)',\n\n      /*Heading styles:*/\n      '--heading-text-color':'#242223',\n      '--heading-text-font-weight':' 600',\n      '--heading-text-font-family':' inherit',\n      '--heading-text-line-height':' 1.4',\n      '--heading-text-letter-spacing':'0',\n      '--heading-text-transform':'none',\n\n      /*Body text styles:*/\n      '--body-text-color':'#242223',\n      '--body-text-font-weight':'400',\n      '--body-text-font-family':' inherit',\n      '--body-text-line-height':' 1.4',\n      '--body-text-letter-spacing':'0',\n      '--body-text-transform':'none',\n\n      /*Scroll button styles:*/\n      '--scroll-button-icon-color':'#00000000',\n      '--scroll-button-icon-size':'24px',\n      '--scroll-button-bg-color':'transparent',\n\n      '--scroll-button-border-width':'0px',\n      '--scroll-button-border-color':'rgba(0,0,0,0.1)',\n\n      '--scroll-button-border-radius':'60px',\n      '--scroll-button-shadow-size':'0px',\n      '--scroll-button-shadow-color':'rgba(0,0,0,0.1)',\n      '--scroll-button-horizontal-position':'0px',\n      '--scroll-button-vertical-position':'0px',\n\n      /*Badge styles:*/\n      '--badge-icon-color':'#0E1311',\n      '--badge-icon-font-size':'15px',\n      '--badge-text-color':'#0E1311',\n      '--badge-text-font-size':'inherit',\n      '--badge-text-letter-spacing':'inherit',\n      '--badge-text-transform':'inherit',\n\n      /*Author styles:*/\n      '--author-font-size':'inherit',\n      '--author-font-weight':'inherit',\n      '--author-text-transform':'inherit',\n\n      /*Product photo or review photo styles:*/\n      '--photo-video-thumbnail-size':'60px',\n      '--photo-video-thumbnail-border-radius':'15px',\n\n      /*Popup styles:*/\n      '--popup-backdrop-color':'rgba(0,0,0,0.75)',\n      '--popup-color':'#ffffff',\n      '--popup-star-color':'inherit',\n      '--popup-disabled-star-color':'inherit',\n      '--popup-heading-text-color':'inherit',\n      '--popup-body-text-color':'inherit',\n      '--popup-badge-icon-color':'inherit',\n      '--popup-badge-icon-font-size':'19px',\n      '--popup-badge-text-color':'inherit',\n      '--popup-badge-text-font-size':'14px',\n      '--popup-border-width':'0px',\n      '--popup-border-color':'rgba(0,0,0,0.1)',\n      '--popup-border-radius':'40px',\n      '--popup-shadow-size':'0px',\n      '--popup-shadow-color':'rgba(0,0,0,0.1)',\n      '--popup-icon-color':'#0E1311',\n\n      /*Tooltip styles:*/\n      '--tooltip-bg-color':'#0E1311',\n      '--tooltip-text-color':'#ffffff',\n    },\n});\n\n</script>",
+        "show_button": false,
+        "button_label": "",
+        "button_link": "",
+        "button_style": "gradient-secondary"
+      }
+    },
+    "custom_usage_timeline_8FjWp3": {
+      "type": "custom-usage-timeline",
+      "blocks": {
+        "timeline_x9XMpH": {
+          "type": "timeline",
+          "settings": {
+            "title": "hour 4",
+            "heading": "<p>Nothing on your wrist yet</p>",
+            "content": "<p>Your device won't show anything today. Underneath it, absorption has already started: the first dose is in circulation and your cells are being fed.</p>"
+          }
+        },
+        "timeline_rbdKNa": {
+          "type": "timeline",
+          "settings": {
+            "title": "day 2",
+            "heading": "<p>The System ActivatesThe system starts running</p>",
+            "content": "<p>Still nothing to see. Your cells' energy engines are being supplied properly for the first time - the work happens well before the number reflects it.</p>"
+          }
+        },
+        "timeline_zUD84i": {
+          "type": "timeline",
+          "settings": {
+            "title": "day 30",
+            "heading": "<p>You feel it before you see it</p>",
+            "content": "<p>Felt outcomes arrive ahead of the data. Steadier afternoons, sessions you bounce back from, mornings that don't need negotiating. Your wearable is still catching up.</p>"
+          }
+        },
+        "timeline_9dqQrq": {
+          "type": "timeline",
+          "settings": {
+            "title": "day 30-60",
+            "heading": "<p>HRV has something to reflect</p>",
+            "content": "<p>HRV is your nervous system reporting on your cells. It's the honest number - it doesn't flatter you, and it responds to the system rather than to effort. As overnight recovery gets properly resourced, HRV has more to report.</p>"
+          }
+        },
+        "timeline_iRAFne": {
+          "type": "timeline",
+          "settings": {
+            "title": "day 90",
+            "heading": "<p>The recovery score starts telling a different story</p>",
+            "content": "<p>Recovery isn't rest, it's cellular work, and all of it runs on NAD+. Your recovery score is the receipt for the night before. At 90 days the system isn't resetting each morning - it's building.</p>"
+          }
+        },
+        "timeline_FRKr3j": {
+          "type": "timeline",
+          "settings": {
+            "title": "day 120",
+            "heading": "<p>Readiness becomes the new normal</p>",
+            "content": "<p>Readiness is a forecast, and forecasts follow inputs. Most people try to influence it from above: an earlier night, one less drink. MUTO works on it from below, every day. The improvement stops being a good week and becomes your baseline.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "timeline_x9XMpH",
+        "timeline_rbdKNa",
+        "timeline_zUD84i",
+        "timeline_9dqQrq",
+        "timeline_iRAFne",
+        "timeline_FRKr3j"
+      ],
+      "disabled": true,
+      "name": "Custom Usage Timeline",
+      "settings": {
+        "bg_color": "#fafafa",
+        "background_image": "shopify://shop_images/runner.png",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "custom_class": "",
+        "heading": "<p>Cellular <br/>change</p><p>is not a one-<br/>day spike.</p>",
+        "heading_tag": "h2",
+        "heading_color": "#242624"
+      }
+    },
+    "custom_product_reality_N93FCT": {
+      "type": "custom-product-reality",
+      "blocks": {
+        "clinicians_NGFpT7": {
+          "type": "clinicians",
+          "settings": {
+            "clinician_image": "shopify://shop_images/Dr_James_New.png",
+            "clinician": "Dr James Morehen",
+            "clinician_tagline": "PERFORMANCE NUTRITIONIST, INTERNATIONAL RUGBY",
+            "clinician_info": "<p>Performance is not built during training - it is built through recovery. Every adaptation, whether strength, endurance, or resilience, depends on the body's ability to repair and respond to stress. MUTO combines clinically dosed ingredients that support recovery, energy production, and physiological resilience, helping individuals perform at a higher level both in sport and everyday life.</p>",
+            "show_badge": true,
+            "badge_icon": "shopify://shop_images/Performance-Icon.svg",
+            "badge_label": "Performance"
+          }
+        },
+        "clinicians_zCAbmV": {
+          "type": "clinicians",
+          "settings": {
+            "clinician_image": "shopify://shop_images/Dr_Alka_s_New.png",
+            "clinician": "Dr Alka Patel",
+            "clinician_tagline": "LONGEVITY DOCTOR & GLOBAL SPEAKER",
+            "clinician_info": "<p>The body is constantly adapting to the demands placed upon it. Poor sleep, chronic stress, and modern lifestyles can disrupt the biological systems responsible for energy, recovery, and performance. MUTO supports these foundational systems at a cellular level, helping the body respond more effectively to everyday stressors and maintain long-term vitality.</p>",
+            "show_badge": true,
+            "badge_icon": "shopify://shop_images/Energy-Icon.svg",
+            "badge_label": "Longevity"
+          }
+        },
+        "clinicians_k6E7BW": {
+          "type": "clinicians",
+          "settings": {
+            "clinician_image": "shopify://shop_images/Dr_Richie_s_New.png",
+            "clinician": "Dr Richie Barclay",
+            "clinician_tagline": "Molecular Biologist, Nutritionist, Harley St Consultant",
+            "clinician_info": "<p>Most health interventions focus on symptoms. True performance starts deeper, at the cellular level. Mitochondria are responsible for producing the energy that powers every movement, thought, and recovery process in the body. MUTO was designed to support these foundational systems through evidence-based ingredients selected to improve resilience, recovery, and cellular function.</p>",
+            "show_badge": true,
+            "badge_icon": "shopify://shop_images/Performance-Icon.svg",
+            "badge_label": "Performance"
+          }
+        },
+        "clinicians_VnKa7Q": {
+          "type": "clinicians",
+          "settings": {
+            "clinician_image": "shopify://shop_images/Dr_Richard_s_New.png",
+            "clinician": "Dr Richard Mackenzie",
+            "clinician_tagline": "LEADING METABOLISM RESEARCHER",
+            "clinician_info": "<p>Energy is the currency of human performance. From physical output to cognitive function, every biological process depends on efficient cellular energy production. Supporting metabolic health and mitochondrial function is fundamental to sustaining performance over time. MUTO provides targeted nutritional support for the systems that underpin recovery, energy, and adaptation.</p>",
+            "show_badge": true,
+            "badge_icon": "shopify://shop_images/Energy-Icon.svg",
+            "badge_label": "Energy"
+          }
+        },
+        "clinicians_NbUgWF": {
+          "type": "clinicians",
+          "settings": {
+            "clinician_image": "shopify://shop_images/Dr_Matt_s_New.png",
+            "clinician": "Dr Maciej Zatonski",
+            "clinician_tagline": "PERFORMANCE & SLEEP DOCTOR",
+            "clinician_info": "<p>Stress affects far more than how we feel - it influences recovery, energy production, sleep quality, and overall performance. The ability to adapt to stress is one of the defining characteristics of a healthy system. MUTO combines scientifically researched ingredients that support resilience and recovery, helping the body maintain balance under the demands of modern life.</p>",
+            "show_badge": true,
+            "badge_icon": "shopify://shop_images/Recovery-Icon.svg",
+            "badge_label": "Recovery"
+          }
+        },
+        "clinicians_T9q9nC": {
+          "type": "clinicians",
+          "settings": {
+            "clinician_image": "shopify://shop_images/Dr_Ash.webp",
+            "clinician": "Dr Ash Kapoor",
+            "clinician_tagline": "Longevity & Human Optimisation Doctor & Founder of Levitas One",
+            "clinician_info": "<p>Energy is not one molecule. It is a whole system. Dr Ash Kapoor focuses on the root causes behind fatigue, metabolic stress and declining resilience. MUTO is built around the same idea: produce cellular energy, protect the systems that sustain it, and put that energy to work across recovery, performance and long-term health.</p>",
+            "show_badge": true,
+            "badge_icon": "shopify://shop_images/Energy-Icon.svg",
+            "badge_label": "Longevity"
+          }
+        },
+        "clinicians_reQWf8": {
+          "type": "clinicians",
+          "settings": {
+            "clinician_image": "shopify://shop_images/Jamie-Paweleck.jpg",
+            "clinician": "Dr Jamie Paweleck",
+            "clinician_tagline": "Longevity doctor and medical educator",
+            "clinician_info": "<p>In practice you see the same pattern - people doing everything right above the surface and still not recovering as they should. What limits them sits a layer beneath, at cellular level. MUTO supports that system daily, working on the foundations behind energy, repair and recovery.</p>",
+            "show_badge": true,
+            "badge_icon": "shopify://shop_images/Energy-Icon.svg",
+            "badge_label": "Longevity"
+          }
+        }
+      },
+      "block_order": [
+        "clinicians_NGFpT7",
+        "clinicians_zCAbmV",
+        "clinicians_k6E7BW",
+        "clinicians_VnKa7Q",
+        "clinicians_NbUgWF",
+        "clinicians_T9q9nC",
+        "clinicians_reQWf8"
+      ],
+      "disabled": true,
+      "name": "Custom Product Reality",
+      "settings": {
+        "bg_color": "#fafafa",
+        "background_image": "shopify://shop_images/background-blur-image.png",
+        "padding_top": 65,
+        "padding_bottom": 65,
+        "custom_class": "",
+        "image": "shopify://shop_images/medicine-hand.jpg",
+        "title": "<p>The NAD⁺ Reality Check</p>",
+        "bullet_point_heading_1": "<p>By age 40, your NAD⁺ supply drops by half.</p>",
+        "bullet_point_content_1": "<p>Systems fall behind, afternoons flatten, and recoveries lengthen. Most supplements work on the surface. Spike. Fade. Reset. </p>",
+        "bullet_point_image_1": "shopify://shop_images/pills-trimed.png",
+        "bullet_point_heading_2": "<p>MUTO works underneath, at a cellular level.</p>",
+        "bullet_point_content_2": "<p>Built to support the fundamental system beneath body from basic maintenance, to peak cellular performance. Two capsules replace your entire stack and compound daily.</p>",
+        "bullet_point_image_2": "shopify://shop_images/pills-trimed.png"
+      }
+    },
+    "custom_product_statistics_hGXQKb": {
+      "type": "custom-product-statistics",
+      "blocks": {
+        "metrics_9m9Hmg": {
+          "type": "metrics",
+          "settings": {
+            "title": "<p>94%</p>",
+            "sub_title": "<p>Report faster recovery between sessions²</p>"
+          }
+        },
+        "metrics_eNDNka": {
+          "type": "metrics",
+          "settings": {
+            "title": "<p>93%</p>",
+            "sub_title": "<p>Bounce back quicker from strain²</p>"
+          }
+        },
+        "metrics_txRyrC": {
+          "type": "metrics",
+          "settings": {
+            "title": "<p>92%</p>",
+            "sub_title": "<p>Report more energy throughout the day²</p>"
+          }
+        },
+        "metrics_aNN6BR": {
+          "type": "metrics",
+          "settings": {
+            "title": "<p>+51%</p>",
+            "sub_title": "<p>Increase in cellular fuel vs baseline within 14 days¹</p>"
+          }
+        },
+        "certified_7H869Q": {
+          "type": "certified",
+          "settings": {
+            "certified_by": "shopify://shop_images/gmp-without-bg.png",
+            "custom_title": ""
+          }
+        },
+        "certified_GWAdW7": {
+          "type": "certified",
+          "settings": {
+            "certified_by": "shopify://shop_images/Healf_NewLogo-17-blue_1.svg",
+            "custom_title": ""
+          }
+        },
+        "certified_eCmkie": {
+          "type": "certified",
+          "settings": {
+            "certified_by": "shopify://shop_images/scientific-advisory-board.png",
+            "custom_title": ""
+          }
+        },
+        "certified_q8UmUf": {
+          "type": "certified",
+          "settings": {
+            "custom_title": "<p>300+<br/>Studies</p>"
+          }
+        },
+        "certified_LTrQTb": {
+          "type": "certified",
+          "settings": {
+            "custom_title": "<p>Independent<br/>clinical trials</p>"
+          }
+        },
+        "certified_8YPxzp": {
+          "type": "certified",
+          "settings": {
+            "custom_title": "<p>Third-party<br/>tested</p>"
+          }
+        },
+        "graph_content_wHAEen": {
+          "type": "graph_content",
+          "settings": {
+            "title": "Day 1",
+            "heading": "STEADY ENERGY",
+            "content": "<p>Supports consistent energy<br/>without the spikes.</p>"
+          }
+        },
+        "graph_content_8yKBhy": {
+          "type": "graph_content",
+          "settings": {
+            "title": "Day 30",
+            "heading": "stronger recovery",
+            "content": "<p>Supports your body<br/>day and night.</p>"
+          }
+        },
+        "graph_content_j84peH": {
+          "type": "graph_content",
+          "settings": {
+            "title": "Day 60",
+            "heading": "COMPOUNDING PERFORMANCE",
+            "content": "<p>Supports output that builds,<br/>not resets, day after day</p>"
+          }
+        },
+        "graph_content_na7JX7": {
+          "type": "graph_content",
+          "settings": {
+            "title": "Day 90",
+            "heading": "",
+            "content": ""
+          }
+        }
+      },
+      "block_order": [
+        "metrics_9m9Hmg",
+        "metrics_eNDNka",
+        "metrics_txRyrC",
+        "metrics_aNN6BR",
+        "certified_7H869Q",
+        "certified_GWAdW7",
+        "certified_eCmkie",
+        "certified_q8UmUf",
+        "certified_LTrQTb",
+        "certified_8YPxzp",
+        "graph_content_wHAEen",
+        "graph_content_8yKBhy",
+        "graph_content_j84peH",
+        "graph_content_na7JX7"
+      ],
+      "disabled": true,
+      "name": "Custom Product Statistics",
+      "settings": {
+        "bg_color": "#fafafa",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "custom_class": "",
+        "heading": "<p>Above the standard.<br/>Beneath the surface.</p>",
+        "heading_tag": "h2",
+        "heading_color": "#242624",
+        "main_image": "shopify://shop_images/product-statstic.jpg",
+        "content_1": "<p><strong>In clinical research and customer reporting,</strong> the shift starts beneath the surface before it shows up in how you feel, train, and recover.</p>",
+        "content_2": "<p>¹Conze, D., Brenner, C., & Kruger, C. L. (2019). Scientific reports, 9(1), 9772.<br/>²Survey of 87 men and women taking MUTO between the ages of 30–50. Individual results may vary.</p>",
+        "content_3": "<p><strong>Stimulants can push output for a few hours,</strong> then leave your system paying for it later. MUTO supports energy from within, helping your day feel steadier without the spike, crash, and reset.</p>",
+        "show_graph": true,
+        "point_1_title": "with MUTO",
+        "point_1_description": "<p>balanced energy, recovered the next morning, & greater output</p>",
+        "point_1_graph": "shopify://shop_images/chart-with-muto.png",
+        "point_2_title": "without MUTO",
+        "point_2_description": "<p>energy spikes and crashes, recovery that doesn’t happen, & stagnant performance</p>",
+        "point_2_graph": "shopify://shop_images/chart-without-muto.png"
+      }
+    },
+    "custom_experts_showcase_FjAJKJ": {
+      "type": "custom-experts-showcase",
+      "blocks": {
+        "experts_hxFQEc": {
+          "type": "experts",
+          "settings": {
+            "experts_image": "shopify://shop_images/Dr_Alka_Cover_Final.png",
+            "experts_video": "shopify://files/videos/Dr-Alka-Final4x5.mov",
+            "expert_name": "Dr Alka Patel",
+            "experts_tagline": "LONGEVITY DOCTOR & GLOBAL SPEAKER",
+            "show_badge": true,
+            "badge_icon": "shopify://shop_images/Energy-Icon.svg",
+            "badge_label": "Longevity"
+          }
+        },
+        "experts_FEJRRE": {
+          "type": "experts",
+          "settings": {
+            "experts_image": "shopify://shop_images/Dr_James_Cover_Final.png",
+            "experts_video": "shopify://files/videos/Dr-James-Final4x5.mov",
+            "expert_name": "Dr James Morehen",
+            "experts_tagline": "PERFORMANCE NUTRITIONIST, INTERNATIONAL RUGBY",
+            "show_badge": true,
+            "badge_icon": "shopify://shop_images/Performance-Icon.svg",
+            "badge_label": "Performance"
+          }
+        },
+        "experts_HT6yM6": {
+          "type": "experts",
+          "settings": {
+            "experts_image": "shopify://shop_images/Dr_Richard_Cover_Final.png",
+            "experts_video": "shopify://files/videos/Dr-Richard4x5.mov",
+            "expert_name": "Dr Richard Mackenzie",
+            "experts_tagline": "LEADING METABOLISM RESEARCHER",
+            "show_badge": true,
+            "badge_icon": "shopify://shop_images/Energy-Icon.svg",
+            "badge_label": "Energy"
+          }
+        },
+        "experts_4YJXYY": {
+          "type": "experts",
+          "settings": {
+            "experts_image": "shopify://shop_images/Dr_Matt_Cover_Final.png",
+            "experts_video": "shopify://files/videos/Dr-Macie-4x5.mov",
+            "expert_name": "Dr Maciej Zatonski",
+            "experts_tagline": "PERFORMANCE & SLEEP DOCTOR",
+            "show_badge": true,
+            "badge_icon": "shopify://shop_images/Recovery-Icon.svg",
+            "badge_label": "Recovery"
+          }
+        },
+        "experts_qXjD7Y": {
+          "type": "experts",
+          "settings": {
+            "experts_image": "shopify://shop_images/Dr-ash-cover-hq.webp",
+            "experts_video": "shopify://files/videos/Dr. ASH Intro.mp4",
+            "expert_name": "Dr Ash Kapoor",
+            "experts_tagline": "Longevity Doctor, Founder of Levitas One",
+            "show_badge": true,
+            "badge_icon": "shopify://shop_images/Recovery-Icon.svg",
+            "badge_label": "Recovery"
+          }
+        },
+        "experts_eYpCwG": {
+          "type": "experts",
+          "settings": {
+            "experts_image": "shopify://shop_images/Jamie-Paweleck.jpg",
+            "expert_name": "Dr Jamie Paweleck",
+            "experts_tagline": "Longevity doctor and medical educator",
+            "show_badge": true,
+            "badge_icon": "shopify://shop_images/Energy-Icon.svg",
+            "badge_label": "Longevity"
+          }
+        }
+      },
+      "block_order": [
+        "experts_hxFQEc",
+        "experts_FEJRRE",
+        "experts_HT6yM6",
+        "experts_4YJXYY",
+        "experts_qXjD7Y",
+        "experts_eYpCwG"
+      ],
+      "name": "Custom Experts Showcase",
+      "settings": {
+        "bg_color": "#fafafa",
+        "background_image": "shopify://shop_images/background-blur-image.png",
+        "padding_top": 65,
+        "padding_bottom": 80,
+        "custom_class": "",
+        "heading": "<p>Built with experts.<br/>Held to a higher<br/>standard.</p>",
+        "heading_tag": "h2",
+        "heading_color": "#000000",
+        "sub_heading": "<p>Trusted by world-leading clinicians</p>"
+      }
+    },
+    "custom_ninety_days_Rz4tPn": {
+      "type": "custom-ninety-days",
+      "blocks": {
+        "stage_1": {
+          "type": "stage",
+          "settings": {
+            "label": "Weeks 1-2",
+            "title": "The quiet start",
+            "text": "<p>Working from day one, beneath the surface, before your wearable has anything to show.</p>"
+          }
+        },
+        "stage_2": {
+          "type": "stage",
+          "settings": {
+            "label": "Weeks 3-4",
+            "title": "Felt before measured",
+            "text": "<p>Steadier energy, fewer crashes, a calmer baseline to train from.</p>"
+          }
+        },
+        "stage_3": {
+          "type": "stage",
+          "settings": {
+            "label": "Weeks 5-8",
+            "title": "On the data",
+            "text": "<p>HRV and recovery trends start to move. Your wearable can finally show it.</p>"
+          }
+        },
+        "stage_4": {
+          "type": "stage",
+          "settings": {
+            "label": "Weeks 9-11",
+            "title": "The new baseline",
+            "text": "<p>Cellular adaptation compounds. The improvement becomes your normal.</p>"
+          }
+        },
+        "stat_1": {
+          "type": "stat",
+          "settings": {
+            "value": "+51%",
+            "text": "<p>increase in cellular fuel vs baseline within 14 days</p>"
+          }
+        },
+        "stat_2": {
+          "type": "stat",
+          "settings": {
+            "value": "94%",
+            "text": "<p>report faster recovery between sessions</p>"
+          }
+        },
+        "stat_3": {
+          "type": "stat",
+          "settings": {
+            "value": "93%",
+            "text": "<p>bounce back quicker from strain</p>"
+          }
+        },
+        "stat_4": {
+          "type": "stat",
+          "settings": {
+            "value": "92%",
+            "text": "<p>report more energy through the day</p>"
+          }
+        },
+        "stat_5": {
+          "type": "stat",
+          "settings": {
+            "value": "89%",
+            "text": "<p>report improved HRV</p>"
+          }
+        }
+      },
+      "block_order": [
+        "stage_1",
+        "stage_2",
+        "stage_3",
+        "stage_4",
+        "stat_1",
+        "stat_2",
+        "stat_3",
+        "stat_4",
+        "stat_5"
+      ],
+      "settings": {
+        "bg_color": "#fafafa",
+        "ink_color": "#242223",
+        "card_color": "#c8d2cf",
+        "wash_lime": "#e0fca8",
+        "wash_cyan": "#5efaff",
+        "wash_opacity": 45,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "custom_class": "",
+        "heading": "What the first 90 days look like",
+        "heading_tag": "h2",
+        "eyebrow": "Felt first • Measured second",
+        "footnote": "Survey of 87 men and women taking MUTO, aged 30-50, over 12 weeks. Individual results may vary"
+      }
+    },
+    "custom_energy_card_slider_9kyWgr": {
+      "type": "custom-energy-card-slider",
+      "blocks": {
+        "item_wt7EJy": {
+          "type": "item",
+          "settings": {
+            "card_type": "default",
+            "image": "shopify://shop_images/shift-energy.jpg",
+            "heading": "<p>WEARABLE DATA.</p>",
+            "sub_heading": "<p>HRV up. Sleep score up.<br/>Recovery trend up.</p>",
+            "show_badge": true,
+            "badge_icon": "shopify://shop_images/WEARABLES-ICON.svg",
+            "badge_label": "Wearables",
+            "show_more_modal": true,
+            "description": "<p>This is the proof you don't have to take our word for. NAD+ Cellular Complex supports the same systems your wearable is already measuring - HRV, resting heart rate, sleep and recovery score. Watch your own baseline move, day by day.</p>"
+          }
+        },
+        "item_RXMBMR": {
+          "type": "item",
+          "settings": {
+            "card_type": "default",
+            "image": "shopify://shop_images/energy-hold.jpg",
+            "heading": "<p>ENERGY THAT HOLDS.</p>",
+            "sub_heading": "<p>No spike, no crash.<br/>Just the next hour, and the one after.</p>",
+            "show_badge": true,
+            "badge_icon": "shopify://shop_images/Energy-Icon.svg",
+            "badge_label": "Energy",
+            "show_more_modal": true,
+            "description": "<p>Most energy is borrowed - caffeine and stimulants that spike fast and fade faster, then cost your recovery and readiness tomorrow. NAD+ Cellular Complex feeds the system that makes your own energy, so the afternoon doesn't flatten and the crash never shows up in the first place.</p>"
+          }
+        },
+        "item_RetjCE": {
+          "type": "item",
+          "settings": {
+            "card_type": "default",
+            "image": "shopify://shop_images/compundes.jpg",
+            "heading": "<p>OUTPUT THAT COMPOUNDS.</p>",
+            "sub_heading": "<p>Greater output, day after<br/>day - not just today.</p>",
+            "show_badge": true,
+            "badge_icon": "shopify://shop_images/Performance-Icon.svg",
+            "badge_label": "Performance",
+            "show_more_modal": true,
+            "description": "<p>One good session is luck, a pattern of them is a system. NAD+ Cellular Complex supports the cellular engines behind output, so the work you put in today is still paying off in week twelve, not reset back to zero tomorrow.</p>"
+          }
+        },
+        "item_Np4PbA": {
+          "type": "item",
+          "settings": {
+            "card_type": "default",
+            "image": "shopify://shop_images/recovery-card.jpg",
+            "heading": "<p>ADAPT FASTER.</p>",
+            "sub_heading": "<p>Get back to full output sooner.</p>",
+            "show_badge": true,
+            "badge_icon": "shopify://shop_images/Recovery-Icon.svg",
+            "badge_label": "Recovery",
+            "show_more_modal": true,
+            "description": "<p>Recovery happens overnight, at cellular level, not just in bed. NAD+ Cellular Complex supports the repair systems your body relies on while you sleep, so the next session starts from a stronger baseline - not from behind.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_wt7EJy",
+        "item_RXMBMR",
+        "item_RetjCE",
+        "item_Np4PbA"
+      ],
+      "disabled": true,
+      "name": "Custom Energy Cards",
+      "settings": {
+        "bg_color": "#fafafa",
+        "padding_top": 50,
+        "padding_bottom": 110,
+        "custom_class": "pdp-energy",
+        "heading": "<p>BENEFITS YOU'LL FEEL & TRACK ON YOUR WEARABLE</p>",
+        "headingTag": "h2",
+        "heading_color": "#242223",
+        "sub_heading": ""
+      }
+    },
+    "custom_muto_insides_ReWFNz": {
+      "type": "custom-muto-insides",
+      "blocks": {
+        "item_drbzRY": {
+          "type": "item",
+          "settings": {
+            "title": "NR (Nicotinamide Riboside)",
+            "sub_title": "The core ingredient.",
+            "content": "<p>NR is the ingredient your body converts directly into NAD⁺, the fuel every cell runs on - and since NAD⁺ levels are roughly halved by 40, NR is the most direct way to start restoring what's been lost.</p>"
+          }
+        },
+        "item_9bLpAc": {
+          "type": "item",
+          "settings": {
+            "title": "CoQ10",
+            "sub_title": "The engine support.",
+            "content": "<p>Think of the mitochondria as the tiny engine inside every cell - CoQ10 is the spark plug that helps it actually turn fuel into usable energy, rather than just sitting there unused.</p>"
+          }
+        },
+        "item_VaxhWc": {
+          "type": "item",
+          "settings": {
+            "title": "Pterostilbene",
+            "sub_title": "The amplifier.",
+            "content": "<p>Pterostilbene works alongside NR to raise NAD⁺ further than either ingredient manages alone - which is exactly why a single-ingredient NAD⁺ supplement leaves real performance on the table.</p>"
+          }
+        },
+        "item_zeMV8W": {
+          "type": "item",
+          "settings": {
+            "title": "Quercetin",
+            "sub_title": "The clean-up crew.",
+            "content": "<p>Over time, the body accumulates damaged cells that just sit there taking up space. Quercetin helps clear them out, which keeps the cellular environment clean enough for the rest of the formula to actually do its job.</p>"
+          }
+        },
+        "item_jNganj": {
+          "type": "item",
+          "settings": {
+            "title": "Bioperine®",
+            "sub_title": "The delivery driver.",
+            "content": "<p>Without BioPerine, a meaningful share of what you're taking never makes it past the stomach. It's a small ingredient with an outsized job - it makes everything else in the formula more effective, and there's no real substitute for it.</p>"
+          }
+        },
+        "item_B7VpRY": {
+          "type": "item",
+          "settings": {
+            "title": "Methylated B Complex + D3 + K2",
+            "sub_title": "The foundation.",
+            "content": "<p>Energy production, cellular communication, immune function - these are the basics, and they're also where most people are quietly running short. Without them in place, the rest of the formula has nothing solid to build on.</p>"
+          }
+        },
+        "item_7eynDw": {
+          "type": "item",
+          "settings": {
+            "title": "Turmeric Extract",
+            "sub_title": "The inflammation defence.",
+            "content": "<p>Inflammation is a normal response to effort - the problem is when it doesn't fully resolve afterwards. Turmeric supports that daily repair process, helping the body actually come back from effort rather than carrying it forward.</p>"
+          }
+        },
+        "item_e99hKM": {
+          "type": "item",
+          "settings": {
+            "title": "Grape Seed Extract",
+            "sub_title": "The circulation layer.",
+            "content": "<p>None of this works if it never reaches the cell - Grape Seed Extract supports healthy blood flow, which is simply how the rest of the formula gets to where it needs to go.</p>"
+          }
+        },
+        "item_NUgehb": {
+          "type": "item",
+          "settings": {
+            "title": "Zinc & Copper",
+            "sub_title": "The repair minerals.",
+            "content": "<p>Zinc plays a direct role in cellular repair and immune function, and it's one of the minerals most commonly depleted in people who train regularly. Copper works alongside it - supporting energy production and keeping zinc properly balanced, rather than left to run unchecked on its own.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_drbzRY",
+        "item_9bLpAc",
+        "item_VaxhWc",
+        "item_zeMV8W",
+        "item_jNganj",
+        "item_B7VpRY",
+        "item_7eynDw",
+        "item_e99hKM",
+        "item_NUgehb"
+      ],
+      "disabled": true,
+      "name": "Custom Muto Insides",
+      "settings": {
+        "bg_color": "#e8e8e8",
+        "padding_top": 65,
+        "padding_bottom": 65,
+        "custom_class": "",
+        "heading": "<p>WHAT'S INSIDE,<br/>AND WHY</p>",
+        "heading_tag": "h2",
+        "heading_color": "#242223",
+        "sub_heading": "<p>Fifteen ingredients. Each one in the formula for a reason. Here are the ones that matter most — what they are, what they do, and why they're in MUTO.</p>"
+      }
+    },
+    "custom_ingredient_filter_Th8vLc": {
+      "type": "custom-ingredient-filter",
+      "blocks": {
+        "ingredient_01": {
+          "type": "ingredient",
+          "settings": {
+            "category": "produce",
+            "name": "Nicotinamide Riboside",
+            "dose": "300mg",
+            "text": "<p>A form of vitamin B3 found in trace amounts in milk, taken up by your cells and converted into NAD⁺, the coenzyme they use to turn food into usable energy.</p>"
+          }
+        },
+        "ingredient_02": {
+          "type": "ingredient",
+          "settings": {
+            "category": "produce",
+            "name": "Methylated B Complex",
+            "dose": "+100% NRV",
+            "text": "<p>The B vitamins in their pre-activated forms, already in the state your body uses, contributing to normal energy-yielding metabolism and the reduction of tiredness and fatigue.</p>"
+          }
+        },
+        "ingredient_03": {
+          "type": "ingredient",
+          "settings": {
+            "category": "produce",
+            "name": "Zinc",
+            "dose": "15mg",
+            "text": "<p>An essential mineral most people get from meat and shellfish, involved in hundreds of enzyme reactions, contributing to normal macronutrient metabolism and the protection of cells from oxidative stress.</p>"
+          }
+        },
+        "ingredient_04": {
+          "type": "ingredient",
+          "settings": {
+            "category": "produce",
+            "name": "Copper",
+            "dose": "1mg",
+            "text": "<p>A trace mineral found in nuts and shellfish, sitting at the final step of the chain your cells use to generate energy, contributing to normal energy-yielding metabolism.</p>"
+          }
+        },
+        "ingredient_05": {
+          "type": "ingredient",
+          "settings": {
+            "category": "protect",
+            "name": "Pterostilbene",
+            "dose": "100mg",
+            "text": "<p>A polyphenol found in blueberries, structurally similar to resveratrol but far better absorbed, included to support the cellular environment in which NAD⁺ does its work.</p>"
+          }
+        },
+        "ingredient_06": {
+          "type": "ingredient",
+          "settings": {
+            "category": "protect",
+            "name": "Quercetin",
+            "dose": "250mg",
+            "text": "<p>A flavonoid found in onions, apples and capers, one of the most studied polyphenols in the diet, included alongside pterostilbene for its role in cellular defence.</p>"
+          }
+        },
+        "ingredient_07": {
+          "type": "ingredient",
+          "settings": {
+            "category": "produce",
+            "name": "Turmeric Extract",
+            "dose": "200mg",
+            "text": "<p>A concentrated extract of the root used in cooking for centuries, standardised for curcuminoids, included for its role in the cellular environment NAD⁺ production depends on.</p>"
+          }
+        },
+        "ingredient_08": {
+          "type": "ingredient",
+          "settings": {
+            "category": "protect",
+            "name": "Grape Seed Extract",
+            "dose": "200mg",
+            "text": "<p>A concentrated source of proanthocyanidins from wine grape seeds, one of the richest polyphenol sources in the food supply, included to support the cellular environment.</p>"
+          }
+        },
+        "ingredient_09": {
+          "type": "ingredient",
+          "settings": {
+            "category": "work",
+            "name": "CoQ10",
+            "dose": "50mg",
+            "text": "<p>A compound your body makes and finds in organ meats, it sits inside the mitochondria and shuttles electrons along the chain that produces energy, working directly downstream of NAD⁺.</p>"
+          }
+        },
+        "ingredient_10": {
+          "type": "ingredient",
+          "settings": {
+            "category": "work",
+            "name": "Vitamin D3",
+            "dose": "1000IU",
+            "text": "<p>The form your skin makes from sunlight, difficult to get enough of from a British winter, contributing to normal muscle function and the normal function of the immune system.</p>"
+          }
+        },
+        "ingredient_11": {
+          "type": "ingredient",
+          "settings": {
+            "category": "work",
+            "name": "Vitamin K2",
+            "dose": "75µg",
+            "text": "<p>Found in fermented foods like natto and aged cheese, it directs calcium to where it belongs and contributes to the maintenance of normal bones.</p>"
+          }
+        },
+        "ingredient_12": {
+          "type": "ingredient",
+          "settings": {
+            "category": "work",
+            "name": "Bioperine",
+            "dose": "20mg",
+            "text": "<p>A standardised black pepper extract that increases the absorption of several of the compounds above, so more of what's on the label reaches your cells.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_01",
+        "ingredient_02",
+        "ingredient_03",
+        "ingredient_04",
+        "ingredient_05",
+        "ingredient_06",
+        "ingredient_07",
+        "ingredient_08",
+        "ingredient_09",
+        "ingredient_10",
+        "ingredient_11",
+        "ingredient_12"
+      ],
+      "name": "Custom Ingredient Filter",
+      "settings": {
+        "bg_color": "#fafafa",
+        "ink_color": "#242223",
+        "card_color": "#c8d2cf",
+        "accent_start": "#5efaff",
+        "accent_end": "#f0ff84",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "custom_class": "",
+        "heading": "The blend you’ll feel & track on your wearable",
+        "heading_tag": "h2",
+        "intro": "<p>The most bioavailable forms, at doses that hold up. Formulated so you feel it, then check it against your wearable data. Third-party tested for heavy metals, microbes and purity. </p>",
+        "label_all": "All",
+        "label_produce": "Produce",
+        "label_protect": "Protect",
+        "label_work": "Put to work"
+      }
+    },
+    "custom_precision_quality_Kq7mDx": {
+      "type": "custom-precision-quality",
+      "blocks": {
+        "claim_1": {
+          "type": "claim",
+          "settings": {
+            "text": "No fillers"
+          }
+        },
+        "claim_2": {
+          "type": "claim",
+          "settings": {
+            "text": "No proprietary blends"
+          }
+        },
+        "claim_3": {
+          "type": "claim",
+          "settings": {
+            "text": "No stimulants"
+          }
+        },
+        "claim_4": {
+          "type": "claim",
+          "settings": {
+            "text": "Full doses on label"
+          }
+        },
+        "proof_1": {
+          "type": "proof",
+          "settings": {
+            "icon": "chart",
+            "title": "Effective doses",
+            "text": "<p>Every ingredient at the dose used in the research to ensure real, measurable change.</p>",
+            "meta": "15 ingredients · Every dose on the label"
+          }
+        },
+        "proof_2": {
+          "type": "proof",
+          "settings": {
+            "icon": "atom",
+            "title": "Bio-available forms",
+            "text": "<p>A dose only counts if it's absorbed. Methylated, active B vitamins, and BioPerine to carry the rest.</p>",
+            "meta": "Methylated B complex · BioPerine"
+          }
+        },
+        "proof_3": {
+          "type": "proof",
+          "settings": {
+            "icon": "shield",
+            "title": "Proven where it counts",
+            "text": "<p>NAD+ up 51% in 14 days in published research. Built with a scientific board, third-party tested.</p>",
+            "meta": "+51% NAD+ in 14 days¹ · Independently tested"
+          }
+        }
+      },
+      "block_order": [
+        "claim_1",
+        "claim_2",
+        "claim_3",
+        "claim_4",
+        "proof_1",
+        "proof_2",
+        "proof_3"
+      ],
+      "settings": {
+        "bg_color": "#fafafa",
+        "ink_color": "#242223",
+        "wash_color": "#e0fca8",
+        "wash_opacity": 45,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "custom_class": "",
+        "heading": "We believe in precision and unmatched quality",
+        "heading_tag": "h2"
+      }
+    },
+    "custom_pathways_NdLnEJ": {
+      "type": "custom-pathways",
+      "blocks": {
+        "pathway_k9Bfym": {
+          "type": "pathway",
+          "settings": {
+            "title": "PRODUCE - the fuel your cells need",
+            "sub_title": "Your cells need raw material to make NAD+, plus a few essentials to turn it into energy.",
+            "content": "<p>Key ingredients</p><ul><li><strong>Nicotinamide Riboside (NR), 300mg<br/></strong>the building block your cells turn into NAD+.</li><li><strong>B1, B2, B3, B6, Folate, B12</strong><br/>the vitamins that power energy production. We use the active forms of folate and B12, so your body can use them straight away.</li><li><strong>Zinc, 15mg</strong><br/>a key mineral your cells rely on to turn raw material into usable NAD+.</li><li><strong>Copper, 1mg</strong><br/>works alongside zinc to keep that energy-making process running smoothly.</li></ul>"
+          }
+        },
+        "pathway_qHPpVM": {
+          "type": "pathway",
+          "settings": {
+            "title": "PROTECT - keeping your NAD+ working",
+            "sub_title": "Your body breaks NAD+ down as fast as it makes it. Protecting it matters as much as producing it.",
+            "content": "<p>Key ingredients</p><ul><li><strong>Quercetin, 250mg<br/></strong>helps block the enzyme that breaks NAD+ down, so more of it sticks around.</li><li><strong>Pterostilbene, 100mg</strong><br/>supports your cells' natural defences.</li><li><strong>Grapeseed Extract, 200mg</strong><br/>a plant antioxidant that helps shield your cells from everyday wear and tear.</li><li><strong>Turmeric Extract, 200mg</strong><br/>supports your cells' natural defences, so they can keep protecting your NAD+ over time.</li></ul>"
+          }
+        },
+        "pathway_D6Q3Pc": {
+          "type": "pathway",
+          "settings": {
+            "title": "PUT TO WORK - turning it into energy you feel",
+            "sub_title": "The final step: making sure that energy actually gets used.",
+            "content": "<p>Key ingredients</p><ul><li><strong>Coenzyme Q10, 50mg<br/></strong>works inside the mitochondria, where energy is actually made.</li><li><strong>BioPerine®️, 20mg</strong><br/>helps your body absorb everything above, instead of losing it.</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "pathway_k9Bfym",
+        "pathway_qHPpVM",
+        "pathway_D6Q3Pc"
+      ],
+      "disabled": true,
+      "name": "Custom Pathways",
+      "settings": {
+        "bg_color": "#e8e8e8",
+        "padding_top": 110,
+        "padding_bottom": 90,
+        "custom_class": "",
+        "heading": "<p>THREE ACTIONS.<br/>ONE COMPLETE NAD+ PROTOCOL.</p>",
+        "heading_tag": "h2",
+        "heading_color": "#242223",
+        "sub_copyHeading": "<p>Formulated to help your body produce, protect and put NAD+ to work</p>",
+        "sub_heading": "<p>View full ingredients</p>",
+        "sub_link": "https://mutolongevity.com/pages/science#ingredients",
+        "main_image": "shopify://shop_images/pathways.jpg",
+        "image_description": "<p>MUTO combines NAD⁺ support, mitochondrial nutrients, active vitamins, minerals, and polyphenols to support energy, recovery, and performance.</p>"
+      }
+    },
+    "custom_contains_table_jGCfjH": {
+      "type": "custom-contains-table",
+      "blocks": {
+        "compare_row_iKY8e8": {
+          "type": "compare_row",
+          "settings": {
+            "row_label": "Verified wearable outcomes",
+            "muto_text": "",
+            "muto_status": "check",
+            "other_text_1": "",
+            "other_status_1": "dash",
+            "other_text_2": "",
+            "other_status_2": "dash",
+            "showIcon": true
+          }
+        },
+        "compare_row_riwjKe": {
+          "type": "compare_row",
+          "settings": {
+            "row_label": "Comprehensive cellular formula",
+            "muto_text": "",
+            "muto_status": "check",
+            "other_text_1": "",
+            "other_status_1": "cross",
+            "other_text_2": "",
+            "other_status_2": "cross",
+            "showIcon": true
+          }
+        },
+        "compare_row_pPGpiB": {
+          "type": "compare_row",
+          "settings": {
+            "row_label": "Clinical dose clarity",
+            "muto_text": "",
+            "muto_status": "check",
+            "other_text_1": "",
+            "other_status_1": "dash",
+            "other_text_2": "",
+            "other_status_2": "cross",
+            "showIcon": true
+          }
+        },
+        "compare_row_LPNUdB": {
+          "type": "compare_row",
+          "settings": {
+            "row_label": "Supports mitochondria",
+            "muto_text": "",
+            "muto_status": "check",
+            "other_text_1": "",
+            "other_status_1": "dash",
+            "other_text_2": "",
+            "other_status_2": "cross",
+            "showIcon": true
+          }
+        },
+        "compare_row_d4qEtF": {
+          "type": "compare_row",
+          "settings": {
+            "row_label": "Antioxidant support",
+            "muto_text": "",
+            "muto_status": "check",
+            "other_text_1": "",
+            "other_status_1": "dash",
+            "other_text_2": "",
+            "other_status_2": "cross",
+            "showIcon": true
+          }
+        },
+        "compare_row_LqdmAN": {
+          "type": "compare_row",
+          "settings": {
+            "row_label": "Reduces stack costs",
+            "muto_text": "",
+            "muto_status": "check",
+            "other_text_1": "",
+            "other_status_1": "cross",
+            "other_text_2": "",
+            "other_status_2": "cross",
+            "showIcon": true
+          }
+        },
+        "compare_row_U984FE": {
+          "type": "compare_row",
+          "settings": {
+            "row_label": "No crash cycles",
+            "muto_text": "",
+            "muto_status": "check",
+            "other_text_1": "",
+            "other_status_1": "check",
+            "other_text_2": "",
+            "other_status_2": "cross",
+            "showIcon": true
+          }
+        },
+        "compare_row_baiaEL": {
+          "type": "compare_row",
+          "settings": {
+            "row_label": ">99% Purity tested",
+            "muto_text": "",
+            "muto_status": "check",
+            "other_text_1": "",
+            "other_status_1": "dash",
+            "other_text_2": "",
+            "other_status_2": "cross",
+            "showIcon": true
+          }
+        }
+      },
+      "block_order": [
+        "compare_row_iKY8e8",
+        "compare_row_riwjKe",
+        "compare_row_pPGpiB",
+        "compare_row_LPNUdB",
+        "compare_row_d4qEtF",
+        "compare_row_LqdmAN",
+        "compare_row_U984FE",
+        "compare_row_baiaEL"
+      ],
+      "disabled": true,
+      "name": "Custom Contains Table",
+      "settings": {
+        "bg_color": "#fafafa",
+        "background_image": "shopify://shop_images/hero-banner.jpg",
+        "padding_top": 50,
+        "padding_bottom": 65,
+        "custom_class": "",
+        "heading": "<p>One protocol can replace the stack.</p>",
+        "heading_tag": "h2",
+        "heading_color": "#5efaff",
+        "muto_title": "Muto",
+        "muto_icon": "shopify://shop_images/Muto-White-Logo.svg",
+        "other_title_1": "Other NAD⁺ Supplements",
+        "other_title_2": "Caffeine & Stimulants",
+        "bottom_heading": "<p>MUTO can replace multiple products in a typical cellular health stack, helping customers <strong>save up to £75 per month</strong> compared to buying each category separately.</p>",
+        "bottom_sub_heading": "<p>Savings estimate based on comparable monthly servings across NAD⁺ support, CoQ10, antioxidants, active B vitamins, and minerals.</p>",
+        "bottom_image": "shopify://shop_images/pills-trimed.png"
+      }
+    },
+    "custom_faqs_EXtqWa": {
+      "type": "custom-faqs",
+      "blocks": {
+        "faq_BQAJKd": {
+          "type": "faq",
+          "settings": {
+            "heading": "What ingredients does MUTO contain?",
+            "content": "<p>Fifteen ingredients, working as one system rather than fifteen separate add-ons. At the core is Nicotinamide Riboside, the ingredient your body converts directly into NAD+, supported by CoQ10, Pterostilbene, Quercetin, Grape Seed Extract, Turmeric Extract, a methylated B-complex, Zinc, Copper, Vitamin D3, K2 and BioPerine for absorption, together feeding all six of the body's NAD+ pathways. Full doses are disclosed on our Science page. Nothing hidden behind a proprietary blend.</p>"
+          }
+        },
+        "faq_FbwF6B": {
+          "type": "faq",
+          "settings": {
+            "heading": "Can MUTO replace my current supplement stack?",
+            "content": "<p>For most people, yes. MUTO is built to replace a typical seven-product cellular stack, NAD+ support, B vitamins, minerals, antioxidants, polyphenols, vitamins D3 & K2, in two capsules a day. That works out to around £45 a month versus £120 a month buying each one separately, a saving of roughly £75 a month. If you're taking something specific to a medical condition, check with your doctor before stopping it.</p>"
+          }
+        },
+        "faq_RcHdm7": {
+          "type": "faq",
+          "settings": {
+            "heading": "When will I feel a difference?",
+            "content": "<p>Most people notice steadier energy within the first week, with recovery starting to improve by around day 30. By day 60 to 90, the shift usually shows up in your wearable data too: HRV and resting heart rate are validated markers of cellular recovery. MUTO compounds rather than resets, so the longer you stay on it, the stronger your baseline gets.</p>"
+          }
+        },
+        "faq_KFUWda": {
+          "type": "faq",
+          "settings": {
+            "heading": "Do I need to cycle on and off MUTO?",
+            "content": "<p>No. MUTO isn't a stimulant, so there's no tolerance to build and nothing to cycle off from. It's designed for daily, ongoing use. The benefits build the longer you stay consistent, not fade the longer you take it.</p>"
+          }
+        },
+        "faq_VVKQgq": {
+          "type": "faq",
+          "settings": {
+            "heading": "Can I take MUTO with other supplements?",
+            "content": "<p>Generally, yes. MUTO is formulated to work alongside most everyday supplements. The one thing to watch is significant overlap, like a separate NAD+ or B-vitamin product, where you'd risk doubling up rather than adding anything. If you're on prescription medication, check with your doctor first.</p>"
+          }
+        },
+        "faq_VOKQnj": {
+          "type": "faq",
+          "settings": {
+            "heading": "Is MUTO safe for children or pregnant women?",
+            "content": "<p>MUTO is formulated for adults and isn't intended for anyone under 18. If you're pregnant, breastfeeding, or trying to conceive, please speak to your doctor before taking MUTO or any new supplement.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_BQAJKd",
+        "faq_FbwF6B",
+        "faq_RcHdm7",
+        "faq_KFUWda",
+        "faq_VVKQgq",
+        "faq_VOKQnj"
+      ],
+      "name": "Custom FAQs",
+      "settings": {
+        "bg_color": "#fafafa",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "custom_class": "",
+        "heading": "",
+        "bottom_text": "<p>Have more questions? Explore our full <a href=\"/pages/faqs\" title=\"FAQs\">FAQ</a> for more on information, or <a href=\"/pages/contact\" title=\"Contact\">Contact Us</a>.</p>"
+      }
+    },
+    "custom_reviews_KpXTpD": {
+      "type": "custom-reviews",
+      "name": "Custom Reviews",
+      "settings": {
+        "bg_color": "#fafafa",
+        "padding_top": 110,
+        "padding_bottom": 50,
+        "custom_class": "",
+        "heading": "<p>Customer reviews</p>",
+        "heading_tag": "h2",
+        "heading_color": "#242223",
+        "show_review_bar": false,
+        "review_content": "<script src=\"https://widget.reviews.io/polaris/build.js\"></script>\n<div id=\"ReviewsWidget\"></div>\n<script>\nnew ReviewsWidget('#ReviewsWidget', {\n//Your REVIEWS.io Store ID and widget type:\nstore: 'mutolongevity.com',\nwidget: 'polaris',\n\n//Content settings (store_review,product_review,third_party_review,questions). Choose what to display in this widget:\noptions: {\n    types: 'product_review',\n    enable_sentiment_analysis: true,\n    lang: 'en',\n    //Possible layout options: bordered, large and reverse.\n    layout: '',\n    //How many reviews & questions to show per page?\n    per_page: 15,\n    store_review:{\n      hide_if_no_results: true,\n    },\n    third_party_review:{\n      hide_if_no_results: true,\n    },\n    product_review: {\n      sku: \"{{ product.variants | map: 'sku' | join: ';' }};{{ product.variants | map: 'id' | join: ';' }}\",\n      enable_rich_snippets: true,\n\n      /* Your custom Structured Data */\n      structured_data: {\n\n        name: {{ product.title | strip_html | json }},\n        category: {{ product.type | json }},\n        {% capture gtin_length %}{{ product.variants.first.barcode | size }}{% endcapture %}\n\n\n        {% if gtin_length == \"14\" %}\n           gtin14:\"{{product.variants.first.barcode}}\",\n        {% elsif gtin_length == \"13\" %}\n           gtin13:\"{{product.variants.first.barcode}}\",\n        {% elsif gtin_length == \"12\" %}\n           gtin12:\"{{product.variants.first.barcode}}\",\n        {% endif %}\n\n        url: \"{{ shop.url }}{{ product.url }}\",\n\n        {%- if product.featured_image -%}\n          image: \"https:{{ product.featured_image | image_url: 'grande' }}\",\n        {%- endif -%}\n\n        {% if variant.image %}\n          {% assign variant_image_size = variant.image.width | append: 'x' %}\n          image: \"http:{{ variant.image.src | image_url: variant_image_size }}\",\n        {% endif %}\n\n        description: \"{{ product.description | strip_html | strip_newlines | escape }}\",\n        {% assign ruk_current_variant = product.selected_or_first_available_variant %}\n        {% assign ruk_variant_count = product.variants | size %}\n        {% assign ruk_count = 0 %}\n\n        {% if product.variants %}\n          {% assign ruk_count = ruk_count | plus: 1 %}\n\n          offers: [{\n              type: \"Offer\",\n              priceCurrency: \"{{ cart.currency.iso_code }}\",\n              price: \"{{ ruk_current_variant.price | money_without_currency }}\",\n              itemCondition: \"http://schema.org/NewCondition\",\n              availability: \"http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}\",\n              url: \"{{ shop.url }}{{ ruk_current_variant.url }}\",\n\n              {% if ruk_current_variant.image %}\n                  {% assign variant_image_size = ruk_current_variant.image.width | append: 'x' %}\n                  image: \"https:{{ ruk_current_variant.image.src | image_url: variant_image_size }}\",\n              {% else %}\n                  image: \"https:{{ product.featured_image.src | image_url: 'grande' }}\",\n              {% endif %}\n\n              {% if ruk_current_variant.title != 'Default Title' %}\n                  name: \"{{ product.title | strip_html | escape }} - {{ fa_current_variant.title | escape }}\",\n              {% else %}\n                  name: \"{{ product.title | strip_html | escape }}\",\n              {% endif %}\n\n              {% if ruk_current_variant.barcode.size == 12 %}\n                  gtin12: \"{{ ruk_current_variant.barcode }}\",\n              {% endif %}\n\n              {% if ruk_current_variant.barcode.size == 13 %}\n                  gtin13: \"{{ ruk_current_variant.barcode }}\",\n              {% endif %}\n\n              {% if ruk_current_variant.barcode.size == 14 %}\n                  gtin14: \"{{ ruk_current_variant.barcode }}\",\n              {% endif %}\n\n              {% if ruk_current_variant.sku != blank %}\n                  sku: \"{{ ruk_current_variant.sku }}\",\n              {% else %}\n                  sku: \"{{ ruk_current_variant.id }}\",\n              {% endif %}\n\n              {% if product.description != blank %}\n                  description: \"{{ product.description | strip_html | escape | strip_newlines }}\",\n              {% endif %}\n\n              priceValidUntil: \"{{ 'now' | date: '%s' | plus: 31536000 | date: '%Y-%m-%d' | replace:' ','%20' }}\"\n          }],\n        {% endif %}\n\n        brand: {\n          type: 'Brand',\n          name: '{{ product.vendor | escape }}',\n        },\n      },\n    },\n\n    /* Toggle Options */\n    questions:{\n          hide_if_no_results:false,\n          enable_ask_question:true,\n          show_dates:true,\n          grouping:\"{{ product.variants | map: 'sku' | join: ';' }};{{ product.variants | map: 'id' | join: ';' }}\"\n    },\n\n    //Header settings:\n    header:{\n        enable_summary: true, //Show overall rating & review count\n        enable_ratings: true,\n        enable_attributes: false,\n        enable_image_gallery: false, //Show photo & video gallery\n        enable_percent_recommended: false, //Show what percentage of reviewers recommend it\n        enable_write_review: true, //Show \"Write Review\" button\n        enable_ask_question: false, //Show \"Ask Question\" button\n        enable_sub_header: true, //Show subheader\n        rating_decimal_places: 2,\n        use_write_review_button:  true, //Show \"be the first to leave a review\" text as a button\n        enable_if_no_results:  true, //Show header when there are no results\n        show_review_title_field:  true, //Show review title field in write review form\n    },\n\n    //AI summary settings\n    sentiment:{\n        badge_text: 'Our Customers Say'\n    },\n\n    //Filtering settings:\n    filtering:{\n        enable: true, //Show filtering options\n        enable_text_search: true, //Show search field\n        enable_sorting: true, //Show sorting options (most recent, most popular)\n        enable_product_filter: false, //Show product options filter\n        enable_media_filter: false, //Show reviews with images/video/media options\n        enable_overall_rating_filter: false, //Show overall rating breakdown filter\n        enable_language_filter: false, // Filter by review language\n        enable_language_filter_language_change: false, // Update widget language based on language selected\n        enable_ratings_filters: false, //Show product attributes filter\n        enable_attributes_filters: false, //Show author attributes filter\n        enable_expanded_filters: false, //Show filters as a section instead of dropdown\n    },\n\n    //Review settings:\n    reviews:{\n        enable_avatar: false, //Show author avatar\n        enable_reviewer_name:  true, //Show author name\n        enable_reviewer_address:  true, //Show author location\n        reviewer_address_format: 'city, country', //Author location display format\n        enable_verified_badge: false, //Show \"Verified Customer\" badge\n        enable_subscriber_badge: false, //Show \"Verified Subscriber\" badge\n        review_content_filter: 'undefined', //Filter content\n        enable_reviewer_recommends: false, //Show \"I recommend it\" badge\n        enable_attributes: false, //Show author attributes\n        enable_product_name: false, //Show display product name\n        enable_link_product: false, //Link review to product page\n        enable_review_title: undefined, //Show review title\n        enable_replies: false, //Show review replies\n        enable_images: false, //Show display review photos\n        enable_ratings: false, //Show product attributes (additional ratings)\n        enable_share: false, //Show share buttons\n        enable_helpful_vote: false, //Show \"was this helpful?\" section\n        enable_helpful_display: false, //Show how many times times review upvoted\n        enable_report: false, //Show report button\n        enable_date: false, //Show when review was published\n        date_format: 'undefined', ////Review date format (undefined, 'DD/MM/YYYY', 'MM/DD/YYYY', 'YYYY/MM/DD')\n        date_location: 'undefined', //Review date location (undefined, 'top-right')\n        enable_third_party_source: true, //Show third party source\n        enable_duplicate_reviews: undefined, //Show multiple reviews from the same user\n        combine_title_stars: true, //Combine review title and star rating in a single line\n        show_untranslated: false, //Show untranslated reviews\n\n    },\n},\n//Translation settings\ntranslations: {\n    'Verified Customer': 'Verified Customer'\n},\n//Style settings:\nstyles: {\n    //Base font size is a reference size for all text elements. When base value gets changed, all TextHeading and TexBody elements get proportionally adjusted.\n    '--base-font-size': '16px',\n\n    //Button styles (shared between buttons):\n    '--common-button-font-family': 'inherit',\n    '--common-button-font-size':'16px',\n    '--common-button-font-weight':'500',\n    '--common-button-letter-spacing':'0',\n    '--common-button-text-transform':'none',\n    '--common-button-vertical-padding':'10px',\n    '--common-button-horizontal-padding':'20px',\n    '--common-button-border-width':'2px',\n    '--common-button-border-radius':'0px',\n\n    //Primary button styles:\n    '--primary-button-bg-color': '#0E1311',\n    '--primary-button-border-color': '#0E1311',\n    '--primary-button-text-color': '#ffffff',\n\n    //Secondary button styles:\n    '--secondary-button-bg-color': 'transparent',\n    '--secondary-button-border-color': '#0E1311',\n    '--secondary-button-text-color': '#0E1311',\n\n    //Star styles:\n    '--common-star-color': '#0E1311',\n    '--common-star-disabled-color': 'rgba(0,0,0,0.25)',\n    '--medium-star-size': '22px',\n    '--small-star-size': '19px',\n\n    //Heading styles:\n    '--heading-text-color': '#0E1311',\n    '--heading-text-font-weight': '600',\n    '--heading-text-font-family': 'inherit',\n    '--heading-text-line-height': '1.4',\n    '--heading-text-letter-spacing': '0',\n    '--heading-text-transform': 'none',\n\n    //Body text styles:\n    '--body-text-color': '#0E1311',\n    '--body-text-font-weight': '400',\n    '--body-text-font-family': 'inherit',\n    '--body-text-line-height': '1.4',\n    '--body-text-letter-spacing': '0',\n    '--body-text-transform': 'none',\n\n    //Input field styles:\n    '--inputfield-text-font-family': 'inherit',\n    '--input-text-font-size': '14px',\n    '--inputfield-text-font-weight': '400',\n    '--inputfield-text-color': '#0E1311',\n    '--inputfield-border-color': 'rgba(0,0,0,0.2)',\n    '--inputfield-background-color': 'transparent',\n    '--inputfield-border-width': '1px',\n    '--inputfield-border-radius': '0px',\n\n    '--common-border-color': 'rgba(0,0,0,0.15)',\n    '--common-border-width': '1px',\n    '--common-sidebar-width': '190px',\n\n    //Filters panel styles:\n    '--filters-panel-bg-color': 'transparent',\n    '--filters-panel-font-size': '16px',\n    '--filters-panel-text-color': '16px',\n    '--filters-panel-horizontal-padding': '0',\n    '--filters-panel-vertical-padding': '0',\n\n    //Slider indicator (for attributes) styles:\n    '--slider-indicator-bg-color': 'rgba(0,0,0,0.1)',\n    '--slider-indicator-button-color': '#0E1311',\n    '--slider-indicator-width': '190px',\n\n    //Badge styles:\n    '--badge-icon-color': '#0E1311',\n    '--badge-icon-font-size': 'inherit',\n    '--badge-text-color': '#0E1311',\n    '--badge-text-font-size': 'inherit',\n    '--badge-text-letter-spacing': 'inherit',\n    '--badge-text-transform': 'inherit',\n\n    //Author styles:\n    '--author-font-size': 'inherit',\n    '--author-text-transform': 'none',\n\n    //Author avatar styles:\n    '--avatar-thumbnail-size': '60px',\n    '--avatar-thumbnail-border-radius': '100px',\n    '--avatar-thumbnail-text-color': '#0E1311',\n    '--avatar-thumbnail-bg-color': 'rgba(0,0,0,0.1)',\n\n    //Product photo or review photo styles:\n    '--photo-video-thumbnail-size': '80px',\n    '--photo-video-thumbnail-border-radius': '0px',\n\n    //Media (photo & video) slider styles:\n    '--mediaslider-scroll-button-icon-color': '#0E1311',\n    '--mediaslider-scroll-button-bg-color': 'rgba(255, 255, 255, 0.85)',\n    '--mediaslider-overlay-text-color': '#ffffff',\n    '--mediaslider-overlay-bg-color': 'rgba(0, 0, 0, 0.8))',\n    '--mediaslider-item-size': '110px',\n\n    //Pagination & tabs styles (normal):\n    '--pagination-tab-text-color': '#0E1311',\n    '--pagination-tab-text-transform': 'none',\n    '--pagination-tab-text-letter-spacing': '0',\n    '--pagination-tab-text-font-size': '16px',\n    '--pagination-tab-text-font-weight': '600',\n\n    //Pagination & tabs styles (active):\n    '--pagination-tab-active-text-color': '#0E1311',\n    '--pagination-tab-active-text-font-weight': '600',\n    '--pagination-tab-active-border-color': '#0E1311',\n    '--pagination-tab-border-width': '3px',\n\n    //AI summary styles\n    '--sentiment-base-font-size': '15px',\n    '--sentiment-panel-bg-color': 'transparent',\n    '--sentiment-panel-border-size': '1px',\n    '--sentiment-panel-border-color': 'rgba(0, 0, 0, 0.1)',\n    '--sentiment-panel-border-radius': '0px',\n    '--sentiment-panel-shadow-size': '0px',\n    '--sentiment-panel-shadow-color': 'rgba(0, 0, 0, 0.1)',\n    '--sentiment-heading-text-color': '#0E1311',\n    '--sentiment-heading-text-font-weight': '600',\n    '--sentiment-heading-text-font-family': 'inherit',\n    '--sentiment-heading-text-line-height': '1.4',\n    '--sentiment-heading-text-letter-spacing': '0',\n    '--sentiment-heading-text-transform': 'none',\n    '--sentiment-body-text-color': '#0E1311',\n    '--sentiment-body-text-font-weight': '400',\n    '--sentiment-body-text-font-family': 'inherit',\n    '--sentiment-body-text-line-height': '1.4',\n    '--sentiment-body-text-letter-spacing': '0',\n    '--sentiment-body-text-transform': 'none',\n    '--sentiment-panel-vertical-padding': '25px',\n    '--sentiment-panel-horizontal-padding': '20px',\n    '--sentiment-header-text-color': 'inherit',\n    '--sentiment-header-text-font-size': '12px',\n    '--sentiment-header-text-font-weight': 'inherit',\n    '--sentiment-header-bg-color': 'rgba(0, 0, 0, 0.04)',\n    '--sentiment-header-border-radius': '50px',\n    '--sentiment-header-shadow-size': '0px',\n    '--sentiment-header-shadow-color': 'rgba(0, 0, 0, 0.1)',\n    '--sentiment-header-vertical-padding': '7px',\n    '--sentiment-header-horizontal-padding': '10px',\n    '--sentiment-pagination-tab-text-font-size': '13px',\n    '--sentiment-pagination-tab-text-font-weight': '600',\n    '--sentiment-pagination-tab-text-color': '#0E1311',\n    '--sentiment-pagination-tab-text-transform': 'none',\n    '--sentiment-pagination-tab-text-letter-spacing': '0',\n    '--sentiment-pagination-tab-active-text-color': '#0E1311',\n    '--sentiment-pagination-tab-active-text-font-weight': '600',\n    '--sentiment-pagination-tab-active-border-color': '#0E1311',\n    '--sentiment-pagination-tab-border-width': '3px',\n},\n});\n</script>",
+        "show_button": true,
+        "button_label": "Load more reviews",
+        "button_link": "#",
+        "button_style": "gradient-secondary"
+      }
+    },
+    "custom_sticky_product_bar_yVdw4r": {
+      "type": "custom-sticky-product-bar",
+      "name": "Custom Sticky Product Bar",
+      "settings": {
+        "selected_product": "",
+        "button_label": "Add To Cart",
+        "sticky_position": "bottom"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_showecase_slider_7TLVAQ",
+    "custom_product_highlights_banner_VGbadE",
+    "custom_benefits_toggle_Wm3xQ7",
+    "custom_reviews_pAHKzP",
+    "custom_usage_timeline_8FjWp3",
+    "custom_product_reality_N93FCT",
+    "custom_product_statistics_hGXQKb",
+    "custom_experts_showcase_FjAJKJ",
+    "custom_ninety_days_Rz4tPn",
+    "custom_energy_card_slider_9kyWgr",
+    "custom_muto_insides_ReWFNz",
+    "custom_ingredient_filter_Th8vLc",
+    "custom_precision_quality_Kq7mDx",
+    "custom_pathways_NdLnEJ",
+    "custom_contains_table_jGCfjH",
+    "custom_faqs_EXtqWa",
+    "custom_reviews_KpXTpD",
+    "custom_sticky_product_bar_yVdw4r"
+  ]
+}

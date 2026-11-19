@@ -1,0 +1,77 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_X7cwxb": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_haDNkx": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>{{ page.title }}</p>",
+            "heading_size": "hxl",
+            "heading_tag": "h1",
+            "heading_color": "#5EFAFF"
+          }
+        },
+        "text_g8c6ec": {
+          "type": "text",
+          "settings": {
+            "text": "email our team directly and we’ll get back to you within 1 working day",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_haDNkx",
+        "text_g8c6ec"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "allow_transparent_header": true,
+        "image": "shopify://shop_images/contact-bg.jpg",
+        "image_overlay_opacity": 30,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "left",
+        "show_text_below": false
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "enable_title": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "form": {
+      "type": "contact-form",
+      "settings": {
+        "heading": "",
+        "heading_size": "h2",
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "image_banner_X7cwxb",
+    "main",
+    "form"
+  ]
+}

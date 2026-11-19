@@ -1,0 +1,165 @@
+{%- comment -%}
+  MUTO — announcement bar.
+
+  Sits in the header group, so it is the first thing on every page at every
+  width. Messages rotate one at a time.
+
+  Self-contained on purpose, including its own CSS, JS and font face. It
+  renders on every page of the site, not just the MUTO templates, and those
+  other pages do not load muto-home.css — so a shared stylesheet would leave
+  the bar unstyled exactly where it is most visible. It is small enough that
+  an extra blocking request in front of the header would cost more than it
+  saves, so the styles are inline rather than an asset.
+
+  WITHOUT JAVASCRIPT, and for anyone who asks for reduced motion, the bar
+  does not rotate: every message is shown at once, separated by a middot.
+  That is the markup's natural state — the rotator is what JS switches it
+  into — so there is no flash of all three before the first paint settles,
+  and nothing is ever hidden with no way to reach it.
+{%- endcomment -%}
+
+{%- liquid
+  assign bg = section.settings.bg | default: '#5DF9FF'
+  assign ink = section.settings.ink | default: '#000000'
+  assign wait = section.settings.speed | default: 5 | times: 1000
+-%}
+
+{%- if section.blocks.size > 0 -%}
+  <style>
+    @font-face{font-family:"Sometype Mono";src:url("https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gempages_SometypeMono-VariableFont_wght.ttf?v=1788157466") format("truetype-variations");font-weight:400 700;font-style:normal;font-display:swap}
+
+    .ma{background:{{ bg }};color:{{ ink }}}
+    .ma__bar{padding:9px 20px;display:flex;justify-content:center}
+    .ma__list{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;
+      margin:0;padding:0;list-style:none}
+    .ma__item{font-family:"Sometype Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+      font-size:11px;line-height:16px;font-weight:500;letter-spacing:.06em;
+      text-transform:uppercase;text-align:center}
+    .ma__item + .ma__item::before{content:"·";display:inline-block;margin:0 12px;opacity:.55}
+    .ma__item a{color:inherit;text-decoration:none;border-bottom:1px solid currentColor;
+      padding-bottom:1px}
+
+    /* The rotator. One grid cell, every message stacked in it, so the bar is
+       as tall as its tallest line and does not jump as they change. */
+    .ma__bar[data-ma-ready] .ma__list{display:grid;grid-template-areas:"ma";width:100%}
+    .ma__bar[data-ma-ready] .ma__item{grid-area:ma;opacity:0;visibility:hidden;
+      transition:opacity 420ms cubic-bezier(.2,0,.2,1)}
+    .ma__bar[data-ma-ready] .ma__item[data-ma-on]{opacity:1;visibility:visible}
+    .ma__bar[data-ma-ready] .ma__item + .ma__item::before{display:none}
+
+    /* Not rotating, on a phone: the messages stack rather than running on,
+       which otherwise leaves a middot starting a line wherever it wraps. */
+    @media screen and (max-width:749px){
+      .ma__bar:not([data-ma-ready]) .ma__list{flex-direction:column;gap:4px}
+      .ma__bar:not([data-ma-ready]) .ma__item + .ma__item::before{display:none}
+    }
+
+    @media screen and (min-width:750px){
+      .ma__bar{padding:10px 24px}
+      .ma__item{font-size:12px;line-height:17px}
+    }
+  </style>
+
+  <div class="ma">
+    <div class="ma__bar" data-ma data-ma-speed="{{ wait }}" role="region" aria-label="{{ section.settings.label | escape }}">
+      <ul class="ma__list">
+        {%- for block in section.blocks -%}
+          {%- if block.settings.text != blank -%}
+            <li class="ma__item" data-ma-item {{ block.shopify_attributes }}>
+              {%- if block.settings.link != blank -%}
+                <a href="{{ block.settings.link }}">{{ block.settings.text | escape }}</a>
+              {%- else -%}
+                {{- block.settings.text | escape -}}
+              {%- endif -%}
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+      document.querySelectorAll('[data-ma]').forEach(function (bar) {
+        var items = bar.querySelectorAll('[data-ma-item]');
+        if (items.length < 2 || reduce.matches) return;
+
+        var wait = 2500;
+        var at = 0;
+        var timer = null;
+
+        bar.setAttribute('data-ma-ready', '');
+        show(0);
+
+        function show(n) {
+          items[at].removeAttribute('data-ma-on');
+          at = n;
+          items[at].setAttribute('data-ma-on', '');
+        }
+        function step() { show((at + 1) % items.length); }
+        function stop() { if (timer) { clearInterval(timer); timer = null; } }
+        function play() { stop(); timer = setInterval(step, wait); }
+
+        /* Auto-updating copy has to be stoppable: pointer and keyboard both
+           hold it, and a backgrounded tab stops paying for a timer. */
+        bar.addEventListener('mouseenter', stop);
+        bar.addEventListener('mouseleave', play);
+        bar.addEventListener('focusin', stop);
+        bar.addEventListener('focusout', play);
+        document.addEventListener('visibilitychange', function () {
+          if (document.hidden) { stop(); } else { play(); }
+        });
+
+        /* In the theme editor, selecting a message should show that message
+           and leave it up while it is being edited. */
+        document.addEventListener('shopify:block:select', function (e) {
+          var i = Array.prototype.indexOf.call(items, e.target);
+          if (i > -1) { stop(); show(i); }
+        });
+        document.addEventListener('shopify:block:deselect', play);
+
+        play();
+      });
+    })();
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "MUTO — Announcement bar",
+  "tag": "section",
+  "class": "ma-section",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "color", "id": "bg", "label": "Background", "default": "#5DF9FF" },
+    { "type": "color", "id": "ink", "label": "Text", "default": "#000000" },
+    { "type": "range", "id": "speed", "label": "Seconds per message", "min": 3, "max": 10, "step": 1, "unit": "s", "default": 5 },
+    { "type": "text", "id": "label", "label": "Screen reader name", "default": "Store announcements", "info": "Not shown. Names the bar for assistive technology." }
+  ],
+  "blocks": [
+    {
+      "type": "message",
+      "name": "Message",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "Free gifts with every order" },
+        { "type": "url", "id": "link", "label": "Link", "info": "Optional." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MUTO — Announcement bar",
+      "blocks": [
+        { "type": "message", "settings": { "text": "New & improved formulation live" } },
+        { "type": "message", "settings": { "text": "Free gifts with every order" } },
+        { "type": "message", "settings": { "text": "Stock limited" } }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "groups": ["header"]
+  }
+}
+{% endschema %}

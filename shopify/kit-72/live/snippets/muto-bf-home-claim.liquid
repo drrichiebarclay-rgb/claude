@@ -1,0 +1,164 @@
+{%- comment -%}
+  MUTO — home page Black Friday bar: Claim (muto-bf-home-claim). Rendered by sections/muto-bf-head.liquid on the
+  home page only. The home page's bar (#mc-bfbar, in a custom-liquid section of templates/index.json) used to
+  scroll to an offer box that isn't on the home page, so a tap did nothing. This gives it the product pages'
+  Claim: a real /cart/add link for the 3-month plan, and on tap (fresh cart check, one add, the side cart opens,
+  the theme adds the welcome gifts). The bar's look and wording stay as they are in the template.
+{%- endcomment -%}
+{%- liquid
+  assign hp = all_products['muto-nad-cellular-complex']
+  assign h_variant = ''
+  assign h_plan = ''
+  if hp != blank
+    for pv in hp.variants
+      if h_variant != blank
+        break
+      endif
+      for alloc in pv.selling_plan_allocations
+        assign h_n = alloc.selling_plan.name | downcase
+        if h_n contains '3-month' or h_n contains '3 month' or h_n contains 'quarter'
+          if pv.available
+            assign h_variant = pv.id
+            assign h_plan = alloc.selling_plan.id
+            break
+          endif
+        endif
+      endfor
+    endfor
+  endif
+-%}
+{%- if h_variant != blank -%}
+<style>
+  .mc-bfbar__busy{display:none;align-items:center;gap:10px}
+  .mc-bfbar.is-busy > :not(.mc-bfbar__busy){display:none!important}
+  .mc-bfbar.is-busy .mc-bfbar__busy{display:inline-flex}
+  .mc-bfbar__spin{width:12px;height:12px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:mcBfbarSpin .7s linear infinite}
+  @keyframes mcBfbarSpin{to{transform:rotate(360deg)}}
+  @media (prefers-reduced-motion:reduce){.mc-bfbar__spin{animation:none}}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var b = document.getElementById('mc-bfbar');
+  if (!b) return;
+  var href = {{ routes.cart_add_url | json }} + '?id={{ h_variant }}&quantity=1&selling_plan={{ h_plan }}';
+  b.setAttribute('href', href);
+  b.setAttribute('data-variant', '{{ h_variant }}');
+  b.setAttribute('data-plan', '{{ h_plan }}');
+  b.setAttribute('role', 'button');
+  b.setAttribute('aria-label', 'Black Friday offer: adds the 3-month plan with the free welcome kit and opens the cart.');
+  if (!b.querySelector('.mc-bfbar__busy')) {
+    var s = document.createElement('span');
+    s.className = 'mc-bfbar__busy'; s.setAttribute('aria-hidden', 'true');
+    s.innerHTML = '<span class="mc-bfbar__spin"></span>Adding your Black Friday offer&hellip;';
+    b.appendChild(s);
+  }
+  /* The template's own handler only scrolls to an offer box, which isn't on the home page, so it does nothing here */
+
+  /* Claim: inline, straight after the bar, so it works from the first tap (it used to wait for a deferred
+     file). The bar changes the moment it's tapped. At tap time the cart is read fresh (never a copy from page
+     load: someone may have removed the plan in the side cart since), then the add returns the side cart's new
+     contents in the same response. */
+  (function () {
+    var bar = document.getElementById('mc-bfbar');
+    if (!bar || bar.getAttribute('data-ready')) return;
+    bar.setAttribute('data-ready', '1');
+    var vid = bar.getAttribute('data-variant'), plan = bar.getAttribute('data-plan');
+    var planId = plan ? parseInt(plan, 10) : null;
+    var root = (window.Shopify && Shopify.routes && Shopify.routes.root) || '/';
+    var busy = false;
+  
+    /* The cart as it is now. Always a fresh read: a copy taken at page load goes stale as soon as the shopper
+       changes the side cart, and then a tap after removing the plan would add nothing. */
+    function getCart() {
+      return fetch(root + 'cart.js', { credentials: 'same-origin', cache: 'no-store' })
+        .then(function (r) { return r.ok ? r.json() : { items: [] }; })
+        .catch(function () { return { items: [] }; });
+    }
+  
+    function go(url) { window.location.href = url; }
+    function idle() { busy = false; bar.classList.remove('is-busy'); bar.removeAttribute('aria-busy'); }
+  
+    /* Open the theme's side cart with the sections the add returned, the way the theme's own Add to cart does
+       (assets/product-form.js): clear the drawer's empty state first, or a cart that started empty opens with
+       no items showing, then tell the rest of the page the cart changed. No side cart: the cart page. */
+    function openDrawer(sections, res) {
+      var d = document.querySelector('cart-drawer');
+      if (d && typeof d.renderContents === 'function' && sections && sections['cart-drawer']) {
+        d.classList.remove('is-empty');
+        var items = d.querySelector('cart-drawer-items');
+        if (items) items.classList.remove('is-empty');
+        var state = res || {};
+        state.sections = sections;
+        d.renderContents(state);
+        d.classList.remove('is-empty');
+        announce(res);
+        idle();
+        return true;
+      }
+      go(root + 'cart');
+      return false;
+    }
+    /* Tell the theme the cart changed, exactly as its own Add to cart does. This is what adds the free welcome
+       gifts (custom.js listens for it and adds the 3-month kit: creatine, socks, bottle, vial, Garmin entry).
+       PUB_SUB_EVENTS and publish are top-level declarations in constants.js / pubsub.js, not window properties,
+       so they are checked with typeof. If the theme's listener isn't attached yet (a very early tap: custom.js
+       loads late on these pages), wait for the page to finish loading and announce then. */
+    function announce(res) {
+      function fire() {
+        try {
+          if (typeof publish === 'function' && typeof PUB_SUB_EVENTS !== 'undefined') {
+            publish(PUB_SUB_EVENTS.cartUpdate, { source: 'muto-bf-home-claim', productVariantId: vid, cartData: res });
+            return true;
+          }
+        } catch (err) {}
+        return false;
+      }
+      var ready = false;
+      try { ready = typeof subscribers !== 'undefined' && typeof PUB_SUB_EVENTS !== 'undefined' && (subscribers[PUB_SUB_EVENTS.cartUpdate] || []).length > 0; } catch (err) {}
+      if (ready || document.readyState === 'complete') { fire(); return; }
+      window.addEventListener('load', function () { setTimeout(fire, 0); }, { once: true });
+    }
+    function openDrawerFresh() {
+      var d = document.querySelector('cart-drawer');
+      if (!d || typeof d.renderContents !== 'function') return go(root + 'cart');
+      fetch(root + '?sections=cart-drawer,cart-icon-bubble', { credentials: 'same-origin' })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (s) { if (!openDrawer(s)) return; })
+        .catch(function () { go(root + 'cart'); });
+    }
+  
+    bar.addEventListener('click', function (e) {
+      if (!vid || !window.fetch) return; /* the link itself does the job */
+      e.preventDefault();
+      if (busy) return;
+      busy = true;
+      bar.classList.add('is-busy');
+      bar.setAttribute('aria-busy', 'true');
+      /* Never leave someone waiting: if nothing has happened in 6 seconds, use the plain link */
+      var safety = setTimeout(function () { if (busy) go(bar.getAttribute('href')); }, 6000);
+      getCart().then(function (cart) {
+        var has = (cart.items || []).some(function (it) {
+          var sp = it.selling_plan_allocation && it.selling_plan_allocation.selling_plan;
+          return String(it.variant_id) === String(vid) && (sp ? sp.id : null) === planId;
+        });
+        if (has) { clearTimeout(safety); return openDrawerFresh(); }
+        var item = { id: parseInt(vid, 10), quantity: 1 };
+        if (planId) item.selling_plan = planId;
+        return fetch(root + 'cart/add.js', {
+          method: 'POST', credentials: 'same-origin',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ items: [item], sections: 'cart-drawer,cart-icon-bubble', sections_url: window.location.pathname })
+        })
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .then(function (res) {
+            clearTimeout(safety);
+            if (!res) return go(bar.getAttribute('href'));
+            openDrawer(res.sections, res);
+          });
+      }).catch(function () { clearTimeout(safety); go(bar.getAttribute('href')); });
+    });
+  })();
+  
+});
+</script>
+{%- endif -%}

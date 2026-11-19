@@ -1,0 +1,81 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_fCRCQ6": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_HEFXT6": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>BENEATH THE SURFACE</p>",
+            "heading_size": "hxl",
+            "heading_tag": "h1",
+            "heading_color": "#5efaff"
+          }
+        },
+        "text_74aaFP": {
+          "type": "text",
+          "settings": {
+            "text": "The science, the system, and the story underneath MUTO.",
+            "text_style": "body"
+          }
+        },
+        "buttons_zdDNkd": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Now",
+            "button_link_1": "",
+            "button_style_1": "gradient-primary",
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_2": "gradient-secondary"
+          }
+        }
+      },
+      "block_order": [
+        "heading_HEFXT6",
+        "text_74aaFP",
+        "buttons_zdDNkd"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "allow_transparent_header": true,
+        "image": "shopify://shop_images/energy-hold.jpg",
+        "image_overlay_opacity": 30,
+        "image_height": "small",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "left",
+        "show_text_below": false
+      }
+    },
+    "main": {
+      "type": "main-blog",
+      "settings": {
+        "layout": "grid",
+        "show_image": true,
+        "image_height": "large",
+        "show_date": true,
+        "show_author": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "image_banner_fCRCQ6",
+    "main"
+  ]
+}

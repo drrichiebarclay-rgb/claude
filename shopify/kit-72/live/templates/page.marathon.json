@@ -1,0 +1,110 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_fdQ9ib": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_BkPhbW": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>RUN LONDON 2027 WITH US</p>",
+            "heading_size": "hxl",
+            "heading_tag": "h1",
+            "heading_color": "#fafafa"
+          }
+        }
+      },
+      "block_order": [
+        "heading_BkPhbW"
+      ],
+      "custom_css": [
+        "@media screen and (max-width: 749px) {.banner--mobile-bottom .banner__media {position: absolute; }}"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "allow_transparent_header": true,
+        "image": "shopify://shop_images/131695A7-62B5-4C9B-B5D8-40C24F56BE1C.png",
+        "image_overlay_opacity": 50,
+        "image_height": "small",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-1",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "enable_title": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_X3rpLr": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_MhpftD": {
+          "type": "heading",
+          "settings": {
+            "heading": "JOIN TEAM MUTO",
+            "heading_size": "h1"
+          }
+        },
+        "text_9ACimE": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We have 4 London Marathon places for 2027, and we're giving them to people who'll actually use the next six months properly.<br/><br/>This isn't a giveaway. You get the place, kit, coaching, nutrition and mindset support, MUTO throughout the block, and we'll follow your training as part of what we're building. In return we want someone who'll show up for it, on the start line and in the months before it.<br/><br/>Tell us why it's you. Applications close 23:59 on 28th September 2026.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_8YKRVE": {
+          "type": "button",
+          "settings": {
+            "button_label": "Register",
+            "button_link": "https://docs.google.com/forms/d/e/1FAIpQLScw8UGsT87N270MXrk0fohi6n36YJ5qKS0ECCEa2RjGraijMQ/viewform",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_MhpftD",
+        "text_9ACimE",
+        "button_8YKRVE"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/D833E04D-C66F-480B-827B-3C147A362E83.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "center",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "image_banner_fdQ9ib",
+    "main",
+    "image_with_text_X3rpLr"
+  ]
+}

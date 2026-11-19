@@ -1,0 +1,714 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "needs": {
+      "type": "muto-lst-needs",
+      "blocks": {
+        "opening": {
+          "type": "text",
+          "settings": {
+            "kicker": "",
+            "heading": "Doing everything right, and <em>still not feeling it</em>",
+            "body": "<p>You train when you can, you eat well most of the time and you get to bed at a sensible hour, and yet by the middle of the afternoon you still feel as though you’re running on empty.</p><p><strong>It tends to show up as an afternoon crash, a bit of brain fog and slower thinking at exactly the moment you need to be 100% there.</strong></p><p>It shows up in your body too, as heavy legs on the stairs the morning after a session you would once have shaken off without noticing.</p><p>You’ve probably tried the obvious things already and found that nothing had a lasting impact, and that another coffee was more of a Band-Aid than a fix.</p><p>Meanwhile life doesn’t stop for any of it, because there is still work, children and travel to manage, and you can’t simply lie on the sofa until you feel better.</p><p>According to researchers, at least part of the explanation may be somewhere a little less obvious than your diary:</p>",
+            "key": "The mitochondria in your cells make less energy as you get older."
+          }
+        },
+        "photo": {
+          "type": "image",
+          "settings": {
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/1riXJzYLZUz5XOw2mpZ7FGWaclMgJnMZI_s0.png?v=1792593102",
+            "image_alt": "A man in his fifties tying his trainers before a run",
+            "image_position": "50% 35%",
+            "caption": ""
+          }
+        },
+        "mito": {
+          "type": "text",
+          "settings": {
+            "kicker": "",
+            "heading": "",
+            "body": "<p>Mitochondria are the parts of your cells that turn the food you eat into ATP, which is the fuel that every cell in your body runs on.</p><p>When researchers compared the muscles of adults in their late 30s with those of adults in their late 60s, <strong>they found that the older group’s capacity to make energy was roughly half that of the younger group.</strong></p><p>That may be part of the reason your body takes longer to bounce back than it used to, and why you can’t simply go again the next day in the way you once could.</p>",
+            "key": ""
+          }
+        },
+        "chart": {
+          "type": "chart",
+          "settings": {
+            "title": "Muscle’s capacity to make energy, by age",
+            "rows": "Late 30s | 100 | 100%\nLate 60s | 50 | About 50%",
+            "source": "Conley KE, Jubrias SA, Esselman PC. Oxidative capacity and ageing in human muscle. J Physiol. 2000. Oxidative capacity per volume of muscle, shown relative to the younger group."
+          }
+        },
+        "why": {
+          "type": "dark",
+          "settings": {
+            "label": "Why it happens",
+            "heading": "Why energy falls with age",
+            "text": "<p>Your cells run on ATP, which is made inside the mitochondria, and there are three changes that come with age which affect how much of it they are able to produce.</p>",
+            "step_1_title": "Your mitochondria produce less",
+            "step_1_text": "Between your late 30s and your late 60s, the capacity of your muscles to make energy falls by roughly half.",
+            "step_2_title": "NAD+ and CoQ10 decline",
+            "step_2_text": "Your mitochondria depend on both of these molecules to do their work, and the levels of both fall with age in human tissue.",
+            "step_3_title": "You absorb and make less",
+            "step_3_text": "Your stomach makes less acid as you get older, which makes vitamin B12 from food harder to absorb, and your skin makes less vitamin D from the same amount of sunlight.",
+            "end": "Caffeine doesn’t reverse any of this, because all it does is block the signal that tells your brain you’re tired, which is why the crash comes back as soon as it wears off.",
+            "refs": "Conley KE, Jubrias SA, Esselman PC. Oxidative capacity and ageing in human muscle. J Physiol. 2000.\nShort KR, et al. Decline in skeletal muscle mitochondrial function with aging in humans. Proc Natl Acad Sci USA. 2005.\nMassudi H, et al. PLoS One. 2012. Kalén A, et al. Lipids. 1989.\nBaik HW, Russell RM. Vitamin B12 deficiency in the elderly. Annu Rev Nutr. 1999.\nMacLaughlin J, Holick MF. Aging decreases the capacity of human skin to produce vitamin D3. J Clin Invest. 1985."
+          }
+        },
+        "cta1": {
+          "type": "cta",
+          "settings": {
+            "label": "See today’s Black Friday offer",
+            "link": "",
+            "note": "90-day money-back guarantee on subscriptions. Skip, pause or cancel online."
+          }
+        },
+        "seven": {
+          "type": "text",
+          "settings": {
+            "kicker": "",
+            "heading": "7 nutrients your cells <em>rely on</em> for energy",
+            "body": "<p>People often tell me they feel lost as to what really matters, so I would rather explain this properly than try to justify it.</p><p>These are the seven nutrients I look for as a cell biologist, with a plain-English account of what each one does, what the research says about it and where the evidence is still thin.</p>",
+            "key": ""
+          }
+        },
+        "nad": {
+          "type": "need",
+          "settings": {
+            "short": "NAD+",
+            "title": "NAD+",
+            "dose_label": "Look for",
+            "dose": "300mg of nicotinamide riboside (NR), the maximum permitted in UK supplements",
+            "body": "<p>NAD+ is found in every cell you have, and your mitochondria can’t turn food into energy without it, yet the amount in your tissues falls steadily as you get older. You can’t simply swallow NAD+ itself because it is poorly absorbed, so what you take instead is something your body can build it from, which is usually nicotinamide riboside (NR), a form of vitamin B3.</p>",
+            "science": "In samples of human skin, NAD+ levels were lower with age, from newborns to people in their 70s. | 1\nIn a placebo-controlled trial, 300mg of NR a day raised NAD+ in the blood by about 51% within two weeks. | 2\nWhat we don’t know yet is whether raising NAD+ makes people feel more energetic. The trials so far have measured levels in the body.",
+            "claim": "Niacin (vitamin B3) contributes to normal energy-yielding metabolism and to the reduction of tiredness and fatigue.",
+            "refs": "Massudi H, et al. Age-associated changes in oxidative stress and NAD+ metabolism in human tissue. PLoS One. 2012.\nConze D, Brenner C, Kruger CL. Safety and metabolism of long-term administration of NIAGEN (nicotinamide riboside chloride) in a randomized, double-blind, placebo-controlled clinical trial of healthy overweight adults. Sci Rep. 2019.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
+          }
+        },
+        "coq10": {
+          "type": "need",
+          "settings": {
+            "short": "CoQ10",
+            "title": "CoQ10",
+            "dose_label": "Look for",
+            "dose": "150mg, taken with food",
+            "body": "<p>CoQ10 does one of the jobs in the chain of reactions that makes ATP inside your mitochondria, and although your body makes its own supply, it makes less of it after your twenties and you get very little from food.</p>",
+            "science": "CoQ10 levels in human organs, including the heart, are highest at around age 20 and then decline. | 1\nA 2022 analysis of 13 randomised trials involving 1,126 people found that CoQ10 reduced fatigue scores compared with placebo. | 2\nCoQ10 is fat-soluble and is absorbed better when taken with food. | 3",
+            "claim": "",
+            "refs": "Kalén A, Appelkvist EL, Dallner G. Age-related changes in the lipid compositions of rat and human tissues. Lipids. 1989.\nTsai IC, et al. Effectiveness of coenzyme Q10 supplementation for reducing fatigue: a systematic review and meta-analysis of randomized controlled trials. Front Pharmacol. 2022.\nBhagavan HN, Chopra RK. Coenzyme Q10: absorption, tissue uptake, metabolism and pharmacokinetics. Free Radic Res. 2006."
+          }
+        },
+        "bvits": {
+          "type": "need",
+          "settings": {
+            "short": "B vitamins",
+            "title": "B vitamins, in their active forms",
+            "dose_label": "Look for",
+            "dose": "all eight B vitamins, with B12 as methylcobalamin, folate as 5-MTHF and B6 as P5P",
+            "body": "<p>Nearly every step of getting energy out of your food needs a B vitamin, and because many products use forms that your body has to convert before it can use them, I look for the methylated versions, 5-MTHF and methylcobalamin, which don’t need that extra step.</p>",
+            "science": "Absorbing vitamin B12 from food becomes harder with age, mainly because the stomach makes less acid. | 1\nA common variant of the MTHFR gene makes the enzyme that activates folic acid less efficient. | 2\n5-MTHF raises folate levels at least as well as folic acid. | 3",
+            "claim": "Vitamins B2, B3, B5, B6, B12 and folate contribute to the reduction of tiredness and fatigue. Thiamin, riboflavin, niacin, pantothenic acid, vitamin B6, vitamin B12 and biotin contribute to normal energy-yielding metabolism.",
+            "refs": "Baik HW, Russell RM. Vitamin B12 deficiency in the elderly. Annu Rev Nutr. 1999.\nFrosst P, et al. A candidate genetic risk factor for vascular disease: a common mutation in methylenetetrahydrofolate reductase. Nat Genet. 1995.\nPietrzik K, Bailey L, Shane B. Folic acid and L-5-methyltetrahydrofolate: comparison of clinical pharmacokinetics and pharmacodynamics. Clin Pharmacokinet. 2010.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
+          }
+        },
+        "creatine": {
+          "type": "need",
+          "settings": {
+            "short": "Creatine",
+            "title": "Creatine",
+            "dose_label": "Look for",
+            "dose": "3 to 5g of creatine monohydrate a day",
+            "body": "<p>People are often surprised to see creatine on this list because they think of it as something for the gym, but all it really does is help your muscles remake ATP quickly when you ask a lot of them, whether that is a set of squats or two flights of stairs.</p>",
+            "science": "The International Society of Sports Nutrition describes creatine monohydrate as the most effective supplement available for high-intensity exercise capacity. | 1\nOn a normal diet, creatine stores in muscle are around 60 to 80% full. | 1\nAdults lose roughly 3 to 8% of their muscle mass each decade after 30. | 2",
+            "claim": "Creatine increases physical performance in successive bursts of short-term, high-intensity exercise. The beneficial effect is obtained with a daily intake of 3g of creatine.",
+            "refs": "Kreider RB, et al. International Society of Sports Nutrition position stand: safety and efficacy of creatine supplementation in exercise, sport, and medicine. J Int Soc Sports Nutr. 2017.\nVolpi E, Nazemi R, Fujita S. Muscle tissue changes with aging. Curr Opin Clin Nutr Metab Care. 2004.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
+          }
+        },
+        "zinc": {
+          "type": "need",
+          "settings": {
+            "short": "Zinc and copper",
+            "title": "Zinc and copper, together",
+            "dose_label": "Look for",
+            "dose": "15mg of zinc with 1mg of copper, both as bisglycinate",
+            "body": "<p>Zinc helps your body process the carbohydrate, fat and protein you eat, and copper is part of one of the final enzymes in your mitochondria’s energy chain, but because the two compete with each other for absorption they are best taken together.</p>",
+            "science": "Zinc taken long-term without copper can lower the body’s copper levels. | 1\nIn a crossover study, zinc bisglycinate was absorbed 43% better than zinc gluconate. | 2\nZinc levels tend to fall with age. | 3",
+            "claim": "Copper contributes to normal energy-yielding metabolism. Zinc contributes to normal macronutrient metabolism and to the protection of cells from oxidative stress.",
+            "refs": "Fosmire GJ. Zinc toxicity. Am J Clin Nutr. 1990.\nGandia P, et al. A bioavailability study comparing two oral formulations containing zinc (Zn bis-glycinate vs. Zn gluconate) after a single administration to twelve healthy female volunteers. Int J Vitam Nutr Res. 2007.\nHaase H, Rink L. The immune system and the impact of zinc during aging. Immun Ageing. 2009.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
+          }
+        },
+        "d3k2": {
+          "type": "need",
+          "settings": {
+            "short": "Vitamin D3 and K2",
+            "title": "Vitamin D3 and K2",
+            "dose_label": "Look for",
+            "dose": "2,000 IU of vitamin D3 with 100µg of vitamin K2 as MK-7",
+            "body": "<p>Your muscles need vitamin D to work normally and your body makes it from sunlight, which is a problem in Britain between October and March and becomes more of one as you age, because older skin makes less of it anyway. Vitamin K2 is its usual partner.</p>",
+            "science": "Skin from people in their late 70s and 80s produced less than half the vitamin D of skin from young people. | 1\nUK health advice is that everyone should consider a daily vitamin D supplement in autumn and winter. | 2\nVitamin D3 raises blood levels of vitamin D more effectively than D2. | 3\nMK-7 stays in the body longer than vitamin K1. | 4",
+            "claim": "Vitamin D contributes to the maintenance of normal muscle function and normal bones. Vitamin K contributes to the maintenance of normal bones.",
+            "refs": "MacLaughlin J, Holick MF. Aging decreases the capacity of human skin to produce vitamin D3. J Clin Invest. 1985.\nScientific Advisory Committee on Nutrition. Vitamin D and Health. 2016.\nTripkovic L, et al. Comparison of vitamin D2 and vitamin D3 supplementation in raising serum 25-hydroxyvitamin D status: a systematic review and meta-analysis. Am J Clin Nutr. 2012.\nSchurgers LJ, et al. Vitamin K-containing dietary supplements: comparison of synthetic vitamin K1 and natto-derived menaquinone-7. Blood. 2007.\nRegulation (EU) No 432/2012, as retained in UK law: list of permitted health claims."
+          }
+        },
+        "pqq": {
+          "type": "need",
+          "settings": {
+            "short": "PQQ and trans-resveratrol",
+            "title": "PQQ and trans-resveratrol",
+            "dose_label": "Look for",
+            "dose": "20mg of PQQ and 50mg of trans-resveratrol",
+            "body": "<p>I’ll be upfront and say that these two are the least proven nutrients on the list, because most of the research so far has been done in cells or in small groups of people, although both are being studied for what they do in the mitochondria.</p>",
+            "science": "In cell studies, PQQ activated a pathway that leads cells to build new mitochondria. | 1\nIn a small human study, PQQ changed markers in blood and urine linked to mitochondrial activity. | 2\nResveratrol has been widely studied in ageing research, including for its effect on cell pathways that depend on NAD+. | 3",
+            "claim": "",
+            "refs": "Chowanadisai W, et al. Pyrroloquinoline quinone stimulates mitochondrial biogenesis through cAMP response element-binding protein phosphorylation and increased PGC-1α expression. J Biol Chem. 2010.\nHarris CB, et al. Dietary pyrroloquinoline quinone (PQQ) alters indicators of inflammation and mitochondrial-related metabolism in human subjects. J Nutr Biochem. 2013.\nBaur JA, Sinclair DA. Therapeutic potential of resveratrol: the in vivo evidence. Nat Rev Drug Discov. 2006."
+          }
+        },
+        "cta2": {
+          "type": "cta",
+          "settings": {
+            "label": "See today’s Black Friday offer",
+            "link": "",
+            "note": "90-day money-back guarantee on subscriptions. Skip, pause or cancel online."
+          }
+        },
+        "reveal": {
+          "type": "text",
+          "settings": {
+            "kicker": "",
+            "heading": "How to get all seven <em>in one routine</em>",
+            "body": "<p>If you bought all seven separately you would end up with seven or eight pots on the kitchen counter, each running out at a different time, and it only takes a few forgotten days to find yourself back where you started.</p><p>It’s also worth saying that not everybody is a 25-year-old PT who can build their whole life around a routine.</p><p>That is the reason I made <strong>MUTO NAD+ Cellular Complex</strong>, which I think of as a one-stop shop for this list.</p><p>Six of the seven are in two capsules that you take with breakfast, with nothing to mix and nothing to carry around, so it becomes a habit as easy as brushing your teeth.</p><p>Creatine doesn’t fit into a capsule at a useful dose, so it comes as a separate pouch, which is free with your first subscription order.</p>",
+            "key": ""
+          }
+        },
+        "customer": {
+          "type": "quote",
+          "settings": {
+            "stars": true,
+            "text": "“Being in my mid 30s, everything has started to slow down. Muto is providing me with a sense of vitality which I haven’t experienced since my mid 20s”",
+            "name": "Jonathon R",
+            "note": "MUTO customer. Individual experience; results vary."
+          }
+        },
+        "answer": {
+          "type": "answer",
+          "settings": {
+            "label": "",
+            "heading": "What’s in <em>MUTO</em>",
+            "text": "",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-menu-offer.jpg?v=1793615475",
+            "image_alt": "A jar of MUTO NAD+ Cellular Complex beside its box, with every ingredient and dose printed on the side",
+            "image_position": "50% 70%",
+            "rows": "NAD+ | 300mg NR\nCoQ10 | 150mg\nB vitamins | All eight, in active forms\nCreatine | Free 250g pouch with a first subscription order\nZinc and copper | 15mg and 1mg, as bisglycinate\nVitamin D3 and K2 | 2,000 IU and 100µg\nPQQ and trans-resveratrol | 20mg and 50mg",
+            "ticks": "19 ingredients, no blends\nEvery batch independently tested\nMade in the UK\n90-day money-back guarantee",
+            "cta": "See today’s Black Friday offer",
+            "cta_link": "",
+            "foot": "Food supplements are not a substitute for a varied, balanced diet and a healthy lifestyle. If your tiredness is new, severe or doesn’t lift, speak to your GP. If you take medication, or are pregnant or breastfeeding, check with your doctor before taking supplements."
+          }
+        },
+        "timeline": {
+          "type": "timeline",
+          "settings": {
+            "heading": "Don’t take it on trust. <em>Track it.</em>",
+            "sub": "What customers tell us they notice. Individual results vary.",
+            "intro": "This is a long burn rather than a quadruple espresso, so it helps to score your afternoons, sleep and recovery out of 10 on day 1, or to note your wearable’s numbers, and then compare them as you go.",
+            "items": "Day 1: Your starting point | Take two capsules with breakfast, because CoQ10 and vitamins D3 and K2 dissolve in fat and food helps your body take them in.\nDays 3–7: More energy, within days | The first thing most people tell us they notice is that the 3pm wall is lower and there is still some energy left for the evening. B vitamins contribute to the reduction of tiredness and fatigue.\nDay 30: Afternoons that hold | People tell us the lift stops feeling like one good day and starts to feel like their normal, which makes this a good moment to compare your afternoon score with day 1.\nDay 60: Ready to go again | A walk, a round of golf or a gym session no longer seems to hang around in your legs for days afterwards. Vitamin D contributes to normal muscle function.\nDay 90: Feeling like yourself | Many people say they hadn’t realised how flat they had been feeling, and if it isn’t for you, we refund every subscription payment, less delivery.",
+            "foot": "What customers tell us, not a clinical study, and not a guaranteed outcome. Our first UK clinical trial starts this December."
+          }
+        },
+        "offer": {
+          "type": "offer",
+          "settings": {
+            "label": "Today’s special offer",
+            "countdown": true,
+            "countdown_label": "Offer ends at midnight",
+            "countdown_end": "",
+            "heading": "The exclusive Black Friday <em>bundle</em>",
+            "sub": "Three months of NAD+ Cellular Complex, plus £72 of free gifts with your first order.",
+            "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-lp-kit-hero.jpg?v=1791969959",
+            "image_alt": "The MUTO welcome kit: NAD+ Cellular Complex jar and refill pouches, Ultrapure Creatine and the presentation box",
+            "price": "£33",
+            "price_note": "/mo",
+            "was": "£70",
+            "badge": "Save 53%",
+            "bill": "£1.10 a day, less than a coffee. £99 today for your first 3 months, then £125 for your next 3 months, then £150 every 3 months. Skip, pause or cancel online.",
+            "list_label": "What’s included",
+            "list_note": "£72 of free gifts",
+            "items": "NAD+ Cellular Complex, 3-month supply | Included | https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-menu-nad-jar.jpg?v=1793615985&width=120\nUltrapure creatine (250g) | <s>£30</s> Free | https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-creatine.jpg?v=1791022787&width=120\nSocks | <s>£12</s> Free | https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-socks.jpg?v=1791023071&width=120\nTravel vial | <s>£10</s> Free | https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-travel-vial.jpg?v=1793355262&width=120\nForever jar to keep | <s>£10</s> Free | https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-forever-jar.jpg?v=1791023224&width=120\n12-week guide | <s>£10</s> Free | https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-gift-guide-v2.jpg?v=1791392560&width=120\nEntry to win an Apple Watch | Free entry | https://cdn.shopify.com/s/files/1/0976/2724/2843/files/gift-sq-apple-watch.jpg?v=1794477407&width=120",
+            "ticks": "90-day money-back guarantee\nFree next-day UK delivery\nSkip, pause or cancel online",
+            "cta": "Claim today’s offer",
+            "note": "New subscribers. While stocks last. Adds the 3-Month Supply to your cart with your free welcome kit."
+          }
+        },
+        "trust": {
+          "type": "trust",
+          "settings": {
+            "heading": "Don’t take our word for it. <em>Check it.</em>",
+            "sub": "You’re putting this in your body every morning, so you should be able to see exactly what it is.",
+            "items": "Third-party tested | Every batch, by an independent UK lab | lab\nScientific board | Doctors and scientists review the formula | board\nMade in the UK | In a certified British facility | uk\nGMP certified | Made to Good Manufacturing Practice | gmp\nISO certified | Made in an ISO-certified facility | iso\nFiller-free | No fillers, no blends, no stimulants | leaf",
+            "board_title": "Reviewed by our scientific board",
+            "board_text": "Scientists in metabolism, sleep, performance and healthy ageing",
+            "board_faces": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/Dr_James_Cover_Final.png?width=120\nhttps://cdn.shopify.com/s/files/1/0976/2724/2843/files/Dr_Alka_Cover_Final.png?width=120\nhttps://cdn.shopify.com/s/files/1/0976/2724/2843/files/Dr_Richard_Cover_Final.png?width=120\nhttps://cdn.shopify.com/s/files/1/0976/2724/2843/files/Dr_Matt.png?width=120",
+            "label_link": "View nutrition table",
+            "label_image": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-nad-nutrition-label-desktop.png?v=1794505972",
+            "label_image_phone": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-nad-nutrition-label-phone.png?v=1794506117",
+            "label_alt": "NAD+ Cellular Complex nutrition label: amounts and %NRV per two-capsule serving, ingredients and cautions",
+            "tests_link": "View third-party test results"
+          }
+        }
+      },
+      "block_order": [
+        "opening",
+        "photo",
+        "mito",
+        "chart",
+        "why",
+        "cta1",
+        "seven",
+        "nad",
+        "coq10",
+        "bvits",
+        "creatine",
+        "zinc",
+        "d3k2",
+        "pqq",
+        "cta2",
+        "reveal",
+        "customer",
+        "answer",
+        "timeline",
+        "offer",
+        "trust"
+      ],
+      "settings": {
+        "article": true,
+        "news": false,
+        "direct": true,
+        "kicker": "",
+        "headline": "You’re doing everything right. So why are you still <em>running on empty</em> after 35?",
+        "standfirst": "A cell biologist explains why your afternoons fade and your body takes longer to bounce back as you get older, and how he came to put the seven nutrients he looks for into one daily formula.",
+        "sponsored": "Sponsored content",
+        "author_name": "By Dr Richie Barclay",
+        "author_role": "Cell biologist and founder of MUTO | November 2026",
+        "author_image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/about-founder.jpg?v=1790751995",
+        "author_image_position": "50% 20%",
+        "image_url": "https://cdn.shopify.com/s/files/1/0976/2724/2843/files/muto-step-morning.jpg?v=1793455074",
+        "image_alt": "A woman drinking coffee at her kitchen table in the morning light",
+        "image_caption": "",
+        "read_pill": "Estimated 5-7 minute read",
+        "product": "muto-nad-cellular-complex",
+        "hide_bf_bars": true,
+        "index_label": "",
+        "count_label": "Essential",
+        "science_label": "Research notes:",
+        "sources_label": "Sources"
+      }
+    },
+    "reviews": {
+      "type": "custom-reviews",
+      "name": "Custom Reviews",
+      "settings": {
+        "bg_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 40,
+        "custom_class": "",
+        "heading": "<p>What customers say</p>",
+        "heading_tag": "h2",
+        "heading_color": "#242223",
+        "show_review_bar": false,
+        "review_content": "<script src=\"https://widget.reviews.io/polaris/build.js\"></script>\n<div id=\"ReviewsWidget\"></div>\n<script>\nnew ReviewsWidget('#ReviewsWidget', {\n//Your REVIEWS.io Store ID and widget type:\nstore: 'mutolongevity.com',\nwidget: 'polaris',\n\n//Content settings (store_review,product_review,third_party_review,questions). Choose what to display in this widget:\noptions: {\n    types: 'product_review',\n    enable_sentiment_analysis: false,\n    lang: 'en',\n    //Possible layout options: bordered, large and reverse.\n    layout: '',\n    //How many reviews & questions to show per page?\n    per_page: 6,\n    store_review:{\n      hide_if_no_results: true,\n    },\n    third_party_review:{\n      hide_if_no_results: true,\n    },\n    product_review: {\n      sku: \"MR-OTP;MRS-1M;MRS-3M;52975220851035;52975220883803;52975220916571;10478822981979;muto-nad-cellular-complex;CREATINE-POUCH-OTP;CREATINE-POUCH-1M;CREATINE-POUCH-1.5M;WATER-BOTTLE;WHITE-SOCKS;NAD-1M-Month1;NAD-1M-Month2;NAD-1M-Month3;NAD-1M-Month4;NAD-1M-Month5;NAD-1M-Month6;NAD-3M-Month1;NAD-3M-Month4;NAD-3M-Month7andOn;NAD-1M-Month7andOn\",\n      enable_rich_snippets: false,\n\n      /* Your custom Structured Data */\n      structured_data: {\n\n        name: {{ product.title | strip_html | json }},\n        category: \"\",\n        {% capture gtin_length %}{{ product.variants.first.barcode | size }}{% endcapture %}\n\n\n        {% if gtin_length == \"14\" %}\n           gtin14:\"{{product.variants.first.barcode}}\",\n        {% elsif gtin_length == \"13\" %}\n           gtin13:\"{{product.variants.first.barcode}}\",\n        {% elsif gtin_length == \"12\" %}\n           gtin12:\"{{product.variants.first.barcode}}\",\n        {% endif %}\n\n        url: \"{{ shop.url }}{{ product.url }}\",\n\n        {%- if product.featured_image -%}\n          image: \"https:{{ product.featured_image | image_url: 'grande' }}\",\n        {%- endif -%}\n\n        {% if variant.image %}\n          {% assign variant_image_size = variant.image.width | append: 'x' %}\n          image: \"http:{{ variant.image.src | image_url: variant_image_size }}\",\n        {% endif %}\n\n        description: \"{{ product.description | strip_html | strip_newlines | escape }}\",\n        {% assign ruk_current_variant = product.selected_or_first_available_variant %}\n        {% assign ruk_variant_count = product.variants | size %}\n        {% assign ruk_count = 0 %}\n\n        {% if product.variants %}\n          {% assign ruk_count = ruk_count | plus: 1 %}\n\n          offers: [{\n              type: \"Offer\",\n              priceCurrency: \"{{ cart.currency.iso_code }}\",\n              price: \"{{ ruk_current_variant.price | money_without_currency }}\",\n              itemCondition: \"http://schema.org/NewCondition\",\n              availability: \"http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}\",\n              url: \"{{ shop.url }}{{ ruk_current_variant.url }}\",\n\n              {% if ruk_current_variant.image %}\n                  {% assign variant_image_size = ruk_current_variant.image.width | append: 'x' %}\n                  image: \"https:{{ ruk_current_variant.image.src | image_url: variant_image_size }}\",\n              {% else %}\n                  image: \"https:{{ product.featured_image.src | image_url: 'grande' }}\",\n              {% endif %}\n\n              {% if ruk_current_variant.title != 'Default Title' %}\n                  name: \"{{ product.title | strip_html | escape }} - {{ fa_current_variant.title | escape }}\",\n              {% else %}\n                  name: \"{{ product.title | strip_html | escape }}\",\n              {% endif %}\n\n              {% if ruk_current_variant.barcode.size == 12 %}\n                  gtin12: \"{{ ruk_current_variant.barcode }}\",\n              {% endif %}\n\n              {% if ruk_current_variant.barcode.size == 13 %}\n                  gtin13: \"{{ ruk_current_variant.barcode }}\",\n              {% endif %}\n\n              {% if ruk_current_variant.barcode.size == 14 %}\n                  gtin14: \"{{ ruk_current_variant.barcode }}\",\n              {% endif %}\n\n              {% if ruk_current_variant.sku != blank %}\n                  sku: \"{{ ruk_current_variant.sku }}\",\n              {% else %}\n                  sku: \"{{ ruk_current_variant.id }}\",\n              {% endif %}\n\n              {% if product.description != blank %}\n                  description: \"{{ product.description | strip_html | escape | strip_newlines }}\",\n              {% endif %}\n\n              priceValidUntil: \"{{ 'now' | date: '%s' | plus: 31536000 | date: '%Y-%m-%d' | replace:' ','%20' }}\"\n          }],\n        {% endif %}\n\n        brand: {\n          type: 'Brand',\n          name: '{{ product.vendor | escape }}',\n        },\n      },\n    },\n\n    /* Toggle Options */\n    questions:{\n          hide_if_no_results:false,\n          enable_ask_question:true,\n          show_dates:true,\n          grouping:\"{{ product.variants | map: 'sku' | join: ';' }};{{ product.variants | map: 'id' | join: ';' }}\"\n    },\n\n    //Header settings:\n    header:{\n        enable_summary: true, //Show overall rating & review count\n        enable_ratings: true,\n        enable_attributes: false,\n        enable_image_gallery: false, //Show photo & video gallery\n        enable_percent_recommended: false, //Show what percentage of reviewers recommend it\n        enable_write_review: false, //Show \"Write Review\" button\n        enable_ask_question: false, //Show \"Ask Question\" button\n        enable_sub_header: false, //Show subheader\n        rating_decimal_places: 2,\n        use_write_review_button:  true, //Show \"be the first to leave a review\" text as a button\n        enable_if_no_results:  true, //Show header when there are no results\n        show_review_title_field:  true, //Show review title field in write review form\n    },\n\n    //AI summary settings\n    sentiment:{\n        badge_text: 'Our Customers Say'\n    },\n\n    //Filtering settings:\n    filtering:{\n        enable: false, //Show filtering options\n        enable_text_search: false, //Show search field\n        enable_sorting: false, //Show sorting options (most recent, most popular)\n        enable_product_filter: false, //Show product options filter\n        enable_media_filter: false, //Show reviews with images/video/media options\n        enable_overall_rating_filter: false, //Show overall rating breakdown filter\n        enable_language_filter: false, // Filter by review language\n        enable_language_filter_language_change: false, // Update widget language based on language selected\n        enable_ratings_filters: false, //Show product attributes filter\n        enable_attributes_filters: false, //Show author attributes filter\n        enable_expanded_filters: false, //Show filters as a section instead of dropdown\n    },\n\n    //Review settings:\n    reviews:{\n        enable_avatar: false, //Show author avatar\n        enable_reviewer_name:  true, //Show author name\n        enable_reviewer_address:  true, //Show author location\n        reviewer_address_format: 'city, country', //Author location display format\n        enable_verified_badge: false, //Show \"Verified Customer\" badge\n        enable_subscriber_badge: false, //Show \"Verified Subscriber\" badge\n        review_content_filter: 'undefined', //Filter content\n        enable_reviewer_recommends: false, //Show \"I recommend it\" badge\n        enable_attributes: false, //Show author attributes\n        enable_product_name: false, //Show display product name\n        enable_link_product: false, //Link review to product page\n        enable_review_title: undefined, //Show review title\n        enable_replies: false, //Show review replies\n        enable_images: false, //Show display review photos\n        enable_ratings: false, //Show product attributes (additional ratings)\n        enable_share: false, //Show share buttons\n        enable_helpful_vote: false, //Show \"was this helpful?\" section\n        enable_helpful_display: false, //Show how many times times review upvoted\n        enable_report: false, //Show report button\n        enable_date: false, //Show when review was published\n        date_format: 'undefined', ////Review date format (undefined, 'DD/MM/YYYY', 'MM/DD/YYYY', 'YYYY/MM/DD')\n        date_location: 'undefined', //Review date location (undefined, 'top-right')\n        enable_third_party_source: true, //Show third party source\n        enable_duplicate_reviews: undefined, //Show multiple reviews from the same user\n        combine_title_stars: true, //Combine review title and star rating in a single line\n        show_untranslated: false, //Show untranslated reviews\n\n    },\n},\n//Translation settings\ntranslations: {\n    'Verified Customer': 'Verified Customer'\n},\n//Style settings:\nstyles: {\n    //Base font size is a reference size for all text elements. When base value gets changed, all TextHeading and TexBody elements get proportionally adjusted.\n    '--base-font-size': '16px',\n\n    //Button styles (shared between buttons):\n    '--common-button-font-family': 'inherit',\n    '--common-button-font-size':'16px',\n    '--common-button-font-weight':'500',\n    '--common-button-letter-spacing':'0',\n    '--common-button-text-transform':'none',\n    '--common-button-vertical-padding':'10px',\n    '--common-button-horizontal-padding':'20px',\n    '--common-button-border-width':'2px',\n    '--common-button-border-radius':'0px',\n\n    //Primary button styles:\n    '--primary-button-bg-color': '#0E1311',\n    '--primary-button-border-color': '#0E1311',\n    '--primary-button-text-color': '#ffffff',\n\n    //Secondary button styles:\n    '--secondary-button-bg-color': 'transparent',\n    '--secondary-button-border-color': '#0E1311',\n    '--secondary-button-text-color': '#0E1311',\n\n    //Star styles:\n    '--common-star-color': '#0E1311',\n    '--common-star-disabled-color': 'rgba(0,0,0,0.25)',\n    '--medium-star-size': '22px',\n    '--small-star-size': '19px',\n\n    //Heading styles:\n    '--heading-text-color': '#0E1311',\n    '--heading-text-font-weight': '600',\n    '--heading-text-font-family': 'inherit',\n    '--heading-text-line-height': '1.4',\n    '--heading-text-letter-spacing': '0',\n    '--heading-text-transform': 'none',\n\n    //Body text styles:\n    '--body-text-color': '#0E1311',\n    '--body-text-font-weight': '400',\n    '--body-text-font-family': 'inherit',\n    '--body-text-line-height': '1.4',\n    '--body-text-letter-spacing': '0',\n    '--body-text-transform': 'none',\n\n    //Input field styles:\n    '--inputfield-text-font-family': 'inherit',\n    '--input-text-font-size': '14px',\n    '--inputfield-text-font-weight': '400',\n    '--inputfield-text-color': '#0E1311',\n    '--inputfield-border-color': 'rgba(0,0,0,0.2)',\n    '--inputfield-background-color': 'transparent',\n    '--inputfield-border-width': '1px',\n    '--inputfield-border-radius': '0px',\n\n    '--common-border-color': 'rgba(0,0,0,0.15)',\n    '--common-border-width': '1px',\n    '--common-sidebar-width': '190px',\n\n    //Filters panel styles:\n    '--filters-panel-bg-color': 'transparent',\n    '--filters-panel-font-size': '16px',\n    '--filters-panel-text-color': '16px',\n    '--filters-panel-horizontal-padding': '0',\n    '--filters-panel-vertical-padding': '0',\n\n    //Slider indicator (for attributes) styles:\n    '--slider-indicator-bg-color': 'rgba(0,0,0,0.1)',\n    '--slider-indicator-button-color': '#0E1311',\n    '--slider-indicator-width': '190px',\n\n    //Badge styles:\n    '--badge-icon-color': '#0E1311',\n    '--badge-icon-font-size': 'inherit',\n    '--badge-text-color': '#0E1311',\n    '--badge-text-font-size': 'inherit',\n    '--badge-text-letter-spacing': 'inherit',\n    '--badge-text-transform': 'inherit',\n\n    //Author styles:\n    '--author-font-size': 'inherit',\n    '--author-text-transform': 'none',\n\n    //Author avatar styles:\n    '--avatar-thumbnail-size': '60px',\n    '--avatar-thumbnail-border-radius': '100px',\n    '--avatar-thumbnail-text-color': '#0E1311',\n    '--avatar-thumbnail-bg-color': 'rgba(0,0,0,0.1)',\n\n    //Product photo or review photo styles:\n    '--photo-video-thumbnail-size': '80px',\n    '--photo-video-thumbnail-border-radius': '0px',\n\n    //Media (photo & video) slider styles:\n    '--mediaslider-scroll-button-icon-color': '#0E1311',\n    '--mediaslider-scroll-button-bg-color': 'rgba(255, 255, 255, 0.85)',\n    '--mediaslider-overlay-text-color': '#ffffff',\n    '--mediaslider-overlay-bg-color': 'rgba(0, 0, 0, 0.8))',\n    '--mediaslider-item-size': '110px',\n\n    //Pagination & tabs styles (normal):\n    '--pagination-tab-text-color': '#0E1311',\n    '--pagination-tab-text-transform': 'none',\n    '--pagination-tab-text-letter-spacing': '0',\n    '--pagination-tab-text-font-size': '16px',\n    '--pagination-tab-text-font-weight': '600',\n\n    //Pagination & tabs styles (active):\n    '--pagination-tab-active-text-color': '#0E1311',\n    '--pagination-tab-active-text-font-weight': '600',\n    '--pagination-tab-active-border-color': '#0E1311',\n    '--pagination-tab-border-width': '3px',\n\n    //AI summary styles\n    '--sentiment-base-font-size': '15px',\n    '--sentiment-panel-bg-color': 'transparent',\n    '--sentiment-panel-border-size': '1px',\n    '--sentiment-panel-border-color': 'rgba(0, 0, 0, 0.1)',\n    '--sentiment-panel-border-radius': '0px',\n    '--sentiment-panel-shadow-size': '0px',\n    '--sentiment-panel-shadow-color': 'rgba(0, 0, 0, 0.1)',\n    '--sentiment-heading-text-color': '#0E1311',\n    '--sentiment-heading-text-font-weight': '600',\n    '--sentiment-heading-text-font-family': 'inherit',\n    '--sentiment-heading-text-line-height': '1.4',\n    '--sentiment-heading-text-letter-spacing': '0',\n    '--sentiment-heading-text-transform': 'none',\n    '--sentiment-body-text-color': '#0E1311',\n    '--sentiment-body-text-font-weight': '400',\n    '--sentiment-body-text-font-family': 'inherit',\n    '--sentiment-body-text-line-height': '1.4',\n    '--sentiment-body-text-letter-spacing': '0',\n    '--sentiment-body-text-transform': 'none',\n    '--sentiment-panel-vertical-padding': '25px',\n    '--sentiment-panel-horizontal-padding': '20px',\n    '--sentiment-header-text-color': 'inherit',\n    '--sentiment-header-text-font-size': '12px',\n    '--sentiment-header-text-font-weight': 'inherit',\n    '--sentiment-header-bg-color': 'rgba(0, 0, 0, 0.04)',\n    '--sentiment-header-border-radius': '50px',\n    '--sentiment-header-shadow-size': '0px',\n    '--sentiment-header-shadow-color': 'rgba(0, 0, 0, 0.1)',\n    '--sentiment-header-vertical-padding': '7px',\n    '--sentiment-header-horizontal-padding': '10px',\n    '--sentiment-pagination-tab-text-font-size': '13px',\n    '--sentiment-pagination-tab-text-font-weight': '600',\n    '--sentiment-pagination-tab-text-color': '#0E1311',\n    '--sentiment-pagination-tab-text-transform': 'none',\n    '--sentiment-pagination-tab-text-letter-spacing': '0',\n    '--sentiment-pagination-tab-active-text-color': '#0E1311',\n    '--sentiment-pagination-tab-active-text-font-weight': '600',\n    '--sentiment-pagination-tab-active-border-color': '#0E1311',\n    '--sentiment-pagination-tab-border-width': '3px',\n},\n});\n</script>",
+        "show_button": false,
+        "button_label": "Load more reviews",
+        "button_link": "#",
+        "button_style": "gradient-secondary"
+      }
+    },
+    "tests": {
+      "type": "muto-test-results",
+      "blocks": {
+        "c01": {
+          "type": "cert",
+          "settings": {
+            "lab": "ALS Laboratories (UK) Ltd",
+            "number": "TRTH2761685-1",
+            "scope": "Microbiology, batch 0725021",
+            "date": "22 Jul 2025"
+          }
+        },
+        "c02": {
+          "type": "cert",
+          "settings": {
+            "lab": "ALS Laboratories (UK) Ltd",
+            "number": "TRTH2761684-1",
+            "scope": "Microbiology, batch 0725022",
+            "date": "22 Jul 2025"
+          }
+        },
+        "c03": {
+          "type": "cert",
+          "settings": {
+            "lab": "M S Laboratories Ltd",
+            "number": "CR60146",
+            "scope": "Heavy metals, batches 0725021 and 0725022",
+            "date": "14 Aug 2025"
+          }
+        },
+        "t01": {
+          "type": "test",
+          "settings": {
+            "group": "Heavy metals",
+            "name": "Lead (Pb)",
+            "spec": "Under 3 mg/kg",
+            "result": "0.01 mg/kg",
+            "note": "300× under the limit",
+            "pass": true
+          }
+        },
+        "t02": {
+          "type": "test",
+          "settings": {
+            "group": "Heavy metals",
+            "name": "Arsenic (As)",
+            "spec": "No legal limit for supplements",
+            "result": "0.01 mg/kg",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t03": {
+          "type": "test",
+          "settings": {
+            "group": "Heavy metals",
+            "name": "Mercury (Hg)",
+            "spec": "Under 0.1 mg/kg",
+            "result": "Under 0.01 mg/kg",
+            "note": "Below what the lab can measure",
+            "pass": true
+          }
+        },
+        "t04": {
+          "type": "test",
+          "settings": {
+            "group": "Heavy metals",
+            "name": "Cadmium (Cd)",
+            "spec": "Under 1 mg/kg",
+            "result": "Under 0.01 mg/kg",
+            "note": "Below what the lab can measure",
+            "pass": true
+          }
+        },
+        "t05": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "Salmonella",
+            "spec": "Not detected in 25g",
+            "result": "Not detected",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t06": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "E. coli",
+            "spec": "Under 10 cfu/g",
+            "result": "Under 10 cfu/g",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t07": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "Enterobacteria",
+            "spec": "Under 10,000 cfu/g",
+            "result": "Under 10 cfu/g",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t08": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "Total viable count",
+            "spec": "Under 500,000 cfu/g",
+            "result": "10 cfu/g",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t09": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "Yeasts",
+            "spec": "Under 10,000 cfu/g",
+            "result": "Under 20 cfu/g",
+            "note": "",
+            "pass": true
+          }
+        },
+        "t10": {
+          "type": "test",
+          "settings": {
+            "group": "Microbes",
+            "name": "Moulds",
+            "spec": "Under 10,000 cfu/g",
+            "result": "Under 20 cfu/g",
+            "note": "",
+            "pass": true
+          }
+        },
+        "f01": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "TMG (trimethylglycine)",
+            "form": "Trimethylglycine",
+            "amount": "450mg"
+          }
+        },
+        "f02": {
+          "type": "item",
+          "settings": {
+            "group": "NR, for NAD+",
+            "name": "NR (nicotinamide riboside)",
+            "form": "Nicotinamide riboside",
+            "amount": "300mg"
+          }
+        },
+        "f03": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "Grape seed extract",
+            "form": "120:1 extract, 95% polyphenols (142.5mg)",
+            "amount": "150mg"
+          }
+        },
+        "f04": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "CoQ10",
+            "form": "Ubiquinone",
+            "amount": "150mg"
+          }
+        },
+        "f05": {
+          "type": "item",
+          "settings": {
+            "group": "Minerals",
+            "name": "Zinc",
+            "form": "Zinc bisglycinate",
+            "amount": "15mg"
+          }
+        },
+        "f06": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "Trans-resveratrol",
+            "form": "From Japanese knotweed root, 95%",
+            "amount": "50mg"
+          }
+        },
+        "f07": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin D3",
+            "form": "Cholecalciferol, from algae",
+            "amount": "50mcg (2,000 IU)"
+          }
+        },
+        "f08": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "PQQ",
+            "form": "Pyrroloquinoline quinone",
+            "amount": "20mg"
+          }
+        },
+        "f09": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B3",
+            "form": "Nicotinamide (no flush)",
+            "amount": "16mg"
+          }
+        },
+        "f10": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B12",
+            "form": "Methylcobalamin",
+            "amount": "100mcg"
+          }
+        },
+        "f11": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B5",
+            "form": "Calcium D-pantothenate",
+            "amount": "10mg"
+          }
+        },
+        "f12": {
+          "type": "item",
+          "settings": {
+            "group": "Minerals",
+            "name": "Copper",
+            "form": "Copper bisglycinate",
+            "amount": "1mg"
+          }
+        },
+        "f13": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin K2",
+            "form": "Menaquinone-7 (MK-7)",
+            "amount": "100mcg"
+          }
+        },
+        "f14": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B6",
+            "form": "Pyridoxal-5′-phosphate (P5P)",
+            "amount": "5mg"
+          }
+        },
+        "f15": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B2",
+            "form": "Riboflavin-5′-phosphate",
+            "amount": "5mg"
+          }
+        },
+        "f16": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Vitamin B1",
+            "form": "Thiamine hydrochloride",
+            "amount": "5mg"
+          }
+        },
+        "f17": {
+          "type": "item",
+          "settings": {
+            "group": "Other actives",
+            "name": "BioPerine® black pepper extract",
+            "form": "95% piperine (4.75mg)",
+            "amount": "5mg"
+          }
+        },
+        "f18": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Folate",
+            "form": "L-5-methyltetrahydrofolate (5-MTHF)",
+            "amount": "400mcg"
+          }
+        },
+        "f19": {
+          "type": "item",
+          "settings": {
+            "group": "Vitamins",
+            "name": "Biotin",
+            "form": "D-biotin",
+            "amount": "300mcg"
+          }
+        }
+      },
+      "block_order": [
+        "c01",
+        "c02",
+        "c03",
+        "t01",
+        "t02",
+        "t03",
+        "t04",
+        "t05",
+        "t06",
+        "t07",
+        "t08",
+        "t09",
+        "t10",
+        "f01",
+        "f02",
+        "f03",
+        "f04",
+        "f05",
+        "f06",
+        "f07",
+        "f08",
+        "f09",
+        "f10",
+        "f11",
+        "f12",
+        "f13",
+        "f14",
+        "f15",
+        "f16",
+        "f17",
+        "f18",
+        "f19"
+      ],
+      "settings": {
+        "show_button": false,
+        "button_label": "View third-party testing results",
+        "product": "NAD+ Cellular Complex",
+        "batch": "0725021 · 0725022",
+        "doc_label": "Certificates of analysis",
+        "made": "",
+        "bbe": "",
+        "issued": "Jul–Aug 2025",
+        "scope": "on two production batches",
+        "group_order": "NR, for NAD+|Vitamins|Minerals|Other actives",
+        "heading": "Every result came in within its limit.",
+        "stat_value": "300×",
+        "stat_label": "Under the lead limit",
+        "chip": "No salmonella detected",
+        "note": "Microbiology by ALS Laboratories (UK) Ltd, heavy metals by M S Laboratories Ltd, both independent UK labs. Where the two batches differed, the higher result is shown. Ask us for the certificates: hello@mutolongevity.com",
+        "formula_sub": "What went into each capsule of this batch, per two-capsule serving, heaviest first. Vitamins are made with a small overage so the label dose holds right up to the best-before date.",
+        "capsule": "Capsule: hypromellose (HPMC), made from plant cellulose. Allergen and intolerance free.",
+        "why_1_h": "Heavy metals",
+        "why_1": "<p>Lead, arsenic, cadmium and mercury can build up in the body over time, and they can come in through plant extracts and minerals. Both batches were tested: lead came in at 0.01 mg/kg against a limit of 3, and mercury and cadmium were below what the lab can measure.</p>",
+        "why_2_h": "Microbes",
+        "why_2": "<p>Bacteria, yeasts and moulds can grow in ingredients that are stored or handled badly. Both batches were screened for six, including salmonella and E. coli. No salmonella was detected, and every other count was 20 per gram or under.</p>",
+        "why_3_h": "Who tested it",
+        "why_3": "<p>Microbiology was tested by ALS Laboratories (UK) Ltd and heavy metals by M S Laboratories Ltd, both independent UK laboratories. Every result here is copied from their certificates, listed with their numbers on the overview.</p>",
+        "why_4_h": "Every batch, not just the first",
+        "why_4": "<p>A new batch gets a new certificate. We’ll update these results each time, and your batch number is on the jar.</p>",
+        "certificate": ""
+      }
+    }
+  },
+  "order": [
+    "needs",
+    "reviews",
+    "tests"
+  ]
+}
