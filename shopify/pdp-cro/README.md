@@ -48,3 +48,8 @@ To go live, copy the files in `theme/` to the live theme.
 - FAQ: new "How do I know this isn't a £99 placebo?"; "When will I notice something?" leads with two to four weeks.
 - Cart: a five-line checklist panel under checkout, including "Fewer than 1 in 1,000 people ask for a refund".
 - Not built: wearable screenshots (needs real customer data), Klarna/instalments, persona pages.
+
+## Timeline and Informed Sport (19 Nov, later)
+
+- `sections/muto-expect.liquid` rewritten as an interactive timeline: the dots are tabs and one card shows the selected step. New setting "Open at" (the template opens at step 2, "Weeks 1-2"). Source in `src/`.
+- `snippets/muto-informed-sport.liquid` (new) and `assets/muto-informed-sport.png` (new): the Informed Sport badge, placed in the buy box under the testing and nutrition links and in the test results panel's overview. Rendered from `sections/muto-bf-style.liquid`.
