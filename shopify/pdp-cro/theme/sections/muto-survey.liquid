@@ -17,7 +17,7 @@
 <style>
   /* Clinical look: white, ink and one teal; hairlines instead of boxes; mono labels; tabular figures */
   #shopify-section-{{ sid }} .msv,#shopify-section-{{ sid }} .msv h2,#shopify-section-{{ sid }} .msv p,#shopify-section-{{ sid }} .msv button{font-family:var(--mc-font,"Neue Haas Grotesk Display Pro"),sans-serif;-webkit-font-smoothing:antialiased}
-  #shopify-section-{{ sid }} .msv{--msv-mono:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace;--msv-ink:#242223;--msv-muted:#5c5a5b;--msv-rule:rgba(36,34,35,.14);--msv-ac:#1f6f7c;background:{{ s.bg | default: '#ffffff' }};color:var(--msv-ink);margin:{{ s.space_top }}px 0 {{ s.space_bottom }}px}
+  #shopify-section-{{ sid }} .msv{--msv-mono:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace;--msv-ink:#242223;--msv-muted:#5c5a5b;--msv-rule:rgba(36,34,35,.14);--msv-ac:#1f6f7c;background:{{ s.bg | default: '#fafafa' }};color:var(--msv-ink);margin:{{ s.space_top }}px 0 {{ s.space_bottom }}px}
   #shopify-section-{{ sid }} .msv__card{max-width:1400px;margin:0 auto;box-sizing:border-box;padding:80px 40px 56px}
   #shopify-section-{{ sid }} .msv__grid{display:grid;grid-template-columns:minmax(0,1fr) 240px minmax(0,1.3fr);gap:48px;align-items:center}
   #shopify-section-{{ sid }} .msv__head{display:grid;gap:14px}
@@ -195,7 +195,7 @@
     { "type": "textarea", "id": "extra_text", "label": "What it is" },
     { "type": "text", "id": "extra_source", "label": "Source" },
     { "type": "textarea", "id": "foot", "label": "Small print" },
-    { "type": "color", "id": "bg", "label": "Background", "default": "#ffffff" },
+    { "type": "color", "id": "bg", "label": "Background", "default": "#fafafa" },
     { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 0 },
     { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 0 }
   ],
