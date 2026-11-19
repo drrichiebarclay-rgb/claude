@@ -386,9 +386,45 @@ edit(T, [
     ("""'<p class=\\"mc-bf__kit\\">plus a welcome kit worth £72</p>' +""", """'<p class=\\"mc-bf__kit\\">plus a welcome kit worth {% render 'muto-offer', key: 'kit3' %}</p>' +"""),
 ])
 
+# ---------------------------------------------------------------- test results panel: an Informed Sport tab
+edit("sections/muto-test-results.liquid", [
+    ("""'Overview,Full results,Formula,Why it matters' | split: ','""", """'Overview,Full results,Formula,Why it matters,Informed Sport' | split: ','"""),
+    ("""  html.mtr-lock{overflow:hidden}""",
+     """  html.mtr-lock{overflow:hidden}
+  /* Tab 5: the Informed Sport certificate */
+  .mtr__is{display:flex;align-items:center;gap:20px;margin-top:32px}
+  .mtr__is img{flex:0 0 auto;display:block;width:auto;height:72px;border-radius:6px}
+  .mtr__is p{margin:0;max-width:44ch;font-size:15.5px;line-height:1.55;color:var(--mtr-muted)}
+  @media (max-width:749px){.mtr__is{align-items:flex-start;gap:14px}.mtr__is img{height:52px}.mtr__is p{font-size:14.5px}}"""),
+    ("""        {%- if s.certificate != blank -%}<a class="mtr__cert" href="{{ s.certificate }}" target="_blank" rel="noopener">Download the certificate (PDF) →</a>{%- endif -%}
+      </section>""",
+     """        {%- if s.certificate != blank -%}<a class="mtr__cert" href="{{ s.certificate }}" target="_blank" rel="noopener">Download the certificate (PDF) →</a>{%- endif -%}
+      </section>
+
+      {%- comment -%} 5 Informed Sport. Details typed from the certificate (assets/muto-informed-sport-certificate.pdf). {%- endcomment -%}
+      <section class="mtr__panel" role="tabpanel" id="mtr-p-{{ sid }}-5" aria-labelledby="mtr-tab-{{ sid }}-5" hidden>
+        <h3 class="mtr__h">Informed Sport certified.</h3>
+        <p class="mtr__sub">Informed Sport is the independent programme, run by LGC, that tests supplements for substances banned in sport. NAD<sup>+</sup> Cellular Complex meets its standards, and every batch is tested before it is released.</p>
+        <div class="mtr__is">
+          <img src="{{ 'muto-informed-sport.png' | asset_url }}" alt="Informed Sport: banned substance tested, every batch" width="148" height="72" loading="lazy">
+          <p>That matters if you compete, and it is one more outside check on what is in the jar if you don’t.</p>
+        </div>
+        <div class="mtr__list">
+          <p class="mtr__lh"><span>Certificate</span><span>Details</span></p>
+          <p class="mtr__row"><span>Product</span><span>MUTO NAD+ Cellular Complex</span></p>
+          <p class="mtr__row"><span>Member</span><span>MUTO Longevity Ltd</span></p>
+          <p class="mtr__row"><span>Certification number</span><span>LMS-PSRM-09495</span></p>
+          <p class="mtr__row"><span>Date of certification</span><span>18 Nov 2026</span></p>
+          <p class="mtr__row"><span>Certified by</span><span>LGC Limited, Cambridgeshire, UK</span></p>
+        </div>
+        <a class="mtr__cert" href="{{ 'muto-informed-sport-certificate.pdf' | asset_url }}" target="_blank" rel="noopener">View the certificate (PDF) →</a>
+        <p class="mtr__note">You can confirm the certification, and check that your batch is listed, at <a href="https://www.informed-sport.com/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">informed-sport.com</a>.</p>
+      </section>"""),
+])
+
 # ---------------------------------------------------------------- whole files kept in src/ (rewritten or new)
 # "What to expect" as an interactive timeline (dots as tabs, one card), and the Informed Sport badge.
-for rel in ("sections/muto-expect.liquid", "snippets/muto-informed-sport.liquid", "assets/muto-informed-sport.png"):
+for rel in ("sections/muto-expect.liquid", "snippets/muto-informed-sport.liquid", "assets/muto-informed-sport.png", "assets/muto-informed-sport-certificate.pdf"):
     out = os.path.join(HERE, "theme", rel)
     os.makedirs(os.path.dirname(out), exist_ok=True)
     shutil.copyfile(os.path.join(HERE, "src", rel), out)

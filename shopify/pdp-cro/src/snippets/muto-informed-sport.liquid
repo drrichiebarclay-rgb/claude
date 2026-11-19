@@ -2,7 +2,7 @@
   MUTO — Informed Sport badge (muto-informed-sport). Rendered once by the "MUTO BF style" section.
   It places the Informed Sport mark in two spots on the product page:
     1. the buy box, with the "View third-party testing results" and "View nutrition label" links
-       (tapping it opens the test results panel);
+       (tapping it opens the test results panel at its Informed Sport tab);
     2. the test results panel's overview, under the headline figures.
   The logo is assets/muto-informed-sport.png. To remove the badge everywhere, delete the render line in
   sections/muto-bf-style.liquid. Both spots are filled by the small script below because the links row and
@@ -35,7 +35,7 @@
       if (links && !links.querySelector('.mis')) {
         var b = make('button', 'mis');
         b.type = 'button';
-        b.setAttribute('data-mtr-open', '');
+        b.setAttribute('data-mtr-open', '5'); /* opens the panel at its Informed Sport tab */
         b.setAttribute('aria-label', 'Informed Sport certified: every batch is tested for banned substances. View third-party testing results');
         links.appendChild(b);
       }
