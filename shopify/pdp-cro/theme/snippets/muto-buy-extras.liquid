@@ -45,6 +45,10 @@
     .mbx__u span{font-size:8px}
   }
   @media (prefers-reduced-motion:reduce){.mbx__dot::after{animation:none}}
+  /* The buy box orders its parts with CSS "order"; these keep the widget above the headline and the notes
+     straight after the plan cards, whatever the theme's own rules give other children. */
+  html:root body #MainContent#MainContent .mc .mc__buy-copy > .mbx{order:-4!important}
+  html:root body #MainContent#MainContent .mc .mc__buy-copy > .mbf--plans{order:2!important}
 
   /* Subscription flexibility, beside the plan selector */
   .mbf{order:2;display:flex;align-items:flex-start;gap:10px;width:100%;box-sizing:border-box;margin:12px 0 0;padding:12px 14px;border-radius:10px;background:#f4f2ef;color:#242223;font-size:14px;line-height:1.45}
