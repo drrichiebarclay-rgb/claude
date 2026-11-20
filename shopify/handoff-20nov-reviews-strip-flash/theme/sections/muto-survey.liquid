@@ -1,0 +1,228 @@
+{%- comment -%}
+  MUTO — Survey results. A clinical, report-style band (white, hairlines, mono labels, tabular figures) for the product page, full width and kept short so
+  it fits on one desktop screen: the heading and the separate study figure on the left, one ring in the
+  middle, the results (one "Result" block each) in a two-by-two grid on the right. Tap a result, or use
+  the arrow keys, and the ring fills to that number and the line under it changes. The separate figure
+  (the NAD+ study number) has its own source, because it is not from the survey. The small print names
+  the survey. These are what customers reported, not clinical measurements: keep the wording as
+  "report" / "said". Without JavaScript the first result shows and every result still reads in full.
+  MOBILE: one column: heading, ring, results, study figure.
+{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign sid = section.id
+  assign first = section.blocks.first.settings
+  assign circ = 339.292
+-%}
+<style>
+  /* Clinical look: white, ink and one teal; hairlines instead of boxes; mono labels; tabular figures */
+  #shopify-section-{{ sid }} .msv,#shopify-section-{{ sid }} .msv h2,#shopify-section-{{ sid }} .msv p,#shopify-section-{{ sid }} .msv button{font-family:var(--mc-font,"Neue Haas Grotesk Display Pro"),sans-serif;-webkit-font-smoothing:antialiased}
+  #shopify-section-{{ sid }} .msv{--msv-mono:var(--mc-mono,"Sometype Mono"),ui-monospace,monospace;--msv-ink:#242223;--msv-muted:#5c5a5b;--msv-rule:rgba(36,34,35,.14);--msv-ac:#1f6f7c;background:{{ s.bg | default: '#fafafa' }};color:var(--msv-ink);margin:{{ s.space_top }}px 0 {{ s.space_bottom }}px}
+  #shopify-section-{{ sid }} .msv__card{max-width:1400px;margin:0 auto;box-sizing:border-box;padding:80px 40px 56px}
+  #shopify-section-{{ sid }} .msv__grid{display:grid;grid-template-columns:minmax(0,1fr) 240px minmax(0,1.3fr);gap:48px;align-items:center}
+  #shopify-section-{{ sid }} .msv__head{display:grid;gap:14px}
+  #shopify-section-{{ sid }} .msv__eye{display:flex;align-items:center;gap:10px;margin:0;font-family:var(--msv-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--msv-ac)}
+  #shopify-section-{{ sid }} .msv__eye::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--msv-ac)}
+  #shopify-section-{{ sid }} .msv .msv__h{margin:0;color:var(--msv-ink);font-weight:500;font-size:clamp(28px,2.7vw,40px);line-height:.96;letter-spacing:-.014em;text-transform:uppercase;text-wrap:balance}
+  #shopify-section-{{ sid }} .msv__lede{margin:0;max-width:44ch;font-size:15.5px;line-height:1.5;color:var(--msv-muted)}
+  /* The ring: a thin instrument dial */
+  #shopify-section-{{ sid }} .msv__dial{display:grid;justify-items:center;gap:10px;text-align:center}
+  #shopify-section-{{ sid }} .msv__ring{position:relative;width:150px;height:150px}
+  #shopify-section-{{ sid }} .msv__ring svg{display:block;width:100%;height:100%;transform:rotate(-90deg)}
+  #shopify-section-{{ sid }} .msv__ring circle{fill:none}
+  #shopify-section-{{ sid }} .msv__track{stroke:var(--msv-rule);stroke-width:2}
+  #shopify-section-{{ sid }} .msv__arc{stroke:var(--msv-ac);stroke-width:5;stroke-linecap:butt;stroke-dasharray:{{ circ }};transition:stroke-dashoffset .9s cubic-bezier(.2,0,.2,1)}
+  #shopify-section-{{ sid }} .msv__num{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:5px;margin:0}
+  #shopify-section-{{ sid }} .msv__num b{font-size:44px;font-weight:400;line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+  #shopify-section-{{ sid }} .msv__num b small{font-size:.45em;letter-spacing:0;margin-left:2px}
+  #shopify-section-{{ sid }} .msv__num > span{font-family:var(--msv-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--msv-muted)}
+  #shopify-section-{{ sid }} .msv__say{margin:4px 0 0;font-size:16px;font-weight:500;line-height:1.25}
+  #shopify-section-{{ sid }} .msv__more{margin:0;min-height:4.4em;font-size:13.5px;line-height:1.45;color:var(--msv-muted)}
+  /* The results: a ruled table of figures, two by two */
+  #shopify-section-{{ sid }} .msv__rows{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px;border-top:1px solid var(--msv-ink)}
+  #shopify-section-{{ sid }} .msv__row{all:unset;box-sizing:border-box;position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;align-items:baseline;padding:18px 0 16px;border-bottom:1px solid var(--msv-rule);cursor:pointer;-webkit-tap-highlight-color:transparent}
+  #shopify-section-{{ sid }} .msv__row::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--msv-ac);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.2,0,.2,1)}
+  #shopify-section-{{ sid }} .msv__row[aria-selected="true"]::after{transform:scaleX(1)}
+  #shopify-section-{{ sid }} .msv__row:focus-visible{outline:2px solid var(--msv-ac);outline-offset:3px}
+  #shopify-section-{{ sid }} .msv__lab{font-family:var(--msv-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--msv-muted)}
+  #shopify-section-{{ sid }} .msv__row[aria-selected="true"] .msv__lab{color:var(--msv-ac)}
+  #shopify-section-{{ sid }} .msv__val{grid-row:span 2;align-self:center;font-size:34px;font-weight:400;line-height:1;letter-spacing:-.035em;font-variant-numeric:tabular-nums}
+  #shopify-section-{{ sid }} .msv__val sup{font-family:var(--msv-mono);font-size:10px;letter-spacing:0;vertical-align:top;margin-left:2px;color:var(--msv-muted)}
+  #shopify-section-{{ sid }} .msv__txt{font-size:15px;line-height:1.3}
+  #shopify-section-{{ sid }} .msv__bar{display:none}
+  /* The separate study figure */
+  #shopify-section-{{ sid }} .msv__extra{display:flex;align-items:center;gap:16px;padding:14px 0 0;border-top:1px solid var(--msv-rule)}
+  #shopify-section-{{ sid }} .msv__extra b{flex:0 0 auto;font-size:30px;font-weight:400;line-height:1;letter-spacing:-.035em;color:var(--msv-ink)}
+  #shopify-section-{{ sid }} .msv__extra p{margin:0;font-size:13px;line-height:1.4;color:var(--msv-ink)}
+  #shopify-section-{{ sid }} .msv__extra small{display:block;margin-top:3px;font-family:var(--msv-mono);font-size:10.5px;letter-spacing:.04em;color:var(--msv-muted)}
+  #shopify-section-{{ sid }} .msv__foot{margin:26px 0 0;padding-top:14px;border-top:1px solid var(--msv-rule);font-family:var(--msv-mono);font-size:10.5px;line-height:1.6;letter-spacing:.06em;text-transform:uppercase;color:var(--msv-muted)}
+  @media (max-width:1099px){
+    #shopify-section-{{ sid }} .msv__grid{grid-template-columns:minmax(0,1fr) 220px;gap:28px 36px}
+    #shopify-section-{{ sid }} .msv__rows{grid-column:1 / -1}
+  }
+  @media (max-width:749px){
+    #shopify-section-{{ sid }} .msv{margin:{{ s.space_top | times: 0.6 | round }}px 0 {{ s.space_bottom | times: 0.6 | round }}px}
+    #shopify-section-{{ sid }} .msv__card{padding:52px 16px 40px}
+    #shopify-section-{{ sid }} .msv__grid{grid-template-columns:1fr;gap:24px}
+    #shopify-section-{{ sid }} .msv__rows{grid-column:auto;grid-template-columns:1fr}
+    #shopify-section-{{ sid }} .msv__ring{width:160px;height:160px}
+    #shopify-section-{{ sid }} .msv__more{min-height:4.5em;max-width:34ch}
+    #shopify-section-{{ sid }} .msv__row{padding:15px 0 13px}
+    #shopify-section-{{ sid }} .msv__val{font-size:30px}
+    #shopify-section-{{ sid }} .msv__foot{margin-top:20px;font-size:10px}
+  }
+  /* The moving reviews strip never shows at the top of the page (above the photo): it belongs directly
+     above the "As seen in" strip, where the script below puts it */
+  #MainContent .mc__buy-media [id$="__reviews_ticker"]{display:none!important}
+  @media (prefers-reduced-motion:reduce){#shopify-section-{{ sid }} .msv__arc,#shopify-section-{{ sid }} .msv__row::after{transition:none!important}}
+</style>
+
+<div class="msv"{% if s.anchor != blank %} id="{{ s.anchor }}"{% endif %} data-msv>
+  <div class="msv__card">
+    <div class="msv__grid">
+      <div>
+        <header class="msv__head">
+          {%- if s.eyebrow != blank -%}<p class="msv__eye">{{ s.eyebrow }}</p>{%- endif -%}
+          {%- if s.heading != blank -%}<h2 class="msv__h">{{ s.heading | escape | newline_to_br }}</h2>{%- endif -%}
+          {%- if s.lede != blank -%}<p class="msv__lede">{{ s.lede }}</p>{%- endif -%}
+        </header>
+        {%- if s.extra_value != blank -%}
+          <div class="msv__extra" style="margin-top:20px"><b>{{ s.extra_value }}</b><p>{{ s.extra_text }}{%- if s.extra_source != blank -%}<small>{{ s.extra_source }}</small>{%- endif -%}</p></div>
+        {%- endif -%}
+      </div>
+      <div class="msv__dial" aria-live="polite">
+        <div class="msv__ring">
+          <svg viewBox="0 0 120 120" aria-hidden="true"><circle class="msv__track" cx="60" cy="60" r="54"/><circle class="msv__arc" data-msv-arc cx="60" cy="60" r="54" style="stroke-dashoffset:{{ 100 | minus: first.value | times: circ | divided_by: 100.0 }}"/></svg>
+          <p class="msv__num"><b><span data-msv-num>{{ first.value }}</span><small>%</small></b><span data-msv-lab>{{ first.label }}</span></p>
+        </div>
+        <p class="msv__say" data-msv-say>{{ first.value }}% {{ first.text }}</p>
+        <p class="msv__more" data-msv-more>{{ first.detail }}</p>
+      </div>
+      <div class="msv__rows" role="tablist" aria-label="{{ s.eyebrow | default: 'Survey results' | escape }}">
+        {%- for b in section.blocks -%}
+          {%- assign bs = b.settings -%}
+          <button type="button" class="msv__row" role="tab" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"{% unless forloop.first %} tabindex="-1"{% endunless %} data-value="{{ bs.value }}" data-label="{{ bs.label | escape }}" data-text="{{ bs.text | escape }}" data-detail="{{ bs.detail | escape }}" {{ b.shopify_attributes }}>
+            <span class="msv__lab">{{ bs.label }}</span>
+            <span class="msv__val">{{ bs.value }}%{%- if s.foot != blank -%}<sup>1</sup>{%- endif -%}</span>
+            <span class="msv__txt">{{ bs.text }}</span>
+            <span class="msv__bar" aria-hidden="true"><i style="--v:{{ bs.value }}%"></i></span>
+          </button>
+        {%- endfor -%}
+      </div>
+    </div>
+    {%- if s.foot != blank -%}<p class="msv__foot"><sup>1</sup> {{ s.foot }}</p>{%- endif -%}
+  </div>
+</div>
+<script>
+  (function () {
+    var root = document.querySelector('#shopify-section-{{ sid }} [data-msv]');
+    if (!root) return;
+    var rows = [].slice.call(root.querySelectorAll('.msv__row'));
+    if (!rows.length) return;
+    var arc = root.querySelector('[data-msv-arc]'), num = root.querySelector('[data-msv-num]'), lab = root.querySelector('[data-msv-lab]'), say = root.querySelector('[data-msv-say]'), more = root.querySelector('[data-msv-more]');
+    var C = {{ circ }}, shown = 0, raf = 0;
+    function count(to) {
+      cancelAnimationFrame(raf);
+      var from = shown, t0 = performance.now();
+      if (window.matchMedia && matchMedia('(prefers-reduced-motion:reduce)').matches) { shown = to; num.textContent = to; return; }
+      (function step(now) {
+        var k = Math.min(1, (now - t0) / 800); k = 1 - Math.pow(1 - k, 3);
+        shown = Math.round(from + (to - from) * k); num.textContent = shown;
+        if (k < 1) raf = requestAnimationFrame(step);
+      })(t0);
+    }
+    function show(i, focus) {
+      rows.forEach(function (r, n) { r.setAttribute('aria-selected', n === i); r.tabIndex = n === i ? 0 : -1; });
+      var r = rows[i], v = parseFloat(r.getAttribute('data-value')) || 0;
+      arc.style.strokeDashoffset = C * (1 - v / 100);
+      count(v);
+      lab.textContent = r.getAttribute('data-label');
+      say.textContent = v + '% ' + r.getAttribute('data-text');
+      more.textContent = r.getAttribute('data-detail');
+      if (focus) r.focus();
+    }
+    rows.forEach(function (r, i) {
+      r.addEventListener('click', function () { show(i); });
+      r.addEventListener('keydown', function (e) {
+        var n = null;
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight') n = (i + 1) % rows.length;
+        if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') n = (i - 1 + rows.length) % rows.length;
+        if (n !== null) { e.preventDefault(); show(n, true); }
+      });
+    });
+    /* The "As seen in" press strip (Men's Fitness, Women's Fitness) is the first thing in the section that
+       follows this one. It is lifted to sit just above this band, so the band reads directly below it. */
+    (function () {
+      var sec = root.closest('.shopify-section');
+      if (!sec) return;
+      /* The "As seen in" strip is added by a later script, so it is looked for until it turns up */
+      function liftSeen() {
+        var seen = document.querySelector('#MainContent .mc-seen');
+        if (!seen || seen.closest('.msv-seen') || !(sec.compareDocumentPosition(seen) & Node.DOCUMENT_POSITION_FOLLOWING)) return;
+        var wrap = document.createElement('div');
+        wrap.className = 'msv-seen';
+        /* The strip's surround takes the strip's own grey, so the ticker and the strip read as one band;
+           this section keeps its own background (the "Background" setting) */
+        var grey = getComputedStyle(seen).backgroundColor;
+        if (!grey || /rgba\(0, 0, 0, 0\)|transparent/.test(grey)) grey = '#fafafa';
+        wrap.style.cssText = 'background:' + grey + ';padding:8px 20px 28px';
+        sec.parentNode.insertBefore(wrap, sec);
+        wrap.appendChild(seen);
+      }
+      /* Phones: another script lifts the moving reviews strip to the top of the page, above the photo.
+         It is put back here, directly above the "As seen in" strip (or above this section until that
+         strip exists), as on desktop. The style rule above keeps it hidden while it is at the top, so it
+         never shows there, not even for a moment while the page loads. */
+      function placeTicker() {
+        var tick = document.querySelector('#MainContent [id$="__reviews_ticker"]');
+        if (!tick) return;
+        var before = document.querySelector('#MainContent .msv-seen') || sec;
+        if (tick.nextElementSibling !== before || tick.parentNode !== before.parentNode) before.parentNode.insertBefore(tick, before);
+        tick.style.background = '#fafafa';
+      }
+      var n = 0;
+      function pass() { liftSeen(); placeTicker(); if (n++ < 80) setTimeout(pass, 150); }
+      pass();
+      window.addEventListener('load', function () { liftSeen(); placeTicker(); });
+    })();
+    root.classList.add('is-js');
+    /* The ring and the bars fill when the card comes into view */
+    arc.style.strokeDashoffset = C;
+    function go() { root.classList.add('is-in'); show(0); }
+    if (!('IntersectionObserver' in window)) return go();
+    var io = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { go(); io.disconnect(); } }, { threshold: .25 });
+    io.observe(root.querySelector('.msv__grid'));
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "MUTO — Survey results",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "Anchor" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Customer survey" },
+    { "type": "textarea", "id": "heading", "label": "Heading" },
+    { "type": "textarea", "id": "lede", "label": "Intro" },
+    { "type": "header", "content": "Separate figure (not from the survey)" },
+    { "type": "text", "id": "extra_value", "label": "Figure", "info": "Leave empty to hide." },
+    { "type": "textarea", "id": "extra_text", "label": "What it is" },
+    { "type": "text", "id": "extra_source", "label": "Source" },
+    { "type": "textarea", "id": "foot", "label": "Small print" },
+    { "type": "color", "id": "bg", "label": "Background", "default": "#fafafa" },
+    { "type": "range", "id": "space_top", "label": "Space above", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 0 },
+    { "type": "range", "id": "space_bottom", "label": "Space below", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 0 }
+  ],
+  "blocks": [
+    { "type": "result", "name": "Result", "settings": [
+      { "type": "text", "id": "label", "label": "Label", "info": "e.g. Energy" },
+      { "type": "number", "id": "value", "label": "Per cent", "default": 90 },
+      { "type": "text", "id": "text", "label": "What they reported", "info": "Follows the number, e.g. report improved energy" },
+      { "type": "textarea", "id": "detail", "label": "A line more" }
+    ] }
+  ],
+  "max_blocks": 6,
+  "presets": [{ "name": "MUTO — Survey results" }],
+  "enabled_on": { "templates": ["product", "page"] }
+}
+{% endschema %}
