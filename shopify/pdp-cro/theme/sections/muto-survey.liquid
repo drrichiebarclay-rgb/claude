@@ -71,6 +71,9 @@
     #shopify-section-{{ sid }} .msv__val{font-size:30px}
     #shopify-section-{{ sid }} .msv__foot{margin-top:20px;font-size:10px}
   }
+  /* The moving reviews strip never shows at the top of the page (above the photo): it belongs directly
+     above the "As seen in" strip, where the script below puts it */
+  #MainContent .mc__buy-media [id$="__reviews_ticker"]{display:none!important}
   @media (prefers-reduced-motion:reduce){#shopify-section-{{ sid }} .msv__arc,#shopify-section-{{ sid }} .msv__row::after{transition:none!important}}
 </style>
 
@@ -150,33 +153,37 @@
     /* The "As seen in" press strip (Men's Fitness, Women's Fitness) is the first thing in the section that
        follows this one. It is lifted to sit just above this band, so the band reads directly below it. */
     (function () {
-      var tries = 0;
-      function lift() {
-        var sec = root.closest('.shopify-section'), seen = document.querySelector('#MainContent .mc-seen');
-        if (sec && seen) {
-          if (seen.closest('.msv-seen') || !(sec.compareDocumentPosition(seen) & Node.DOCUMENT_POSITION_FOLLOWING)) return;
-          var wrap = document.createElement('div');
-          wrap.className = 'msv-seen';
-          /* The strip's surround takes the strip's own grey, so the ticker and the strip read as one band;
-             this section keeps its own background (the "Background" setting) */
-          var grey = getComputedStyle(seen).backgroundColor;
-          if (!grey || /rgba\(0, 0, 0, 0\)|transparent/.test(grey)) grey = '#fafafa';
-          wrap.style.cssText = 'background:' + grey + ';padding:8px 20px 28px';
-          sec.parentNode.insertBefore(wrap, sec);
-          wrap.appendChild(seen);
-          /* Phones: another script lifts the moving reviews strip to the top of the page, above the photo.
-             It is brought back here, directly above the "As seen in" strip, as on desktop. */
-          var tick = document.querySelector('#MainContent .shopify-section[id$="__reviews_ticker"]');
-          if (tick && tick.nextElementSibling !== wrap) {
-            wrap.parentNode.insertBefore(tick, wrap);
-            tick.style.background = grey;
-          }
-          return;
-        }
-        /* The strip is added by a later script, so look again for a few seconds */
-        if (tries++ < 40) setTimeout(lift, 150);
+      var sec = root.closest('.shopify-section');
+      if (!sec) return;
+      /* The "As seen in" strip is added by a later script, so it is looked for until it turns up */
+      function liftSeen() {
+        var seen = document.querySelector('#MainContent .mc-seen');
+        if (!seen || seen.closest('.msv-seen') || !(sec.compareDocumentPosition(seen) & Node.DOCUMENT_POSITION_FOLLOWING)) return;
+        var wrap = document.createElement('div');
+        wrap.className = 'msv-seen';
+        /* The strip's surround takes the strip's own grey, so the ticker and the strip read as one band;
+           this section keeps its own background (the "Background" setting) */
+        var grey = getComputedStyle(seen).backgroundColor;
+        if (!grey || /rgba\(0, 0, 0, 0\)|transparent/.test(grey)) grey = '#fafafa';
+        wrap.style.cssText = 'background:' + grey + ';padding:8px 20px 28px';
+        sec.parentNode.insertBefore(wrap, sec);
+        wrap.appendChild(seen);
       }
-      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', lift); else lift();
+      /* Phones: another script lifts the moving reviews strip to the top of the page, above the photo.
+         It is put back here, directly above the "As seen in" strip (or above this section until that
+         strip exists), as on desktop. The style rule above keeps it hidden while it is at the top, so it
+         never shows there, not even for a moment while the page loads. */
+      function placeTicker() {
+        var tick = document.querySelector('#MainContent [id$="__reviews_ticker"]');
+        if (!tick) return;
+        var before = document.querySelector('#MainContent .msv-seen') || sec;
+        if (tick.nextElementSibling !== before || tick.parentNode !== before.parentNode) before.parentNode.insertBefore(tick, before);
+        tick.style.background = '#fafafa';
+      }
+      var n = 0;
+      function pass() { liftSeen(); placeTicker(); if (n++ < 80) setTimeout(pass, 150); }
+      pass();
+      window.addEventListener('load', function () { liftSeen(); placeTicker(); });
     })();
     root.classList.add('is-js');
     /* The ring and the bars fill when the card comes into view */
