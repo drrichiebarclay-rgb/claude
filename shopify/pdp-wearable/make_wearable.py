@@ -76,6 +76,22 @@ BUYBOX = [
 old_render = "{%- render 'muto-bf-buybox-copy' -%}"
 assert hs.count(old_render) == 1
 hs = hs.replace(old_render, captured("muto-bf-buybox-copy", BUYBOX, "mw_bbc"))
+# The three ticks under the headline (muto-bf-mars) and the review filter chips (muto-bf-review-box).
+# The chips keep their filters (data-f), only the words change.
+MARS = [
+    ("More energy, fewer afternoon crashes</li>", "The biology behind your energy</li>"),
+    ("Recover in time to go again</li>", "Ready for the next session</li>"),
+    ("Built for the years ahead</li>", "Built to be tracked on your wearable</li>"),
+]
+REVIEWS = [
+    (">Thinking about the next 20 years</button>", ">Playing the long game</button>"),
+    (">Flat by 3pm</button>", ">Energy flat despite good sleep</button>"),
+    (">Slower to bounce back</button>", ">Recovery score stuck</button>"),
+]
+for snip, pairs, var in [("muto-bf-mars", MARS, "mw_mars"), ("muto-bf-review-box", REVIEWS, "mw_rv")]:
+    r = "{%%- render '%s' -%%}" % snip
+    assert hs.count(r) == 1, snip
+    hs = hs.replace(r, captured(snip, pairs, var))
 S["head_styles"]["settings"]["custom_liquid"] = hs
 
 s("buy", heading="Doing the basics right? Your numbers still won’t move.")
@@ -86,7 +102,7 @@ b("buy", "job4", label="Tracking", title="Built to be checked on your wearable")
 b("buy", "fold_benefits", title="Benefits", text=(
     "<p>You already sleep, train and eat with intent. This is the layer underneath: what your cells do with all of it.</p>"
     "<ul>"
-    "<li><strong>Energy at the cell level.</strong> 300mg NR, which your body turns into NAD<sup>+</sup>, the molecule your mitochondria use to make energy, with CoQ10 and PQQ alongside. B vitamins, including 100mcg of active B12, contribute to the reduction of tiredness and fatigue.</li>"
+    "<li><strong>Energy at the cell level.</strong> 300mg NR, which your body turns into NAD+, the molecule your mitochondria use to make energy, with CoQ10 and PQQ alongside. B vitamins, including 100mcg of active B12, contribute to the reduction of tiredness and fatigue.</li>"
     "<li><strong>Ready for the next session.</strong> 50mcg of vitamin D3 contributes to normal muscle function.</li>"
     "<li><strong>Built to be checked.</strong> Take a 7-day baseline of HRV, resting heart rate, sleep and recovery, then compare 30-day averages at day 30, 60 and 90.</li>"
     "<li><strong>One clean variable.</strong> 19 ingredients at full dose in two capsules, every one on the label, so if your numbers move, you know what changed.</li>"
