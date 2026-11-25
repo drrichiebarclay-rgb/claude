@@ -23,7 +23,7 @@ Please run every check below on real phones: iPhone Safari, Android Chrome, and 
 
 - [ ] Banner under the header reads "✓ BF63 APPLIED · SAVINGS + WELCOME KIT" on one line.
 - [ ] Product block: "NAD+ Cellular Complex" lines up with the top of the image, with no big gaps. Price column: £89.10 and "every 3 months" in green, £210 crossed out in grey.
-- [ ] Quantity 1: no quantity control and no bin. Quantity 2 or more: a minus-only control on its own row, which brings the quantity down to 1.
+- [ ] Quantity buttons (− 1 +) and the bin sit under the price column. Plus and minus change the quantity and the totals update; the bin removes the line.
 - [ ] Gifts row "6 welcome gifts, worth £72 · Free" opens and closes, and the open list doesn't break the layout.
 - [ ] Totals: the gold "Black Friday savings" pill with the red saving, then Subtotal with the crossed-out and new totals.
 - [ ] The checkout button looks like the product page's Add to cart: same font, "Checkout · £89.10" in sentence case, 4px corners.
@@ -50,7 +50,7 @@ Nearly all of it is in `snippets/cart-drawer.liquid`. The markup changes are mar
 | --- | --- | --- |
 | Product line | Name, supply, and terms over two lines ("Then £X every 3 months / Skip or cancel anytime"). The renewal price and interval come from the line's selling plan. | cart-drawer.liquid |
 | Price column | Discounted price and "every 3 months" in the Add to cart green (#1e8f4e). The plan's full price (Shopify's compare-at price for the plan) is crossed out in grey. | cart-drawer.liquid |
-| Quantity | No control at quantity 1. Above 1, a minus-only control (subscriptions are capped at their current quantity). The bin is hidden. | cart-drawer.liquid |
+| Quantity | The theme's own − / + buttons and bin, moved under the price column. Behaviour is unchanged from the original theme (no cap on subscriptions). | cart-drawer.liquid |
 | Image | The NAD+ line shows a plain jar photo (gift-sq-forever-jar.jpg) in the drawer and on /cart. | cart-drawer.liquid, sections/main-cart-items.liquid |
 | Gifts | Collapsed to one line, "N welcome gifts, worth £X · Free". The count and value come from the gift lines. Tap to expand. | cart-drawer.liquid |
 | Banner | "✓ [code] applied · Savings + welcome kit" under the header. From 1 Dec it reads "Welcome kit included". | cart-drawer.liquid |
@@ -101,6 +101,6 @@ Nothing is published, and nothing should go live until the mobile checklist pass
 - [ ] **"63% off"** on the sticky bar: the checkout maths gives about 58% (£89.10 against £210). Richie approved the wording; keep it only if that's still the call.
 - [ ] **BF63 also applies** to the 1-month plan (£44.99 first month) and one-time purchase (£63). Confirm that's intended.
 - [ ] **The plan cards** still show "£33/mo", "Save 53%" and "£1.10 a day", which conflict with £89.10 in the bars and cart.
-- [ ] **Removing a single item:** there's no bin in the drawer now. Quantity can drop to 1 but not to 0. Decide whether a small "Remove" link is needed.
+- [ ] **Subscription quantity** can go above 1 again (an earlier brief asked to cap it at 1). Confirm that's intended.
 - [ ] **Apple Pay** shows in Safari. Confirm all four express buttons fit one row on a 360px Android screen.
 - [ ] **Compliance:** the Benefits fold has no authorised-claim line, and the paragraph under the H1 says "restore your energy, recovery". Run both past compliance.
