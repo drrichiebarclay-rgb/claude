@@ -38,7 +38,7 @@ Please run every check below on real phones: iPhone Safari, Android Chrome, and 
 - [ ] Change the quantity, then check the drawer re-draws correctly (gifts, totals, banner).
 - [ ] Empty cart: the empty state still shows Continue shopping.
 - [ ] Open the drawer after 9pm UK time: the date moves on a day.
-- [ ] Express checkout completes with a subscription (Shop Pay, and Apple Pay on iPhone), with the selling plan intact.
+- [ ] Express checkout from the cart completes with a subscription (Shop Pay, and Apple Pay on iPhone), with the selling plan intact and BF63 applied (£89.10). Try it after adding from the top bar, the sticky bar and the product page.
 - [ ] The full cart page (/cart) still works: it shows the plain jar image and a matching checkout button.
 - [ ] In the Microsoft Clarity live view, these events fire: drawer_checkout_click, drawer_express_checkout_click, cart_gifts_expand, drawer_remove_item, drawer_continue_shopping, sticky_bar_click, tap_bf_offer, tap_announcement_bar.
 
@@ -79,14 +79,14 @@ All on the main product template `product.muto-nad-bf-premium`. No separate v2 t
 | Benefits fold | Science-led copy (forms, doses, NR study). Informed Sport added to the Quality fold. | templates/product.muto-nad-bf-premium.json |
 | What to expect | "No wearable?" paragraph and full guarantee terms moved here. Clinical trial now "January 2027". | templates/product.muto-nad-bf-premium.json |
 | Reviews | The "Sound like you?" review box is removed. The rotating review strip stays. | templates/product.muto-nad-bf-premium.json |
-| Sticky bar (mobile) | Product name, "Black Friday offer – 63% off", and a green Add to cart button. | sections/muto-bf-offer.liquid |
+| Sticky bar (mobile) | Product name, "Black Friday: 63% off + £72 free gifts", and a green Add to cart button. | sections/muto-bf-offer.liquid |
 
 # Offer bars and the 1 December switch
 
 The top bar and sticky bar copy for both phases lives in **Theme settings → Black Friday offer bars**. A new snippet, `snippets/muto-offer-phase.liquid`, rendered in the head of `layout/theme.liquid`, picks the phase in the visitor's browser. So Shopify's page cache can't hold the old copy, and nobody has to switch anything at midnight.
 
 - **Which offer to show:** Automatic (default) switches to phase 2 at 2026-12-01T00:00:00Z. It can also be forced to Phase 1 or Phase 2.
-- **Phase 1:** applies BF63 once per visit, so checkout charges £89.10 for the 3-month plan. Copy: "Extra 10% off ends midnight Mon 30 Nov · 3 months for £89.10".
+- **Phase 1:** applies BF63 once per visit, and writes it onto the cart itself after every add or quantity change (top bar, sticky bar and product page alike). So checkout and express checkout from the cart both charge £89.10 for the 3-month plan. Any other code already on the cart is kept. If a setting is ever blank, the bars fall back to built-in wording. Copy: "Extra 10% off ends midnight Mon 30 Nov · 3 months for £89.10".
 - **Phase 2:** "3 months for £125, then £150" copy and an Add to cart button. No code is applied. The offer button and the Black Friday labels hide themselves.
 - **Top bar** (`snippets/muto-bf-bar.liquid`) is site-wide, so its copy shows on every page.
 - `sections/muto-bf-head.liquid` and `sections/muto-bf-offer.liquid` also render on a `v2` template suffix. That's harmless if unused.
